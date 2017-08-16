@@ -24,4 +24,4 @@ jobs:
           command: yarn ng -- test --single-run --no-progress
       - run:
           name: angular-build
-          command: yarn ng -- build
+          command: yarn ng -- build --no-progress
