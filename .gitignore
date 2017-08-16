@@ -19,3 +19,4 @@ log/
 
 *.iml
 node_modules
+/dist
