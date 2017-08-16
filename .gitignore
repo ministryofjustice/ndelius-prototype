@@ -1,2 +1,22 @@
-prototype.iml
+# Node
+npm-debug.log
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# WebStorm
+.idea/
+
+# vi
+*~
+
+# General
+log/
+*.log
+
 *.iml
+/yarn.lock
+node_modules

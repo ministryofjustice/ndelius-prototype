@@ -52,6 +52,16 @@
         </div>
 
         <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="smartToolSource" formControlName="smartToolSource" value="true" aria-checked="false" />
+          <label for="smartToolSource" class="form-label-bold">SMART tool</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="guidelinesSource" formControlName="guidelinesSource" value="true" aria-checked="false" />
+          <label for="guidelinesSource" class="form-label-bold">Sentencing guidelines</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
           <input type="checkbox" role="checkbox" id="otherInformationSource" formControlName="otherInformationSource" value="true" aria-checked="false" (click)="expandContent = !expandContent" />
           <label for="otherInformationSource" class="form-label-bold">Other (please specify below)</label>
         </div>
