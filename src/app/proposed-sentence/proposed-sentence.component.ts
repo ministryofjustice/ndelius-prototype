@@ -10,6 +10,7 @@ export class ProposedSentenceComponent {
 
   reportForm: FormGroup;
   formError: Boolean;
+  expandContent: Boolean;
 
   /**
    *

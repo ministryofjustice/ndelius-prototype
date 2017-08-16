@@ -18,5 +18,4 @@ log/
 *.log
 
 *.iml
-/yarn.lock
 node_modules
