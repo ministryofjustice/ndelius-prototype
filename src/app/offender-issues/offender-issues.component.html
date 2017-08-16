@@ -1,0 +1,60 @@
+<h1 class="heading-xlarge no-margin-bottom">Offender assessment issues</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <h2 class="lede no-margin-top margin-bottom medium">Select all that apply</h2>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+
+      <div class="multiple-choice">
+        <input type="checkbox" role="checkbox" id="issueAccommodation" formControlName="issueAccommodation" value="true" aria-checked="false" />
+        <label for="issueAccommodation" class="form-label-bold">Accommodation</label>
+      </div>
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueEmployment" formControlName="issueEmployment" value="true" aria-checked="false" />
+        <label for="issueEmployment" class="form-label-bold">Employment</label>
+      </div>
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueFinance" formControlName="issueFinance" value="true" aria-checked="false" />
+        <label for="issueFinance" class="form-label-bold">Finance</label>
+      </div>
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueDrugs" formControlName="issueDrugs" value="true" aria-checked="false" />
+        <label for="issueDrugs" class="form-label-bold">Drugs</label>
+      </div>
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueAlcohol" formControlName="issueAlcohol" value="true" aria-checked="false" />
+        <label for="issueAlcohol" class="form-label-bold">Alcohol</label>
+      </div>
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueHealth" formControlName="issueHealth" value="true" aria-checked="false" />
+        <label for="issueHealth" class="form-label-bold">Physical & mental health relationships</label>
+      </div>
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueBehaviour" formControlName="issueBehaviour" value="true" aria-checked="false" />
+        <label for="issueBehaviour" class="form-label-bold">Thinking & behaviour</label>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+</div>

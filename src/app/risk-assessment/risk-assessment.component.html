@@ -1,0 +1,71 @@
+<h1 class="heading-xlarge no-margin-bottom">Risk assessment</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+
+      <div class="form-group">
+        <fieldset>
+
+          <legend>
+            <span class="form-label-bold">Response to previous supervision</span>
+            <span class="form-hint">Consider response to any previous Youth Offending Service Orders</span>
+          </legend>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-1" type="radio" formControlName="previousSupervisionResponse" value="Good" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'Good'" />
+            <label for="radio-1">Good</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-2" type="radio" formControlName="previousSupervisionResponse" value="Satisfactory" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'Satisfactory'" />
+            <label for="radio-2">Satisfactory</label>
+          </div>
+          <br>
+          <div class="multiple-choice">
+            <input id="radio-3" type="radio" formControlName="previousSupervisionResponse" value="Poor" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'Poor'" />
+            <label for="radio-3">Poor</label>
+          </div>
+          <div class="multiple-choice">
+            <input id="radio-4" type="radio" formControlName="previousSupervisionResponse" value="N/A" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'N/A'" />
+            <label for="radio-4">Not applicable</label>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <hr noshade/>
+
+      <div class="form-group">
+        <label for="additionalPreviousSupervision">
+          <span class="form-label-bold">Add additional details on previous supervision (if applicable)</span>
+        </label>
+        <textarea id="additionalPreviousSupervision" formControlName="additionalPreviousSupervision" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="false" aria-describedby="additionalPreviousSupervision_error"></textarea>
+      </div>
+
+      <hr noshade/>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('likelihoodOfReOffending').touched || formError) && reportForm.get('likelihoodOfReOffending').errors }">
+        <label for="likelihoodOfReOffending">
+          <span class="form-label-bold">Likelihood of re-offending</span>
+          <span class="form-hint">Indicate which tools have been used (RM2000,OGRS etc.)</span>
+        </label>
+        <app-error-messages control="likelihoodOfReOffending" [active]="(reportForm.get('likelihoodOfReOffending').touched || formError) && reportForm.get('likelihoodOfReOffending').errors"></app-error-messages>
+        <textarea id="likelihoodOfReOffending" formControlName="likelihoodOfReOffending" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="likelihoodOfReOffending_error" required></textarea>
+      </div>
+
+      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+</div>

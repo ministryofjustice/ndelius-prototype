@@ -1,0 +1,48 @@
+<h1 class="heading-xlarge no-margin-bottom">Sentencing court details</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }">
+
+        <label for="court" class="form-label-bold">Court</label>
+        <app-error-messages control="court" [active]="(reportForm.get('court').touched || formError) && reportForm.get('court').errors"></app-error-messages>
+        <input class="form-control" type="text" role="textbox" id="court" formControlName="court" maxlength="250" aria-described-by="court_error" aria-required="true" required />
+
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }">
+
+        <label for="localJusticeArea" class="form-label-bold">Local justice area</label>
+        <app-error-messages control="localJusticeArea" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
+        <input class="form-control" type="text" role="textbox" id="localJusticeArea" formControlName="localJusticeArea" maxlength="250" aria-described-by="localJusticeArea_error" aria-required="true" required />
+
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('dateOfHearing').touched || formError) && reportForm.get('dateOfHearing').errors }">
+
+        <label for="dateOfHearing">
+          <span class="form-label-bold">Date of hearing</span>
+          <span class="form-hint">DD/MM/YYYY</span>
+        </label>
+        <app-error-messages control="dateOfHearing" [active]="(reportForm.get('dateOfHearing').touched || formError) && reportForm.get('dateOfHearing').errors"></app-error-messages>
+        <input class="form-control date-picker" type="text" role="textbox" id="dateOfHearing" formControlName="dateOfHearing" maxlength="10" aria-described-by="dateOfHearing_error" aria-required="true" required />
+
+      </div>
+
+      <input id="nextButton" class="button" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+</div>

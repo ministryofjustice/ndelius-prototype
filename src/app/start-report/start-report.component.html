@@ -1,0 +1,34 @@
+<h1 class="heading-xlarge">Short Format Pre-Sentence Report</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <h2 class="lede">Save as you go</h2>
+    <p>Information is saved on each page when clicking save and continue.</p>
+
+    <h2 class="lede">Use this report to record:</h2>
+
+    <ul class="list dashed margin-top medium">
+      <li><a routerLink="/offender-details" routerLinkActive="active" class="nav-item standard">Offender details</a></li>
+      <li><a routerLink="/court-details" routerLinkActive="active" class="nav-item standard">Sentencing court details</a></li>
+      <li><a routerLink="/information-sources" routerLinkActive="active" class="nav-item standard">Sources of information</a></li>
+      <li><a routerLink="/offence-details" routerLinkActive="active" class="nav-item standard">Offence details</a></li>
+      <li><a routerLink="/offence-analysis" routerLinkActive="active" class="nav-item standard">Offence analysis</a></li>
+      <li><a routerLink="/offender-issues" routerLinkActive="active" class="nav-item standard">Offender assessment issues</a></li>
+      <li><a routerLink="/offender-assessment" routerLinkActive="active" class="nav-item standard">Offender assessment detail</a></li>
+      <li><a routerLink="/offending-patterns" routerLinkActive="active" class="nav-item standard">Patterns of offending</a></li>
+      <li><a routerLink="/risk-assessment" routerLinkActive="active" class="nav-item standard">Risk assessment</a></li>
+      <li><a routerLink="/serious-harm-risk" routerLinkActive="active" class="nav-item standard">Risk of serious harm</a></li>
+      <li><a routerLink="/proposed-sentence" routerLinkActive="active" class="nav-item standard">Conclusion</a><br/>
+        (including length and any sentence components)</li>
+    </ul>
+
+    <button id="nextButton" class="button button-start margin-top medium" type="button" (click)="startReport()">Start now</button>
+
+  </div>
+  <div class="column-one-third">
+
+    <img class="report-image" src="assets/images/report_sfps.png" alt="Short Format Pre-Sentencing Report" />
+
+  </div>
+</div>

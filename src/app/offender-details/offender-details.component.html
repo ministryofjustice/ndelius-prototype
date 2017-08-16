@@ -1,0 +1,83 @@
+<h1 class="heading-xlarge no-margin-bottom">Offender details</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <div class="grid-row">
+      <div class="column-one-third">
+
+        <span class="text-secondary">Name</span>
+
+      </div>
+      <div class="column-two-thirds">{{ reportData.name }}</div>
+    </div>
+
+    <hr class="margin-top margin-bottom" noshade/>
+
+    <div class="grid-row">
+      <div class="column-one-third">
+
+        <span class="text-secondary">Address</span>
+
+      </div>
+      <div class="column-two-thirds">{{ reportData.address }}</div>
+    </div>
+
+    <hr class="margin-top margin-bottom" noshade/>
+
+    <div class="grid-row">
+      <div class="column-one-third">
+
+        <span class="text-secondary">Date of birth</span>
+
+      </div>
+      <div class="column-two-thirds">{{ reportData.dateOfBirth }}</div>
+    </div>
+
+    <hr class="margin-top margin-bottom" noshade/>
+
+    <div class="grid-row">
+      <div class="column-one-third">
+
+        <span class="text-secondary">Age</span>
+
+      </div>
+      <div class="column-two-thirds">{{ reportData.age }}</div>
+    </div>
+
+    <hr class="margin-top margin-bottom" noshade/>
+
+    <div class="grid-row">
+      <div class="column-one-third">
+
+        <span class="text-secondary">Delius CRN</span>
+
+      </div>
+      <div class="column-two-thirds">{{ reportData.crn }}</div>
+    </div>
+
+    <hr class="margin-top margin-bottom" noshade/>
+
+    <div class="grid-row">
+      <div class="column-one-third">
+
+        <span class="text-secondary">PNC ID</span>
+
+      </div>
+      <div class="column-two-thirds">{{ reportData.pnc }}</div>
+    </div>
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <button class="button" id="nextButton" type="button" (click)="continueReport()">Save &amp; continue</button>
+
+  </div>
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+</div>

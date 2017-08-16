@@ -1,0 +1,85 @@
+<h1 class="heading-xlarge no-margin-bottom">Sources of information</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <fieldset>
+
+        <legend class="lede margin-bottom medium">Select the relevant options</legend>
+
+        <div class="multiple-choice">
+          <input type="checkbox" role="checkbox" id="interviewInformationSource" formControlName="interviewInformationSource" value="true" aria-checked="false" />
+          <label for="interviewInformationSource" class="form-label-bold">Interview</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="serviceRecordsInformationSource" formControlName="serviceRecordsInformationSource" value="true" aria-checked="false" />
+          <label for="serviceRecordsInformationSource" class="form-label-bold">Service records</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="cpsSummaryInformationSource" formControlName="cpsSummaryInformationSource" value="true" aria-checked="false" />
+          <label for="cpsSummaryInformationSource" class="form-label-bold">CPS summary</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="oasysAssessmentsInformationSource" formControlName="oasysAssessmentsInformationSource" value="true" aria-checked="false" />
+          <label for="oasysAssessmentsInformationSource" class="form-label-bold">Previous OASys assessments</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="previousConvictionsInformationSource" formControlName="previousConvictionsInformationSource" value="true" aria-checked="false" />
+          <label for="previousConvictionsInformationSource" class="form-label-bold">Previous convictions</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="victimStatementInformationSource" formControlName="victimStatementInformationSource" value="true" aria-checked="false" />
+          <label for="victimStatementInformationSource" class="form-label-bold">Victim statement</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="childrenServicesInformationSource" formControlName="childrenServicesInformationSource" value="true" aria-checked="false" />
+          <label for="childrenServicesInformationSource" class="form-label-bold">Children services checks</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="policeInformationSource" formControlName="policeInformationSource" value="true" aria-checked="false" />
+          <label for="policeInformationSource" class="form-label-bold">Police information</label>
+        </div>
+
+        <div class="multiple-choice margin-top">
+          <input type="checkbox" role="checkbox" id="otherInformationSource" formControlName="otherInformationSource" value="true" aria-checked="false" (click)="expandContent = !expandContent" />
+          <label for="otherInformationSource" class="form-label-bold">Other (please specify below)</label>
+        </div>
+
+        <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
+
+          <div class="form-group">
+            <label for="otherInformationDetails">
+              <span class="form-label-bold">Other source(s) of information</span>
+            </label>
+            <textarea id="otherInformationDetails" formControlName="otherInformationDetails" class="form-control wide" role="textbox" placeholder="Start typing here..."></textarea>
+          </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+
+      </fieldset>
+
+      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+</div>

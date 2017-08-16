@@ -1,0 +1,41 @@
+<h1 class="heading-xlarge no-margin-bottom">Offence analysis</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('offenceAnalysis').touched || formError) && reportForm.get('offenceAnalysis').errors }">
+        <label for="offenceAnalysis">
+          <span class="form-label-bold">Offence analysis</span>
+        </label>
+        <app-error-messages control="offenceAnalysis" [active]="(reportForm.get('offenceAnalysis').touched || formError) && reportForm.get('offenceAnalysis').errors"></app-error-messages>
+
+        <div>
+          <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
+
+          <div class="panel panel-border-narrow margin-top no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
+            <p>Consider the offender account and acceptance of responsibility. What is the impact on the victim and offender's awareness of this? Are there underlying discriminatory attitudes or behaviours?</p>
+            <p class="margin-top">
+              What is your analysis of the offence, including how it fits into any patterns of offending? Please consider if maturity is linked to offending i.e. peer group influences, easily led etc.</p>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+
+        <textarea id="offenceAnalysis" formControlName="offenceAnalysis" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenceAnalysis_error" required></textarea>
+      </div>
+
+      <input class="button" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+</div>

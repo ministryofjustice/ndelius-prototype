@@ -1,0 +1,30 @@
+<h1 class="heading-xlarge no-margin-bottom">Offender assessment detail</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('offenderAssessment').touched || formError) && reportForm.get('offenderAssessment').errors }">
+        <label for="offenderAssessment">
+          <span class="form-label-bold">Provide a brief assessment covering all areas</span>
+          <span class="form-hint">These are the areas you have highlighted as issues</span>
+        </label>
+        <app-error-messages control="offenderAssessment" [active]="(reportForm.get('offenderAssessment').touched || formError) && reportForm.get('offenderAssessment').errors"></app-error-messages>
+        <textarea id="offenderAssessment" formControlName="offenderAssessment" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenderAssessment_error" required></textarea>
+      </div>
+
+      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+</div>
