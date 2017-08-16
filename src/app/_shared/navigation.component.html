@@ -15,15 +15,19 @@
   <span class="display-block">- <a routerLink="/risk-assessment" routerLinkActive="active" class="nav-item">Risk assessment</a></span>
   <span class="display-block">- <a routerLink="/serious-harm-risk" routerLinkActive="active" class="nav-item">Risk of serious harm</a></span>
   <span class="display-block">- <a routerLink="/proposed-sentence" routerLinkActive="active" class="nav-item">Conclusion</a></span>
-  <span class="display-block">- <a routerLink="/signature" routerLinkActive="active" class="nav-item">Signature</a></span>
+  <span class="display-block">- <a routerLink="/signature" routerLinkActive="active" #rla="routerLinkActive" class="nav-item">Signature</a></span>
 
-  <hr class="margin-top margin-bottom medium" noshade />
+  <div *ngIf="!rla.active">
 
-  <h3 class="heading-medium no-margin-top no-margin-bottom">Save your report</h3>
+    <hr class="margin-top margin-bottom medium" noshade />
 
-  <p class="font-xsmall no-margin-bottom">You can save your progress as a draft PDF report and come back to it later.</p>
+    <h3 class="heading-medium no-margin-top no-margin-bottom">Save your report</h3>
 
-  <span class="display-block">- <a id="saveDraft" routerLink="/save-draft" routerLinkActive="active" class="nav-item margin-top">Save a draft of this report</a></span>
-  <span class="display-block">- <a id="reportNotes" routerLink="/save-draft" routerLinkActive="active" class="nav-item">View report notes</a></span>
+    <p class="font-xsmall no-margin-bottom">You can save your progress as a draft PDF report and come back to it later.</p>
+
+    <span class="display-block">- <a id="saveDraft" routerLink="/save-draft" routerLinkActive="active" class="nav-item margin-top">Save a draft of this report</a></span>
+    <span class="display-block">- <a id="reportNotes" routerLink="/save-draft" routerLinkActive="active" class="nav-item">View report notes</a></span>
+
+  </div>
 
 </nav>

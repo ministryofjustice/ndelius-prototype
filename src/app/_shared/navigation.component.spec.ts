@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from "@angular/router/testing";
 
 import { NavigationComponent } from './navigation.component';
 
@@ -12,7 +13,10 @@ describe('Component: Navigation (shared)', () => {
     TestBed.configureTestingModule({
       declarations: [
         NavigationComponent
-      ]
+      ],
+      imports: [
+        RouterTestingModule.withRoutes([])
+      ],
     }).compileComponents();
   }));
 
