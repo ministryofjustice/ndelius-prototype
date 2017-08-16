@@ -4,9 +4,15 @@ The prototype has been developed in order to rapidly develop UI and UX features 
 
 The prototype has been developed close to "vanilla" HTML so that design staff can work with the code more easily. 
 
-## Angular 4
+## Requirements
 
-The prototype has been built with Angular 4 for speed and ease of update by non-technical 
+The project requires [Node.js] 6.x
+
+You will need to install the project dependencies (in the project dir):
+
+`npm install -g @angular/cli`
+
+`npm install`
 
 ## Development server
 
@@ -38,3 +44,5 @@ This project uses:
 * [Angular](https://angular.io).
 * [Angular CLI](https://cli.angular.io).
 * [Yarn](https://yarnpkg.com).
+
+[Node.js]: http://www.nodejs.org
