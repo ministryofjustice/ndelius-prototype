@@ -5,7 +5,7 @@
 
     <div class="margin-top large">&nbsp;</div>
 
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <fieldset>
 
@@ -53,7 +53,7 @@
 
         <div class="multiple-choice margin-top">
           <input type="checkbox" role="checkbox" id="smartToolSource" formControlName="smartToolSource" value="true" aria-checked="false" />
-          <label for="smartToolSource" class="form-label-bold">SMART tool</label>
+          <label for="smartToolSource" class="form-label-bold">SMART sentencing tool</label>
         </div>
 
         <div class="multiple-choice margin-top">

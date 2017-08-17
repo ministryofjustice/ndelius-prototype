@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+
+import { reducers } from '../_shared/reducer/state.reducers';
 
 import { OffenderDetailsComponent } from './offender-details.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
@@ -18,6 +21,7 @@ describe('Component: Offender details', () => {
         MockNavigationComponent
       ],
       imports: [
+        StoreModule.forRoot(reducers),
         FormsModule,
         RouterTestingModule.withRoutes([])
       ]
@@ -46,7 +50,7 @@ describe('Component: Offender details', () => {
     expect(component.reportData.age).toEqual(41);
     expect(component.reportData.address).toBe('1 Albert Square, Manchester, Greater Manchester, M60 2LA');
     expect(component.reportData.crn).toBe('B56789');
-    expect(component.reportData.pnc).toBe('98793030');
+    expect(component.reportData.pnc).toBe('');
   });
 
   it('should navigate to the Court details page', () => {

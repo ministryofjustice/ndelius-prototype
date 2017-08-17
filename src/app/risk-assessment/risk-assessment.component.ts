@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { getRiskAssessment } from './reducer/risk-assessment.reducer';
+
+import { IRiskAssessment } from './model/risk-assessment.model';
+import { UpdateRiskAssessmentAction } from './action/risk-assessment.action';
 
 @Component({
   selector: 'app-risk-assessment',
@@ -8,6 +14,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RiskAssessmentComponent {
 
+  reportData: IRiskAssessment;
   reportForm: FormGroup;
   formError: Boolean;
 
@@ -15,9 +22,13 @@ export class RiskAssessmentComponent {
    *
    * @param {Router} router
    * @param {FormBuilder} formBuilder
+   * @param {Store<IRiskAssessment>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder) {
-    this.createForm();
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskAssessment>) {
+    store.select(getRiskAssessment).subscribe(state => {
+      this.reportData = state;
+      this.createForm();
+    });
   }
 
   /**
@@ -25,9 +36,9 @@ export class RiskAssessmentComponent {
    */
   createForm() {
     this.reportForm = this.formBuilder.group({
-      previousSupervisionResponse: void 0,
-      additionalPreviousSupervision: '',
-      likelihoodOfReOffending: ''
+      previousSupervisionResponse: this.reportData.previousSupervisionResponse,
+      additionalPreviousSupervision: this.reportData.additionalPreviousSupervision,
+      likelihoodOfReOffending: this.reportData.likelihoodOfReOffending
     });
   }
 
@@ -40,11 +51,13 @@ export class RiskAssessmentComponent {
 
   /**
    *
-   * @param {Boolean} valid
+   * @param {any} valid
+   * @param {any} value
    */
-  onSubmit(valid: Boolean) {
+  onSubmit({ valid: valid, value: value }) {
     this.formError = !valid;
     if (valid) {
+      this.store.dispatch(new UpdateRiskAssessmentAction(value));
       this.continueJourney();
     }
   }

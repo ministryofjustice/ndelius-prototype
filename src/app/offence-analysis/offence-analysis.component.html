@@ -5,13 +5,13 @@
 
     <div class="margin-top large">&nbsp;</div>
 
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('offenceAnalysis').touched || formError) && reportForm.get('offenceAnalysis').errors }">
-        <label for="offenceAnalysis">
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('offenceAnalysisEntry').touched || formError) && reportForm.get('offenceAnalysisEntry').errors }">
+        <label for="offenceAnalysisEntry">
           <span class="form-label-bold">Offence analysis</span>
         </label>
-        <app-error-messages control="offenceAnalysis" [active]="(reportForm.get('offenceAnalysis').touched || formError) && reportForm.get('offenceAnalysis').errors"></app-error-messages>
+        <app-error-messages control="offenceAnalysisEntry" [active]="(reportForm.get('offenceAnalysisEntry').touched || formError) && reportForm.get('offenceAnalysisEntry').errors"></app-error-messages>
 
         <div>
           <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
@@ -24,7 +24,7 @@
           <div class="clearfix"></div>
         </div>
 
-        <textarea id="offenceAnalysis" formControlName="offenceAnalysis" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenceAnalysis_error" required></textarea>
+        <textarea id="offenceAnalysisEntry" formControlName="offenceAnalysisEntry" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenceAnalysisEntry_error" required></textarea>
       </div>
 
       <input class="button" id="nextButton" type="submit" value="Save & continue" />

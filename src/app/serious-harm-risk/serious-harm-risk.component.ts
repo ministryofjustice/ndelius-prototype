@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { getSeriousHarmRisk } from './reducer/serious-harm-risk.reducer';
+
+import { ISeriousHarmRisk } from './model/serious-harm-risk.model';
+import { UpdateSeriousHarmRiskAction } from './action/serious-harm-risk.action';
 
 @Component({
   selector: 'app-serious-harm-risk',
@@ -8,17 +14,16 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class SeriousHarmRiskComponent {
 
+  reportData: ISeriousHarmRisk;
   reportForm: FormGroup;
   formError: Boolean;
   expandContent: Boolean;
 
-  /**
-   *
-   * @param {Router} router
-   * @param {FormBuilder} formBuilder
-   */
-  constructor(private router: Router, private formBuilder: FormBuilder) {
-    this.createForm();
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<ISeriousHarmRisk>) {
+    store.select(getSeriousHarmRisk).subscribe(state => {
+      this.reportData = state;
+      this.createForm();
+    });
   }
 
   /**
@@ -26,7 +31,7 @@ export class SeriousHarmRiskComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      riskOfSeriousHarm: ''
+      riskOfSeriousHarm: this.reportData.riskOfSeriousHarm
     });
   }
 
@@ -39,11 +44,13 @@ export class SeriousHarmRiskComponent {
 
   /**
    *
-   * @param {Boolean} valid
+   * @param {any} valid
+   * @param {any} value
    */
-  onSubmit(valid: Boolean) {
+  onSubmit({ valid: valid, value: value }) {
     this.formError = !valid;
     if (valid) {
+      this.store.dispatch(new UpdateSeriousHarmRiskAction(value));
       this.continueJourney();
     }
   }

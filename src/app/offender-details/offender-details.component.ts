@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
-interface IReportData {
-  name: String;
-  dateOfBirth: String;
-  age: Number;
-  address: String;
-  crn: String;
-  pnc: String;
-}
+import { IOffenderDetails } from './model/offender-details.model';
+import { getOffenderDetails } from './reducer/offender-details.reducer';
 
 @Component({
   selector: 'app-offender-details',
@@ -16,25 +11,17 @@ interface IReportData {
 })
 export class OffenderDetailsComponent {
 
-  /**
-   *
-   * @type {}
-   */
-  reportData: IReportData = {
-    name: 'Alan Smith',
-    dateOfBirth: '06/02/1976',
-    age: 41,
-    address: '1 Albert Square, Manchester, Greater Manchester, M60 2LA',
-    crn: 'B56789',
-    pnc: '98793030'
-  };
+  reportData: IOffenderDetails;
 
   /**
    *
    * @param {Router} router
+   * @param {Store<IOffenderDetails>} store
    */
-  constructor(private router: Router) {
-    // Empty
+  constructor(private router: Router, private store: Store<IOffenderDetails>) {
+    store.select(getOffenderDetails).subscribe(data => {
+      this.reportData = data;
+    });
   }
 
   /**

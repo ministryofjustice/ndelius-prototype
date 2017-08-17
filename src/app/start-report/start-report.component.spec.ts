@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+
+import { reducers } from '../_shared/reducer/state.reducers';
 
 import { StartReportComponent } from './start-report.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
@@ -17,6 +20,7 @@ describe('Component: Start Report', () => {
         MockNavigationComponent
       ],
       imports: [
+        StoreModule.forRoot(reducers),
         RouterTestingModule.withRoutes([])
       ]
     }).compileComponents();

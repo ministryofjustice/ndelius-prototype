@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { getOffenderIssues } from './reducer/offender-issues.reducer';
+
+import { IOffenderIssues } from './model/offender-issues.model';
+import { UpdateOffenderIssuesAction } from './action/offender-issues.action';
 
 @Component({
   selector: 'app-offender-issues',
@@ -8,15 +14,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class OffenderIssuesComponent {
 
+  reportData: IOffenderIssues;
   reportForm: FormGroup;
 
-  /**
-   *
-   * @param {Router} router
-   * @param {FormBuilder} formBuilder
-   */
-  constructor(private router: Router, private formBuilder: FormBuilder) {
-    this.createForm();
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderIssues>) {
+    store.select(getOffenderIssues).subscribe(state => {
+      this.reportData = state;
+      this.createForm();
+    });
   }
 
   /**
@@ -24,13 +29,13 @@ export class OffenderIssuesComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      issueAccommodation: void 0,
-      issueEmployment: void 0,
-      issueFinance: void 0,
-      issueDrugs: void 0,
-      issueAlcohol: void 0,
-      issueHealth: void 0,
-      issueBehaviour: void 0
+      issueAccommodation: this.reportData.issueAccommodation,
+      issueEmployment: this.reportData.issueEmployment,
+      issueFinance: this.reportData.issueFinance,
+      issueDrugs: this.reportData.issueDrugs,
+      issueAlcohol: this.reportData.issueAlcohol,
+      issueHealth: this.reportData.issueHealth,
+      issueBehaviour: this.reportData.issueBehaviour
     });
   }
 
@@ -44,7 +49,8 @@ export class OffenderIssuesComponent {
   /**
    *
    */
-  onSubmit() {
+  onSubmit({ value: value }) {
+    this.store.dispatch(new UpdateOffenderIssuesAction(value));
     this.continueJourney();
   }
 

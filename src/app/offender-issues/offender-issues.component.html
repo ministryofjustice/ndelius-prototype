@@ -7,7 +7,7 @@
 
     <h2 class="lede no-margin-top margin-bottom medium">Select all that apply</h2>
 
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <div class="multiple-choice">
         <input type="checkbox" role="checkbox" id="issueAccommodation" formControlName="issueAccommodation" value="true" aria-checked="false" />

@@ -5,7 +5,7 @@
 
     <div class="margin-top large">&nbsp;</div>
 
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('riskOfSeriousHarm').touched || formError) && reportForm.get('riskOfSeriousHarm').errors }">
         <label for="riskOfSeriousHarm">

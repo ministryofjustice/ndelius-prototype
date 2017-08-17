@@ -2,6 +2,9 @@ import { DatePipe } from '@angular/common';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+
+import { reducers } from '../_shared/reducer/state.reducers';
 
 import { SignatureComponent } from './signature.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
@@ -21,6 +24,7 @@ describe('Component: Signature', () => {
         MockErrorMessagesComponent
       ],
       imports: [
+        StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
       ],
@@ -51,14 +55,14 @@ describe('Component: Signature', () => {
 
   it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit(false);
+    component.onSubmit({ valid: false, value: {} });
     expect(component.formError).toBeTruthy();
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 
   it('should navigate to the Report Complete page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit(true);
+    component.onSubmit({ valid: true, value: {} });
     expect(component.formError).toBeFalsy();
     expect(navigateSpy).toHaveBeenCalledWith(['report-complete']);
   });
