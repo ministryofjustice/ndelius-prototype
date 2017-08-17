@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { getProposedSentence } from './reducer/proposed-sentence.reducer';
+
+import { IProposedSentence } from './model/proposed-sentence.model';
+import { UpdateProposedSentenceAction } from './action/proposed-sentence.action';
 
 @Component({
   selector: 'app-proposed-sentence',
@@ -8,6 +14,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ProposedSentenceComponent {
 
+  reportData: IProposedSentence;
   reportForm: FormGroup;
   formError: Boolean;
   expandContent: Boolean;
@@ -16,9 +23,13 @@ export class ProposedSentenceComponent {
    *
    * @param {Router} router
    * @param {FormBuilder} formBuilder
+   * @param {Store<IProposedSentence>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder) {
-    this.createForm();
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IProposedSentence>) {
+    store.select(getProposedSentence).subscribe(state => {
+      this.reportData = state;
+      this.createForm();
+    });
   }
 
   /**
@@ -26,7 +37,7 @@ export class ProposedSentenceComponent {
    */
   createForm() {
     this.reportForm = this.formBuilder.group({
-      proposal: ''
+      proposal: this.reportData.proposal
     });
   }
 
@@ -39,11 +50,13 @@ export class ProposedSentenceComponent {
 
   /**
    *
-   * @param valid
+   * @param {any} valid
+   * @param {any} value
    */
-  onSubmit(valid) {
+  onSubmit({ valid: valid, value: value }) {
     this.formError = !valid;
     if (valid) {
+      this.store.dispatch(new UpdateProposedSentenceAction(value));
       this.continueJourney();
     }
   }

@@ -5,7 +5,7 @@
 
     <div class="margin-top large">&nbsp;</div>
 
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm.valid)" novalidate>
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }">
 
@@ -23,14 +23,14 @@
 
       </div>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('dateOfHearing').touched || formError) && reportForm.get('dateOfHearing').errors }">
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors }">
 
-        <label for="dateOfHearing">
+        <label for="hearingDate">
           <span class="form-label-bold">Date of hearing</span>
           <span class="form-hint">DD/MM/YYYY</span>
         </label>
-        <app-error-messages control="dateOfHearing" [active]="(reportForm.get('dateOfHearing').touched || formError) && reportForm.get('dateOfHearing').errors"></app-error-messages>
-        <input class="form-control date-picker" type="text" role="textbox" id="dateOfHearing" formControlName="dateOfHearing" maxlength="10" aria-described-by="dateOfHearing_error" aria-required="true" required />
+        <app-error-messages control="hearingDate" [active]="(reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors"></app-error-messages>
+        <input class="form-control date-picker" type="text" role="textbox" id="hearingDate" formControlName="hearingDate" maxlength="10" aria-described-by="hearingDate_error" aria-required="true" required />
 
       </div>
 
