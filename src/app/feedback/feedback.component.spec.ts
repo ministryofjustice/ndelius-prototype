@@ -36,7 +36,7 @@ describe('FeedbackComponent', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Feedback');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Give feedback');
   });
 
   it('should include the reactive form', () => {
