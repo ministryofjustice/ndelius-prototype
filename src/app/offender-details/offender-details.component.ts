@@ -33,6 +33,26 @@ export class OffenderDetailsComponent {
 
   /**
    *
+   * @param {IDateOfBirth} dateOfBirth
+   * @returns {number}
+   */
+  private static getAge(dateOfBirth: IDateOfBirth): number {
+
+    const dateString = dateOfBirth.month + '/' + dateOfBirth.day + '/' + dateOfBirth.year;
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    const m = today.getMonth() - birthDate.getMonth();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  /**
+   *
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
@@ -54,26 +74,6 @@ export class OffenderDetailsComponent {
    */
   private continueJourney() {
     this.router.navigate(['court-details']);
-  }
-
-  /**
-   *
-   * @param {IDateOfBirth} dateOfBirth
-   * @returns {number}
-   */
-  private static getAge(dateOfBirth: IDateOfBirth): number {
-
-    const dateString = dateOfBirth.month + '/' + dateOfBirth.day + '/' + dateOfBirth.year;
-    const today = new Date();
-    const birthDate = new Date(dateString);
-    const m = today.getMonth() - birthDate.getMonth();
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
   }
 
   /**
