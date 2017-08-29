@@ -8,6 +8,8 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { InformationSourcesComponent } from './information-sources.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 
+import * as model from './reducer/information-sources.reducer';
+
 describe('Component: Sources of information', () => {
 
   let fixture: ComponentFixture<InformationSourcesComponent>;
@@ -49,7 +51,7 @@ describe('Component: Sources of information', () => {
 
   it('should navigate to the Offence Details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ value: {} });
+    component.onSubmit({ value: model.initialState });
     expect(navigateSpy).toHaveBeenCalledWith(['offence-details']);
   });
 

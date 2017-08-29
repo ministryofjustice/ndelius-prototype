@@ -9,6 +9,8 @@ import { OffenderDetailsComponent } from './offender-details.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../_shared/error-messages.mock.component';
 
+import * as model from './reducer/offender-details.reducer';
+
 describe('Component: Offender details', () => {
 
   let fixture: ComponentFixture<OffenderDetailsComponent>;
@@ -60,7 +62,7 @@ describe('Component: Offender details', () => {
   it('should navigate to the Court details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
-    component.onSubmit({ valid: true, value: { dateOfBirth: { day: 21, month: 6, year: 1976 } } });
+    component.onSubmit({ valid: true, value: model.initialState });
     expect(navigateSpy).toHaveBeenCalledWith(['court-details']);
   });
 

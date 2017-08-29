@@ -50,8 +50,10 @@ export class OffenceDetailsComponent {
 
   /**
    *
+   * @param {boolean} valid
+   * @param {IOffenceDetails} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IOffenceDetails }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateOffenceDetailsAction(value));

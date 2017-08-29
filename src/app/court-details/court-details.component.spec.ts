@@ -10,6 +10,8 @@ import { CourtDetailsComponent } from './court-details.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../_shared/error-messages.mock.component';
 
+import * as model from './reducer/court-details.reducer';
+
 describe('Component: Court details', () => {
 
   let fixture: ComponentFixture<CourtDetailsComponent>;
@@ -56,14 +58,14 @@ describe('Component: Court details', () => {
 
   it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: false, value: '' });
+    component.onSubmit({ valid: false, value: model.initialState });
     expect(component.formError).toBeTruthy();
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 
   it('should navigate to the Sources of Information page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: true, value: '' });
+    component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
     expect(navigateSpy).toHaveBeenCalledWith(['information-sources']);
   });

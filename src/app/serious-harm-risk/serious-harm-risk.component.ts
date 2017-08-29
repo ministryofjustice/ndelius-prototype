@@ -44,10 +44,10 @@ export class SeriousHarmRiskComponent {
 
   /**
    *
-   * @param {any} valid
-   * @param {any} value
+   * @param {boolean} valid
+   * @param {ISeriousHarmRisk} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: ISeriousHarmRisk }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateSeriousHarmRiskAction(value));

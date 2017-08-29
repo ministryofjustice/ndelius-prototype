@@ -50,10 +50,10 @@ export class ProposedSentenceComponent {
 
   /**
    *
-   * @param {any} valid
-   * @param {any} value
+   * @param {boolean} valid
+   * @param {IProposedSentence} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IProposedSentence }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateProposedSentenceAction(value));

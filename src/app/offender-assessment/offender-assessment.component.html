@@ -1,4 +1,4 @@
-<h1 class="heading-xlarge">Offender assessment detail</h1>
+<h1 class="heading-xlarge">Offender assessment</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
@@ -9,16 +9,165 @@
   </div>
   <div class="column-two-thirds">
 
+    <h2 class="lede no-margin-top margin-bottom medium">Select all that apply</h2>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('offenderAssessment').touched || formError) && reportForm.get('offenderAssessment').errors }">
-        <label for="offenderAssessment">
-          <span class="form-label-bold">Provide a brief assessment covering all areas</span>
-          <span class="form-hint">These are the areas you have highlighted as issues</span>
-        </label>
-        <app-error-messages control="offenderAssessment" [active]="(reportForm.get('offenderAssessment').touched || formError) && reportForm.get('offenderAssessment').errors"></app-error-messages>
-        <textarea id="offenderAssessment" formControlName="offenderAssessment" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenderAssessment_error" required></textarea>
+      <!-- @TODO: These should be components but will that confuse or does it not matter? -->
+
+      <!-- ACCOMMODATION -->
+
+      <div class="multiple-choice">
+        <input type="checkbox" role="checkbox" id="issueAccommodation" formControlName="issueAccommodation" value="true" (change)="expand.accommodation = !expand.accommodation" />
+        <label for="issueAccommodation" class="form-label-bold">Accommodation</label>
       </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsAccommodation').touched || formError) && reportForm.get('detailsAccommodation').errors, 'js-hidden': !expand.accommodation }" [attr.aria-hidden]="!expand.accommodation">
+
+        <div class="form-group">
+          <label for="detailsAccommodation">
+            <span class="form-label-bold">Provide a brief assessment for accommodation</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsAccommodation').touched || formError) && reportForm.get('detailsAccommodation').errors"></app-error-messages>
+          <textarea id="detailsAccommodation" formControlName="detailsAccommodation" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.accommodation" [required]="expand.accommodation"></textarea>
+        </div>
+
+      </div>
+
+      <!-- EMPLOYMENT -->
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueEmployment" formControlName="issueEmployment" value="true" (change)="expand.employment = !expand.employment" />
+        <label for="issueEmployment" class="form-label-bold">Employment</label>
+      </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsEmployment').touched || formError) && reportForm.get('detailsEmployment').errors, 'js-hidden': !expand.employment }" [attr.aria-hidden]="!expand.employment">
+
+        <div class="form-group">
+          <label for="detailsEmployment">
+            <span class="form-label-bold">Provide a brief assessment for employment</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsEmployment').touched || formError) && reportForm.get('detailsEmployment').errors"></app-error-messages>
+          <textarea id="detailsEmployment" formControlName="detailsEmployment" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.employment" [required]="expand.employment"></textarea>
+        </div>
+
+      </div>
+
+      <!-- FINANCE -->
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueFinance" formControlName="issueFinance" value="true" (change)="expand.finance = !expand.finance" />
+        <label for="issueFinance" class="form-label-bold">Finance</label>
+      </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsFinance').touched || formError) && reportForm.get('detailsFinance').errors, 'js-hidden': !expand.finance }" [attr.aria-hidden]="!expand.finance">
+
+        <div class="form-group">
+          <label for="detailsFinance">
+            <span class="form-label-bold">Provide a brief assessment for finance</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsFinance').touched || formError) && reportForm.get('detailsFinance').errors"></app-error-messages>
+          <textarea id="detailsFinance" formControlName="detailsEmployment" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.finance" [required]="expand.finance"></textarea>
+        </div>
+
+      </div>
+
+      <!-- RELATIONSHIPS -->
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueRelationships" formControlName="issueRelationships" value="true" (change)="expand.relationships = !expand.relationships" />
+        <label for="issueRelationships" class="form-label-bold">Relationships</label>
+      </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsRelationships').touched || formError) && reportForm.get('detailsRelationships').errors, 'js-hidden': !expand.relationships }" [attr.aria-hidden]="!expand.relationships">
+
+        <div class="form-group">
+          <label for="detailsRelationships">
+            <span class="form-label-bold">Provide a brief assessment for relationships</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsRelationships').touched || formError) && reportForm.get('detailsRelationships').errors"></app-error-messages>
+          <textarea id="detailsRelationships" formControlName="detailsRelationships" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.relationships" [required]="expand.relationships"></textarea>
+        </div>
+
+      </div>
+
+      <!-- DRUGS -->
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueDrugs" formControlName="issueDrugs" value="true" (change)="expand.drugs = !expand.drugs" />
+        <label for="issueDrugs" class="form-label-bold">Drugs</label>
+      </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsDrugs').touched || formError) && reportForm.get('detailsDrugs').errors, 'js-hidden': !expand.drugs }" [attr.aria-hidden]="!expand.drugs">
+
+        <div class="form-group">
+          <label for="detailsDrugs">
+            <span class="form-label-bold">Provide a brief assessment for drugs</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsDrugs').touched || formError) && reportForm.get('detailsDrugs').errors"></app-error-messages>
+          <textarea id="detailsDrugs" formControlName="detailsDrugs" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.drugs" [required]="expand.drugs"></textarea>
+        </div>
+
+      </div>
+
+      <!-- ALCOHOL -->
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueAlcohol" formControlName="issueAlcohol" value="true" (change)="expand.alcohol = !expand.alcohol" />
+        <label for="issueAlcohol" class="form-label-bold">Alcohol</label>
+      </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsAlcohol').touched || formError) && reportForm.get('detailsAlcohol').errors, 'js-hidden': !expand.alcohol }" [attr.aria-hidden]="!expand.alcohol">
+
+        <div class="form-group">
+          <label for="detailsAlcohol">
+            <span class="form-label-bold">Provide a brief assessment for alcohol</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsAlcohol').touched || formError) && reportForm.get('detailsAlcohol').errors"></app-error-messages>
+          <textarea id="detailsAlcohol" formControlName="detailsAlcohol" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.alcohol" [required]="expand.alcohol"></textarea>
+        </div>
+
+      </div>
+
+      <!-- PHYSICAL & MENTAL HEALTH -->
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueHealth" formControlName="issueHealth" value="true" (change)="expand.health = !expand.health" />
+        <label for="issueHealth" class="form-label-bold">Physical & mental health</label>
+      </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsHealth').touched || formError) && reportForm.get('detailsHealth').errors, 'js-hidden': !expand.health }" [attr.aria-hidden]="!expand.health">
+
+        <div class="form-group">
+          <label for="detailsHealth">
+            <span class="form-label-bold">Provide a brief assessment for physical & mental health</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsHealth').touched || formError) && reportForm.get('detailsHealth').errors"></app-error-messages>
+          <textarea id="detailsHealth" formControlName="detailsAlcohol" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.health" [required]="expand.health"></textarea>
+        </div>
+
+      </div>
+
+      <!-- THINKING & BEHAVIOUR -->
+
+      <div class="multiple-choice margin-top">
+        <input type="checkbox" role="checkbox" id="issueBehaviour" formControlName="issueBehaviour" value="true" (change)="expand.behaviour = !expand.behaviour" />
+        <label for="issueBehaviour" class="form-label-bold">Thinking & behaviour</label>
+      </div>
+
+      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsBehaviour').touched || formError) && reportForm.get('detailsBehaviour').errors, 'js-hidden': !expand.behaviour }" [attr.aria-hidden]="!expand.behaviour">
+
+        <div class="form-group">
+          <label for="detailsBehaviour">
+            <span class="form-label-bold">Provide a brief assessment for thinking & behaviour</span>
+          </label>
+          <app-error-messages [active]="(reportForm.get('detailsBehaviour').touched || formError) && reportForm.get('detailsBehaviour').errors"></app-error-messages>
+          <textarea id="detailsBehaviour" formControlName="detailsBehaviour" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.behaviour" [required]="expand.behaviour"></textarea>
+        </div>
+
+      </div>
+
+      <div class="clearfix"></div>
 
       <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
 
