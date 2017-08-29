@@ -53,10 +53,10 @@ export class SignatureComponent {
 
   /**
    *
-   * @param {any} valid
-   * @param {any} value
+   * @param {boolean} valid
+   * @param {ISignature} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: ISignature }) {
     this.formError = !valid;
 
     if (valid) {

@@ -53,10 +53,10 @@ export class CourtDetailsComponent {
 
   /**
    *
-   * @param {any} valid
-   * @param {any} value
+   * @param {boolean} valid
+   * @param {ICourtDetails} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: ICourtDetails }) {
     this.formError = !valid;
     if (valid) {
 

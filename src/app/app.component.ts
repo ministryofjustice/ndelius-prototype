@@ -46,6 +46,7 @@ export class AppComponent implements OnInit {
       .subscribe((event) => {
         this.titleService.setTitle(event['title'] + pathSuffix);
         $.getScript('assets/javascripts/application.js');
+        window.scrollTo(0, 0);
       });
   }
 }

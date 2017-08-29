@@ -5,8 +5,7 @@ import { ICourtDetails } from '../../court-details/model/court-details.model';
 import { IInformationSources } from '../../information-sources/model/information-sources.model';
 import { IOffenceDetails } from '../../offence-details/model/offence-details.model';
 import { IOffenceAnalysis } from '../../offence-analysis/model/offence-analysis.model';
-import { IOffenderIssues } from '../../offender-issues/model/offender-issues.model';
-import { IOffenderAssessmentDetail } from '../../offender-assessment/model/offender-assessment.model';
+import { IOffenderAssessment } from '../../offender-assessment/model/offender-assessment.model';
 import { IRiskAssessment } from '../../risk-assessment/model/risk-assessment.model';
 import { ISeriousHarmRisk } from '../../serious-harm-risk/model/serious-harm-risk.model';
 import { IProposedSentence } from '../../proposed-sentence/model/proposed-sentence.model';
@@ -17,8 +16,7 @@ import { courtDetailsReducer } from '../../court-details/reducer/court-details.r
 import { informationSourcesReducer } from '../../information-sources/reducer/information-sources.reducer';
 import { offenceDetailsReducer } from '../../offence-details/reducer/offence-details.reducer';
 import { offenceAnalysisReducer } from '../../offence-analysis/reducer/offence-analysis.reducer';
-import { offenderIssuesReducer } from '../../offender-issues/reducer/offender-issues.reducer';
-import { offenderAssessmentDetailReducer } from '../../offender-assessment/reducer/offender-assessment.reducer';
+import { offenderAssessmentReducer } from '../../offender-assessment/reducer/offender-assessment.reducer';
 import { riskAssessmentReducer } from '../../risk-assessment/reducer/risk-assessment.reducer';
 import { seriousHarmRiskReducer } from '../../serious-harm-risk/reducer/serious-harm-risk.reducer';
 import { proposedSentenceReducer } from '../../proposed-sentence/reducer/proposed-sentence.reducer';
@@ -30,8 +28,7 @@ export interface State {
   informationSources: IInformationSources;
   offenceDetails: IOffenceDetails;
   offenceAnalysis: IOffenceAnalysis;
-  offenderIssues: IOffenderIssues;
-  offenderAssessmentDetail: IOffenderAssessmentDetail;
+  offenderAssessment: IOffenderAssessment;
   riskAssessment: IRiskAssessment;
   seriousHarmRisk: ISeriousHarmRisk;
   proposedSentence: IProposedSentence;
@@ -44,8 +41,7 @@ export const reducers: ActionReducerMap<State> = {
   informationSources: informationSourcesReducer,
   offenceDetails: offenceDetailsReducer,
   offenceAnalysis: offenceAnalysisReducer,
-  offenderIssues: offenderIssuesReducer,
-  offenderAssessmentDetail: offenderAssessmentDetailReducer,
+  offenderAssessment: offenderAssessmentReducer,
   riskAssessment: riskAssessmentReducer,
   seriousHarmRisk: seriousHarmRiskReducer,
   proposedSentence: proposedSentenceReducer,

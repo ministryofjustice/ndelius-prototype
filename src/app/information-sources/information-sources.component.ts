@@ -59,8 +59,9 @@ export class InformationSourcesComponent {
 
   /**
    *
+   * @param {IInformationSources} value
    */
-  onSubmit({ value: value }) {
+  onSubmit({ value }: { value: IInformationSources }) {
     this.store.dispatch(new UpdateInformationSourcesAction(value));
     this.continueJourney();
   }

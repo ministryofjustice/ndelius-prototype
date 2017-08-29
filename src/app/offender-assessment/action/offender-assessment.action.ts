@@ -1,14 +1,14 @@
 import { Action } from '@ngrx/store';
-import { IOffenderAssessmentDetail } from '../model/offender-assessment.model';
+import { IOffenderAssessment } from '../model/offender-assessment.model';
 
-export const UPDATE_OFFENDER_ASSESSMENT_DETAIL = 'UPDATE_OFFENDER_ASSESSMENT_DETAIL';
+export const UPDATE_OFFENDER_ASSESSMENT = 'UPDATE_OFFENDER_ASSESSMENT_DETAIL';
 
-export class UpdateOffenderAssessmentDetailAction implements Action {
-  readonly type = UPDATE_OFFENDER_ASSESSMENT_DETAIL;
+export class UpdateOffenderAssessmentAction implements Action {
+  readonly type = UPDATE_OFFENDER_ASSESSMENT;
 
-  constructor(public payload: IOffenderAssessmentDetail) {
+  constructor(public payload: IOffenderAssessment) {
     // Empty
   }
 }
 
-export type Actions = | UpdateOffenderAssessmentDetailAction;
+export type Actions = | UpdateOffenderAssessmentAction;

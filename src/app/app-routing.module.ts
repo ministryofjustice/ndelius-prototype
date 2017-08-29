@@ -7,7 +7,6 @@ import { CourtDetailsComponent } from './court-details/court-details.component';
 import { InformationSourcesComponent } from './information-sources/information-sources.component';
 import { OffenceDetailsComponent } from './offence-details/offence-details.component';
 import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.component';
-import { OffenderIssuesComponent } from './offender-issues/offender-issues.component';
 import { OffenderAssessmentComponent } from './offender-assessment/offender-assessment.component';
 import { RiskAssessmentComponent } from './risk-assessment/risk-assessment.component';
 import { SeriousHarmRiskComponent } from './serious-harm-risk/serious-harm-risk.component';
@@ -25,7 +24,6 @@ const routes: Routes = [
   { path: 'information-sources', data: { title: 'Sources of information' }, component: InformationSourcesComponent },
   { path: 'offence-details', data: { title: 'Offence details' }, component: OffenceDetailsComponent },
   { path: 'offence-analysis', data: { title: 'Offence analysis' }, component: OffenceAnalysisComponent },
-  { path: 'offender-issues', data: { title: 'Offender assessment issues' }, component: OffenderIssuesComponent },
   { path: 'offender-assessment', data: { title: 'Offender assessment detail' }, component: OffenderAssessmentComponent },
   { path: 'risk-assessment', data: { title: 'Risk assessment' }, component: RiskAssessmentComponent },
   { path: 'serious-harm-risk', data: { title: 'Risk of serious harm' }, component: SeriousHarmRiskComponent },

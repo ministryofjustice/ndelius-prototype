@@ -33,6 +33,26 @@ export class OffenderDetailsComponent {
 
   /**
    *
+   * @param {IDateOfBirth} dateOfBirth
+   * @returns {number}
+   */
+  private static getAge(dateOfBirth: IDateOfBirth): number {
+
+    const dateString = dateOfBirth.month + '/' + dateOfBirth.day + '/' + dateOfBirth.year;
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    const m = today.getMonth() - birthDate.getMonth();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  /**
+   *
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
@@ -58,30 +78,10 @@ export class OffenderDetailsComponent {
 
   /**
    *
-   * @param {IDateOfBirth} dateOfBirth
-   * @returns {number}
+   * @param {boolean} valid
+   * @param {IOffenderDetails} value
    */
-  private static getAge(dateOfBirth: IDateOfBirth): number {
-
-    const dateString = dateOfBirth.month + '/' + dateOfBirth.day + '/' + dateOfBirth.year;
-    const today = new Date();
-    const birthDate = new Date(dateString);
-    const m = today.getMonth() - birthDate.getMonth();
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
-  }
-
-  /**
-   *
-   * @param {any} valid
-   * @param {any} value
-   */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IOffenderDetails }) {
     this.formError = !valid;
     if (valid) {
 

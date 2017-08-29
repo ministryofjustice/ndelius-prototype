@@ -51,10 +51,10 @@ export class RiskAssessmentComponent {
 
   /**
    *
-   * @param {any} valid
-   * @param {any} value
+   * @param {boolean} valid
+   * @param {IRiskAssessment} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IRiskAssessment }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateRiskAssessmentAction(value));

@@ -51,8 +51,10 @@ export class OffenceAnalysisComponent {
 
   /**
    *
+   * @param {boolean} valid
+   * @param {IOffenceAnalysis} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IOffenceAnalysis }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateOffenceAnalysisAction(value));

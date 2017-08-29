@@ -10,7 +10,6 @@ import { InformationSourcesComponent } from './information-sources/information-s
 import { OffenceDetailsComponent } from './offence-details/offence-details.component';
 import { CourtDetailsComponent } from './court-details/court-details.component';
 import { StartReportComponent } from './start-report/start-report.component';
-import { OffenderIssuesComponent } from './offender-issues/offender-issues.component';
 import { OffenderAssessmentComponent } from './offender-assessment/offender-assessment.component';
 import { RiskAssessmentComponent } from './risk-assessment/risk-assessment.component';
 import { SeriousHarmRiskComponent } from './serious-harm-risk/serious-harm-risk.component';
@@ -34,7 +33,6 @@ import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.co
     OffenceDetailsComponent,
     CourtDetailsComponent,
     StartReportComponent,
-    OffenderIssuesComponent,
     OffenderAssessmentComponent,
     RiskAssessmentComponent,
     SeriousHarmRiskComponent,
