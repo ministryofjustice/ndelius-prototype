@@ -37,7 +37,8 @@ export class OffenceAnalysisComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      offenceAnalysisEntry: this.reportData.offenceAnalysisEntry
+      offenceAnalysisEntry: this.reportData.offenceAnalysisEntry,
+      patternOfOffending: this.reportData.patternOfOffending,
     });
   }
 

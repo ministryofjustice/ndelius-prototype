@@ -48,13 +48,13 @@ describe('Component: Offence analysis', () => {
   it('should include the reactive form', () => {
     expect(component.reportForm).toBeDefined();
   });
+
   it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: false, value: {} });
     expect(component.formError).toBeTruthy();
     expect(navigateSpy).not.toHaveBeenCalled();
   });
-
 
   it('should navigate to the Offence details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');

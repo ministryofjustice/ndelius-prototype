@@ -9,7 +9,6 @@ import { OffenceDetailsComponent } from './offence-details/offence-details.compo
 import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.component';
 import { OffenderIssuesComponent } from './offender-issues/offender-issues.component';
 import { OffenderAssessmentComponent } from './offender-assessment/offender-assessment.component';
-import { OffendingPatternsComponent } from './offending-patterns/offending-patterns.component';
 import { RiskAssessmentComponent } from './risk-assessment/risk-assessment.component';
 import { SeriousHarmRiskComponent } from './serious-harm-risk/serious-harm-risk.component';
 import { ProposedSentenceComponent } from './proposed-sentence/proposed-sentence.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   { path: 'offence-analysis', data: { title: 'Offence analysis' }, component: OffenceAnalysisComponent },
   { path: 'offender-issues', data: { title: 'Offender assessment issues' }, component: OffenderIssuesComponent },
   { path: 'offender-assessment', data: { title: 'Offender assessment detail' }, component: OffenderAssessmentComponent },
-  { path: 'offending-patterns', data: { title: 'Patterns of offending' }, component: OffendingPatternsComponent },
   { path: 'risk-assessment', data: { title: 'Risk assessment' }, component: RiskAssessmentComponent },
   { path: 'serious-harm-risk', data: { title: 'Risk of serious harm' }, component: SeriousHarmRiskComponent },
   { path: 'proposed-sentence', data: { title: 'Conclusion' }, component: ProposedSentenceComponent },

@@ -28,7 +28,16 @@
           <div class="clearfix"></div>
         </div>
 
-        <textarea id="offenceAnalysisEntry" formControlName="offenceAnalysisEntry" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenceAnalysisEntry_error" required></textarea>
+        <textarea id="offenceAnalysisEntry" formControlName="offenceAnalysisEntry" class="form-control wide" [ngClass]="{ 'form-control-error': (reportForm.get('offenceAnalysisEntry').touched || formError) && reportForm.get('offenceAnalysisEntry').errors }" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenceAnalysisEntry_error" required></textarea>
+      </div>
+
+      <hr noshade />
+
+      <div class="form-group">
+        <label for="patternOfOffending">
+          <span class="form-label-bold">Provide patterns of offending (if applicable)</span>
+        </label>
+        <textarea id="patternOfOffending" formControlName="patternOfOffending" class="form-control wide" role="textbox" placeholder="Start typing here..."></textarea>
       </div>
 
       <input class="button" id="nextButton" type="submit" value="Save & continue" />

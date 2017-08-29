@@ -24,6 +24,10 @@ textarea.form-control {
     border: 2px solid $text-colour;
     min-height: 150px;
   }
+
+  &.form-control-error {
+    // border: 4px solid $error-colour;
+  }
 }
 
 input[type="text"], input[type="number"] {
