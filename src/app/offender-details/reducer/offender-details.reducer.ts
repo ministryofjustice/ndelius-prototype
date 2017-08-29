@@ -1,14 +1,9 @@
 import * as offenderDetails from '../action/offender-details.action';
 import { IOffenderDetails } from '../model/offender-details.model';
 
-export const initialState: IOffenderDetails = {
-    name: 'Alan Smith',
-    address: '1 Albert Square, Manchester, Greater Manchester, M60 2LA',
-    dateOfBirth: '06/02/1976',
-    age: 41,
-    crn: 'B56789',
-    pnc: ''
-};
+import { defaultOffenderDetails } from '../../_shared/model/default-data';
+
+export const initialState: IOffenderDetails = defaultOffenderDetails();
 
 export function offenderDetailsReducer(state = initialState, action: offenderDetails.Actions): IOffenderDetails {
 
