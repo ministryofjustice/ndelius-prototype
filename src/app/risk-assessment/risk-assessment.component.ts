@@ -17,6 +17,7 @@ export class RiskAssessmentComponent {
   reportData: IRiskAssessment;
   reportForm: FormGroup;
   formError: Boolean;
+  expandContent: Boolean;
 
   /**
    *
@@ -38,7 +39,8 @@ export class RiskAssessmentComponent {
     this.reportForm = this.formBuilder.group({
       previousSupervisionResponse: this.reportData.previousSupervisionResponse,
       additionalPreviousSupervision: this.reportData.additionalPreviousSupervision,
-      likelihoodOfReOffending: this.reportData.likelihoodOfReOffending
+      likelihoodOfReOffending: this.reportData.likelihoodOfReOffending,
+      riskOfSeriousHarm: this.reportData.riskOfSeriousHarm,
     });
   }
 

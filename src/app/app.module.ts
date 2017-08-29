@@ -12,7 +12,6 @@ import { CourtDetailsComponent } from './court-details/court-details.component';
 import { StartReportComponent } from './start-report/start-report.component';
 import { OffenderAssessmentComponent } from './offender-assessment/offender-assessment.component';
 import { RiskAssessmentComponent } from './risk-assessment/risk-assessment.component';
-import { SeriousHarmRiskComponent } from './serious-harm-risk/serious-harm-risk.component';
 import { ProposedSentenceComponent } from './proposed-sentence/proposed-sentence.component';
 import { SignatureComponent } from './signature/signature.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
@@ -35,7 +34,6 @@ import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.co
     StartReportComponent,
     OffenderAssessmentComponent,
     RiskAssessmentComponent,
-    SeriousHarmRiskComponent,
     ProposedSentenceComponent,
     SignatureComponent,
     SaveDraftComponent,

@@ -9,7 +9,6 @@ import { OffenceDetailsComponent } from './offence-details/offence-details.compo
 import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.component';
 import { OffenderAssessmentComponent } from './offender-assessment/offender-assessment.component';
 import { RiskAssessmentComponent } from './risk-assessment/risk-assessment.component';
-import { SeriousHarmRiskComponent } from './serious-harm-risk/serious-harm-risk.component';
 import { ProposedSentenceComponent } from './proposed-sentence/proposed-sentence.component';
 import { SignatureComponent } from './signature/signature.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
@@ -26,7 +25,6 @@ const routes: Routes = [
   { path: 'offence-analysis', data: { title: 'Offence analysis' }, component: OffenceAnalysisComponent },
   { path: 'offender-assessment', data: { title: 'Offender assessment detail' }, component: OffenderAssessmentComponent },
   { path: 'risk-assessment', data: { title: 'Risk assessment' }, component: RiskAssessmentComponent },
-  { path: 'serious-harm-risk', data: { title: 'Risk of serious harm' }, component: SeriousHarmRiskComponent },
   { path: 'proposed-sentence', data: { title: 'Conclusion' }, component: ProposedSentenceComponent },
   { path: 'signature', data: { title: 'Signature' }, component: SignatureComponent },
   { path: 'save-draft', data: { title: 'Draft Saved' }, component: SaveDraftComponent },

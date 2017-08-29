@@ -15,7 +15,7 @@
 
         <label for="court" class="form-label-bold">Court</label>
         <app-error-messages control="court" [active]="(reportForm.get('court').touched || formError) && reportForm.get('court').errors"></app-error-messages>
-        <input class="form-control" type="text" role="textbox" id="court" formControlName="court" maxlength="250" aria-described-by="court_error" aria-required="true" required />
+        <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }" type="text" role="textbox" id="court" formControlName="court" maxlength="250" aria-described-by="court_error" aria-required="true" required />
 
       </div>
 
@@ -23,7 +23,7 @@
 
         <label for="localJusticeArea" class="form-label-bold">Local justice area</label>
         <app-error-messages control="localJusticeArea" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
-        <input class="form-control" type="text" role="textbox" id="localJusticeArea" formControlName="localJusticeArea" maxlength="250" aria-described-by="localJusticeArea_error" aria-required="true" required />
+        <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }" type="text" role="textbox" id="localJusticeArea" formControlName="localJusticeArea" maxlength="250" aria-described-by="localJusticeArea_error" aria-required="true" required />
 
       </div>
 

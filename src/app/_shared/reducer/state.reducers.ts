@@ -7,7 +7,6 @@ import { IOffenceDetails } from '../../offence-details/model/offence-details.mod
 import { IOffenceAnalysis } from '../../offence-analysis/model/offence-analysis.model';
 import { IOffenderAssessment } from '../../offender-assessment/model/offender-assessment.model';
 import { IRiskAssessment } from '../../risk-assessment/model/risk-assessment.model';
-import { ISeriousHarmRisk } from '../../serious-harm-risk/model/serious-harm-risk.model';
 import { IProposedSentence } from '../../proposed-sentence/model/proposed-sentence.model';
 import { ISignature } from '../../signature/model/signature.model';
 
@@ -18,7 +17,6 @@ import { offenceDetailsReducer } from '../../offence-details/reducer/offence-det
 import { offenceAnalysisReducer } from '../../offence-analysis/reducer/offence-analysis.reducer';
 import { offenderAssessmentReducer } from '../../offender-assessment/reducer/offender-assessment.reducer';
 import { riskAssessmentReducer } from '../../risk-assessment/reducer/risk-assessment.reducer';
-import { seriousHarmRiskReducer } from '../../serious-harm-risk/reducer/serious-harm-risk.reducer';
 import { proposedSentenceReducer } from '../../proposed-sentence/reducer/proposed-sentence.reducer';
 import { signatureReducer } from '../../signature/reducer/signature.reducer';
 
@@ -30,7 +28,6 @@ export interface State {
   offenceAnalysis: IOffenceAnalysis;
   offenderAssessment: IOffenderAssessment;
   riskAssessment: IRiskAssessment;
-  seriousHarmRisk: ISeriousHarmRisk;
   proposedSentence: IProposedSentence;
   signature: ISignature;
 }
@@ -43,7 +40,6 @@ export const reducers: ActionReducerMap<State> = {
   offenceAnalysis: offenceAnalysisReducer,
   offenderAssessment: offenderAssessmentReducer,
   riskAssessment: riskAssessmentReducer,
-  seriousHarmRisk: seriousHarmRiskReducer,
   proposedSentence: proposedSentenceReducer,
   signature: signatureReducer
 };
