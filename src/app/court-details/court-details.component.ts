@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -38,9 +38,9 @@ export class CourtDetailsComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      court: this.reportData.court,
-      localJusticeArea: this.reportData.localJusticeArea,
-      hearingDate: this.reportData.hearingDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy')
+      court: [this.reportData.court, Validators.required],
+      localJusticeArea: [this.reportData.localJusticeArea, Validators.required],
+      hearingDate: [this.reportData.hearingDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
     });
   }
 

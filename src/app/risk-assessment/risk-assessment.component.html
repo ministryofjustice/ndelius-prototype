@@ -11,38 +11,19 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('likelihoodOfReOffending').touched || formError) && reportForm.get('likelihoodOfReOffending').errors }">
-        <label for="likelihoodOfReOffending">
-          <span class="form-label-bold">Likelihood of re-offending</span>
-          <span class="form-hint">Indicate which tools have been used (RM2000,OGRS etc.)</span>
-        </label>
-        <app-error-messages control="likelihoodOfReOffending" [active]="(reportForm.get('likelihoodOfReOffending').touched || formError) && reportForm.get('likelihoodOfReOffending').errors"></app-error-messages>
-        <textarea id="likelihoodOfReOffending" formControlName="likelihoodOfReOffending" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="likelihoodOfReOffending_error" required></textarea>
-      </div>
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="likelihoodOfReOffending" label="Likelihood of re-offending" help="Indicate which tools have been used (RM2000,OGRS etc.)" [error]="formError" required="true"></app-text-entry>
 
       <hr noshade/>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('riskOfSeriousHarm').touched || formError) && reportForm.get('riskOfSeriousHarm').errors }">
-        <label for="riskOfSeriousHarm">
-          <span class="form-label-bold">Detail the risk of serious harm</span>
-        </label>
-        <app-error-messages control="riskOfSeriousHarm" [active]="(reportForm.get('riskOfSeriousHarm').touched || formError) && reportForm.get('riskOfSeriousHarm').errors"></app-error-messages>
-
-        <div>
-          <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
-
-          <div class="panel panel-border-narrow margin-top no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
-            <ul>
-              <li class="list-bullet">What is the risk and risk level and to who?</li>
-              <li class="list-bullet">Describe what will increase or decrease the risk.</li>
-              <li class="list-bullet">What tools used were used?</li>
-            </ul>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-
-        <textarea id="riskOfSeriousHarm" formControlName="riskOfSeriousHarm" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="riskOfSeriousHarm_error" required></textarea>
-      </div>
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" [error]="formError">
+        <ul>
+          <li class="list-bullet">What is the risk and risk level and to who?</li>
+          <li class="list-bullet">Describe what will increase or decrease the risk.</li>
+          <li class="list-bullet">What tools used were used?</li>
+        </ul>
+      </app-text-entry>
 
       <hr noshade/>
 
@@ -78,16 +59,8 @@
 
       <hr noshade/>
 
-      <div class="form-group">
-        <label for="additionalPreviousSupervision">
-          <span class="form-label-bold">Add additional details on previous supervision (if applicable)</span>
-        </label>
-        <textarea id="additionalPreviousSupervision" formControlName="additionalPreviousSupervision" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="false" aria-describedby="additionalPreviousSupervision_error"></textarea>
-      </div>
-
-      <hr noshade/>
-
-
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" label="Add additional details on previous supervision (if applicable)"></app-text-entry>
 
       <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
 

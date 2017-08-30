@@ -9,6 +9,7 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { OffenderAssessmentComponent } from './offender-assessment.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../_shared/error-messages.mock.component';
+import { MockTextEntryComponent } from '../_shared/text-entry.mock.component';
 
 import * as model from './reducer/offender-assessment.reducer';
 
@@ -23,7 +24,8 @@ describe('Component: Offender assessment issues', () => {
       declarations: [
         OffenderAssessmentComponent,
         MockNavigationComponent,
-        MockErrorMessagesComponent
+        MockErrorMessagesComponent,
+        MockTextEntryComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

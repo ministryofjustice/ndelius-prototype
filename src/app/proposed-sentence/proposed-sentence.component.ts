@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { getProposedSentence } from './reducer/proposed-sentence.reducer';
@@ -37,7 +37,7 @@ export class ProposedSentenceComponent {
    */
   createForm() {
     this.reportForm = this.formBuilder.group({
-      proposal: this.reportData.proposal
+      proposal: [this.reportData.proposal, Validators.required]
     });
   }
 

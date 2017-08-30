@@ -8,6 +8,7 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { ProposedSentenceComponent } from './proposed-sentence.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../_shared/error-messages.mock.component';
+import { MockTextEntryComponent } from '../_shared/text-entry.mock.component';
 
 import * as model from './reducer/proposed-sentence.reducer';
 
@@ -22,7 +23,8 @@ describe('Component: Conclusion', () => {
       declarations: [
         ProposedSentenceComponent,
         MockNavigationComponent,
-        MockErrorMessagesComponent
+        MockErrorMessagesComponent,
+        MockTextEntryComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

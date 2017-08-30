@@ -9,6 +9,6 @@ import { ErrorMessagesComponent } from './error-messages.component';
 export class MockErrorMessagesComponent implements ErrorMessagesComponent {
 
   @Input('control') control: string;
-  @Input('active') active: Boolean;
+  @Input('active') active: boolean;
 
 }

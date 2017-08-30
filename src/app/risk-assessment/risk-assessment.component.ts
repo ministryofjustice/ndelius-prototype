@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { getRiskAssessment } from './reducer/risk-assessment.reducer';
@@ -37,10 +37,10 @@ export class RiskAssessmentComponent {
    */
   createForm() {
     this.reportForm = this.formBuilder.group({
+      likelihoodOfReOffending: [this.reportData.likelihoodOfReOffending, Validators.required],
+      riskOfSeriousHarm: [this.reportData.riskOfSeriousHarm, Validators.required],
       previousSupervisionResponse: this.reportData.previousSupervisionResponse,
       additionalPreviousSupervision: this.reportData.additionalPreviousSupervision,
-      likelihoodOfReOffending: this.reportData.likelihoodOfReOffending,
-      riskOfSeriousHarm: this.reportData.riskOfSeriousHarm,
     });
   }
 

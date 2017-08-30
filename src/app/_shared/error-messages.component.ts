@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ErrorMessagesComponent {
 
-  @Input('control') control: string;
-  @Input('active') active: Boolean;
+  @Input('control') public control: string;
+  @Input('active') public active: boolean;
 
 }

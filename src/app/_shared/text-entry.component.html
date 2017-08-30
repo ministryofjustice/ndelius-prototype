@@ -1,0 +1,26 @@
+<div class="form-group" [formGroup]="group" [ngClass]="{ 'form-group-error': group.get(name).errors && (group.get(name).touched || error) }">
+  <label [for]="name">
+    <span class="form-label-bold">{{label}}</span>
+    <span class="form-hint" *ngIf="help">{{help}}</span>
+  </label>
+  <app-error-messages [control]="control" [active]="group.get(name).errors && (group.get(name).touched || error)"></app-error-messages>
+  <div [hidden]="!showHint">
+    <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
+    <div #hint class="panel panel-border-narrow margin-top no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <textarea [id]="name" [formControlName]="name" class="form-control wide" placeholder="Start typing here..." (focus)="startSaving()" (blur)="saveProgress()"></textarea>
+</div>
+
+<div class="pull-right margin-bottom" *ngIf="saving.active !== undefined">
+  <div class="font-xxsmall pull-right">
+    <span *ngIf="saving.active">Saving changes</span>
+    <span *ngIf="!saving.active">Changes saved</span>
+  </div>
+  <div class="spinner pull-right" [ngClass]="{ 'active': saving.active }">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>
+<div class="clearfix"></div>
