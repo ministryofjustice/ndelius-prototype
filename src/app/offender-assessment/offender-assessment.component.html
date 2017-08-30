@@ -24,13 +24,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsAccommodation').touched || formError) && reportForm.get('detailsAccommodation').errors, 'js-hidden': !expand.accommodation }" [attr.aria-hidden]="!expand.accommodation">
 
-        <div class="form-group">
-          <label for="detailsAccommodation">
-            <span class="form-label-bold">Provide a brief assessment for accommodation</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsAccommodation').touched || formError) && reportForm.get('detailsAccommodation').errors"></app-error-messages>
-          <textarea id="detailsAccommodation" formControlName="detailsAccommodation" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.accommodation" [required]="expand.accommodation"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsAccommodation" label="Provide a brief assessment for accommodation" [error]="formError"></app-text-entry>
 
       </div>
 
@@ -43,13 +38,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsEmployment').touched || formError) && reportForm.get('detailsEmployment').errors, 'js-hidden': !expand.employment }" [attr.aria-hidden]="!expand.employment">
 
-        <div class="form-group">
-          <label for="detailsEmployment">
-            <span class="form-label-bold">Provide a brief assessment for employment</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsEmployment').touched || formError) && reportForm.get('detailsEmployment').errors"></app-error-messages>
-          <textarea id="detailsEmployment" formControlName="detailsEmployment" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.employment" [required]="expand.employment"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsEmployment" label="Provide a brief assessment for employment" [error]="formError"></app-text-entry>
 
       </div>
 
@@ -62,13 +52,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsFinance').touched || formError) && reportForm.get('detailsFinance').errors, 'js-hidden': !expand.finance }" [attr.aria-hidden]="!expand.finance">
 
-        <div class="form-group">
-          <label for="detailsFinance">
-            <span class="form-label-bold">Provide a brief assessment for finance</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsFinance').touched || formError) && reportForm.get('detailsFinance').errors"></app-error-messages>
-          <textarea id="detailsFinance" formControlName="detailsEmployment" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.finance" [required]="expand.finance"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsFinance" label="Provide a brief assessment for finance" [error]="formError"></app-text-entry>
 
       </div>
 
@@ -81,13 +66,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsRelationships').touched || formError) && reportForm.get('detailsRelationships').errors, 'js-hidden': !expand.relationships }" [attr.aria-hidden]="!expand.relationships">
 
-        <div class="form-group">
-          <label for="detailsRelationships">
-            <span class="form-label-bold">Provide a brief assessment for relationships</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsRelationships').touched || formError) && reportForm.get('detailsRelationships').errors"></app-error-messages>
-          <textarea id="detailsRelationships" formControlName="detailsRelationships" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.relationships" [required]="expand.relationships"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsRelationships" label="Provide a brief assessment for relationships" [error]="formError"></app-text-entry>
 
       </div>
 
@@ -100,13 +80,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsDrugs').touched || formError) && reportForm.get('detailsDrugs').errors, 'js-hidden': !expand.drugs }" [attr.aria-hidden]="!expand.drugs">
 
-        <div class="form-group">
-          <label for="detailsDrugs">
-            <span class="form-label-bold">Provide a brief assessment for drugs</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsDrugs').touched || formError) && reportForm.get('detailsDrugs').errors"></app-error-messages>
-          <textarea id="detailsDrugs" formControlName="detailsDrugs" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.drugs" [required]="expand.drugs"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsDrugs" label="Provide a brief assessment for drugs" [error]="formError"></app-text-entry>
 
       </div>
 
@@ -119,13 +94,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsAlcohol').touched || formError) && reportForm.get('detailsAlcohol').errors, 'js-hidden': !expand.alcohol }" [attr.aria-hidden]="!expand.alcohol">
 
-        <div class="form-group">
-          <label for="detailsAlcohol">
-            <span class="form-label-bold">Provide a brief assessment for alcohol</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsAlcohol').touched || formError) && reportForm.get('detailsAlcohol').errors"></app-error-messages>
-          <textarea id="detailsAlcohol" formControlName="detailsAlcohol" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.alcohol" [required]="expand.alcohol"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsAlcohol" label="Provide a brief assessment for alcohol" [error]="formError"></app-text-entry>
 
       </div>
 
@@ -138,13 +108,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsHealth').touched || formError) && reportForm.get('detailsHealth').errors, 'js-hidden': !expand.health }" [attr.aria-hidden]="!expand.health">
 
-        <div class="form-group">
-          <label for="detailsHealth">
-            <span class="form-label-bold">Provide a brief assessment for physical & mental health</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsHealth').touched || formError) && reportForm.get('detailsHealth').errors"></app-error-messages>
-          <textarea id="detailsHealth" formControlName="detailsAlcohol" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.health" [required]="expand.health"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsHealth" label="Provide a brief assessment for physical & mental health" [error]="formError"></app-text-entry>
 
       </div>
 
@@ -157,13 +122,8 @@
 
       <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsBehaviour').touched || formError) && reportForm.get('detailsBehaviour').errors, 'js-hidden': !expand.behaviour }" [attr.aria-hidden]="!expand.behaviour">
 
-        <div class="form-group">
-          <label for="detailsBehaviour">
-            <span class="form-label-bold">Provide a brief assessment for thinking & behaviour</span>
-          </label>
-          <app-error-messages [active]="(reportForm.get('detailsBehaviour').touched || formError) && reportForm.get('detailsBehaviour').errors"></app-error-messages>
-          <textarea id="detailsBehaviour" formControlName="detailsBehaviour" class="form-control wide" placeholder="Start typing here..." [attr.aria-required]="expand.behaviour" [required]="expand.behaviour"></textarea>
-        </div>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="detailsBehaviour" label="Provide a brief assessment for thinking & behaviour" [error]="formError"></app-text-entry>
 
       </div>
 

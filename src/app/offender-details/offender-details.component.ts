@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { getOffenderDetails } from './reducer/offender-details.reducer';
@@ -56,12 +56,12 @@ export class OffenderDetailsComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      name: this.reportData.name,
-      address: this.reportData.address,
+      name: [this.reportData.name, Validators.required],
+      address: [this.reportData.address, Validators.required],
       dateOfBirth: this.formBuilder.group({
-        day: this.reportData.dateOfBirth.day,
-        month: this.reportData.dateOfBirth.month,
-        year: this.reportData.dateOfBirth.year,
+        day: [this.reportData.dateOfBirth.day, Validators.required],
+        month: [this.reportData.dateOfBirth.month, Validators.required],
+        year: [this.reportData.dateOfBirth.year, Validators.required],
       }),
       age: this.reportData.age,
       crn: this.reportData.crn,

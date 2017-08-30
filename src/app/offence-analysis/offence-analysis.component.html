@@ -11,34 +11,16 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('offenceAnalysisEntry').touched || formError) && reportForm.get('offenceAnalysisEntry').errors }">
-        <label for="offenceAnalysisEntry">
-          <span class="form-label-bold">Offence analysis</span>
-        </label>
-        <app-error-messages control="offenceAnalysisEntry" [active]="(reportForm.get('offenceAnalysisEntry').touched || formError) && reportForm.get('offenceAnalysisEntry').errors"></app-error-messages>
-
-        <div>
-          <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
-
-          <div class="panel panel-border-narrow margin-top no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
-            <p>Consider the offender account and acceptance of responsibility. What is the impact on the victim and offender's awareness of this? Are there underlying discriminatory attitudes or behaviours?</p>
-            <p class="margin-top">
-              What is your analysis of the offence, including how it fits into any patterns of offending? Please consider if maturity is linked to offending i.e. peer group influences, easily led etc.</p>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-
-        <textarea id="offenceAnalysisEntry" formControlName="offenceAnalysisEntry" class="form-control wide" [ngClass]="{ 'form-control-error': (reportForm.get('offenceAnalysisEntry').touched || formError) && reportForm.get('offenceAnalysisEntry').errors }" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="offenceAnalysisEntry_error" required></textarea>
-      </div>
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="offenceAnalysisEntry" label="Offence analysis" [error]="formError">
+        <p>Consider the offender account and acceptance of responsibility. What is the impact on the victim and offender's awareness of this? Are there underlying discriminatory attitudes or behaviours?</p>
+        <p class="margin-top">What is your analysis of the offence, including how it fits into any patterns of offending? Please consider if maturity is linked to offending i.e. peer group influences, easily led etc.</p>
+      </app-text-entry>
 
       <hr noshade />
 
-      <div class="form-group">
-        <label for="patternOfOffending">
-          <span class="form-label-bold">Provide patterns of offending (if applicable)</span>
-        </label>
-        <textarea id="patternOfOffending" formControlName="patternOfOffending" class="form-control wide" role="textbox" placeholder="Start typing here..."></textarea>
-      </div>
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="patternOfOffending" label="Provide patterns of offending (if applicable)"></app-text-entry>
 
       <input class="button" id="nextButton" type="submit" value="Save & continue" />
 
