@@ -36,7 +36,7 @@ describe('FeedbackComponent', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Feedback');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Give feedback');
   });
 
   it('should include the reactive form', () => {
@@ -45,14 +45,14 @@ describe('FeedbackComponent', () => {
 
   it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit(false);
+    component.onSubmit({ valid: false });
     expect(component.formError).toBeTruthy();
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 
   it('should navigate to the Start your Report page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit(true);
+    component.onSubmit({ valid: true });
     expect(component.formError).toBeFalsy();
     expect(navigateSpy).toHaveBeenCalledWith(['start-report']);
   });

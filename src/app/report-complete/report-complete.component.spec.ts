@@ -26,7 +26,7 @@ describe('Component: Report complete', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Short Format Pre-Sentence Report');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Short Format Pre-sentence Report');
     expect(compiled.querySelector('h2').innerHTML).toBe('Report complete');
   });
 

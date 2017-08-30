@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { getOffenceAnalysis } from './reducer/offence-analysis.reducer';
@@ -37,7 +37,8 @@ export class OffenceAnalysisComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      offenceAnalysisEntry: this.reportData.offenceAnalysisEntry
+      offenceAnalysisEntry: [this.reportData.offenceAnalysisEntry, Validators.required],
+      patternOfOffending: this.reportData.patternOfOffending,
     });
   }
 
@@ -50,8 +51,10 @@ export class OffenceAnalysisComponent {
 
   /**
    *
+   * @param {boolean} valid
+   * @param {IOffenceAnalysis} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IOffenceAnalysis }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateOffenceAnalysisAction(value));

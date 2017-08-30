@@ -41,9 +41,9 @@ export class FeedbackComponent {
 
   /**
    *
-   * @param {Boolean} valid
+   * @param {boolean} valid
    */
-  onSubmit(valid: Boolean) {
+  onSubmit({ valid }: { valid: boolean }) {
     this.formError = !valid;
     if (valid) {
       this.continueJourney();

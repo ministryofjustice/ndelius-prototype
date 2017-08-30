@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { IOffenceDetails } from './model/offence-details.model';
 import { getOffenceDetails } from './reducer/offence-details.reducer';
+
+import { IOffenceDetails } from './model/offence-details.model';
 import { UpdateOffenceDetailsAction } from './action/offence-details.action';
 
 @Component({
@@ -35,9 +36,9 @@ export class OffenceDetailsComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      mainOffence: this.reportData.mainOffence,
+      mainOffence: [this.reportData.mainOffence, Validators.required],
       otherOffence: this.reportData.otherOffence,
-      offenceSummary: this.reportData.offenceSummary
+      offenceSummary: [this.reportData.offenceSummary, Validators.required]
     });
   }
 
@@ -50,8 +51,10 @@ export class OffenceDetailsComponent {
 
   /**
    *
+   * @param {boolean} valid
+   * @param {IOffenceDetails} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({valid, value}: { valid: boolean, value: IOffenceDetails }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateOffenceDetailsAction(value));

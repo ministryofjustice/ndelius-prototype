@@ -32,7 +32,7 @@ describe('Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h3').innerHTML).toBe('Report sections');
+    expect(compiled.querySelector('h3').innerHTML).toBe('Report sections:');
   });
 
 });

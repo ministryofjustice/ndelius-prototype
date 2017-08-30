@@ -4,7 +4,8 @@ import { IRiskAssessment } from '../model/risk-assessment.model';
 export const initialState: IRiskAssessment = {
   previousSupervisionResponse: '',
   additionalPreviousSupervision: '',
-  likelihoodOfReOffending: ''
+  likelihoodOfReOffending: '',
+  riskOfSeriousHarm: ''
 };
 
 export function riskAssessmentReducer(state = initialState, action: riskAssessment.Actions): IRiskAssessment {

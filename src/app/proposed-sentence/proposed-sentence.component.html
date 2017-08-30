@@ -1,46 +1,31 @@
-<h1 class="heading-xlarge no-margin-bottom">Conclusion</h1>
+<h1 class="heading-xlarge">Conclusion</h1>
 
 <div class="grid-row">
-  <div class="column-two-thirds">
-
-    <div class="margin-top large">&nbsp;</div>
-
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
-
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('proposal').touched || formError) && reportForm.get('proposal').errors }">
-        <label for="proposal">
-          <span class="form-label-bold">Enter a proposed sentence</span>
-        </label>
-        <app-error-messages control="proposal" [active]="(reportForm.get('proposal').touched || formError) && reportForm.get('proposal').errors"></app-error-messages>
-
-        <div>
-          <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
-
-          <div class="panel panel-border-narrow margin-top no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
-            <ul>
-              <li class="list-bullet">What are the sentencing guidelines and relevant legislation?</li>
-              <li class="list-bullet">Length of sentence and any sentence components</li>
-              <li class="list-bullet">Any aggravating or mitigating factors</li>
-              <li class="list-bullet">How will your proposal manage risk</li>
-              <li class="list-bullet">What will the impact of the sentence be on the offender</li>
-              <li class="list-bullet">If relevant, what is not suitable</li>
-            </ul>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-
-        <textarea id="proposal" formControlName="proposal" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="proposal_error" required></textarea>
-      </div>
-
-      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
-
-    </form>
-
-  </div>
   <div class="column-one-third">
 
     <!-- Angular component -->
     <app-navigation></app-navigation>
+
+  </div>
+  <div class="column-two-thirds">
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="proposal" label="Enter a proposed sentence" [error]="formError">
+        <ul>
+          <li class="list-bullet">What are the sentencing guidelines and relevant legislation?</li>
+          <li class="list-bullet">Length of sentence and any sentence components</li>
+          <li class="list-bullet">Any aggravating or mitigating factors</li>
+          <li class="list-bullet">How will your proposal manage risk</li>
+          <li class="list-bullet">What will the impact of the sentence be on the offender</li>
+          <li class="list-bullet">If relevant, what is not suitable</li>
+        </ul>
+      </app-text-entry>
+
+      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
 
   </div>
 </div>

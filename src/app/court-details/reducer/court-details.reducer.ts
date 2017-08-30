@@ -1,11 +1,9 @@
 import { ICourtDetails } from '../model/court-details.model';
 import * as courtDetails from '../action/court-details.action';
 
-export const initialState: ICourtDetails = {
-  court: 'Manchester and Salford Magistrates Court',
-  localJusticeArea: 'Greater Manchester',
-  hearingDate: void 0
-};
+import { defaultCourtDetails } from '../../_shared/model/default-data';
+
+export const initialState: ICourtDetails = defaultCourtDetails();
 
 export function courtDetailsReducer(state = initialState, action: courtDetails.Actions): ICourtDetails {
 

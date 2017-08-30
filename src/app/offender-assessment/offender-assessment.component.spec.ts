@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -8,8 +9,11 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { OffenderAssessmentComponent } from './offender-assessment.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../_shared/error-messages.mock.component';
+import { MockTextEntryComponent } from '../_shared/text-entry.mock.component';
 
-describe('Component: Offender assessment detail', () => {
+import * as model from './reducer/offender-assessment.reducer';
+
+describe('Component: Offender assessment issues', () => {
 
   let fixture: ComponentFixture<OffenderAssessmentComponent>;
   let component: OffenderAssessmentComponent;
@@ -20,12 +24,16 @@ describe('Component: Offender assessment detail', () => {
       declarations: [
         OffenderAssessmentComponent,
         MockNavigationComponent,
-        MockErrorMessagesComponent
+        MockErrorMessagesComponent,
+        MockTextEntryComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
+      ],
+      providers: [
+        DatePipe
       ]
     }).compileComponents();
   }));
@@ -42,7 +50,7 @@ describe('Component: Offender assessment detail', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Offender assessment detail');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Offender assessment');
   });
 
   it('should include the reactive form', () => {
@@ -51,16 +59,15 @@ describe('Component: Offender assessment detail', () => {
 
   it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: false, value: {} });
+    component.onSubmit({ valid: false, value: model.initialState });
     expect(component.formError).toBeTruthy();
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 
-  it('should navigate to the Patterns of offending page', () => {
+  it('should navigate to the Offender assessment detail page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: true, value: {} });
-    expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['offending-patterns']);
+    component.onSubmit({ valid: true, value: model.initialState });
+    expect(navigateSpy).toHaveBeenCalledWith(['risk-assessment']);
   });
 
 });

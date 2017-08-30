@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { getProposedSentence } from './reducer/proposed-sentence.reducer';
@@ -37,7 +37,7 @@ export class ProposedSentenceComponent {
    */
   createForm() {
     this.reportForm = this.formBuilder.group({
-      proposal: this.reportData.proposal
+      proposal: [this.reportData.proposal, Validators.required]
     });
   }
 
@@ -50,10 +50,10 @@ export class ProposedSentenceComponent {
 
   /**
    *
-   * @param {any} valid
-   * @param {any} value
+   * @param {boolean} valid
+   * @param {IProposedSentence} value
    */
-  onSubmit({ valid: valid, value: value }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IProposedSentence }) {
     this.formError = !valid;
     if (valid) {
       this.store.dispatch(new UpdateProposedSentenceAction(value));

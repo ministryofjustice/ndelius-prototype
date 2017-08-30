@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { NavigationComponent } from './navigation.component';
 import { ErrorMessagesComponent } from './error-messages.component';
+import { TextEntryComponent } from './text-entry.component';
 
 import { environment } from '../../environments/environment';
 import { StoreModule } from '@ngrx/store';
@@ -34,11 +35,13 @@ import { reducers } from './reducer/state.reducers';
     RouterModule,
     ReactiveFormsModule,
     NavigationComponent,
-    ErrorMessagesComponent
+    ErrorMessagesComponent,
+    TextEntryComponent
   ],
   declarations: [
     NavigationComponent,
-    ErrorMessagesComponent
+    ErrorMessagesComponent,
+    TextEntryComponent
   ],
   providers: [
     DatePipe

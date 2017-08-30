@@ -1,11 +1,31 @@
-<h1 class="heading-xlarge no-margin-bottom">Risk assessment</h1>
+<h1 class="heading-xlarge">Risk assessment</h1>
 
 <div class="grid-row">
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
   <div class="column-two-thirds">
 
-    <div class="margin-top large">&nbsp;</div>
-
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="likelihoodOfReOffending" label="Likelihood of re-offending" help="Indicate which tools have been used (RM2000,OGRS etc.)" [error]="formError" required="true"></app-text-entry>
+
+      <hr noshade/>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" [error]="formError">
+        <ul>
+          <li class="list-bullet">What is the risk and risk level and to who?</li>
+          <li class="list-bullet">Describe what will increase or decrease the risk.</li>
+          <li class="list-bullet">What tools used were used?</li>
+        </ul>
+      </app-text-entry>
+
+      <hr noshade/>
 
       <div class="form-group">
         <fieldset>
@@ -39,33 +59,12 @@
 
       <hr noshade/>
 
-      <div class="form-group">
-        <label for="additionalPreviousSupervision">
-          <span class="form-label-bold">Add additional details on previous supervision (if applicable)</span>
-        </label>
-        <textarea id="additionalPreviousSupervision" formControlName="additionalPreviousSupervision" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="false" aria-describedby="additionalPreviousSupervision_error"></textarea>
-      </div>
-
-      <hr noshade/>
-
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('likelihoodOfReOffending').touched || formError) && reportForm.get('likelihoodOfReOffending').errors }">
-        <label for="likelihoodOfReOffending">
-          <span class="form-label-bold">Likelihood of re-offending</span>
-          <span class="form-hint">Indicate which tools have been used (RM2000,OGRS etc.)</span>
-        </label>
-        <app-error-messages control="likelihoodOfReOffending" [active]="(reportForm.get('likelihoodOfReOffending').touched || formError) && reportForm.get('likelihoodOfReOffending').errors"></app-error-messages>
-        <textarea id="likelihoodOfReOffending" formControlName="likelihoodOfReOffending" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="likelihoodOfReOffending_error" required></textarea>
-      </div>
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" label="Add additional details on previous supervision (if applicable)"></app-text-entry>
 
       <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
 
     </form>
-
-  </div>
-  <div class="column-one-third">
-
-    <!-- Angular component -->
-    <app-navigation></app-navigation>
 
   </div>
 </div>

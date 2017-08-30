@@ -1,33 +1,21 @@
-<nav role="menubar" class="margin-top js-stick-at-top-when-scrolling">
+<nav role="menubar" class="js-stick-at-top-when-scrolling">
 
-  <div class="nav-header"></div>
+  <div *ngIf="!rla.active" class="margin-bottom medium">
 
-  <h3 class="heading-medium no-margin-top no-margin-bottom">Report sections</h3>
+    <a id="saveDraft" routerLink="/save-draft" routerLinkActive="active" class="heading-medium no-margin-top no-margin-bottom">Save a draft of this report</a>
+
+  </div>
+
+  <h3 class="heading-medium no-margin-top no-margin-bottom">Report sections:</h3>
 
   <span class="display-block">- <a routerLink="/offender-details" routerLinkActive="active" class="nav-item">Offender details</a></span>
   <span class="display-block">- <a routerLink="/court-details" routerLinkActive="active" class="nav-item">Sentencing court details</a></span>
   <span class="display-block">- <a routerLink="/information-sources" routerLinkActive="active" class="nav-item">Sources of information</a></span>
   <span class="display-block">- <a routerLink="/offence-details" routerLinkActive="active" class="nav-item">Offence details</a></span>
   <span class="display-block">- <a routerLink="/offence-analysis" routerLinkActive="active" class="nav-item">Offence analysis</a></span>
-  <span class="display-block">- <a routerLink="/offender-issues" routerLinkActive="active" class="nav-item">Offender assessment issues</a></span>
-  <span class="display-block">- <a routerLink="/offender-assessment" routerLinkActive="active" class="nav-item">Offender assessment detail</a></span>
-  <span class="display-block">- <a routerLink="/offending-patterns" routerLinkActive="active" class="nav-item">Patterns of offending</a></span>
+  <span class="display-block">- <a routerLink="/offender-assessment" routerLinkActive="active" class="nav-item">Offender assessment</a></span>
   <span class="display-block">- <a routerLink="/risk-assessment" routerLinkActive="active" class="nav-item">Risk assessment</a></span>
-  <span class="display-block">- <a routerLink="/serious-harm-risk" routerLinkActive="active" class="nav-item">Risk of serious harm</a></span>
   <span class="display-block">- <a routerLink="/proposed-sentence" routerLinkActive="active" class="nav-item">Conclusion</a></span>
   <span class="display-block">- <a routerLink="/signature" routerLinkActive="active" #rla="routerLinkActive" class="nav-item">Signature</a></span>
-
-  <div *ngIf="!rla.active">
-
-    <hr class="margin-top margin-bottom medium" noshade />
-
-    <h3 class="heading-medium no-margin-top no-margin-bottom">Save your report</h3>
-
-    <p class="font-xsmall no-margin-bottom">You can save your progress as a draft PDF report and come back to it later.</p>
-
-    <span class="display-block">- <a id="saveDraft" routerLink="/save-draft" routerLinkActive="active" class="nav-item margin-top">Save a draft of this report</a></span>
-    <span class="display-block">- <a id="reportNotes" routerLink="/save-draft" routerLinkActive="active" class="nav-item">View report notes</a></span>
-
-  </div>
 
 </nav>
