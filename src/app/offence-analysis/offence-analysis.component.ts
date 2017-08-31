@@ -46,7 +46,7 @@ export class OffenceAnalysisComponent {
    *
    */
   private continueJourney() {
-    this.router.navigate(['offender-issues']);
+    this.router.navigate(['offender-assessment']);
   }
 
   /**

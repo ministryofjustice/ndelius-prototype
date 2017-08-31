@@ -4,6 +4,10 @@ The prototype has been developed in order to rapidly develop UI and UX features 
 
 The prototype has been developed close to "vanilla" HTML so that design staff can work with the code more easily. 
 
+**CircleCI build status:**
+
+[![CircleCI](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master.svg?style=svg)](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master)
+
 ## Requirements
 
 The project requires [Node.js] 6.x
