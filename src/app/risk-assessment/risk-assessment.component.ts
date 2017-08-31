@@ -48,7 +48,7 @@ export class RiskAssessmentComponent {
    *
    */
   private continueJourney() {
-    this.router.navigate(['serious-harm-risk']);
+    this.router.navigate(['proposed-sentence']);
   }
 
   /**

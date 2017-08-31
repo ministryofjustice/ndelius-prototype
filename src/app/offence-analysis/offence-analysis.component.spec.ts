@@ -64,6 +64,6 @@ describe('Component: Offence analysis', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['offender-issues']);
+    expect(navigateSpy).toHaveBeenCalledWith(['offender-assessment']);
   });
 });
