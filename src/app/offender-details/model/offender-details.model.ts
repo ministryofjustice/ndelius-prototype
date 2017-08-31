@@ -11,4 +11,5 @@ export interface IOffenderDetails {
   age: number;
   crn: string;
   pnc: string;
+  saved: boolean;
 }

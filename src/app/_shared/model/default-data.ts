@@ -27,7 +27,8 @@ export function defaultOffenderDetails(): IOffenderDetails {
     },
     age: getAge('06/21/1976'),
     crn: 'X087946',
-    pnc: ''
+    pnc: '',
+    saved: true
   };
 }
 
@@ -35,6 +36,7 @@ export function defaultCourtDetails(): ICourtDetails {
   return {
     court: 'Manchester and Salford Magistrates Court',
     localJusticeArea: 'Greater Manchester',
-    hearingDate: void 0
+    hearingDate: void 0,
+    saved: true
   };
 }

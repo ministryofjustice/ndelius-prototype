@@ -84,8 +84,7 @@ export class OffenderDetailsComponent {
   onSubmit({ valid, value }: { valid: boolean, value: IOffenderDetails }) {
     this.formError = !valid;
     if (valid) {
-
-      const updatedValue = Object.assign(value, { age: OffenderDetailsComponent.getAge(value.dateOfBirth) });
+      const updatedValue = Object.assign(value, { saved: true, age: OffenderDetailsComponent.getAge(value.dateOfBirth) });
 
       this.store.dispatch(new UpdateOffenderDetailsAction(updatedValue));
       this.continueJourney();

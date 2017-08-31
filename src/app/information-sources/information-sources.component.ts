@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { getInformationSources } from './reducer/information-sources.reducer';
+
 import { IInformationSources } from './model/information-sources.model';
 import { UpdateInformationSourcesAction } from './action/information-sources.action';
 
@@ -62,6 +63,7 @@ export class InformationSourcesComponent {
    * @param {IInformationSources} value
    */
   onSubmit({ value }: { value: IInformationSources }) {
+    value.saved = true;
     this.store.dispatch(new UpdateInformationSourcesAction(value));
     this.continueJourney();
   }

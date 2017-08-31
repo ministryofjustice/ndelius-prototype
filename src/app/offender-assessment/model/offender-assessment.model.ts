@@ -15,4 +15,5 @@ export interface IOffenderAssessment {
   detailsHealth: string;
   issueBehaviour: boolean;
   detailsBehaviour: string;
+  saved: boolean;
 }

@@ -5,3 +5,9 @@
 .bold-xxsmall {
   @include bold-14();
 }
+
+.saved-tag {
+  @include phase-tag();
+  background-color: $govuk-blue;
+  margin: 0;
+}

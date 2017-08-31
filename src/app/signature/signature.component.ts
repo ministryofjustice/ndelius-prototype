@@ -64,7 +64,8 @@ export class SignatureComponent {
       const submitData: ISignature = {
         reportAuthor: value.reportAuthor,
         office: value.office,
-        reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
+        reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value,
+        saved: true
       };
 
       this.store.dispatch(new UpdateSignatureAction(submitData));

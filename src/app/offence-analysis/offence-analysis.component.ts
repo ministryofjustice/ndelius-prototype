@@ -57,6 +57,7 @@ export class OffenceAnalysisComponent {
   onSubmit({ valid, value }: { valid: boolean, value: IOffenceAnalysis }) {
     this.formError = !valid;
     if (valid) {
+      value.saved = true;
       this.store.dispatch(new UpdateOffenceAnalysisAction(value));
       this.continueJourney();
     }
