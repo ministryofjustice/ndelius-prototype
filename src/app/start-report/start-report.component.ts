@@ -56,13 +56,15 @@ export class StartReportComponent implements OnInit, OnDestroy {
           dateOfBirth: params['dateOfBirth'],
           age: params['age'],
           crn: params['crn'],
-          pnc: params['pnc'] || void 0
+          pnc: params['pnc'] || void 0,
+          saved: true
         }));
 
         this.store.dispatch(new UpdateCourtDetailsAction({
           court: params['court'],
           localJusticeArea: params['localJusticeArea'],
-          hearingDate: params['hearingDate']
+          hearingDate: params['hearingDate'],
+          saved: true
         }));
       }
     });

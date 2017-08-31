@@ -85,6 +85,7 @@ export class OffenderAssessmentComponent {
   onSubmit({ valid, value }: { valid: boolean, value: IOffenderAssessment }) {
     this.formError = !valid;
     if (valid) {
+      value.saved = true;
       this.store.dispatch(new UpdateOffenderAssessmentAction(value));
       this.continueJourney();
     }

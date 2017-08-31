@@ -4,7 +4,8 @@ import * as offenceDetails from '../action/offence-details.action';
 export const initialState: IOffenceDetails = {
   mainOffence: '',
   otherOffence: '',
-  offenceSummary: ''
+  offenceSummary: '',
+  saved: false
 };
 
 export function offenceDetailsReducer(state = initialState, action: offenceDetails.Actions): IOffenceDetails {

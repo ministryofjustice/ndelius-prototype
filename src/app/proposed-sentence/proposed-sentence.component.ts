@@ -45,7 +45,7 @@ export class ProposedSentenceComponent {
    *
    */
   private continueJourney() {
-    this.router.navigate(['signature']);
+    this.router.navigate(['check-report']);
   }
 
   /**
@@ -56,6 +56,7 @@ export class ProposedSentenceComponent {
   onSubmit({ valid, value }: { valid: boolean, value: IProposedSentence }) {
     this.formError = !valid;
     if (valid) {
+      value.saved = true;
       this.store.dispatch(new UpdateProposedSentenceAction(value));
       this.continueJourney();
     }

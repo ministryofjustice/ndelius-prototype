@@ -4,7 +4,8 @@ import { ISignature } from '../model/signature.model';
 export const initialState: ISignature = {
   reportAuthor: '',
   office: '',
-  reportDate: void 0
+  reportDate: void 0,
+  saved: false
 };
 
 export function signatureReducer(state = initialState, action: signature.Actions): ISignature {

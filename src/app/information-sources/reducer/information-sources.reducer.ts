@@ -13,7 +13,8 @@ export const initialState: IInformationSources = {
   smartToolSource: void 0,
   guidelinesSource: void 0,
   otherInformationSource: void 0,
-  otherInformationDetails: void 0
+  otherInformationDetails: void 0,
+  saved: false
 };
 
 export function informationSourcesReducer(state = initialState, action: informationSources.Actions): IInformationSources {

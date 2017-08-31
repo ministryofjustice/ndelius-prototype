@@ -10,6 +10,7 @@ import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.co
 import { OffenderAssessmentComponent } from './offender-assessment/offender-assessment.component';
 import { RiskAssessmentComponent } from './risk-assessment/risk-assessment.component';
 import { ProposedSentenceComponent } from './proposed-sentence/proposed-sentence.component';
+import { CheckReportComponent } from './check-report/check-report.component';
 import { SignatureComponent } from './signature/signature.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'offender-assessment', data: { title: 'Offender assessment detail' }, component: OffenderAssessmentComponent },
   { path: 'risk-assessment', data: { title: 'Risk assessment' }, component: RiskAssessmentComponent },
   { path: 'proposed-sentence', data: { title: 'Conclusion' }, component: ProposedSentenceComponent },
+  { path: 'check-report', data: { title: 'Check your report' }, component: CheckReportComponent },
   { path: 'signature', data: { title: 'Signature' }, component: SignatureComponent },
   { path: 'save-draft', data: { title: 'Draft Saved' }, component: SaveDraftComponent },
   { path: 'report-complete', data: { title: 'Report complete' }, component: ReportCompleteComponent },

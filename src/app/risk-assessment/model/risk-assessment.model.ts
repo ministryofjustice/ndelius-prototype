@@ -3,4 +3,5 @@ export interface IRiskAssessment {
   additionalPreviousSupervision: string;
   likelihoodOfReOffending: string;
   riskOfSeriousHarm: string;
+  saved: boolean;
 }
