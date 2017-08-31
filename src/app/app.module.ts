@@ -18,6 +18,7 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.component';
+import { CheckReportComponent } from './check-report/check-report.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { OffenceAnalysisComponent } from './offence-analysis/offence-analysis.co
     SaveDraftComponent,
     ReportCompleteComponent,
     FeedbackComponent,
-    OffenceAnalysisComponent
+    OffenceAnalysisComponent,
+    CheckReportComponent
   ],
   bootstrap: [
     AppComponent

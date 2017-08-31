@@ -64,7 +64,7 @@ describe('Component: Conclusion', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['signature']);
+    expect(navigateSpy).toHaveBeenCalledWith(['check-report']);
   });
 
 });

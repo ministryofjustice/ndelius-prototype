@@ -45,7 +45,7 @@ export class ProposedSentenceComponent {
    *
    */
   private continueJourney() {
-    this.router.navigate(['signature']);
+    this.router.navigate(['check-report']);
   }
 
   /**
