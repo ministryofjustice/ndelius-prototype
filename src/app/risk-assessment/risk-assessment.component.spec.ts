@@ -64,7 +64,7 @@ describe('Component: Risk assessment', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['serious-harm-risk']);
+    expect(navigateSpy).toHaveBeenCalledWith(['proposed-sentence']);
   });
 
 });

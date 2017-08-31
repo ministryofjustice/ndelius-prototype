@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 interface ISaving {
@@ -11,7 +11,7 @@ interface ISaving {
   selector: 'app-text-entry',
   templateUrl: './text-entry.component.html'
 })
-export class TextEntryComponent implements OnInit, AfterContentInit {
+export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
 
   @Input('group') public group: FormGroup;
   @Input('label') public label: string;
@@ -84,7 +84,25 @@ export class TextEntryComponent implements OnInit, AfterContentInit {
    */
   ngAfterContentInit() {
     // Check for hint content
-    // this.showHint = this.hint.nativeElement.children.length > 0;
+    this.showHint = this.hint.nativeElement.children.length > 0;
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+
+    console['log']('DESTROY ALL FISH');
+
+    const timer = this.saving.timer;
+    const interval: number = this.saving.interval;
+
+    if (timer) {
+      clearTimeout(timer);
+    }
+    if (interval) {
+      clearInterval(interval);
+    }
   }
 
 }
