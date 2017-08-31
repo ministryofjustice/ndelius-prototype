@@ -79,6 +79,13 @@ export class OffenderAssessmentComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IOffenderAssessment }) {
+    this.store.dispatch(new UpdateOffenderAssessmentAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IOffenderAssessment} value
    */

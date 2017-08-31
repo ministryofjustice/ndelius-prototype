@@ -147,7 +147,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -184,7 +183,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -256,7 +254,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -306,7 +303,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });

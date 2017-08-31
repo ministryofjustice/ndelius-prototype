@@ -12,17 +12,17 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="mainOffence" label="Main offence and dates" [error]="formError"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="mainOffence" label="Main offence and dates" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
       <hr noshade />
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="otherOffence" label="Other offences and dates (if applicable)"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="otherOffence" label="Other offences and dates (if applicable)" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
       <hr noshade />
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="offenceSummary" label="Brief summary of the offence" [error]="formError"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="offenceSummary" label="Brief summary of the offence" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
       <input class="button" id="nextButton" type="submit" value="Save & continue" />
 

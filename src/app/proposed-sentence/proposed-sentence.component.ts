@@ -50,6 +50,13 @@ export class ProposedSentenceComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IProposedSentence }) {
+    this.store.dispatch(new UpdateProposedSentenceAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IProposedSentence} value
    */

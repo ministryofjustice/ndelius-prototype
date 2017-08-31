@@ -12,7 +12,7 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="offenceAnalysisEntry" label="Offence analysis" [error]="formError">
+      <app-text-entry [group]="reportForm" name="offenceAnalysisEntry" label="Offence analysis" [error]="formError" (onSaveContent)="saveContent(reportForm)">
         <p>Consider the offender account and acceptance of responsibility. What is the impact on the victim and offender's awareness of this? Are there underlying discriminatory attitudes or behaviours?</p>
         <p class="margin-top">What is your analysis of the offence, including how it fits into any patterns of offending? Please consider if maturity is linked to offending i.e. peer group influences, easily led etc.</p>
       </app-text-entry>
@@ -20,7 +20,7 @@
       <hr noshade />
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="patternOfOffending" label="Provide patterns of offending (if applicable)"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="patternOfOffending" label="Provide patterns of offending (if applicable)" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
       <input class="button" id="nextButton" type="submit" value="Save & continue" />
 

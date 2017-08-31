@@ -51,6 +51,13 @@ export class OffenceAnalysisComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IOffenceAnalysis }) {
+    this.store.dispatch(new UpdateOffenceAnalysisAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IOffenceAnalysis} value
    */

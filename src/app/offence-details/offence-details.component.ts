@@ -51,10 +51,17 @@ export class OffenceDetailsComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IOffenceDetails }) {
+    this.store.dispatch(new UpdateOffenceDetailsAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IOffenceDetails} value
    */
-  onSubmit({valid, value}: { valid: boolean, value: IOffenceDetails }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IOffenceDetails }) {
     this.formError = !valid;
     if (valid) {
       value.saved = true;

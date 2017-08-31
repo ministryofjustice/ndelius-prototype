@@ -53,6 +53,13 @@ export class RiskAssessmentComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IRiskAssessment }) {
+    this.store.dispatch(new UpdateRiskAssessmentAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IRiskAssessment} value
    */
