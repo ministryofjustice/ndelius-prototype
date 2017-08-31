@@ -91,9 +91,6 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
    *
    */
   ngOnDestroy() {
-
-    console['log']('DESTROY ALL FISH');
-
     const timer = this.saving.timer;
     const interval: number = this.saving.interval;
 
@@ -104,5 +101,4 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
       clearInterval(interval);
     }
   }
-
 }
