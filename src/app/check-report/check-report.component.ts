@@ -3,13 +3,20 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { getCurrentState } from '../_shared/reducer/state.reducers';
 
+interface ISection {
+  route: string;
+  label: string;
+  state: string;
+  saved: boolean;
+}
+
 @Component({
   selector: 'app-check-report',
   templateUrl: './check-report.component.html'
 })
 export class CheckReportComponent {
 
-  sections = [
+  sections: Array<ISection> = [
     {
       route: '/offender-details',
       label: 'Offender details',

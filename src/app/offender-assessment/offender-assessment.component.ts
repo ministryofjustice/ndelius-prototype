@@ -8,6 +8,13 @@ import { getOffenderAssessment } from './reducer/offender-assessment.reducer';
 import { IOffenderAssessment } from './model/offender-assessment.model';
 import { UpdateOffenderAssessmentAction } from './action/offender-assessment.action';
 
+interface ISection {
+  checkControl: string;
+  checkLabel: string;
+  detailControl: string;
+  detailLabel: string;
+}
+
 @Component({
   selector: 'app-offender-assessment',
   templateUrl: './offender-assessment.component.html'
@@ -17,7 +24,7 @@ export class OffenderAssessmentComponent {
   reportData: IOffenderAssessment;
   reportForm: FormGroup;
   formError: boolean;
-  sections = [
+  sections: Array<ISection> = [
     {
       checkControl: 'issueAccommodation',
       checkLabel: 'Accommodation',
@@ -68,6 +75,12 @@ export class OffenderAssessmentComponent {
     }
   ];
 
+  /**
+   * @constructor
+   * @param router
+   * @param formBuilder
+   * @param store
+   */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderAssessment>) {
     store.select(getOffenderAssessment).subscribe(state => {
       this.reportData = state;
@@ -108,6 +121,7 @@ export class OffenderAssessmentComponent {
 
   /**
    *
+   * @param {IOffenderAssessment} value
    */
   saveContent({ value }: { value: IOffenderAssessment }) {
     this.store.dispatch(new UpdateOffenderAssessmentAction(value));
