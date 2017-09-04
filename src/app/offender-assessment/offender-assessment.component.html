@@ -13,119 +13,22 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <!-- @TODO: These should be components but will that confuse or does it not matter? -->
+      <!-- Loop through the "sections" specified in the controller: offender-assessment.component.ts -->
+      <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
-      <!-- ACCOMMODATION -->
+        <div class="multiple-choice" [ngClass]="{ 'margin-top': index > 0 }">
+          <input type="checkbox" role="checkbox" [id]="section.checkControl" [formControlName]="section.checkControl" value="true" />
+          <label [attr.for]="section.checkControl" class="form-label-bold">{{section.checkLabel}}</label>
+        </div>
 
-      <div class="multiple-choice">
-        <input type="checkbox" role="checkbox" id="issueAccommodation" formControlName="issueAccommodation" value="true" (change)="expand.accommodation = !expand.accommodation" />
-        <label for="issueAccommodation" class="form-label-bold">Accommodation</label>
-      </div>
+        <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get(section.checkControl).touched || formError) && reportForm.get(section.checkControl).errors, 'js-hidden': !reportForm.get(section.checkControl).value }" [attr.aria-hidden]="!reportForm.get(section.checkControl).value">
 
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsAccommodation').touched || formError) && reportForm.get('detailsAccommodation').errors, 'js-hidden': !expand.accommodation }" [attr.aria-hidden]="!expand.accommodation">
+          <!-- Angular component -->
+          <app-text-entry [group]="reportForm" [name]="section.detailControl" [label]="section.detailLabel" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsAccommodation" label="Provide a brief assessment for accommodation" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+        </div>
 
-      </div>
-
-      <!-- EMPLOYMENT -->
-
-      <div class="multiple-choice margin-top">
-        <input type="checkbox" role="checkbox" id="issueEmployment" formControlName="issueEmployment" value="true" (change)="expand.employment = !expand.employment" />
-        <label for="issueEmployment" class="form-label-bold">Employment</label>
-      </div>
-
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsEmployment').touched || formError) && reportForm.get('detailsEmployment').errors, 'js-hidden': !expand.employment }" [attr.aria-hidden]="!expand.employment">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsEmployment" label="Provide a brief assessment for employment" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
-
-      <!-- FINANCE -->
-
-      <div class="multiple-choice margin-top">
-        <input type="checkbox" role="checkbox" id="issueFinance" formControlName="issueFinance" value="true" (change)="expand.finance = !expand.finance" />
-        <label for="issueFinance" class="form-label-bold">Finance</label>
-      </div>
-
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsFinance').touched || formError) && reportForm.get('detailsFinance').errors, 'js-hidden': !expand.finance }" [attr.aria-hidden]="!expand.finance">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsFinance" label="Provide a brief assessment for finance" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
-
-      <!-- RELATIONSHIPS -->
-
-      <div class="multiple-choice margin-top">
-        <input type="checkbox" role="checkbox" id="issueRelationships" formControlName="issueRelationships" value="true" (change)="expand.relationships = !expand.relationships" />
-        <label for="issueRelationships" class="form-label-bold">Relationships</label>
-      </div>
-
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsRelationships').touched || formError) && reportForm.get('detailsRelationships').errors, 'js-hidden': !expand.relationships }" [attr.aria-hidden]="!expand.relationships">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsRelationships" label="Provide a brief assessment for relationships" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
-
-      <!-- DRUGS -->
-
-      <div class="multiple-choice margin-top">
-        <input type="checkbox" role="checkbox" id="issueDrugs" formControlName="issueDrugs" value="true" (change)="expand.drugs = !expand.drugs" />
-        <label for="issueDrugs" class="form-label-bold">Drugs</label>
-      </div>
-
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsDrugs').touched || formError) && reportForm.get('detailsDrugs').errors, 'js-hidden': !expand.drugs }" [attr.aria-hidden]="!expand.drugs">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsDrugs" label="Provide a brief assessment for drugs" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
-
-      <!-- ALCOHOL -->
-
-      <div class="multiple-choice margin-top">
-        <input type="checkbox" role="checkbox" id="issueAlcohol" formControlName="issueAlcohol" value="true" (change)="expand.alcohol = !expand.alcohol" />
-        <label for="issueAlcohol" class="form-label-bold">Alcohol</label>
-      </div>
-
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsAlcohol').touched || formError) && reportForm.get('detailsAlcohol').errors, 'js-hidden': !expand.alcohol }" [attr.aria-hidden]="!expand.alcohol">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsAlcohol" label="Provide a brief assessment for alcohol" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
-
-      <!-- PHYSICAL & MENTAL HEALTH -->
-
-      <div class="multiple-choice margin-top">
-        <input type="checkbox" role="checkbox" id="issueHealth" formControlName="issueHealth" value="true" (change)="expand.health = !expand.health" />
-        <label for="issueHealth" class="form-label-bold">Physical & mental health</label>
-      </div>
-
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsHealth').touched || formError) && reportForm.get('detailsHealth').errors, 'js-hidden': !expand.health }" [attr.aria-hidden]="!expand.health">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsHealth" label="Provide a brief assessment for physical & mental health" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
-
-      <!-- THINKING & BEHAVIOUR -->
-
-      <div class="multiple-choice margin-top">
-        <input type="checkbox" role="checkbox" id="issueBehaviour" formControlName="issueBehaviour" value="true" (change)="expand.behaviour = !expand.behaviour" />
-        <label for="issueBehaviour" class="form-label-bold">Thinking & behaviour</label>
-      </div>
-
-      <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get('detailsBehaviour').touched || formError) && reportForm.get('detailsBehaviour').errors, 'js-hidden': !expand.behaviour }" [attr.aria-hidden]="!expand.behaviour">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="detailsBehaviour" label="Provide a brief assessment for thinking & behaviour" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
+      </ng-template>
 
       <div class="clearfix"></div>
 
