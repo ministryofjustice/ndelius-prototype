@@ -16,7 +16,7 @@ export class InformationSourcesComponent {
 
   reportData: IInformationSources;
   reportForm: FormGroup;
-  expandContent: Boolean;
+  expandContent: boolean;
 
   /**
    *

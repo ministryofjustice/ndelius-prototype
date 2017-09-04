@@ -16,8 +16,8 @@ export class OffenceAnalysisComponent {
 
   reportData: IOffenceAnalysis;
   reportForm: FormGroup;
-  formError: Boolean;
-  expandContent: Boolean;
+  formError: boolean;
+  expandContent: boolean;
 
   /**
    *

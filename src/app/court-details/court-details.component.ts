@@ -17,7 +17,7 @@ export class CourtDetailsComponent {
 
   reportData: ICourtDetails;
   reportForm: FormGroup;
-  formError: Boolean;
+  formError: boolean;
 
   /**
    *

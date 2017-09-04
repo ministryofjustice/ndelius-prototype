@@ -16,8 +16,8 @@ export class ProposedSentenceComponent {
 
   reportData: IProposedSentence;
   reportForm: FormGroup;
-  formError: Boolean;
-  expandContent: Boolean;
+  formError: boolean;
+  expandContent: boolean;
 
   /**
    *
