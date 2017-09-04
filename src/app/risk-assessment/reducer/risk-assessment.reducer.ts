@@ -5,7 +5,8 @@ export const initialState: IRiskAssessment = {
   previousSupervisionResponse: '',
   additionalPreviousSupervision: '',
   likelihoodOfReOffending: '',
-  riskOfSeriousHarm: ''
+  riskOfSeriousHarm: '',
+  saved: false
 };
 
 export function riskAssessmentReducer(state = initialState, action: riskAssessment.Actions): IRiskAssessment {

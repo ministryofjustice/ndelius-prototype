@@ -51,12 +51,20 @@ export class OffenceAnalysisComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IOffenceAnalysis }) {
+    this.store.dispatch(new UpdateOffenceAnalysisAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IOffenceAnalysis} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IOffenceAnalysis }) {
     this.formError = !valid;
     if (valid) {
+      value.saved = true;
       this.store.dispatch(new UpdateOffenceAnalysisAction(value));
       this.continueJourney();
     }

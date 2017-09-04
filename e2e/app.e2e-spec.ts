@@ -147,7 +147,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -184,7 +183,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -256,7 +254,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -306,7 +303,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -342,6 +338,20 @@ describe('New Probation Services - Rapid Prototype', () => {
 
     });
 
+    /* Check your report */
+
+    describe('Check your report', () => {
+
+      it('should route', () => {
+        expect(page.getHeadingText()).toEqual('Check your report');
+      });
+
+      it('should allow the user to continue through the journey', () => {
+        page.getNextButton().click();
+      });
+
+    });
+
     /* Signature */
 
     describe('Signature', () => {
@@ -372,9 +382,8 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getElementById('office_error').isDisplayed()).toBeFalsy();
       });
 
-      it('should continue to the Report Complete page', () => {
+      it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
-        expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
       });
 
     });
@@ -382,6 +391,10 @@ describe('New Probation Services - Rapid Prototype', () => {
     /* Report Complete */
 
     describe('Report complete', () => {
+
+      it('should route', () => {
+        expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
+      });
 
       it('should include the correct sub-heading', () => {
         expect(page.getSubHeadingText()).toEqual('Report complete');

@@ -43,3 +43,5 @@ export const reducers: ActionReducerMap<State> = {
   proposedSentence: proposedSentenceReducer,
   signature: signatureReducer
 };
+
+export const getCurrentState = (state: State) => state;

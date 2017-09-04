@@ -64,7 +64,8 @@ export class CourtDetailsComponent {
       const submitData: ICourtDetails = {
         court: value.court,
         localJusticeArea: value.localJusticeArea,
-        hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value
+        hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value,
+        saved: true
       };
 
       this.store.dispatch(new UpdateCourtDetailsAction(submitData));

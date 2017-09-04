@@ -3,7 +3,8 @@ import * as offenceAnalysis from '../action/offence-analysis.action';
 
 export const initialState: IOffenceAnalysis = {
   offenceAnalysisEntry: '',
-  patternOfOffending: ''
+  patternOfOffending: '',
+  saved: false
 };
 
 export function offenceAnalysisReducer(state = initialState, action: offenceAnalysis.Actions): IOffenceAnalysis {

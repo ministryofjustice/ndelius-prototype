@@ -12,7 +12,7 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="proposal" label="Enter a proposed sentence" [error]="formError">
+      <app-text-entry [group]="reportForm" name="proposal" label="Enter a proposed sentence" [error]="formError" (onSaveContent)="saveContent(reportForm)">
         <ul>
           <li class="list-bullet">What are the sentencing guidelines and relevant legislation?</li>
           <li class="list-bullet">Length of sentence and any sentence components</li>

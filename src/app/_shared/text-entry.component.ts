@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 interface ISaving {
@@ -20,6 +20,8 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
   @Input('error') public error: boolean;
 
   @ViewChild('hint') hint;
+
+  @Output() onSaveContent = new EventEmitter();
 
   control: AbstractControl;
   showHint: boolean;
@@ -64,6 +66,7 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
 
     if (this.control && this.control.value.toString().length) {
       this.saving.active = true;
+      this.onSaveContent.emit();
       this.saving.timer = setTimeout(() => {
         this.saving.active = false;
       }, 3000);
@@ -91,9 +94,6 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
    *
    */
   ngOnDestroy() {
-
-    console['log']('DESTROY ALL FISH');
-
     const timer = this.saving.timer;
     const interval: number = this.saving.interval;
 
@@ -104,5 +104,4 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
       clearInterval(interval);
     }
   }
-
 }

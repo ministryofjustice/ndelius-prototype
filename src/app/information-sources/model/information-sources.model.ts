@@ -11,4 +11,5 @@ export interface IInformationSources {
   guidelinesSource: boolean;
   otherInformationSource: boolean;
   otherInformationDetails: string;
+  saved: boolean;
 }

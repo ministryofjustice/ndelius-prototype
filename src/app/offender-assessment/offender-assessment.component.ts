@@ -8,17 +8,6 @@ import { getOffenderAssessment } from './reducer/offender-assessment.reducer';
 import { IOffenderAssessment } from './model/offender-assessment.model';
 import { UpdateOffenderAssessmentAction } from './action/offender-assessment.action';
 
-interface IExpandContent {
-  accommodation: boolean;
-  employment: boolean;
-  finance: boolean;
-  relationships: boolean;
-  drugs: boolean;
-  alcohol: boolean;
-  health: boolean;
-  behaviour: boolean;
-}
-
 @Component({
   selector: 'app-offender-assessment',
   templateUrl: './offender-assessment.component.html'
@@ -28,16 +17,56 @@ export class OffenderAssessmentComponent {
   reportData: IOffenderAssessment;
   reportForm: FormGroup;
   formError: boolean;
-  expand: IExpandContent = {
-    accommodation: false,
-    employment: false,
-    finance: false,
-    relationships: false,
-    drugs: false,
-    alcohol: false,
-    health: false,
-    behaviour: false
-  };
+  sections = [
+    {
+      checkControl: 'issueAccommodation',
+      checkLabel: 'Accommodation',
+      detailControl: 'detailsAccommodation',
+      detailLabel: 'Provide a brief assessment of accommodation issues'
+    },
+    {
+      checkControl: 'issueEmployment',
+      checkLabel: 'Employment',
+      detailControl: 'detailsEmployment',
+      detailLabel: 'Provide a brief assessment of employment issues'
+    },
+    {
+      checkControl: 'issueFinance',
+      checkLabel: 'Finance',
+      detailControl: 'detailsFinance',
+      detailLabel: 'Provide a brief assessment of finance issues'
+    },
+    {
+      checkControl: 'issueRelationships',
+      checkLabel: 'Relationships',
+      detailControl: 'detailsRelationships',
+      detailLabel: 'Provide a brief assessment of relationship issues'
+    },
+    {
+      checkControl: 'issueDrugs',
+      checkLabel: 'Drugs',
+      detailControl: 'detailsDrugs',
+      detailLabel: 'Provide a brief assessment of drug issues'
+    },
+    {
+      checkControl: 'issueAlcohol',
+      checkLabel: 'Alcohol',
+      detailControl: 'detailsAlcohol',
+      detailLabel: 'Provide a brief assessment of alcohol issues'
+    },
+    {
+      checkControl: 'issueHealth',
+      checkLabel: 'Physical & mental health',
+      detailControl: 'detailsHealth',
+      detailLabel: 'Provide a brief assessment of physical & mental health issues'
+    },
+    {
+      checkControl: 'issueBehaviour',
+      checkLabel: 'Thinking & behaviour',
+      detailControl: 'detailsBehaviour',
+      detailLabel: 'Provide a brief assessment of thinking & behaviour issues'
+    }
+  ];
 
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderAssessment>) {
     store.select(getOffenderAssessment).subscribe(state => {
@@ -79,12 +108,20 @@ export class OffenderAssessmentComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IOffenderAssessment }) {
+    this.store.dispatch(new UpdateOffenderAssessmentAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IOffenderAssessment} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IOffenderAssessment }) {
     this.formError = !valid;
     if (valid) {
+      value.saved = true;
       this.store.dispatch(new UpdateOffenderAssessmentAction(value));
       this.continueJourney();
     }

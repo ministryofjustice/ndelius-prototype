@@ -53,12 +53,20 @@ export class RiskAssessmentComponent {
 
   /**
    *
+   */
+  saveContent({ value }: { value: IRiskAssessment }) {
+    this.store.dispatch(new UpdateRiskAssessmentAction(value));
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IRiskAssessment} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IRiskAssessment }) {
     this.formError = !valid;
     if (valid) {
+      value.saved = true;
       this.store.dispatch(new UpdateRiskAssessmentAction(value));
       this.continueJourney();
     }

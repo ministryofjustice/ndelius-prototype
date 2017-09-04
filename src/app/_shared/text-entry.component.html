@@ -3,13 +3,14 @@
     <span class="form-label-bold">{{label}}</span>
     <span class="form-hint" *ngIf="help">{{help}}</span>
   </label>
-  <app-error-messages [control]="name" [active]="group.get(name).errors && (group.get(name).touched || error)"></app-error-messages>
   <div [hidden]="!showHint">
     <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
     <div #hint class="panel panel-border-narrow margin-top no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
       <ng-content></ng-content>
     </div>
   </div>
+  <div *ngIf="expandContent">&nbsp;</div>
+  <app-error-messages [control]="name" [active]="group.get(name).errors && (group.get(name).touched || error)"></app-error-messages>
   <textarea [id]="name" [formControlName]="name" class="form-control wide" placeholder="Start typing here..." (focus)="startSaving()" (blur)="saveProgress()"></textarea>
 </div>
 
