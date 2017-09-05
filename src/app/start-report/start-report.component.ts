@@ -50,6 +50,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
       if (params && Object.keys(params).length) {
         console['info']('Received data:', params);
 
+        // @TODO: Error checking around this
         this.store.dispatch(new UpdateOffenderDetailsAction({
           name: params['name'],
           address: params['address'],
@@ -57,14 +58,17 @@ export class StartReportComponent implements OnInit, OnDestroy {
           age: params['age'],
           crn: params['crn'],
           pnc: params['pnc'] || void 0,
-          saved: true
+          saved: true,
+          valid: true
         }));
 
+        // @TODO: Error checking around this
         this.store.dispatch(new UpdateCourtDetailsAction({
           court: params['court'],
           localJusticeArea: params['localJusticeArea'],
           hearingDate: params['hearingDate'],
-          saved: true
+          saved: true,
+          valid: true
         }));
       }
     });

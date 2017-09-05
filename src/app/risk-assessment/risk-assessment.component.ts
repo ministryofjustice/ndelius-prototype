@@ -65,9 +65,11 @@ export class RiskAssessmentComponent {
    */
   onSubmit({ valid, value }: { valid: boolean, value: IRiskAssessment }) {
     this.formError = !valid;
+
+    const updatedValue = Object.assign(value, { saved: true, valid: valid });
+    this.store.dispatch(new UpdateRiskAssessmentAction(updatedValue));
+
     if (valid) {
-      value.saved = true;
-      this.store.dispatch(new UpdateRiskAssessmentAction(value));
       this.continueJourney();
     }
   }

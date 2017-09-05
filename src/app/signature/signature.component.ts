@@ -59,16 +59,15 @@ export class SignatureComponent {
   onSubmit({ valid, value }: { valid: boolean, value: ISignature }) {
     this.formError = !valid;
 
-    if (valid) {
-      // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
-      const submitData: ISignature = {
-        reportAuthor: value.reportAuthor,
-        office: value.office,
-        reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value,
-        saved: true
-      };
+    // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: valid,
+      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
+    });
+    this.store.dispatch(new UpdateSignatureAction(updatedValue));
 
-      this.store.dispatch(new UpdateSignatureAction(submitData));
+    if (valid) {
       this.continueJourney();
     }
   }

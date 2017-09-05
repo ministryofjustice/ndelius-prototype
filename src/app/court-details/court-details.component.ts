@@ -58,17 +58,16 @@ export class CourtDetailsComponent {
    */
   onSubmit({ valid, value }: { valid: boolean, value: ICourtDetails }) {
     this.formError = !valid;
+
+    // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: valid,
+      hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value
+    });
+    this.store.dispatch(new UpdateCourtDetailsAction(updatedValue));
+
     if (valid) {
-
-      // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
-      const submitData: ICourtDetails = {
-        court: value.court,
-        localJusticeArea: value.localJusticeArea,
-        hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value,
-        saved: true
-      };
-
-      this.store.dispatch(new UpdateCourtDetailsAction(submitData));
       this.continueJourney();
     }
   }

@@ -14,7 +14,8 @@ export const initialState: IInformationSources = {
   guidelinesSource: void 0,
   otherInformationSource: void 0,
   otherInformationDetails: void 0,
-  saved: false
+  saved: false,
+  valid: false
 };
 
 export function informationSourcesReducer(state = initialState, action: informationSources.Actions): IInformationSources {

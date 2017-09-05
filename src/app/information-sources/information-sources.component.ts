@@ -63,8 +63,10 @@ export class InformationSourcesComponent {
    * @param {IInformationSources} value
    */
   onSubmit({ value }: { value: IInformationSources }) {
-    value.saved = true;
-    this.store.dispatch(new UpdateInformationSourcesAction(value));
+
+    // @TODO: No validation required on this page - should this be set as valid by default before they submit the form?
+    const updatedValue = Object.assign(value, { saved: true, valid: true });
+    this.store.dispatch(new UpdateInformationSourcesAction(updatedValue));
     this.continueJourney();
   }
 

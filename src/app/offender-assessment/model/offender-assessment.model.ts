@@ -16,4 +16,5 @@ export interface IOffenderAssessment {
   issueBehaviour: boolean;
   detailsBehaviour: string;
   saved: boolean;
+  valid: boolean;
 }
