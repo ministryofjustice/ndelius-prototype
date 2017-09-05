@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { Subscription } from 'rxjs/Subscription';
-
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html'
@@ -14,7 +12,7 @@ export class FeedbackComponent {
   formError: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    */

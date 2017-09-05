@@ -33,13 +33,6 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
   };
 
   /**
-   * @constructor
-   */
-  constructor() {
-    // Empty
-  }
-
-  /**
    *
    */
   startSaving() {

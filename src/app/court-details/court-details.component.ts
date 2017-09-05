@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getCourtDetails } from './reducer/court-details.reducer';
 
@@ -13,21 +15,23 @@ import { UpdateCourtDetailsAction } from './action/court-details.action';
   selector: 'app-court-details',
   templateUrl: './court-details.component.html'
 })
-export class CourtDetailsComponent {
+export class CourtDetailsComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: ICourtDetails;
   reportForm: FormGroup;
   formError: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {DatePipe} datePipe
    * @param {Store<ICourtDetails>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ICourtDetails>) {
-    store.select(getCourtDetails).subscribe(state => {
+    this.stateSubscriber = store.select(getCourtDetails).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -70,6 +74,13 @@ export class CourtDetailsComponent {
     if (valid) {
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getInformationSources } from './reducer/information-sources.reducer';
 
@@ -12,20 +14,22 @@ import { UpdateInformationSourcesAction } from './action/information-sources.act
   selector: 'app-information-sources',
   templateUrl: './information-sources.component.html'
 })
-export class InformationSourcesComponent {
+export class InformationSourcesComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IInformationSources;
   reportForm: FormGroup;
   expandContent: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {Store} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IInformationSources>) {
-    store.select(getInformationSources).subscribe(data => {
+    this.stateSubscriber = store.select(getInformationSources).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -68,6 +72,13 @@ export class InformationSourcesComponent {
     const updatedValue = Object.assign(value, { saved: true, valid: true });
     this.store.dispatch(new UpdateInformationSourcesAction(updatedValue));
     this.continueJourney();
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

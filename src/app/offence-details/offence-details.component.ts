@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getOffenceDetails } from './reducer/offence-details.reducer';
 
@@ -12,20 +14,22 @@ import { UpdateOffenceDetailsAction } from './action/offence-details.action';
   selector: 'app-offence-details',
   templateUrl: './offence-details.component.html'
 })
-export class OffenceDetailsComponent {
+export class OffenceDetailsComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IOffenceDetails;
   reportForm: FormGroup;
   formError: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {Store<IOffenceDetails>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenceDetails>) {
-    store.select(getOffenceDetails).subscribe(data => {
+    this.stateSubscriber = store.select(getOffenceDetails).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -70,6 +74,13 @@ export class OffenceDetailsComponent {
     if (valid) {
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

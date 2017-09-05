@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getCurrentState } from '../_shared/reducer/state.reducers';
+
+import { getCurrentState, IState } from '../_shared/reducer/state.reducers';
+
+import { Subscription } from 'rxjs/Subscription';
 
 interface ISection {
   route: string;
@@ -14,7 +17,9 @@ interface ISection {
   selector: 'app-check-report',
   templateUrl: './check-report.component.html'
 })
-export class CheckReportComponent {
+export class CheckReportComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   sections: Array<ISection> = [
     {
@@ -70,10 +75,10 @@ export class CheckReportComponent {
   /**
    * @constructor
    * @param {Router} router
-   * @param {Store} store
+   * @param {Store<IState>} store
    */
-  constructor(private router: Router, private store: Store<any>) {
-    store.select(getCurrentState).subscribe(state => {
+  constructor(private router: Router, private store: Store<IState>) {
+    this.stateSubscriber = store.select(getCurrentState).subscribe(state => {
       this.sections.forEach((item) => {
         item.saved = state[item.state].saved;
       });
@@ -85,6 +90,13 @@ export class CheckReportComponent {
    */
   signReport() {
     this.router.navigate(['signature']);
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }
