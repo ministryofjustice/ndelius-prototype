@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getOffenderAssessment } from './reducer/offender-assessment.reducer';
 
@@ -19,7 +21,9 @@ interface ISection {
   selector: 'app-offender-assessment',
   templateUrl: './offender-assessment.component.html'
 })
-export class OffenderAssessmentComponent {
+export class OffenderAssessmentComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IOffenderAssessment;
   reportForm: FormGroup;
@@ -82,7 +86,7 @@ export class OffenderAssessmentComponent {
    * @param store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderAssessment>) {
-    store.select(getOffenderAssessment).subscribe(state => {
+    this.stateSubscriber = store.select(getOffenderAssessment).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -141,6 +145,13 @@ export class OffenderAssessmentComponent {
     if (valid) {
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

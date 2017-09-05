@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getRiskAssessment } from './reducer/risk-assessment.reducer';
 
@@ -12,7 +14,9 @@ import { UpdateRiskAssessmentAction } from './action/risk-assessment.action';
   selector: 'app-risk-assessment',
   templateUrl: './risk-assessment.component.html'
 })
-export class RiskAssessmentComponent {
+export class RiskAssessmentComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IRiskAssessment;
   reportForm: FormGroup;
@@ -26,7 +30,7 @@ export class RiskAssessmentComponent {
    * @param {Store<IRiskAssessment>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskAssessment>) {
-    store.select(getRiskAssessment).subscribe(state => {
+    this.stateSubscriber = store.select(getRiskAssessment).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -72,6 +76,13 @@ export class RiskAssessmentComponent {
     if (valid) {
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

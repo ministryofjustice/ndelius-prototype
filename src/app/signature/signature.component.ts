@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getSignature } from './reducer/signature.reducer';
 
@@ -13,7 +15,9 @@ import { UpdateSignatureAction } from './action/signature.action';
   selector: 'app-signature',
   templateUrl: './signature.component.html'
 })
-export class SignatureComponent {
+export class SignatureComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: ISignature;
   reportForm: FormGroup;
@@ -27,7 +31,7 @@ export class SignatureComponent {
    * @param {Store<ISignature>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ISignature>) {
-    store.select(getSignature).subscribe(state => {
+    this.stateSubscriber = store.select(getSignature).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -70,6 +74,13 @@ export class SignatureComponent {
     if (valid) {
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }
