@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class FeedbackComponent {
 
   reportForm: FormGroup;
-  formError: Boolean;
+  formError: boolean;
 
   /**
    *

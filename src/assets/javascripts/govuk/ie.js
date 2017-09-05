@@ -272,7 +272,7 @@
         /**
          * A flag to indicate that the HTML5 style sheet should be inserted.
          * @memberOf html5
-         * @type Boolean
+         * @type boolean
          */
         'shivCSS': (options.shivCSS !== false),
 
@@ -287,7 +287,7 @@
          * A flag to indicate that the document's `createElement` and `createDocumentFragment`
          * methods should be overwritten.
          * @memberOf html5
-         * @type Boolean
+         * @type boolean
          */
         'shivMethods': (options.shivMethods !== false),
 

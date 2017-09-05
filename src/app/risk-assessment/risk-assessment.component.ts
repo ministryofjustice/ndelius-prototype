@@ -16,8 +16,8 @@ export class RiskAssessmentComponent {
 
   reportData: IRiskAssessment;
   reportForm: FormGroup;
-  formError: Boolean;
-  expandContent: Boolean;
+  formError: boolean;
+  expandContent: boolean;
 
   /**
    *

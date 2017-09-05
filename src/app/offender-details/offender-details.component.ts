@@ -16,7 +16,7 @@ export class OffenderDetailsComponent {
 
   reportData: IOffenderDetails;
   reportForm: FormGroup;
-  formError: Boolean;
+  formError: boolean;
 
   /**
    *

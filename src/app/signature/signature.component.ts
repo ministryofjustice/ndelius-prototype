@@ -17,7 +17,7 @@ export class SignatureComponent {
 
   reportData: ISignature;
   reportForm: FormGroup;
-  formError: Boolean;
+  formError: boolean;
 
   /**
    *
