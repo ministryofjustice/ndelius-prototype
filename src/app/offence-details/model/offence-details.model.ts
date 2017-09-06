@@ -3,4 +3,5 @@ export interface IOffenceDetails {
   otherOffence: string;
   offenceSummary: string;
   saved: boolean;
+  valid: boolean;
 }

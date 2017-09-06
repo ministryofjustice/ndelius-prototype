@@ -3,14 +3,16 @@
 <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
   <table role="presentation">
-    <tr>
-      <td width="30" class="font-medium">{{index + 1}}.</td>
-      <td><a [routerLink]="section.route" class="font-medium">{{section.label}}</a></td>
-      <td width="80" align="right">
-        <strong class="saved-tag" *ngIf="section.saved">SAVED</strong>
-        <strong class="font-xsmall" *ngIf="!section.saved">Not started</strong>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <td width="30" class="font-medium">{{index + 1}}.</td>
+        <td><a [routerLink]="section.route" class="font-medium">{{section.label}}</a></td>
+        <td width="80" align="right">
+          <strong class="saved-tag" *ngIf="section.saved">SAVED</strong>
+          <strong class="font-xsmall" *ngIf="!section.saved">Not started</strong>
+        </td>
+      </tr>
+    </tbody>
   </table>
 
   <hr class="margin-top margin-bottom" noshade />

@@ -3,4 +3,5 @@ export interface ISignature {
   office: string;
   reportDate: string;
   saved: boolean;
+  valid: boolean;
 }

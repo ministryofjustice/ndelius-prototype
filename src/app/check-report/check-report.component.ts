@@ -1,20 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getCurrentState } from '../_shared/reducer/state.reducers';
+
+import { Subscription } from 'rxjs/Subscription';
+
+import { getCurrentState, IState } from '../_shared/reducer/state.reducers';
+
+import { CheckReportService } from './check-report.service';
 
 interface ISection {
   route: string;
   label: string;
   state: string;
+  interactions?: Array<Object>;
   saved?: boolean;
+  valid?: boolean;
 }
 
 @Component({
   selector: 'app-check-report',
   templateUrl: './check-report.component.html'
 })
-export class CheckReportComponent {
+export class CheckReportComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
+
+  currentState: IState;
+  isValid = true;
 
   sections: Array<ISection> = [
     {
@@ -62,12 +74,18 @@ export class CheckReportComponent {
   /**
    * @constructor
    * @param {Router} router
-   * @param {Store} store
+   * @param {Store<IState>} store
+   * @param {CheckReportService} service
    */
-  constructor(private router: Router, private store: Store<any>) {
-    store.select(getCurrentState).subscribe(state => {
+  constructor(private router: Router, private store: Store<IState>, private service: CheckReportService) {
+    this.stateSubscriber = store.select(getCurrentState).subscribe(currentState => {
+      this.currentState = currentState;
       this.sections.forEach((item) => {
-        Object.assign(item, { saved: state[item.state].saved });
+        const model = currentState[item.state];
+        Object.assign(item, { interactions: service.configureItems(item.state, model), saved: model.saved, valid: model.valid });
+        if (!model.valid) {
+          this.isValid = false;
+        }
       });
     });
   }
@@ -76,7 +94,16 @@ export class CheckReportComponent {
    *
    */
   signReport() {
-    this.router.navigate(['signature']);
+    if (this.isValid) {
+      this.router.navigate(['signature']);
+    }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getOffenderDetails } from './reducer/offender-details.reducer';
 
@@ -12,20 +14,22 @@ import { UpdateOffenderDetailsAction } from './action/offender-details.action';
   selector: 'app-offender-details',
   templateUrl: './offender-details.component.html'
 })
-export class OffenderDetailsComponent {
+export class OffenderDetailsComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IOffenderDetails;
   reportForm: FormGroup;
   formError: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {Store<IOffenderDetails>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderDetails>) {
-    store.select(getOffenderDetails).subscribe(data => {
+    this.stateSubscriber = store.select(getOffenderDetails).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -83,12 +87,20 @@ export class OffenderDetailsComponent {
    */
   onSubmit({ valid, value }: { valid: boolean, value: IOffenderDetails }) {
     this.formError = !valid;
-    if (valid) {
-      const updatedValue = Object.assign(value, { saved: true, age: OffenderDetailsComponent.getAge(value.dateOfBirth) });
 
-      this.store.dispatch(new UpdateOffenderDetailsAction(updatedValue));
+    const updatedValue = Object.assign(value, { saved: true, valid: valid, age: OffenderDetailsComponent.getAge(value.dateOfBirth) });
+    this.store.dispatch(new UpdateOffenderDetailsAction(updatedValue));
+
+    if (valid) {
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

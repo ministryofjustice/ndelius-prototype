@@ -18,7 +18,8 @@ export const initialState: IOffenderAssessment = {
   detailsHealth: '',
   issueBehaviour: null,
   detailsBehaviour: '',
-  saved: false
+  saved: false,
+  valid: false
 };
 
 export function offenderAssessmentReducer(state = initialState, action: offenderAssessment.Actions): IOffenderAssessment {
