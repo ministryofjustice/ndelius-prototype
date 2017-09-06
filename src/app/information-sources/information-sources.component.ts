@@ -10,6 +10,11 @@ import { getInformationSources } from './reducer/information-sources.reducer';
 import { IInformationSources } from './model/information-sources.model';
 import { UpdateInformationSourcesAction } from './action/information-sources.action';
 
+interface ISection {
+  control: string;
+  label: string;
+}
+
 @Component({
   selector: 'app-information-sources',
   templateUrl: './information-sources.component.html'
@@ -21,6 +26,20 @@ export class InformationSourcesComponent implements OnDestroy {
   reportData: IInformationSources;
   reportForm: FormGroup;
   expandContent: boolean;
+
+  sections: Array<ISection> = [
+    { control: 'interviewInformationSource', label: 'Interview' },
+    { control: 'serviceRecordsInformationSource', label: 'Service records' },
+    { control: 'cpsSummaryInformationSource', label: 'CPS summary' },
+    { control: 'oasysAssessmentsInformationSource', label: 'Previous OASys assessments' },
+    { control: 'previousConvictionsInformationSource', label: 'Previous convictions' },
+    { control: 'victimStatementInformationSource', label: 'Victim statement' },
+    { control: 'childrenServicesInformationSource', label: 'Children services checks' },
+    { control: 'policeInformationSource', label: 'Police information' },
+    { control: 'smartToolSource', label: 'SMART sentencing tool' },
+    { control: 'guidelinesSource', label: 'Sentencing guidelines' },
+    { control: 'otherInformationSource', label: 'Other (please specify below)' }
+  ];
 
   /**
    * @constructor
