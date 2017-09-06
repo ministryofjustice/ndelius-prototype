@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getProposedSentence } from './reducer/proposed-sentence.reducer';
 
@@ -12,7 +14,9 @@ import { UpdateProposedSentenceAction } from './action/proposed-sentence.action'
   selector: 'app-proposed-sentence',
   templateUrl: './proposed-sentence.component.html'
 })
-export class ProposedSentenceComponent {
+export class ProposedSentenceComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IProposedSentence;
   reportForm: FormGroup;
@@ -20,13 +24,13 @@ export class ProposedSentenceComponent {
   expandContent: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {Store<IProposedSentence>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IProposedSentence>) {
-    store.select(getProposedSentence).subscribe(state => {
+    this.stateSubscriber = store.select(getProposedSentence).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -62,11 +66,20 @@ export class ProposedSentenceComponent {
    */
   onSubmit({ valid, value }: { valid: boolean, value: IProposedSentence }) {
     this.formError = !valid;
+
+    const updatedValue = Object.assign(value, { saved: true, valid: valid });
+    this.store.dispatch(new UpdateProposedSentenceAction(updatedValue));
+
     if (valid) {
-      value.saved = true;
-      this.store.dispatch(new UpdateProposedSentenceAction(value));
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

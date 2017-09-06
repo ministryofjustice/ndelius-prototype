@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getInformationSources } from './reducer/information-sources.reducer';
 
@@ -17,7 +19,9 @@ interface ISection {
   selector: 'app-information-sources',
   templateUrl: './information-sources.component.html'
 })
-export class InformationSourcesComponent {
+export class InformationSourcesComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IInformationSources;
   reportForm: FormGroup;
@@ -38,13 +42,13 @@ export class InformationSourcesComponent {
   ];
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {Store} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IInformationSources>) {
-    store.select(getInformationSources).subscribe(data => {
+    this.stateSubscriber = store.select(getInformationSources).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -82,9 +86,18 @@ export class InformationSourcesComponent {
    * @param {IInformationSources} value
    */
   onSubmit({ value }: { value: IInformationSources }) {
-    value.saved = true;
-    this.store.dispatch(new UpdateInformationSourcesAction(value));
+
+    // @TODO: No validation required on this page - should this be set as valid by default before they submit the form?
+    const updatedValue = Object.assign(value, { saved: true, valid: true });
+    this.store.dispatch(new UpdateInformationSourcesAction(updatedValue));
     this.continueJourney();
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

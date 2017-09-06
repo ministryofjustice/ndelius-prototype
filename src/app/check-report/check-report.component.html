@@ -3,18 +3,34 @@
 <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
   <table role="presentation">
-    <tr>
-      <td width="30" class="font-medium">{{index + 1}}.</td>
-      <td><a [routerLink]="section.route" class="font-medium">{{section.label}}</a></td>
-      <td width="80" align="right">
-        <strong class="saved-tag" *ngIf="section.saved">SAVED</strong>
-        <strong class="font-xsmall" *ngIf="!section.saved">Not started</strong>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <td width="30" class="font-medium">{{index + 1}}.</td>
+        <td class="font-medium">{{section.label}}</td>
+        <td width="200" class="align-right valign-bottom">
+          <a [routerLink]="section.route" class="font-xsmall">Change your answers</a>
+        </td>
+      </tr>
+    </tbody>
   </table>
 
   <hr class="margin-top margin-bottom" noshade />
 
+  <table role="presentation" class="margin-bottom medium">
+    <tbody>
+      <tr *ngFor="let interaction of section.interactions">
+        <td width="30">&nbsp;</td>
+        <td width="40%">{{interaction.label}}</td>
+        <td class="font-xsmall valign-bottom" [ngClass]="{ 'error-invalid': interaction.invalid }">{{interaction.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </ng-template>
 
-<button id="nextButton" class="button margin-top large" type="button" (click)="signReport()">Sign your report</button>
+<div class="error-summary" *ngIf="!isValid">
+  <p class="error-message">There is information missing from the report</p>
+  <p class="error-message">Please go back and change your answers above in order to complete the report.</p>
+</div>
+
+<button id="nextButton" class="button margin-top large" type="button" (click)="signReport()" [ngClass]="{ 'disabled': !isValid }" [disabled]="!isValid">Sign your report</button>

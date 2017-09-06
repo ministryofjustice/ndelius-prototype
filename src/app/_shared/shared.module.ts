@@ -15,6 +15,8 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from './reducer/state.reducers';
 
+import { CheckReportService } from '../check-report/check-report.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { reducers } from './reducer/state.reducers';
     TextEntryComponent
   ],
   providers: [
-    DatePipe
+    DatePipe,
+    CheckReportService
   ]
 })
 export class SharedModule {

@@ -5,7 +5,8 @@ export const initialState: ISignature = {
   reportAuthor: '',
   office: '',
   reportDate: void 0,
-  saved: false
+  saved: false,
+  valid: false
 };
 
 export function signatureReducer(state = initialState, action: signature.Actions): ISignature {

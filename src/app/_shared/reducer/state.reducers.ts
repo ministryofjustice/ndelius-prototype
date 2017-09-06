@@ -20,7 +20,7 @@ import { riskAssessmentReducer } from '../../risk-assessment/reducer/risk-assess
 import { proposedSentenceReducer } from '../../proposed-sentence/reducer/proposed-sentence.reducer';
 import { signatureReducer } from '../../signature/reducer/signature.reducer';
 
-export interface State {
+export interface IState {
   offenderDetails: IOffenderDetails;
   courtDetails: ICourtDetails;
   informationSources: IInformationSources;
@@ -32,7 +32,7 @@ export interface State {
   signature: ISignature;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<IState> = {
   offenderDetails: offenderDetailsReducer,
   courtDetails: courtDetailsReducer,
   informationSources: informationSourcesReducer,
@@ -44,4 +44,4 @@ export const reducers: ActionReducerMap<State> = {
   signature: signatureReducer
 };
 
-export const getCurrentState = (state: State) => state;
+export const getCurrentState = (state: IState) => state;

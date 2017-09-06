@@ -81,6 +81,14 @@ td {
   display: block;
 }
 
+.align-right {
+  text-align: right;
+}
+
+.valign-bottom {
+  vertical-align: bottom;
+}
+
 canvas {
   width: 100%;
   min-height: 200px;

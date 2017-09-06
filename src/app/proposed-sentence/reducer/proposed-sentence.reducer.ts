@@ -3,7 +3,8 @@ import { IProposedSentence } from '../model/proposed-sentence.model';
 
 export const initialState: IProposedSentence = {
   proposal: '',
-  saved: false
+  saved: false,
+  valid: false
 };
 
 export function proposedSentenceReducer(state = initialState, action: proposedSentence.Actions): IProposedSentence {
