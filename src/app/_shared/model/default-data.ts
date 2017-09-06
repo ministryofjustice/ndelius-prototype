@@ -34,10 +34,21 @@ export function defaultOffenderDetails(): IOffenderDetails {
 }
 
 export function defaultCourtDetails(): ICourtDetails {
+
+  function today(): string {
+
+    function zero(num): string {
+      return num < 10 ? '0' + num : num.toString();
+    }
+
+    const date: Date = new Date();
+    return zero(date.getDate()) + '/' + zero(date.getMonth() + 1) + '/' + date.getFullYear();
+  }
+
   return {
     court: 'Manchester and Salford Magistrates Court',
     localJusticeArea: 'Greater Manchester',
-    hearingDate: void 0,
+    hearingDate: today(),
     saved: true,
     valid: true
   };

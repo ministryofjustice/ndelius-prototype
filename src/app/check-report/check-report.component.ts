@@ -2,14 +2,17 @@ import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
+import { Subscription } from 'rxjs/Subscription';
+
 import { getCurrentState, IState } from '../_shared/reducer/state.reducers';
 
-import { Subscription } from 'rxjs/Subscription';
+import { CheckReportService } from './check-report.service';
 
 interface ISection {
   route: string;
   label: string;
   state: string;
+  interactions?: Array<Object>;
   saved?: boolean;
   valid?: boolean;
 }
@@ -21,6 +24,9 @@ interface ISection {
 export class CheckReportComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
+
+  currentState: IState;
+  isValid = true;
 
   sections: Array<ISection> = [
     {
@@ -69,11 +75,17 @@ export class CheckReportComponent implements OnDestroy {
    * @constructor
    * @param {Router} router
    * @param {Store<IState>} store
+   * @param {CheckReportService} service
    */
-  constructor(private router: Router, private store: Store<IState>) {
-    this.stateSubscriber = store.select(getCurrentState).subscribe(state => {
+  constructor(private router: Router, private store: Store<IState>, private service: CheckReportService) {
+    this.stateSubscriber = store.select(getCurrentState).subscribe(currentState => {
+      this.currentState = currentState;
       this.sections.forEach((item) => {
-        Object.assign(item, { saved: state[item.state].saved, valid: state[item.state].valid });
+        const model = currentState[item.state];
+        Object.assign(item, { interactions: service.configureItems(item.state, model), saved: model.saved, valid: model.valid });
+        if (!model.valid) {
+          this.isValid = false;
+        }
       });
     });
   }
@@ -82,7 +94,9 @@ export class CheckReportComponent implements OnDestroy {
    *
    */
   signReport() {
-    this.router.navigate(['signature']);
+    if (this.isValid) {
+      this.router.navigate(['signature']);
+    }
   }
 
   /**
