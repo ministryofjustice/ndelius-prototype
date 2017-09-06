@@ -12,4 +12,5 @@ export interface IOffenderDetails {
   crn: string;
   pnc: string;
   saved: boolean;
+  valid: boolean;
 }

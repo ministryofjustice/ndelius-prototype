@@ -5,7 +5,8 @@ export const initialState: IOffenceDetails = {
   mainOffence: '',
   otherOffence: '',
   offenceSummary: '',
-  saved: false
+  saved: false,
+  valid: false
 };
 
 export function offenceDetailsReducer(state = initialState, action: offenceDetails.Actions): IOffenceDetails {

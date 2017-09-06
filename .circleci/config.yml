@@ -23,7 +23,7 @@ jobs:
             - ./node_modules
       - run:
           name: angular-lint
-          command: yarn ng -- lint
+          command: yarn ng -- lint --type-check
       - run:
           name: angular-test
           command: yarn ng -- test --single-run --no-progress
