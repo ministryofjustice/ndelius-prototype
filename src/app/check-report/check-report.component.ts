@@ -7,7 +7,7 @@ interface ISection {
   route: string;
   label: string;
   state: string;
-  saved: boolean;
+  saved?: boolean;
 }
 
 @Component({
@@ -20,50 +20,42 @@ export class CheckReportComponent {
     {
       route: '/offender-details',
       label: 'Offender details',
-      state: 'offenderDetails',
-      saved: void 0
+      state: 'offenderDetails'
     },
     {
       route: '/court-details',
       label: 'Sentencing court details',
-      state: 'courtDetails',
-      saved: void 0
+      state: 'courtDetails'
     },
     {
       route: '/information-sources',
       label: 'Sources of information',
-      state: 'informationSources',
-      saved: void 0
+      state: 'informationSources'
     },
     {
       route: '/offence-details',
       label: 'Offence details',
-      state: 'offenceDetails',
-      saved: void 0
+      state: 'offenceDetails'
     },
     {
       route: '/offence-analysis',
       label: 'Offence analysis',
-      state: 'offenceAnalysis',
-      saved: void 0
+      state: 'offenceAnalysis'
     },
     {
       route: '/offender-assessment',
       label: 'Offender assessment',
-      state: 'offenderAssessment',
-      saved: void 0
+      state: 'offenderAssessment'
     },
     {
       route: '/risk-assessment',
       label: 'Risk assessment',
-      state: 'riskAssessment',
-      saved: void 0
+      state: 'riskAssessment'
     },
     {
       route: '/proposed-sentence',
       label: 'Conclusion',
-      state: 'proposedSentence',
-      saved: void 0
+      state: 'proposedSentence'
     },
   ];
 
@@ -75,7 +67,7 @@ export class CheckReportComponent {
   constructor(private router: Router, private store: Store<any>) {
     store.select(getCurrentState).subscribe(state => {
       this.sections.forEach((item) => {
-        item.saved = state[item.state].saved;
+        Object.assign(item, { saved: state[item.state].saved });
       });
     });
   }
