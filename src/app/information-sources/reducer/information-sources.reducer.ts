@@ -2,18 +2,18 @@ import { IInformationSources } from '../model/information-sources.model';
 import * as informationSources from '../action/information-sources.action';
 
 export const initialState: IInformationSources = {
-  interviewInformationSource: void 0,
-  serviceRecordsInformationSource: void 0,
-  cpsSummaryInformationSource: void 0,
-  oasysAssessmentsInformationSource: void 0,
-  previousConvictionsInformationSource: void 0,
-  victimStatementInformationSource: void 0,
-  childrenServicesInformationSource: void 0,
-  policeInformationSource: void 0,
-  smartToolSource: void 0,
-  guidelinesSource: void 0,
-  otherInformationSource: void 0,
-  otherInformationDetails: void 0,
+  interviewInformationSource: null,
+  serviceRecordsInformationSource: null,
+  cpsSummaryInformationSource: null,
+  oasysAssessmentsInformationSource: null,
+  previousConvictionsInformationSource: null,
+  victimStatementInformationSource: null,
+  childrenServicesInformationSource: null,
+  policeInformationSource: null,
+  smartToolSource: null,
+  guidelinesSource: null,
+  otherInformationSource: null,
+  otherInformationDetails: null,
   saved: false
 };
 

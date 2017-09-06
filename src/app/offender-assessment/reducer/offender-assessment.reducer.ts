@@ -2,21 +2,21 @@ import { IOffenderAssessment } from '../model/offender-assessment.model';
 import * as offenderAssessment from '../action/offender-assessment.action';
 
 export const initialState: IOffenderAssessment = {
-  issueAccommodation: void 0,
+  issueAccommodation: null,
   detailsAccommodation: '',
-  issueEmployment: void 0,
+  issueEmployment: null,
   detailsEmployment: '',
-  issueFinance: void 0,
+  issueFinance: null,
   detailsFinance: '',
-  issueRelationships: void 0,
+  issueRelationships: null,
   detailsRelationships: '',
-  issueDrugs: void 0,
+  issueDrugs: null,
   detailsDrugs: '',
-  issueAlcohol: void 0,
+  issueAlcohol: null,
   detailsAlcohol: '',
-  issueHealth: void 0,
+  issueHealth: null,
   detailsHealth: '',
-  issueBehaviour: void 0,
+  issueBehaviour: null,
   detailsBehaviour: '',
   saved: false
 };
