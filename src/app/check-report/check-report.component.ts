@@ -94,9 +94,7 @@ export class CheckReportComponent implements OnDestroy {
    *
    */
   signReport() {
-    if (this.isValid) {
-      this.router.navigate(['signature']);
-    }
+    this.router.navigate(['signature']);
   }
 
   /**

@@ -1,6 +1,8 @@
 import { IInformationSources } from '../model/information-sources.model';
 import * as informationSources from '../action/information-sources.action';
 
+import { RESET_STATE } from '../../_shared/action/reset-state.action';
+
 export const initialState: IInformationSources = {
   interviewInformationSource: null,
   serviceRecordsInformationSource: null,
@@ -23,6 +25,9 @@ export function informationSourcesReducer(state = initialState, action: informat
   switch (action.type) {
     case informationSources.UPDATE_INFORMATION_SOURCES: {
       return Object.assign({}, state, action.payload);
+    }
+    case RESET_STATE: {
+      return Object.assign({}, initialState);
     }
 
     default: {
