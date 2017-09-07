@@ -1,4 +1,5 @@
-import { ActionReducerMap } from '@ngrx/store';
+import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { localStorageSync } from 'ngrx-store-localstorage';
 
 import { IOffenderDetails } from '../../offender-details/model/offender-details.model';
 import { ICourtDetails } from '../../court-details/model/court-details.model';
@@ -20,7 +21,43 @@ import { riskAssessmentReducer } from '../../risk-assessment/reducer/risk-assess
 import { proposedSentenceReducer } from '../../proposed-sentence/reducer/proposed-sentence.reducer';
 import { signatureReducer } from '../../signature/reducer/signature.reducer';
 
-export interface State {
+/**
+ * MetaReducer
+ * @param {ActionReducer<any>} reducer
+ * @returns {ActionReducer<any>}
+ */
+export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({
+    storage: sessionStorage,
+    rehydrate: true,
+    keys: [
+      'offenderDetails',
+      'courtDetails',
+      'informationSources',
+      'offenceDetails',
+      'offenceAnalysis',
+      'offenderAssessment',
+      'riskAssessment',
+      'proposedSentence',
+      'signature'
+    ]
+  })(reducer);
+}
+
+/**
+ * MetaReducer
+ * @param {ActionReducer<any>} reducer
+ * @returns {ActionReducer<any>}
+ */
+export function logInfo(reducer: ActionReducer<any>): ActionReducer<any> {
+  return function (state, action) {
+    console['info']('State:', state);
+    console['info']('Action:', action);
+    return reducer(state, action);
+  };
+}
+
+export interface IState {
   offenderDetails: IOffenderDetails;
   courtDetails: ICourtDetails;
   informationSources: IInformationSources;
@@ -32,7 +69,7 @@ export interface State {
   signature: ISignature;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<IState> = {
   offenderDetails: offenderDetailsReducer,
   courtDetails: courtDetailsReducer,
   informationSources: informationSourcesReducer,
@@ -44,4 +81,5 @@ export const reducers: ActionReducerMap<State> = {
   signature: signatureReducer
 };
 
-export const getCurrentState = (state: State) => state;
+export const metaReducers: MetaReducer<any>[] = [localStorageSyncReducer, logInfo];
+export const getCurrentState = (state: IState) => state;

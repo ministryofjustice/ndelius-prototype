@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getCourtDetails } from './reducer/court-details.reducer';
 
@@ -13,21 +15,23 @@ import { UpdateCourtDetailsAction } from './action/court-details.action';
   selector: 'app-court-details',
   templateUrl: './court-details.component.html'
 })
-export class CourtDetailsComponent {
+export class CourtDetailsComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: ICourtDetails;
   reportForm: FormGroup;
-  formError: Boolean;
+  formError: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {DatePipe} datePipe
    * @param {Store<ICourtDetails>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ICourtDetails>) {
-    store.select(getCourtDetails).subscribe(state => {
+    this.stateSubscriber = store.select(getCourtDetails).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -58,19 +62,25 @@ export class CourtDetailsComponent {
    */
   onSubmit({ valid, value }: { valid: boolean, value: ICourtDetails }) {
     this.formError = !valid;
+
+    // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: valid,
+      hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value
+    });
+    this.store.dispatch(new UpdateCourtDetailsAction(updatedValue));
+
     if (valid) {
-
-      // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
-      const submitData: ICourtDetails = {
-        court: value.court,
-        localJusticeArea: value.localJusticeArea,
-        hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value,
-        saved: true
-      };
-
-      this.store.dispatch(new UpdateCourtDetailsAction(submitData));
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

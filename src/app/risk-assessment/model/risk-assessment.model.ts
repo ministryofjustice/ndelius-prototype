@@ -4,4 +4,5 @@ export interface IRiskAssessment {
   likelihoodOfReOffending: string;
   riskOfSeriousHarm: string;
   saved: boolean;
+  valid: boolean;
 }

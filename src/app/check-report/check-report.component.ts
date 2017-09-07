@@ -1,74 +1,91 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getCurrentState } from '../_shared/reducer/state.reducers';
+
+import { Subscription } from 'rxjs/Subscription';
+
+import { getCurrentState, IState } from '../_shared/reducer/state.reducers';
+
+import { CheckReportService } from './check-report.service';
+
+interface ISection {
+  route: string;
+  label: string;
+  state: string;
+  interactions?: Array<Object>;
+  saved?: boolean;
+  valid?: boolean;
+}
 
 @Component({
   selector: 'app-check-report',
   templateUrl: './check-report.component.html'
 })
-export class CheckReportComponent {
+export class CheckReportComponent implements OnDestroy {
 
-  sections = [
+  private stateSubscriber: Subscription;
+
+  currentState: IState;
+  isValid = true;
+
+  sections: Array<ISection> = [
     {
       route: '/offender-details',
       label: 'Offender details',
-      state: 'offenderDetails',
-      saved: void 0
+      state: 'offenderDetails'
     },
     {
       route: '/court-details',
       label: 'Sentencing court details',
-      state: 'courtDetails',
-      saved: void 0
+      state: 'courtDetails'
     },
     {
       route: '/information-sources',
       label: 'Sources of information',
-      state: 'informationSources',
-      saved: void 0
+      state: 'informationSources'
     },
     {
       route: '/offence-details',
       label: 'Offence details',
-      state: 'offenceDetails',
-      saved: void 0
+      state: 'offenceDetails'
     },
     {
       route: '/offence-analysis',
       label: 'Offence analysis',
-      state: 'offenceAnalysis',
-      saved: void 0
+      state: 'offenceAnalysis'
     },
     {
       route: '/offender-assessment',
       label: 'Offender assessment',
-      state: 'offenderAssessment',
-      saved: void 0
+      state: 'offenderAssessment'
     },
     {
       route: '/risk-assessment',
       label: 'Risk assessment',
-      state: 'riskAssessment',
-      saved: void 0
+      state: 'riskAssessment'
     },
     {
       route: '/proposed-sentence',
       label: 'Conclusion',
-      state: 'proposedSentence',
-      saved: void 0
+      state: 'proposedSentence'
     },
   ];
 
   /**
    * @constructor
    * @param {Router} router
-   * @param {Store} store
+   * @param {Store<IState>} store
+   * @param {CheckReportService} service
    */
-  constructor(private router: Router, private store: Store<any>) {
-    store.select(getCurrentState).subscribe(state => {
+  constructor(private router: Router, private store: Store<IState>, private service: CheckReportService) {
+    this.stateSubscriber = store.select(getCurrentState).subscribe(currentState => {
+      this.currentState = currentState;
       this.sections.forEach((item) => {
-        item.saved = state[item.state].saved;
+        const model = currentState[item.state];
+        Object.assign(item, { interactions: service.configureItems(item.state, model), saved: model.saved, valid: model.valid });
+        if (!model.valid) {
+          this.isValid = false;
+        }
       });
     });
   }
@@ -78,6 +95,13 @@ export class CheckReportComponent {
    */
   signReport() {
     this.router.navigate(['signature']);
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

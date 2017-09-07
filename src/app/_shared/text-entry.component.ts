@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 interface ISaving {
@@ -11,7 +11,7 @@ interface ISaving {
   selector: 'app-text-entry',
   templateUrl: './text-entry.component.html'
 })
-export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
+export class TextEntryComponent implements AfterContentInit, OnDestroy {
 
   @Input('group') public group: FormGroup;
   @Input('label') public label: string;
@@ -23,7 +23,6 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
 
   @Output() onSaveContent = new EventEmitter();
 
-  control: AbstractControl;
   showHint: boolean;
   expandContent: boolean;
   saving: ISaving = {
@@ -31,13 +30,6 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
     timer: void 0,
     interval: void 0
   };
-
-  /**
-   * @constructor
-   */
-  constructor() {
-    // Empty
-  }
 
   /**
    *
@@ -56,6 +48,7 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
 
     const timer = this.saving.timer;
     const interval: number = this.saving.interval;
+    const control: AbstractControl = this.group.get(this.name);
 
     if (timer) {
       clearTimeout(timer);
@@ -64,7 +57,7 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
       clearInterval(interval);
     }
 
-    if (this.control && this.control.value.toString().length) {
+    if (control && control.value.toString().length) {
       this.saving.active = true;
       this.onSaveContent.emit();
       this.saving.timer = setTimeout(() => {
@@ -73,13 +66,6 @@ export class TextEntryComponent implements OnInit, AfterContentInit, OnDestroy {
     } else {
       this.saving.active = void 0;
     }
-  }
-
-  /**
-   *
-   */
-  ngOnInit() {
-    this.control = this.group.get(this.name);
   }
 
   /**

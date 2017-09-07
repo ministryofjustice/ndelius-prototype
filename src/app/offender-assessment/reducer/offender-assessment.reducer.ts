@@ -1,24 +1,27 @@
 import { IOffenderAssessment } from '../model/offender-assessment.model';
 import * as offenderAssessment from '../action/offender-assessment.action';
 
+import { RESET_STATE } from '../../_shared/action/reset-state.action';
+
 export const initialState: IOffenderAssessment = {
-  issueAccommodation: void 0,
+  issueAccommodation: null,
   detailsAccommodation: '',
-  issueEmployment: void 0,
+  issueEmployment: null,
   detailsEmployment: '',
-  issueFinance: void 0,
+  issueFinance: null,
   detailsFinance: '',
-  issueRelationships: void 0,
+  issueRelationships: null,
   detailsRelationships: '',
-  issueDrugs: void 0,
+  issueDrugs: null,
   detailsDrugs: '',
-  issueAlcohol: void 0,
+  issueAlcohol: null,
   detailsAlcohol: '',
-  issueHealth: void 0,
+  issueHealth: null,
   detailsHealth: '',
-  issueBehaviour: void 0,
+  issueBehaviour: null,
   detailsBehaviour: '',
-  saved: false
+  saved: false,
+  valid: false
 };
 
 export function offenderAssessmentReducer(state = initialState, action: offenderAssessment.Actions): IOffenderAssessment {
@@ -26,6 +29,9 @@ export function offenderAssessmentReducer(state = initialState, action: offender
   switch (action.type) {
     case offenderAssessment.UPDATE_OFFENDER_ASSESSMENT: {
       return Object.assign({}, state, action.payload);
+    }
+    case RESET_STATE: {
+      return Object.assign({}, initialState);
     }
 
     default: {

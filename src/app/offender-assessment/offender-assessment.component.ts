@@ -1,23 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getOffenderAssessment } from './reducer/offender-assessment.reducer';
 
 import { IOffenderAssessment } from './model/offender-assessment.model';
 import { UpdateOffenderAssessmentAction } from './action/offender-assessment.action';
 
+interface ISection {
+  checkControl: string;
+  checkLabel: string;
+  detailControl: string;
+  detailLabel: string;
+}
+
 @Component({
   selector: 'app-offender-assessment',
   templateUrl: './offender-assessment.component.html'
 })
-export class OffenderAssessmentComponent {
+export class OffenderAssessmentComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: IOffenderAssessment;
   reportForm: FormGroup;
   formError: boolean;
-  sections = [
+  sections: Array<ISection> = [
     {
       checkControl: 'issueAccommodation',
       checkLabel: 'Accommodation',
@@ -68,8 +79,14 @@ export class OffenderAssessmentComponent {
     }
   ];
 
+  /**
+   * @constructor
+   * @param router
+   * @param formBuilder
+   * @param store
+   */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderAssessment>) {
-    store.select(getOffenderAssessment).subscribe(state => {
+    this.stateSubscriber = store.select(getOffenderAssessment).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -108,6 +125,7 @@ export class OffenderAssessmentComponent {
 
   /**
    *
+   * @param {IOffenderAssessment} value
    */
   saveContent({ value }: { value: IOffenderAssessment }) {
     this.store.dispatch(new UpdateOffenderAssessmentAction(value));
@@ -120,11 +138,20 @@ export class OffenderAssessmentComponent {
    */
   onSubmit({ valid, value }: { valid: boolean, value: IOffenderAssessment }) {
     this.formError = !valid;
+
+    const updatedValue = Object.assign(value, { saved: true, valid: valid });
+    this.store.dispatch(new UpdateOffenderAssessmentAction(updatedValue));
+
     if (valid) {
-      value.saved = true;
-      this.store.dispatch(new UpdateOffenderAssessmentAction(value));
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

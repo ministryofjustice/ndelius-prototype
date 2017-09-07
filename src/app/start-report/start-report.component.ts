@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
+
 import { IOffenderDetails } from '../offender-details/model/offender-details.model';
 import { ICourtDetails } from '../court-details/model/court-details.model';
 import { UpdateOffenderDetailsAction } from '../offender-details/action/offender-details.action';
@@ -14,7 +15,7 @@ import { UpdateCourtDetailsAction } from '../court-details/action/court-details.
 })
 export class StartReportComponent implements OnInit, OnDestroy {
 
-  private sub: Subscription;
+  private routeSubscriber: Subscription;
 
   /**
    *
@@ -46,10 +47,14 @@ export class StartReportComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     // Update state with passed parameters
-    this.sub = this.activatedRoute.queryParams.subscribe(params => {
+    this.routeSubscriber = this.activatedRoute.queryParams.subscribe(params => {
       if (params && Object.keys(params).length) {
         console['info']('Received data:', params);
 
+        // @TODO: Error checking around this
+        /**
+         *
+         */
         this.store.dispatch(new UpdateOffenderDetailsAction({
           name: params['name'],
           address: params['address'],
@@ -57,14 +62,17 @@ export class StartReportComponent implements OnInit, OnDestroy {
           age: params['age'],
           crn: params['crn'],
           pnc: params['pnc'] || void 0,
-          saved: true
+          saved: true,
+          valid: true
         }));
 
+        // @TODO: Error checking around this
         this.store.dispatch(new UpdateCourtDetailsAction({
           court: params['court'],
           localJusticeArea: params['localJusticeArea'],
           hearingDate: params['hearingDate'],
-          saved: true
+          saved: true,
+          valid: true
         }));
       }
     });
@@ -74,7 +82,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
    *
    */
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.routeSubscriber.unsubscribe();
   }
 
 }

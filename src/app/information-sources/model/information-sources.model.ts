@@ -12,4 +12,5 @@ export interface IInformationSources {
   otherInformationSource: boolean;
   otherInformationDetails: string;
   saved: boolean;
+  valid: boolean;
 }

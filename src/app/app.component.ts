@@ -16,7 +16,7 @@ declare const jquery: any;
 export class AppComponent implements OnInit {
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {ActivatedRoute} activatedRoute
    * @param {Title} titleService

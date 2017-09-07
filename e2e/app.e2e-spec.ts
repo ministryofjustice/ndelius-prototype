@@ -5,13 +5,21 @@ describe('New Probation Services - Rapid Prototype', () => {
 
   let page: PrototypePage;
 
+  /**
+   * Setup the page and mock the jQuery call we need to use.
+   */
+  function configureSuite() {
+    page = new PrototypePage();
+    // We're using jQuery to pull in application.js in order to run the jQuery code we use in the MVP so mock it.
+    browser.executeScript('$ = { getScript: function() { return true; } }');
+  }
+
   describe('Main report journey', () => {
 
     /* Start Your Report */
 
     beforeEach(() => {
-      page = new PrototypePage();
-      browser.executeScript('$ = { getScript: function() { return true; } }');
+      configureSuite();
     });
 
     afterEach(() => {
@@ -147,6 +155,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
+        page.getNextButton().click();
       });
 
     });
@@ -183,6 +192,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
+        page.getNextButton().click();
       });
 
     });
@@ -254,6 +264,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
+        page.getNextButton().click();
       });
 
     });
@@ -303,6 +314,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
         browser.waitForAngularEnabled(true);
+        page.getNextButton().click();
       });
 
     });
@@ -409,9 +421,7 @@ describe('New Probation Services - Rapid Prototype', () => {
   describe('Save draft report', () => {
 
     beforeEach(() => {
-      page = new PrototypePage();
-      // We're using jQuery to pull in application.js in order to run the jQuery code we use in the MVP so mock it.
-      browser.executeScript('$ = { getScript: function() { return true; } }');
+      configureSuite();
     });
 
     it('should display the Start Report page', () => {
@@ -440,9 +450,7 @@ describe('New Probation Services - Rapid Prototype', () => {
   describe('Give feedback', () => {
 
     beforeEach(() => {
-      page = new PrototypePage();
-      // We're using jQuery to pull in application.js in order to run the jQuery code we use in the MVP so mock it.
-      browser.executeScript('$ = { getScript: function() { return true; } }');
+      configureSuite();
     });
 
     it('should display the Start Report page', () => {

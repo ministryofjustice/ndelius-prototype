@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
+
+import { Subscription } from 'rxjs/Subscription';
 
 import { getSignature } from './reducer/signature.reducer';
 
@@ -13,21 +15,23 @@ import { UpdateSignatureAction } from './action/signature.action';
   selector: 'app-signature',
   templateUrl: './signature.component.html'
 })
-export class SignatureComponent {
+export class SignatureComponent implements OnDestroy {
+
+  private stateSubscriber: Subscription;
 
   reportData: ISignature;
   reportForm: FormGroup;
-  formError: Boolean;
+  formError: boolean;
 
   /**
-   *
+   * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {DatePipe} datePipe
    * @param {Store<ISignature>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ISignature>) {
-    store.select(getSignature).subscribe(state => {
+    this.stateSubscriber = store.select(getSignature).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -59,18 +63,24 @@ export class SignatureComponent {
   onSubmit({ valid, value }: { valid: boolean, value: ISignature }) {
     this.formError = !valid;
 
-    if (valid) {
-      // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
-      const submitData: ISignature = {
-        reportAuthor: value.reportAuthor,
-        office: value.office,
-        reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value,
-        saved: true
-      };
+    // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: valid,
+      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
+    });
+    this.store.dispatch(new UpdateSignatureAction(updatedValue));
 
-      this.store.dispatch(new UpdateSignatureAction(submitData));
+    if (valid) {
       this.continueJourney();
     }
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 
 }

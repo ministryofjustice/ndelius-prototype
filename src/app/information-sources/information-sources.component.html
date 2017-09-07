@@ -15,62 +15,13 @@
 
         <legend class="lede margin-bottom medium">Select the relevant options</legend>
 
-        <div class="multiple-choice">
-          <input type="checkbox" role="checkbox" id="interviewInformationSource" formControlName="interviewInformationSource" value="true" aria-checked="false" />
-          <label for="interviewInformationSource" class="form-label-bold">Interview</label>
+        <!-- Loop through the "sections" specified in the controller: information-sources.component.ts -->
+        <div class="multiple-choice" *ngFor="let section of sections; let i = index" [ngClass]="{ 'margin-top': i > 0 }">
+          <input type="checkbox" role="checkbox" [id]="section.control" [formControlName]="section.control" value="true" />
+          <label [for]="section.control" class="form-label-bold">{{section.label}}</label>
         </div>
 
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="serviceRecordsInformationSource" formControlName="serviceRecordsInformationSource" value="true" aria-checked="false" />
-          <label for="serviceRecordsInformationSource" class="form-label-bold">Service records</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="cpsSummaryInformationSource" formControlName="cpsSummaryInformationSource" value="true" aria-checked="false" />
-          <label for="cpsSummaryInformationSource" class="form-label-bold">CPS summary</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="oasysAssessmentsInformationSource" formControlName="oasysAssessmentsInformationSource" value="true" aria-checked="false" />
-          <label for="oasysAssessmentsInformationSource" class="form-label-bold">Previous OASys assessments</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="previousConvictionsInformationSource" formControlName="previousConvictionsInformationSource" value="true" aria-checked="false" />
-          <label for="previousConvictionsInformationSource" class="form-label-bold">Previous convictions</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="victimStatementInformationSource" formControlName="victimStatementInformationSource" value="true" aria-checked="false" />
-          <label for="victimStatementInformationSource" class="form-label-bold">Victim statement</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="childrenServicesInformationSource" formControlName="childrenServicesInformationSource" value="true" aria-checked="false" />
-          <label for="childrenServicesInformationSource" class="form-label-bold">Children services checks</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="policeInformationSource" formControlName="policeInformationSource" value="true" aria-checked="false" />
-          <label for="policeInformationSource" class="form-label-bold">Police information</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="smartToolSource" formControlName="smartToolSource" value="true" aria-checked="false" />
-          <label for="smartToolSource" class="form-label-bold">SMART sentencing tool</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="guidelinesSource" formControlName="guidelinesSource" value="true" aria-checked="false" />
-          <label for="guidelinesSource" class="form-label-bold">Sentencing guidelines</label>
-        </div>
-
-        <div class="multiple-choice margin-top">
-          <input type="checkbox" role="checkbox" id="otherInformationSource" formControlName="otherInformationSource" value="true" aria-checked="false" (change)="expandContent = !expandContent" />
-          <label for="otherInformationSource" class="form-label-bold">Other (please specify below)</label>
-        </div>
-
-        <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
+        <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'js-hidden': !reportForm.get('otherInformationSource').value }" [attr.aria-hidden]="!reportForm.get('otherInformationSource').value">
 
           <div class="form-group">
             <label for="otherInformationDetails">

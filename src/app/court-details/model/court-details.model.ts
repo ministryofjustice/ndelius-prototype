@@ -3,4 +3,5 @@ export interface ICourtDetails {
   localJusticeArea: string;
   hearingDate: string;
   saved: boolean;
+  valid: boolean;
 }
