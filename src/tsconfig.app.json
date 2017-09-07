@@ -8,6 +8,9 @@
   },
   "exclude": [
     "test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/*.mock.component.ts",
+    "**/*.mock.module.ts",
+    "**/*.mock.service.ts"
   ]
 }

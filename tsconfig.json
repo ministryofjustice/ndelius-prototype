@@ -24,6 +24,7 @@
     "e2e/**",
     "**/*.spec.ts",
     "**/*.mock.component.ts",
+    "**/*.mock.module.ts",
     "**/*.mock.service.ts"
   ]
 }

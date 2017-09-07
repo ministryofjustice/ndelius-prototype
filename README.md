@@ -24,6 +24,8 @@ You will need to install the project dependencies (in the project dir):
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+Use the `-prod` flag to test a production build. This should **ONLY** be used to test a build before committing to *develop* and *master* branches and should **NOT** be used during active development.
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
@@ -41,6 +43,12 @@ Run `ng test` to execute the unit tests via [Karma].
 ### Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor].
+
+### Testing a production build
+
+Run `ng serve --prod` to test a production build. Navigate to `http://localhost:4200/`.
+
+As noted above; this should **ONLY** be used to test a build before committing to *develop* and *master* branches.
 
 ## Documentation
 
