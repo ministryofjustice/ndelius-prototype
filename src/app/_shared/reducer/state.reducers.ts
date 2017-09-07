@@ -1,6 +1,8 @@
 import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
+import { environment } from '../../../environments/environment';
+
 import { IOffenderDetails } from '../../offender-details/model/offender-details.model';
 import { ICourtDetails } from '../../court-details/model/court-details.model';
 import { IInformationSources } from '../../information-sources/model/information-sources.model';
@@ -81,5 +83,5 @@ export const reducers: ActionReducerMap<IState> = {
   signature: signatureReducer
 };
 
-export const metaReducers: MetaReducer<any>[] = [localStorageSyncReducer, logInfo];
+export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];
 export const getCurrentState = (state: IState) => state;
