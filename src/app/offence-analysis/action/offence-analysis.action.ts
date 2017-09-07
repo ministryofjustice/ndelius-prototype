@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { IOffenceAnalysis } from '../model/offence-analysis.model';
+import { ResetStateAction } from '../../_shared/action/reset-state.action';
 
 export const UPDATE_OFFENCE_ANALYSIS = 'UPDATE_OFFENCE_ANALYSIS';
 
@@ -11,4 +12,4 @@ export class UpdateOffenceAnalysisAction implements Action {
   }
 }
 
-export type Actions = | UpdateOffenceAnalysisAction;
+export type Actions = | UpdateOffenceAnalysisAction | ResetStateAction;

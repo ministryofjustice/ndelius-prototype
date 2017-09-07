@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { ISignature } from '../model/signature.model';
+import { ResetStateAction } from '../../_shared/action/reset-state.action';
 
 export const UPDATE_SIGNATURE = 'UPDATE_SIGNATURE';
 
@@ -11,4 +12,4 @@ export class UpdateSignatureAction implements Action {
   }
 }
 
-export type Actions = | UpdateSignatureAction;
+export type Actions = | UpdateSignatureAction | ResetStateAction;

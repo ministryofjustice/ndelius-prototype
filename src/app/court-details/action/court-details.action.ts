@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { ICourtDetails } from '../model/court-details.model';
+import { ResetStateAction } from '../../_shared/action/reset-state.action';
 
 export const UPDATE_COURT_DETAILS = 'UPDATE_COURT_DETAILS';
 
@@ -11,12 +12,4 @@ export class UpdateCourtDetailsAction implements Action {
   }
 }
 
-export class ResetCourtDetailsAction implements Action {
-  readonly type = 'RESET_STATE';
-
-  constructor(public payload: ICourtDetails) {
-    // Empty
-  }
-}
-
-export type Actions = | UpdateCourtDetailsAction | ResetCourtDetailsAction;
+export type Actions = | UpdateCourtDetailsAction | ResetStateAction;

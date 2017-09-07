@@ -4,4 +4,8 @@ export const RESET_STATE = 'RESET_STATE';
 
 export class ResetStateAction implements Action {
   readonly type = RESET_STATE;
+
+  constructor(public payload?: any) {
+    // Empty
+  }
 }
