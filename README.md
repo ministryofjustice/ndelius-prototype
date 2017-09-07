@@ -4,6 +4,8 @@ The prototype has been developed in order to rapidly develop UI and UX features 
 
 The prototype has been developed close to "vanilla" HTML so that design staff can work with the code more easily. 
 
+This *README* details the use of *[npm]* as *[Yarn]* is a development preference and not a requirement. 
+
 **CircleCI build status:**
 
 [![CircleCI](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master.svg?style=svg)](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master)
@@ -22,6 +24,8 @@ You will need to install the project dependencies (in the project dir):
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+Use the `-prod` flag to test a production build. This should **ONLY** be used to test a build before committing to *develop* and *master* branches and should **NOT** be used during active development.
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
@@ -39,6 +43,30 @@ Run `ng test` to execute the unit tests via [Karma].
 ### Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor].
+
+### Testing a production build
+
+Run `ng serve --prod` to test a production build. Navigate to `http://localhost:4200/`.
+
+As noted above; this should **ONLY** be used to test a build before committing to *develop* and *master* branches.
+
+## Documentation
+
+The project allows the generation of document based on the source code with [compodoc].
+
+Run `npm run doc` to generate the documentation.
+
+The generated documentation can then be found in the */documenation* folder.
+
+**N.B. The generated documentation is NOT stored within the GitHub repository.**
+
+### Writing & updating documentation
+
+When writing/updating the documentation you can use the following command to auto watch for changes, regenerate and serve the documentation:
+
+`./node_modules/.bin/compodoc -p tsconfig.json -n "nDelius Prototype" -w -s`
+
+Navigate to `http://localhost:8080/`. The documentation will generate automatically and reload if you change any of the source files.
 
 ## Further info
 
@@ -69,5 +97,7 @@ This project uses:
 [@ngrx/store]: https://github.com/ngrx/platform/blob/master/docs/store/README.md
 [sessionStorage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
 [Yarn]: https://yarnpkg.com
+[npm]: https://npmjs.org
 [Angular CLI]: https://cli.angular.io
 [Angular]: https://angular.io
+[compodoc]: https://compodoc.github.io/website

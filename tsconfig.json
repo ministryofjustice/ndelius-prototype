@@ -15,5 +15,16 @@
       "es2016",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "e2e/**",
+    "**/*.spec.ts",
+    "**/*.mock.component.ts",
+    "**/*.mock.module.ts",
+    "**/*.mock.service.ts"
+  ]
 }

@@ -30,3 +30,6 @@ jobs:
       - run:
           name: angular-build
           command: yarn ng -- build --no-progress
+      - run:
+          name: angular-production-build
+          command: yarn ng -- build --prod --no-progress
