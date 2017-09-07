@@ -54,7 +54,7 @@ export function logInfo(reducer: ActionReducer<any>): ActionReducer<any> {
     console['info']('State:', state);
     console['info']('Action:', action);
     return reducer(state, action);
-  }
+  };
 }
 
 export interface IState {
