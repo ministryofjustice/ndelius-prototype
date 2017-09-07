@@ -11,4 +11,12 @@ export class UpdateCourtDetailsAction implements Action {
   }
 }
 
-export type Actions = | UpdateCourtDetailsAction;
+export class ResetCourtDetailsAction implements Action {
+  readonly type = 'RESET_STATE';
+
+  constructor(public payload: ICourtDetails) {
+    // Empty
+  }
+}
+
+export type Actions = | UpdateCourtDetailsAction | ResetCourtDetailsAction;

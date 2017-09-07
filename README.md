@@ -34,18 +34,40 @@ A simple "smoke test" principle has been used for both unit tests and e2e tests.
 
 ### Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma].
 
 ### Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng e2e` to execute the end-to-end tests via [Protractor].
 
 ## Further info
 
+In order to work with the Rapid Prototype code you should be familiar with [Angular] 4 development and use of the [Angular CLI].
+
+### State
+
+The application manages state with *[@ngrx/store]* and stores state automatically in *[sessionStorage]*.
+
+The application will automatically *re-hydrate* the state from *[sessionStorage]* if the browser is refreshed to ensure that any user input is not lost.
+
+The state will be cleared on the *save as draft* and *report complete* pages.
+
+State is also cleared when the browser or tab is closed. 
+
+### Project
+
 This project uses:
 
-* [Angular](https://angular.io).
-* [Angular CLI](https://cli.angular.io).
-* [Yarn](https://yarnpkg.com).
+* [Yarn].
+* [Angular CLI].
+* [Angular].
+* [@ngrx/store].
 
 [Node.js]: http://www.nodejs.org
+[Karma]: https://karma-runner.github.io
+[Protractor]: http://www.protractortest.org
+[@ngrx/store]: https://github.com/ngrx/platform/blob/master/docs/store/README.md
+[sessionStorage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+[Yarn]: https://yarnpkg.com
+[Angular CLI]: https://cli.angular.io
+[Angular]: https://angular.io

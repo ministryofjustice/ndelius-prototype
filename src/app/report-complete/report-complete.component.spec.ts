@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
 import { ReportCompleteComponent } from './report-complete.component';
+import { reducers } from '../_shared/reducer/state.reducers';
 
 describe('Component: Report complete', () => {
 
@@ -10,7 +12,10 @@ describe('Component: Report complete', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReportCompleteComponent ]
+      declarations: [ ReportCompleteComponent ],
+      imports: [
+        StoreModule.forRoot(reducers)
+      ]
     }).compileComponents();
   }));
 

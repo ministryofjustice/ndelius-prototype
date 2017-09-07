@@ -16,6 +16,10 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
+/**
+ * Configure the main application routes
+ * @type {Array<Object>}
+ */
 const routes: Routes = [
   { path: '', redirectTo: 'start-report', pathMatch: 'full' },
   { path: 'start-report', data: { title: 'Start your report' }, component: StartReportComponent },
@@ -34,6 +38,9 @@ const routes: Routes = [
   { path: 'feedback', data: { title: 'Feedback' }, component: FeedbackComponent }
 ];
 
+/**
+ * Main application router
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
