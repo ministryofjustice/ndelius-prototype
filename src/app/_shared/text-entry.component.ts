@@ -126,7 +126,7 @@ export class TextEntryComponent implements AfterViewInit, OnDestroy {
       this.onSaveContent.emit();
       this.saving.timer = setTimeout(() => {
         this.saving.active = false;
-      }, 3000);
+      }, 1000);
     } else {
       this.saving.active = void 0;
     }
