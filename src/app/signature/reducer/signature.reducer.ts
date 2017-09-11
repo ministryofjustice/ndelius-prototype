@@ -6,7 +6,7 @@ import { RESET_STATE } from '../../_shared/action/reset-state.action';
 export const initialState: ISignature = {
   reportAuthor: '',
   office: '',
-  reportDate: void 0,
+  reportDate: '',
   saved: false,
   valid: false
 };
