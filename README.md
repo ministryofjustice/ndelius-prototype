@@ -82,6 +82,10 @@ The state will be cleared on the *save as draft* and *report complete* pages.
 
 State is also cleared when the browser or tab is closed. 
 
+To use the ngrx debugger, install the Redux Devtools extension for either Chrome or Firefox
+
+See: https://github.com/zalmoxisus/redux-devtools-extension
+
 ### Project
 
 This project uses:
