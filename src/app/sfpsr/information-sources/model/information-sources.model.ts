@@ -7,7 +7,6 @@ export interface IInformationSources {
   victimStatementInformationSource: boolean;
   childrenServicesInformationSource: boolean;
   policeInformationSource: boolean;
-  smartToolSource: boolean;
   guidelinesSource: boolean;
   otherInformationSource: boolean;
   otherInformationDetails: string;

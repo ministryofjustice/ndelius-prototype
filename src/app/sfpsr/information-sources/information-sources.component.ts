@@ -36,7 +36,6 @@ export class InformationSourcesComponent implements OnDestroy {
     { control: 'victimStatementInformationSource', label: 'Victim statement' },
     { control: 'childrenServicesInformationSource', label: 'Children services checks' },
     { control: 'policeInformationSource', label: 'Police information' },
-    { control: 'smartToolSource', label: 'SMART sentencing tool' },
     { control: 'guidelinesSource', label: 'Sentencing guidelines' },
     { control: 'otherInformationSource', label: 'Other (please specify below)' }
   ];
@@ -67,7 +66,6 @@ export class InformationSourcesComponent implements OnDestroy {
       victimStatementInformationSource: this.reportData.victimStatementInformationSource,
       childrenServicesInformationSource: this.reportData.childrenServicesInformationSource,
       policeInformationSource: this.reportData.policeInformationSource,
-      smartToolSource: this.reportData.smartToolSource,
       guidelinesSource: this.reportData.guidelinesSource,
       otherInformationSource: this.reportData.otherInformationSource,
       otherInformationDetails: this.reportData.otherInformationDetails

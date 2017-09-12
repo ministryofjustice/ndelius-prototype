@@ -118,7 +118,6 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.getElementById('victimStatementInformationSource').click();
         page.getElementById('childrenServicesInformationSource').click();
         page.getElementById('policeInformationSource').click();
-        page.getElementById('smartToolSource').click();
         page.getElementById('guidelinesSource').click();
         page.getElementById('otherInformationSource').click();
       });
