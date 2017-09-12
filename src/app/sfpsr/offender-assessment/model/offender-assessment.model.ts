@@ -7,14 +7,14 @@ export interface IOffenderAssessment {
   detailsFinance: string;
   issueRelationships: boolean;
   detailsRelationships: string;
-  issueDrugs: boolean;
-  detailsDrugs: string;
-  issueAlcohol: boolean;
-  detailsAlcohol: string;
+  issueSubstance: boolean;
+  detailsSubstance: string;
   issueHealth: boolean;
   detailsHealth: string;
   issueBehaviour: boolean;
   detailsBehaviour: string;
+  issueOther: boolean;
+  detailsOther: string;
   saved: boolean;
   valid: boolean;
 }

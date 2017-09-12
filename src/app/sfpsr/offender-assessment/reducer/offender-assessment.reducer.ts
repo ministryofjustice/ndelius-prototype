@@ -12,14 +12,14 @@ export const initialState: IOffenderAssessment = {
   detailsFinance: '',
   issueRelationships: null,
   detailsRelationships: '',
-  issueDrugs: null,
-  detailsDrugs: '',
-  issueAlcohol: null,
-  detailsAlcohol: '',
+  issueSubstance: null,
+  detailsSubstance: '',
   issueHealth: null,
   detailsHealth: '',
   issueBehaviour: null,
   detailsBehaviour: '',
+  issueOther: null,
+  detailsOther: '',
   saved: false,
   valid: false
 };

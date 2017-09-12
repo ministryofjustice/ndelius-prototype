@@ -226,10 +226,10 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.getElementById('issueEmployment').click();
         page.getElementById('issueFinance').click();
         page.getElementById('issueRelationships').click();
-        page.getElementById('issueDrugs').click();
-        page.getElementById('issueAlcohol').click();
+        page.getElementById('issueSubstance').click();
         page.getElementById('issueHealth').click();
         page.getElementById('issueBehaviour').click();
+        page.getElementById('issueOther').click();
       });
 
       it('should allow the entry of Offender assessment details for accommodation', () => {
@@ -252,14 +252,9 @@ describe('New Probation Services - Rapid Prototype', () => {
           .toEqual('Some detail relating to relationships');
       });
 
-      it('should allow the entry of Offender assessment details for drugs', () => {
-        expect(page.setElementByIdValue('detailsDrugs', 'Some detail relating to drugs'))
-          .toEqual('Some detail relating to drugs');
-      });
-
-      it('should allow the entry of Offender assessment details for alcohol', () => {
-        expect(page.setElementByIdValue('detailsAlcohol', 'Some detail relating to alcohol'))
-          .toEqual('Some detail relating to alcohol');
+      it('should allow the entry of Offender assessment details for substance abuse', () => {
+        expect(page.setElementByIdValue('detailsSubstance', 'Some detail relating to substance abuse'))
+          .toEqual('Some detail relating to substance abuse');
       });
 
       it('should allow the entry of Offender assessment details for physical & mental health', () => {
@@ -270,6 +265,11 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the entry of Offender assessment details for thinking & behaviour', () => {
         expect(page.setElementByIdValue('detailsBehaviour', 'Some detail relating to thinking & behaviour'))
           .toEqual('Some detail relating to thinking & behaviour');
+      });
+
+      it('should allow the entry of Offender assessment details for other issues', () => {
+        expect(page.setElementByIdValue('detailsOther', 'Some detail relating to other issues'))
+          .toEqual('Some detail relating to other issues');
       });
 
       it('should allow the user to continue through the journey', () => {

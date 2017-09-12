@@ -54,16 +54,10 @@ export class OffenderAssessmentComponent implements OnDestroy {
       detailLabel: 'Provide a brief assessment of relationship issues'
     },
     {
-      checkControl: 'issueDrugs',
-      checkLabel: 'Drugs',
-      detailControl: 'detailsDrugs',
-      detailLabel: 'Provide a brief assessment of drug issues'
-    },
-    {
-      checkControl: 'issueAlcohol',
-      checkLabel: 'Alcohol',
-      detailControl: 'detailsAlcohol',
-      detailLabel: 'Provide a brief assessment of alcohol issues'
+      checkControl: 'issueSubstance',
+      checkLabel: 'Substance abuse',
+      detailControl: 'detailsSubstance',
+      detailLabel: 'Provide a brief assessment of substance abuse issues'
     },
     {
       checkControl: 'issueHealth',
@@ -76,6 +70,12 @@ export class OffenderAssessmentComponent implements OnDestroy {
       checkLabel: 'Thinking & behaviour',
       detailControl: 'detailsBehaviour',
       detailLabel: 'Provide a brief assessment of thinking & behaviour issues'
+    },
+    {
+      checkControl: 'issueOther',
+      checkLabel: 'Other',
+      detailControl: 'detailsOther',
+      detailLabel: 'Provide a brief assessment of other issues'
     }
   ];
 
@@ -105,14 +105,14 @@ export class OffenderAssessmentComponent implements OnDestroy {
       detailsFinance: this.reportData.detailsFinance,
       issueRelationships: this.reportData.issueRelationships,
       detailsRelationships: this.reportData.detailsRelationships,
-      issueDrugs: this.reportData.issueDrugs,
-      detailsDrugs: this.reportData.detailsDrugs,
-      issueAlcohol: this.reportData.issueAlcohol,
-      detailsAlcohol: this.reportData.detailsAlcohol,
+      issueSubstance: this.reportData.issueSubstance,
+      detailsSubstance: this.reportData.detailsSubstance,
       issueHealth: this.reportData.issueHealth,
       detailsHealth: this.reportData.detailsHealth,
       issueBehaviour: this.reportData.issueBehaviour,
-      detailsBehaviour: this.reportData.detailsBehaviour
+      detailsBehaviour: this.reportData.detailsBehaviour,
+      issueOther: this.reportData.issueOther,
+      detailsOther: this.reportData.detailsOther
     });
   }
 
