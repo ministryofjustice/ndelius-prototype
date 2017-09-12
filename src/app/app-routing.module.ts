@@ -10,9 +10,11 @@ import { FeedbackComponent } from './feedback/feedback.component';
  */
 const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full' },
-  { path: '**', redirectTo: 'start', pathMatch: 'full' },
   { path: 'start', data: { title: '' }, component: StartComponent },
-  { path: 'feedback', data: { title: 'Feedback' }, component: FeedbackComponent }
+  { path: 'feedback', data: { title: 'Feedback' }, component: FeedbackComponent },
+  { path: 'sfpsr', loadChildren: './sfpsr/sfpsr.module#SfpsrModule' },
+  { path: 'sfpsr-addendum', loadChildren: './sfpsr-addendum/sfpsr-addendum.module#SfpsrAddendumModule' }
+
 ];
 
 /**
