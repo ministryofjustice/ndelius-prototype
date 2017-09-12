@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 /**
@@ -27,7 +27,7 @@ interface ISaving {
   selector: 'app-text-entry',
   templateUrl: './text-entry.component.html'
 })
-export class TextEntryComponent implements AfterViewInit, OnDestroy {
+export class TextEntryComponent implements OnInit, OnDestroy {
 
   /**
    * The control's parent FormGroup to be used as reference
@@ -135,8 +135,7 @@ export class TextEntryComponent implements AfterViewInit, OnDestroy {
   /**
    * Determine the presence of hint content to be included with the component
    */
-  ngAfterViewInit() {
-    // Check for hint content
+  ngOnInit() {
     this.showHint = this.hint.nativeElement.children.length > 0;
   }
 
