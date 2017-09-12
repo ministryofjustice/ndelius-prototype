@@ -10,6 +10,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
  */
 const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full' },
+  { path: '**', redirectTo: 'start', pathMatch: 'full' },
   { path: 'start', data: { title: '' }, component: StartComponent },
   { path: 'feedback', data: { title: 'Feedback' }, component: FeedbackComponent }
 ];
