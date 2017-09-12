@@ -12,6 +12,7 @@ import { IOffenderAssessment } from '../../offender-assessment/model/offender-as
 import { IRiskAssessment } from '../../risk-assessment/model/risk-assessment.model';
 import { IProposedSentence } from '../../proposed-sentence/model/proposed-sentence.model';
 import { ISignature } from '../../signature/model/signature.model';
+import { IAddendumDetail } from '../../../sfpsr-addendum/addendum-detail/model/addendum-detail.model';
 
 import { offenderDetailsReducer } from '../../offender-details/reducer/offender-details.reducer';
 import { courtDetailsReducer } from '../../court-details/reducer/court-details.reducer';
@@ -22,6 +23,7 @@ import { offenderAssessmentReducer } from '../../offender-assessment/reducer/off
 import { riskAssessmentReducer } from '../../risk-assessment/reducer/risk-assessment.reducer';
 import { proposedSentenceReducer } from '../../proposed-sentence/reducer/proposed-sentence.reducer';
 import { signatureReducer } from '../../signature/reducer/signature.reducer';
+import { addendumDetailReducer } from '../../../sfpsr-addendum/addendum-detail/reducer/addendum-detail.reducer';
 
 /**
  * MetaReducer
@@ -41,7 +43,8 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
       'offenderAssessment',
       'riskAssessment',
       'proposedSentence',
-      'signature'
+      'signature',
+      'addendumDetail'
     ]
   })(reducer);
 }
@@ -69,6 +72,7 @@ export interface IState {
   riskAssessment: IRiskAssessment;
   proposedSentence: IProposedSentence;
   signature: ISignature;
+  addendumDetail: IAddendumDetail;
 }
 
 export const reducers: ActionReducerMap<IState> = {
@@ -80,7 +84,8 @@ export const reducers: ActionReducerMap<IState> = {
   offenderAssessment: offenderAssessmentReducer,
   riskAssessment: riskAssessmentReducer,
   proposedSentence: proposedSentenceReducer,
-  signature: signatureReducer
+  signature: signatureReducer,
+  addendumDetail: addendumDetailReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];

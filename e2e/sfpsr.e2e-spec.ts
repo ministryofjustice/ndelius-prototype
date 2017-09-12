@@ -14,7 +14,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     browser.executeScript('$ = { getScript: function() { return true; } }');
   }
 
-  describe('Main report journey', () => {
+  describe('Short Format Pre-Sentence Report journey', () => {
 
     /* Start Your Report */
 
@@ -26,10 +26,22 @@ describe('New Probation Services - Rapid Prototype', () => {
       browser.waitForAngularEnabled(true);
     });
 
+    describe('Report Selection', () => {
+
+      it('should display the Report Selection page', () => {
+        page.navigateTo();
+        expect(page.getHeadingText()).toEqual('Choose your report');
+      });
+
+      it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
+        page.getElementById('sfpsr').click();
+      });
+
+    });
+
     describe('Start report', () => {
 
       it('should display the Start Report page', () => {
-        page.navigateTo();
         expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
       });
 
@@ -424,8 +436,20 @@ describe('New Probation Services - Rapid Prototype', () => {
       configureSuite();
     });
 
+    describe('Report Selection', () => {
+
+      it('should display the Report Selection page', () => {
+        page.navigateTo();
+        expect(page.getHeadingText()).toEqual('Choose your report');
+      });
+
+      it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
+        page.getElementById('sfpsr').click();
+      });
+
+    });
+
     it('should display the Start Report page', () => {
-      page.navigateTo();
       expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
     });
 
@@ -453,8 +477,20 @@ describe('New Probation Services - Rapid Prototype', () => {
       configureSuite();
     });
 
+    describe('Report Selection', () => {
+
+      it('should display the Report Selection page', () => {
+        page.navigateTo();
+        expect(page.getHeadingText()).toEqual('Choose your report');
+      });
+
+      it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
+        page.getElementById('sfpsr').click();
+      });
+
+    });
+
     it('should display the Start Report page', () => {
-      page.navigateTo();
       expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
     });
 
@@ -478,10 +514,10 @@ describe('New Probation Services - Rapid Prototype', () => {
       expect(page.setElementByIdValue('feedback', 'Some valuable feedback')).toEqual('Some valuable feedback');
     });
 
-    it('should submit feedback and return to the Start Report page', () => {
+    it('should submit feedback and return to the Choose your report page', () => {
       expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
-      expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
+      expect(page.getHeadingText()).toEqual('Choose your report');
     });
 
   });

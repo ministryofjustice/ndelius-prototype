@@ -17,6 +17,7 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'sfpsr/start-report', pathMatch: 'full' },
+  { path: 'sfpsr', redirectTo: 'sfpsr/start-report', pathMatch: 'full' },
   { path: 'sfpsr/start-report', data: { title: 'Start your report' }, component: StartReportComponent },
   { path: 'sfpsr/offender-details', data: { title: 'Offender details' }, component: OffenderDetailsComponent },
   { path: 'sfpsr/court-details', data: { title: 'Sentencing court details' }, component: CourtDetailsComponent },

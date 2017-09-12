@@ -8,9 +8,7 @@ import { environment } from '../../../environments/environment';
 import { ShareBaseModule } from '../../_shared/share-base.module';
 
 import { NavigationComponent } from './navigation.component';
-import { reducers, metaReducers } from './reducer/state.reducers';
-
-import { CheckReportService } from '../check-report/check-report.service';
+import { reducers, metaReducers } from '../../sfpsr/_shared/reducer/state.reducers';
 
 /**
  * To use the ngrx debugger, install the Redux Devtools extension for either Chrome or Firefox
@@ -31,8 +29,7 @@ import { CheckReportService } from '../check-report/check-report.service';
     NavigationComponent
   ],
   providers: [
-    DatePipe,
-    CheckReportService
+    DatePipe
   ]
 })
 export class SharedModule {

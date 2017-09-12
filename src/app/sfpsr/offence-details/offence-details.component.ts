@@ -69,7 +69,7 @@ export class OffenceDetailsComponent implements OnDestroy {
     this.formError = !valid;
 
     const updatedValue = Object.assign(value, { saved: true, valid: valid });
-    this.store.dispatch(new UpdateOffenceDetailsAction(updatedValue));
+    this.saveContent({ value: updatedValue });
 
     if (valid) {
       this.continueJourney();
