@@ -55,8 +55,8 @@ describe('Component: Offender details', () => {
     expect(component.reportData.dateOfBirth.year).toEqual(1976);
     expect(component.reportData.age).toBeDefined();
     expect(component.reportData.address).toBe('1 Albert Square, Manchester, Greater Manchester, M60 2LA');
+    expect(component.reportData.pnc).toBe('B98793');
     expect(component.reportData.crn).toBe('X087946');
-    expect(component.reportData.pnc).toBe('');
   });
 
   it('should navigate to the Court details page', () => {

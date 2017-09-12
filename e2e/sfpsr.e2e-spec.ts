@@ -65,8 +65,8 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getElementByIdValue('dob-month')).toEqual('6');
         expect(page.getElementByIdValue('dob-year')).toEqual('1976');
         expect(page.getElementByIdValue('address')).toEqual('1 Albert Square, Manchester, Greater Manchester, M60 2LA');
+        expect(page.getElementByIdValue('pnc')).toEqual('B98793');
         expect(page.getElementByIdValue('crn')).toEqual('X087946');
-        expect(page.getElementByIdValue('pnc')).toEqual('');
       });
 
       it('should allow the user to continue through the journey', () => {
