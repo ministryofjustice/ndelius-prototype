@@ -4,30 +4,28 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { ShareBaseModule } from '../../_shared/share-base.module';
-import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { AddendumDetailComponent } from './addendum-detail.component';
+import { CourtDetailsComponent } from './court-details.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
+import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
 
-import * as model from './reducer/addendum-detail.reducer';
+import * as model from './reducer/court-details.reducer';
 
-describe('Component: Addendum detail', () => {
+describe('Component: Court details', () => {
 
-  let fixture: ComponentFixture<AddendumDetailComponent>;
-  let component: AddendumDetailComponent;
+  let fixture: ComponentFixture<CourtDetailsComponent>;
+  let component: CourtDetailsComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AddendumDetailComponent,
+        CourtDetailsComponent,
         MockNavigationComponent,
         MockErrorMessagesComponent
       ],
       imports: [
-        ShareBaseModule,
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
@@ -39,7 +37,7 @@ describe('Component: Addendum detail', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddendumDetailComponent);
+    fixture = TestBed.createComponent(CourtDetailsComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -50,12 +48,12 @@ describe('Component: Addendum detail', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Addendum detail');
+      expect(compiled.querySelector('h1').innerHTML).toBe('Sentencing court details');
   });
 
   it('should include the pre-populated reactive form', () => {
     expect(component.reportForm).toBeDefined();
-    expect(component.reportForm.get('detail').value).toBe('');
+    expect(component.reportForm.get('court').value).toBe('Manchester and Salford Magistrates Court');
   });
 
   it('should set error property if form is invalid and NOT navigate', () => {
@@ -69,7 +67,7 @@ describe('Component: Addendum detail', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr-addendum/signature']);
+    expect(navigateSpy).toHaveBeenCalledWith(['psr-addendum/addendum-detail']);
   });
 
 });

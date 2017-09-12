@@ -6,22 +6,22 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { CourtDetailsComponent } from './court-details.component';
+import { SignatureComponent } from './signature.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
 
-import * as model from './reducer/court-details.reducer';
+import * as model from './reducer/signature.reducer';
 
-describe('Component: Court details', () => {
+describe('Component: Signature', () => {
 
-  let fixture: ComponentFixture<CourtDetailsComponent>;
-  let component: CourtDetailsComponent;
+  let fixture: ComponentFixture<SignatureComponent>;
+  let component: SignatureComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CourtDetailsComponent,
+        SignatureComponent,
         MockNavigationComponent,
         MockErrorMessagesComponent
       ],
@@ -37,7 +37,7 @@ describe('Component: Court details', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CourtDetailsComponent);
+    fixture = TestBed.createComponent(SignatureComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -48,12 +48,11 @@ describe('Component: Court details', () => {
   });
 
   it('should render the template', () => {
-      expect(compiled.querySelector('h1').innerHTML).toBe('Sentencing court details');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Sign your addendum');
   });
 
-  it('should include the pre-populated reactive form', () => {
+  it('should include the reactive form', () => {
     expect(component.reportForm).toBeDefined();
-    expect(component.reportForm.get('court').value).toBe('Manchester and Salford Magistrates Court');
   });
 
   it('should set error property if form is invalid and NOT navigate', () => {
@@ -63,11 +62,11 @@ describe('Component: Court details', () => {
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 
-  it('should navigate to the Sources of Information page', () => {
+  it('should navigate to the Report Complete page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr-addendum/addendum-detail']);
+    expect(navigateSpy).toHaveBeenCalledWith(['psr-addendum/report-complete']);
   });
 
 });

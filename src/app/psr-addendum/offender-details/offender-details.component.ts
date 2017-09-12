@@ -76,7 +76,7 @@ export class OffenderDetailsComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['sfpsr-addendum/court-details']);
+    this.router.navigate(['psr-addendum/court-details']);
   }
 
   /**

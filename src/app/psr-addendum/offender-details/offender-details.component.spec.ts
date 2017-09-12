@@ -63,7 +63,7 @@ describe('Component: Offender details', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr-addendum/court-details']);
+    expect(navigateSpy).toHaveBeenCalledWith(['psr-addendum/court-details']);
   });
 
 });

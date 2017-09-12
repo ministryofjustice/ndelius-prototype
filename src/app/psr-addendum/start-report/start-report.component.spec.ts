@@ -44,7 +44,7 @@ describe('Component: Start Report (Addendum)', () => {
   it('should navigate to the Court Details (Addendum) page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.startReport();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr-addendum/offender-details']);
+    expect(navigateSpy).toHaveBeenCalledWith(['psr-addendum/offender-details']);
   });
 
 });

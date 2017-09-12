@@ -52,7 +52,7 @@ export class SignatureComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['sfpsr-addendum/report-complete']);
+    this.router.navigate(['psr-addendum/report-complete']);
   }
 
   /**

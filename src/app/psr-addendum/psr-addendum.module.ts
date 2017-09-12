@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from './_shared/shared.module';
-import { SfpsrAddendumRouter } from './sfpsr-addendum.router';
+import { PsrAddendumRouter } from './psr-addendum.router';
 
 import { StartReportComponent } from './start-report/start-report.component';
 import { OffenderDetailsComponent } from './offender-details/offender-details.component';
@@ -15,7 +15,7 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
 @NgModule({
   imports: [
     CommonModule,
-    SfpsrAddendumRouter,
+    PsrAddendumRouter,
     SharedModule
   ],
   declarations: [
@@ -28,6 +28,6 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
     SaveDraftComponent
   ]
 })
-export class SfpsrAddendumModule {
+export class PsrAddendumModule {
   // Empty
 }

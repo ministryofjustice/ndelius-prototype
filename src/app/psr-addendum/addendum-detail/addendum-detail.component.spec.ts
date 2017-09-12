@@ -4,28 +4,30 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
+import { ShareBaseModule } from '../../_shared/share-base.module';
+import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { SignatureComponent } from './signature.component';
+import { AddendumDetailComponent } from './addendum-detail.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
-import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
 
-import * as model from './reducer/signature.reducer';
+import * as model from './reducer/addendum-detail.reducer';
 
-describe('Component: Signature', () => {
+describe('Component: Addendum detail', () => {
 
-  let fixture: ComponentFixture<SignatureComponent>;
-  let component: SignatureComponent;
+  let fixture: ComponentFixture<AddendumDetailComponent>;
+  let component: AddendumDetailComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        SignatureComponent,
+        AddendumDetailComponent,
         MockNavigationComponent,
         MockErrorMessagesComponent
       ],
       imports: [
+        ShareBaseModule,
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
@@ -37,7 +39,7 @@ describe('Component: Signature', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SignatureComponent);
+    fixture = TestBed.createComponent(AddendumDetailComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -48,11 +50,12 @@ describe('Component: Signature', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Sign your addendum');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Addendum detail');
   });
 
-  it('should include the reactive form', () => {
+  it('should include the pre-populated reactive form', () => {
     expect(component.reportForm).toBeDefined();
+    expect(component.reportForm.get('detail').value).toBe('');
   });
 
   it('should set error property if form is invalid and NOT navigate', () => {
@@ -62,11 +65,11 @@ describe('Component: Signature', () => {
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 
-  it('should navigate to the Report Complete page', () => {
+  it('should navigate to the Sources of Information page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr-addendum/report-complete']);
+    expect(navigateSpy).toHaveBeenCalledWith(['psr-addendum/signature']);
   });
 
 });

@@ -52,7 +52,7 @@ export class CourtDetailsComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['sfpsr-addendum/addendum-detail']);
+    this.router.navigate(['psr-addendum/addendum-detail']);
   }
 
   /**

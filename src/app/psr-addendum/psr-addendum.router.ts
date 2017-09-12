@@ -25,6 +25,6 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SfpsrAddendumRouter {
+export class PsrAddendumRouter {
   // Empty
 }

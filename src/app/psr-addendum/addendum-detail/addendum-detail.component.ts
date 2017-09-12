@@ -53,7 +53,7 @@ export class AddendumDetailComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['sfpsr-addendum/signature']);
+    this.router.navigate(['psr-addendum/signature']);
   }
 
   /**

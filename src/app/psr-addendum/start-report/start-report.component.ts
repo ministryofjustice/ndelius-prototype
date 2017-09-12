@@ -31,7 +31,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['sfpsr-addendum/offender-details']);
+    this.router.navigate(['psr-addendum/offender-details']);
   }
 
   /**

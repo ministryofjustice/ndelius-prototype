@@ -34,7 +34,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
-        page.getElementById('sfpsr-addendum').click();
+        page.getElementById('psr-addendum').click();
       });
 
     });
@@ -187,7 +187,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
   /* Save Draft Report */
 
-  describe('Save draft report', () => {
+  describe('Addendum - Save draft report', () => {
 
     beforeEach(() => {
       configureSuite();
@@ -200,8 +200,8 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Choose your report');
       });
 
-      it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
-        page.getElementById('sfpsr-addendum').click();
+      it('should allow the user to select the Pre-Sentence Addendum journey', () => {
+        page.getElementById('psr-addendum').click();
       });
 
     });
@@ -224,7 +224,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
   /* Give Feedback */
 
-  describe('Give feedback', () => {
+  describe('Addendum - Give feedback', () => {
 
     beforeEach(() => {
       configureSuite();
@@ -237,8 +237,8 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Choose your report');
       });
 
-      it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
-        page.getElementById('sfpsr-addendum').click();
+      it('should allow the user to select the Pre-Sentence Addendum journey', () => {
+        page.getElementById('psr-addendum').click();
       });
 
     });
