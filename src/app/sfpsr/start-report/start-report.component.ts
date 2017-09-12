@@ -52,9 +52,6 @@ export class StartReportComponent implements OnInit, OnDestroy {
         console['info']('Received data:', params);
 
         // @TODO: Error checking around this
-        /**
-         *
-         */
         this.store.dispatch(new UpdateOffenderDetailsAction({
           name: params['name'],
           address: params['address'],

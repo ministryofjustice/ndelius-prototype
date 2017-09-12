@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'start', data: { title: '' }, component: StartComponent },
   { path: 'feedback', data: { title: 'Feedback' }, component: FeedbackComponent },
   { path: 'sfpsr', loadChildren: './sfpsr/sfpsr.module#SfpsrModule' },
-  { path: 'sfpsr-addendum', loadChildren: './sfpsr-addendum/sfpsr-addendum.module#SfpsrAddendumModule' }
+  { path: 'sfpsr-addendum', loadChildren: './sfpsr-addendum/sfpsr-addendum.module#SfpsrAddendumModule' },
+  { path: '**', redirectTo: 'start', pathMatch: 'full' }
 
 ];
 

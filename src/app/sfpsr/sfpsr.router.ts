@@ -29,7 +29,8 @@ const routes: Routes = [
   { path: 'check-report', data: { title: 'Check your report' }, component: CheckReportComponent },
   { path: 'signature', data: { title: 'Signature' }, component: SignatureComponent },
   { path: 'report-complete', data: { title: 'Report complete' }, component: ReportCompleteComponent },
-  { path: 'save-draft', data: { title: 'Draft Saved' }, component: SaveDraftComponent }
+  { path: 'save-draft', data: { title: 'Draft Saved' }, component: SaveDraftComponent },
+  { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 
 @NgModule({
