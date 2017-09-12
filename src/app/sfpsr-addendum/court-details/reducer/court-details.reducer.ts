@@ -1,8 +1,8 @@
 import { ICourtDetails } from '../model/court-details.model';
 import * as courtDetails from '../action/court-details.action';
 
-import { defaultCourtDetails } from '../../../_shared/model/default-data';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
+import { defaultCourtDetails } from '../../../_shared/model/default-data';
 
 export const initialState: ICourtDetails = defaultCourtDetails();
 

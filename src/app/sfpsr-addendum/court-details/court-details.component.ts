@@ -6,10 +6,10 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { getCourtDetails } from '../../sfpsr/court-details/reducer/court-details.reducer';
+import { getCourtDetails } from './reducer/court-details.reducer';
 
-import { ICourtDetails } from '../../sfpsr/court-details/model/court-details.model';
-import { UpdateCourtDetailsAction } from '../../sfpsr/court-details/action/court-details.action';
+import { ICourtDetails } from './model/court-details.model';
+import { UpdateCourtDetailsAction } from './action/court-details.action';
 
 @Component({
   selector: 'app-court-details',

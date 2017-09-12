@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { IState } from '../_shared/reducer/state.reducers';
-import { ResetStateAction } from '../_shared/action/reset-state.action';
+import { ResetStateAction } from '../../_shared/action/reset-state.action';
 
 /**
  * Save draft component

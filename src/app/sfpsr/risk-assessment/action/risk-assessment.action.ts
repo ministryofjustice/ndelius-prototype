@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { IRiskAssessment } from '../model/risk-assessment.model';
-import { ResetStateAction } from '../../_shared/action/reset-state.action';
+import { ResetStateAction } from '../../../_shared/action/reset-state.action';
 
 export const UPDATE_RISK_ASSESSMENT = 'UPDATE_RISK_ASSESSMENT';
 

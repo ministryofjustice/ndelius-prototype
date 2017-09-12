@@ -1,7 +1,7 @@
 import * as addendumDetail from '../action/addendum-detail.action';
 import { IAddendumDetail } from '../model/addendum-detail.model';
 
-import { RESET_STATE } from '../../../sfpsr/_shared/action/reset-state.action';
+import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IAddendumDetail = {
   detail: '',

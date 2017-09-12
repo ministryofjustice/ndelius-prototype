@@ -1,7 +1,7 @@
 import { IInformationSources } from '../model/information-sources.model';
 import * as informationSources from '../action/information-sources.action';
 
-import { RESET_STATE } from '../../_shared/action/reset-state.action';
+import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IInformationSources = {
   interviewInformationSource: null,

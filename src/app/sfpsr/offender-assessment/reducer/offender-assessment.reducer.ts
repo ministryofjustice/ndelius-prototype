@@ -1,7 +1,7 @@
 import { IOffenderAssessment } from '../model/offender-assessment.model';
 import * as offenderAssessment from '../action/offender-assessment.action';
 
-import { RESET_STATE } from '../../_shared/action/reset-state.action';
+import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IOffenderAssessment = {
   issueAccommodation: null,

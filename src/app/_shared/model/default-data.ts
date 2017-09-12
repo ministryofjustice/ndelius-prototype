@@ -1,5 +1,5 @@
-import { IOffenderDetails } from '../../offender-details/model/offender-details.model';
-import { ICourtDetails } from '../../court-details/model/court-details.model';
+import { IOffenderDetails } from '../../sfpsr/offender-details/model/offender-details.model';
+import { ICourtDetails } from '../../sfpsr/court-details/model/court-details.model';
 
 export function defaultOffenderDetails(): IOffenderDetails {
 

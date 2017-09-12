@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 import { ShareBaseModule } from '../../_shared/share-base.module';
 
 import { NavigationComponent } from './navigation.component';
-import { reducers, metaReducers } from '../../sfpsr/_shared/reducer/state.reducers';
+import { reducers, metaReducers } from './reducer/state.reducers';
 
 /**
  * To use the ngrx debugger, install the Redux Devtools extension for either Chrome or Firefox

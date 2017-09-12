@@ -3,13 +3,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { reducers } from '../../sfpsr/_shared/reducer/state.reducers';
+import { reducers } from '../_shared/reducer/state.reducers';
 
 import { OffenderDetailsComponent } from './offender-details.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
 
-import * as model from '../../sfpsr/offender-details/reducer/offender-details.reducer';
+import * as model from './reducer/offender-details.reducer';
 
 describe('Component: Offender details', () => {
 

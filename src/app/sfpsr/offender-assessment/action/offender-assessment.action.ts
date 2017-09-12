@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { IOffenderAssessment } from '../model/offender-assessment.model';
-import { ResetStateAction } from '../../_shared/action/reset-state.action';
+import { ResetStateAction } from '../../../_shared/action/reset-state.action';
 
 export const UPDATE_OFFENDER_ASSESSMENT = 'UPDATE_OFFENDER_ASSESSMENT_DETAIL';
 

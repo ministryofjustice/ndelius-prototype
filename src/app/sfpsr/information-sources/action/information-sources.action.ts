@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { IInformationSources } from '../model/information-sources.model';
-import { ResetStateAction } from '../../_shared/action/reset-state.action';
+import { ResetStateAction } from '../../../_shared/action/reset-state.action';
 
 export const UPDATE_INFORMATION_SOURCES = 'UPDATE_INFORMATION_SOURCES';
 

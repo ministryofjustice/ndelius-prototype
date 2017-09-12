@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { IProposedSentence } from '../model/proposed-sentence.model';
-import { ResetStateAction } from '../../_shared/action/reset-state.action';
+import { ResetStateAction } from '../../../_shared/action/reset-state.action';
 
 export const UPDATE_PROPOSED_SENTENCE = 'UPDATE_PROPOSED_SENTENCE';
 

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 
 import { SaveDraftComponent } from './save-draft.component';
-import { reducers } from '../../sfpsr/_shared/reducer/state.reducers';
+import { reducers } from '../_shared/reducer/state.reducers';
 
 describe('Component: Save draft', () => {
 

@@ -4,13 +4,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { reducers } from '../../sfpsr/_shared/reducer/state.reducers';
+import { reducers } from '../_shared/reducer/state.reducers';
 
 import { SignatureComponent } from './signature.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
 
-import * as model from '../../sfpsr/signature/reducer/signature.reducer';
+import * as model from './reducer/signature.reducer';
 
 describe('Component: Signature', () => {
 

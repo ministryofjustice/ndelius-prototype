@@ -6,10 +6,10 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { getSignature } from '../../sfpsr/signature/reducer/signature.reducer';
+import { getSignature } from './reducer/signature.reducer';
 
-import { ISignature } from '../../sfpsr/signature/model/signature.model';
-import { UpdateSignatureAction } from '../../sfpsr/signature/action/signature.action';
+import { ISignature } from './model/signature.model';
+import { UpdateSignatureAction } from './action/signature.action';
 
 @Component({
   selector: 'app-signature',

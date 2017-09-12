@@ -1,7 +1,7 @@
 import * as proposedSentence from '../action/proposed-sentence.action';
 import { IProposedSentence } from '../model/proposed-sentence.model';
 
-import { RESET_STATE } from '../../_shared/action/reset-state.action';
+import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IProposedSentence = {
   proposal: '',

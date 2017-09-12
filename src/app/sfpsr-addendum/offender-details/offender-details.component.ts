@@ -5,9 +5,9 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { IDateOfBirth, IOffenderDetails } from '../../sfpsr/offender-details/model/offender-details.model';
-import { UpdateOffenderDetailsAction } from '../../sfpsr/offender-details/action/offender-details.action';
-import { getOffenderDetails } from '../../sfpsr/offender-details/reducer/offender-details.reducer';
+import { IDateOfBirth, IOffenderDetails } from './model/offender-details.model';
+import { UpdateOffenderDetailsAction } from './action/offender-details.action';
+import { getOffenderDetails } from './reducer/offender-details.reducer';
 
 @Component({
   selector: 'app-offender-details',

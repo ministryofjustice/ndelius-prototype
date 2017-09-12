@@ -1,7 +1,7 @@
 import { IOffenceAnalysis } from '../model/offence-analysis.model';
 import * as offenceAnalysis from '../action/offence-analysis.action';
 
-import { RESET_STATE } from '../../_shared/action/reset-state.action';
+import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IOffenceAnalysis = {
   offenceAnalysisEntry: '',
