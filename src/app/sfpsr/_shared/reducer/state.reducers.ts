@@ -1,5 +1,4 @@
-import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
-import { localStorageSync } from 'ngrx-store-localstorage';
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 import { environment } from '../../../../environments/environment';
 
@@ -13,6 +12,9 @@ import { IRiskAssessment } from '../../risk-assessment/model/risk-assessment.mod
 import { IProposedSentence } from '../../proposed-sentence/model/proposed-sentence.model';
 import { ISignature } from '../../signature/model/signature.model';
 
+import { logInfo } from '../../../_shared/reducer/meta.reducers';
+import { localStorageSyncReducer } from './meta.reducers';
+
 import { offenderDetailsReducer } from '../../offender-details/reducer/offender-details.reducer';
 import { courtDetailsReducer } from '../../court-details/reducer/court-details.reducer';
 import { informationSourcesReducer } from '../../information-sources/reducer/information-sources.reducer';
@@ -24,41 +26,8 @@ import { proposedSentenceReducer } from '../../proposed-sentence/reducer/propose
 import { signatureReducer } from '../../signature/reducer/signature.reducer';
 
 /**
- * MetaReducer
- * @param {ActionReducer<any>} reducer
- * @returns {ActionReducer<any>}
+ * Main state interface
  */
-export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
-  return localStorageSync({
-    storage: sessionStorage,
-    rehydrate: true,
-    keys: [
-      'offenderDetails',
-      'courtDetails',
-      'informationSources',
-      'offenceDetails',
-      'offenceAnalysis',
-      'offenderAssessment',
-      'riskAssessment',
-      'proposedSentence',
-      'signature'
-    ]
-  })(reducer);
-}
-
-/**
- * MetaReducer
- * @param {ActionReducer<any>} reducer
- * @returns {ActionReducer<any>}
- */
-export function logInfo(reducer: ActionReducer<any>): ActionReducer<any> {
-  return function (state, action) {
-    console['info']('State:', state);
-    console['info']('Action:', action);
-    return reducer(state, action);
-  };
-}
-
 export interface IState {
   offenderDetails: IOffenderDetails;
   courtDetails: ICourtDetails;
@@ -71,6 +40,10 @@ export interface IState {
   signature: ISignature;
 }
 
+/**
+ * Main state reducers
+ * @type {ActionReducerMap<IState>}
+ */
 export const reducers: ActionReducerMap<IState> = {
   offenderDetails: offenderDetailsReducer,
   courtDetails: courtDetailsReducer,

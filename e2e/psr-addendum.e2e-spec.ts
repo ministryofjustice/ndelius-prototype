@@ -145,6 +145,10 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Sign your addendum');
       });
 
+      it('should NOT include the Save draft option in the navigation', () => {
+        expect(page.getElementById('saveDraft').isPresent()).toBeFalsy();
+      });
+
       it('should display pre-populated Report Date', () => {
         expect(page.getElementByIdValue('reportDate')).toEqual(page.getDateToday());
       });
@@ -213,6 +217,10 @@ describe('New Probation Services - Rapid Prototype', () => {
     it('should continue to the Offender Details page', () => {
       page.getNextButton().click();
       expect(page.getHeadingText()).toEqual('Offender details');
+    });
+
+    it('should include the Save draft option in the navigation', () => {
+      expect(page.getElementById('saveDraft').isPresent()).toBeTruthy();
     });
 
     it('should allow the report to be saved as a draft', () => {
