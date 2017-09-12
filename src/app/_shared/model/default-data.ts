@@ -27,7 +27,7 @@ export function defaultOffenderDetails(): IOffenderDetails {
     },
     age: getAge('06/21/1976'),
     crn: 'X087946',
-    pnc: '',
+    pnc: 'B98793',
     saved: true,
     valid: true
   };
