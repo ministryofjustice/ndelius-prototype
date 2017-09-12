@@ -54,7 +54,7 @@ describe('FeedbackComponent', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['start-report']);
+    expect(navigateSpy).toHaveBeenCalledWith(['/']);
   });
 
 });

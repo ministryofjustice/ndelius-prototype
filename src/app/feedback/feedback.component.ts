@@ -34,7 +34,7 @@ export class FeedbackComponent {
    *
    */
   private continueJourney() {
-    this.router.navigate(['start-report']);
+    this.router.navigate(['/']);
   }
 
   /**
