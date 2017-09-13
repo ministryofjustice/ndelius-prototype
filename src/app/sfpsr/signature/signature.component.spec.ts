@@ -8,7 +8,7 @@ import { reducers } from '../_shared/reducer/state.reducers';
 
 import { SignatureComponent } from './signature.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
-import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
+import { MockErrorMessagesComponent } from '../../_shared/error-messages/error-messages.mock.component';
 
 import * as model from './reducer/signature.reducer';
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { StartComponent } from './start/start.component';
-import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackComponent } from './_shared/feedback/feedback.component';
 
 /**
  * Configure the main application routes

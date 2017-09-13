@@ -7,8 +7,8 @@ import { reducers } from '../_shared/reducer/state.reducers';
 
 import { RiskAssessmentComponent } from './risk-assessment.component';
 import { MockNavigationComponent } from '../_shared/navigation.mock.component';
-import { MockErrorMessagesComponent } from '../../_shared/error-messages.mock.component';
-import { MockTextEntryComponent } from '../../_shared/text-entry.mock.component';
+import { MockErrorMessagesComponent } from '../../_shared/error-messages/error-messages.mock.component';
+import { MockTextEntryComponent } from '../../_shared/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/risk-assessment.reducer';
 

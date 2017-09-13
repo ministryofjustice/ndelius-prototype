@@ -3,7 +3,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { FeedbackComponent } from './feedback.component';
-import { MockErrorMessagesComponent } from '../_shared/error-messages.mock.component';
+import { MockErrorMessagesComponent } from '../error-messages/error-messages.mock.component';
 
 describe('FeedbackComponent', () => {
 
