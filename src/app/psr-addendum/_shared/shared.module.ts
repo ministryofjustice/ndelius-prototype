@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../../environments/environment';
 import { ShareBaseModule } from '../../_shared/share-base.module';
 
-import { NavigationComponent } from './navigation.component';
+import { NavigationComponent } from './components/navigation.component';
 import { reducers, metaReducers } from './reducer/state.reducers';
 
 /**

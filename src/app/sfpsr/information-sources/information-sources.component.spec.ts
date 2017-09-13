@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { InformationSourcesComponent } from './information-sources.component';
-import { MockNavigationComponent } from '../_shared/navigation.mock.component';
+import { MockNavigationComponent } from '../_shared/components/navigation.mock.component';
 
 import * as model from './reducer/information-sources.reducer';
 

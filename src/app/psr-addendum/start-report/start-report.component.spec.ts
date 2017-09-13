@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../../sfpsr/_shared/reducer/state.reducers';
 
 import { StartReportComponent } from './start-report.component';
-import { MockNavigationComponent } from '../../sfpsr/_shared/navigation.mock.component';
+import { MockNavigationComponent } from '../../sfpsr/_shared/components/navigation.mock.component';
 
 describe('Component: Start Report (Addendum)', () => {
 

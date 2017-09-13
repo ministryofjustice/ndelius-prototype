@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { StartReportComponent } from './start-report.component';
-import { MockNavigationComponent } from '../_shared/navigation.mock.component';
+import { MockNavigationComponent } from '../_shared/components/navigation.mock.component';
 
 describe('Component: Start Report', () => {
 

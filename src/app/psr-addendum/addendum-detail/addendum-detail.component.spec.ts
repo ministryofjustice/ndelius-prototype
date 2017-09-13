@@ -5,11 +5,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
 import { ShareBaseModule } from '../../_shared/share-base.module';
-import { MockErrorMessagesComponent } from '../../_shared/error-messages/error-messages.mock.component';
+import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { AddendumDetailComponent } from './addendum-detail.component';
-import { MockNavigationComponent } from '../_shared/navigation.mock.component';
+import { MockNavigationComponent } from '../_shared/components/navigation.mock.component';
 
 import * as model from './reducer/addendum-detail.reducer';
 
