@@ -1,5 +1,18 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
+  ViewChild
+} from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
+import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * Interface to be used for saving Object
@@ -27,7 +40,7 @@ interface ISaving {
   selector: 'app-text-entry',
   templateUrl: './text-entry.component.html'
 })
-export class TextEntryComponent implements OnInit, OnDestroy {
+export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
 
   /**
    * The control's parent FormGroup to be used as reference
@@ -63,9 +76,19 @@ export class TextEntryComponent implements OnInit, OnDestroy {
   @Input('error') public error: boolean;
 
   /**
+   * Specify a character count soft limit (used to display a recommended character count)
+   */
+  @Input('limit') public limit: number;
+
+  /**
    * Gain access to the 'hint' set within the child DOM
    */
   @ViewChild('hint') hint;
+
+  /**
+   * Gain access to the textarea Element
+   */
+  @ViewChild('textArea') textArea;
 
   /**
    * EventEmitter to notify any watchers that the user input should be saved
@@ -96,40 +119,75 @@ export class TextEntryComponent implements OnInit, OnDestroy {
   };
 
   /**
+   * Listener used for recommended character count
+   */
+  private rendererListener: Function;
+
+  /**
+   * Variable used to store initial help text to allow reset
+   */
+  private helpText: string;
+
+  /**
+   * @constructor
+   * @param {Renderer2} renderer Renderer2
+   * @param {ChangeDetectorRef} ref ChangeDetectorRef
+   */
+  constructor(private renderer: Renderer2, private ref: ChangeDetectorRef) {
+    // Empty
+  }
+
+  /**
    * Initiate saving user input data every n seconds
    */
   startSaving() {
-    this.saving.interval = setInterval(() => {
+    const timer = TimerObservable.create(5000, 5000);
+    this.saving.interval = timer.subscribe(() => {
       this.saveProgress(true);
-    }, 8000);
+    });
   }
 
   /**
    * Save the user input data
-   * @param {boolean} usingInterval Flag to specify if the method was called by the interval Function
+   * @param {boolean} [usingInterval] Flag to specify if the method was called by the interval Function
    */
   saveProgress(usingInterval?: boolean) {
 
-    const timer = this.saving.timer;
-    const interval: number = this.saving.interval;
+    let timer: Subscription = this.saving.timer;
+    const interval: Subscription = this.saving.interval;
     const control: AbstractControl = this.group.get(this.name);
 
     if (timer) {
-      clearTimeout(timer);
+      timer.unsubscribe();
     }
     if (!usingInterval && interval) {
-      clearInterval(interval);
+      interval.unsubscribe();
     }
 
     if (control && control.value.toString().length) {
       this.saving.active = true;
       this.onSaveContent.emit();
-      this.saving.timer = setTimeout(() => {
+
+      const pause = TimerObservable.create(1000);
+      timer = pause.subscribe(() => {
         this.saving.active = false;
-      }, 1000);
+        timer.unsubscribe();
+      });
+
     } else {
       this.saving.active = void 0;
     }
+  }
+
+  /**
+   * Event fired on keyup - used to update/check optional character count recommendation
+   */
+  private onKeyUp() {
+    if (!this.helpText) {
+      return;
+    }
+    const currentCount = this.textArea.nativeElement.value.length;
+    this.help = currentCount ? this.helpText + ', you have used ' + currentCount : this.helpText;
   }
 
   /**
@@ -140,17 +198,33 @@ export class TextEntryComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Clear timers
+   * If limit is supplied setup listener and trigger count
+   */
+  ngAfterViewInit() {
+    if (this.limit) {
+      this.helpText = this.help;
+      this.rendererListener = this.renderer.listen(this.textArea.nativeElement, 'keyup', this.onKeyUp.bind(this));
+      this.onKeyUp();
+      this.ref.detectChanges();
+    }
+  }
+
+  /**
+   * Cleanup timers and listeners on destroy
    */
   ngOnDestroy() {
-    const timer = this.saving.timer;
-    const interval: number = this.saving.interval;
+    const timer: Subscription = this.saving.timer;
+    const interval: Subscription = this.saving.interval;
+    const listener: Function = this.rendererListener;
 
     if (timer) {
-      clearTimeout(timer);
+      timer.unsubscribe();
     }
     if (interval) {
-      clearInterval(interval);
+      interval.unsubscribe();
+    }
+    if (listener) {
+      listener();
     }
   }
 }

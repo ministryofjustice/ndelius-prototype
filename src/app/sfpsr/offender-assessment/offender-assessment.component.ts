@@ -75,7 +75,7 @@ export class OffenderAssessmentComponent implements OnDestroy {
       checkControl: 'issueOther',
       checkLabel: 'Other',
       detailControl: 'detailsOther',
-      detailLabel: 'Provide a brief assessment of other issues'
+      detailLabel: 'Provide a brief assessment of any other issues'
     }
   ];
 

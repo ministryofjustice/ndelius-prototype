@@ -4,7 +4,7 @@ The prototype has been developed in order to rapidly develop UI and UX features 
 
 The prototype has been developed close to "vanilla" HTML so that design staff can work with the code more easily. 
 
-This *README* details the use of *[npm]* as *[Yarn]* is a development preference and not a requirement. 
+This *README* details the use of *[npm]* as *[Yarn]* is a development preference and not a requirement; feel free to use whichever you prefer.
 
 **CircleCI build status:**
 
@@ -70,7 +70,7 @@ Navigate to `http://localhost:8080/`. The documentation will generate automatica
 
 ## Further info
 
-In order to work with the Rapid Prototype code you should be familiar with [Angular] 4 development and use of the [Angular CLI].
+In order to work with the Rapid Prototype code you should be familiar with [Angular] development and use of the [Angular CLI].
 
 ### State
 

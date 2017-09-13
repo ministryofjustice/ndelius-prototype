@@ -397,6 +397,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the completion of the form', () => {
         expect(page.setElementByIdValue('reportAuthor', 'Arthur Author')).toEqual('Arthur Author');
         expect(page.setElementByIdValue('office', 'Sheffield Digital Studio')).toEqual('Sheffield Digital Studio');
+        expect(page.setElementByIdValue('counterSignature', 'Counter signatory')).toEqual('Counter signatory');
         expect(page.setElementByIdValue('reportDate', '20/01/2017')).toEqual('20/01/2017');
       });
 

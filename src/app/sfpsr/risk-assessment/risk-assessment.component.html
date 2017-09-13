@@ -17,7 +17,7 @@
       <hr noshade/>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" [error]="formError" (onSaveContent)="saveContent(reportForm)">
+      <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" help="1000 recommended characters" limit="1000" [error]="formError" (onSaveContent)="saveContent(reportForm)">
         <ul>
           <li class="list-bullet">What is the risk and risk level and to who?</li>
           <li class="list-bullet">Describe what will increase or decrease the risk.</li>
@@ -60,7 +60,7 @@
       <hr noshade/>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" label="Add additional details on previous supervision (if applicable)" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" label="Add additional details on supervision (if applicable)" help="1000 recommended characters" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
       <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
 
