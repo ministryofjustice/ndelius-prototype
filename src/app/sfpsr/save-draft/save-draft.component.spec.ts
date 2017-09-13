@@ -31,8 +31,7 @@ describe('Component: Save draft', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Short Format Pre-sentence Report');
-    expect(compiled.querySelector('h2').innerHTML).toBe('Draft report saved');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Draft report saved');
   });
 
 });

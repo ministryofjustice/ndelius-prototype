@@ -380,7 +380,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     describe('Signature', () => {
 
       it('should route', () => {
-        expect(page.getHeadingText()).toEqual('Signature');
+        expect(page.getHeadingText()).toEqual('Sign your report');
       });
 
       it('should display pre-populated Report Date', () => {
@@ -391,7 +391,7 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.getNextButton().click();
         expect(page.getElementById('reportAuthor_error').isDisplayed()).toBeTruthy();
         expect(page.getElementById('office_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Signature');
+        expect(page.getHeadingText()).toEqual('Sign your report');
       });
 
       it('should allow the completion of the form', () => {
@@ -417,11 +417,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     describe('Report complete', () => {
 
       it('should route', () => {
-        expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
-      });
-
-      it('should include the correct sub-heading', () => {
-        expect(page.getSubHeadingText()).toEqual('Report complete');
+        expect(page.getHeadingText()).toEqual('Report saved');
       });
 
     });
@@ -460,11 +456,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
     it('should allow the report to be saved as a draft', () => {
       page.getElementById('saveDraft').click();
-      expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
-    });
-
-    it('should include the correct sub-heading', () => {
-      expect(page.getSubHeadingText()).toEqual('Draft report saved');
+      expect(page.getHeadingText()).toEqual('Draft report saved');
     });
 
   });
