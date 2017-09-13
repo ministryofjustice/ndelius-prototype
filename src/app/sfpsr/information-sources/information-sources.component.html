@@ -21,7 +21,7 @@
           <label [for]="section.control" class="form-label-bold">{{section.label}}</label>
         </div>
 
-        <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'js-hidden': !reportForm.get('otherInformationSource').value }" [attr.aria-hidden]="!reportForm.get('otherInformationSource').value">
+        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('otherInformationSource').value }" [attr.aria-hidden]="!reportForm.get('otherInformationSource').value">
 
           <div class="form-group">
             <label for="otherInformationDetails">

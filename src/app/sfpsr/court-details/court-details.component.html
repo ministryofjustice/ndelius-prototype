@@ -31,7 +31,7 @@
 
         <label for="hearingDate">
           <span class="form-label-bold">Date of hearing</span>
-          <span class="form-hint">DD/MM/YYYY</span>
+          <span class="form-hint">For example: 28/06/2017</span>
         </label>
         <app-error-messages control="hearingDate" [active]="(reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors"></app-error-messages>
         <input class="form-control date-picker" [ngClass]="{ 'form-control-error': (reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors }" type="text" role="textbox" id="hearingDate" formControlName="hearingDate" maxlength="10" aria-described-by="hearingDate_error" aria-required="true" required />

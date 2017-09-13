@@ -129,6 +129,11 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
   private helpText: string;
 
   /**
+   *
+   */
+  private currentContent: string;
+
+  /**
    * @constructor
    * @param {Renderer2} renderer Renderer2
    * @param {ChangeDetectorRef} ref ChangeDetectorRef
@@ -155,7 +160,7 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
 
     let timer: Subscription = this.saving.timer;
     const interval: Subscription = this.saving.interval;
-    const control: AbstractControl = this.group.get(this.name);
+    const currentValue = this.group.get(this.name).value.toString();
 
     if (timer) {
       timer.unsubscribe();
@@ -164,19 +169,26 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
       interval.unsubscribe();
     }
 
-    if (control && control.value.toString().length) {
-      this.saving.active = true;
-      this.onSaveContent.emit();
+    if (currentValue.length) {
 
-      const pause = TimerObservable.create(1000);
-      timer = pause.subscribe(() => {
-        this.saving.active = false;
-        timer.unsubscribe();
-      });
+      // Check the content for changes
+      if (currentValue !== this.currentContent) {
+        this.saving.active = true;
+        this.onSaveContent.emit();
+
+        const pause = TimerObservable.create(1000);
+        timer = pause.subscribe(() => {
+          this.saving.active = false;
+          timer.unsubscribe();
+        });
+      }
 
     } else {
       this.saving.active = void 0;
     }
+
+    // Store the current content
+    this.currentContent = currentValue;
   }
 
   /**

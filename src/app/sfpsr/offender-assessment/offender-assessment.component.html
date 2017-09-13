@@ -21,7 +21,7 @@
           <label [attr.for]="section.checkControl" class="form-label-bold">{{section.checkLabel}}</label>
         </div>
 
-        <div class="panel panel-border-narrow no-padding-top" [ngClass]="{ 'form-group-error': (reportForm.get(section.checkControl).touched || formError) && reportForm.get(section.checkControl).errors, 'js-hidden': !reportForm.get(section.checkControl).value }" [attr.aria-hidden]="!reportForm.get(section.checkControl).value">
+        <div class="panel panel-border-narrow" [ngClass]="{ 'form-group-error': (reportForm.get(section.checkControl).touched || formError) && reportForm.get(section.checkControl).errors, 'js-hidden': !reportForm.get(section.checkControl).value }" [attr.aria-hidden]="!reportForm.get(section.checkControl).value">
 
           <!-- Angular component -->
           <app-text-entry [group]="reportForm" [name]="section.detailControl" [label]="section.detailLabel" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
