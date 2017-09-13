@@ -31,7 +31,7 @@ describe('Component: Save draft', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Draft report saved');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Draft addendum saved');
   });
 
 });

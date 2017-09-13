@@ -183,7 +183,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     describe('Report complete', () => {
 
       it('should route', () => {
-        expect(page.getHeadingText()).toEqual('Report saved');
+        expect(page.getHeadingText()).toEqual('Addendum saved');
       });
 
     });
@@ -226,7 +226,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
     it('should allow the report to be saved as a draft', () => {
       page.getElementById('saveDraft').click();
-      expect(page.getHeadingText()).toEqual('Draft report saved');
+      expect(page.getHeadingText()).toEqual('Draft addendum saved');
     });
 
   });

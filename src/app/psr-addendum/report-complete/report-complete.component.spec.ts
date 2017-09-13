@@ -31,7 +31,7 @@ describe('Component: Report complete', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Report saved');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Addendum saved');
   });
 
 });
