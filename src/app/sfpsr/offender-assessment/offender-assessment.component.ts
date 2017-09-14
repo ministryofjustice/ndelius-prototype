@@ -37,7 +37,7 @@ export class OffenderAssessmentComponent implements OnDestroy {
     },
     {
       checkControl: 'issueEmployment',
-      checkLabel: 'Employment',
+      checkLabel: 'Employment, training and education',
       detailControl: 'detailsEmployment',
       detailLabel: 'Provide a brief assessment of employment issues'
     },
