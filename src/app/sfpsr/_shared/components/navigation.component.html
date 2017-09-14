@@ -1,15 +1,15 @@
 <nav role="menubar" class="js-stick-at-top-when-scrolling">
 
+  <div *ngIf="!rla.active">
+    <a id="saveDraft" routerLink="/sfpsr/save-draft" routerLinkActive="active" class="bold font-xsmall no-underline no-margin-top no-margin-bottom">Save a draft of this report</a>
+  </div>
+
   <dl>
     <dt class="font-xsmall">Last updated:</dt>
     <dd class="font-xsmall">1 day ago</dd>
   </dl>
 
   <div class="clearfix"></div>
-
-  <div *ngIf="!rla.active" class="margin-top margin-bottom medium">
-    <a id="saveDraft" routerLink="/sfpsr/save-draft" routerLinkActive="active" class="font-xsmall no-margin-top no-margin-bottom">Save a draft of this report</a>
-  </div>
 
   <h3 class="font-xsmall bold margin-top medium">Report sections:</h3>
 
@@ -22,6 +22,6 @@
   <span class="display-block">- <a routerLink="/sfpsr/risk-assessment" routerLinkActive="active" class="nav-item">Risk assessment</a></span>
   <span class="display-block">- <a routerLink="/sfpsr/proposed-sentence" routerLinkActive="active" class="nav-item">Conclusion</a></span>
   <span class="display-block">- <a routerLink="/sfpsr/check-report" routerLinkActive="active" class="nav-item">Check your report</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/signature" routerLinkActive="active" #rla="routerLinkActive" class="nav-item">Sign your report</a></span>
+  <span class="display-block">- <a routerLink="/sfpsr/signature" routerLinkActive="active" #rla="routerLinkActive" class="nav-item">Sign and date your report</a></span>
 
 </nav>

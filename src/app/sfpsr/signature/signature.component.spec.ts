@@ -48,7 +48,7 @@ describe('Component: Signature', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Sign your report');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Sign and date your report');
   });
 
   it('should include the reactive form', () => {

@@ -380,7 +380,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     describe('Signature', () => {
 
       it('should route', () => {
-        expect(page.getHeadingText()).toEqual('Sign your report');
+        expect(page.getHeadingText()).toEqual('Sign and date your report');
       });
 
       it('should display pre-populated Report Date', () => {
@@ -391,7 +391,7 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.getNextButton().click();
         expect(page.getElementById('reportAuthor_error').isDisplayed()).toBeTruthy();
         expect(page.getElementById('office_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Sign your report');
+        expect(page.getHeadingText()).toEqual('Sign and date your report');
       });
 
       it('should allow the completion of the form', () => {
