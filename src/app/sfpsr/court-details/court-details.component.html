@@ -14,7 +14,7 @@
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }">
 
         <label for="court" class="form-label-bold">Court</label>
-        <app-error-messages control="court" [active]="(reportForm.get('court').touched || formError) && reportForm.get('court').errors"></app-error-messages>
+        <app-error-messages control="court" message="Enter the name of the sentencing court" [active]="(reportForm.get('court').touched || formError) && reportForm.get('court').errors"></app-error-messages>
         <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }" type="text" role="textbox" id="court" formControlName="court" maxlength="250" aria-described-by="court_error" aria-required="true" required />
 
       </div>
@@ -22,7 +22,7 @@
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }">
 
         <label for="localJusticeArea" class="form-label-bold">Local justice area</label>
-        <app-error-messages control="localJusticeArea" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
+        <app-error-messages control="localJusticeArea" message="Enter the local justice area of the sentencing court" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
         <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }" type="text" role="textbox" id="localJusticeArea" formControlName="localJusticeArea" maxlength="250" aria-described-by="localJusticeArea_error" aria-required="true" required />
 
       </div>
@@ -33,7 +33,7 @@
           <span class="form-label-bold">Date of hearing</span>
           <span class="form-hint">For example: 28/06/2017</span>
         </label>
-        <app-error-messages control="hearingDate" [active]="(reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors"></app-error-messages>
+        <app-error-messages control="hearingDate" message="Enter the date of the hearing" [active]="(reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors"></app-error-messages>
         <input class="form-control date-picker" [ngClass]="{ 'form-control-error': (reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors }" type="text" role="textbox" id="hearingDate" formControlName="hearingDate" maxlength="10" aria-described-by="hearingDate_error" aria-required="true" required />
 
       </div>

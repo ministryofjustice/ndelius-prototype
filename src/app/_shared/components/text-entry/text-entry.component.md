@@ -62,7 +62,7 @@ Default: 'This field is required'.
 
 **Example:**
 
-`<app-text-entry error-message="Please enter some text" ...`
+`<app-text-entry errorMessage="Please enter some text" ...`
 
 
 ## Output
