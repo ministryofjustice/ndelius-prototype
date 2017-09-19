@@ -18,11 +18,11 @@
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" help="1000 recommended characters" limit="1000" [error]="formError" (onSaveContent)="saveContent(reportForm)">
-        <ul>
-          <li class="list-bullet">What is the risk and risk level and to who?</li>
-          <li class="list-bullet">Describe what will increase or decrease the risk.</li>
-          <li class="list-bullet">What tools used were used?</li>
-        </ul>
+        <p>Outline if you have made a referral to other agencies or attempted contact and not received a satisfactory response.</p>
+        <p class="margin-top">Any information from other agencies for the court must not place any identifiable groups at risk.</p>
+        <p class="margin-top">Consider the impact on the overall assessment, including the impact on safer sentencing principles.</p>
+        <p class="margin-top">You must clearly state how this information adds value to the assessment.</p>
+        <p class="margin-top">Any information you have from other agencies should state how they will assist in monitoring and managing risk, including partnership working.</p>
       </app-text-entry>
 
       <hr noshade/>
