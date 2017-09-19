@@ -10,5 +10,6 @@ export class MockErrorMessagesComponent implements ErrorMessagesComponent {
 
   @Input('control') control: string;
   @Input('active') active: boolean;
+  @Input('message') message = 'This field is required';
 
 }

@@ -81,6 +81,11 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input('limit') public limit: number;
 
   /**
+   * Error message to be displayed when the field is required
+   */
+  @Input('errorMessage') public errorMessage = 'This field is required';
+
+  /**
    * Gain access to the 'hint' set within the child DOM
    */
   @ViewChild('hint') hint;

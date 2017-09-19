@@ -12,6 +12,7 @@ export class MockTextEntryComponent {
   @Input('help') public help: string;
   @Input('group') public group: FormGroup;
   @Input('error') public error: boolean;
+  @Input('errorMessage') public errorMessage = 'This field is required';
   @Input('required') public required: boolean;
 
   /**
