@@ -7,6 +7,15 @@
   &.pdf {
     background: file-url("icon_pdf.svg") no-repeat;
   }
+
+  &.edit {
+    background: file-url("icon_edit.svg") no-repeat;
+    width: 51px;
+  }
+
+  &.lock {
+    background: file-url("icon_lock.svg") no-repeat;
+  }
 }
 
 .spinner {

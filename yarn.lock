@@ -30,14 +30,14 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cli@1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.4.1.tgz#3999b93385c87b7c8d1511131c21280ba0e2cf12"
+"@angular/cli@1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-1.4.2.tgz#220a54c7e12303157cc289f4306fa46d080705ac"
   dependencies:
     "@angular-devkit/build-optimizer" "~0.0.18"
     "@angular-devkit/schematics" "~0.0.21"
     "@ngtools/json-schema" "1.1.0"
-    "@ngtools/webpack" "1.7.0"
+    "@ngtools/webpack" "1.7.1"
     "@schematics/angular" "~0.0.30"
     autoprefixer "^6.5.3"
     chalk "^2.0.1"
@@ -217,9 +217,9 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
 
-"@ngtools/webpack@1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.7.0.tgz#100b4ba370b3b9f991936f3d5db09cebffe11583"
+"@ngtools/webpack@1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-1.7.1.tgz#383ddd689845cf42fc755975f6440f75535f5016"
   dependencies:
     enhanced-resolve "^3.1.0"
     loader-utils "^1.0.2"
@@ -230,9 +230,13 @@
   version "0.0.34"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.0.34.tgz#529ba408415d9cabaf581a589dfac9c839124f6f"
 
-"@types/jasmine@*", "@types/jasmine@2.5.54":
+"@types/jasmine@*":
   version "2.5.54"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.54.tgz#a6b5f2ae2afb6e0307774e8c7c608e037d491c63"
+
+"@types/jasmine@2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.6.0.tgz#997b41a27752b4850af2683bc4a8d8222c25bd02"
 
 "@types/jasminewd2@2.0.3":
   version "2.0.3"
@@ -3793,9 +3797,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ngrx-store-localstorage@0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-0.2.1.tgz#caf5aa1aaef5a89a614a34df2260a6a1678b7b1f"
+ngrx-store-localstorage@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-0.2.2.tgz#7fbabb44636f5a59b89daf77749afd88660e2620"
 
 no-case@^2.2.0:
   version "2.3.2"
