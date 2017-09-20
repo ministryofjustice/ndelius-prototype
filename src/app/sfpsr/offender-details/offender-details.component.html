@@ -14,7 +14,7 @@
 
       <p>See highlighted errors below</p>
 
-      <p class="error-message" *ngIf="reportForm.get('name').errors">Enter the main offence and dates</p>
+      <p class="error-message" *ngIf="reportForm.get('name').errors">Enter the offender’s full name</p>
       <p class="error-message" *ngIf="reportForm.get('dateOfBirth').get('day').errors || reportForm.get('dateOfBirth').get('month').errors || reportForm.get('dateOfBirth').get('year').errors">Enter the offender’s date of birth</p>
       <p class="error-message" *ngIf="reportForm.get('address').errors">Enter the offender’s address</p>
     </div>

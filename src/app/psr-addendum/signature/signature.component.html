@@ -9,13 +9,23 @@
   </div>
   <div class="column-two-thirds">
 
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('reportAuthor').errors">Enter the report author</p>
+      <p class="error-message" *ngIf="reportForm.get('office').errors">Enter the office</p>
+      <p class="error-message" *ngIf="reportForm.get('reportDate').errors">Enter the report date</p>
+    </div>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }">
         <label for="reportAuthor">
           <span class="form-label-bold">Report author</span>
         </label>
-        <app-error-messages control="reportAuthor" [active]="(reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors"></app-error-messages>
+        <app-error-messages control="reportAuthor" message="Enter the report author" [active]="(reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors"></app-error-messages>
         <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }" type="text" role="textbox" id="reportAuthor" formControlName="reportAuthor" value="" maxlength="250" aria-described-by="reportAuthor_error" aria-required="true" required />
       </div>
 
@@ -23,7 +33,7 @@
         <label for="office">
           <span class="form-label-bold">Office</span>
         </label>
-        <app-error-messages control="office" [active]="(reportForm.get('office').touched || formError) && reportForm.get('office').errors"></app-error-messages>
+        <app-error-messages control="office" message="Enter the office" [active]="(reportForm.get('office').touched || formError) && reportForm.get('office').errors"></app-error-messages>
         <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('office').touched || formError) && reportForm.get('office').errors }" type="text" role="textbox" id="office" formControlName="office" value="" maxlength="250" aria-described-by="office_error" aria-required="true" required />
       </div>
 
@@ -40,7 +50,7 @@
           <span class="form-label-bold">Completion date</span>
           <span class="form-hint">For example: 28/06/2017</span>
         </label>
-        <app-error-messages control="reportDate" [active]="(reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors"></app-error-messages>
+        <app-error-messages control="reportDate" message="Enter the report date" [active]="(reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors"></app-error-messages>
         <input class="form-control date-picker" type="text" role="textbox" id="reportDate" formControlName="reportDate" maxlength="10" aria-described-by="reportDate_error" aria-required="true" required />
       </div>
 
