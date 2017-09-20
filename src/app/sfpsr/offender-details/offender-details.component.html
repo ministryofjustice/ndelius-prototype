@@ -9,6 +9,16 @@
   </div>
   <div class="column-two-thirds">
 
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('name').errors">Enter the main offence and dates</p>
+      <p class="error-message" *ngIf="reportForm.get('dateOfBirth').get('day').errors || reportForm.get('dateOfBirth').get('month').errors || reportForm.get('dateOfBirth').get('year').errors">Enter the offender’s date of birth</p>
+      <p class="error-message" *ngIf="reportForm.get('address').errors">Enter the offender’s address</p>
+    </div>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('name').touched || formError) && reportForm.get('name').errors }">

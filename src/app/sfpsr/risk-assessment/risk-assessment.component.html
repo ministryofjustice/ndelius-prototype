@@ -9,15 +9,24 @@
   </div>
   <div class="column-two-thirds">
 
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('likelihoodOfReOffending').errors">Tell us their likelihood of re-offending</p>
+      <p class="error-message" *ngIf="reportForm.get('riskOfSeriousHarm').errors">Tell us the risk of serious harm</p>
+    </div>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="likelihoodOfReOffending" label="Likelihood of re-offending" help="Indicate which tools have been used (RM2000,OGRS etc.)" [error]="formError" required="true" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="likelihoodOfReOffending" label="Likelihood of re-offending" help="Indicate which tools have been used (RM2000,OGRS etc.)" errorMessage="Tell us their likelihood of re-offending" [error]="formError" required="true" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
       <hr noshade/>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" help="1000 recommended characters" limit="1000" [error]="formError" (onSaveContent)="saveContent(reportForm)">
+      <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" help="1000 recommended characters" limit="1000" errorMessage="Tell us the risk of serious harm" [error]="formError" (onSaveContent)="saveContent(reportForm)">
         <p>Outline if you have made a referral to other agencies or attempted contact and not received a satisfactory response.</p>
         <p class="margin-top">Any information from other agencies for the court must not place any identifiable groups at risk.</p>
         <p class="margin-top">Consider the impact on the overall assessment, including the impact on safer sentencing principles.</p>

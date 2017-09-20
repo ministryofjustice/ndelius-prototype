@@ -9,6 +9,16 @@
   </div>
   <div class="column-two-thirds">
 
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('court').errors">Enter the name of the sentencing court</p>
+      <p class="error-message" *ngIf="reportForm.get('localJusticeArea').errors">Enter the local justice area of the sentencing court</p>
+      <p class="error-message" *ngIf="reportForm.get('hearingDate').errors">Enter the date of the hearing</p>
+    </div>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }">
