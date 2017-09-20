@@ -9,10 +9,18 @@
   </div>
   <div class="column-two-thirds">
 
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('proposal').errors">Enter your conclusion</p>
+    </div>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="proposal" label="Enter a proposed sentence" help="2000 recommended characters" limit="2000" [error]="formError" (onSaveContent)="saveContent(reportForm)">
+      <app-text-entry [group]="reportForm" name="proposal" label="Enter a proposed sentence" help="2000 recommended characters" limit="2000" errorMessage="Enter your conclusion" [error]="formError" (onSaveContent)="saveContent(reportForm)">
 
         <p>Include:</p>
 

@@ -54,6 +54,17 @@ Flag to specify an error on submission of the parent form.
 
 `<app-text-entry [error]="myFormError" ...`
 
+### Input: errorMessage
+
+The errorMessage Input **string** is set in order to display a custom error message.
+
+Default: 'This field is required'.
+
+**Example:**
+
+`<app-text-entry errorMessage="Please enter some text" ...`
+
+
 ## Output
 
 The **text-entry** component exposes the following Output properties:

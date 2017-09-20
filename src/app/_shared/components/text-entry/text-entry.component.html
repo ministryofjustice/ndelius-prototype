@@ -10,7 +10,7 @@
     </div>
   </div>
   <div *ngIf="expandContent">&nbsp;</div>
-  <app-error-messages [control]="name" [active]="group.get(name).errors && (group.get(name).touched || error)"></app-error-messages>
+  <app-error-messages [control]="name" [active]="group.get(name).errors && (group.get(name).touched || error)" [message]="errorMessage"></app-error-messages>
   <textarea #textArea [id]="name" [formControlName]="name" class="form-control wide" placeholder="Start typing here..." (focus)="startSaving()" (blur)="saveProgress()"></textarea>
 </div>
 

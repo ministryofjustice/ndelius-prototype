@@ -34,3 +34,13 @@ The active Input **boolean** is set in order to activate/display the error messa
 `<app-error-messages control="myFormControl" [active]="myFormGroup.get('myFormControl').errors"></app-error-messages>`
 
 Will display the error message when the FormControl **myFormControl** has errors. 
+
+### Input: message
+
+The message Input **string** is set in order to display a custom error message.
+
+Default: 'This field is required'.
+
+**Example:**
+
+`<app-error-messages control="myFormControl" message="Please enter some text" ...`

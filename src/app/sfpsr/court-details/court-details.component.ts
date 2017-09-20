@@ -73,6 +73,8 @@ export class CourtDetailsComponent implements OnDestroy {
 
     if (valid) {
       this.continueJourney();
+    } else {
+      window.scrollTo(0, 0);
     }
   }
 

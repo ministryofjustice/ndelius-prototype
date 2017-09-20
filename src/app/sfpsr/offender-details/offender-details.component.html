@@ -9,12 +9,22 @@
   </div>
   <div class="column-two-thirds">
 
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('name').errors">Enter the main offence and dates</p>
+      <p class="error-message" *ngIf="reportForm.get('dateOfBirth').get('day').errors || reportForm.get('dateOfBirth').get('month').errors || reportForm.get('dateOfBirth').get('year').errors">Enter the offender’s date of birth</p>
+      <p class="error-message" *ngIf="reportForm.get('address').errors">Enter the offender’s address</p>
+    </div>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('name').touched || formError) && reportForm.get('name').errors }">
 
         <label for="name" class="form-label-bold">Full name</label>
-        <app-error-messages control="name" [active]="(reportForm.get('name').touched || formError) && reportForm.get('name').errors"></app-error-messages>
+        <app-error-messages control="name" message="Enter the offender’s full name" [active]="(reportForm.get('name').touched || formError) && reportForm.get('name').errors"></app-error-messages>
         <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('name').touched || formError) && reportForm.get('name').errors }" type="text" role="textbox" id="name" formControlName="name" maxlength="250" aria-described-by="name_error" aria-required="true" required />
 
       </div>
@@ -26,7 +36,7 @@
             <span class="form-label-bold">Date of birth</span>
             <span class="form-hint">For example, 31 3 1980</span>
           </legend>
-          <app-error-messages control="dateOfBirth" [active]="(reportForm.get('dateOfBirth').get('day').touched || reportForm.get('dateOfBirth').get('month').touched || reportForm.get('dateOfBirth').get('year').touched || formError) && (reportForm.get('dateOfBirth').get('day').errors || reportForm.get('dateOfBirth').get('month').errors || reportForm.get('dateOfBirth').get('year').errors)"></app-error-messages>
+          <app-error-messages control="dateOfBirth" message="Enter the offender’s date of birth" [active]="(reportForm.get('dateOfBirth').get('day').touched || reportForm.get('dateOfBirth').get('month').touched || reportForm.get('dateOfBirth').get('year').touched || formError) && (reportForm.get('dateOfBirth').get('day').errors || reportForm.get('dateOfBirth').get('month').errors || reportForm.get('dateOfBirth').get('year').errors)"></app-error-messages>
           <div class="form-date">
             <div class="form-group form-group-day">
               <label class="form-label" for="dob-day">Day</label>
@@ -47,7 +57,7 @@
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }">
 
         <label for="address" class="form-label-bold">Address</label>
-        <app-error-messages control="name" [active]="(reportForm.get('address').touched || formError) && reportForm.get('address').errors"></app-error-messages>
+        <app-error-messages control="name" message="Enter the offender’s address" [active]="(reportForm.get('address').touched || formError) && reportForm.get('address').errors"></app-error-messages>
         <textarea class="form-control classic wide" [ngClass]="{ 'form-control-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }" type="text" role="textbox" id="address" formControlName="address" aria-described-by="address_error" aria-required="true" required></textarea>
 
       </div>

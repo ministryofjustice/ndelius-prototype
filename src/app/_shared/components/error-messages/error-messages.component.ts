@@ -30,4 +30,9 @@ export class ErrorMessagesComponent {
    */
   @Input('active') public active: boolean;
 
+  /**
+   * Error message to be displayed when the field is required
+   */
+  @Input('message') public message = 'This field is required';
+
 }
