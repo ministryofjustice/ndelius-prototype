@@ -1,0 +1,40 @@
+<h1 class="heading-xlarge">Offender assessment</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+  <div class="column-two-thirds">
+
+    <h2 class="lede no-margin-top margin-bottom medium">Select all that apply</h2>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Loop through the "sections" specified in the controller: offender-assessment.component.ts -->
+      <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
+
+        <div class="multiple-choice" [ngClass]="{ 'margin-top': index > 0 }">
+          <input type="checkbox" role="checkbox" [id]="section.checkControl" [formControlName]="section.checkControl" value="true" />
+          <label [attr.for]="section.checkControl" class="form-label-bold">{{section.checkLabel}}</label>
+        </div>
+
+        <div class="panel panel-border-narrow" [ngClass]="{ 'form-group-error': (reportForm.get(section.checkControl).touched || formError) && reportForm.get(section.checkControl).errors, 'js-hidden': !reportForm.get(section.checkControl).value }" [attr.aria-hidden]="!reportForm.get(section.checkControl).value">
+
+          <!-- Angular component -->
+          <app-text-entry [group]="reportForm" [name]="section.detailControl" [label]="section.detailLabel" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+
+        </div>
+
+      </ng-template>
+
+      <div class="clearfix"></div>
+
+      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<h1 class="heading-xlarge">Offence details</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('mainOffence').errors">Enter the main offence and dates</p>
+      <p class="error-message" *ngIf="reportForm.get('offenceSummary').errors">You must enter a brief summary of the offence</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="mainOffence" label="Main offence and dates" errorMessage="Enter the main offence and dates" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+
+      <hr noshade />
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="otherOffence" label="Other offences and dates (if applicable)" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+
+      <hr noshade />
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="offenceSummary" label="Brief summary of the offence" errorMessage="You must enter a brief summary of the offence" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+
+      <input class="button" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+</div>

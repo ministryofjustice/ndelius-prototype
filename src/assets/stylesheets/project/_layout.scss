@@ -114,3 +114,18 @@ canvas {
     }
   }
 }
+
+dt {
+  float: left;
+  clear: left;
+  width: auto;
+  min-width: 130px;
+}
+
+dd {
+  float: left;
+}
+
+.no-underline {
+  text-decoration: none;
+}

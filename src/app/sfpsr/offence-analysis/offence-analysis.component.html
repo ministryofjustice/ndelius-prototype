@@ -1,0 +1,48 @@
+<h1 class="heading-xlarge">Offence analysis</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+
+    <!-- Angular component -->
+    <app-navigation></app-navigation>
+
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('offenceAnalysisEntry').errors">You must enter your analysis of the offence</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="offenceAnalysisEntry" label="Offence analysis" errorMessage="You must enter your analysis of the offence" [error]="formError" (onSaveContent)="saveContent(reportForm)">
+        <p>Your analysis needs to go beyond the facts provided by the CPS.</p>
+        <p class="margin-top">Consider the offender’s account and attitude and make links to any previous offending behaviour and reports by the probation service.</p>
+        <p class="margin-top">Do they accept responsibility?<br/>
+          Are they in denial? If they are, be clear where lack of remorse differs from any inability to show remorse.<br/>
+          Is the offender aware of the impact on the victim?</p>
+        <p class="margin-top">Outline the emotional or cognitive factors that underpin the crime.<br/>
+          Were there sexual motivations, financial gains or addictions?<br/>
+          What level of premeditation or planning was involved?<br/>
+          Are there any patterns suggesting likelihood of similar offending?</p>
+        <p class="margin-top">Is there any evidence of discrimination in their attitude or behaviour?<br/>
+          Is the offender’s maturity an issue in this offence - are they easily led or influenced by a peer group?</p>
+        <p class="margin-top">Make suggestions about possible rehabilitative interventions.</p>
+      </app-text-entry>
+
+      <hr noshade />
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="patternOfOffending" label="Provide patterns of offending (if applicable)" help="1000 recommended characters" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+
+      <input class="button" id="nextButton" type="submit" value="Save & continue" />
+
+    </form>
+
+  </div>
+</div>
