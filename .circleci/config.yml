@@ -8,7 +8,7 @@ jobs:
   build:
     working_directory: ~/hmpps-prototype
     docker:
-      - image: circleci/node:6.10.3-browsers
+      - image: circleci/node:6-browsers
     steps:
       - checkout
       - restore_cache:
