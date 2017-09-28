@@ -9,18 +9,18 @@
   </div>
   <div class="column-two-thirds">
 
-    <h2 class="lede no-margin-top margin-bottom medium">Tell us the underlying issues that are relevant as motivators or drivers for the main offence</h2>
+    <h2 class="lede no-margin-top margin-bottom medium">Select the underlying issues that are relevant as motivators or drivers for the main offence</h2>
 
-    <div class="notice margin-bottom large">
+    <div class="notice">
       <i class="icon icon-important">
         <span class="visually-hidden">Warning</span>
       </i>
       <strong class="bold-small">
-        By not selecting something you are indicating it is not relevant
+        By not selecting an issue you are indicating it is not relevant
       </strong>
     </div>
 
-    <div class="clearfix"></div>
+    <p>&nbsp;</p>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -43,7 +43,7 @@
 
       <div class="clearfix"></div>
 
-      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
+      <input class="button margin-top large" id="nextButton" type="submit" value="Save & continue" />
 
     </form>
 
