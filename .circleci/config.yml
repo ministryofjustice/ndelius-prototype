@@ -14,7 +14,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: install-dependencies
+          name: Install dependencies
           command: yarn install
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
@@ -22,14 +22,14 @@ jobs:
             - ~/.cache/yarn
             - ./node_modules
       - run:
-          name: angular-lint
+          name: Lint
           command: yarn ng -- lint --type-check
       - run:
-          name: angular-test
+          name: Unit test
           command: yarn ng -- test --single-run --no-progress
       - run:
-          name: angular-build
+          name: Development build
           command: yarn ng -- build --aot --no-progress
       - run:
-          name: angular-production-build
+          name: Production build
           command: yarn ng -- build --prod --aot --no-progress
