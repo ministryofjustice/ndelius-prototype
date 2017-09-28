@@ -11,8 +11,16 @@
 
     <h2 class="lede no-margin-top margin-bottom medium">Tell us the underlying issues that are relevant as motivators or drivers for the main offence</h2>
 
-    <p class="bold no-margin-bottom">Important</p>
-    <p class="margin-top">By not selecting something you are indicating it is not relevant</p>
+    <div class="notice margin-bottom large">
+      <i class="icon icon-important">
+        <span class="visually-hidden">Warning</span>
+      </i>
+      <strong class="bold-small">
+        By not selecting something you are indicating it is not relevant
+      </strong>
+    </div>
+
+    <div class="clearfix"></div>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
