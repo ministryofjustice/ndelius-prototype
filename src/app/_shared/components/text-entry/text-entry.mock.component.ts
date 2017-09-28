@@ -14,6 +14,7 @@ export class MockTextEntryComponent {
   @Input('error') public error: boolean;
   @Input('errorMessage') public errorMessage = 'This field is required';
   @Input('required') public required: boolean;
+  @Input('limit') public limit: number;
 
   /**
    * @constructor

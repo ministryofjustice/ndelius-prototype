@@ -55,9 +55,9 @@ export class OffenderAssessmentComponent implements OnDestroy {
     },
     {
       checkControl: 'issueSubstance',
-      checkLabel: 'Substance abuse',
+      checkLabel: 'Substance misuse',
       detailControl: 'detailsSubstance',
-      detailLabel: 'Provide a brief assessment of substance abuse issues'
+      detailLabel: 'Provide a brief assessment of substance misuse issues'
     },
     {
       checkControl: 'issueHealth',

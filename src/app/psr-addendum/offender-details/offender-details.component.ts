@@ -61,6 +61,7 @@ export class OffenderDetailsComponent implements OnDestroy {
     this.reportForm = this.formBuilder.group({
       name: [this.reportData.name, Validators.required],
       address: [this.reportData.address, Validators.required],
+      phone: [this.reportData.phone, Validators.required],
       dateOfBirth: this.formBuilder.group({
         day: [this.reportData.dateOfBirth.day, Validators.required],
         month: [this.reportData.dateOfBirth.month, Validators.required],

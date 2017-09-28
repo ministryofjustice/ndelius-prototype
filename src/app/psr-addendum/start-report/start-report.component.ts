@@ -4,10 +4,10 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { IOffenderDetails } from '../../sfpsr/offender-details/model/offender-details.model';
-import { ICourtDetails } from '../../sfpsr/court-details/model/court-details.model';
-import { UpdateOffenderDetailsAction } from '../../sfpsr/offender-details/action/offender-details.action';
-import { UpdateCourtDetailsAction } from '../../sfpsr/court-details/action/court-details.action';
+import { IOffenderDetails } from '../offender-details/model/offender-details.model';
+import { ICourtDetails } from '../court-details/model/court-details.model';
+import { UpdateOffenderDetailsAction } from '../offender-details/action/offender-details.action';
+import { UpdateCourtDetailsAction } from '../court-details/action/court-details.action';
 
 @Component({
   selector: 'app-start-report',
@@ -55,6 +55,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
         this.store.dispatch(new UpdateOffenderDetailsAction({
           name: params['name'],
           address: params['address'],
+          phone: params['phone'],
           dateOfBirth: params['dateOfBirth'],
           age: params['age'],
           crn: params['crn'],

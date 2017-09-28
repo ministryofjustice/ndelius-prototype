@@ -44,6 +44,7 @@ export class SignatureComponent implements OnDestroy {
     this.reportForm = this.formBuilder.group({
       reportAuthor: this.reportData.reportAuthor,
       office: this.reportData.office,
+      phone: this.reportData.phone,
       counterSignature: this.reportData.counterSignature,
       startDate: this.reportData.startDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'),
       reportDate: this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy')

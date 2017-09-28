@@ -129,14 +129,14 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
   private rendererListener: Function;
 
   /**
-   * Variable used to store initial help text to allow reset
+   *
    */
-  private helpText: string;
+  private currentContent: string;
 
   /**
    *
    */
-  private currentContent: string;
+  limitText: string;
 
   /**
    * @constructor
@@ -200,11 +200,10 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    * Event fired on keyup - used to update/check optional character count recommendation
    */
   private onKeyUp() {
-    if (!this.helpText) {
+    if (!this.limit) {
       return;
     }
-    const currentCount = this.textArea.nativeElement.value.length;
-    this.help = currentCount ? this.helpText + ', you have used ' + currentCount : this.helpText;
+    this.limitText = this.limit + ' recommended characters, you have used ' + this.textArea.nativeElement.value.length;
   }
 
   /**
@@ -219,7 +218,7 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   ngAfterViewInit() {
     if (this.limit) {
-      this.helpText = this.help;
+      this.limitText = this.limit + ' recommended characters';
       this.rendererListener = this.renderer.listen(this.textArea.nativeElement, 'keyup', this.onKeyUp.bind(this));
       this.onKeyUp();
       this.ref.detectChanges();
