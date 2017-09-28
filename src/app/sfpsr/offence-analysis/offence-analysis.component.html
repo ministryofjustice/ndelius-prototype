@@ -20,7 +20,7 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="offenceAnalysisEntry" label="Offence analysis" errorMessage="You must enter your analysis of the offence" [error]="formError" (onSaveContent)="saveContent(reportForm)">
+      <app-text-entry [group]="reportForm" name="offenceAnalysisEntry" label="Offence analysis" limit="4000" errorMessage="You must enter your analysis of the offence" [error]="formError" (onSaveContent)="saveContent(reportForm)">
         <p>Your analysis needs to go beyond the facts provided by the CPS.</p>
         <p class="margin-top">Consider the offender’s account and attitude and make links to any previous offending behaviour and reports by the probation service.</p>
         <p class="margin-top">Do they accept responsibility?<br/>
@@ -38,9 +38,9 @@
       <hr noshade />
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="patternOfOffending" label="Patterns of offending behaviour (if applicable)" help="Detail any gaps in offending and relapse and look for triggers that initiate the behaviours" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="patternOfOffending" label="Patterns of offending behaviour (if applicable)" help="Detail any gaps in offending and relapse and look for triggers that initiate the behaviours" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
-      <input class="button" id="nextButton" type="submit" value="Save & continue" />
+      <input class="button margin-top medium" id="nextButton" type="submit" value="Save & continue" />
 
     </form>
 

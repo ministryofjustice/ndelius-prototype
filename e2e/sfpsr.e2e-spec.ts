@@ -65,6 +65,7 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getElementByIdValue('dob-month')).toEqual('6');
         expect(page.getElementByIdValue('dob-year')).toEqual('1976');
         expect(page.getElementByIdValue('address')).toEqual('1 Albert Square, Manchester, Greater Manchester, M60 2LA');
+        expect(page.getElementByIdValue('phone')).toEqual('07777 777 777');
         expect(page.getElementByIdValue('pnc')).toEqual('B98793');
         expect(page.getElementByIdValue('crn')).toEqual('X087946');
       });
@@ -303,8 +304,8 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the selection of response to previous supervision', () => {
         page.getElementById('radio-1').click();
         page.getElementById('radio-2').click();
+        page.getElementById('radio-4').click(); // Radio 4 hides the additional details
         page.getElementById('radio-3').click();
-        page.getElementById('radio-4').click();
       });
 
       it('should allow the entry of the likelihood of re-offending', () => {
@@ -397,6 +398,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should allow the completion of the form', () => {
         expect(page.setElementByIdValue('reportAuthor', 'Arthur Author')).toEqual('Arthur Author');
         expect(page.setElementByIdValue('office', 'Sheffield Digital Studio')).toEqual('Sheffield Digital Studio');
+        expect(page.setElementByIdValue('phone', '0161 234 4343')).toEqual('0161 234 4343');
         expect(page.setElementByIdValue('counterSignature', 'Counter signatory')).toEqual('Counter signatory');
         expect(page.setElementByIdValue('reportDate', '20/01/2017')).toEqual('20/01/2017');
       });

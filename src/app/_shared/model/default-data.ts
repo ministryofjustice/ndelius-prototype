@@ -20,6 +20,7 @@ export function defaultOffenderDetails(): IOffenderDetails {
   return {
     name: 'Alan Smith',
     address: '1 Albert Square, Manchester, Greater Manchester, M60 2LA',
+    phone: '07777 777 777',
     dateOfBirth: {
       day: 21,
       month: 6,

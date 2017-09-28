@@ -7,6 +7,7 @@ export interface IDateOfBirth {
 export interface IOffenderDetails {
   name: string;
   address: string;
+  phone: string;
   dateOfBirth: IDateOfBirth;
   age: number;
   crn: string;

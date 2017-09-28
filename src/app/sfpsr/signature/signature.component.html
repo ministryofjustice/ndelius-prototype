@@ -16,6 +16,7 @@
 
       <p class="error-message" *ngIf="reportForm.get('reportAuthor').errors">Enter the report author</p>
       <p class="error-message" *ngIf="reportForm.get('office').errors">Enter the office</p>
+      <p class="error-message" *ngIf="reportForm.get('phone').errors">Enter the court office phone number</p>
       <p class="error-message" *ngIf="reportForm.get('reportDate').errors">Enter the report date</p>
     </div>
 
@@ -26,7 +27,7 @@
           <span class="form-label-bold">Report author</span>
         </label>
         <app-error-messages control="reportAuthor" message="Enter the report author" [active]="(reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors"></app-error-messages>
-        <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }" type="text" role="textbox" id="reportAuthor" formControlName="reportAuthor" value="" maxlength="250" aria-described-by="reportAuthor_error" aria-required="true" required />
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }" type="text" role="textbox" id="reportAuthor" formControlName="reportAuthor" value="" maxlength="250" aria-described-by="reportAuthor_error" aria-required="true" required />
       </div>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('office').touched || formError) && reportForm.get('office').errors }">
@@ -34,7 +35,15 @@
           <span class="form-label-bold">Office</span>
         </label>
         <app-error-messages control="office" message="Enter the office" [active]="(reportForm.get('office').touched || formError) && reportForm.get('office').errors"></app-error-messages>
-        <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('office').touched || formError) && reportForm.get('office').errors }" type="text" role="textbox" id="office" formControlName="office" value="" maxlength="250" aria-described-by="office_error" aria-required="true" required />
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('office').touched || formError) && reportForm.get('office').errors }" type="text" role="textbox" id="office" formControlName="office" value="" maxlength="250" aria-described-by="office_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('phone').touched || formError) && reportForm.get('phone').errors }">
+        <label for="phone">
+          <span class="form-label-bold">Court office phone number</span>
+        </label>
+        <app-error-messages control="phone" message="Enter the court office phone number" [active]="(reportForm.get('phone').touched || formError) && reportForm.get('phone').errors"></app-error-messages>
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('phone').touched || formError) && reportForm.get('phone').errors }" type="text" role="textbox" id="phone" formControlName="phone" value="" maxlength="250" aria-described-by="phone_error" aria-required="true" required />
       </div>
 
       <div class="form-group">
@@ -42,7 +51,7 @@
           <span class="form-label-bold">Counter signature (if applicable)</span>
         </label>
         <app-error-messages control="counterSignature"></app-error-messages>
-        <input class="form-control" type="text" role="textbox" id="counterSignature" formControlName="counterSignature" value="" maxlength="250" />
+        <input class="form-control half-width" type="text" role="textbox" id="counterSignature" formControlName="counterSignature" value="" maxlength="250" />
       </div>
 
       <div class="form-group">

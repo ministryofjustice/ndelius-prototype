@@ -55,6 +55,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
         this.store.dispatch(new UpdateOffenderDetailsAction({
           name: params['name'],
           address: params['address'],
+          phone: params['phone'],
           dateOfBirth: params['dateOfBirth'],
           age: params['age'],
           crn: params['crn'],
