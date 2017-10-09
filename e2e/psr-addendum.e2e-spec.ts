@@ -30,7 +30,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the Report Selection page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Choose your report');
+        expect(page.getHeadingText()).toEqual('Demonstration');
       });
 
       it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
@@ -204,7 +204,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the Report Selection page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Choose your report');
+        expect(page.getHeadingText()).toEqual('Demonstration');
       });
 
       it('should allow the user to select the Pre-Sentence Addendum journey', () => {
@@ -245,7 +245,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the Report Selection page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Choose your report');
+        expect(page.getHeadingText()).toEqual('Demonstration');
       });
 
       it('should allow the user to select the Pre-Sentence Addendum journey', () => {
@@ -281,7 +281,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     it('should submit feedback and return to the Choose your report page', () => {
       expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
-      expect(page.getHeadingText()).toEqual('Choose your report');
+      expect(page.getHeadingText()).toEqual('Demonstration');
     });
 
   });
