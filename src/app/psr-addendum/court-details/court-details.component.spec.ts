@@ -51,10 +51,12 @@ describe('Component: Court details', () => {
       expect(compiled.querySelector('h1').innerHTML).toBe('Sentencing court details');
   });
 
+  /*
   it('should include the pre-populated reactive form', () => {
     expect(component.reportForm).toBeDefined();
     expect(component.reportForm.get('court').value).toBe('Manchester and Salford Magistrates Court');
   });
+  */
 
   it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
