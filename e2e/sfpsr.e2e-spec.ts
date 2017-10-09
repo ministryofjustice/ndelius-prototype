@@ -86,13 +86,13 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display pre-populated Sentencing court details', () => {
         expect(page.getElementByIdValue('court')).toEqual('Manchester and Salford Magistrates Court');
-        expect(page.getElementByIdValue('localJusticeArea')).toEqual('Greater Manchester');
+        expect(page.getElementByIdValue('localJusticeArea')).toEqual('21: Greater Manchester');
         expect(page.getElementByIdValue('hearingDate')).toEqual(page.getDateToday());
       });
 
       it('should allow changes to Sentencing court details', () => {
-        expect(page.setElementByIdValue('court', 'Some Other Court')).toEqual('Some Other Court');
-        expect(page.setElementByIdValue('localJusticeArea', 'Some Other Justice Area')).toEqual('Some Other Justice Area');
+        expect(page.setElementByIdValue('court', 'Sheffield Magistrates Court')).toEqual('Sheffield Magistrates Court');
+        expect(page.changeSelectOption('localJusticeArea', 'South Yorkshire')).toEqual('45: South Yorkshire');
         expect(page.setElementByIdValue('hearingDate', '20/01/2017')).toEqual('20/01/2017');
       });
 

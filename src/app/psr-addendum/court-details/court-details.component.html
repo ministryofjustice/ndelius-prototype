@@ -33,7 +33,9 @@
 
         <label for="localJusticeArea" class="form-label-bold">Local justice area</label>
         <app-error-messages control="localJusticeArea" message="Enter the local justice area of the sentencing court" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
-        <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }" type="text" role="textbox" id="localJusticeArea" formControlName="localJusticeArea" maxlength="250" aria-described-by="localJusticeArea_error" aria-required="true" required />
+        <select formControlName="localJusticeArea" id="localJusticeArea" class="form-control">
+          <option *ngFor="let area of localJusticeAreas" [ngValue]="area">{{area}}</option>
+        </select>
 
       </div>
 

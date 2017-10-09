@@ -11,6 +11,8 @@ import { getCourtDetails } from './reducer/court-details.reducer';
 import { ICourtDetails } from './model/court-details.model';
 import { UpdateCourtDetailsAction } from './action/court-details.action';
 
+import { localJusticeAreas } from '../../_shared/model/default-data';
+
 @Component({
   selector: 'app-court-details',
   templateUrl: './court-details.component.html'
@@ -22,6 +24,7 @@ export class CourtDetailsComponent implements OnDestroy {
   reportData: ICourtDetails;
   reportForm: FormGroup;
   formError: boolean;
+  localJusticeAreas = localJusticeAreas();
 
   /**
    * @constructor
