@@ -51,17 +51,12 @@ export class StartComponent {
    * @returns {number}
    */
   private getAge(dateString): number {
+    const today = new Date(),
+      birthDate = new Date(dateString),
+      m = today.getMonth() - birthDate.getMonth(),
+      age = today.getFullYear() - birthDate.getFullYear();
 
-    const today = new Date();
-    const birthDate = new Date(dateString);
-    const m = today.getMonth() - birthDate.getMonth();
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
+    return m < 0 || (m === 0 && today.getDate() < birthDate.getDate()) ? age - 1 : age;
   }
 
 }
