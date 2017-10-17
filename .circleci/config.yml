@@ -26,7 +26,7 @@ jobs:
           command: yarn ng -- lint --type-check
       - run:
           name: Unit test
-          command: yarn ng -- test --single-run --no-progress
+          command: yarn ng -- test --single-run --no-progress --browsers ChromeHeadless
       - run:
           name: Development build
           command: yarn ng -- build --aot --no-progress
