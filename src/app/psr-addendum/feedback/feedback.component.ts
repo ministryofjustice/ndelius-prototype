@@ -34,7 +34,7 @@ export class FeedbackComponent {
    *
    */
   private continueJourney() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/psr-addendum/']);
   }
 
   /**

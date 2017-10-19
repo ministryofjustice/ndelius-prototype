@@ -3,6 +3,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { SaveDraftComponent } from './save-draft.component';
 import { reducers } from '../_shared/reducer/state.reducers';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('Component: Save draft', () => {
 
@@ -12,7 +13,10 @@ describe('Component: Save draft', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SaveDraftComponent ],
+      declarations: [
+        SaveDraftComponent,
+        MockPhaseBannerComponent
+      ],
       imports: [
         StoreModule.forRoot(reducers)
       ]

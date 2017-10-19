@@ -3,6 +3,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { ReportCompleteComponent } from './report-complete.component';
 import { reducers } from '../_shared/reducer/state.reducers';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('Component: Report complete', () => {
 
@@ -12,7 +13,10 @@ describe('Component: Report complete', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReportCompleteComponent ],
+      declarations: [
+        ReportCompleteComponent,
+        MockPhaseBannerComponent
+      ],
       imports: [
         StoreModule.forRoot(reducers)
       ]

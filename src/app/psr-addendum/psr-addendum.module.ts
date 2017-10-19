@@ -11,6 +11,7 @@ import { AddendumDetailComponent } from './addendum-detail/addendum-detail.compo
 import { SignatureComponent } from './signature/signature.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
     AddendumDetailComponent,
     SignatureComponent,
     ReportCompleteComponent,
-    SaveDraftComponent
+    SaveDraftComponent,
+    FeedbackComponent
   ]
 })
 export class PsrAddendumModule {

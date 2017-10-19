@@ -5,7 +5,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { StartReportComponent } from './start-report.component';
-import { MockNavigationComponent } from '../_shared/components/navigation.mock.component';
+import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('Component: Start Report', () => {
 
@@ -17,7 +18,8 @@ describe('Component: Start Report', () => {
     TestBed.configureTestingModule({
       declarations: [
         StartReportComponent,
-        MockNavigationComponent
+        MockNavigationComponent,
+        MockPhaseBannerComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

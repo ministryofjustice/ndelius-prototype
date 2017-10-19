@@ -281,7 +281,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     it('should submit feedback and return to the Choose your report page', () => {
       expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
-      expect(page.getHeadingText()).toEqual('Demonstration');
+      expect(page.getHeadingText()).toEqual('Pre-sentence Report Addendum');
     });
 
   });

@@ -1,43 +1,35 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { reducers } from '../_shared/reducer/state.reducers';
-
-import { OffenceDetailsComponent } from './offence-details.component';
-import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { FeedbackComponent } from './feedback.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
-import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
-
-import * as model from './reducer/offence-details.reducer';
+import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('Component: Offence details', () => {
+describe('FeedbackComponent', () => {
 
-  let fixture: ComponentFixture<OffenceDetailsComponent>;
-  let component: OffenceDetailsComponent;
+  let component: FeedbackComponent;
+  let fixture: ComponentFixture<FeedbackComponent>;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        OffenceDetailsComponent,
+        FeedbackComponent,
         MockNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent,
-        MockTextEntryComponent
+        MockErrorMessagesComponent
       ],
       imports: [
-        StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
-      ]
+      ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OffenceDetailsComponent);
+    fixture = TestBed.createComponent(FeedbackComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -48,7 +40,7 @@ describe('Component: Offence details', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Offence details');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Give feedback');
   });
 
   it('should include the reactive form', () => {
@@ -57,16 +49,16 @@ describe('Component: Offence details', () => {
 
   it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: false, value: model.initialState });
+    component.onSubmit({ valid: false });
     expect(component.formError).toBeTruthy();
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 
-  it('should navigate to the Offender assessment issues page', () => {
+  it('should navigate to the Start your Report page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: true, value: model.initialState });
+    component.onSubmit({ valid: true });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/offence-analysis']);
+    expect(navigateSpy).toHaveBeenCalledWith(['/sfpsr/']);
   });
 
 });

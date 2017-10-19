@@ -3,7 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { FeedbackComponent } from './feedback.component';
-import { MockErrorMessagesComponent } from '../error-messages/error-messages.mock.component';
+import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
+import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('FeedbackComponent', () => {
 
@@ -15,6 +17,8 @@ describe('FeedbackComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         FeedbackComponent,
+        MockNavigationComponent,
+        MockPhaseBannerComponent,
         MockErrorMessagesComponent
       ],
       imports: [
@@ -54,7 +58,7 @@ describe('FeedbackComponent', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['/']);
+    expect(navigateSpy).toHaveBeenCalledWith(['/psr-addendum/']);
   });
 
 });
