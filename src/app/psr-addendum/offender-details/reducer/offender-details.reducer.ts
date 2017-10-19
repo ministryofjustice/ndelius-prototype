@@ -2,9 +2,22 @@ import * as offenderDetails from '../action/offender-details.action';
 import { IOffenderDetails } from '../model/offender-details.model';
 
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
-import { defaultOffenderDetails } from '../../../_shared/model/default-data';
 
-export const initialState: IOffenderDetails = defaultOffenderDetails();
+export const initialState: IOffenderDetails = {
+  name: '',
+  address: '',
+  phone: '',
+  dateOfBirth: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
+  age: void 0,
+  crn: '',
+  pnc: '',
+  saved: false,
+  valid: false
+};
 
 export function offenderDetailsReducer(state = initialState, action: offenderDetails.Actions): IOffenderDetails {
 

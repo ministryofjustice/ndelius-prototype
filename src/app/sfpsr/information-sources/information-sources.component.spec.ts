@@ -6,7 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { InformationSourcesComponent } from './information-sources.component';
-import { MockNavigationComponent } from '../_shared/components/navigation.mock.component';
+import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 import * as model from './reducer/information-sources.reducer';
 
@@ -20,6 +21,7 @@ describe('Component: Sources of information', () => {
     TestBed.configureTestingModule({
       declarations: [
         InformationSourcesComponent,
+        MockPhaseBannerComponent,
         MockNavigationComponent
       ],
       imports: [

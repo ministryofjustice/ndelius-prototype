@@ -19,7 +19,7 @@ export class CheckReportService {
      */
     function getDate(date: IDateOfBirth): string {
       function zero(num: number): string {
-        return num < 10 ? '0' + num : num.toString();
+        return !num ? void 0 : num < 10 ? '0' + num : num.toString();
       }
 
       return zero(date.day) + '/' + zero(date.month) + '/' + date.year;

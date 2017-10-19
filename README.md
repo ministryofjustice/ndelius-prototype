@@ -16,9 +16,9 @@ The project requires [Node.js] 6.x
 
 You will need to install the project dependencies (in the project dir):
 
-`npm install -g @angular/cli`
+`npm i -g @angular/cli`
 
-`npm install`
+`npm i`
 
 ## Development server
 

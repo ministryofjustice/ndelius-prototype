@@ -30,7 +30,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the Report Selection page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Choose your report');
+        expect(page.getHeadingText()).toEqual('Demonstration');
       });
 
       it('should allow the user to select the Short Format Pre-Sentence Report journey', () => {
@@ -86,13 +86,13 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display pre-populated Sentencing court details', () => {
         expect(page.getElementByIdValue('court')).toEqual('Manchester and Salford Magistrates Court');
-        expect(page.getElementByIdValue('localJusticeArea')).toEqual('Greater Manchester');
+        expect(page.getElementByIdValue('localJusticeArea')).toEqual('21: Greater Manchester');
         expect(page.getElementByIdValue('hearingDate')).toEqual(page.getDateToday());
       });
 
       it('should allow changes to Sentencing court details', () => {
-        expect(page.setElementByIdValue('court', 'Some Other Court')).toEqual('Some Other Court');
-        expect(page.setElementByIdValue('localJusticeArea', 'Some Other Justice Area')).toEqual('Some Other Justice Area');
+        expect(page.setElementByIdValue('court', 'Sheffield Magistrates Court')).toEqual('Sheffield Magistrates Court');
+        expect(page.changeSelectOption('localJusticeArea', 'South Yorkshire')).toEqual('45: South Yorkshire');
         expect(page.setElementByIdValue('hearingDate', '20/01/2017')).toEqual('20/01/2017');
       });
 
@@ -204,7 +204,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the Report Selection page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Choose your report');
+        expect(page.getHeadingText()).toEqual('Demonstration');
       });
 
       it('should allow the user to select the Pre-Sentence Addendum journey', () => {
@@ -245,7 +245,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the Report Selection page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Choose your report');
+        expect(page.getHeadingText()).toEqual('Demonstration');
       });
 
       it('should allow the user to select the Pre-Sentence Addendum journey', () => {
@@ -281,7 +281,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     it('should submit feedback and return to the Choose your report page', () => {
       expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
-      expect(page.getHeadingText()).toEqual('Choose your report');
+      expect(page.getHeadingText()).toEqual('Pre-sentence Report Addendum');
     });
 
   });

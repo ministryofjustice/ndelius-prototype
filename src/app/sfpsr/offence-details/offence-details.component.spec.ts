@@ -6,11 +6,12 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { OffenceDetailsComponent } from './offence-details.component';
-import { MockNavigationComponent } from '../_shared/components/navigation.mock.component';
+import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/offence-details.reducer';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('Component: Offence details', () => {
 
@@ -23,6 +24,7 @@ describe('Component: Offence details', () => {
       declarations: [
         OffenceDetailsComponent,
         MockNavigationComponent,
+        MockPhaseBannerComponent,
         MockErrorMessagesComponent,
         MockTextEntryComponent
       ],

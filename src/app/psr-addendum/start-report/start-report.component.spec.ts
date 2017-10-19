@@ -2,10 +2,13 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 
+import 'rxjs/add/observable/of';
+
 import { reducers } from '../../sfpsr/_shared/reducer/state.reducers';
 
 import { StartReportComponent } from './start-report.component';
-import { MockNavigationComponent } from '../../sfpsr/_shared/components/navigation.mock.component';
+import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('Component: Start Report (Addendum)', () => {
 
@@ -17,6 +20,7 @@ describe('Component: Start Report (Addendum)', () => {
     TestBed.configureTestingModule({
       declarations: [
         StartReportComponent,
+        MockPhaseBannerComponent,
         MockNavigationComponent
       ],
       imports: [

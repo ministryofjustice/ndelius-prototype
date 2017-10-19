@@ -36,6 +36,18 @@ export class StartReportComponent implements OnInit, OnDestroy {
 
   /**
    *
+   * @returns {string}
+   */
+  private today(): string {
+    function zero(num): string {
+      return num < 10 ? '0' + num : num.toString();
+    }
+    const date: Date = new Date();
+    return zero(date.getDate()) + '/' + zero(date.getMonth() + 1) + '/' + date.getFullYear();
+  }
+
+  /**
+   *
    */
   startReport() {
     this.continueJourney();
@@ -56,7 +68,11 @@ export class StartReportComponent implements OnInit, OnDestroy {
           name: params['name'],
           address: params['address'],
           phone: params['phone'],
-          dateOfBirth: params['dateOfBirth'],
+          dateOfBirth: {
+            day: params['dobDay'],
+            month: params['dobMonth'],
+            year: params['dobYear']
+          },
           age: params['age'],
           crn: params['crn'],
           pnc: params['pnc'] || void 0,
@@ -68,7 +84,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
         this.store.dispatch(new UpdateCourtDetailsAction({
           court: params['court'],
           localJusticeArea: params['localJusticeArea'],
-          hearingDate: params['hearingDate'],
+          hearingDate: this.today(),
           saved: true,
           valid: true
         }));

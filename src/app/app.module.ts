@@ -5,7 +5,6 @@ import { SharedModule } from './sfpsr/_shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FeedbackComponent } from './_shared/components/feedback/feedback.component';
 
 import { StartComponent } from './start/start.component';
 
@@ -17,7 +16,6 @@ import { StartComponent } from './start/start.component';
   ],
   declarations: [
     AppComponent,
-    FeedbackComponent,
     StartComponent
   ],
   bootstrap: [

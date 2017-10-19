@@ -7,10 +7,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../../environments/environment';
 import { ShareBaseModule } from '../../_shared/share-base.module';
 
-import { NavigationComponent } from './components/navigation.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { reducers, metaReducers } from './reducer/state.reducers';
 
 import { CheckReportService } from '../check-report/check-report.service';
+import { PhaseBannerComponent } from './components/phase-banner/phase-banner.component';
 
 /**
  * To use the ngrx debugger, install the Redux Devtools extension for either Chrome or Firefox
@@ -26,10 +27,12 @@ import { CheckReportService } from '../check-report/check-report.service';
   ],
   exports: [
     ShareBaseModule,
-    NavigationComponent
+    NavigationComponent,
+    PhaseBannerComponent
   ],
   declarations: [
-    NavigationComponent
+    NavigationComponent,
+    PhaseBannerComponent
   ],
   providers: [
     DatePipe,

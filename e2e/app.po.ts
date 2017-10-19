@@ -41,6 +41,11 @@ export class PrototypePage {
     return element(by.id(id)).getAttribute('value');
   }
 
+  changeSelectOption(id: string, value: string) {
+    element(by.id(id)).element(by.cssContainingText('option', value)).click();
+    return element(by.id(id)).getAttribute('value');
+  }
+
   getElementById(id: string) {
     return element(by.id(id));
   }

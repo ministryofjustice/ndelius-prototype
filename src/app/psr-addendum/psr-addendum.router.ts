@@ -8,6 +8,7 @@ import { AddendumDetailComponent } from './addendum-detail/addendum-detail.compo
 import { SignatureComponent } from './signature/signature.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'start-report', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'signature', data: { title: 'Signature' }, component: SignatureComponent },
   { path: 'report-complete', data: { title: 'Report complete' }, component: ReportCompleteComponent },
   { path: 'save-draft', data: { title: 'Draft saved' }, component: SaveDraftComponent },
+  { path: 'feedback', data: { title: 'Give feedback' }, component: FeedbackComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 

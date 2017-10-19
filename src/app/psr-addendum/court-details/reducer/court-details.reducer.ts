@@ -2,9 +2,14 @@ import { ICourtDetails } from '../model/court-details.model';
 import * as courtDetails from '../action/court-details.action';
 
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
-import { defaultCourtDetails } from '../../../_shared/model/default-data';
 
-export const initialState: ICourtDetails = defaultCourtDetails();
+export const initialState: ICourtDetails = {
+  court: '',
+  localJusticeArea: '',
+  hearingDate: '',
+  saved: false,
+  valid: false
+};
 
 export function courtDetailsReducer(state = initialState, action: courtDetails.Actions): ICourtDetails {
 
