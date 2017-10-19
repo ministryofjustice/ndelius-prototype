@@ -11,7 +11,7 @@ import { FeedbackComponent } from './_shared/components/feedback/feedback.compon
 const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full' },
   { path: 'start', data: { title: '' }, component: StartComponent },
-  { path: 'feedback', data: { title: 'Feedback' }, component: FeedbackComponent },
+  { path: 'feedback', data: { title: 'Give feedback' }, component: FeedbackComponent },
   { path: 'sfpsr', loadChildren: './sfpsr/sfpsr.module#SfpsrModule' },
   { path: 'psr-addendum', loadChildren: './psr-addendum/psr-addendum.module#PsrAddendumModule' },
   { path: '**', redirectTo: 'start', pathMatch: 'full' }

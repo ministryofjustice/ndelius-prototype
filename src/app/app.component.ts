@@ -15,6 +15,8 @@ declare const jquery: any;
 })
 export class AppComponent implements OnInit {
 
+  isFeedbackRoute = false;
+
   /**
    * @constructor
    * @param {Router} router
@@ -44,6 +46,9 @@ export class AppComponent implements OnInit {
       .filter(route => route.outlet === 'primary')
       .mergeMap(route => route.data)
       .subscribe((event) => {
+
+        this.isFeedbackRoute = event.title.toLowerCase().indexOf('feedback') !== -1;
+
         this.titleService.setTitle(event['title'] + pathSuffix);
         $.getScript('assets/javascripts/application.js');
         window.scrollTo(0, 0);
