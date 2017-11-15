@@ -5,7 +5,6 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 import { CheckReportComponent } from './check-report.component';
-import { CheckReportService } from './check-report.service';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('CheckReportComponent', () => {
@@ -24,9 +23,6 @@ describe('CheckReportComponent', () => {
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
-      ],
-      providers: [
-        CheckReportService
       ]
     })
     .compileComponents();
