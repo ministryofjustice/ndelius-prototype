@@ -19,7 +19,7 @@ import { ISection, sections } from '../../model/sections';
 export class NavigationComponent {
 
   isValid = true;
-  sections:Array<ISection> = sections();
+  sections: Array<ISection> = sections();
 
   constructor(private store: Store<IState>) {
     store.select(getCurrentState).subscribe(currentState => {
