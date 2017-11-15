@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavigationComponent } from './navigation.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../../reducer/state.reducers';
 
 describe('Component: Navigation (shared)', () => {
 
@@ -15,6 +17,7 @@ describe('Component: Navigation (shared)', () => {
         NavigationComponent
       ],
       imports: [
+        StoreModule.forRoot(reducers),
         RouterTestingModule.withRoutes([])
       ],
     }).compileComponents();

@@ -25,6 +25,7 @@
         "assets/javascripts/vendor/jquery/jquery.min.js",
         "assets/javascripts/vendor/jquery/autosize.min.js",
         "assets/javascripts/vendor/ab-datepicker/datepicker.min.js",
+        "assets/javascripts/govuk/accessible-autocomplete/accessible-autocomplete.min.js",
         "assets/javascripts/govuk/show-hide-content.js",
         "assets/javascripts/govuk/stick-at-top-when-scrolling.js"
       ],
