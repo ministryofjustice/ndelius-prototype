@@ -10,7 +10,6 @@ import { ShareBaseModule } from '../../_shared/share-base.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { reducers, metaReducers } from './reducer/state.reducers';
 
-import { CheckReportService } from '../check-report/check-report.service';
 import { PhaseBannerComponent } from './components/phase-banner/phase-banner.component';
 
 /**
@@ -35,8 +34,7 @@ import { PhaseBannerComponent } from './components/phase-banner/phase-banner.com
     PhaseBannerComponent
   ],
   providers: [
-    DatePipe,
-    CheckReportService
+    DatePipe
   ]
 })
 export class SharedModule {

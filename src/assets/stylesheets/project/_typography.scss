@@ -6,10 +6,20 @@
   @include bold-14();
 }
 
-.saved-tag {
+.page-status-tag {
   @include phase-tag();
-  background-color: $govuk-blue;
   margin: 0;
+  &.saved {
+    background-color: $govuk-blue;
+    margin: 0;
+  }
+  &.incomplete {
+    background-color: $orange;
+  }
+  &.fixed-width {
+    width: 135px;
+    text-align: center;
+  }
 }
 
 .error-invalid {
