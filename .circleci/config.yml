@@ -23,16 +23,16 @@ jobs:
             - ./node_modules
       - run:
           name: Lint
-          command: yarn ng -- lint --type-check
+          command: yarn ng lint --type-check
       - run:
           name: Unit test
-          command: yarn ng -- test --single-run --no-progress --browsers ChromeHeadless
+          command: yarn ng test --single-run --no-progress --browsers ChromeHeadless
       - run:
           name: Smoke test
-          command: yarn ng -- e2e
+          command: yarn ng e2e
       - run:
           name: Development build
-          command: yarn ng -- build --aot --no-progress
+          command: yarn ng build --aot --no-progress
       - run:
           name: Production build
-          command: yarn ng -- build --prod --aot --no-progress
+          command: yarn ng build --prod --aot --no-progress
