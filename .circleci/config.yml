@@ -31,8 +31,5 @@ jobs:
           name: Smoke test
           command: yarn ng e2e
       - run:
-          name: Development build
-          command: yarn ng build --aot --no-progress
-      - run:
           name: Production build
           command: yarn ng build --prod --aot --no-progress
