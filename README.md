@@ -1,14 +1,22 @@
 # New Probation Services - Rapid Prototype
 
+[![GitHub version](https://badge.fury.io/gh/ministryofjustice%2Fndelius-prototype.svg)](https://badge.fury.io/gh/ministryofjustice%2Fndelius-prototype)
+[![Dependencies](https://david-dm.org/ministryofjustice/ndelius-prototype.svg)](https://david-dm.org/ministryofjustice/ndelius-prototype)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
+[![CircleCI](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master.svg?style=svg)](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master)
+
+---
+
+**N.B. This is *NOT* production code and is used entirely for the rapid prototyping of new features.**
+
+---
+
 The prototype has been developed in order to rapidly develop UI and UX features in order to test with users before committing to development of the master application.
 
 The prototype has been developed close to "vanilla" HTML so that design staff can work with the code more easily. 
 
 This *README* details the use of *[npm]* as *[Yarn]* is a development preference and not a requirement; feel free to use whichever you prefer.
-
-**CircleCI build status:**
-
-[![CircleCI](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master.svg?style=svg)](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master)
 
 ## Requirements
 
