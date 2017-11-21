@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -19,7 +19,7 @@ interface ISection {
   selector: 'app-information-sources',
   templateUrl: './information-sources.component.html'
 })
-export class InformationSourcesComponent implements OnDestroy {
+export class InformationSourcesComponent implements AfterViewInit, OnDestroy {
 
   private stateSubscriber: Subscription;
 
@@ -81,14 +81,30 @@ export class InformationSourcesComponent implements OnDestroy {
 
   /**
    *
+   */
+  private saveContent({ value }: { value: IInformationSources }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateInformationSourcesAction(updatedValue));
+  }
+
+  /**
+   *
    * @param {IInformationSources} value
    */
   onSubmit({ value }: { value: IInformationSources }) {
 
-    // @TODO: No validation required on this page - should this be set as valid by default before they submit the form?
-    const updatedValue = Object.assign(value, { saved: true, valid: true });
-    this.store.dispatch(new UpdateInformationSourcesAction(updatedValue));
+    this.saveContent({ value: value });
     this.continueJourney();
+  }
+
+  /**
+   *
+   */
+  ngAfterViewInit() {
+    if (this.stateSubscriber) {
+      this.stateSubscriber.unsubscribe();
+    }
+    this.saveContent({ value: this.reportData });
   }
 
   /**

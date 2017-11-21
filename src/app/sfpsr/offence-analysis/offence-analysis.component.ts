@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -14,7 +14,7 @@ import { UpdateOffenceAnalysisAction } from './action/offence-analysis.action';
   selector: 'app-offence-analysis',
   templateUrl: './offence-analysis.component.html'
 })
-export class OffenceAnalysisComponent implements OnDestroy {
+export class OffenceAnalysisComponent implements AfterViewInit, OnDestroy {
 
   private stateSubscriber: Subscription;
 
@@ -42,7 +42,7 @@ export class OffenceAnalysisComponent implements OnDestroy {
   private createForm() {
     this.reportForm = this.formBuilder.group({
       offenceAnalysisEntry: [this.reportData.offenceAnalysisEntry, Validators.required],
-      patternOfOffending: this.reportData.patternOfOffending,
+      patternOfOffending: this.reportData.patternOfOffending
     });
   }
 
@@ -57,7 +57,8 @@ export class OffenceAnalysisComponent implements OnDestroy {
    *
    */
   saveContent({ value }: { value: IOffenceAnalysis }) {
-    this.store.dispatch(new UpdateOffenceAnalysisAction(value));
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateOffenceAnalysisAction(updatedValue));
   }
 
   /**
@@ -68,14 +69,23 @@ export class OffenceAnalysisComponent implements OnDestroy {
   onSubmit({ valid, value }: { valid: boolean, value: IOffenceAnalysis }) {
     this.formError = !valid;
 
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-    this.store.dispatch(new UpdateOffenceAnalysisAction(updatedValue));
+    this.saveContent({ value: value });
 
     if (valid) {
       this.continueJourney();
     } else {
       window.scrollTo(0, 0);
     }
+  }
+
+  /**
+   *
+   */
+  ngAfterViewInit() {
+    if (this.stateSubscriber) {
+      this.stateSubscriber.unsubscribe();
+    }
+    this.saveContent({ value: this.reportData });
   }
 
   /**

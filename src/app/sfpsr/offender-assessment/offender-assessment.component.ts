@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -21,7 +21,7 @@ interface ISection {
   selector: 'app-offender-assessment',
   templateUrl: './offender-assessment.component.html'
 })
-export class OffenderAssessmentComponent implements OnDestroy {
+export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
 
   private stateSubscriber: Subscription;
 
@@ -128,7 +128,8 @@ export class OffenderAssessmentComponent implements OnDestroy {
    * @param {IOffenderAssessment} value
    */
   saveContent({ value }: { value: IOffenderAssessment }) {
-    this.store.dispatch(new UpdateOffenderAssessmentAction(value));
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateOffenderAssessmentAction(updatedValue));
   }
 
   /**
@@ -139,14 +140,23 @@ export class OffenderAssessmentComponent implements OnDestroy {
   onSubmit({ valid, value }: { valid: boolean, value: IOffenderAssessment }) {
     this.formError = !valid;
 
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-    this.store.dispatch(new UpdateOffenderAssessmentAction(updatedValue));
+    this.saveContent({ value: value });
 
     if (valid) {
       this.continueJourney();
     } else {
       window.scrollTo(0, 0);
     }
+  }
+
+  /**
+   *
+   */
+  ngAfterViewInit() {
+    if (this.stateSubscriber) {
+      this.stateSubscriber.unsubscribe();
+    }
+    this.saveContent({ value: this.reportData });
   }
 
   /**
