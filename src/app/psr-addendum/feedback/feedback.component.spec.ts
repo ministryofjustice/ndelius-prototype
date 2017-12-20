@@ -56,7 +56,7 @@ describe('FeedbackComponent', () => {
 
   it('should navigate to the Start your Report page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: true });
+    component.onSubmit({ valid: true, value: { rating: '', feedback: '' } });
     expect(component.formError).toBeFalsy();
     expect(navigateSpy).toHaveBeenCalledWith(['/psr-addendum/']);
   });

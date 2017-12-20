@@ -39,11 +39,28 @@ export class FeedbackComponent {
 
   /**
    *
-   * @param {boolean} valid
+   * @param {any} value
    */
-  onSubmit({ valid }: { valid: boolean }) {
-    this.formError = !valid;
-    if (valid) {
+  private emailFeedback(value: any) {
+    window.location.href = 'mailto:nick.gallon@digital.justice.gov.uk?subject=' +
+      'Short%20Format%20Pre-sentence%20Report%20-%20feedback' +
+      '&body=Overall,%20how%20did%20you%20feel%20about%20the%20Short%20Format' +
+      '%20Pre-sentence%20Report%20service%20you%20used%20today%3F%0D%0A%0D%0A' +
+      value.rating +
+      '%0D%0A%0D%0A%0D%0A%0D%0A' +
+      'How%20could%20we%20improve%20this%20service%3F%0D%0A%0D%0A' +
+      encodeURIComponent(value.feedback);
+  }
+
+  /**
+   *
+   * @param {any} form
+   */
+  onSubmit(form: any) {
+
+    this.formError = !form.valid;
+    if (form.valid) {
+      this.emailFeedback(form.value);
       this.continueJourney();
     }
   }
