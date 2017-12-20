@@ -23,9 +23,6 @@ jobs:
           name: Unit test
           command: yarn ng test --single-run --no-progress --browsers ChromeHeadless
       - run:
-          name: Smoke test
-          command: yarn ng e2e
-      - run:
           name: Production build
           command: yarn ng build --prod --build-optimizer --aot --no-progress
       - persist_to_workspace:
