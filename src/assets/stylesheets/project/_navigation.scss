@@ -3,39 +3,29 @@ a, a:link, a:active, a:visited {
 }
 
 nav {
-  @include media(mobile) {
-    display: none;
+  position: absolute;
+  top: 50px;
+  width: 250px;
+  background: #162c58;
+  color: white;
+  z-index: 1;
+
+  li {
+    font-size: 14px;
+    padding: 8px 10px;
+
+    &.sub-item {
+      background: #1b3873;
+      padding-left: 30px;
+    }
+
+    &.active {
+      background: #e0e0e0;
+      color: black;
+    }
   }
 }
 
 nav.content-fixed {
   margin-top: 20px;
-}
-
-.nav-header {
-  border-top: $govuk-blue 10px solid;
-  margin: 0 0 20px 0;
-}
-
-.nav-home {
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.nav-item {
-  font-size: 16px;
-  line-height: 24px;
-
-  &.active {
-    font-weight: bold;
-    pointer-events: none;
-    text-decoration: none;
-    cursor: default;
-    &:hover {
-      color: inherit;
-    }
-  }
-  &.standard {
-    font-size: inherit;
-  }
 }

@@ -9,9 +9,11 @@ import { SignatureComponent } from './signature/signature.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { NavigationComponent } from './_shared/components/navigation/navigation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'start-report', pathMatch: 'full' },
+  { path: '', component: NavigationComponent, outlet: 'navigation' },
   { path: 'start-report', data: { title: 'Start your report' }, component: StartReportComponent },
   { path: 'offender-details', data: { title: 'Offender details' }, component: OffenderDetailsComponent },
   { path: 'court-details', data: { title: 'Sentencing court details' }, component: CourtDetailsComponent },

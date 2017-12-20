@@ -1,27 +1,11 @@
-<nav role="menubar" class="js-stick-at-top-when-scrolling">
-
-  <div *ngIf="!rla.isActive">
-    <a id="saveDraft" routerLink="/sfpsr/save-draft" routerLinkActive="active" class="bold font-xsmall no-underline no-margin-top no-margin-bottom">Save a draft of this report</a>
-  </div>
-
-  <dl>
-    <dt class="font-xsmall">Last updated:</dt>
-    <dd class="font-xsmall">1 day ago</dd>
-  </dl>
-
-  <div class="clearfix"></div>
-
-  <h3 class="font-xsmall bold margin-top medium">Report sections:</h3>
-
-  <span class="display-block margin-top">- <a routerLink="/sfpsr/offender-details" routerLinkActive="active" class="nav-item">Offender details</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/court-details" routerLinkActive="active" class="nav-item">Sentencing court details</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/information-sources" routerLinkActive="active" class="nav-item">Sources of information</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/offence-details" routerLinkActive="active" class="nav-item">Offence details</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/offence-analysis" routerLinkActive="active" class="nav-item">Offence analysis</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/offender-assessment" routerLinkActive="active" class="nav-item">Offender assessment</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/risk-assessment" routerLinkActive="active" class="nav-item">Risk assessment</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/proposed-sentence" routerLinkActive="active" class="nav-item">Conclusion</a></span>
-  <span class="display-block">- <a routerLink="/sfpsr/check-report" routerLinkActive="active" class="nav-item">Check your report</a></span>
-  <span class="display-block" [ngClass]="{ 'js-hidden': !isValid }">- <a routerLink="/sfpsr/signature" routerLinkActive="active" #rla="routerLinkActive" class="nav-item">Sign and date your report</a></span>
-
-</nav>
+<li routerLinkActive="active" routerLink="/sfpsr/offender-details" class="sub-item clickable">Offender details</li>
+<li routerLinkActive="active" routerLink="/sfpsr/court-details" class="sub-item clickable">Sentencing court details</li>
+<li routerLinkActive="active" routerLink="/sfpsr/information-sources" class="sub-item clickable">Sources of information</li>
+<li routerLinkActive="active" routerLink="/sfpsr/offence-details" class="sub-item clickable">Offence details</li>
+<li routerLinkActive="active" routerLink="/sfpsr/offence-analysis" class="sub-item clickable">Offence analysis</li>
+<li routerLinkActive="active" routerLink="/sfpsr/offender-assessment" class="sub-item clickable">Offender assessment</li>
+<li routerLinkActive="active" routerLink="/sfpsr/risk-assessment" class="sub-item clickable">Risk assessment</li>
+<li routerLinkActive="active" routerLink="/sfpsr/proposed-sentence" class="sub-item clickable">Conclusion</li>
+<li routerLinkActive="active" routerLink="/sfpsr/check-report" class="sub-item clickable">Check your report</li>
+<li routerLink="/sfpsr/signature" routerLinkActive="active" #rla="routerLinkActive" [ngClass]="{ 'js-hidden': !isValid }" class="sub-item clickable">Sign and date your report</li>
+<li id="saveDraft" routerLinkActive="active" routerLink="/sfpsr/save-draft" class="sub-item clickable" *ngIf="!rla.isActive">Save draft report</li>

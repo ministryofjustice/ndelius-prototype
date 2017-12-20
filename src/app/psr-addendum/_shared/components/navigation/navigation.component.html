@@ -1,14 +1,6 @@
-<nav role="menubar" class="js-stick-at-top-when-scrolling">
 
-  <div *ngIf="!rla.isActive" class="margin-bottom medium">
-    <a id="saveDraft" routerLink="/psr-addendum/save-draft" routerLinkActive="active" class="font-xsmall no-margin-top no-margin-bottom">Save a draft of this addendum</a>
-  </div>
-
-  <h3 class="font-xsmall bold no-margin-top margin-bottom">Report sections:</h3>
-
-  <span class="display-block">- <a routerLink="/psr-addendum/offender-details" routerLinkActive="active" class="nav-item">Offender details</a></span>
-  <span class="display-block">- <a routerLink="/psr-addendum/court-details" routerLinkActive="active" class="nav-item">Sentencing court details</a></span>
-  <span class="display-block">- <a routerLink="/psr-addendum/addendum-detail" routerLinkActive="active" class="nav-item">Addendum detail</a></span>
-  <span class="display-block">- <a routerLink="/psr-addendum/signature" routerLinkActive="active" #rla="routerLinkActive" class="nav-item">Sign and date your addendum</a></span>
-
-</nav>
+<li routerLink="/psr-addendum/offender-details" routerLinkActive="active" class="sub-item clickable">Offender details</li>
+<li routerLink="/psr-addendum/court-details" routerLinkActive="active" class="sub-item clickable">Sentencing court details</li>
+<li routerLink="/psr-addendum/addendum-detail" routerLinkActive="active" class="sub-item clickable">Addendum detail</li>
+<li routerLink="/psr-addendum/signature" routerLinkActive="active" #rla="routerLinkActive" class="sub-item clickable">Sign and date your addendum</li>
+<li id="saveDraft" routerLink="/psr-addendum/save-draft" routerLinkActive="active" class="sub-item clickable" *ngIf="!rla.isActive">Save draft report</li>

@@ -6,3 +6,13 @@
   clear: both;
   height: 0;
 }
+
+.clickable {
+  cursor: pointer;
+}
+
+.omit-mobile {
+  @include media(mobile) {
+    display: none;
+  }
+}
