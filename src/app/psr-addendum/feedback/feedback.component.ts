@@ -39,9 +39,9 @@ export class FeedbackComponent {
 
   /**
    *
-   * @param value
+   * @param {any} value
    */
-  private email(value) {
+  private emailFeedback(value: any) {
     window.location.href = 'mailto:nick.gallon@digital.justice.gov.uk?subject=' +
       'Short%20Format%20Pre-sentence%20Addendum%20-%20feedback' +
       '&body=Overall,%20how%20did%20you%20feel%20about%20the%20Short%20Format%20' +
@@ -54,12 +54,12 @@ export class FeedbackComponent {
 
   /**
    *
-   * @param {Form} form
+   * @param {any} form
    */
-  onSubmit(form) {
+  onSubmit(form: any) {
     this.formError = !form.valid;
     if (form.valid) {
-      this.email(form.value);
+      this.emailFeedback(form.value);
       this.continueJourney();
     }
   }

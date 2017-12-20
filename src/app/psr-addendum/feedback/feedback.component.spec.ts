@@ -33,9 +33,6 @@ describe('FeedbackComponent', () => {
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
-    spyOn(component, 'email').and.callFake(() => {
-      console.log('OINK OINK');
-    });
   });
 
   it('should be created', () => {
