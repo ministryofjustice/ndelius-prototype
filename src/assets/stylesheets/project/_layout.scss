@@ -5,7 +5,7 @@
 }
 
 html {
-  // background: #222222;
+  background: #222222;
 }
 
 body, html {
@@ -159,12 +159,10 @@ dd {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
-  height: 100%;
 }
 
 .column-flex {
   flex: 1;
-  height: 100%;
 
   &.navigation {
     background: #222222;
