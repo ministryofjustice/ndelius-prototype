@@ -35,7 +35,7 @@ describe('Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('li').innerHTML).toBe('Offender details');
+    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('- Save draft report');
   });
 
 });
