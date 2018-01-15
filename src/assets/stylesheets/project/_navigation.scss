@@ -15,8 +15,13 @@ nav {
     padding: 8px 10px;
 
     &.sub-item {
-      background: #1b3873;
+      background: #26549B;
       padding-left: 30px;
+    }
+
+    &.sub-sub-item {
+      background: #2069b8;
+      padding-left: 60px;
     }
 
     &.active {
