@@ -1,14 +1,38 @@
 <header>
   <span class="title">National Delius</span>
+  <nav class="top-nav">
+    <span class="margin-right medium"><span class="far fa-print"></span> Print</span>&nbsp;&nbsp;
+    <span class="margin-right medium"><span class="far fa-file"></span> My Documents</span>&nbsp;&nbsp;
+    <span class="far fa-cog"></span> User Preferences
+  </nav>
 </header>
+
+<div class="sub-header" *ngIf="!rla.isActive">
+  <hr class="dotted"/>
+
+  <div class="pull-left pad-left">
+    <p class=" delius text-white font-xxsmall">CRN: <span class="text-blue">X087946</span> Name: <span class="text-blue">Alan Smith</span>
+      D.O.B: 21/06/1976 (41) Offender Manager: <span class="text-blue">Created, CRC</span> - CRC Created, CPS Manchester</p>
+    <p class="delius text-white font-xxsmall">Remand Status: not Applicable Tier: Not Yet Assessed</p>
+  </div>
+  <div class="pull-right pad-right">
+    <span class="icon-risk"></span>
+    <span class="icon-risk"></span>
+    <span class="icon-risk"></span>
+    <span class="icon-risk"></span>
+    <span class="icon-risk"></span>
+  </div>
+
+</div>
 
 <div class="grid-flex">
 
   <div class="column-flex navigation omit-mobile">
 
-    <nav>
+    <nav [ngClass]="{ 'push-down': !rla.isActive }">
       <ul>
-        <li routerLinkActive="active" routerLink="/start" class="clickable"><span class="far fa-home"></span> Home</li>
+        <li routerLinkActive="active" #rla="routerLinkActive" routerLink="/start" class="clickable"><span class="far fa-home"></span> Home
+        </li>
         <li><span class="far fa-search"></span> National Search</li>
         <li><span class="far fa-eye"></span> National Custody Search</li>
         <li><span class="far fa-history"></span> Recently Viewed</li>
@@ -31,7 +55,7 @@
     </nav>
 
   </div>
-  <div class="column-flex main-content push-top">
+  <div class="column-flex main-content push-top" [ngClass]="{ 'double': !rla.isActive }">
 
     <main id="content">
 
