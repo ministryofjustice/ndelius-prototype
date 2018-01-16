@@ -10,6 +10,10 @@ nav {
   color: white;
   z-index: 1;
 
+  &.push-down {
+    top: 100px;
+  }
+
   li {
     font-size: 14px;
     padding: 8px 10px;
@@ -27,6 +31,21 @@ nav {
     &.active {
       background: #e0e0e0;
       color: black;
+    }
+  }
+
+  &.top-nav {
+    position: relative;
+    top: 14px;
+    right: 20px;
+    background: transparent;
+    width: auto;
+    color: gray;
+    font-size: 14px;
+    float: right;
+
+    @include media(mobile) {
+      display: none;
     }
   }
 }
