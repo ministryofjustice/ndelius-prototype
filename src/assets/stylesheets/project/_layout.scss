@@ -210,8 +210,21 @@ dd {
   }
 }
 
+.mobile-only {
+  display: none !important;
+  @include media(mobile) {
+    display: inline-block !important;
+  }
+}
+
 #content {
   margin: 0;
   height: auto;
   padding: 0 25px;
+}
+
+.delius {
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
