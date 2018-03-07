@@ -9,8 +9,8 @@ import { MockErrorMessagesComponent } from '../../_shared/components/error-messa
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { AddendumDetailComponent } from './addendum-detail.component';
-import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
+import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
 
 import * as model from './reducer/addendum-detail.reducer';
 
@@ -24,7 +24,7 @@ describe('Component: Addendum detail', () => {
     TestBed.configureTestingModule({
       declarations: [
         AddendumDetailComponent,
-        MockNavigationComponent,
+        MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent
       ],

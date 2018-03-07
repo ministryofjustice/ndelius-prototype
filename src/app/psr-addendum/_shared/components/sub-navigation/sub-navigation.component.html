@@ -1,5 +1,14 @@
-<li id="saveDraft" routerLink="/psr-addendum/save-draft" routerLinkActive="active" class="sub-sub-item clickable" *ngIf="!rla.isActive">- Save draft report</li>
-<li routerLink="/psr-addendum/offender-details" routerLinkActive="active" class="sub-sub-item clickable">- Offender details</li>
-<li routerLink="/psr-addendum/court-details" routerLinkActive="active" class="sub-sub-item clickable">- Sentencing court details</li>
-<li routerLink="/psr-addendum/addendum-detail" routerLinkActive="active" class="sub-sub-item clickable">- Addendum detail</li>
-<li routerLink="/psr-addendum/signature" routerLinkActive="active" #rla="routerLinkActive" class="sub-sub-item clickable">- Sign and date your addendum</li>
+<nav class="sub-nav">
+  <ul>
+    <li id="saveDraft" routerLink="/psr-addendum/save-draft" routerLinkActive="active" class="sub-sub-item clickable bold" *ngIf="!rla.isActive">Save draft report</li>
+  </ul>
+
+  <p class="nav-title">Report sections</p>
+
+  <ul>
+    <li routerLink="/psr-addendum/offender-details" routerLinkActive="active" class="sub-sub-item clickable">- Offender details</li>
+    <li routerLink="/psr-addendum/court-details" routerLinkActive="active" class="sub-sub-item clickable">- Sentencing court details</li>
+    <li routerLink="/psr-addendum/addendum-detail" routerLinkActive="active" class="sub-sub-item clickable">- Addendum detail</li>
+    <li routerLink="/psr-addendum/signature" routerLinkActive="active" #rla="routerLinkActive" class="sub-sub-item clickable">- Sign and date your addendum</li>
+  </ul>
+</nav>

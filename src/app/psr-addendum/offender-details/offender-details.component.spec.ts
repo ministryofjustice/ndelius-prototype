@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { OffenderDetailsComponent } from './offender-details.component';
-import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 
@@ -22,7 +22,7 @@ describe('Component: Offender details', () => {
     TestBed.configureTestingModule({
       declarations: [
         OffenderDetailsComponent,
-        MockNavigationComponent,
+        MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent
       ],

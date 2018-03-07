@@ -32,7 +32,7 @@ describe('Component: Navigation (Addendum, shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('- Save draft report');
+    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('Save draft report');
   });
 
 });
