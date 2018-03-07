@@ -24,7 +24,7 @@ This *README* details the use of *[npm]* as *[Yarn]* is a development preference
 
 ## Requirements
 
-The project requires [Node.js] 6.x
+The project requires [Node.js] LTS >=8.9.4 <9.0.0
 
 You will need to install the project dependencies (in the project dir):
 
