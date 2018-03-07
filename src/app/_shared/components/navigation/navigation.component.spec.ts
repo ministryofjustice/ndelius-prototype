@@ -2,10 +2,8 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavigationComponent } from './navigation.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers } from '../../reducer/state.reducers';
 
-describe('Component: Navigation (shared)', () => {
+describe('Component: Navigation (Addendum, shared)', () => {
 
   let fixture: ComponentFixture<NavigationComponent>;
   let component: NavigationComponent;
@@ -17,7 +15,6 @@ describe('Component: Navigation (shared)', () => {
         NavigationComponent
       ],
       imports: [
-        StoreModule.forRoot(reducers),
         RouterTestingModule.withRoutes([])
       ],
     }).compileComponents();
@@ -35,7 +32,7 @@ describe('Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('- Save draft report');
+    expect(compiled.querySelector('.sub-item').innerHTML).toBe('Event Details');
   });
 
 });

@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { RiskAssessmentComponent } from './risk-assessment.component';
-import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
@@ -23,7 +23,7 @@ describe('Component: Risk assessment', () => {
     TestBed.configureTestingModule({
       declarations: [
         RiskAssessmentComponent,
-        MockNavigationComponent,
+        MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
         MockTextEntryComponent

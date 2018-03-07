@@ -6,6 +6,10 @@
 
 [![CircleCI](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master.svg?style=svg)](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master)
 
+![Browserstack](browserstack-logo.png)
+
+With special thanks to [BrowserStack](https://www.browserstack.com) for providing cross browser testing.
+
 ---
 
 **N.B. This is *NOT* production code and is used entirely for the rapid prototyping of new features.**

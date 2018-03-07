@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { InformationSourcesComponent } from './information-sources.component';
-import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
+import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 import * as model from './reducer/information-sources.reducer';
@@ -22,7 +22,7 @@ describe('Component: Sources of information', () => {
       declarations: [
         InformationSourcesComponent,
         MockPhaseBannerComponent,
-        MockNavigationComponent
+        MockSubNavigationComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
