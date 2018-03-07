@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { NavigationComponent } from '../_shared/components/navigation/navigation.component';
+
 import { StartReportComponent } from './start-report/start-report.component';
 import { OffenderDetailsComponent } from './offender-details/offender-details.component';
 import { CourtDetailsComponent } from './court-details/court-details.component';
@@ -9,7 +11,6 @@ import { SignatureComponent } from './signature/signature.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { NavigationComponent } from './_shared/components/navigation/navigation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'start-report', pathMatch: 'full' },

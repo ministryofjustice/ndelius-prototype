@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { NavigationComponent } from './navigation.component';
+import { SubNavigationComponent } from './sub-navigation.component';
 
 describe('Component: Navigation (Addendum, shared)', () => {
 
-  let fixture: ComponentFixture<NavigationComponent>;
-  let component: NavigationComponent;
+  let fixture: ComponentFixture<SubNavigationComponent>;
+  let component: SubNavigationComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        NavigationComponent
+        SubNavigationComponent
       ],
       imports: [
         RouterTestingModule.withRoutes([])
@@ -21,7 +21,7 @@ describe('Component: Navigation (Addendum, shared)', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavigationComponent);
+    fixture = TestBed.createComponent(SubNavigationComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();

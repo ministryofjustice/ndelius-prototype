@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ErrorMessagesComponent } from './components/error-messages/error-messages.component';
 import { TextEntryComponent } from './components/text-entry/text-entry.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   imports: [
@@ -15,11 +16,13 @@ import { TextEntryComponent } from './components/text-entry/text-entry.component
     RouterModule,
     ReactiveFormsModule,
     ErrorMessagesComponent,
-    TextEntryComponent
+    TextEntryComponent,
+    NavigationComponent
   ],
   declarations: [
     ErrorMessagesComponent,
-    TextEntryComponent
+    TextEntryComponent,
+    NavigationComponent
   ]
 })
 export class ShareBaseModule {

@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../../environments/environment';
 import { ShareBaseModule } from '../../_shared/share-base.module';
 
-import { NavigationComponent } from './components/navigation/navigation.component';
+import { SubNavigationComponent } from './components/sub-navigation/sub-navigation.component';
 import { reducers, metaReducers } from './reducer/state.reducers';
 
 import { PhaseBannerComponent } from './components/phase-banner/phase-banner.component';
@@ -26,11 +26,11 @@ import { PhaseBannerComponent } from './components/phase-banner/phase-banner.com
   ],
   exports: [
     ShareBaseModule,
-    NavigationComponent,
+    SubNavigationComponent,
     PhaseBannerComponent
   ],
   declarations: [
-    NavigationComponent,
+    SubNavigationComponent,
     PhaseBannerComponent
   ],
   providers: [

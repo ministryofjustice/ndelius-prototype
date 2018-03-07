@@ -16,7 +16,7 @@ import { ReportCompleteComponent } from './report-complete/report-complete.compo
 import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
-import { NavigationComponent } from './_shared/components/navigation/navigation.component';
+import { NavigationComponent } from '../_shared/components/navigation/navigation.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },

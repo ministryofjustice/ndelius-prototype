@@ -4,6 +4,9 @@
 <h1 class="heading-xlarge">Sources of information</h1>
 
 <div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
   <div class="column-two-thirds">
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
@@ -38,5 +41,4 @@
     </form>
 
   </div>
-  <div class="column-one-third">&nbsp;</div>
 </div>

@@ -10,13 +10,13 @@ import { ISection, sections } from '../../model/sections';
  * **Shared component**
  *
  * @example
- * <app-navigation></app-navigation>
+ * <app-sub-navigation></app-sub-navigation>
  */
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html'
+  selector: 'app-sub-navigation',
+  templateUrl: './sub-navigation.component.html'
 })
-export class NavigationComponent {
+export class SubNavigationComponent {
 
   isValid = true;
   sections: Array<ISection> = sections();
