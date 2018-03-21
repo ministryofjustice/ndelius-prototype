@@ -46,7 +46,7 @@ describe('PAROM1-OMIC - Component: Prisoner details', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Offender details');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Prisoner details');
   });
 
   /*
@@ -67,7 +67,7 @@ describe('PAROM1-OMIC - Component: Prisoner details', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/court-details']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/court-details']);
   });
 
 });
