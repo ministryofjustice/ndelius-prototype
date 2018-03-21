@@ -7,14 +7,14 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { OffenderAssessmentComponent } from './offender-assessment.component';
-import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
+import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/offender-assessment.reducer';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('Component: Offender assessment issues', () => {
+describe('SFPSR - Component: Offender assessment issues', () => {
 
   let fixture: ComponentFixture<OffenderAssessmentComponent>;
   let component: OffenderAssessmentComponent;

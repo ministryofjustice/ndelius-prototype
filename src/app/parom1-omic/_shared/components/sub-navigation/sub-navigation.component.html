@@ -1,0 +1,13 @@
+<nav class="sub-nav">
+  <ul>
+    <li id="saveDraft" routerLinkActive="active" routerLink="/parom1-omic/save-draft" class="sub-sub-item clickable bold" *ngIf="!rla.isActive">Save draft report</li>
+  </ul>
+
+  <p class="nav-title">Report sections</p>
+
+  <ul>
+    <li routerLinkActive="active" routerLink="/parom1-omic/offender-details" class="sub-sub-item clickable">- Offender details</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/check-report" class="sub-sub-item clickable">- Check your report</li>
+    <li routerLink="/parom1-omic/signature" routerLinkActive="active" #rla="routerLinkActive" [ngClass]="{ 'js-hidden': !isValid }" class="sub-sub-item clickable">- Sign and date your report</li>
+  </ul>
+</nav>

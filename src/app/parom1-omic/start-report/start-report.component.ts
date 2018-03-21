@@ -20,7 +20,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/page-two']);
+    this.router.navigate(['parom1-omic/offender-details']);
   }
 
   /**

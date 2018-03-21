@@ -6,13 +6,13 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { OffenderDetailsComponent } from './offender-details.component';
-import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
+import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 
 import * as model from './reducer/offender-details.reducer';
 
-describe('Component: Offender details', () => {
+describe('SFPSR - Component: Offender details', () => {
 
   let fixture: ComponentFixture<OffenderDetailsComponent>;
   let component: OffenderDetailsComponent;

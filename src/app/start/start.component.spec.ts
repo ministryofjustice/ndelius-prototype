@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { StartComponent } from './start.component';
 
-describe('StartComponent', () => {
+describe('SFPSR - StartComponent', () => {
   let component: StartComponent;
   let fixture: ComponentFixture<StartComponent>;
 

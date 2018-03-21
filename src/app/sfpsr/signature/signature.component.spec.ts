@@ -7,13 +7,13 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { SignatureComponent } from './signature.component';
-import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
+import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 
 import * as model from './reducer/signature.reducer';
 
-describe('Component: Signature', () => {
+describe('SFPSR - Component: Signature', () => {
 
   let fixture: ComponentFixture<SignatureComponent>;
   let component: SignatureComponent;

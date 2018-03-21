@@ -8,7 +8,7 @@ import { StartReportComponent } from './start-report.component';
 import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('Component: Start Report', () => {
+describe('SFPSR - Component: Start Report', () => {
 
   let fixture: ComponentFixture<StartReportComponent>;
   let component: StartReportComponent;

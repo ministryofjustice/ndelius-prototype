@@ -7,7 +7,7 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { CheckReportComponent } from './check-report.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('CheckReportComponent', () => {
+describe('SFPSR - CheckReportComponent', () => {
 
   let component: CheckReportComponent;
   let fixture: ComponentFixture<CheckReportComponent>;

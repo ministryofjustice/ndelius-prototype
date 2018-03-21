@@ -13,7 +13,7 @@ import { MockErrorMessagesComponent } from '../../_shared/components/error-messa
 
 import * as model from './reducer/signature.reducer';
 
-describe('Component: Signature', () => {
+describe('Addendum - Component: Signature', () => {
 
   let fixture: ComponentFixture<SignatureComponent>;
   let component: SignatureComponent;

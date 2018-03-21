@@ -7,7 +7,7 @@ import { MockErrorMessagesComponent } from '../../_shared/components/error-messa
 import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('FeedbackComponent', () => {
+describe('Addendum - FeedbackComponent', () => {
 
   let component: FeedbackComponent;
   let fixture: ComponentFixture<FeedbackComponent>;

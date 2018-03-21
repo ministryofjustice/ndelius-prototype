@@ -5,7 +5,7 @@ import { SaveDraftComponent } from './save-draft.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('Component: Save draft', () => {
+describe('SFPSR - Component: Save draft', () => {
 
   let component: SaveDraftComponent;
   let fixture: ComponentFixture<SaveDraftComponent>;

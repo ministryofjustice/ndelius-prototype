@@ -5,28 +5,26 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { RiskAssessmentComponent } from './risk-assessment.component';
+import { OffenderDetailsComponent } from './offender-details.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
-import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
-import * as model from './reducer/risk-assessment.reducer';
+import * as model from './reducer/offender-details.reducer';
 
-describe('SFPSR - Component: Risk assessment', () => {
+describe('PAROM1-OMIC - Component: Offender details', () => {
 
-  let fixture: ComponentFixture<RiskAssessmentComponent>;
-  let component: RiskAssessmentComponent;
+  let fixture: ComponentFixture<OffenderDetailsComponent>;
+  let component: OffenderDetailsComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        RiskAssessmentComponent,
+        OffenderDetailsComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent,
-        MockTextEntryComponent
+        MockErrorMessagesComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
@@ -37,7 +35,7 @@ describe('SFPSR - Component: Risk assessment', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RiskAssessmentComponent);
+    fixture = TestBed.createComponent(OffenderDetailsComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -48,25 +46,28 @@ describe('SFPSR - Component: Risk assessment', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk assessment');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Offender details');
   });
 
-  it('should include the reactive form', () => {
-    expect(component.reportForm).toBeDefined();
+  /*
+  it('should include the offender details', () => {
+    expect(component.reportData).toBeDefined();
+    expect(component.reportData.name).toBe('Alan Smith');
+    expect(component.reportData.dateOfBirth.day).toEqual(21);
+    expect(component.reportData.dateOfBirth.month).toEqual(6);
+    expect(component.reportData.dateOfBirth.year).toEqual(1976);
+    expect(component.reportData.age).toBeDefined();
+    expect(component.reportData.address).toBe('1 Albert Square, Manchester, Greater Manchester, M60 2LA');
+    expect(component.reportData.pnc).toBe('B98793');
+    expect(component.reportData.crn).toBe('X087946');
   });
+  */
 
-  it('should set error property if form is invalid and NOT navigate', () => {
+  it('should navigate to the Court details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: false, value: model.initialState });
-    expect(component.formError).toBeTruthy();
-    expect(navigateSpy).not.toHaveBeenCalled();
-  });
-
-  it('should navigate to the Risk of serious harm page', () => {
-    const navigateSpy = spyOn((<any>component).router, 'navigate');
+    // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/proposed-sentence']);
+    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/court-details']);
   });
 
 });
