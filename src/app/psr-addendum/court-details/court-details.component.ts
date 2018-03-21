@@ -70,7 +70,8 @@ export class CourtDetailsComponent implements OnDestroy {
     const updatedValue = Object.assign(value, {
       saved: true,
       valid: valid,
-      hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value
+      localJusticeArea: (<HTMLInputElement>document.getElementById('localJusticeArea')).value,
+      hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value,
     });
     this.store.dispatch(new UpdateCourtDetailsAction(updatedValue));
 
