@@ -31,7 +31,7 @@ export class StartComponent {
     dobDay: 21,
     dobMonth: 6,
     dobYear: 1976,
-    age: this.getAge('06/21/1976'),
+    age: StartComponent.getAge('06/21/1976'),
     crn: 'X087946',
     pnc: 'B98793',
     court: 'Manchester and Salford Magistrates Court',
@@ -50,7 +50,7 @@ export class StartComponent {
    * @param dateString
    * @returns {number}
    */
-  private getAge(dateString): number {
+  private static getAge(dateString): number {
     const today = new Date(),
       birthDate = new Date(dateString),
       m = today.getMonth() - birthDate.getMonth(),

@@ -40,7 +40,7 @@
     "@angular/cli": "1.7.3",
     "@angular/compiler-cli": "5.2.9",
     "@angular/language-service": "5.2.9",
-    "@compodoc/compodoc": "1.0.8",
+    "@compodoc/compodoc": "1.0.9",
     "@ngrx/store-devtools": "5.2.0",
     "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "2.0.3",
