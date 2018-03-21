@@ -5,20 +5,20 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { getOffenderDetails } from './reducer/offender-details.reducer';
+import { getPrisonerDetails } from './reducer/prisoner-details.reducer';
 
-import { IDateOfBirth, IOffenderDetails } from './model/offender-details.model';
-import { UpdateOffenderDetailsAction } from './action/offender-details.action';
+import { IDateOfBirth, IPrisonerDetails } from './model/prisoner-details.model';
+import { UpdatePrisonerDetailsAction } from './action/prisoner-details.action';
 
 @Component({
-  selector: 'app-offender-details',
-  templateUrl: './offender-details.component.html'
+  selector: 'app-prisoner-details',
+  templateUrl: './prisoner-details.component.html'
 })
-export class OffenderDetailsComponent implements OnDestroy {
+export class PrisonerDetailsComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
 
-  reportData: IOffenderDetails;
+  reportData: IPrisonerDetails;
   reportForm: FormGroup;
   formError: boolean;
 
@@ -26,10 +26,10 @@ export class OffenderDetailsComponent implements OnDestroy {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IOffenderDetails>} store
+   * @param {Store<IPrisonerDetails>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderDetails>) {
-    this.stateSubscriber = store.select(getOffenderDetails).subscribe(data => {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPrisonerDetails>) {
+    this.stateSubscriber = store.select(getPrisonerDetails).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -78,19 +78,19 @@ export class OffenderDetailsComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['sfpsr/court-details']);
+    this.router.navigate(['parom1-omic/court-details']);
   }
 
   /**
    *
    * @param {boolean} valid
-   * @param {IOffenderDetails} value
+   * @param {IPrisonerDetails} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: IOffenderDetails }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IPrisonerDetails }) {
     this.formError = !valid;
 
-    const updatedValue = Object.assign(value, { saved: true, valid: valid, age: OffenderDetailsComponent.getAge(value.dateOfBirth) });
-    this.store.dispatch(new UpdateOffenderDetailsAction(updatedValue));
+    const updatedValue = Object.assign(value, { saved: true, valid: valid, age: PrisonerDetailsComponent.getAge(value.dateOfBirth) });
+    this.store.dispatch(new UpdatePrisonerDetailsAction(updatedValue));
 
     if (valid) {
       this.continueJourney();

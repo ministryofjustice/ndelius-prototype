@@ -4,7 +4,7 @@ export interface IDateOfBirth {
   year: number;
 }
 
-export interface IOffenderDetails {
+export interface IPrisonerDetails {
   name: string;
   address: string;
   phone: string;

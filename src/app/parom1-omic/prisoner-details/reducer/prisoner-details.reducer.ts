@@ -1,9 +1,9 @@
-import * as offenderDetails from '../action/offender-details.action';
-import { IOffenderDetails } from '../model/offender-details.model';
+import * as offenderDetails from '../action/prisoner-details.action';
+import { IPrisonerDetails } from '../model/prisoner-details.model';
 
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
-export const initialState: IOffenderDetails = {
+export const initialState: IPrisonerDetails = {
   name: '',
   address: '',
   phone: '',
@@ -19,10 +19,10 @@ export const initialState: IOffenderDetails = {
   valid: false
 };
 
-export function offenderDetailsReducer(state = initialState, action: offenderDetails.Actions): IOffenderDetails {
+export function prisonerDetailsReducer(state = initialState, action: offenderDetails.Actions): IPrisonerDetails {
 
   switch (action.type) {
-    case offenderDetails.UPDATE_OFFENDER_DETAILS: {
+    case offenderDetails.UPDATE_PRISONER_DETAILS: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {
@@ -35,4 +35,4 @@ export function offenderDetailsReducer(state = initialState, action: offenderDet
   }
 }
 
-export const getOffenderDetails = (state: IOffenderDetails) => state['offenderDetails'];
+export const getPrisonerDetails = (state: IPrisonerDetails) => state['prisonerDetails'];

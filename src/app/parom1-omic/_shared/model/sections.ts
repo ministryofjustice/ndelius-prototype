@@ -11,8 +11,8 @@ export function sections(): Array<ISection> {
   return [
     {
       route: '/parom1-omic/offender-details',
-      label: 'Offender details',
-      state: 'offenderDetails'
+      label: 'Prisoner details',
+      state: 'prisonerDetails'
     }
   ];
 }

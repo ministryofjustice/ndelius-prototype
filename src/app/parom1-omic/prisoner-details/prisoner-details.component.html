@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Offender details</h1>
+<h1 class="heading-xlarge">Prisoner details</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
@@ -10,9 +10,7 @@
   <div class="column-two-thirds">
 
     <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
-
-      <p>See highlighted errors below</p>
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
 
       <p class="error-message" *ngIf="reportForm.get('name').errors">Enter the offender’s full name</p>
       <p class="error-message" *ngIf="reportForm.get('dateOfBirth').get('day').errors || reportForm.get('dateOfBirth').get('month').errors || reportForm.get('dateOfBirth').get('year').errors">Enter the offender’s date of birth</p>

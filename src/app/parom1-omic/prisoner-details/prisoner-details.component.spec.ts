@@ -5,23 +5,23 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { OffenderDetailsComponent } from './offender-details.component';
+import { PrisonerDetailsComponent } from './prisoner-details.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 
-import * as model from './reducer/offender-details.reducer';
+import * as model from './reducer/prisoner-details.reducer';
 
-describe('PAROM1-OMIC - Component: Offender details', () => {
+describe('PAROM1-OMIC - Component: Prisoner details', () => {
 
-  let fixture: ComponentFixture<OffenderDetailsComponent>;
-  let component: OffenderDetailsComponent;
+  let fixture: ComponentFixture<PrisonerDetailsComponent>;
+  let component: PrisonerDetailsComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        OffenderDetailsComponent,
+        PrisonerDetailsComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent
@@ -35,7 +35,7 @@ describe('PAROM1-OMIC - Component: Offender details', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OffenderDetailsComponent);
+    fixture = TestBed.createComponent(PrisonerDetailsComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();

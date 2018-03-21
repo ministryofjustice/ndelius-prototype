@@ -11,7 +11,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
     storage: sessionStorage,
     rehydrate: true,
     keys: [
-      'offenderDetails'
+      'prisonerDetails'
     ]
   })(reducer);
 }

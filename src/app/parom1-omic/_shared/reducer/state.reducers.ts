@@ -2,18 +2,18 @@ import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 import { environment } from '../../../../environments/environment';
 
-import { IOffenderDetails } from '../../offender-details/model/offender-details.model';
+import { IPrisonerDetails } from '../../prisoner-details/model/prisoner-details.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
 import { localStorageSyncReducer } from './meta.reducers';
 
-import { offenderDetailsReducer } from '../../offender-details/reducer/offender-details.reducer';
+import { prisonerDetailsReducer } from '../../prisoner-details/reducer/prisoner-details.reducer';
 
 /**
  * Main state interface
  */
 export interface IState {
-  offenderDetails: IOffenderDetails;
+  prisonerDetails: IPrisonerDetails;
 }
 
 /**
@@ -21,7 +21,7 @@ export interface IState {
  * @type {ActionReducerMap<IState>}
  */
 export const reducers: ActionReducerMap<IState> = {
-  offenderDetails: offenderDetailsReducer
+  prisonerDetails: prisonerDetailsReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];
