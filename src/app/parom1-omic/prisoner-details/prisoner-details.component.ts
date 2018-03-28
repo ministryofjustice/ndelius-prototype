@@ -7,8 +7,10 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { getPrisonerDetails } from './reducer/prisoner-details.reducer';
 
-import { IDateOfBirth, IPrisonerDetails } from './model/prisoner-details.model';
+import { IPrisonerDetails } from './model/prisoner-details.model';
 import { UpdatePrisonerDetailsAction } from './action/prisoner-details.action';
+
+import { prisonsAndYoungOffenderInstitutions } from '../_shared/model/default-data';
 
 @Component({
   selector: 'app-prisoner-details',
@@ -21,6 +23,7 @@ export class PrisonerDetailsComponent implements OnDestroy {
   reportData: IPrisonerDetails;
   reportForm: FormGroup;
   formError: boolean;
+  prisonsAndYoungOffenderInstitutions = prisonsAndYoungOffenderInstitutions();
 
   /**
    * @constructor
@@ -37,40 +40,21 @@ export class PrisonerDetailsComponent implements OnDestroy {
 
   /**
    *
-   * @param {IDateOfBirth} dateOfBirth
-   * @returns {number}
-   */
-  private static getAge(dateOfBirth: IDateOfBirth): number {
-
-    const dateString = dateOfBirth.month + '/' + dateOfBirth.day + '/' + dateOfBirth.year;
-    const today = new Date();
-    const birthDate = new Date(dateString);
-    const m = today.getMonth() - birthDate.getMonth();
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
-  }
-
-  /**
-   *
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
+      prison: [this.reportData.prison, Validators.required],
       name: [this.reportData.name, Validators.required],
-      address: [this.reportData.address, Validators.required],
-      phone: [this.reportData.phone, Validators.required],
-      dateOfBirth: this.formBuilder.group({
-        day: [this.reportData.dateOfBirth.day, Validators.required],
-        month: [this.reportData.dateOfBirth.month, Validators.required],
-        year: [this.reportData.dateOfBirth.year, Validators.required],
-      }),
-      age: this.reportData.age,
-      crn: this.reportData.crn,
-      pnc: this.reportData.pnc
+      prisonNumber: [this.reportData.prisonNumber, Validators.required],
+      nomisNumber: [this.reportData.nomisNumber, Validators.required],
+      category: [this.reportData.category, Validators.required],
+      sentence: [this.reportData.sentence, Validators.required],
+      sentenceType: [this.reportData.sentenceType, Validators.required],
+      determinateReleaseDate: this.formBuilder.group({
+        day: [this.reportData.determinateReleaseDate.day, Validators.required],
+        month: [this.reportData.determinateReleaseDate.month, Validators.required],
+        year: [this.reportData.determinateReleaseDate.year, Validators.required],
+      })
     });
   }
 
@@ -83,13 +67,22 @@ export class PrisonerDetailsComponent implements OnDestroy {
 
   /**
    *
+   */
+  saveDraft() {
+    this.router.navigate(['parom1-omic/save-draft']);
+  }
+
+  /**
+   *
    * @param {boolean} valid
    * @param {IPrisonerDetails} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IPrisonerDetails }) {
     this.formError = !valid;
 
-    const updatedValue = Object.assign(value, { saved: true, valid: valid, age: PrisonerDetailsComponent.getAge(value.dateOfBirth) });
+    const updatedValue = Object.assign(value, { saved: true, valid: valid,
+      prison: (<HTMLInputElement>document.getElementById('prison')).value, });
+
     this.store.dispatch(new UpdatePrisonerDetailsAction(updatedValue));
 
     if (valid) {

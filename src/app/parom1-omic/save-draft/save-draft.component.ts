@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 /**
  * Save draft component
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   templateUrl: './save-draft.component.html'
 })
 export class SaveDraftComponent {
-  // Empty
+
+  constructor(private router: Router) {
+    // Empty
+  }
+
+
+  startOver() {
+    this.router.navigate(['parom1-omic/prisoner-details']);
+  }
 }

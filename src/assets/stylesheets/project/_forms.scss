@@ -83,6 +83,8 @@ input[type="checkbox"].right {
     color: $govuk-blue;
   }
   &.secondary {
-    @include button($grey-3);
+    background: $grey-3;
+    color: black;
+    @include box-shadow(0 2px 0 darken($grey-3, 15%));
   }
 }

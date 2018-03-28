@@ -49,17 +49,19 @@ export class StartReportComponent implements OnInit, OnDestroy {
 
         // @TODO: Error checking around this
         this.store.dispatch(new UpdatePrisonerDetailsAction({
+          prison: params['prison'],
           name: params['name'],
-          address: params['address'],
-          phone: params['phone'],
-          dateOfBirth: {
-            day: params['dobDay'],
-            month: params['dobMonth'],
-            year: params['dobYear']
+          prisonNumber: params['prisonNumber'],
+          nomisNumber: params['nomisNumber'],
+          gender: params['gender'],
+          category: params['category'],
+          sentence: params['sentence'],
+          sentenceType: params['sentenceType'],
+          determinateReleaseDate: {
+            day: params['determinateReleaseDateDay'],
+            month: params['determinateReleaseDateMonth'],
+            year: params['determinateReleaseDateYear']
           },
-          age: params['age'],
-          crn: params['crn'],
-          pnc: params['pnc'] || void 0,
           saved: true,
           valid: true
         }));

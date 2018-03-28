@@ -4,17 +4,19 @@ import { IPrisonerDetails } from '../model/prisoner-details.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IPrisonerDetails = {
+  prison: '',
   name: '',
-  address: '',
-  phone: '',
-  dateOfBirth: {
+  prisonNumber: '',
+  nomisNumber: '',
+  gender: void 0,
+  category: '',
+  sentence: '',
+  sentenceType: '',
+  determinateReleaseDate: {
     day: void 0,
     month: void 0,
     year: void 0
   },
-  age: void 0,
-  crn: '',
-  pnc: '',
   saved: false,
   valid: false
 };

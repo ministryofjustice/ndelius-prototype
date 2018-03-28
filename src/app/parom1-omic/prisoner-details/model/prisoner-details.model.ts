@@ -1,17 +1,19 @@
-export interface IDateOfBirth {
+interface IMultiFieldDate {
   day: number;
   month: number;
   year: number;
 }
 
 export interface IPrisonerDetails {
+  prison: string;
   name: string;
-  address: string;
-  phone: string;
-  dateOfBirth: IDateOfBirth;
-  age: number;
-  crn: string;
-  pnc: string;
+  prisonNumber: string;
+  nomisNumber: string;
+  gender: number;
+  category: string;
+  sentence: string;
+  sentenceType: string;
+  determinateReleaseDate: IMultiFieldDate;
   saved: boolean;
   valid: boolean;
 }
