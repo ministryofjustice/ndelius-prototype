@@ -12,6 +12,7 @@ import { PrisonerKnowledgeComponent } from './prisoner-knowledge/prisoner-knowle
 import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
 import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
+import { InterventionsComponent } from './interventions/interventions.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { PersonalityDisorderPathwayComponent } from './personality-disorder-path
     PrisonerKnowledgeComponent,
     PreviousRiskAssessmentComponent,
     VictimIssuesComponent,
-    PersonalityDisorderPathwayComponent
+    PersonalityDisorderPathwayComponent,
+    InterventionsComponent
   ]
 })
 export class Parom1OmicModule {

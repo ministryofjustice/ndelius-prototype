@@ -12,11 +12,28 @@
     <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
       <h2 class="heading-medium no-margin-top">There is a problem</h2>
 
-      <p class="error-message" *ngIf="reportForm.get('attitude').errors">Enter the prisoner's attitude to index offence</p>
+      <p class="error-message" *ngIf="reportForm.get('opdPathway').errors">Specify whether the prisoner has met with the OPD screen</p>
     </div>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
+      <div class="form-group margin-bottom" [ngClass]="{ 'form-group-error': formError && reportForm.get('opdPathway').errors }">
+        <fieldset>
+
+          <legend class="form-label-bold">Has the prisoner met with the OPD screen to be considered for OPD pathway services?</legend>
+          <app-error-messages control="sentence" message="Specify whether the prisoner has met with the OPD screen" [active]="formError && reportForm.get('opdPathway').errors"></app-error-messages>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-1" type="radio" formControlName="opdPathway" value="Yes" [attr.aria-checked]="reportForm.get('opdPathway').value === 'Yes'" />
+            <label for="radio-1">Yes</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-2" type="radio" formControlName="opdPathway" value="No" [attr.aria-checked]="reportForm.get('opdPathway').value === 'No'" />
+            <label for="radio-2">No</label>
+          </div>
+        </fieldset>
+      </div>
 
       <!-- ANGULAR COMPONENT -->
       <app-parom1-footer></app-parom1-footer>

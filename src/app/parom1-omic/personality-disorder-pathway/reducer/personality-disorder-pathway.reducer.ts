@@ -5,6 +5,7 @@ import { IPersonalityDisorderPathway } from '../model/personality-disorder-pathw
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IPersonalityDisorderPathway = {
+  opdPathway: '',
   saved: false,
   valid: false
 };
@@ -25,4 +26,4 @@ export function personalityDisorderPathwayReducer(state = initialState, action: 
   }
 }
 
-export const getPersonalityDisorderPathway = (state: IPersonalityDisorderPathway) => state['pdoAction'];
+export const getPersonalityDisorderPathway = (state: IPersonalityDisorderPathway) => state['personalityDisorderPathway'];

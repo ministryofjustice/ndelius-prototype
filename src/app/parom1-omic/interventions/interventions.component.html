@@ -1,0 +1,42 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Interventions</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('interventionsList').errors">List the interventions the prisoner has completed</p>
+      <p class="error-message" *ngIf="reportForm.get('interventionsSummary').errors">Enter the interventions summary</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="interventionsList"
+                      label="List the interventions the prisoner has completed, in chronological order"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('interventionsList').errors"
+                      errorMessage="List the interventions the prisoner has completed">
+        <p>Some stuff</p>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="interventionsSummary"
+                      label="Interventions summary"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('interventionsSummary').errors"
+                      errorMessage="Enter the interventions summary">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

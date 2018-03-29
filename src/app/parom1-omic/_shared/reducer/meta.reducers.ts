@@ -14,7 +14,9 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
       'prisonerDetails',
       'prisonerKnowledge',
       'previousRiskAssessment',
-      'victimIssues'
+      'victimIssues',
+      'personalityDisorderPathway',
+      'interventions'
     ]
   })(reducer);
 }

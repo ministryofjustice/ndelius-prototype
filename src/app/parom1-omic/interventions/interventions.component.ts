@@ -5,20 +5,20 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { UpdatePersonalityDisorderPathwayAction } from './action/personality-disorder-pathway.action';
-import { IPersonalityDisorderPathway } from './model/personality-disorder-pathway.model';
-import { getPersonalityDisorderPathway } from './reducer/personality-disorder-pathway.reducer';
+import { UpdateInterventionsAction } from './action/interventions.action';
+import { IInterventions } from './model/interventions.model';
 
+import { getInterventions } from './reducer/interventions.reducer';
 
 @Component({
-  selector: 'app-previous-risk-assessment',
-  templateUrl: './personality-disorder-pathway.component.html'
+  selector: 'app-interventions',
+  templateUrl: './interventions.component.html'
 })
-export class PersonalityDisorderPathwayComponent implements OnDestroy {
+export class InterventionsComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
 
-  reportData: IPersonalityDisorderPathway;
+  reportData: IInterventions;
   reportForm: FormGroup;
   formError: boolean;
 
@@ -28,8 +28,8 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
    * @param {FormBuilder} formBuilder
    * @param {Store<IPrisonerKnowledge>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPersonalityDisorderPathway>) {
-    this.stateSubscriber = store.select(getPersonalityDisorderPathway).subscribe(data => {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IInterventions>) {
+    this.stateSubscriber = store.select(getInterventions).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -40,7 +40,8 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      opdPathway: [this.reportData.opdPathway, Validators.required]
+      interventionsList: [this.reportData.interventionsList, Validators.required],
+      interventionsSummary: [this.reportData.interventionsSummary, Validators.required]
     });
   }
 
@@ -48,15 +49,15 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/interventions']);
+    this.router.navigate(['parom1-omic/fail']);
   }
 
   /**
    *
    */
-  saveContent({ value }: { value: IPersonalityDisorderPathway }) {
+  saveContent({ value }: { value: IInterventions }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdatePersonalityDisorderPathwayAction(updatedValue));
+    this.store.dispatch(new UpdateInterventionsAction(updatedValue));
   }
 
   /**
@@ -64,12 +65,12 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
    * @param {boolean} valid
    * @param {IPrisonerKnowledge} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: IPersonalityDisorderPathway }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IInterventions }) {
     this.formError = !valid;
 
     const updatedValue = Object.assign(value, { saved: true, valid: valid });
 
-    this.store.dispatch(new UpdatePersonalityDisorderPathwayAction(updatedValue));
+    this.store.dispatch(new UpdateInterventionsAction(updatedValue));
 
     if (valid) {
       this.continueJourney();
