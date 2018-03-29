@@ -1,0 +1,98 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Multi Agency Public Protection Arrangements (MAPPA)</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('screenedDate').errors">Enter the date the prisoner was screened for MAPPA</p>
+      <p class="error-message" *ngIf="reportForm.get('mappaCategory').errors">Select the prisoner's current MAPPA category</p>
+      <p class="error-message" *ngIf="reportForm.get('mappaLevel').errors">Select the prisoner's current MAPPA level</p>
+    </div>
+
+    <br/>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <div class="notice margin-bottom large">
+        <i class="icon icon-important">
+          <span class="visually-hidden">Important</span>
+        </i>
+        <strong class="bold-small">
+          This must be completed if a prisoner is eligible for release
+        </strong>
+      </div>
+
+      <br/>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('screenedDate').touched || formError) && reportForm.get('screenedDate').errors }">
+        <label for="screenedDate">
+          <span class="form-label-bold">What date was the prisoner screened for MAPPA (MAPPAQ completed)?</span>
+          <span class="form-hint">For example: 28/06/2018</span>
+        </label>
+        <app-error-messages control="screenedDate" message="Enter the date the prisoner was screened for MAPPA" [active]="(reportForm.get('screenedDate').touched || formError) && reportForm.get('screenedDate').errors"></app-error-messages>
+        <input class="form-control date-picker" type="text" role="textbox" id="screenedDate" formControlName="screenedDate" maxlength="10" aria-described-by="screenedDate_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group margin-bottom" [ngClass]="{ 'form-group-error': formError && reportForm.get('mappaCategory').errors }">
+        <fieldset>
+
+          <legend class="form-label-bold">What is the prisoner's current MAPPA category?</legend>
+          <app-error-messages control="sentence" message="Select the prisoner's current MAPPA category" [active]="formError && reportForm.get('mappaCategory').errors"></app-error-messages>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-1" type="radio" formControlName="mappaCategory" value="1" [attr.aria-checked]="reportForm.get('mappaCategory').value === '1'" />
+            <label for="radio-1">1</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-2" type="radio" formControlName="mappaCategory" value="2" [attr.aria-checked]="reportForm.get('mappaCategory').value === '2'" />
+            <label for="radio-2">2</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-3" type="radio" formControlName="mappaCategory" value="3" [attr.aria-checked]="reportForm.get('mappaCategory').value === '3'" />
+            <label for="radio-3">3</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <br/>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': formError && reportForm.get('mappaLevel').errors }">
+        <fieldset>
+
+          <legend class="form-label-bold">What is the prisoner's current MAPPA level?</legend>
+          <app-error-messages control="sentence" message="Select the prisoner's current MAPPA category" [active]="formError && reportForm.get('mappaLevel').errors"></app-error-messages>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-4" type="radio" formControlName="mappaLevel" value="1" [attr.aria-checked]="reportForm.get('mappaLevel').value === '1'" />
+            <label for="radio-4">1</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-5" type="radio" formControlName="mappaLevel" value="2" [attr.aria-checked]="reportForm.get('mappaLevel').value === '2'" />
+            <label for="radio-5">2</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-6" type="radio" formControlName="mappaLevel" value="3" [attr.aria-checked]="reportForm.get('mappaLevel').value === '3'" />
+            <label for="radio-6">3</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

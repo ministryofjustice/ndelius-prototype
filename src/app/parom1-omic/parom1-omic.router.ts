@@ -13,6 +13,7 @@ import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
 import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
 import { InterventionsComponent } from './interventions/interventions.component';
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
+import { MappaComponent } from './mappa/mappa.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'personality-disorder-pathway', data: { title: 'Personality disorder pathway' }, component: PersonalityDisorderPathwayComponent },
   { path: 'interventions', data: { title: 'Interventions' }, component: InterventionsComponent },
   { path: 'sentence-plan', data: { title: 'Sentence plan' }, component: SentencePlanComponent },
+  { path: 'mappa', data: { title: 'Multi Agency Public Protection Arrangements (MAPPA)' }, component: MappaComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 

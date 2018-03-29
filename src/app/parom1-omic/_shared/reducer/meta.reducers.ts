@@ -17,7 +17,8 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
       'victimIssues',
       'personalityDisorderPathway',
       'interventions',
-      'sentencePlan'
+      'sentencePlan',
+      'mappa'
     ]
   })(reducer);
 }
