@@ -10,6 +10,7 @@ import { MockSubNavigationComponent } from '../../_shared/components/sub-navigat
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockFooterComponent } from '../_shared/components/footer/footer.component.mock';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/prisoner-knowledge.reducer';
 
@@ -26,7 +27,8 @@ describe('PAROM1-OMIC - Component: Prisoner knowledge', () => {
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
-        MockFooterComponent
+        MockFooterComponent,
+        MockTextEntryComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

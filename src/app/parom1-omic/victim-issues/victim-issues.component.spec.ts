@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { DatePipe } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
@@ -10,6 +11,7 @@ import { MockSubNavigationComponent } from '../../_shared/components/sub-navigat
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockFooterComponent } from '../_shared/components/footer/footer.component.mock';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/victim-issues.reducer';
 
@@ -26,12 +28,16 @@ describe('PAROM1-OMIC - Component: Victim issues', () => {
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
-        MockFooterComponent
+        MockFooterComponent,
+        MockTextEntryComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
+      ],
+      providers: [
+        DatePipe
       ]
     }).compileComponents();
   }));
