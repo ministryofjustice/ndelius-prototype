@@ -18,7 +18,8 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
       'personalityDisorderPathway',
       'interventions',
       'sentencePlan',
-      'mappa'
+      'mappa',
+      'currentRiskAssessment'
     ]
   })(reducer);
 }

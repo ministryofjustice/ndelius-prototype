@@ -14,6 +14,7 @@ import { PersonalityDisorderPathwayComponent } from './personality-disorder-path
 import { InterventionsComponent } from './interventions/interventions.component';
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
 import { MappaComponent } from './mappa/mappa.component';
+import { CurrentRiskAssessmentComponent } from './current-risk-assessment/current-risk-assessment.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'interventions', data: { title: 'Interventions' }, component: InterventionsComponent },
   { path: 'sentence-plan', data: { title: 'Sentence plan' }, component: SentencePlanComponent },
   { path: 'mappa', data: { title: 'Multi Agency Public Protection Arrangements (MAPPA)' }, component: MappaComponent },
+  { path: 'current-risk-assessment', data: { title: 'Current risk assessment' }, component: CurrentRiskAssessmentComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 

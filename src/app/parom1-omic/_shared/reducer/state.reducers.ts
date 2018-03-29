@@ -10,6 +10,7 @@ import { IPersonalityDisorderPathway } from '../../personality-disorder-pathway/
 import { IInterventions } from '../../interventions/model/interventions.model';
 import { ISentencePlan } from '../../sentence-plan/model/sentence-plan.model';
 import { IMappa } from '../../mappa/model/mappa.model';
+import { ICurrentRiskAssessment } from '../../current-risk-assessment/model/current-risk-assessment.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
 import { localStorageSyncReducer } from './meta.reducers';
@@ -22,6 +23,7 @@ import { personalityDisorderPathwayReducer } from '../../personality-disorder-pa
 import { interventionsReducer } from '../../interventions/reducer/interventions.reducer';
 import { sentencePlanReducer } from '../../sentence-plan/reducer/sentence-plan.reducer';
 import { mappaReducer } from '../../mappa/reducer/mappa.reducer';
+import { currentRiskAssessmentReducer } from '../../current-risk-assessment/reducer/current-risk-assessment.reducer';
 
 /**
  * Main state interface
@@ -35,6 +37,7 @@ export interface IState {
   interventions: IInterventions;
   sentencePlan: ISentencePlan;
   mappa: IMappa;
+  currentRiskAssessment: ICurrentRiskAssessment;
 }
 
 /**
@@ -49,7 +52,8 @@ export const reducers: ActionReducerMap<IState> = {
   personalityDisorderPathway: personalityDisorderPathwayReducer,
   interventions: interventionsReducer,
   sentencePlan: sentencePlanReducer,
-  mappa: mappaReducer
+  mappa: mappaReducer,
+  currentRiskAssessment: currentRiskAssessmentReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];

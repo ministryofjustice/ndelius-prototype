@@ -15,6 +15,7 @@ import { PersonalityDisorderPathwayComponent } from './personality-disorder-path
 import { InterventionsComponent } from './interventions/interventions.component';
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
 import { MappaComponent } from './mappa/mappa.component';
+import { CurrentRiskAssessmentComponent } from './current-risk-assessment/current-risk-assessment.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { MappaComponent } from './mappa/mappa.component';
     PersonalityDisorderPathwayComponent,
     InterventionsComponent,
     SentencePlanComponent,
-    MappaComponent
+    MappaComponent,
+    CurrentRiskAssessmentComponent
   ]
 })
 export class Parom1OmicModule {
