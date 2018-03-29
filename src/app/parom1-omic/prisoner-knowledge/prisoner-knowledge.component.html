@@ -1,0 +1,43 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Prisoner knowledge</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('prisonerContact').errors">Specify how long have you been assigned to the prisoner and what contact have you had with them</p>
+      <p class="error-message" *ngIf="reportForm.get('prisonerContact').errors">Specify what contact have you had with the prisoner's family, partner or significant other</p>
+      <p class="error-message" *ngIf="reportForm.get('prisonerContact').errors">Specify what contact have you had with other relevant agencies or staff who are involved with the prisoner</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="prisonerContact"
+                      label="How long have you been assigned to the prisoner and what contact have you had with them?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('prisonerContact').errors" errorMessage="Specify how long have you been assigned to the prisoner and what contact have you had with them"></app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="prisonerFamilyContact"
+                      label="What contact have you had with the prisoner's family, partner or significant other?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('prisonerFamilyContact').errors" errorMessage="Specify what contact have you had with the prisoner's family, partner or significant other"></app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="prisonerStaffContact"
+                      label="What contact have you had with other relevant agencies or staff who are involved with the prisoner?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('prisonerStaffContact').errors" errorMessage="Specify what contact have you had with other relevant agencies or staff who are involved with the prisoner"></app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

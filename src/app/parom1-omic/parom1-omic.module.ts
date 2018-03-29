@@ -8,6 +8,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { StartReportComponent } from './start-report/start-report.component';
 import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.component';
+import { PrisonerKnowledgeComponent } from './prisoner-knowledge/prisoner-knowledge.component';
+import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
+import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
 
 @NgModule({
   imports: [
@@ -19,7 +22,10 @@ import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.co
     FeedbackComponent,
     SaveDraftComponent,
     StartReportComponent,
-    PrisonerDetailsComponent
+    PrisonerDetailsComponent,
+    PrisonerKnowledgeComponent,
+    PreviousRiskAssessmentComponent,
+    VictimIssuesComponent
   ]
 })
 export class Parom1OmicModule {

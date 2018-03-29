@@ -62,14 +62,7 @@ export class PrisonerDetailsComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/court-details']);
-  }
-
-  /**
-   *
-   */
-  saveDraft() {
-    this.router.navigate(['parom1-omic/save-draft']);
+    this.router.navigate(['parom1-omic/prisoner-knowledge']);
   }
 
   /**

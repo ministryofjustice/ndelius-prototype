@@ -7,6 +7,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { StartReportComponent } from './start-report/start-report.component';
 import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.component';
+import { PrisonerKnowledgeComponent } from './prisoner-knowledge/prisoner-knowledge.component';
+import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
+import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: 'save-draft', data: { title: 'Draft saved' }, component: SaveDraftComponent },
   { path: 'start-report', data: { title: 'Start your report' }, component: StartReportComponent },
   { path: 'prisoner-details', data: { title: 'Prisoner details' }, component: PrisonerDetailsComponent },
+  { path: 'prisoner-knowledge', data: { title: 'Prisoner knowledge' }, component: PrisonerKnowledgeComponent },
+  { path: 'previous-risk-assessment', data: { title: 'Previous risk assessment' }, component: PreviousRiskAssessmentComponent },
+  { path: 'victim-issues', data: { title: 'Victim issues' }, component: VictimIssuesComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 

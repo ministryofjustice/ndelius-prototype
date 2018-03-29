@@ -1,0 +1,118 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Victim issues</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="govuk-interrupt">
+
+      <div class="notice">
+        <i class="icon icon-important">
+          <span class="visually-hidden">Important</span>
+        </i>
+        <strong class="bold-small">
+          Consider how you present sensitive information in this section as it will be disclosed to the prisoner.
+        </strong>
+
+        <br/>
+
+        <strong class="bold-small">
+          Further guidance
+        </strong>
+      </div>
+
+    </div>
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('impactOfOffence').errors">Enter your analysis of the impact of the offence on the victim</p>
+      <p class="error-message" *ngIf="reportForm.get('vloContactDate').errors">Enter the date that you contacted the VLO</p>
+      <p class="error-message" *ngIf="reportForm.get('victimContactService').errors">Specify if the victim is engaged in the Victim Contact Service</p>
+      <p class="error-message" *ngIf="reportForm.get('victimPersonalStatement').errors">Specify if the victim wishes to submit a Victim Personal Statement</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="impactOfOffence"
+                      label="Analyse the impact of the offence on the victim"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('impactOfOffence').errors" errorMessage="Enter your analysis of the impact of the offence on the victim"></app-text-entry>
+
+      <div class="notice margin-bottom large">
+        <i class="icon icon-important">
+          <span class="visually-hidden">Important</span>
+        </i>
+        <strong class="bold-small">
+          You must contact the VLO for each hearing as part of designing the Risk Management Plan.
+        </strong>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('vloContactDate').touched || formError) && reportForm.get('vloContactDate').errors }">
+        <label for="vloContactDate">
+          <span class="form-label-bold">On what date did you contact the VLO?</span>
+          <span class="form-hint">For example: 28/06/2018</span>
+        </label>
+        <app-error-messages control="vloContactDate" message="Enter the date that you contacted the VLO" [active]="(reportForm.get('vloContactDate').touched || formError) && reportForm.get('vloContactDate').errors"></app-error-messages>
+        <input class="form-control date-picker" type="text" role="textbox" id="vloContactDate" formControlName="vloContactDate" maxlength="10" aria-described-by="vloContactDate_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group margin-bottom" [ngClass]="{ 'form-group-error': formError && reportForm.get('victimContactService').errors }">
+        <fieldset>
+
+          <legend class="form-label-bold">Are the victims engaged in the Victim Contact Service?</legend>
+          <app-error-messages control="sentence" message="Specify if the victim is engaged in the Victim Contact Service" [active]="formError && reportForm.get('victimContactService').errors"></app-error-messages>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-1" type="radio" formControlName="victimContactService" value="Yes" [attr.aria-checked]="reportForm.get('victimContactService').value === 'Yes'" />
+            <label for="radio-1">Yes</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-2" type="radio" formControlName="victimContactService" value="No" [attr.aria-checked]="reportForm.get('victimContactService').value === 'No'" />
+            <label for="radio-2">No</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <br/>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': formError && reportForm.get('victimPersonalStatement').errors }">
+        <fieldset>
+
+          <legend class="form-label-bold">Does the victim wish to submit a Victim Personal Statement?</legend>
+          <app-error-messages control="sentence" message="Specify if the victim wishes to submit a Victim Personal Statement" [active]="formError && reportForm.get('victimPersonalStatement').errors"></app-error-messages>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-3" type="radio" formControlName="victimPersonalStatement" value="Yes" [attr.aria-checked]="reportForm.get('victimPersonalStatement').value === 'Yes'" />
+            <label for="radio-3">Yes</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-4" type="radio" formControlName="victimPersonalStatement" value="No" [attr.aria-checked]="reportForm.get('victimPersonalStatement').value === 'No'" />
+            <label for="radio-4">No</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="notice margin-top margin-bottom large">
+        <i class="icon icon-important">
+          <span class="visually-hidden">Important</span>
+        </i>
+        <strong class="bold-small">
+          If possible, submit the VPS with this PAROM 1
+        </strong>
+      </div>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

@@ -9,7 +9,7 @@ import { StartComponent } from './start/start.component';
  */
 const routes: Routes = [
   { path: '', redirectTo: 'start', pathMatch: 'full' },
-  { path: 'start', data: { title: '' }, component: StartComponent },
+  { path: 'start', data: { title: 'Demonstration' }, component: StartComponent },
   { path: 'sfpsr', loadChildren: './sfpsr/sfpsr.module#SfpsrModule' },
   { path: 'psr-addendum', loadChildren: './psr-addendum/psr-addendum.module#PsrAddendumModule' },
   { path: 'parom1-omic', loadChildren: './parom1-omic/parom1-omic.module#Parom1OmicModule' },
