@@ -53,7 +53,7 @@ export class VictimIssuesComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/fail']);
+    this.router.navigate(['parom1-omic/personality-disorder-pathway']);
   }
 
   /**

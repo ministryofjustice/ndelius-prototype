@@ -11,7 +11,7 @@ import { ShareBaseModule } from '../../_shared/share-base.module';
 
 import { SubNavigationComponent } from './components/sub-navigation/sub-navigation.component';
 import { PhaseBannerComponent } from './components/phase-banner/phase-banner.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from '../../_shared/components/footer/footer.component';
 
 /**
  * To use the ngrx debugger, install the Redux Devtools extension for either Chrome or Firefox

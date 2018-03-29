@@ -37,6 +37,8 @@
       <p class="error-message" *ngIf="reportForm.get('victimPersonalStatement').errors">Specify if the victim wishes to submit a Victim Personal Statement</p>
     </div>
 
+    <br/>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->

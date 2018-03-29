@@ -9,7 +9,7 @@ import { PrisonerKnowledgeComponent } from './prisoner-knowledge.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
-import { MockFooterComponent } from '../_shared/components/footer/footer.component.mock';
+import { MockFooterComponent } from '../../_shared/components/footer.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/prisoner-knowledge.reducer';

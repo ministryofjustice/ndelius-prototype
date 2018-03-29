@@ -10,6 +10,7 @@ import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.co
 import { PrisonerKnowledgeComponent } from './prisoner-knowledge/prisoner-knowledge.component';
 import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
+import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'prisoner-knowledge', data: { title: 'Prisoner knowledge' }, component: PrisonerKnowledgeComponent },
   { path: 'previous-risk-assessment', data: { title: 'Previous risk assessment' }, component: PreviousRiskAssessmentComponent },
   { path: 'victim-issues', data: { title: 'Victim issues' }, component: VictimIssuesComponent },
+  { path: 'personality-disorder-pathway', data: { title: 'Personality disorder pathway' }, component: PersonalityDisorderPathwayComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 
