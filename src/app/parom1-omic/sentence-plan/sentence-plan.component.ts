@@ -1,35 +1,37 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { UpdateInterventionsAction } from './action/interventions.action';
-import { IInterventions } from './model/interventions.model';
+import { UpdateSentencePlanAction } from './action/sentence-plan.action';
+import { ISentencePlan } from './model/sentence-plan.model';
 
-import { getInterventions } from './reducer/interventions.reducer';
+import { getSentencePlan } from './reducer/sentence-plan.reducer';
 
 @Component({
-  selector: 'app-interventions',
-  templateUrl: './interventions.component.html'
+  selector: 'app-sentence-plan',
+  templateUrl: './sentence-plan.component.html'
 })
-export class InterventionsComponent implements OnDestroy {
+export class SentencePlanComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
 
-  reportData: IInterventions;
+  reportData: ISentencePlan;
   reportForm: FormGroup;
   formError: boolean;
 
   /**
-   * @constructor
+   *
    * @param {Router} router
+   * @param {DatePipe} datePipe
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerKnowledge>} store
+   * @param {Store<ISentencePlan>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IInterventions>) {
-    this.stateSubscriber = store.select(getInterventions).subscribe(data => {
+  constructor(private router: Router, private datePipe: DatePipe, private formBuilder: FormBuilder, private store: Store<ISentencePlan>) {
+    this.stateSubscriber = store.select(getSentencePlan).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -40,8 +42,7 @@ export class InterventionsComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      interventionsList: [this.reportData.interventionsList, Validators.required],
-      interventionsSummary: [this.reportData.interventionsSummary, Validators.required]
+      sentencePlanObjectives: [this.reportData.sentencePlanObjectives, Validators.required]
     });
   }
 
@@ -49,15 +50,15 @@ export class InterventionsComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/sentence-plan']);
+    this.router.navigate(['parom1-omic/fail']);
   }
 
   /**
    *
    */
-  saveContent({ value }: { value: IInterventions }) {
+  saveContent({ value }: { value: ISentencePlan }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateInterventionsAction(updatedValue));
+    this.store.dispatch(new UpdateSentencePlanAction(updatedValue));
   }
 
   /**
@@ -65,12 +66,12 @@ export class InterventionsComponent implements OnDestroy {
    * @param {boolean} valid
    * @param {IPrisonerKnowledge} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: IInterventions }) {
+  onSubmit({ valid, value }: { valid: boolean, value: ISentencePlan }) {
     this.formError = !valid;
 
     const updatedValue = Object.assign(value, { saved: true, valid: valid });
 
-    this.store.dispatch(new UpdateInterventionsAction(updatedValue));
+    this.store.dispatch(new UpdateSentencePlanAction(updatedValue));
 
     if (valid) {
       this.continueJourney();

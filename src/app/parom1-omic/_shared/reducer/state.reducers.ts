@@ -8,6 +8,7 @@ import { IPreviousRiskAssessment } from '../../previous-risk-assessment/model/pr
 import { IVictimIssues } from '../../victim-issues/model/victim-issues.model';
 import { IPersonalityDisorderPathway } from '../../personality-disorder-pathway/model/personality-disorder-pathway.model';
 import { IInterventions } from '../../interventions/model/interventions.model';
+import { ISentencePlan } from '../../sentence-plan/model/sentence-plan.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
 import { localStorageSyncReducer } from './meta.reducers';
@@ -18,6 +19,7 @@ import { previousRiskAssessmentReducer } from '../../previous-risk-assessment/re
 import { victimIssuesReducer } from '../../victim-issues/reducer/victim-issues.reducer';
 import { personalityDisorderPathwayReducer } from '../../personality-disorder-pathway/reducer/personality-disorder-pathway.reducer';
 import { interventionsReducer } from '../../interventions/reducer/interventions.reducer';
+import { sentencePlanReducer } from '../../sentence-plan/reducer/sentence-plan.reducer';
 
 /**
  * Main state interface
@@ -29,6 +31,7 @@ export interface IState {
   victimIssues: IVictimIssues;
   personalityDisorderPathway: IPersonalityDisorderPathway;
   interventions: IInterventions;
+  sentencePlan: ISentencePlan;
 }
 
 /**
@@ -41,7 +44,8 @@ export const reducers: ActionReducerMap<IState> = {
   previousRiskAssessment: previousRiskAssessmentReducer,
   victimIssues: victimIssuesReducer,
   personalityDisorderPathway: personalityDisorderPathwayReducer,
-  interventions: interventionsReducer
+  interventions: interventionsReducer,
+  sentencePlan: sentencePlanReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];

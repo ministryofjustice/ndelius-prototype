@@ -12,6 +12,7 @@ import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/prev
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
 import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
 import { InterventionsComponent } from './interventions/interventions.component';
+import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'victim-issues', data: { title: 'Victim issues' }, component: VictimIssuesComponent },
   { path: 'personality-disorder-pathway', data: { title: 'Personality disorder pathway' }, component: PersonalityDisorderPathwayComponent },
   { path: 'interventions', data: { title: 'Interventions' }, component: InterventionsComponent },
+  { path: 'sentence-plan', data: { title: 'Sentence plan' }, component: SentencePlanComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 

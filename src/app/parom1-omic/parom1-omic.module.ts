@@ -13,6 +13,7 @@ import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/prev
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
 import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
 import { InterventionsComponent } from './interventions/interventions.component';
+import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { InterventionsComponent } from './interventions/interventions.component'
     PreviousRiskAssessmentComponent,
     VictimIssuesComponent,
     PersonalityDisorderPathwayComponent,
-    InterventionsComponent
+    InterventionsComponent,
+    SentencePlanComponent
   ]
 })
 export class Parom1OmicModule {
