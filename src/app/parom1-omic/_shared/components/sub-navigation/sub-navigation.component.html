@@ -1,5 +1,7 @@
-<nav class="sub-nav">
-  <p class="nav-title">Report sections</p>
+<nav class="sub-nav top-bar">
+
+  <p class="nav-title">Community Offender Manager<br/>Report sections</p>
+
   <ul>
     <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-details" class="sub-sub-item clickable">- Prisoner details</li>
     <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-knowledge" class="sub-sub-item clickable">- Prisoner knowledge</li>
@@ -19,4 +21,13 @@
     <li routerLinkActive="active" routerLink="/parom1-omic/check-report" class="sub-sub-item clickable">- Check your report</li>
     <li routerLink="/parom1-omic/signature" routerLinkActive="active" #rla="routerLinkActive" [ngClass]="{ 'js-hidden': !isValid }" class="sub-sub-item clickable">- Signature &amp; date</li>
   </ul>
+
+  <hr />
+
+  <p class="nav-title">Prison Offender Manager<br/>Report sections</p>
+
+  <p class="nav-title font-regular">Last update: 02/04/2018</p>
+
+  <p class="nav-title font-regular"><a href="assets/pdf/report_draft.pdf" target="_blank">View draft report</a></p>
+
 </nav>

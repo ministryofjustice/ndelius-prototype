@@ -16,9 +16,10 @@ export class StartReportComponent implements OnInit, OnDestroy {
   private routeSubscriber: Subscription;
 
   /**
-   *
+   * @constructor
    * @param {ActivatedRoute} activatedRoute
    * @param {Router} router
+   * @param {Store<IPrisonerDetails>} store
    */
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private store: Store<IPrisonerDetails>) {
     // Empty
@@ -42,7 +43,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
    *
    */
   ngOnInit() {
-// Update state with passed parameters
+    // Update state with passed parameters
     this.routeSubscriber = this.activatedRoute.queryParams.subscribe(params => {
       if (params && Object.keys(params).length) {
         console['info']('Received data:', params);
@@ -75,5 +76,4 @@ export class StartReportComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.routeSubscriber.unsubscribe();
   }
-
 }
