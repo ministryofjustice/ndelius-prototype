@@ -1,4 +1,4 @@
-import * as previousRiskAssessment from '../action/previous-risk-assessment.action';
+import * as actionClass from '../action/previous-risk-assessment.action';
 
 import { IPreviousRiskAssessment } from '../model/previous-risk-assessment.model';
 
@@ -10,10 +10,10 @@ export const initialState: IPreviousRiskAssessment = {
   valid: false
 };
 
-export function previousRiskAssessmentReducer(state = initialState, action: previousRiskAssessment.Actions): IPreviousRiskAssessment {
+export function previousRiskAssessmentReducer(state = initialState, action: actionClass.Actions): IPreviousRiskAssessment {
 
   switch (action.type) {
-    case previousRiskAssessment.UPDATE_PREVIOUS_RISK_ASSESSMENT: {
+    case actionClass.UPDATE_PREVIOUS_RISK_ASSESSMENT: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {

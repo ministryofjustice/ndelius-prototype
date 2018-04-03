@@ -1,4 +1,4 @@
-import * as victimIssues from '../action/sentence-plan.action';
+import * as actionClass from '../action/sentence-plan.action';
 import { ISentencePlan } from '../model/sentence-plan.model';
 
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
@@ -9,10 +9,10 @@ export const initialState: ISentencePlan = {
   valid: false
 };
 
-export function sentencePlanReducer(state = initialState, action: victimIssues.Actions): ISentencePlan {
+export function sentencePlanReducer(state = initialState, action: actionClass.Actions): ISentencePlan {
 
   switch (action.type) {
-    case victimIssues.UPDATE_SENTENCE_PLAN: {
+    case actionClass.UPDATE_SENTENCE_PLAN: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {

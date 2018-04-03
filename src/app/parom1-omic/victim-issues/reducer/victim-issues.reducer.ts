@@ -1,4 +1,4 @@
-import * as victimIssues from '../action/victim-issues.action';
+import * as actionClass from '../action/victim-issues.action';
 import { IVictimIssues } from '../model/victim-issues.model';
 
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
@@ -12,10 +12,10 @@ export const initialState: IVictimIssues = {
   valid: false
 };
 
-export function victimIssuesReducer(state = initialState, action: victimIssues.Actions): IVictimIssues {
+export function victimIssuesReducer(state = initialState, action: actionClass.Actions): IVictimIssues {
 
   switch (action.type) {
-    case victimIssues.UPDATE_VICTIM_ISSUES: {
+    case actionClass.UPDATE_VICTIM_ISSUES: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {

@@ -1,4 +1,4 @@
-import * as mappa from '../action/mappa.action';
+import * as actionClass from '../action/mappa.action';
 import { IMappa } from '../model/mappa.model';
 
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
@@ -11,10 +11,10 @@ export const initialState: IMappa = {
   valid: false
 };
 
-export function mappaReducer(state = initialState, action: mappa.Actions): IMappa {
+export function mappaReducer(state = initialState, action: actionClass.Actions): IMappa {
 
   switch (action.type) {
-    case mappa.UPDATE_MAPPA: {
+    case actionClass.UPDATE_MAPPA: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {

@@ -5,20 +5,20 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { UpdateSupervisionPlanAction } from './action/supervision-plan.action';
-import { ISupervisionPlan } from './model/supervision-plan.model';
+import { UpdateComRecommendationAction } from './action/com-recommendation.action';
+import { IComRecommendation } from './model/com-recommendation.model';
 
-import { getSupervisionPlan } from './reducer/supervision-plan.reducer';
+import { getComRecommendation } from './reducer/com-recommendation.reducer';
 
 @Component({
-  selector: 'app-supervision-plan',
-  templateUrl: './supervision-plan.component.html'
+  selector: 'app-com-recommendation',
+  templateUrl: './com-recommendation.component.html'
 })
-export class SupervisionPlanComponent implements OnDestroy {
+export class ComRecommendationComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
 
-  reportData: ISupervisionPlan;
+  reportData: IComRecommendation;
   reportForm: FormGroup;
   formError: boolean;
 
@@ -26,10 +26,10 @@ export class SupervisionPlanComponent implements OnDestroy {
    *
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<ISupervisionPlan>} store
+   * @param {Store<IComRecommendation>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<ISupervisionPlan>) {
-    this.stateSubscriber = store.select(getSupervisionPlan).subscribe(data => {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IComRecommendation>) {
+    this.stateSubscriber = store.select(getComRecommendation).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -40,7 +40,7 @@ export class SupervisionPlanComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      supervisionPlanForRelease: [this.reportData.supervisionPlanForRelease, Validators.required]
+      yourRecommendation: [this.reportData.yourRecommendation, Validators.required]
     });
   }
 
@@ -48,15 +48,15 @@ export class SupervisionPlanComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/com-recommendation']);
+    this.router.navigate(['parom1-omic/hearing-considerations']);
   }
 
   /**
    *
    */
-  saveContent({ value }: { value: ISupervisionPlan }) {
+  saveContent({ value }: { value: IComRecommendation }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateSupervisionPlanAction(updatedValue));
+    this.store.dispatch(new UpdateComRecommendationAction(updatedValue));
   }
 
   /**
@@ -64,12 +64,12 @@ export class SupervisionPlanComponent implements OnDestroy {
    * @param {boolean} valid
    * @param {IPrisonerKnowledge} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: ISupervisionPlan }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IComRecommendation }) {
     this.formError = !valid;
 
     const updatedValue = Object.assign(value, { saved: true, valid: valid });
 
-    this.store.dispatch(new UpdateSupervisionPlanAction(updatedValue));
+    this.store.dispatch(new UpdateComRecommendationAction(updatedValue));
 
     if (valid) {
       this.continueJourney();

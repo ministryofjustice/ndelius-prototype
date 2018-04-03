@@ -14,7 +14,7 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 
 import * as model from './reducer/supervision-plan.reducer';
 
-describe('PAROM1-OMIC - Component: Current sentence plan and response', () => {
+describe('PAROM1-OMIC - Component: Supervision plan for release', () => {
 
   let fixture: ComponentFixture<SupervisionPlanComponent>;
   let component: SupervisionPlanComponent;
@@ -57,7 +57,7 @@ describe('PAROM1-OMIC - Component: Current sentence plan and response', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/fail']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/com-recommendation']);
   });
 
 });

@@ -19,6 +19,9 @@ import { CurrentRiskAssessmentComponent } from './current-risk-assessment/curren
 import { ReleaseRiskManagementComponent } from './release-risk-management/release-risk-management.component';
 import { ResettlementPlanComponent } from './resettlement-plan/resettlement-plan.component';
 import { SupervisionPlanComponent } from './supervision-plan/supervision-plan.component';
+import { ComRecommendationComponent } from './com-recommendation/com-recommendation.component';
+import { HearingConsiderationsComponent } from './hearing-considerations/hearing-considerations.component';
+import { SourcesComponent } from './sources/sources.component';
 
 @NgModule({
   imports: [
@@ -41,7 +44,10 @@ import { SupervisionPlanComponent } from './supervision-plan/supervision-plan.co
     CurrentRiskAssessmentComponent,
     ReleaseRiskManagementComponent,
     ResettlementPlanComponent,
-    SupervisionPlanComponent
+    SupervisionPlanComponent,
+    ComRecommendationComponent,
+    HearingConsiderationsComponent,
+    SourcesComponent
   ]
 })
 export class Parom1OmicModule {

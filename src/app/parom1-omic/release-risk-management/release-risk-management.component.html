@@ -12,7 +12,7 @@
     <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
       <h2 class="heading-medium no-margin-top">There is a problem</h2>
 
-      <p class="error-message" *ngIf="reportForm.get('supervisionPlanForRelease').errors">Enter the release risk management plan</p>
+      <p class="error-message" *ngIf="reportForm.get('riskManagementPlan').errors">Enter the release risk management plan</p>
     </div>
 
     <div class="notice margin-bottom large">
@@ -31,7 +31,7 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="riskManagementPlan"
                       label="Release risk management plan (RMP)"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('supervisionPlanForRelease').errors" errorMessage="Enter the release risk management plan">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('riskManagementPlan').errors" errorMessage="Enter the release risk management plan">
         <p>Some stuff</p>
       </app-text-entry>
 

@@ -14,7 +14,7 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 
 import * as model from './reducer/resettlement-plan.reducer';
 
-describe('PAROM1-OMIC - Component: Current sentence plan and response', () => {
+describe('PAROM1-OMIC - Component: Resettlement plan for release', () => {
 
   let fixture: ComponentFixture<ResettlementPlanComponent>;
   let component: ResettlementPlanComponent;

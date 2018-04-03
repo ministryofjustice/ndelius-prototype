@@ -14,7 +14,7 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 
 import * as model from './reducer/interventions.reducer';
 
-describe('PAROM1-OMIC - Component: Offender personality disorder pathway', () => {
+describe('PAROM1-OMIC - Component: Interventions', () => {
 
   let fixture: ComponentFixture<InterventionsComponent>;
   let component: InterventionsComponent;

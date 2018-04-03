@@ -1,4 +1,4 @@
-import * as prisonerDetails from '../action/prisoner-details.action';
+import * as actionClass from '../action/prisoner-details.action';
 import { IPrisonerDetails } from '../model/prisoner-details.model';
 
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
@@ -21,10 +21,10 @@ export const initialState: IPrisonerDetails = {
   valid: false
 };
 
-export function prisonerDetailsReducer(state = initialState, action: prisonerDetails.Actions): IPrisonerDetails {
+export function prisonerDetailsReducer(state = initialState, action: actionClass.Actions): IPrisonerDetails {
 
   switch (action.type) {
-    case prisonerDetails.UPDATE_PRISONER_DETAILS: {
+    case actionClass.UPDATE_PRISONER_DETAILS: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {

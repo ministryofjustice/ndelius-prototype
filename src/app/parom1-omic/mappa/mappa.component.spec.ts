@@ -15,7 +15,7 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 
 import * as model from './reducer/mappa.reducer';
 
-describe('PAROM1-OMIC - Component: Current sentence plan and response', () => {
+describe('PAROM1-OMIC - Component: MAPPA', () => {
 
   let fixture: ComponentFixture<MappaComponent>;
   let component: MappaComponent;

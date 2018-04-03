@@ -1,4 +1,4 @@
-import * as interventions from '../action/interventions.action';
+import * as actionClass from '../action/interventions.action';
 
 import { IInterventions } from '../model/interventions.model';
 
@@ -11,10 +11,10 @@ export const initialState: IInterventions = {
   valid: false
 };
 
-export function interventionsReducer(state = initialState, action: interventions.Actions): IInterventions {
+export function interventionsReducer(state = initialState, action: actionClass.Actions): IInterventions {
 
   switch (action.type) {
-    case interventions.UPDATE_INTERVENTIONS: {
+    case actionClass.UPDATE_INTERVENTIONS: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {

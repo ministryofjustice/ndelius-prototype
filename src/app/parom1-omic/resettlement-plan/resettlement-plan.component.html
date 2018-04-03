@@ -12,7 +12,7 @@
     <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
       <h2 class="heading-medium no-margin-top">There is a problem</h2>
 
-      <p class="error-message" *ngIf="reportForm.get('supervisionPlanForRelease').errors">Enter the resettlement plan for release</p>
+      <p class="error-message" *ngIf="reportForm.get('resettlementPlanForRelease').errors">Enter the resettlement plan for release</p>
     </div>
 
     <div class="notice margin-bottom large">
@@ -31,7 +31,7 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"
                       label="Resettlement plan for release"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('supervisionPlanForRelease').errors" errorMessage="Enter the resettlement plan for release">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('resettlementPlanForRelease').errors" errorMessage="Enter the resettlement plan for release">
         <p>Some stuff</p>
       </app-text-entry>
 

@@ -14,6 +14,9 @@ import { ICurrentRiskAssessment } from '../../current-risk-assessment/model/curr
 import { IReleaseRiskManagement } from '../../release-risk-management/model/release-risk-management.model';
 import { IResettlementPlan } from '../../resettlement-plan/model/resettlement-plan.model';
 import { ISupervisionPlan } from '../../supervision-plan/model/supervision-plan.model';
+import { IComRecommendation } from '../../com-recommendation/model/com-recommendation.model';
+import { IHearingConsiderations } from '../../hearing-considerations/model/hearing-considerations.model';
+import { ISources } from '../../sources/model/sources.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
 import { localStorageSyncReducer } from './meta.reducers';
@@ -30,6 +33,9 @@ import { currentRiskAssessmentReducer } from '../../current-risk-assessment/redu
 import { releaseRiskManagementReducer } from '../../release-risk-management/reducer/release-risk-management.reducer';
 import { resettlementPlanReducer } from '../../resettlement-plan/reducer/resettlement-plan.reducer';
 import { supervisionPlanReducer } from '../../supervision-plan/reducer/supervision-plan.reducer';
+import { comRecommendationReducer } from '../../com-recommendation/reducer/com-recommendation.reducer';
+import { hearingConsiderationsReducer } from '../../hearing-considerations/reducer/hearing-considerations.reducer';
+import { sourcesReducer } from '../../sources/reducer/sources.reducer';
 
 /**
  * Main state interface
@@ -47,6 +53,9 @@ export interface IState {
   releaseRiskManagement: IReleaseRiskManagement;
   resettlementPlan: IResettlementPlan;
   supervisionPlan: ISupervisionPlan;
+  comRecommendation: IComRecommendation;
+  hearingConsiderations: IHearingConsiderations;
+  sources: ISources;
 }
 
 /**
@@ -65,7 +74,10 @@ export const reducers: ActionReducerMap<IState> = {
   currentRiskAssessment: currentRiskAssessmentReducer,
   releaseRiskManagement: releaseRiskManagementReducer,
   resettlementPlan: resettlementPlanReducer,
-  supervisionPlan: supervisionPlanReducer
+  supervisionPlan: supervisionPlanReducer,
+  comRecommendation: comRecommendationReducer,
+  hearingConsiderations: hearingConsiderationsReducer,
+  sources: sourcesReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];

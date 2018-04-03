@@ -18,6 +18,9 @@ import { CurrentRiskAssessmentComponent } from './current-risk-assessment/curren
 import { ReleaseRiskManagementComponent } from './release-risk-management/release-risk-management.component';
 import { ResettlementPlanComponent } from './resettlement-plan/resettlement-plan.component';
 import { SupervisionPlanComponent } from './supervision-plan/supervision-plan.component';
+import { ComRecommendationComponent } from './com-recommendation/com-recommendation.component';
+import { HearingConsiderationsComponent } from './hearing-considerations/hearing-considerations.component';
+import { SourcesComponent } from './sources/sources.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -37,6 +40,9 @@ const routes: Routes = [
   { path: 'release-risk-management', data: { title: 'Release risk management plan' }, component: ReleaseRiskManagementComponent },
   { path: 'resettlement-plan', data: { title: 'Resettlement plan for release' }, component: ResettlementPlanComponent },
   { path: 'supervision-plan', data: { title: 'Supervision plan for release' }, component: SupervisionPlanComponent },
+  { path: 'com-recommendation', data: { title: 'Your recommendation' }, component: ComRecommendationComponent },
+  { path: 'hearing-considerations', data: { title: 'Oral hearing considerations' }, component: HearingConsiderationsComponent },
+  { path: 'sources', data: { title: 'Sources' }, component: SourcesComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 
