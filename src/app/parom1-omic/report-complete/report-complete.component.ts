@@ -15,18 +15,27 @@ import { IState } from '../_shared/reducer/state.reducers';
 })
 export class ReportCompleteComponent {
 
+  /**
+   * @constructor
+   * @param {Router} router
+   * @param {Store<IState>} store
+   */
   constructor(private router: Router, private store: Store<IState>) {
     // Empty
   }
 
+  /**
+   *
+   */
   startOver() {
     this.router.navigate(['parom1-omic/check-report']);
   }
 
   /**
-   * Dispatch store action to reset the state.
+   *
    */
-  ngOnInit() {
+  close() {
     this.store.dispatch(new ResetStateAction());
+    this.router.navigate(['/']);
   }
 }

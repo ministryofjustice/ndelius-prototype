@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -12,7 +12,7 @@ import { ResetStateAction } from '../../_shared/action/reset-state.action';
   selector: 'app-report-complete',
   templateUrl: './report-complete.component.html'
 })
-export class ReportCompleteComponent implements OnInit {
+export class ReportCompleteComponent {
 
   /**
    * @constructor
@@ -33,8 +33,8 @@ export class ReportCompleteComponent implements OnInit {
   /**
    * Dispatch store action to reset the state.
    */
-  ngOnInit() {
+  close() {
     this.store.dispatch(new ResetStateAction());
+    this.router.navigate(['/']);
   }
-
 }
