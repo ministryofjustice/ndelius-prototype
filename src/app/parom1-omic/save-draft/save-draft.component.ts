@@ -19,7 +19,7 @@ export class SaveDraftComponent {
    * @param {Router} router
    * @param {Store<IState>} store
    */
-  constructor(private router: Router, private store:Store<IState>) {
+  constructor(private router: Router, private store: Store<IState>) {
     // Empty
   }
 

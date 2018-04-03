@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 
 import { ReportCompleteComponent } from './report-complete.component';
@@ -18,7 +19,8 @@ describe('SFPSR - Component: Report complete', () => {
         MockPhaseBannerComponent
       ],
       imports: [
-        StoreModule.forRoot(reducers)
+        StoreModule.forRoot(reducers),
+        RouterTestingModule.withRoutes([])
       ]
     }).compileComponents();
   }));
