@@ -21,6 +21,9 @@ import { SupervisionPlanComponent } from './supervision-plan/supervision-plan.co
 import { ComRecommendationComponent } from './com-recommendation/com-recommendation.component';
 import { HearingConsiderationsComponent } from './hearing-considerations/hearing-considerations.component';
 import { SourcesComponent } from './sources/sources.component';
+import { SignatureComponent } from './signature/signature.component';
+import { CheckReportComponent } from './check-report/check-report.component';
+import { ReportCompleteComponent } from './report-complete/report-complete.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -43,6 +46,9 @@ const routes: Routes = [
   { path: 'com-recommendation', data: { title: 'Your recommendation' }, component: ComRecommendationComponent },
   { path: 'hearing-considerations', data: { title: 'Oral hearing considerations' }, component: HearingConsiderationsComponent },
   { path: 'sources', data: { title: 'Sources' }, component: SourcesComponent },
+  { path: 'check-report', data: { title: 'Check your report' }, component: CheckReportComponent },
+  { path: 'signature', data: { title: 'Sign and date your report' }, component: SignatureComponent },
+  { path: 'report-complete', data: { title: 'Report complete' }, component: ReportCompleteComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 

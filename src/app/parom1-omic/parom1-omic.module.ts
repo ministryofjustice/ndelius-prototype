@@ -22,6 +22,9 @@ import { SupervisionPlanComponent } from './supervision-plan/supervision-plan.co
 import { ComRecommendationComponent } from './com-recommendation/com-recommendation.component';
 import { HearingConsiderationsComponent } from './hearing-considerations/hearing-considerations.component';
 import { SourcesComponent } from './sources/sources.component';
+import { SignatureComponent } from './signature/signature.component';
+import { CheckReportComponent } from './check-report/check-report.component';
+import { ReportCompleteComponent } from './report-complete/report-complete.component';
 
 @NgModule({
   imports: [
@@ -47,7 +50,10 @@ import { SourcesComponent } from './sources/sources.component';
     SupervisionPlanComponent,
     ComRecommendationComponent,
     HearingConsiderationsComponent,
-    SourcesComponent
+    SourcesComponent,
+    CheckReportComponent,
+    SignatureComponent,
+    ReportCompleteComponent
   ]
 })
 export class Parom1OmicModule {

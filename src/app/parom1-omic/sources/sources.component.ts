@@ -70,7 +70,7 @@ export class SourcesComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/fail']);
+    this.router.navigate(['parom1-omic/check-report']);
   }
 
   /**

@@ -17,6 +17,7 @@ import { ISupervisionPlan } from '../../supervision-plan/model/supervision-plan.
 import { IComRecommendation } from '../../com-recommendation/model/com-recommendation.model';
 import { IHearingConsiderations } from '../../hearing-considerations/model/hearing-considerations.model';
 import { ISources } from '../../sources/model/sources.model';
+import { ISignature } from '../../signature/model/signature.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
 import { localStorageSyncReducer } from './meta.reducers';
@@ -36,6 +37,7 @@ import { supervisionPlanReducer } from '../../supervision-plan/reducer/supervisi
 import { comRecommendationReducer } from '../../com-recommendation/reducer/com-recommendation.reducer';
 import { hearingConsiderationsReducer } from '../../hearing-considerations/reducer/hearing-considerations.reducer';
 import { sourcesReducer } from '../../sources/reducer/sources.reducer';
+import { signatureReducer } from '../../signature/reducer/signature.reducer';
 
 /**
  * Main state interface
@@ -56,6 +58,7 @@ export interface IState {
   comRecommendation: IComRecommendation;
   hearingConsiderations: IHearingConsiderations;
   sources: ISources;
+  signature: ISignature;
 }
 
 /**
@@ -77,7 +80,8 @@ export const reducers: ActionReducerMap<IState> = {
   supervisionPlan: supervisionPlanReducer,
   comRecommendation: comRecommendationReducer,
   hearingConsiderations: hearingConsiderationsReducer,
-  sources: sourcesReducer
+  sources: sourcesReducer,
+  signature: signatureReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];

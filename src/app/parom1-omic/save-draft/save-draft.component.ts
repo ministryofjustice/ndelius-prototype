@@ -16,6 +16,6 @@ export class SaveDraftComponent {
 
 
   startOver() {
-    this.router.navigate(['parom1-omic/prisoner-details']);
+    this.router.navigate(['parom1-omic/check-report']);
   }
 }

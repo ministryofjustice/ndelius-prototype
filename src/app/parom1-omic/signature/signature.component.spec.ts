@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -5,41 +6,40 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { SourcesComponent } from './sources.component';
+import { SignatureComponent } from './signature.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
-import { MockFooterComponent } from '../../_shared/components/footer.mock.component';
-import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
-import * as model from './reducer/sources.reducer';
+import * as model from './reducer/signature.reducer';
 
-describe('PAROM1-OMIC - Component: Sources', () => {
+describe('SFPSR - Component: Signature and date', () => {
 
-  let fixture: ComponentFixture<SourcesComponent>;
-  let component: SourcesComponent;
+  let fixture: ComponentFixture<SignatureComponent>;
+  let component: SignatureComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        SourcesComponent,
+        SignatureComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent,
-        MockFooterComponent,
-        MockTextEntryComponent
+        MockErrorMessagesComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
+      ],
+      providers: [
+        DatePipe
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SourcesComponent);
+    fixture = TestBed.createComponent(SignatureComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -50,14 +50,25 @@ describe('PAROM1-OMIC - Component: Sources', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Sources');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Signature and date');
   });
 
-  it('should navigate to the Court details page', () => {
+  it('should include the reactive form', () => {
+    expect(component.reportForm).toBeDefined();
+  });
+
+  it('should set error property if form is invalid and NOT navigate', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    // Age is calculated from dateOfBirth so we need to supply in the test
+    component.onSubmit({ valid: false, value: model.initialState });
+    expect(component.formError).toBeTruthy();
+    expect(navigateSpy).not.toHaveBeenCalled();
+  });
+
+  it('should navigate to the Report Complete page', () => {
+    const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/check-report']);
+    expect(component.formError).toBeFalsy();
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/report-complete']);
   });
 
 });

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 /**
  * Save draft component
@@ -8,5 +9,20 @@ import { Component } from '@angular/core';
   templateUrl: './save-draft.component.html'
 })
 export class SaveDraftComponent {
-  // Empty
+
+  /**
+   * @constructor
+   * @param {Router} router
+   */
+  constructor(private router: Router) {
+    // Empty
+  }
+
+  /**
+   *
+   */
+  startOver() {
+    this.router.navigate(['sfpsr/check-report']);
+  }
+
 }
