@@ -19,7 +19,10 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
       'interventions',
       'sentencePlan',
       'mappa',
-      'currentRiskAssessment'
+      'currentRiskAssessment',
+      'releaseRiskManagement',
+      'resettlementPlan',
+      'supervisionPlan'
     ]
   })(reducer);
 }

@@ -1,0 +1,44 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Supervision plan for release</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('supervisionPlanForRelease').errors">Enter the supervision plan for release</p>
+    </div>
+
+    <div class="notice margin-bottom large">
+      <i class="icon icon-important">
+        <span class="visually-hidden">Important</span>
+      </i>
+      <strong class="bold-small">
+        A supervision plan for release must be included for all prisoners, regardless of whether you are supporting release.
+      </strong>
+    </div>
+
+    <br/>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="supervisionPlanForRelease"
+                      label="Resettlement plan for release"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('supervisionPlanForRelease').errors" errorMessage="Enter the supervision plan for release">
+        <p>Some stuff</p>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

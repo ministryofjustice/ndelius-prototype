@@ -11,6 +11,9 @@ import { IInterventions } from '../../interventions/model/interventions.model';
 import { ISentencePlan } from '../../sentence-plan/model/sentence-plan.model';
 import { IMappa } from '../../mappa/model/mappa.model';
 import { ICurrentRiskAssessment } from '../../current-risk-assessment/model/current-risk-assessment.model';
+import { IReleaseRiskManagement } from '../../release-risk-management/model/release-risk-management.model';
+import { IResettlementPlan } from '../../resettlement-plan/model/resettlement-plan.model';
+import { ISupervisionPlan } from '../../supervision-plan/model/supervision-plan.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
 import { localStorageSyncReducer } from './meta.reducers';
@@ -24,6 +27,9 @@ import { interventionsReducer } from '../../interventions/reducer/interventions.
 import { sentencePlanReducer } from '../../sentence-plan/reducer/sentence-plan.reducer';
 import { mappaReducer } from '../../mappa/reducer/mappa.reducer';
 import { currentRiskAssessmentReducer } from '../../current-risk-assessment/reducer/current-risk-assessment.reducer';
+import { releaseRiskManagementReducer } from '../../release-risk-management/reducer/release-risk-management.reducer';
+import { resettlementPlanReducer } from '../../resettlement-plan/reducer/resettlement-plan.reducer';
+import { supervisionPlanReducer } from '../../supervision-plan/reducer/supervision-plan.reducer';
 
 /**
  * Main state interface
@@ -38,6 +44,9 @@ export interface IState {
   sentencePlan: ISentencePlan;
   mappa: IMappa;
   currentRiskAssessment: ICurrentRiskAssessment;
+  releaseRiskManagement: IReleaseRiskManagement;
+  resettlementPlan: IResettlementPlan;
+  supervisionPlan: ISupervisionPlan;
 }
 
 /**
@@ -53,7 +62,10 @@ export const reducers: ActionReducerMap<IState> = {
   interventions: interventionsReducer,
   sentencePlan: sentencePlanReducer,
   mappa: mappaReducer,
-  currentRiskAssessment: currentRiskAssessmentReducer
+  currentRiskAssessment: currentRiskAssessmentReducer,
+  releaseRiskManagement: releaseRiskManagementReducer,
+  resettlementPlan: resettlementPlanReducer,
+  supervisionPlan: supervisionPlanReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];

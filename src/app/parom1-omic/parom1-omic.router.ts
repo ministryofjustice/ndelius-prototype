@@ -15,6 +15,9 @@ import { InterventionsComponent } from './interventions/interventions.component'
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
 import { MappaComponent } from './mappa/mappa.component';
 import { CurrentRiskAssessmentComponent } from './current-risk-assessment/current-risk-assessment.component';
+import { ReleaseRiskManagementComponent } from './release-risk-management/release-risk-management.component';
+import { ResettlementPlanComponent } from './resettlement-plan/resettlement-plan.component';
+import { SupervisionPlanComponent } from './supervision-plan/supervision-plan.component';
 
 const routes: Routes = [
   { path: '', component: NavigationComponent, outlet: 'navigation' },
@@ -31,6 +34,9 @@ const routes: Routes = [
   { path: 'sentence-plan', data: { title: 'Sentence plan' }, component: SentencePlanComponent },
   { path: 'mappa', data: { title: 'Multi Agency Public Protection Arrangements (MAPPA)' }, component: MappaComponent },
   { path: 'current-risk-assessment', data: { title: 'Current risk assessment' }, component: CurrentRiskAssessmentComponent },
+  { path: 'release-risk-management', data: { title: 'Release risk management plan' }, component: ReleaseRiskManagementComponent },
+  { path: 'resettlement-plan', data: { title: 'Resettlement plan for release' }, component: ResettlementPlanComponent },
+  { path: 'supervision-plan', data: { title: 'Supervision plan for release' }, component: SupervisionPlanComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];
 

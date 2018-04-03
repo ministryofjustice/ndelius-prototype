@@ -44,6 +44,7 @@ nav {
       color: #26549B;
       font-size: 16px;
       text-decoration: underline;
+      padding: 3px 10px; // @since PAROM-1
 
       &.active {
         background: transparent;

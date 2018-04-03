@@ -53,7 +53,7 @@ export class CurrentRiskAssessmentComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/fail']);
+    this.router.navigate(['parom1-omic/release-risk-management']);
   }
 
   /**

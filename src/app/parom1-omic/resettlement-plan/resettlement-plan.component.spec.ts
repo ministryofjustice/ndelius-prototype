@@ -5,25 +5,25 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { CurrentRiskAssessmentComponent } from './current-risk-assessment.component';
+import { ResettlementPlanComponent } from './resettlement-plan.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
-import * as model from './reducer/current-risk-assessment.reducer';
+import * as model from './reducer/resettlement-plan.reducer';
 
-describe('PAROM1-OMIC - Component: Current risk assessment', () => {
+describe('PAROM1-OMIC - Component: Current sentence plan and response', () => {
 
-  let fixture: ComponentFixture<CurrentRiskAssessmentComponent>;
-  let component: CurrentRiskAssessmentComponent;
+  let fixture: ComponentFixture<ResettlementPlanComponent>;
+  let component: ResettlementPlanComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CurrentRiskAssessmentComponent,
+        ResettlementPlanComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
@@ -39,7 +39,7 @@ describe('PAROM1-OMIC - Component: Current risk assessment', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CurrentRiskAssessmentComponent);
+    fixture = TestBed.createComponent(ResettlementPlanComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -50,14 +50,14 @@ describe('PAROM1-OMIC - Component: Current risk assessment', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Current risk assessment');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Resettlement plan for release');
   });
 
   it('should navigate to the Court details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/release-risk-management']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/supervision-plan']);
   });
 
 });

@@ -1,0 +1,44 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Release risk management plan</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('supervisionPlanForRelease').errors">Enter the release risk management plan</p>
+    </div>
+
+    <div class="notice margin-bottom large">
+      <i class="icon icon-important">
+        <span class="visually-hidden">Important</span>
+      </i>
+      <strong class="bold-small">
+        A release risk management plan must be included for all prisoners eligible for release, regardless of whether you are supporting release. Further guidance can be found in Chapter 14 of <a href="javascript:void(0);">PSI 22/2015</a>
+      </strong>
+    </div>
+
+    <br/>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="riskManagementPlan"
+                      label="Release risk management plan (RMP)"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('supervisionPlanForRelease').errors" errorMessage="Enter the release risk management plan">
+        <p>Some stuff</p>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>
