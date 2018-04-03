@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 
 interface IQueryParams {
   name: string;
+  prison: string;
+  prisonNumber: string;
+  nomisNumber: string;
   address: string;
   phone: string;
   dobDay: number;
@@ -26,6 +29,9 @@ export class StartComponent {
    */
   queryParams: IQueryParams = {
     name: 'Alan Smith',
+    prison: 'Doncaster',
+    prisonNumber: 'P98793-123',
+    nomisNumber: 'N2124214-3423',
     address: '1 Albert Square, Manchester, Greater Manchester, M60 2LA',
     phone: '07777 777 777',
     dobDay: 21,
