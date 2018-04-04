@@ -65,6 +65,12 @@ export class StartReportComponent implements OnInit, OnDestroy {
             month: params['determinateReleaseDateMonth'],
             year: params['determinateReleaseDateYear']
           },
+          tariffLength: params['tariffLength'],
+          tariffExpiryDate: {
+            day: params['tariffExpiryDateDate'],
+            month: params['tariffExpiryDateMonth'],
+            year: params['tariffExpiryDateYear']
+          },
           saved: true,
           valid: true
         }));

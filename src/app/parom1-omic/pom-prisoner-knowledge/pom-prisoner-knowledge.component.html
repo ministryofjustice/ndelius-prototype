@@ -12,8 +12,6 @@
     <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
       <h2 class="heading-medium no-margin-top">There is a problem</h2>
 
-      <p class="error-message" *ngIf="reportForm.get('sourcesOfInformation').errors">List the sources of information you
-        have used for this report</p>
       <p class="error-message" *ngIf="reportForm.get('sourcesOfInformation').errors">Enter the term that you been
         assigned to the prisoner and what contact have you had with them</p>
       <p class="error-message" *ngIf="reportForm.get('behaviourInPrison').errors">Enter the prisoner's behaviour in
@@ -27,16 +25,9 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="sourcesOfInformation"
-                      label="List of sources of information you have used for this report"
-                      (onSaveContent)="saveContent(reportForm)"
-                      [error]="formError && reportForm.get('sourcesOfInformation').errors"
-                      errorMessage="List the sources of information you have used for this report">
-      </app-text-entry>
-
-      <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="lengthOfAssignment"
                       label="How long have you been assigned to the prisoner and what contact have you had with them?"
+                      help="Include the prisoner’s attitude to one to one work and their sentence plan since the last parole review"
                       (onSaveContent)="saveContent(reportForm)"
                       [error]="formError && reportForm.get('lengthOfAssignment').errors"
                       errorMessage="Enter the term that you been assigned to the prisoner and what contact have you had with them">
@@ -45,6 +36,7 @@
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="behaviourInPrison"
                       label="Prisoner's behaviour in prison"
+                      help="Detail significant positive and negative behaviour"
                       (onSaveContent)="saveContent(reportForm)"
                       [error]="formError && reportForm.get('behaviourInPrison').errors"
                       errorMessage="Enter the prisoner's behaviour in prison">
@@ -52,7 +44,7 @@
 
       <fieldset>
         <legend class="form-label-bold">Has the prisoner been assessed as posing a risk of absconding? (only in closed conditions)</legend>
-        <app-error-messages control="sentence" message="Specify whether the prisoner been assessed as posing a risk of absconding" [active]="formError && reportForm.get('riskOfAbsconding').errors"></app-error-messages>
+        <app-error-messages control="sentence" message="Has the prisoner been assessed as posing a risk of absconding? (closed conditions only)" [active]="formError && reportForm.get('riskOfAbsconding').errors"></app-error-messages>
 
         <div class="multiple-choice margin-top medium">
           <input id="radio-1" type="radio" formControlName="riskOfAbsconding" value="Yes" [attr.aria-checked]="reportForm.get('riskOfAbsconding').value === 'Yes'" />
@@ -75,7 +67,8 @@
       <br/>
 
       <fieldset>
-        <legend class="form-label-bold">Is the prisoner undertaking or likely to undertake ROTL?</legend>
+        <legend class="form-label-bold">Is the prisoner being, or likely to be Released on Temporary Licence (ROTL)?</legend>
+        <span class="form-hint">Detail all relevant ROTL information including previous periods and it’s success. Give an explanation if the prisoner has not undertaken ROTL</span>
         <app-error-messages control="sentence" message="Specify whether the prisoner undertaking or likely to undertake ROTL" [active]="formError && reportForm.get('rotl').errors"></app-error-messages>
 
         <div class="multiple-choice margin-top medium">
@@ -93,7 +86,10 @@
         <app-text-entry [group]="reportForm" name="rotlDetails"
                         label="Provide further ROTL information"
                         (onSaveContent)="saveContent(reportForm)">
-          <p>Some stuff...</p>
+          <ul>
+            <li class="list-bullet">relevant information not already covered in this section</li>
+            <li class="list-bullet">feedback from chaplaincy, healthcare, work or key worker</li>
+          </ul>
         </app-text-entry>
       </div>
 
@@ -110,6 +106,8 @@
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="recommendation"
                       label="Your recommendation"
+                      help="What do you think are appropriate next steps?  Include things like interventions and progressive moves"
+                      [limit]="4000"
                       (onSaveContent)="saveContent(reportForm)"
                       [error]="formError && reportForm.get('recommendation').errors"
                       errorMessage="Enter your recommendation">

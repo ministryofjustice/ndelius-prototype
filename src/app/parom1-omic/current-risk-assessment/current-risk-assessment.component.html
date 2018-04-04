@@ -97,12 +97,16 @@
                       label="Detail the nature of the risk of serious harm to the identified groups and explain why"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('seriousHarmOthers').errors"
                       errorMessage="Detail the nature of the risk of serious harm">
-        <p>Some stuff</p>
+        <ul>
+          <li class="list-bullet">risk of self-harm</li>
+          <li class="list-bullet">risk others pose to the prisoner</li>
+        </ul>
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="increaseFactors"
                       label="Analyse the factors that may increase the risk of serious harm to all known groups, now or in the future"
+                      help="Include identified patterns of behaviour and offending, consider offence parallel behaviours. Link this to your answers in 10.4"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('increaseFactors').errors"
                       errorMessage="Analyse the factors that may increase the risk of serious harm">
       </app-text-entry>
@@ -110,6 +114,7 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="reductionFactors"
                       label="Analyse the factors that may contribute towards a risk of serious harm reduction to all known groups"
+                      help="Link this to your answer in 10.5"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('reductionFactors').errors"
                       errorMessage="Analyse the factors that may contribute towards a risk of serious harm reduction">
       </app-text-entry>
@@ -117,6 +122,7 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="furtherOffending"
                       label="Analyse the likelihood of further offending"
+                      help="Consider the static and dynamic assessment scores in this report and the impact of further offending"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('furtherOffending').errors"
                       errorMessage="Analyse the likelihood of further offending">
       </app-text-entry>

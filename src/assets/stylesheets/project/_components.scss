@@ -8,8 +8,20 @@
 
 .govuk-interrupt {
   margin: 1em 0;
-  padding: 2em 2em;
+  padding: 1em;
   background: $govuk-blue;
   text-align: left;
   color: white;
+
+  .notice {
+    background: transparent;
+  }
+}
+
+.notice {
+  background: #e8eff7;
+  padding: 10px;
+  .icon {
+    left: 15px;
+  }
 }

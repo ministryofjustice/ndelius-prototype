@@ -20,6 +20,7 @@
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="yourRecommendation"
                       label="Your recommendation"
+                      [limit]="4000"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('yourRecommendation').errors" errorMessage="Enter your recommendation">
       </app-text-entry>
 

@@ -19,8 +19,8 @@
       <i class="icon icon-important">
         <span class="visually-hidden">Important</span>
       </i>
-      <strong class="bold-small">
-        A resettlement plan for release must be included for all prisoners, regardless of whether you are supporting release.
+      <strong class="font-small">
+        This must be included for all prisoners
       </strong>
     </div>
 
@@ -32,7 +32,11 @@
       <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"
                       label="Resettlement plan for release"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('resettlementPlanForRelease').errors" errorMessage="Enter the resettlement plan for release">
-        <p>Some stuff</p>
+        <ul>
+          <li class="list-bullet">accomodation details</li>
+          <li class="list-bullet">motivation to comply if released</li>
+          <li class="list-bullet">if the prisoner is safe to release</li>
+        </ul>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

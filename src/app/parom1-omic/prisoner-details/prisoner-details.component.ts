@@ -51,9 +51,15 @@ export class PrisonerDetailsComponent implements OnDestroy {
       sentence: [this.reportData.sentence, Validators.required],
       sentenceType: [this.reportData.sentenceType, Validators.required],
       determinateReleaseDate: this.formBuilder.group({
-        day: [this.reportData.determinateReleaseDate.day, Validators.required],
-        month: [this.reportData.determinateReleaseDate.month, Validators.required],
-        year: [this.reportData.determinateReleaseDate.year, Validators.required],
+        day: this.reportData.determinateReleaseDate.day,
+        month: this.reportData.determinateReleaseDate.month,
+        year: this.reportData.determinateReleaseDate.year,
+      }),
+      tariffLength: [this.reportData.tariffLength, Validators.required],
+      tariffExpiryDate: this.formBuilder.group({
+        day: this.reportData.tariffExpiryDate.day,
+        month: this.reportData.tariffExpiryDate.month,
+        year: this.reportData.tariffExpiryDate.year,
       })
     });
   }

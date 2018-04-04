@@ -50,19 +50,21 @@
       <app-text-entry [group]="reportForm" name="reportsAssessmentsDirections"
                       label="List all the reports, assessments and directions you have used for this PAROM 1"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('reportsAssessmentsDirections').errors" errorMessage="List all the reports, assessments and directions you have used">
+        <ul>
+          <li class="list-bullet">Interventions/programme reports</li>
+          <li class="list-bullet">Approved premises referral</li>
+          <li class="list-bullet">SARN assessments</li>
+          <li class="list-bullet">Psychology/psychiatry reports</li>
+          <li class="list-bullet">Previous parole directions</li>
+          <li class="list-bullet">ROTL paperwork</li>
+          <li class="list-bullet">OASys</li>
+          <li class="list-bullet">Sentence planning board notes</li>
+          <li class="list-bullet">Security information</li>
+          <li class="list-bullet">SARA assessment</li>
+        </ul>
       </app-text-entry>
 
-      <div class="notice margin-bottom large">
-        <i class="icon icon-important">
-          <span class="visually-hidden">Important</span>
-        </i>
-        <strong class="bold-small">
-          You must provide the details and authors of the reports, assessments and directions
-        </strong>
-      </div>
-
       <fieldset>
-
         <legend class="form-label-bold">Has any information not been made available to you or are there any limitations to the sources?</legend>
         <app-error-messages control="sentence" message="Specify whether there are any omissions or limitations" [active]="formError && reportForm.get('sourceLimitations').errors"></app-error-messages>
 

@@ -15,9 +15,32 @@
       <h2 class="heading-medium no-margin-top">There is a problem</h2>
 
       <p class="error-message" *ngIf="reportForm.get('attitude').errors">Enter the prisoner's attitude to index offence</p>
+      <p class="error-message" *ngIf="reportForm.get('previousDate').get('month').errors || reportForm.get('previousDate').get('year').errors">Enter the previous risk assessment month and year</p>
     </div>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <div [formGroup]="reportForm.get('previousDate')" [ngClass]="{ 'form-group-error': (reportForm.get('previousDate').get('month').touched || reportForm.get('previousDate').get('year').touched || formError) && (reportForm.get('previousDate').get('month').errors || reportForm.get('previousDate').get('year').errors) }">
+        <fieldset>
+          <legend>
+            <span class="form-label-bold">When was the previous risk assessment done?</span>
+            <span class="form-hint">For example, 3 2018</span>
+          </legend>
+          <app-error-messages control="dateOfBirth" message="Enter the previous risk assessment month and year" [active]="(reportForm.get('previousDate').get('month').touched || reportForm.get('previousDate').get('year').touched || formError) && (reportForm.get('previousDate').get('month').errors || reportForm.get('previousDate').get('year').errors)"></app-error-messages>
+          <div class="form-date">
+            <div class="form-group form-group-month">
+              <label class="form-label" for="previousDate-month">Month</label>
+              <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('previousDate').get('month').touched || formError) && reportForm.get('previousDate').get('month').errors }" id="previousDate-month" name="previousDate-month" formControlName="month" type="number" pattern="[0-9]*" min="0" max="12" />
+            </div>
+            <div class="form-group form-group-year">
+              <label class="form-label" for="previousDate-year">Year</label>
+              <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('previousDate').get('year').touched || formError) && reportForm.get('previousDate').get('year').errors }" id="previousDate-year" name="previousDate-year" formControlName="year" type="number" pattern="[0-9]*" min="0" max="2018" />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br/>
 
       <div class="form-group">
         <p class="bold">Previous risk assessment</p>
@@ -29,7 +52,11 @@
                       label="Prisoner's attitude to index offence"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('attitude').errors"
                       errorMessage="Enter the prisoner's attitude to index offence">
-        <p>Some stuff</p>
+        <ul>
+          <li class="list-bullet">evidence of any change in attitude</li>
+          <li class="list-bullet">reasons for the change</li>
+          <li class="list-bullet">your analysis of the change</li>
+        </ul>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

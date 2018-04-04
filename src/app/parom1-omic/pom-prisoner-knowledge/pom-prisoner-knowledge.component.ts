@@ -40,7 +40,6 @@ export class PomPrisonerKnowledgeComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      sourcesOfInformation: [this.reportData.sourcesOfInformation, Validators.required],
       lengthOfAssignment: [this.reportData.lengthOfAssignment, Validators.required],
       behaviourInPrison: [this.reportData.behaviourInPrison, Validators.required],
       riskOfAbsconding: [this.reportData.riskOfAbsconding, Validators.required],

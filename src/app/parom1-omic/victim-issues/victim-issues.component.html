@@ -10,15 +10,11 @@
   <div class="column-two-thirds">
 
     <div class="govuk-interrupt">
+      <p class="bold no-margin-bottom">This report will be disclosed to the prisoner.</p>
 
-        <p class="font-small">
-          Consider how you present sensitive information in this section as it will be disclosed to the prisoner.
-        </p>
-
-        <p class="font-small">
-          Further guidance...
-        </p>
-
+      <p class="font-xsmall">
+        Consider how you present sensitive information in this section.
+      </p>
     </div>
 
     <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
@@ -37,13 +33,19 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="impactOfOffence"
                       label="Analyse the impact of the offence on the victim"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('impactOfOffence').errors" errorMessage="Enter your analysis of the impact of the offence on the victim"></app-text-entry>
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('impactOfOffence').errors" errorMessage="Enter your analysis of the impact of the offence on the victim">
+        <ul>
+          <li class="list-bullet">impact on the victims - even if they are in the victim scheme</li>
+          <li class="list-bullet">victims’ personal statement information</li>
+          <li class="list-bullet">address the impact on all victims</li>
+        </ul>
+      </app-text-entry>
 
       <div class="notice margin-bottom large">
         <i class="icon icon-important">
           <span class="visually-hidden">Important</span>
         </i>
-        <strong class="bold-small">
+        <strong class="font-small">
           You must contact the VLO for each hearing as part of designing the Risk Management Plan.
         </strong>
       </div>
@@ -93,15 +95,12 @@
             <label for="radio-4">No</label>
           </div>
         </fieldset>
-      </div>
 
-      <div class="notice margin-top margin-bottom large">
-        <i class="icon icon-important">
-          <span class="visually-hidden">Important</span>
-        </i>
-        <strong class="bold-small">
-          If possible, submit the VPS with this PAROM 1
-        </strong>
+        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
+          <p>The VPS should be submitted with this report if possible.</p>
+        </div>
+
+        <br/>
       </div>
 
       <!-- ANGULAR COMPONENT -->

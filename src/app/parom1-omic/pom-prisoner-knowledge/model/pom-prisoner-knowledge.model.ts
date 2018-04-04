@@ -1,5 +1,4 @@
 export interface IPomPrisonerKnowledge {
-  sourcesOfInformation: string;
   lengthOfAssignment: string;
   behaviourInPrison: string;
   riskOfAbsconding: string;

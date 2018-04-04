@@ -14,6 +14,8 @@ export interface IPrisonerDetails {
   sentence: string;
   sentenceType: string;
   determinateReleaseDate: IMultiFieldDate;
+  tariffLength: string;
+  tariffExpiryDate: IMultiFieldDate;
   saved: boolean;
   valid: boolean;
 }
