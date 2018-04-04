@@ -57,7 +57,7 @@ describe('PAROM1-OMIC - Component: Knowledge and contact', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/mappa']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/pom-signature']);
   });
 
 });

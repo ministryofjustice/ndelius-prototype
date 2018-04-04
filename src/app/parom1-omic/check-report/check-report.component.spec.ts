@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 import { CheckReportComponent } from './check-report.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
+import { MockFooterComponent } from '../../_shared/components/footer.mock.component';
 
 describe('SFPSR - CheckReportComponent', () => {
 
@@ -17,7 +18,8 @@ describe('SFPSR - CheckReportComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         CheckReportComponent,
-        MockPhaseBannerComponent
+        MockPhaseBannerComponent,
+        MockFooterComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
