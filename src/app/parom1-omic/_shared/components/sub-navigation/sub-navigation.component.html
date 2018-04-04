@@ -1,0 +1,38 @@
+<nav class="sub-nav top-bar">
+
+  <p class="nav-title"><span *ngIf="role === 'com'">Community</span><span *ngIf="role === 'pom'">Prison</span> Offender Manager<br/>Report sections</p>
+
+  <ul *ngIf="role === 'com'">
+    <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-details" class="sub-sub-item clickable">- Prisoner details</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-knowledge" class="sub-sub-item clickable">- Prisoner knowledge</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/previous-risk-assessment" class="sub-sub-item clickable">- Previous risk assessment</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/victim-issues" class="sub-sub-item clickable">- Victim issues</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/personality-disorder-pathway" class="sub-sub-item clickable">- OPD pathway</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/interventions" class="sub-sub-item clickable">- Interventions</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/sentence-plan" class="sub-sub-item clickable">- Sentence plan &amp; response</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/mappa" class="sub-sub-item clickable">- MAPPA</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/current-risk-assessment" class="sub-sub-item clickable">- Current risk assessment</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/release-risk-management" class="sub-sub-item clickable">- Risk management plan</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/resettlement-plan" class="sub-sub-item clickable">- Resettlement plan for release</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/supervision-plan" class="sub-sub-item clickable">- Supervision plan for release</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/com-recommendation" class="sub-sub-item clickable">- Your recommendation</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/hearing-considerations" class="sub-sub-item clickable">- Oral hearing considerations</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/sources" class="sub-sub-item clickable">- Sources</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/check-report" class="sub-sub-item clickable">- Check your report</li>
+    <li routerLink="/parom1-omic/signature" routerLinkActive="active" #rla="routerLinkActive" [ngClass]="{ 'js-hidden': !isValid }" class="sub-sub-item clickable">- Signature &amp; date</li>
+  </ul>
+
+  <ul *ngIf="role === 'pom'">
+    <li routerLinkActive="active" routerLink="/parom1-omic/pom-prisoner-knowledge" class="sub-sub-item clickable">- Prisoner knowledge and contact</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/pom-signature" class="sub-sub-item clickable">- Signature &amp; date</li>
+  </ul>
+
+  <hr />
+
+  <p class="nav-title"><span *ngIf="role === 'com'">Prison</span><span *ngIf="role === 'pom'">Community</span> Offender Manager<br/>Report sections</p>
+
+  <p class="nav-title font-regular">Last update: 02/04/2018</p>
+
+  <p class="nav-title font-regular"><a href="assets/pdf/report_draft.pdf" target="_blank">View draft report</a></p>
+
+</nav>

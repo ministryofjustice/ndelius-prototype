@@ -1,0 +1,73 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Signature and date</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation role="pom"></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('reportAuthor').errors">Enter your name</p>
+      <p class="error-message" *ngIf="reportForm.get('prison').errors">Enter the Prison</p>
+      <p class="error-message" *ngIf="reportForm.get('reportDate').errors">Enter the report date</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }">
+        <label for="reportAuthor">
+          <span class="form-label-bold">Name</span>
+        </label>
+        <app-error-messages control="reportAuthor" message="Enter the name of the report writer" [active]="(reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors"></app-error-messages>
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }" type="text" role="textbox" id="reportAuthor" formControlName="reportAuthor" value="" maxlength="250" aria-described-by="reportAuthor_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
+        <label for="prison">
+          <span class="form-label-bold">Prison</span>
+        </label>
+        <app-error-messages control="prison" message="Enter the Prison" [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }" type="text" role="textbox" id="prison" formControlName="prison" value="" maxlength="250" aria-described-by="prison_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group">
+        <label for="counterSignature">
+          <span class="form-label-bold">Name of counter signature (if required)</span>
+        </label>
+        <input class="form-control half-width" type="text" role="textbox" id="counterSignature" formControlName="counterSignature" value="" maxlength="250" />
+      </div>
+
+      <div class="form-group">
+        <label for="counterSignatureRole">
+          <span class="form-label-bold">Role of counter signature (if required)</span>
+        </label>
+        <input class="form-control half-width" type="text" role="textbox" id="counterSignatureRole" formControlName="counterSignatureRole" value="" maxlength="250" />
+      </div>
+
+      <div class="form-group">
+        <label for="startDate" class="form-label-bold">Start date</label>
+        <input class="form-control half-width no-border" id="startDate" formControlName="startDate" type="text" aria-readonly="true" readonly />
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors }">
+        <label for="reportDate">
+          <span class="form-label-bold">Completion date</span>
+          <span class="form-hint">For example: 28/06/2017</span>
+        </label>
+        <app-error-messages control="reportDate" message="Enter the report date" [active]="(reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors"></app-error-messages>
+        <input class="form-control date-picker" type="text" role="textbox" id="reportDate" formControlName="reportDate" maxlength="10" aria-described-by="reportDate_error" aria-required="true" required />
+      </div>
+
+      <input class="button button-start margin-top medium" id="nextButton" type="submit" value="Submit and view your report" />
+
+    </form>
+
+  </div>
+</div>

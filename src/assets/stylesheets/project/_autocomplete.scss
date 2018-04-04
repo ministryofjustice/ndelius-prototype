@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.half-width span .autocomplete__wrapper {
+  width: 50%;
+}
+
 .autocomplete__hint,
 .autocomplete__input {
   -webkit-appearance: none;

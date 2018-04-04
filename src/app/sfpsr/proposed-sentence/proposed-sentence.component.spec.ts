@@ -6,14 +6,14 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { ProposedSentenceComponent } from './proposed-sentence.component';
-import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
+import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/proposed-sentence.reducer';
 
-describe('Component: Conclusion', () => {
+describe('SFPSR - Component: Conclusion', () => {
 
   let fixture: ComponentFixture<ProposedSentenceComponent>;
   let component: ProposedSentenceComponent;

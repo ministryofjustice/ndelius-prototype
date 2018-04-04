@@ -1,0 +1,130 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Current risk assessment</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('riskToThem').errors">Specify whether the prisoner been assessed as posing a risk of harm to themselves</p>
+      <p class="error-message" *ngIf="reportForm.get('riskToOthers').errors">Specify whether the prisoner been assessed as posing a risk of harm to others</p>
+      <p class="error-message" *ngIf="reportForm.get('seriousHarmOthers').errors">Detail the nature of the risk of serious harm</p>
+      <p class="error-message" *ngIf="reportForm.get('increaseFactors').errors">Analyse the factors that may increase the risk of serious harm</p>
+      <p class="error-message" *ngIf="reportForm.get('reductionFactors').errors">Analyse the factors that may contribute towards a risk of serious harm reduction</p>
+      <p class="error-message" *ngIf="reportForm.get('furtherOffending').errors">Analyse the likelihood of further offending</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <div class="form-group">
+        <p class="bold">Select the prisoner's likelihood of further offending level at the time of this report</p>
+        <p>No UI for this yet</p>
+      </div>
+
+      <div class="form-group">
+        <p class="bold">Select the prisoner's risk of serious harm level at the time of this report</p>
+        <p>No UI for this yet</p>
+      </div>
+
+      <div class="form-group margin-bottom" [ngClass]="{ 'form-group-error': formError && reportForm.get('riskToThem').errors }">
+        <fieldset>
+
+          <legend class="form-label-bold">Has the prisoner been assessed as posing a risk of harm to themselves within the community or whilst in custody?</legend>
+          <app-error-messages control="sentence" message="Specify if the prisoner has been assessed as posing a risk of harm to themselves" [active]="formError && reportForm.get('riskToThem').errors"></app-error-messages>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-1" type="radio" formControlName="riskToThem" value="Within the community" [attr.aria-checked]="reportForm.get('riskToThem').value === 'Within the community'" />
+            <label for="radio-1">Within the community</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-2" type="radio" formControlName="riskToThem" value="Whilst in custody" [attr.aria-checked]="reportForm.get('riskToThem').value === 'Whilst in custody'" />
+            <label for="radio-2">Whilst in custody</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-3" type="radio" formControlName="riskToThem" value="Both" [attr.aria-checked]="reportForm.get('riskToThem').value === 'Both'" />
+            <label for="radio-3">Both</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-4" type="radio" formControlName="riskToThem" value="Neither" [attr.aria-checked]="reportForm.get('riskToThem').value === 'Neither'" />
+            <label for="radio-4">Neither</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <br/>
+
+      <div class="form-group margin-bottom" [ngClass]="{ 'form-group-error': formError && reportForm.get('riskToOthers').errors }">
+        <fieldset>
+
+          <legend class="form-label-bold">Has the prisoner been assessed as posing a risk of harm to others within the community or whilst in custody?</legend>
+          <app-error-messages control="sentence" message="Specify if the prisoner has been assessed as posing a risk of harm to others" [active]="formError && reportForm.get('riskToOthers').errors"></app-error-messages>
+
+          <div class="multiple-choice margin-top medium">
+            <input id="radio-5" type="radio" formControlName="riskToOthers" value="Within the community" [attr.aria-checked]="reportForm.get('riskToOthers').value === 'Within the community'" />
+            <label for="radio-5">Within the community</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-6" type="radio" formControlName="riskToOthers" value="Whilst in custody" [attr.aria-checked]="reportForm.get('riskToOthers').value === 'Whilst in custody'" />
+            <label for="radio-6">Whilst in custody</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-7" type="radio" formControlName="riskToOthers" value="Both" [attr.aria-checked]="reportForm.get('riskToOthers').value === 'Both'" />
+            <label for="radio-7">Both</label>
+          </div>
+
+          <div class="multiple-choice">
+            <input id="radio-8" type="radio" formControlName="riskToOthers" value="Neither" [attr.aria-checked]="reportForm.get('riskToOthers').value === 'Neither'" />
+            <label for="radio-8">Neither</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <br/>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="seriousHarmOthers"
+                      label="Detail the nature of the risk of serious harm to the identified groups and explain why"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('seriousHarmOthers').errors"
+                      errorMessage="Detail the nature of the risk of serious harm">
+        <p>Some stuff</p>
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="increaseFactors"
+                      label="Analyse the factors that may increase the risk of serious harm to all known groups, now or in the future"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('increaseFactors').errors"
+                      errorMessage="Analyse the factors that may increase the risk of serious harm">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="reductionFactors"
+                      label="Analyse the factors that may contribute towards a risk of serious harm reduction to all known groups"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('reductionFactors').errors"
+                      errorMessage="Analyse the factors that may contribute towards a risk of serious harm reduction">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="furtherOffending"
+                      label="Analyse the likelihood of further offending"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('furtherOffending').errors"
+                      errorMessage="Analyse the likelihood of further offending">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

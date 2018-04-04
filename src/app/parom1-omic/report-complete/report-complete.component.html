@@ -1,0 +1,50 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<div class="govuk-box-highlight margin-top medium">
+
+  <h1 class="heading-xlarge">Report saved</h1>
+
+  <p class="font-large">Your report has been saved<br>and uploaded successfully to Delius</p>
+
+</div>
+<div class="govuk-box-border margin-top large">
+
+  <h2 class="heading-large no-margin-top">What to do next</h2>
+
+  <div class="margin-top">&nbsp;</div>
+
+  <table role="presentation">
+    <tbody>
+    <tr>
+      <td style="width: 36px; padding: 0;">
+        <span class="icon pdf"></span>
+      </td>
+      <td style="padding: 0;">
+        <p>Review and print your 'Parole Report PAROM1-OMIC'<br/><a href="assets/pdf/report.pdf" class="bold" target="_blank">View your draft PDF report</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="icon edit"></span>
+      </td>
+      <td>
+        <p>Check or edit your report again<br/><a href="javascript:void(0);" class="bold" (click)="startOver()">Select a section to update or change</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="icon list"></span>
+      </td>
+      <td>
+        <p>Close this report<br/><a href="javascript:void(0);" class="bold" (click)="close()">View your document list</a></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<p class="margin-top">&nbsp;</p>
+
+<p class="margin-top large"><a routerLink="/sfpsr/feedback">What did you think of this service?</a> (takes 30 seconds)</p>

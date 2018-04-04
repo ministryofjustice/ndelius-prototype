@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { PhaseBannerComponent } from './phase-banner.component';
 
-describe('Component: Navigation (Addendum, shared)', () => {
+describe('Addendum - Component: Navigation (shared)', () => {
 
   let fixture: ComponentFixture<PhaseBannerComponent>;
   let component: PhaseBannerComponent;

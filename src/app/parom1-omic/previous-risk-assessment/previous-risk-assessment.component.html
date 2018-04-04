@@ -1,0 +1,41 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Previous risk assessment</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <p class="lede">This is the risk assessment at the point of sentence for the index offence.</p>
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('attitude').errors">Enter the prisoner's attitude to index offence</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <div class="form-group">
+        <p class="bold">Previous risk assessment</p>
+        <p>No UI for this yet</p>
+      </div>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="attitude"
+                      label="Prisoner's attitude to index offence"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('attitude').errors"
+                      errorMessage="Enter the prisoner's attitude to index offence">
+        <p>Some stuff</p>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>
