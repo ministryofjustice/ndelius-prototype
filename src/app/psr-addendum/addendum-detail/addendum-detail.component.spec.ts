@@ -14,7 +14,7 @@ import { MockSubNavigationComponent } from '../_shared/components/sub-navigation
 
 import * as model from './reducer/addendum-detail.reducer';
 
-describe('Component: Addendum detail', () => {
+describe('Addendum - Component: Addendum detail', () => {
 
   let fixture: ComponentFixture<AddendumDetailComponent>;
   let component: AddendumDetailComponent;

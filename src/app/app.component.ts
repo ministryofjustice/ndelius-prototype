@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
    */
   ngOnInit() {
 
-    const pathSuffix: String = ' - Short Format Pre-Sentence Report';
+    const pathSuffix: String = ' - Prototype';
 
     this.router.events
       .filter(event => event instanceof NavigationEnd)

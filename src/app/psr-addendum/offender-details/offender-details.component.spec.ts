@@ -12,7 +12,7 @@ import { MockErrorMessagesComponent } from '../../_shared/components/error-messa
 
 import * as model from './reducer/offender-details.reducer';
 
-describe('Component: Offender details', () => {
+describe('Addendum - Component: Offender details', () => {
 
   let fixture: ComponentFixture<OffenderDetailsComponent>;
   let component: OffenderDetailsComponent;

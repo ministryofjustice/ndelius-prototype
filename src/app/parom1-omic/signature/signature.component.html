@@ -1,0 +1,91 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Signature and date</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
+
+      <p>See highlighted errors below</p>
+
+      <p class="error-message" *ngIf="reportForm.get('reportAuthor').errors">Enter the report author</p>
+      <p class="error-message" *ngIf="reportForm.get('division').errors">Enter the NPS Division and LDU</p>
+      <p class="error-message" *ngIf="reportForm.get('address').errors">Enter the office address</p>
+      <p class="error-message" *ngIf="reportForm.get('email').errors">Enter the email address</p>
+      <p class="error-message" *ngIf="reportForm.get('phone').errors">Enter the telephone number and extension</p>
+      <p class="error-message" *ngIf="reportForm.get('reportDate').errors">Enter the report date</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }">
+        <label for="reportAuthor">
+          <span class="form-label-bold">Name of the report writer</span>
+        </label>
+        <app-error-messages control="reportAuthor" message="Enter the name of the report writer" [active]="(reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors"></app-error-messages>
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }" type="text" role="textbox" id="reportAuthor" formControlName="reportAuthor" value="" maxlength="250" aria-described-by="reportAuthor_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('division').touched || formError) && reportForm.get('division').errors }">
+        <label for="division">
+          <span class="form-label-bold">NPS Division and LDU</span>
+        </label>
+        <app-error-messages control="division" message="Enter the NPS Division and LDU" [active]="(reportForm.get('division').touched || formError) && reportForm.get('division').errors"></app-error-messages>
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('division').touched || formError) && reportForm.get('division').errors }" type="text" role="textbox" id="division" formControlName="division" value="" maxlength="250" aria-described-by="division_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group half-width" [ngClass]="{ 'form-group-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }">
+        <label for="address" class="form-label-bold">Office address</label>
+        <app-error-messages control="address" message="Enter the office address" [active]="(reportForm.get('address').touched || formError) && reportForm.get('address').errors"></app-error-messages>
+        <textarea class="form-control classic wide" [ngClass]="{ 'form-control-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }" type="text" role="textbox" id="address" formControlName="address" aria-described-by="address_error" aria-required="true" required></textarea>
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('email').touched || formError) && reportForm.get('email').errors }">
+        <label for="email">
+          <span class="form-label-bold">Email address</span>
+        </label>
+        <app-error-messages control="email" message="Enter the email address" [active]="(reportForm.get('email').touched || formError) && reportForm.get('email').errors"></app-error-messages>
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('email').touched || formError) && reportForm.get('email').errors }" type="text" role="textbox" id="email" formControlName="email" value="" maxlength="250" aria-described-by="email_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('phone').touched || formError) && reportForm.get('phone').errors }">
+        <label for="phone">
+          <span class="form-label-bold">Telephone number and extension</span>
+        </label>
+        <app-error-messages control="phone" message="Enter the telephone number and extension" [active]="(reportForm.get('phone').touched || formError) && reportForm.get('phone').errors"></app-error-messages>
+        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('phone').touched || formError) && reportForm.get('phone').errors }" type="text" role="textbox" id="phone" formControlName="phone" value="" maxlength="250" aria-described-by="phone_error" aria-required="true" required />
+      </div>
+
+      <div class="form-group">
+        <label for="counterSignature">
+          <span class="form-label-bold">Name of counter signature (if required)</span>
+        </label>
+        <input class="form-control half-width" type="text" role="textbox" id="counterSignature" formControlName="counterSignature" maxlength="250" />
+      </div>
+
+      <div class="form-group">
+        <label for="startDate" class="form-label-bold">Start date</label>
+        <input class="form-control half-width no-border" id="startDate" formControlName="startDate" type="text" aria-readonly="true" readonly />
+      </div>
+
+      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors }">
+        <label for="reportDate">
+          <span class="form-label-bold">Completion date</span>
+          <span class="form-hint">For example: 28/06/2017</span>
+        </label>
+        <app-error-messages control="reportDate" message="Enter the report date" [active]="(reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors"></app-error-messages>
+        <input class="form-control date-picker" type="text" role="textbox" id="reportDate" formControlName="reportDate" maxlength="10" aria-described-by="reportDate_error" aria-required="true" required />
+      </div>
+
+      <input class="button button-start margin-top medium" id="nextButton" type="submit" value="Submit and view your report" />
+
+    </form>
+
+  </div>
+</div>

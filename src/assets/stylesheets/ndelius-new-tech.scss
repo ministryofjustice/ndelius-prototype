@@ -40,8 +40,10 @@ $path: "/assets/images/";
 // Import the project specific styles
 @import "project/autocomplete";
 @import "project/box";
+@import "project/choice";
 @import "project/components";
 @import "project/forms";
+@import "project/footer";
 @import "project/icon";
 @import "project/iframe";
 @import "project/layout";
@@ -49,6 +51,7 @@ $path: "/assets/images/";
 @import "project/logo";
 @import "project/navigation";
 @import "project/spacing";
+@import "project/tooltip";
 @import "project/utils";
 @import "project/date-picker";
 @import "project/typography";

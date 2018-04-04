@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavigationComponent } from './navigation.component';
 
-describe('Component: Navigation (Addendum, shared)', () => {
+describe('Component: Navigation (shared)', () => {
 
   let fixture: ComponentFixture<NavigationComponent>;
   let component: NavigationComponent;

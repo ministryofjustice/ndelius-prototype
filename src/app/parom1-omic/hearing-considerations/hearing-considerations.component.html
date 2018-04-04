@@ -1,0 +1,33 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Oral hearing considerations</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('oralHearingConsiderations').errors">Enter the oral hearing considerations</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="oralHearingConsiderations"
+                      label="Detail any diversity issues that may affect the prisoner's ability to engage at an oral hearing"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('oralHearingConsiderations').errors" errorMessage="Enter the oral hearing considerations">
+        <p>Some stuff</p>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

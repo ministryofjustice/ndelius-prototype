@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 
 import { ReportCompleteComponent } from './report-complete.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('Component: Report complete', () => {
+describe('Addendum - Component: Report complete', () => {
 
   let component: ReportCompleteComponent;
   let fixture: ComponentFixture<ReportCompleteComponent>;
@@ -18,7 +19,8 @@ describe('Component: Report complete', () => {
         MockPhaseBannerComponent
       ],
       imports: [
-        StoreModule.forRoot(reducers)
+        StoreModule.forRoot(reducers),
+        RouterTestingModule.withRoutes([])
       ]
     }).compileComponents();
   }));

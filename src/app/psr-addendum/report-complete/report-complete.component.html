@@ -21,15 +21,23 @@
         <span class="icon pdf"></span>
       </td>
       <td style="padding: 0;">
-        <p>Review and print your addendum<br/><a href="assets/pdf/addendum.pdf" class="bold" target="_blank">View your PDF addendum</a></p>
+        <p>Review and print your addendum<br/><a href="assets/pdf/report.pdf" class="bold" target="_blank">View your draft PDF report</a></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="icon lock"></span>
+        <span class="icon edit"></span>
       </td>
-      <td style="padding: 0;">
-        <p>Update, delete or lock your report<br/><a href="javascript:void(0);" class="bold">View your document list</a></p>
+      <td>
+        <p>Check or edit your addendum again<br/><a href="javascript:void(0);" class="bold" (click)="startOver()">Update or change your addendum</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="icon list"></span>
+      </td>
+      <td>
+        <p>Close this report<br/><a href="javascript:void(0);" class="bold" (click)="close()">View your document list</a></p>
       </td>
     </tr>
     </tbody>

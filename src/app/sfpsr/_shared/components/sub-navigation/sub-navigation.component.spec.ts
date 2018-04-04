@@ -5,7 +5,7 @@ import { SubNavigationComponent } from './sub-navigation.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../../reducer/state.reducers';
 
-describe('Component: Navigation (shared)', () => {
+describe('SFPSR - Component: Navigation (shared)', () => {
 
   let fixture: ComponentFixture<SubNavigationComponent>;
   let component: SubNavigationComponent;
