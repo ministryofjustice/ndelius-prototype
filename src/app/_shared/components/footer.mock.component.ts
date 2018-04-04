@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-parom1-footer',
   template: ''
 })
 export class MockFooterComponent {
-  // Empty
+  @Input('continueEnabled') public continueEnabled = true;
 }

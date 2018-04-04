@@ -3,6 +3,20 @@
 
 <h1 class="heading-xlarge">Check your report</h1>
 
+<div>
+
+  <div class="notice margin-top margin-bottom large">
+    <i class="icon icon-important">
+      <span class="visually-hidden">Important</span>
+    </i>
+    <strong class="bold-small">
+      <span *ngIf="awaitingPOM">The Prison Offender Manager has not yet completed their section of this report, you cannot complete this report until they have done so.</span>
+      <span *ngIf="!awaitingPOM">The Prison Offender Manager has completed their section of this report.</span>
+    </strong>
+  </div>
+
+</div>
+
 <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
   <div *ngIf="!section.hide">
@@ -26,5 +40,7 @@
   </div>
 
 </ng-template>
+
+<app-parom1-footer [continueEnabled]="false" *ngIf="awaitingPOM"></app-parom1-footer>
 
 <button id="nextButton" class="button margin-top large" type="button" (click)="signReport()" *ngIf="isValid">Sign your report</button>

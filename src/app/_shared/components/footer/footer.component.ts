@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 /**
@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
   templateUrl: './footer.component.html'
 })
 export class FooterComponent {
+
+  @Input('continueEnabled') public continueEnabled = true;
 
   constructor(private router: Router) {
     // Empty
