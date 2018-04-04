@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getCurrentState, IState } from '../../reducer/state.reducers';
 
@@ -17,6 +17,8 @@ import { ISection, sections } from '../../model/sections';
   templateUrl: './sub-navigation.component.html'
 })
 export class SubNavigationComponent {
+
+  @Input('role') public role = 'com';
 
   isValid = true;
   sections: Array<ISection> = sections();

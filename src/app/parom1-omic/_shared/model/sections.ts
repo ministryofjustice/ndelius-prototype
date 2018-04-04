@@ -3,6 +3,7 @@ export interface ISection {
   label: string;
   state: string;
   interactions?: Array<Object>;
+  hide?: boolean;
   saved?: boolean;
   valid?: boolean;
 }
@@ -87,6 +88,12 @@ export function sections(): Array<ISection> {
       route: '/parom1-omic/seources',
       label: 'Sources',
       state: 'sources'
+    },
+    {
+      hide: true,
+      route: '/parom1-omic/pom-prisoner-knowledge',
+      label: 'Prisoner knowledge and contact',
+      state: 'pomPrisonerKnowledge'
     }
   ];
 }

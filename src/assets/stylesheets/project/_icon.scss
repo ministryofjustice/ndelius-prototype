@@ -3,6 +3,13 @@
   width: 45px;
   height: 50px;
 
+  &.icon-important{
+    &.white {
+      background: file-url("icon-important.svg") no-repeat;
+      background-size: 40px;
+    }
+  }
+
   &.pdf {
     background: file-url("icon_pdf.svg") no-repeat;
   }
@@ -16,10 +23,6 @@
     background: file-url("icon_list.svg") no-repeat;
     margin-top: 0;
   }
-}
-
-.govuk-interrupt {
-  border-radius: 5px;
 }
 
 .icon-risk {

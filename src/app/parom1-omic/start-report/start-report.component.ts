@@ -15,6 +15,8 @@ export class StartReportComponent implements OnInit, OnDestroy {
 
   private routeSubscriber: Subscription;
 
+  currentSelection = '';
+
   /**
    * @constructor
    * @param {ActivatedRoute} activatedRoute
@@ -27,16 +29,17 @@ export class StartReportComponent implements OnInit, OnDestroy {
 
   /**
    *
+   * @param {string} role
    */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/prisoner-details']);
+  select(role: string) {
+    this.currentSelection = role;
   }
 
   /**
    *
    */
   startReport() {
-    this.continueJourney();
+    this.router.navigate([this.currentSelection === 'com' ? 'parom1-omic/prisoner-details' : 'parom1-omic/pom-prisoner-knowledge']);
   }
 
   /**
@@ -48,7 +51,6 @@ export class StartReportComponent implements OnInit, OnDestroy {
       if (params && Object.keys(params).length) {
         console['info']('Received data:', params);
 
-        // @TODO: Error checking around this
         this.store.dispatch(new UpdatePrisonerDetailsAction({
           prison: params['prison'],
           name: params['name'],

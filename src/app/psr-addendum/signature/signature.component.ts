@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 
@@ -42,11 +42,11 @@ export class SignatureComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      reportAuthor: this.reportData.reportAuthor,
-      office: this.reportData.office,
-      phone: this.reportData.phone,
+      reportAuthor: [this.reportData.reportAuthor, Validators.required],
+      office: [this.reportData.office, Validators.required],
+      phone: [this.reportData.phone, Validators.required],
       counterSignature: this.reportData.counterSignature,
-      reportDate: this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy')
+      reportDate: [this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
     });
   }
 

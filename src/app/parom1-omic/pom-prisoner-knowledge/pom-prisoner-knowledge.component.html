@@ -1,0 +1,124 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Prisoner knowledge and contact</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation role="pom"></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
+      <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+      <p class="error-message" *ngIf="reportForm.get('sourcesOfInformation').errors">List the sources of information you
+        have used for this report</p>
+      <p class="error-message" *ngIf="reportForm.get('sourcesOfInformation').errors">Enter the term that you been
+        assigned to the prisoner and what contact have you had with them</p>
+      <p class="error-message" *ngIf="reportForm.get('behaviourInPrison').errors">Enter the prisoner's behaviour in
+        prison</p>
+      <p class="error-message" *ngIf="reportForm.get('riskOfAbsconding').errors">Specify whether the prisoner been assessed as posing a risk of absconding</p>
+      <p class="error-message" *ngIf="reportForm.get('rotl').errors">Specify whether the prisoner undertaking or likely to undertake ROTL</p>
+      <p class="error-message" *ngIf="reportForm.get('furtherInformation').errors">Enter any further information</p>
+      <p class="error-message" *ngIf="reportForm.get('recommendation').errors">Enter your recommendation</p>
+    </div>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="sourcesOfInformation"
+                      label="List of sources of information you have used for this report"
+                      (onSaveContent)="saveContent(reportForm)"
+                      [error]="formError && reportForm.get('sourcesOfInformation').errors"
+                      errorMessage="List the sources of information you have used for this report">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="lengthOfAssignment"
+                      label="How long have you been assigned to the prisoner and what contact have you had with them?"
+                      (onSaveContent)="saveContent(reportForm)"
+                      [error]="formError && reportForm.get('lengthOfAssignment').errors"
+                      errorMessage="Enter the term that you been assigned to the prisoner and what contact have you had with them">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="behaviourInPrison"
+                      label="Prisoner's behaviour in prison"
+                      (onSaveContent)="saveContent(reportForm)"
+                      [error]="formError && reportForm.get('behaviourInPrison').errors"
+                      errorMessage="Enter the prisoner's behaviour in prison">
+      </app-text-entry>
+
+      <fieldset>
+        <legend class="form-label-bold">Has the prisoner been assessed as posing a risk of absconding? (only in closed conditions)</legend>
+        <app-error-messages control="sentence" message="Specify whether the prisoner been assessed as posing a risk of absconding" [active]="formError && reportForm.get('riskOfAbsconding').errors"></app-error-messages>
+
+        <div class="multiple-choice margin-top medium">
+          <input id="radio-1" type="radio" formControlName="riskOfAbsconding" value="Yes" [attr.aria-checked]="reportForm.get('riskOfAbsconding').value === 'Yes'" />
+          <label for="radio-1">Yes</label>
+        </div>
+
+        <div class="multiple-choice">
+          <input id="radio-2" type="radio" formControlName="riskOfAbsconding" value="No" [attr.aria-checked]="reportForm.get('riskOfAbsconding').value === 'No'" />
+          <label for="radio-2">No</label>
+        </div>
+      </fieldset>
+      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('riskOfAbsconding').value || reportForm.get('riskOfAbsconding').value === 'No' }" [attr.aria-hidden]="!reportForm.get('riskOfAbsconding').value || reportForm.get('riskOfAbsconding').value === 'No'">
+        <!-- ANGULAR COMPONENT -->
+        <app-text-entry [group]="reportForm" name="riskOfAbscondingDetails"
+                        label="Provide details of the absconding risk"
+                        (onSaveContent)="saveContent(reportForm)">
+        </app-text-entry>
+      </div>
+
+      <br/>
+
+      <fieldset>
+        <legend class="form-label-bold">Is the prisoner undertaking or likely to undertake ROTL?</legend>
+        <app-error-messages control="sentence" message="Specify whether the prisoner undertaking or likely to undertake ROTL" [active]="formError && reportForm.get('rotl').errors"></app-error-messages>
+
+        <div class="multiple-choice margin-top medium">
+          <input id="radio-3" type="radio" formControlName="rotl" value="Yes" [attr.aria-checked]="reportForm.get('rotl').value === 'Yes'" />
+          <label for="radio-3">Yes</label>
+        </div>
+
+        <div class="multiple-choice">
+          <input id="radio-4" type="radio" formControlName="rotl" value="No" [attr.aria-checked]="reportForm.get('rotl').value === 'No'" />
+          <label for="radio-4">No</label>
+        </div>
+      </fieldset>
+      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('rotl').value || reportForm.get('rotl').value === 'No' }" [attr.aria-hidden]="!reportForm.get('rotl').value || reportForm.get('rotl').value === 'No'">
+        <!-- ANGULAR COMPONENT -->
+        <app-text-entry [group]="reportForm" name="rotlDetails"
+                        label="Provide further ROTL information"
+                        (onSaveContent)="saveContent(reportForm)">
+          <p>Some stuff...</p>
+        </app-text-entry>
+      </div>
+
+      <br/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="furtherInformation"
+                      label="Further information"
+                      (onSaveContent)="saveContent(reportForm)"
+                      [error]="formError && reportForm.get('furtherInformation').errors"
+                      errorMessage="Enter any further information">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="recommendation"
+                      label="Your recommendation"
+                      (onSaveContent)="saveContent(reportForm)"
+                      [error]="formError && reportForm.get('recommendation').errors"
+                      errorMessage="Enter your recommendation">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>

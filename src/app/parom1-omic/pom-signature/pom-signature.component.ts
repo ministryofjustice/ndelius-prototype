@@ -6,20 +6,20 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { getSignature } from './reducer/signature.reducer';
+import { getPomSignature } from './reducer/pom-signature.reducer';
 
-import { ISignature } from './model/signature.model';
-import { UpdateSignatureAction } from './action/signature.action';
+import { IPomSignature } from './model/pom-signature.model';
+import { UpdatePomSignatureAction } from './action/pom-signature.action';
 
 @Component({
   selector: 'app-signature',
-  templateUrl: './signature.component.html'
+  templateUrl: './pom-signature.component.html'
 })
-export class SignatureComponent implements OnDestroy {
+export class PomSignatureComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
 
-  reportData: ISignature;
+  reportData: IPomSignature;
   reportForm: FormGroup;
   formError: boolean;
 
@@ -28,10 +28,10 @@ export class SignatureComponent implements OnDestroy {
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {DatePipe} datePipe
-   * @param {Store<ISignature>} store
+   * @param {Store<IPomSignature>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ISignature>) {
-    this.stateSubscriber = store.select(getSignature).subscribe(state => {
+  constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<IPomSignature>) {
+    this.stateSubscriber = store.select(getPomSignature).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
@@ -43,13 +43,11 @@ export class SignatureComponent implements OnDestroy {
   private createForm() {
     this.reportForm = this.formBuilder.group({
       reportAuthor: [this.reportData.reportAuthor, Validators.required],
-      address: [this.reportData.address, Validators.required],
-      email: [this.reportData.email, Validators.required],
-      phone: [this.reportData.phone, Validators.required],
-      division: [this.reportData.division, Validators.required],
+      prison: [this.reportData.prison, Validators.required],
       counterSignature: this.reportData.counterSignature,
+      counterSignatureRole: this.reportData.counterSignatureRole,
       startDate: this.reportData.startDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'),
-      reportDate: [this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
+      reportDate: this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy')
     });
   }
 
@@ -63,9 +61,9 @@ export class SignatureComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {ISignature} value
+   * @param {IPomSignature} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: ISignature }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IPomSignature }) {
     this.formError = !valid;
 
     // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
@@ -74,7 +72,7 @@ export class SignatureComponent implements OnDestroy {
       valid: valid,
       reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
     });
-    this.store.dispatch(new UpdateSignatureAction(updatedValue));
+    this.store.dispatch(new UpdatePomSignatureAction(updatedValue));
 
     if (valid) {
       this.continueJourney();

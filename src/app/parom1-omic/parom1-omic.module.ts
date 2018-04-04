@@ -25,6 +25,8 @@ import { SourcesComponent } from './sources/sources.component';
 import { SignatureComponent } from './signature/signature.component';
 import { CheckReportComponent } from './check-report/check-report.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
+import { PomPrisonerKnowledgeComponent } from './pom-prisoner-knowledge/pom-prisoner-knowledge.component';
+import { PomSignatureComponent } from './pom-signature/pom-signature.component';
 
 @NgModule({
   imports: [
@@ -53,7 +55,10 @@ import { ReportCompleteComponent } from './report-complete/report-complete.compo
     SourcesComponent,
     CheckReportComponent,
     SignatureComponent,
-    ReportCompleteComponent
+    ReportCompleteComponent,
+
+    PomPrisonerKnowledgeComponent,
+    PomSignatureComponent
   ]
 })
 export class Parom1OmicModule {

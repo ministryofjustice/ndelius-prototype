@@ -1,23 +1,54 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<div class="govuk-interrupt">
+<h1 class="heading-xlarge">Start a Parole report <span class="font-medium">PAROM1-OMIC</span></h1>
 
-  <h1 class="heading-xlarge">Parole Report <span class="font-medium">PAROM1-OMIC</span></h1>
+<p class="lede">Select your role for writing this report</p>
 
-  <ul class="list-bullet">
-    <li><span class="bold">Save and close your report at any point</span><br/>
-      <span class="font-xsmall">You can save and close your report so you don't have to complete the whole thing at once.</span></li>
-    <li class="margin-top"><span class="bold">Saves as you write</span><br/>
-      <span class="font-xsmall">Your report will be saved as you write so you'll never lose your work.</span></li>
-    <li class="margin-top"><span class="bold">Return to complete your report later</span><br/>
-      <span class="font-xsmall">You can finish your report when it suits you.</span></li>
-    <li class="margin-top"><span class="bold">Edit your completed report</span><br/>
-      <span class="font-xsmall">You can edit your report whenever you want, even after you've finished.</span></li>
-  </ul>
+<div class="grid-row choice-container">
+  <div class="column-half">
+    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'com' }" (click)="currentSelection = 'com'">
+      Community Offender<br/>Manager
+    </div>
+  </div>
+  <div class="column-half">
+    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'pom' }" (click)="currentSelection = 'pom'">
+      Prison Offender<br/>Manager
+    </div>
+  </div>
+</div>
 
-  <div class="margin-top large">&nbsp;</div>
+<div [ngClass]="{ 'js-hidden': currentSelection === '' }" [attr.aria-hidden]="currentSelection === ''">
+  <div class="govuk-interrupt">
 
-  <button id="nextButton" class="button interrupt" type="button" (click)="startReport()">Start now</button>
+    <p class="lede">This is the parole report for the Offender Manager in Custody (OMIC) model. In this service you can:</p>
 
+    <ul class="list-bullet">
+      <div *ngIf="currentSelection === 'com'">
+        <li><span class="bold">Save and close your report at any point</span><br/>
+          <span class="font-xsmall">You can save and close your report so you don't have to complete the whole thing at once.</span>
+        </li>
+        <li class="margin-top"><span class="bold">Saves as you write</span><br/>
+          <span class="font-xsmall">Your report will be saved as you write so you'll never lose your work.</span></li>
+        <li class="margin-top"><span class="bold">Return to complete your report later</span><br/>
+          <span class="font-xsmall">You can finish your report when it suits you.</span></li>
+        <li class="margin-top"><span class="bold">Edit your completed report</span><br/>
+          <span class="font-xsmall">You can edit your report whenever you want, even after you've finished.</span></li>
+      </div>
+    </ul>
+
+    <div class="notice margin-top margin-bottom large">
+      <i class="icon icon-important white">
+        <span class="visually-hidden">Important</span>
+      </i>
+      <strong class="bold-small">
+        This report will be disclosed to the prisoner
+      </strong>
+    </div>
+
+    <div class="margin-top large">&nbsp;</div>
+
+    <button id="startButton" class="button interrupt" type="button" (click)="startReport()">Start now</button>
+
+  </div>
 </div>

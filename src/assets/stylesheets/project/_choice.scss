@@ -1,0 +1,30 @@
+.choice-container .column-half {
+  .main-choice {
+    border: $grey-1 2px solid;
+    min-height: 150px;
+    cursor: pointer;
+    padding: 60px 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: $govuk-blue;
+    text-decoration: underline;
+
+    &.active {
+      background: $grey-1;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  &:first-child {
+    padding: 15px 0 15px 15px;
+    .main-choice {
+      border-right: 0;
+    }
+  }
+
+  &:last-child {
+    padding: 15px 15px 15px 0;
+  }
+}

@@ -19,6 +19,9 @@ import { IHearingConsiderations } from '../../hearing-considerations/model/heari
 import { ISources } from '../../sources/model/sources.model';
 import { ISignature } from '../../signature/model/signature.model';
 
+import { IPomPrisonerKnowledge } from '../../pom-prisoner-knowledge/model/pom-prisoner-knowledge.model';
+import { IPomSignature } from '../../pom-signature/model/pom-signature.model';
+
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
 import { localStorageSyncReducer } from './meta.reducers';
 
@@ -38,6 +41,9 @@ import { comRecommendationReducer } from '../../com-recommendation/reducer/com-r
 import { hearingConsiderationsReducer } from '../../hearing-considerations/reducer/hearing-considerations.reducer';
 import { sourcesReducer } from '../../sources/reducer/sources.reducer';
 import { signatureReducer } from '../../signature/reducer/signature.reducer';
+
+import { pomPrisonerKnowledgeReducer } from '../../pom-prisoner-knowledge/reducer/pom-prisoner-knowledge.reducer';
+import { pomSignatureReducer } from '../../pom-signature/reducer/pom-signature.reducer';
 
 /**
  * Main state interface
@@ -59,6 +65,9 @@ export interface IState {
   hearingConsiderations: IHearingConsiderations;
   sources: ISources;
   signature: ISignature;
+
+  pomPrisonerKnowledge: IPomPrisonerKnowledge;
+  pomSignature: IPomSignature;
 }
 
 /**
@@ -81,7 +90,10 @@ export const reducers: ActionReducerMap<IState> = {
   comRecommendation: comRecommendationReducer,
   hearingConsiderations: hearingConsiderationsReducer,
   sources: sourcesReducer,
-  signature: signatureReducer
+  signature: signatureReducer,
+
+  pomPrisonerKnowledge: pomPrisonerKnowledgeReducer,
+  pomSignature: pomSignatureReducer
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];

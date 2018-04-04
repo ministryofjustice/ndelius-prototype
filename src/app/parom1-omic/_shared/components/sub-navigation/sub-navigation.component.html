@@ -1,8 +1,8 @@
 <nav class="sub-nav top-bar">
 
-  <p class="nav-title">Community Offender Manager<br/>Report sections</p>
+  <p class="nav-title"><span *ngIf="role === 'com'">Community</span><span *ngIf="role === 'pom'">Prison</span> Offender Manager<br/>Report sections</p>
 
-  <ul>
+  <ul *ngIf="role === 'com'">
     <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-details" class="sub-sub-item clickable">- Prisoner details</li>
     <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-knowledge" class="sub-sub-item clickable">- Prisoner knowledge</li>
     <li routerLinkActive="active" routerLink="/parom1-omic/previous-risk-assessment" class="sub-sub-item clickable">- Previous risk assessment</li>
@@ -22,9 +22,14 @@
     <li routerLink="/parom1-omic/signature" routerLinkActive="active" #rla="routerLinkActive" [ngClass]="{ 'js-hidden': !isValid }" class="sub-sub-item clickable">- Signature &amp; date</li>
   </ul>
 
+  <ul *ngIf="role === 'pom'">
+    <li routerLinkActive="active" routerLink="/parom1-omic/pom-prisoner-knowledge" class="sub-sub-item clickable">- Prisoner knowledge and contact</li>
+    <li routerLinkActive="active" routerLink="/parom1-omic/pom-signature" class="sub-sub-item clickable">- Signature &amp; date</li>
+  </ul>
+
   <hr />
 
-  <p class="nav-title">Prison Offender Manager<br/>Report sections</p>
+  <p class="nav-title"><span *ngIf="role === 'com'">Prison</span><span *ngIf="role === 'pom'">Community</span> Offender Manager<br/>Report sections</p>
 
   <p class="nav-title font-regular">Last update: 02/04/2018</p>
 
