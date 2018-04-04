@@ -56,7 +56,7 @@ export class PomPrisonerKnowledgeComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/mappa']);
+    this.router.navigate(['parom1-omic/pom-signature']);
   }
 
   /**
