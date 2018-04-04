@@ -41,6 +41,10 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
   private createForm() {
     this.reportForm = this.formBuilder.group({
       attitude: [this.reportData.attitude, Validators.required],
+      previousDate: this.formBuilder.group({
+        month: [this.reportData.previousDate.month, Validators.required],
+        year: [this.reportData.previousDate.year, Validators.required]
+      }),
     });
   }
 

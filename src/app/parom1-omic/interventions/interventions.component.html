@@ -23,12 +23,18 @@
                       label="List the interventions the prisoner has completed, in chronological order"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('interventionsList').errors"
                       errorMessage="List the interventions the prisoner has completed">
-        <p>Some stuff</p>
+        <ul>
+          <li class="list-bullet">those designed to reduce risk</li>
+          <li class="list-bullet">those designed to increase social capital</li>
+          <li class="list-bullet">employment</li>
+          <li class="list-bullet">training</li>
+        </ul>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="interventionsSummary"
                       label="Interventions summary"
+                      help="Include the prisoner’s application of learning and the impact of this. Link this to future risk"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('interventionsSummary').errors"
                       errorMessage="Enter the interventions summary">
       </app-text-entry>

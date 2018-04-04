@@ -4,7 +4,6 @@ import { IPomPrisonerKnowledge } from '../model/pom-prisoner-knowledge.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IPomPrisonerKnowledge = {
-  sourcesOfInformation: '',
   lengthOfAssignment: '',
   behaviourInPrison: '',
   riskOfAbsconding: '',

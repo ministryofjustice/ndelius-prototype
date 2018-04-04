@@ -19,8 +19,8 @@
       <i class="icon icon-important">
         <span class="visually-hidden">Important</span>
       </i>
-      <strong class="bold-small">
-        A supervision plan for release must be included for all prisoners, regardless of whether you are supporting release.
+      <strong class="font-small">
+        This must be included for all prisoners
       </strong>
     </div>
 
@@ -30,9 +30,13 @@
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="supervisionPlanForRelease"
-                      label="Resettlement plan for release"
+                      label="Supervision plan for release"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('supervisionPlanForRelease').errors" errorMessage="Enter the supervision plan for release">
-        <p>Some stuff</p>
+        <ul>
+          <li class="list-bullet">consider the community sentence plan and the prisoner’s likely compliance</li>
+          <li class="list-bullet">specific objectives for adult and child safeguarding concerns</li>
+          <li class="list-bullet">social capital, not just risks</li>
+        </ul>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
