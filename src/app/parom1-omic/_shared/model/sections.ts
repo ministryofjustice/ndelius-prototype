@@ -85,7 +85,7 @@ export function sections(): Array<ISection> {
       state: 'hearingConsiderations'
     },
     {
-      route: '/parom1-omic/seources',
+      route: '/parom1-omic/sources',
       label: 'Sources',
       state: 'sources'
     },
