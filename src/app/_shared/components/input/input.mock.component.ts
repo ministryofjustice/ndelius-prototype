@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
-  template: ''
+  template: '<input [id]="name" />'
 })
 export class MockInputComponent {
 
