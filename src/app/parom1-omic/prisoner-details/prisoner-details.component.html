@@ -38,15 +38,15 @@
       </div>
 
       <!-- ANGULAR COMPONENT -->
-      <app-input [group]="reportForm" name="name" required="true" label="Prisoner's full name"
+      <app-input [group]="reportForm" name="name" required="true" [error]="formError" label="Prisoner's full name"
                  errorMessage="Enter the prisoner’s full name"></app-input>
 
       <!-- ANGULAR COMPONENT -->
-      <app-input [group]="reportForm" name="prisonNumber" required="true" label="Prison number"
+      <app-input [group]="reportForm" name="prisonNumber" required="true"[error]="formError" label="Prison number"
                  errorMessage="Enter the prison number"></app-input>
 
       <!-- ANGULAR COMPONENT -->
-      <app-input [group]="reportForm" name="nomisNumber" required="true" label="NOMIS number"
+      <app-input [group]="reportForm" name="nomisNumber" required="true"[error]="formError" label="NOMIS number"
                  errorMessage="Enter the NOMIS number"></app-input>
 
       <!-- ANGULAR COMPONENT -->

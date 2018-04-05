@@ -10,10 +10,12 @@ import { PomSignatureComponent } from './pom-signature.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 
 import * as model from './reducer/pom-signature.reducer';
 
-describe('SFPSR - Component: Signature and date', () => {
+describe('SFPSR - Component: Signature and date (POM)', () => {
 
   let fixture: ComponentFixture<PomSignatureComponent>;
   let component: PomSignatureComponent;
@@ -25,6 +27,8 @@ describe('SFPSR - Component: Signature and date', () => {
         PomSignatureComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
+        MockFormErrorComponent,
+        MockInputComponent,
         MockErrorMessagesComponent
       ],
       imports: [

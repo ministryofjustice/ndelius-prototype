@@ -59,8 +59,9 @@
         <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
           <p>The VPS should be submitted with this report if possible.</p>
         </div>
-        <br/>
       </app-radio-buttons>
+
+      <br/>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="impactOfOffence"

@@ -9,36 +9,29 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
-
-      <p>See highlighted errors below</p>
-
-      <p class="error-message" *ngIf="reportForm.get('reportAuthor').errors">Enter the report author</p>
-      <p class="error-message" *ngIf="reportForm.get('division').errors">Enter the NPS Division and LDU</p>
-      <p class="error-message" *ngIf="reportForm.get('address').errors">Enter the office address</p>
-      <p class="error-message" *ngIf="reportForm.get('email').errors">Enter the email address</p>
-      <p class="error-message" *ngIf="reportForm.get('phone').errors">Enter the telephone number and extension</p>
-      <p class="error-message" *ngIf="reportForm.get('reportDate').errors">Enter the report date</p>
-    </div>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'reportAuthor', error: 'Enter the report author' },
+                    { name: 'division', error: 'Enter the NPS Division and LDU' },
+                    { name: 'address', error: 'Enter the office address' },
+                    { name: 'email', error: 'Enter the email address' },
+                    { name: 'phone', error: 'Enter the telephone number and extension' },
+                    { name: 'reportDate', error: 'Enter the report date' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }">
-        <label for="reportAuthor">
-          <span class="form-label-bold">Name of the report writer</span>
-        </label>
-        <app-error-messages control="reportAuthor" message="Enter the name of the report writer" [active]="(reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('reportAuthor').touched || formError) && reportForm.get('reportAuthor').errors }" type="text" role="textbox" id="reportAuthor" formControlName="reportAuthor" value="" maxlength="250" aria-described-by="reportAuthor_error" aria-required="true" required />
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="reportAuthor" [error]="formError" required="true"
+                 label="Name"
+                 errorMessage="Enter the report author"></app-input>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('division').touched || formError) && reportForm.get('division').errors }">
-        <label for="division">
-          <span class="form-label-bold">NPS Division and LDU</span>
-        </label>
-        <app-error-messages control="division" message="Enter the NPS Division and LDU" [active]="(reportForm.get('division').touched || formError) && reportForm.get('division').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('division').touched || formError) && reportForm.get('division').errors }" type="text" role="textbox" id="division" formControlName="division" value="" maxlength="250" aria-described-by="division_error" aria-required="true" required />
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="division" [error]="formError" required="true"
+                 label="NPS Division and LDU"
+                 errorMessage="Enter the NPS Division and LDU"></app-input>
 
       <div class="form-group half-width" [ngClass]="{ 'form-group-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }">
         <label for="address" class="form-label-bold">Office address</label>
@@ -46,21 +39,19 @@
         <textarea class="form-control classic wide" [ngClass]="{ 'form-control-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }" type="text" role="textbox" id="address" formControlName="address" aria-described-by="address_error" aria-required="true" required></textarea>
       </div>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('email').touched || formError) && reportForm.get('email').errors }">
-        <label for="email">
-          <span class="form-label-bold">Email address</span>
-        </label>
-        <app-error-messages control="email" message="Enter the email address" [active]="(reportForm.get('email').touched || formError) && reportForm.get('email').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('email').touched || formError) && reportForm.get('email').errors }" type="text" role="textbox" id="email" formControlName="email" value="" maxlength="250" aria-described-by="email_error" aria-required="true" required />
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="email" [error]="formError" required="true"
+                 label="Email address"
+                 errorMessage="Enter the email address"></app-input>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('phone').touched || formError) && reportForm.get('phone').errors }">
-        <label for="phone">
-          <span class="form-label-bold">Telephone number and extension</span>
-        </label>
-        <app-error-messages control="phone" message="Enter the telephone number and extension" [active]="(reportForm.get('phone').touched || formError) && reportForm.get('phone').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('phone').touched || formError) && reportForm.get('phone').errors }" type="text" role="textbox" id="phone" formControlName="phone" value="" maxlength="250" aria-described-by="phone_error" aria-required="true" required />
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="phone" [error]="formError" required="true"
+                 label="Telephone number and extension"
+                 errorMessage="Enter the telephone number and extension"></app-input>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="counterSignature"
+                 label="Name of counter signature (if required)"></app-input>
 
       <div class="form-group">
         <label for="counterSignature">
@@ -74,14 +65,11 @@
         <input class="form-control half-width no-border" id="startDate" formControlName="startDate" type="text" aria-readonly="true" readonly />
       </div>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors }">
-        <label for="reportDate">
-          <span class="form-label-bold">Completion date</span>
-          <span class="form-hint">For example: 28/06/2017</span>
-        </label>
-        <app-error-messages control="reportDate" message="Enter the report date" [active]="(reportForm.get('reportDate').touched || formError) && reportForm.get('reportDate').errors"></app-error-messages>
-        <input class="form-control date-picker" type="text" role="textbox" id="reportDate" formControlName="reportDate" maxlength="10" aria-described-by="reportDate_error" aria-required="true" required />
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="reportDate" [error]="formError" required="true" date="true"
+                 label="Completion date"
+                 help="For example: 28/06/2017"
+                 errorMessage="Enter the report date"></app-input>
 
       <input class="button button-start margin-top medium" id="nextButton" type="submit" value="Submit and view your report" />
 
