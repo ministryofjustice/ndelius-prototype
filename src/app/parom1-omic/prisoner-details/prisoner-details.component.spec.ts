@@ -9,7 +9,11 @@ import { PrisonerDetailsComponent } from './prisoner-details.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
-import { MockFooterComponent } from '../../_shared/components/footer.mock.component';
+import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
+import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/prisoner-details.reducer';
 
@@ -26,6 +30,10 @@ describe('PAROM1-OMIC - Component: Prisoner details', () => {
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
+        MockFormErrorComponent,
+        MockInputComponent,
+        MockRadioButtonsComponent,
+        MockThreeFieldDateComponent,
         MockFooterComponent
       ],
       imports: [

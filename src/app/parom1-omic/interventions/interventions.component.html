@@ -9,19 +9,20 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-      <p class="error-message" *ngIf="reportForm.get('interventionsList').errors">List the interventions the prisoner has completed</p>
-      <p class="error-message" *ngIf="reportForm.get('interventionsSummary').errors">Enter the interventions summary</p>
-    </div>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'interventionsList', error: 'List the interventions the prisoner has completed' },
+                    { name: 'interventionsSummary', error: 'Enter the interventions summary' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="interventionsList"
                       label="List the interventions the prisoner has completed, in chronological order"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('interventionsList').errors"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="List the interventions the prisoner has completed">
         <ul>
           <li class="list-bullet">those designed to reduce risk</li>
@@ -35,7 +36,7 @@
       <app-text-entry [group]="reportForm" name="interventionsSummary"
                       label="Interventions summary"
                       help="Include the prisoner’s application of learning and the impact of this. Link this to future risk"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('interventionsSummary').errors"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="Enter the interventions summary">
       </app-text-entry>
 

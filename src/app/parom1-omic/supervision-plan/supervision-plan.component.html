@@ -9,11 +9,10 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-      <p class="error-message" *ngIf="reportForm.get('supervisionPlanForRelease').errors">Enter the supervision plan for release</p>
-    </div>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[{ name: 'supervisionPlanForRelease', error: 'Enter the supervision plan for release' }]">
+    </app-form-error>
 
     <div class="notice margin-bottom large">
       <i class="icon icon-important">
@@ -24,14 +23,12 @@
       </strong>
     </div>
 
-    <br/>
-
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="supervisionPlanForRelease"
                       label="Supervision plan for release"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('supervisionPlanForRelease').errors" errorMessage="Enter the supervision plan for release">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the supervision plan for release">
         <ul>
           <li class="list-bullet">consider the community sentence plan and the prisoner’s likely compliance</li>
           <li class="list-bullet">specific objectives for adult and child safeguarding concerns</li>

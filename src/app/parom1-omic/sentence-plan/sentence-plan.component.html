@@ -9,17 +9,14 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-      <p class="error-message" *ngIf="reportForm.get('screenedDate').errors">Enter the sentence plan objectives and their progress</p>
-    </div>
-
-    <br/>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[{ name: 'screenedDate', error: 'Enter the sentence plan objectives and their progress' }]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <!-- Angular component -->
+      <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="sentencePlanObjectives"
                       label="Detail the prisoner's sentence plan objectives and their progress"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('screenedDate').errors" errorMessage="Enter the sentence plan objectives and their progress">

@@ -26,6 +26,7 @@ import { CheckReportComponent } from './check-report/check-report.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 
 import { PomPrisonerKnowledgeComponent } from './pom-prisoner-knowledge/pom-prisoner-knowledge.component';
+import { PomRecommendationComponent } from './pom-recommendation/pom-recommendation.component';
 import { PomSignatureComponent } from './pom-signature/pom-signature.component';
 
 const routes: Routes = [
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'report-complete', data: { title: 'Report complete' }, component: ReportCompleteComponent },
 
   { path: 'pom-prisoner-knowledge', data: { title: 'Prisoner knowledge and contact' }, component: PomPrisonerKnowledgeComponent },
+  { path: 'pom-recommendation', data: { title: 'Prisoner knowledge and contact' }, component: PomRecommendationComponent },
   { path: 'pom-signature', data: { title: 'Sign and date your report' }, component: PomSignatureComponent },
   { path: '**', redirectTo: 'start-report', pathMatch: 'full' }
 ];

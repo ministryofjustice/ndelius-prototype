@@ -16,11 +16,4 @@ export class MockTextEntryComponent {
   @Input('required') public required: boolean;
   @Input('limit') public limit: number;
 
-  /**
-   * @constructor
-   */
-  constructor() {
-    // Empty
-  }
-
 }

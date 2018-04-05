@@ -94,6 +94,12 @@ export function sections(): Array<ISection> {
       route: '/parom1-omic/pom-prisoner-knowledge',
       label: 'Prisoner knowledge and contact',
       state: 'pomPrisonerKnowledge'
+    },
+    {
+      hide: true,
+      route: '/parom1-omic/pom-recommendation',
+      label: 'Your recommendation',
+      state: 'pomRecommendation'
     }
   ];
 }

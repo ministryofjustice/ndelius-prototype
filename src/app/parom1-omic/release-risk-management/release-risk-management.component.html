@@ -9,11 +9,10 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-      <p class="error-message" *ngIf="reportForm.get('riskManagementPlan').errors">Enter the release risk management plan</p>
-    </div>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[{ name: 'riskManagementPlan', error: 'Enter the release risk management plan' }]">
+    </app-form-error>
 
     <div class="notice margin-bottom large">
       <i class="icon icon-important">
@@ -23,8 +22,6 @@
         You must complete this whether you are supporting the prisoner’s release or not.
       </strong>
     </div>
-
-    <br/>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 

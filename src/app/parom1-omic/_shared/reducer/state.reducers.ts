@@ -20,6 +20,7 @@ import { ISources } from '../../sources/model/sources.model';
 import { ISignature } from '../../signature/model/signature.model';
 
 import { IPomPrisonerKnowledge } from '../../pom-prisoner-knowledge/model/pom-prisoner-knowledge.model';
+import { IPomRecommendation } from '../../pom-recommendation/model/pom-recommendation.model';
 import { IPomSignature } from '../../pom-signature/model/pom-signature.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
@@ -44,6 +45,7 @@ import { signatureReducer } from '../../signature/reducer/signature.reducer';
 
 import { pomPrisonerKnowledgeReducer } from '../../pom-prisoner-knowledge/reducer/pom-prisoner-knowledge.reducer';
 import { pomSignatureReducer } from '../../pom-signature/reducer/pom-signature.reducer';
+import { pomRecommendationReducer } from '../../pom-recommendation/reducer/pom-recommendation.reducer';
 
 /**
  * Main state interface
@@ -67,6 +69,7 @@ export interface IState {
   signature: ISignature;
 
   pomPrisonerKnowledge: IPomPrisonerKnowledge;
+  pomRecommendation: IPomRecommendation;
   pomSignature: IPomSignature;
 }
 
@@ -93,6 +96,7 @@ export const reducers: ActionReducerMap<IState> = {
   signature: signatureReducer,
 
   pomPrisonerKnowledge: pomPrisonerKnowledgeReducer,
+  pomRecommendation: pomRecommendationReducer,
   pomSignature: pomSignatureReducer
 };
 

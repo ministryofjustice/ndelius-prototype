@@ -80,7 +80,7 @@ export class PrisonerDetailsComponent implements OnDestroy {
     this.formError = !valid;
 
     const updatedValue = Object.assign(value, { saved: true, valid: valid,
-      prison: (<HTMLInputElement>document.getElementById('prison')).value, });
+      prison: (<HTMLInputElement>document.getElementById('prison')).value.trim(), });
 
     this.store.dispatch(new UpdatePrisonerDetailsAction(updatedValue));
 

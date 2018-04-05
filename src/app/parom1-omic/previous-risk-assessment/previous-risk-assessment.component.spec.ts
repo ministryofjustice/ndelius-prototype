@@ -9,8 +9,10 @@ import { PreviousRiskAssessmentComponent } from './previous-risk-assessment.comp
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
-import { MockFooterComponent } from '../../_shared/components/footer.mock.component';
+import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/previous-risk-assessment.reducer';
 
@@ -28,6 +30,8 @@ describe('PAROM1-OMIC - Component: Previous risk assessment', () => {
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
         MockFooterComponent,
+        MockFormErrorComponent,
+        MockThreeFieldDateComponent,
         MockTextEntryComponent
       ],
       imports: [
