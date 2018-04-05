@@ -9,8 +9,9 @@ import { InterventionsComponent } from './interventions.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
-import { MockFooterComponent } from '../../_shared/components/footer.mock.component';
+import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 
 import * as model from './reducer/interventions.reducer';
 
@@ -28,6 +29,7 @@ describe('PAROM1-OMIC - Component: Interventions', () => {
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
         MockFooterComponent,
+        MockFormErrorComponent,
         MockTextEntryComponent
       ],
       imports: [

@@ -1,0 +1,22 @@
+<div class="form-group margin-bottom" [formGroup]="group" [ngClass]="{ 'form-group-error': required && error && group.get(name).errors }">
+  <fieldset>
+
+    <legend class="form-label-bold">{{label}}</legend>
+    <span class="form-hint" *ngIf="help">{{help}}</span>
+    <app-error-messages control="sentence" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
+
+    <div class="margin-top medium"></div>
+
+    <ng-template ngFor let-option [ngForOf]="options" let-index="index">
+
+      <div class="multiple-choice">
+        <input [id]="name + '-radio-' + index" type="radio" [formControlName]="name" [value]="option" [attr.aria-checked]="group.get(name).value === option" />
+        <label [for]="name + '-radio-' + index">{{option}}</label>
+      </div>
+
+    </ng-template>
+
+  </fieldset>
+
+  <ng-content></ng-content>
+</div>

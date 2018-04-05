@@ -27,6 +27,7 @@ import { CheckReportComponent } from './check-report/check-report.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { PomPrisonerKnowledgeComponent } from './pom-prisoner-knowledge/pom-prisoner-knowledge.component';
 import { PomSignatureComponent } from './pom-signature/pom-signature.component';
+import { PomRecommendationComponent } from './pom-recommendation/pom-recommendation.component';
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { PomSignatureComponent } from './pom-signature/pom-signature.component';
     ReportCompleteComponent,
 
     PomPrisonerKnowledgeComponent,
+    PomRecommendationComponent,
     PomSignatureComponent
   ]
 })

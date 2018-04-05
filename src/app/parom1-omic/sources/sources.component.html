@@ -9,13 +9,14 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-      <p class="error-message" *ngIf="reportForm.get('reportsAssessmentsDirections').errors">List all the reports, assessments and directions you have used</p>
-      <p class="error-message" *ngIf="reportForm.get('sourceLimitations').errors">Specify whether there are any omissions or limitations</p>
-      <p class="error-message" *ngIf="reportForm.get('sourceLimitationExplanation').errors">Provide an explanation</p>
-    </div>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'sourceLimitations', error: 'Specify whether there are any omissions or limitations' },
+                    { name: 'sourceLimitationExplanation', error: 'Provide an explanation' },
+                    { name: 'reportsAssessmentsDirections', error: 'List all the reports, assessments and directions you have used' }
+                    ]">
+    </app-form-error>
 
    <p class="lede">Site all sources of information used to inform this PARAM 1</p>
 
@@ -46,10 +47,28 @@
 
       </fieldset>
 
+      <!-- ANGULAR COMPONENT -->
+      <app-radio-buttons [group]="reportForm" name="sourceLimitations" [options]="['Yes', 'No']" required="true" [error]="formError"
+                         label="Has any information not been made available to you or are there any limitations to the sources?"
+                         errorMessage="Specify whether there are any omissions or limitations">
+
+        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
+
+          <!-- Angular component -->
+          <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"
+                          label="Provide an explanation"
+                          (onSaveContent)="saveContent(reportForm)">
+          </app-text-entry>
+
+        </div>
+      </app-radio-buttons>
+
+      <br/>
+
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="reportsAssessmentsDirections"
                       label="List all the reports, assessments and directions you have used for this PAROM 1"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('reportsAssessmentsDirections').errors" errorMessage="List all the reports, assessments and directions you have used">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="List all the reports, assessments and directions you have used">
         <ul>
           <li class="list-bullet">Interventions/programme reports</li>
           <li class="list-bullet">Approved premises referral</li>
@@ -63,33 +82,6 @@
           <li class="list-bullet">SARA assessment</li>
         </ul>
       </app-text-entry>
-
-      <fieldset>
-        <legend class="form-label-bold">Has any information not been made available to you or are there any limitations to the sources?</legend>
-        <app-error-messages control="sentence" message="Specify whether there are any omissions or limitations" [active]="formError && reportForm.get('sourceLimitations').errors"></app-error-messages>
-
-        <div class="multiple-choice margin-top medium">
-          <input id="radio-1" type="radio" formControlName="sourceLimitations" value="Yes" [attr.aria-checked]="reportForm.get('sourceLimitations').value === 'Yes'" />
-          <label for="radio-1">Yes</label>
-        </div>
-
-        <div class="multiple-choice">
-          <input id="radio-2" type="radio" formControlName="sourceLimitations" value="No" [attr.aria-checked]="reportForm.get('sourceLimitations').value === 'No'" />
-          <label for="radio-2">No</label>
-        </div>
-      </fieldset>
-
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"
-                        label="Provide an explanation"
-                        (onSaveContent)="saveContent(reportForm)">
-        </app-text-entry>
-
-      </div>
-
-      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-parom1-footer></app-parom1-footer>

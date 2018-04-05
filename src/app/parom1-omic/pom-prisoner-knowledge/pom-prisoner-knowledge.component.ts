@@ -46,8 +46,7 @@ export class PomPrisonerKnowledgeComponent implements OnDestroy {
       riskOfAbscondingDetails: [this.reportData.riskOfAbscondingDetails],
       rotl: [this.reportData.rotl, Validators.required],
       rotlDetails: [this.reportData.rotlDetails],
-      furtherInformation: [this.reportData.furtherInformation, Validators.required],
-      recommendation: [this.reportData.recommendation, Validators.required]
+      furtherInformation: [this.reportData.furtherInformation, Validators.required]
     });
   }
 
@@ -55,7 +54,7 @@ export class PomPrisonerKnowledgeComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/pom-signature']);
+    this.router.navigate(['parom1-omic/pom-recommendation']);
   }
 
   /**

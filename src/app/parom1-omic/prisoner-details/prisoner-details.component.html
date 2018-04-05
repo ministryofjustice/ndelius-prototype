@@ -9,167 +9,94 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-      <p class="error-message" *ngIf="reportForm.get('prison').errors">Enter the prison or Young Offender Institution</p>
-      <p class="error-message" *ngIf="reportForm.get('name').errors">Enter the prisoner’s full name</p>
-      <p class="error-message" *ngIf="reportForm.get('prisonNumber').errors">Enter the prison number</p>
-      <p class="error-message" *ngIf="reportForm.get('nomisNumber').errors">Enter the NOMIS number</p>
-      <p class="error-message" *ngIf="reportForm.get('category').errors">Select the prisoner’s category</p>
-      <p class="error-message" *ngIf="reportForm.get('sentence').errors">Enter the sentence</p>
-      <p class="error-message" *ngIf="reportForm.get('sentenceType').errors">Select the sentence type</p>
-    </div>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'prison', error: 'Enter the prison or Young Offender Institution' },
+                    { name: 'name', error: 'Enter the prisoner’s full name' },
+                    { name: 'prisonNumber', error: 'Enter the prison number' },
+                    { name: 'nomisNumber', error: 'Enter the NOMIS number' },
+                    { name: 'category', error: 'Select the prisoner’s category' },
+                    { name: 'sentence', error: 'Enter the sentence' },
+                    { name: 'sentenceType', error: 'Select the sentence type' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group half-width" [ngClass]="{ 'form-group-error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
+      <div class="form-group half-width"
+           [ngClass]="{ 'form-group-error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
 
         <label for="prison" class="form-label-bold">Prison or Young Offender Institution</label>
-        <app-error-messages control="prison" message="Enter the prison or Young Offender Institution" [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
+        <app-error-messages control="prison" message="Enter the prison or Young Offender Institution"
+                            [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
         <select formControlName="prison" id="prison" class="form-control auto-complete">
-          <option *ngFor="let placeName of prisonsAndYoungOffenderInstitutions" [ngValue]="placeName">{{placeName}}</option>
+          <option *ngFor="let placeName of prisonsAndYoungOffenderInstitutions" [ngValue]="placeName">{{placeName}}
+          </option>
         </select>
 
       </div>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('name').touched || formError) && reportForm.get('name').errors }">
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="name" required="true" label="Prisoner's full name"
+                 errorMessage="Enter the prisoner’s full name"></app-input>
 
-        <label for="name" class="form-label-bold">Prisoner's full name</label>
-        <app-error-messages control="name" message="Enter the prisoner’s full name" [active]="(reportForm.get('name').touched || formError) && reportForm.get('name').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('name').touched || formError) && reportForm.get('name').errors }" type="text" role="textbox" id="name" formControlName="name" maxlength="250" aria-described-by="name_error" aria-required="true" required />
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="prisonNumber" required="true" label="Prison number"
+                 errorMessage="Enter the prison number"></app-input>
 
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="nomisNumber" required="true" label="NOMIS number"
+                 errorMessage="Enter the NOMIS number"></app-input>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('prisonNumber').touched || formError) && reportForm.get('prisonNumber').errors }">
+      <!-- ANGULAR COMPONENT -->
+      <app-radio-buttons [group]="reportForm" name="category"
+                         [options]="['Category A', 'Category B', 'Category C', 'Category D']" required="true"
+                         [error]="formError"
+                         label="Prisoner's category" errorMessage="Select the prisoner's category">
+        <br/>
+      </app-radio-buttons>
 
-        <label for="prisonNumber" class="form-label-bold">Prison number</label>
-        <app-error-messages control="prisonNumber" message="Enter the prison number" [active]="(reportForm.get('prisonNumber').touched || formError) && reportForm.get('prisonNumber').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('prisonNumber').touched || formError) && reportForm.get('prisonNumber').errors }" type="text" role="textbox" id="prisonNumber" formControlName="prisonNumber" maxlength="25" aria-described-by="prisonNumber_error" aria-required="true" required />
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="sentence" required="true" [error]="formError" label="Sentence"
+                 errorMessage="Enter the sentence"></app-input>
 
-      </div>
-
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('nomisNumber').touched || formError) && reportForm.get('nomisNumber').errors }">
-
-        <label for="nomisNumber" class="form-label-bold">NOMIS number</label>
-        <app-error-messages control="nomisNumber" message="Enter the NOMIS number" [active]="(reportForm.get('nomisNumber').touched || formError) && reportForm.get('nomisNumber').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('nomisNumber').touched || formError) && reportForm.get('nomisNumber').errors }" type="text" role="textbox" id="nomisNumber" formControlName="nomisNumber" maxlength="25" aria-described-by="nomisNumber_error" aria-required="true" required />
-
-      </div>
-
-      <div class="form-group margin-bottom" [ngClass]="{ 'form-group-error': formError && reportForm.get('category').errors }">
-        <fieldset>
-
-          <legend class="form-label-bold">Prisoner's category</legend>
-          <app-error-messages control="sentence" message="Select the prisoner's category" [active]="formError && reportForm.get('category').errors"></app-error-messages>
-
-          <div class="multiple-choice margin-top medium">
-            <input id="radio-1" type="radio" formControlName="category" value="A" [attr.aria-checked]="reportForm.get('category').value === 'A'" />
-            <label for="radio-1">Category A</label>
-          </div>
-
-          <div class="multiple-choice">
-            <input id="radio-2" type="radio" formControlName="category" value="B" [attr.aria-checked]="reportForm.get('category').value === 'B'" />
-            <label for="radio-2">Category B</label>
-          </div>
-          <br>
-          <div class="multiple-choice">
-            <input id="radio-3" type="radio" formControlName="category" value="C" [attr.aria-checked]="reportForm.get('category').value === 'C'" />
-            <label for="radio-3">Category C</label>
-          </div>
-          <div class="multiple-choice">
-            <input id="radio-4" type="radio" formControlName="category" value="D" [attr.aria-checked]="reportForm.get('category').value === 'D'" />
-            <label for="radio-4">Category D</label>
-          </div>
-        </fieldset>
-      </div>
-
-      <br/>
-
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('sentence').touched || formError) && reportForm.get('sentence').errors }">
-        <label for="sentence">
-          <span class="form-label-bold">Sentence</span>
-        </label>
-        <app-error-messages control="sentence" message="Enter the sentence" [active]="(reportForm.get('sentence').touched || formError) && reportForm.get('sentence').errors"></app-error-messages>
-        <input class="form-control half-width" [ngClass]="{ 'form-control-error': (reportForm.get('sentence').touched || formError) && reportForm.get('sentence').errors }" type="text" role="textbox" id="sentence" formControlName="sentence" value="" maxlength="250" aria-described-by="sentence_error" aria-required="true" required />
-      </div>
-
-      <div class="form-group margin-bottom" [ngClass]="{ 'form-group-error': formError && reportForm.get('sentenceType').errors }">
-        <fieldset>
-
-          <legend class="form-label-bold">Sentence type</legend>
-          <app-error-messages control="sentence" message="Select the sentence type" [active]="formError && reportForm.get('sentenceType').errors"></app-error-messages>
-
-          <div class="multiple-choice margin-top medium">
-            <input id="radio-5" type="radio" formControlName="sentenceType" value="Determinate" [attr.aria-checked]="reportForm.get('sentenceType').value === 'Determinate'" />
-            <label for="radio-5">Determinate</label>
-          </div>
-
-          <div class="multiple-choice">
-            <input id="radio-6" type="radio" formControlName="sentenceType" value="Indeterminate" [attr.aria-checked]="reportForm.get('sentenceType').value === 'Indeterminate'" />
-            <label for="radio-6">Indeterminate</label>
-          </div>
-          <br>
-        </fieldset>
+      <!-- ANGULAR COMPONENT -->
+      <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Determinate', 'Indeterminate']"
+                         required="true" [error]="formError"
+                         label="Prisoner's category" errorMessage="Select the sentence type">
 
         <!-- DETERMINATE -->
-        <div class="panel panel-border-narrow" [formGroup]="reportForm.get('determinateReleaseDate')" [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }" [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
-          <fieldset>
-            <legend>
-              <span class="form-label-bold">Automatic release date / non parole eligibility date</span>
-              <span class="form-hint">For example, 31 3 2018</span>
-            </legend>
-            <div class="form-date">
-              <div class="form-group form-group-day">
-                <label class="form-label" for="dob-day">Day</label>
-                <input class="form-control" id="dob-day" name="dob-day" formControlName="day" type="number" pattern="[0-9]*" min="0" max="31" />
-              </div>
-              <div class="form-group form-group-month">
-                <label class="form-label" for="dob-month">Month</label>
-                <input class="form-control" id="dob-month" name="dob-month" formControlName="month" type="number" pattern="[0-9]*" min="0" max="12" />
-              </div>
-              <div class="form-group form-group-year">
-                <label class="form-label" for="dob-year">Year</label>
-                <input class="form-control" id="dob-year" name="dob-year" formControlName="year" type="number" pattern="[0-9]*" min="0" max="2016" />
-              </div>
-            </div>
-          </fieldset>
+        <div class="panel panel-border-narrow"
+             [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
+             [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
+
+          <!-- ANGULAR COMPONENT -->
+          <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
+                                label="Automatic release date / non parole eligibility date"
+                                help="For example, 31 3 2018"></app-three-field-date>
         </div>
 
         <!-- INDETERMINATE -->
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }" [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
+        <div class="panel panel-border-narrow"
+             [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
+             [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
 
           <div class="form-group">
 
             <label for="tariffLength" class="form-label-bold">Tariff length</label>
-            <input class="form-control half-width" type="text" role="textbox" id="tariffLength" formControlName="tariffLength" maxlength="250" />
+            <input class="form-control half-width" type="text" role="textbox" id="tariffLength"
+                   formControlName="tariffLength" maxlength="250"/>
 
           </div>
 
-          <fieldset [formGroup]="reportForm.get('tariffExpiryDate')">
-            <legend>
-              <span class="form-label-bold">Tariff expiry date</span>
-              <span class="form-hint">For example, 31 3 2018</span>
-            </legend>
-            <div class="form-date">
-              <div class="form-group form-group-day">
-                <label class="form-label" for="tariff-day">Day</label>
-                <input class="form-control" id="tariff-day" name="dob-day" formControlName="day" type="number" pattern="[0-9]*" min="0" max="31" />
-              </div>
-              <div class="form-group form-group-month">
-                <label class="form-label" for="tariff-month">Month</label>
-                <input class="form-control" id="tariff-month" name="dob-month" formControlName="month" type="number" pattern="[0-9]*" min="0" max="12" />
-              </div>
-              <div class="form-group form-group-year">
-                <label class="form-label" for="tariff-year">Year</label>
-                <input class="form-control" id="tariff-year" name="dob-year" formControlName="year" type="number" pattern="[0-9]*" min="0" max="2016" />
-              </div>
-            </div>
-          </fieldset>
+          <!-- ANGULAR COMPONENT -->
+          <app-three-field-date [group]="reportForm" name="tariffExpiryDate"
+                                label="Tariff expiry date" help="For example, 31 3 2018"></app-three-field-date>
 
         </div>
 
-      </div>
+      </app-radio-buttons>
 
       <br/>
 

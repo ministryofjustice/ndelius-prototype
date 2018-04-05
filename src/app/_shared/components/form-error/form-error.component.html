@@ -1,0 +1,8 @@
+<div class="error-summary no-margin-top" *ngIf="error">
+  <h2 class="heading-medium no-margin-top">There is a problem</h2>
+
+  <ng-template ngFor let-control [ngForOf]="controls" let-index="index">
+    <p class="error-message" *ngIf="group.get(control.name).errors || !group.get(control.name).valid">{{control.error}}</p>
+  </ng-template>
+
+</div>

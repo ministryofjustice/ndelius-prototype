@@ -9,11 +9,10 @@
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-      <p class="error-message" *ngIf="reportForm.get('yourRecommendation').errors">Enter your recommendation</p>
-    </div>
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[{ name: 'yourRecommendation', error: 'Enter your recommendation' }]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -21,7 +20,8 @@
       <app-text-entry [group]="reportForm" name="yourRecommendation"
                       label="Your recommendation"
                       [limit]="4000"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('yourRecommendation').errors" errorMessage="Enter your recommendation">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your recommendation">
+        <p>This definitely needs some extra info on what to consider etc.</p>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

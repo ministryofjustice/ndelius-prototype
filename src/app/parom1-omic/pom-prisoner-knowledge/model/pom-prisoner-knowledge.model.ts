@@ -6,7 +6,6 @@ export interface IPomPrisonerKnowledge {
   rotl: string;
   rotlDetails: string;
   furtherInformation: string;
-  recommendation: string;
   saved: boolean;
   valid: boolean;
 }

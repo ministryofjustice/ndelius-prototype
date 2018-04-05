@@ -11,7 +11,6 @@ export const initialState: IPomPrisonerKnowledge = {
   rotl: '',
   rotlDetails: '',
   furtherInformation: '',
-  recommendation: '',
   saved: false,
   valid: false
 };
