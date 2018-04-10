@@ -16,6 +16,7 @@
                     { name: 'riskKnownAdult', error: 'Select the risk to any known adult' },
                     { name: 'riskChildren', error: 'Select the risk to children' },
                     { name: 'riskPrisoners', error: 'Select the risk to prisoners' },
+                    { name: 'riskStaff', error: 'Select the risk to staff' },
                     { name: 'riskSelf', error: 'Select whether the prisoner has been assessed as posing a risk of harm to themselves whilst in custody' },
                     { name: 'riskOthers', error: 'Select whether the prisoner has been assessed as posing a risk of harm to others whilst in custody' }
                     ]">
@@ -38,6 +39,10 @@
       <br/>
 
       <app-radio-buttons [group]="reportForm" name="riskPrisoners" label="Prisoners" [error]="formError" errorMessage="Select the risk to prisoners" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" name="riskStaff" label="Staff" [error]="formError" errorMessage="Select the risk to staff" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
       <br/>
 
