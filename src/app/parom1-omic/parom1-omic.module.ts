@@ -15,7 +15,10 @@ import { PersonalityDisorderPathwayComponent } from './personality-disorder-path
 import { InterventionsComponent } from './interventions/interventions.component';
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
 import { MappaComponent } from './mappa/mappa.component';
-import { CurrentRiskAssessmentComponent } from './current-risk-assessment/current-risk-assessment.component';
+import { RiskReoffendingComponent } from './risk-reoffending/risk-reoffending.component';
+import { RiskCommunityComponent } from './risk-community/risk-community.component';
+import { RiskCustodyComponent } from './risk-custody/risk-custody.component';
+import { RiskSeriousHarmComponent } from './risk-serious-harm/risk-serious-harm.component';
 import { ReleaseRiskManagementComponent } from './release-risk-management/release-risk-management.component';
 import { ResettlementPlanComponent } from './resettlement-plan/resettlement-plan.component';
 import { SupervisionPlanComponent } from './supervision-plan/supervision-plan.component';
@@ -47,7 +50,10 @@ import { PomRecommendationComponent } from './pom-recommendation/pom-recommendat
     InterventionsComponent,
     SentencePlanComponent,
     MappaComponent,
-    CurrentRiskAssessmentComponent,
+    RiskReoffendingComponent,
+    RiskCommunityComponent,
+    RiskCustodyComponent,
+    RiskSeriousHarmComponent,
     ReleaseRiskManagementComponent,
     ResettlementPlanComponent,
     SupervisionPlanComponent,

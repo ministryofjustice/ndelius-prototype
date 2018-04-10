@@ -55,9 +55,24 @@ export function sections(): Array<ISection> {
       state: 'mappa'
     },
     {
-      route: '/parom1-omic/current-risk-assessment',
-      label: 'Current risk assessment',
-      state: 'currentRiskAssessment'
+      route: '/parom1-omic/risk-reoffending',
+      label: 'Risk of re-offending',
+      state: 'riskReoffending'
+    },
+    {
+      route: '/parom1-omic/risk-community',
+      label: 'Risk within the community',
+      state: 'riskCommunity'
+    },
+    {
+      route: '/parom1-omic/risk-custody',
+      label: 'Risk whilst in custody',
+      state: 'riskCustody'
+    },
+    {
+      route: '/parom1-omic/risk-serious-harm',
+      label: 'Risk of serious harm',
+      state: 'riskSeriousHarm'
     },
     {
       route: '/parom1-omic/release-risk-management',

@@ -1,0 +1,58 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Risk whilst in custody</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'riskPublic', error: 'Select the risk to public' },
+                    { name: 'riskKnownAdult', error: 'Select the risk to any known adult' },
+                    { name: 'riskChildren', error: 'Select the risk to children' },
+                    { name: 'riskPrisoners', error: 'Select the risk to prisoners' },
+                    { name: 'riskSelf', error: 'Select whether the prisoner has been assessed as posing a risk of harm to themselves whilst in custody' },
+                    { name: 'riskOthers', error: 'Select whether the prisoner has been assessed as posing a risk of harm to others whilst in custody' }
+                    ]">
+    </app-form-error>
+
+    <p class="lede no-margin-top">Specify the prisoner's current risk of serious harm whilst in custody</p>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <app-radio-buttons [group]="reportForm" name="riskPublic" [error]="formError" label="Public" errorMessage="Select the risk to public" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br />
+
+      <app-radio-buttons [group]="reportForm" name="riskKnownAdult" label="Known adult" [error]="formError" errorMessage="Select the risk to any known adult" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" name="riskChildren" label="Children" [error]="formError" errorMessage="Select the risk to children" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" name="riskPrisoners" label="Prisoners" [error]="formError" errorMessage="Select the risk to prisoners" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" name="riskSelf" label="Has the prisoner been assessed as posing a risk of harm to themselves whilst in custody?" [error]="formError" errorMessage="Select whether the prisoner has been assessed as posing a risk of harm to themselves whilst in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" name="riskOthers" label="Has the prisoner been assessed as posing a risk of harm to others whilst in custody?" [error]="formError" errorMessage="Select whether the prisoner has been assessed as posing a risk of harm to others whilst in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-parom1-footer></app-parom1-footer>
+
+    </form>
+
+  </div>
+</div>
