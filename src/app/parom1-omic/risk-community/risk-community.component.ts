@@ -5,20 +5,19 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { UpdatePreviousRiskAssessmentAction } from './action/previous-risk-assessment.action';
-import { IPreviousRiskAssessment } from './model/previous-risk-assessment.model';
-import { getPreviousRiskAssessment } from './reducer/previous-risk-assessment.reducer';
-
+import { UpdateRiskCommunityAction } from './action/risk-community.action';
+import { IRiskCommunity } from './model/risk-community.model';
+import { getRiskCommunity } from './reducer/risk-community.reducer';
 
 @Component({
-  selector: 'app-previous-risk-assessment',
-  templateUrl: './previous-risk-assessment.component.html'
+  selector: 'app-risk-community',
+  templateUrl: './risk-community.component.html'
 })
-export class PreviousRiskAssessmentComponent implements OnDestroy {
+export class RiskCommunityComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
 
-  reportData: IPreviousRiskAssessment;
+  reportData: IRiskCommunity;
   reportForm: FormGroup;
   formError: boolean;
 
@@ -28,8 +27,8 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
    * @param {FormBuilder} formBuilder
    * @param {Store<IPrisonerKnowledge>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPreviousRiskAssessment>) {
-    this.stateSubscriber = store.select(getPreviousRiskAssessment).subscribe(data => {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskCommunity>) {
+    this.stateSubscriber = store.select(getRiskCommunity).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -40,15 +39,12 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      attitude: [this.reportData.attitude, Validators.required],
-      previousDate: this.formBuilder.group({
-        month: [this.reportData.previousDate.month, Validators.required],
-        year: [this.reportData.previousDate.year, Validators.required]
-      }),
       riskPublic: [this.reportData.riskPublic, Validators.required],
       riskKnownAdult: [this.reportData.riskKnownAdult, Validators.required],
       riskChildren: [this.reportData.riskChildren, Validators.required],
-      riskPrisoners: [this.reportData.riskPrisoners, Validators.required]
+      riskPrisoners: [this.reportData.riskPrisoners, Validators.required],
+      riskSelf: [this.reportData.riskSelf, Validators.required],
+      riskOthers: [this.reportData.riskOthers, Validators.required]
     });
   }
 
@@ -56,15 +52,15 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/victim-issues']);
+    this.router.navigate(['parom1-omic/risk-custody']);
   }
 
   /**
    *
    */
-  saveContent({ value }: { value: IPreviousRiskAssessment }) {
+  saveContent({ value }: { value: IRiskCommunity }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdatePreviousRiskAssessmentAction(updatedValue));
+    this.store.dispatch(new UpdateRiskCommunityAction(updatedValue));
   }
 
   /**
@@ -72,12 +68,12 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
    * @param {boolean} valid
    * @param {IPrisonerKnowledge} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: IPreviousRiskAssessment }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IRiskCommunity }) {
     this.formError = !valid;
 
     const updatedValue = Object.assign(value, { saved: true, valid: valid });
 
-    this.store.dispatch(new UpdatePreviousRiskAssessmentAction(updatedValue));
+    this.store.dispatch(new UpdateRiskCommunityAction(updatedValue));
 
     if (valid) {
       this.continueJourney();

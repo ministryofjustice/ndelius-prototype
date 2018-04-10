@@ -9,6 +9,10 @@ export const initialState: IPreviousRiskAssessment = {
     month: void 0,
     year: void 0
   },
+  riskPublic: '',
+  riskKnownAdult: '',
+  riskChildren: '',
+  riskPrisoners: '',
   attitude: '',
   saved: false,
   valid: false

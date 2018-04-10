@@ -1,10 +1,7 @@
-export interface ICurrentRiskAssessment {
-  riskToThem: string;
-  riskToOthers: string;
+export interface IRiskSeriousHarm {
   seriousHarmOthers: string;
   increaseFactors: string;
   reductionFactors: string;
-  furtherOffending: string;
   saved: boolean;
   valid: boolean;
 }

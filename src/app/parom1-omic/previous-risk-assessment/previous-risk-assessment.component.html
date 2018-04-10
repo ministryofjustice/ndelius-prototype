@@ -9,15 +9,19 @@
   </div>
   <div class="column-two-thirds">
 
-    <p class="lede">This is the risk assessment at the point of sentence for the index offence.</p>
-
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'attitude', error: 'Enter the prisoner\'s attitude to index offence' },
-                    { name: 'previousDate', error: 'Enter the previous risk assessment month and year' }
+                    { name: 'previousDate', error: 'Enter the previous risk assessment month and year' },
+                    { name: 'riskPublic', error: 'Select the risk to public' },
+                    { name: 'riskKnownAdult', error: 'Select the risk to any known adult' },
+                    { name: 'riskChildren', error: 'Select the risk to children' },
+                    { name: 'riskPrisoners', error: 'Select the risk to other prisoners' }
                     ]">
     </app-form-error>
+
+    <p class="lede no-margin-top">This is the risk assessment at the point of sentence for the index offence.</p>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -28,10 +32,23 @@
 
       <br/>
 
-      <div class="form-group">
-        <p class="bold">Previous risk assessment</p>
-        <p>No UI for this yet</p>
-      </div>
+      <p class="lede">Risk factors from the previous risk assessment</p>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPublic" label="Public" errorMessage="Select the risk to public" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskKnownAdult" label="Known adult" errorMessage="Select the risk to any known adult" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskChildren" label="Children" errorMessage="Select the risk to children" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPrisoners" label="Prisoners" errorMessage="Select the risk to other prisoners" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="attitude"
