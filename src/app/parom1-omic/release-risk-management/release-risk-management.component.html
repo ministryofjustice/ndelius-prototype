@@ -11,7 +11,15 @@
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
-                    [controls]="[{ name: 'riskManagementPlan', error: 'Enter the release risk management plan' }]">
+                    [controls]="[
+                    { name: 'agencies', error: '' },
+                    { name: 'support', error: '' },
+                    { name: 'control', error: '' },
+                    { name: 'riskMeasures', error: '' },
+                    { name: 'requirements', error: '' },
+                    { name: 'contactLevel', error: '' },
+                    { name: 'contingencyPlan', error: '' }
+                    ]">
     </app-form-error>
 
     <div class="notice margin-bottom large">
@@ -23,19 +31,62 @@
       </strong>
     </div>
 
+    <p class="lede no-margin-top">Detail the risk management plan (RMP)</p>
+
+    <p class="form-label-bold no-margin-bottom">Include:</p>
+
+    <ul>
+      <li class="list-bullet">Any progressive move, to open or closed conditions, being considered</li>
+      <li class="list-bullet">ROTL condition considerations</li>
+      <li class="list-bullet">MAPPA</li>
+      <li class="list-bullet">Police concerns</li>
+      <li class="list-bullet">Visor</li>
+    </ul>
+
+    <br/>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="riskManagementPlan"
-                      label="Release risk management plan (RMP)"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('riskManagementPlan').errors" errorMessage="Enter the release risk management plan">
-        <ul>
-          <li class="list-bullet">Any progressive move, to open or closed conditions, being considered</li>
-          <li class="list-bullet">ROTL condition considerations</li>
-          <li class="list-bullet">MAPPA</li>
-          <li class="list-bullet">Police concerns</li>
-          <li class="list-bullet">Visor</li>
-        </ul>
+      <app-text-entry [group]="reportForm" name="agencies"
+                      label="Agencies"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="support"
+                      label="Support"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="control"
+                      label="Control"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="riskMeasures"
+                      label="Added measures for specific risks"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="requirements"
+                      label="Additional conditions or requirements"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="contactLevel"
+                      label="Level of contact"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="contingencyPlan"
+                      label="Contingency plan"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

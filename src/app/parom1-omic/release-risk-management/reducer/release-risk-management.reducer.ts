@@ -4,7 +4,14 @@ import { IReleaseRiskManagement } from '../model/release-risk-management.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IReleaseRiskManagement = {
-  riskManagementPlan: '',
+  agencies: '',
+  support: '',
+  control: '',
+  riskMeasures: '',
+  agencyActions: '',
+  requirements: '',
+  contactLevel: '',
+  contingencyPlan: '',
   saved: false,
   valid: false
 };
