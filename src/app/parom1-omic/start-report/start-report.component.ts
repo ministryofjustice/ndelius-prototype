@@ -32,6 +32,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
    * @param {string} role
    */
   select(role: string) {
+    window.scrollTo(0, 0);
     this.currentSelection = role;
   }
 

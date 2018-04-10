@@ -7,12 +7,12 @@
 
 <div class="grid-row choice-container">
   <div class="column-half">
-    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'com' }" (click)="currentSelection = 'com'">
+    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'com' }" (click)="select('com')">
       Community Offender<br/>Manager
     </div>
   </div>
   <div class="column-half">
-    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'pom' }" (click)="currentSelection = 'pom'">
+    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'pom' }" (click)="select('pom')">
       Prison Offender<br/>Manager
     </div>
   </div>
@@ -21,7 +21,8 @@
 <div [ngClass]="{ 'js-hidden': currentSelection === '' }" [attr.aria-hidden]="currentSelection === ''">
   <div class="govuk-interrupt">
 
-    <p class="lede">This is the parole report for the Offender Manager in Custody (OMIC) model. In this service you can:</p>
+    <p class="lede">This is the parole report for the Offender Manager in Custody (OMIC) model.</p>
+    <p class="lede">In this service you can:</p>
 
     <ul class="list-bullet">
       <div *ngIf="currentSelection === 'com'">
