@@ -40,7 +40,14 @@ export class ReleaseRiskManagementComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      riskManagementPlan: [this.reportData.riskManagementPlan, Validators.required]
+      agencies: [this.reportData.agencies, Validators.required],
+      support: [this.reportData.support, Validators.required],
+      control: [this.reportData.control, Validators.required],
+      riskMeasures: [this.reportData.riskMeasures, Validators.required],
+      agencyActions: [this.reportData.agencyActions, Validators.required],
+      requirements: [this.reportData.requirements, Validators.required],
+      contactLevel: [this.reportData.contactLevel, Validators.required],
+      contingencyPlan: [this.reportData.contingencyPlan, Validators.required]
     });
   }
 
