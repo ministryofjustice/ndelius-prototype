@@ -10,6 +10,7 @@ export const initialState: IRiskCommunity = {
   riskChildren: '',
   riskPrisoners: '',
   riskSelf: '',
+  riskStaff: '',
   riskOthers: '',
   saved: false,
   valid: false
