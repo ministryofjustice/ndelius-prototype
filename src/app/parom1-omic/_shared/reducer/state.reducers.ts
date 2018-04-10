@@ -10,7 +10,10 @@ import { IPersonalityDisorderPathway } from '../../personality-disorder-pathway/
 import { IInterventions } from '../../interventions/model/interventions.model';
 import { ISentencePlan } from '../../sentence-plan/model/sentence-plan.model';
 import { IMappa } from '../../mappa/model/mappa.model';
-import { ICurrentRiskAssessment } from '../../current-risk-assessment/model/current-risk-assessment.model';
+import { IRiskReoffending } from '../../risk-reoffending/model/risk-reoffending.model';
+import { IRiskCommunity } from '../../risk-community/model/risk-community.model';
+import { IRiskCustody } from '../../risk-custody/model/risk-custody.model';
+import { IRiskSeriousHarm } from '../../risk-serious-harm/model/risk-serious-harm.model';
 import { IReleaseRiskManagement } from '../../release-risk-management/model/release-risk-management.model';
 import { IResettlementPlan } from '../../resettlement-plan/model/resettlement-plan.model';
 import { ISupervisionPlan } from '../../supervision-plan/model/supervision-plan.model';
@@ -34,7 +37,10 @@ import { personalityDisorderPathwayReducer } from '../../personality-disorder-pa
 import { interventionsReducer } from '../../interventions/reducer/interventions.reducer';
 import { sentencePlanReducer } from '../../sentence-plan/reducer/sentence-plan.reducer';
 import { mappaReducer } from '../../mappa/reducer/mappa.reducer';
-import { currentRiskAssessmentReducer } from '../../current-risk-assessment/reducer/current-risk-assessment.reducer';
+import { riskReoffendingReducer } from '../../risk-reoffending/reducer/risk-reoffending.reducer';
+import { riskCommunityReducer } from '../../risk-community/reducer/risk-community.reducer';
+import { riskCustodyReducer } from '../../risk-custody/reducer/risk-custody.reducer';
+import { riskSeriousHarmReducer } from '../../risk-serious-harm/reducer/risk-serious-harm.reducer';
 import { releaseRiskManagementReducer } from '../../release-risk-management/reducer/release-risk-management.reducer';
 import { resettlementPlanReducer } from '../../resettlement-plan/reducer/resettlement-plan.reducer';
 import { supervisionPlanReducer } from '../../supervision-plan/reducer/supervision-plan.reducer';
@@ -59,7 +65,10 @@ export interface IState {
   interventions: IInterventions;
   sentencePlan: ISentencePlan;
   mappa: IMappa;
-  currentRiskAssessment: ICurrentRiskAssessment;
+  riskReoffending: IRiskReoffending;
+  riskCommunity: IRiskCommunity;
+  riskCustody: IRiskCustody;
+  riskSeriousHarm: IRiskSeriousHarm;
   releaseRiskManagement: IReleaseRiskManagement;
   resettlementPlan: IResettlementPlan;
   supervisionPlan: ISupervisionPlan;
@@ -86,7 +95,10 @@ export const reducers: ActionReducerMap<IState> = {
   interventions: interventionsReducer,
   sentencePlan: sentencePlanReducer,
   mappa: mappaReducer,
-  currentRiskAssessment: currentRiskAssessmentReducer,
+  riskReoffending: riskReoffendingReducer,
+  riskCommunity: riskCommunityReducer,
+  riskCustody: riskCustodyReducer,
+  riskSeriousHarm: riskSeriousHarmReducer,
   releaseRiskManagement: releaseRiskManagementReducer,
   resettlementPlan: resettlementPlanReducer,
   supervisionPlan: supervisionPlanReducer,

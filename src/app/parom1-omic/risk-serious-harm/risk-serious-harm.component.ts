@@ -5,20 +5,19 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { UpdateCurrentRiskAssessmentAction } from './action/current-risk-assessment.action';
-import { ICurrentRiskAssessment } from './model/current-risk-assessment.model';
-import { getPreviousRiskAssessment } from './reducer/current-risk-assessment.reducer';
-
+import { UpdateRiskSeriousHarmAction } from './action/risk-serious-harm.action';
+import { IRiskSeriousHarm } from './model/risk-serious-harm.model';
+import { getRiskSeriousHarm } from './reducer/risk-serious-harm.reducer';
 
 @Component({
-  selector: 'app-current-risk-assessment',
-  templateUrl: './current-risk-assessment.component.html'
+  selector: 'app-risk-serious-harm',
+  templateUrl: './risk-serious-harm.component.html'
 })
-export class CurrentRiskAssessmentComponent implements OnDestroy {
+export class RiskSeriousHarmComponent implements OnDestroy {
 
   private stateSubscriber: Subscription;
 
-  reportData: ICurrentRiskAssessment;
+  reportData: IRiskSeriousHarm;
   reportForm: FormGroup;
   formError: boolean;
 
@@ -28,8 +27,8 @@ export class CurrentRiskAssessmentComponent implements OnDestroy {
    * @param {FormBuilder} formBuilder
    * @param {Store<IPrisonerKnowledge>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<ICurrentRiskAssessment>) {
-    this.stateSubscriber = store.select(getPreviousRiskAssessment).subscribe(data => {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskSeriousHarm>) {
+    this.stateSubscriber = store.select(getRiskSeriousHarm).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -40,12 +39,9 @@ export class CurrentRiskAssessmentComponent implements OnDestroy {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      riskToThem: [this.reportData.riskToThem, Validators.required],
-      riskToOthers: [this.reportData.riskToOthers, Validators.required],
       seriousHarmOthers: [this.reportData.seriousHarmOthers, Validators.required],
       increaseFactors: [this.reportData.increaseFactors, Validators.required],
-      reductionFactors: [this.reportData.reductionFactors, Validators.required],
-      furtherOffending: [this.reportData.furtherOffending, Validators.required]
+      reductionFactors: [this.reportData.reductionFactors, Validators.required]
     });
   }
 
@@ -59,9 +55,9 @@ export class CurrentRiskAssessmentComponent implements OnDestroy {
   /**
    *
    */
-  saveContent({ value }: { value: ICurrentRiskAssessment }) {
+  saveContent({ value }: { value: IRiskSeriousHarm }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateCurrentRiskAssessmentAction(updatedValue));
+    this.store.dispatch(new UpdateRiskSeriousHarmAction(updatedValue));
   }
 
   /**
@@ -69,12 +65,12 @@ export class CurrentRiskAssessmentComponent implements OnDestroy {
    * @param {boolean} valid
    * @param {IPrisonerKnowledge} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: ICurrentRiskAssessment }) {
+  onSubmit({ valid, value }: { valid: boolean, value: IRiskSeriousHarm }) {
     this.formError = !valid;
 
     const updatedValue = Object.assign(value, { saved: true, valid: valid });
 
-    this.store.dispatch(new UpdateCurrentRiskAssessmentAction(updatedValue));
+    this.store.dispatch(new UpdateRiskSeriousHarmAction(updatedValue));
 
     if (valid) {
       this.continueJourney();
