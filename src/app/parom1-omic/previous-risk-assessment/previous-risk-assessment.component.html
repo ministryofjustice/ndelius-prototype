@@ -17,7 +17,8 @@
                     { name: 'riskPublic', error: 'Select the risk to public' },
                     { name: 'riskKnownAdult', error: 'Select the risk to any known adult' },
                     { name: 'riskChildren', error: 'Select the risk to children' },
-                    { name: 'riskPrisoners', error: 'Select the risk to other prisoners' }
+                    { name: 'riskPrisoners', error: 'Select the risk to other prisoners' },
+                    { name: 'riskStaff', error: 'Select the risk to staff' }
                     ]">
     </app-form-error>
 
@@ -47,6 +48,10 @@
       <br/>
 
       <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPrisoners" label="Prisoners" errorMessage="Select the risk to other prisoners" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskStaff" label="Staff" errorMessage="Select the risk to staff" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
       <br/>
 

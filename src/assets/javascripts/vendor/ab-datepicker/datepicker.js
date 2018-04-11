@@ -281,7 +281,7 @@
     var Datepicker = function (target, options) {
         var self = this;
         this.$target = $(target); // textbox that will receive the selected date string and focus (if modal)
-        this.options = $.extend({}, Datepicker.DEFAULTS, options)
+        this.options = $.extend({}, Datepicker.DEFAULTS, options);
         this.locales = Date.dp_locales;
         switch (this.options.startView) {
             case 1:
@@ -318,8 +318,8 @@
         }
         this.$label = this.$target.parents().find("label[for=" + this.id + "]");
         this.$group = this.$target.parent('.input-group');
-        this.$target.attr('aria-autocomplete', 'none')
-        this.$target.css('min-width', '7em')
+        this.$target.attr('aria-autocomplete', 'none');
+        this.$target.css('min-width', '7em');
         this.$target.addClass('form-control');
 
         if (! this.$target.attr('placeholder')) {
@@ -415,9 +415,9 @@
             }
 
         });
-    }
+    };
 
-    Datepicker.VERSION  = '2.1.1'
+    Datepicker.VERSION  = '2.1.1';
 
     Datepicker.DEFAULTS = {
         firstDayOfWeek: Date.dp_locales.firstday_of_week, // Determines the first column of the calendar grid
@@ -447,7 +447,7 @@
         gainFocusOnConstruction: true,
         min: null,
         max: null
-    }
+    };
 
     /**
      *	initializeDate() is a member function to initialize the Datepicker date with the content of the target textbox
@@ -459,7 +459,7 @@
         var val = this.$target.val();
         var date = val === '' ? new Date() :  this.parseDate(val);
         this.setDate(date);
-    } // end initializeDate()
+    }; // end initializeDate()
 
     /**
      * getDate() is a member function to retrieve the current Datepicker date.
@@ -469,7 +469,7 @@
         var val = this.$target.val();
         var date = val === '' ? new Date() :  this.parseDate(val);
         return date;
-    } // end getDate()
+    }; // end getDate()
 
     /**
      *	setDate() is a member function to set the Datepicker date with the content of newDate
@@ -518,7 +518,7 @@
                 // update the table's activedescdendant to point to the current day
                 this.$grid.attr('aria-activedescendant', this.$grid.find('.curDay').attr('id'));
         }
-    } // end setDate()
+    }; // end setDate()
 
     /**
      *	drawCalendarHeader() is a member function to populate the calendar header with the days name.
@@ -529,7 +529,7 @@
         var $days = this.$grid.find('th.datepicker-day');
         var weekday = this.options.firstDayOfWeek;
         for (var i = 0; i < 7; i++) {
-            $days.eq(i).attr('aria-label', this.locales.day_names[weekday])
+            $days.eq(i).attr('aria-label', this.locales.day_names[weekday]);
             $days.children('abbr').eq(i).attr('title', this.locales.day_names[weekday]).text(
                 this.options.weekDayFormat === 'short' ?
                     this.locales.day_names_short[weekday] :
@@ -537,7 +537,7 @@
             );
             weekday = (weekday + 1) % 7;
         }
-    } // end drawCalendarHeader()
+    }; // end drawCalendarHeader()
 
     /**
      *	populateDaysCalendar() is a member function to populate the datepicker grid with calendar days
@@ -659,7 +659,7 @@
         $tbody.empty();
         $tbody.append(gridCells);
         this.gridType = 0; // 0 = days grid, 1 = months grid, 2 = years Grid
-    } // end populateDaysCalendar()
+    }; // end populateDaysCalendar()
 
     /**
      *	populateMonthsCalendar() is a member function to populate the datepicker grid with calendar months
@@ -725,7 +725,7 @@
         gridCells += '\t</tr>';
         $tbody.append(gridCells);
         this.gridType = 1; // 0 = days grid, 1 = months grid, 2 = years Grid
-    } // end populateMonthsCalendar()
+    }; // end populateMonthsCalendar()
 
     /**
      *	populateYearsCalendar() is a member function to populate the datepicker grid with 20 calendar years
@@ -792,7 +792,7 @@
         gridCells += '\t</tr>';
         $tbody.append(gridCells);
         this.gridType = 2; // 0 = days grid, 1 = months grid, 2 = years Grid
-    } // end populateYearsCalendar()
+    }; // end populateYearsCalendar()
 
     /**
      *	showDaysOfPrevMonth() is a member function to show the days of the previous month
@@ -822,7 +822,7 @@
             this.selectGridCell(day);
         }
         return true;
-    } // end showDaysOfPrevMonth()
+    }; // end showDaysOfPrevMonth()
 
     /**
      *	showDaysOfMonth() is a member function to show the days of the specified month
@@ -848,7 +848,7 @@
         var $active = this.$grid.find("tbody td[data-value='" + this.date + "']");
         this.selectGridCell($active.attr('id'));
         return true;
-    } // end showDaysOfMonth()
+    }; // end showDaysOfMonth()
 
 
     /**
@@ -874,7 +874,7 @@
             this.selectGridCell(month);
         }
         return true;
-    } // end showMonthsOfPrevYear()
+    }; // end showMonthsOfPrevYear()
 
     /**
      *	showMonthsOfYear() is a member function to show the months of the specified year
@@ -896,7 +896,7 @@
         this.$grid.attr('aria-activedescendant', $active.attr('id'));
         this.selectGridCell($active.attr('id'));
         return true;
-    } // end showMonthsOfYear()
+    }; // end showMonthsOfYear()
 
 
     /**
@@ -922,7 +922,7 @@
             this.selectGridCell(year);
         }
         return true;
-    } // end showYearsOfPrevRange()
+    }; // end showYearsOfPrevRange()
 
     /**
      * showDaysOfNextMonth() is a member function to show the next month
@@ -952,7 +952,7 @@
             this.selectGridCell(day);
         }
         return true;
-    } // end showDaysOfNextMonth()
+    }; // end showDaysOfNextMonth()
 
     /**
      * showMonthsOfNextYear() is a member function to show the months of next year
@@ -978,7 +978,7 @@
             this.selectGridCell(month);
         }
         return true;
-    } // end showMonthsOfNextYear()
+    }; // end showMonthsOfNextYear()
 
     /**
      * showYearsOfNextRange() is a member function to show the years of next range of years
@@ -1004,7 +1004,7 @@
             this.selectGridCell(year);
         }
         return true;
-    } // end showYearsOfNextRange()
+    }; // end showYearsOfNextRange()
 
     /**
      *	showDaysOfPrevYear() is a member function to show the previous year
@@ -1023,7 +1023,7 @@
         // populate the calendar grid
         this.populateDaysCalendar();
         return true;
-    } // end showDaysOfPrevYear()
+    }; // end showDaysOfPrevYear()
 
     /**
      *	showDaysOfNextYear() is a member function to show the next year
@@ -1042,7 +1042,7 @@
         // populate the calendar grid
         this.populateDaysCalendar();
         return true;
-    } // end showDaysOfNextYear()
+    }; // end showDaysOfNextYear()
 
     /**
      *	bindHandlers() is a member function to bind event handlers for the widget
@@ -1108,7 +1108,7 @@
         this.$grid.delegate('td', 'click', function(e) {
             return self.handleGridClick(this, e);
         });
-    } // end bindHandlers();
+    }; // end bindHandlers();
 
     /**
      *	handleFastPrevClick() is a member function to process click events for the fast prev month button
@@ -1130,7 +1130,7 @@
         }
         e.stopPropagation();
         return false;
-    } // end handleFastPrevClick()
+    }; // end handleFastPrevClick()
 
     /**
      *	handlePrevClick() is a member function to process click events for the prev month button
@@ -1179,7 +1179,7 @@
         }
         e.stopPropagation();
         return false;
-    } // end handlePrevClick()
+    }; // end handlePrevClick()
 
     /**
      *	handleMonthClick() is a member function to process click events for the month header
@@ -1192,7 +1192,7 @@
         this.changeGrid(e);
         e.stopPropagation();
         return false;
-    } // end handleMonthClick()
+    }; // end handleMonthClick()
 
     /**
      *	handleNextClick() is a member function to process click events for the next month button
@@ -1242,7 +1242,7 @@
         e.stopPropagation();
         return false;
 
-    } // end handleNextClick()
+    }; // end handleNextClick()
 
     /**
      *	handleFastNextClick() is a member function to process click events for the fast next month button
@@ -1265,7 +1265,7 @@
         e.stopPropagation();
         return false;
 
-    } // end handleFastNextClick()
+    }; // end handleFastNextClick()
 
     /**
      *	handleCloseClick() is a member function to process click events for the close button
@@ -1279,7 +1279,7 @@
         this.hide();
         e.stopPropagation();
         return false;
-    } // end handleCloseClick()
+    }; // end handleCloseClick()
 
     /**
      *	handleFastPrevKeyDown() is a member function to process keydown events for the fast prev month button
@@ -1326,7 +1326,7 @@
             }
         }
         return true;
-    } // end handleFastPrevKeyDown()
+    }; // end handleFastPrevKeyDown()
 
     /**
      *	handlePrevKeyDown() is a member function to process keydown events for the prev month button
@@ -1392,7 +1392,7 @@
             }
         }
         return true;
-    } // end handlePrevKeyDown()
+    }; // end handlePrevKeyDown()
 
     /**
      *	handleMonthKeyDown() is a member function to process keydown events for the month title
@@ -1436,7 +1436,7 @@
             }
         }
         return true;
-    } // end handleMonthKeyDown()
+    }; // end handleMonthKeyDown()
 
     /**
      *	handleNextKeyDown() is a member function to process keydown events for the next month button
@@ -1497,7 +1497,7 @@
             }
         }
         return true;
-    } // end handleNextKeyDown()
+    }; // end handleNextKeyDown()
 
     /**
      *	handleFastNextKeyDown() is a member function to process keydown events for the fast next month button
@@ -1540,7 +1540,7 @@
             }
         }
         return true;
-    } // end handleFastNextKeyDown()
+    }; // end handleFastNextKeyDown()
 
     /**
      *	handleCloseKeyDown() is a member function to process keydown events for the close button
@@ -1586,7 +1586,7 @@
             }
         }
         return true;
-    } // end handlePrevKeyDown()
+    }; // end handlePrevKeyDown()
 
     /**
      *	handleGridKeyDown() is a member function to process keydown events for the Datepicker grid
@@ -1615,7 +1615,7 @@
                     } else {
                         this.$close.focus();
                     }
-                    e.stopPropagation()
+                    e.stopPropagation();
                     return false;
                 } else {
                     // dismiss the dialog box
@@ -1872,7 +1872,7 @@
             }
         }
         return true;
-    } // end handleGridKeyDown()
+    }; // end handleGridKeyDown()
 
     /**
      *	handleGridKeyPress() is a member function to consume keypress events for browsers that
@@ -1905,7 +1905,7 @@
             }
         }
         return true;
-    } // end handleGridKeyPress()
+    }; // end handleGridKeyPress()
 
     /**
      *	handleGridClick() is a member function to process mouse click events for the Datepicker grid
@@ -1940,7 +1940,7 @@
         }
         e.stopPropagation();
         return false;
-    } // end handleGridClick()
+    }; // end handleGridClick()
 
     /**
      *	handleGridFocus() is a member function to process focus events for the Datepicker grid
@@ -1960,7 +1960,7 @@
             this.selectGridCell(active);
         }
         return true;
-    } // end handleGridFocus()
+    }; // end handleGridFocus()
 
     /**
      *	handleGridBlur() is a member function to process blur events for the Datepicker grid
@@ -1971,7 +1971,7 @@
     Datepicker.prototype.handleGridBlur = function(e) {
         this.unSelectGridCell(this.$grid.attr('aria-activedescendant'));
         return true;
-    } // end handleGridBlur()
+    }; // end handleGridBlur()
 
     /**
      *	handleTabOut() is a member function to process tab key in Datepicker grid
@@ -1995,7 +1995,7 @@
             fields.eq( index ).focus();
         }
         return true;
-    } // end handleTabOut()
+    }; // end handleTabOut()
 
     /**
      *	changeGrid() is a member function to change the calendar after click or enter into the calendar title
@@ -2035,7 +2035,7 @@
                 break;
         }
         return true;
-    } // end changeGrid()
+    }; // end changeGrid()
 
     /**
      *	selectGridCell() is a member function to put focus on the current cell of the grid.
@@ -2044,7 +2044,7 @@
      */
     Datepicker.prototype.selectGridCell = function(cellId) {
         $('#' + cellId).addClass('focus').attr('aria-selected', 'true').attr('tabindex', 0).focus();
-    } // end focusCurrentDay()
+    }; // end focusCurrentDay()
 
     /**
      *	selectGridCell() is a member function to put focus on the current cell of the grid.
@@ -2053,7 +2053,7 @@
      */
     Datepicker.prototype.unSelectGridCell = function(cellId) {
         $('#' + cellId).removeClass('focus').attr('aria-selected', 'false').attr('tabindex', -1);
-    } // end focusCurrentDay()
+    }; // end focusCurrentDay()
 
     /**
      *	update() is a member function to update the target textbox.
@@ -2071,7 +2071,7 @@
         if (this.options.onUpdate) {
             this.options.onUpdate(val);
         }
-    } // end update()
+    }; // end update()
 
     /**
      *	hideObject() is a member function to hide an element of the datepicker.
@@ -2082,7 +2082,7 @@
     Datepicker.prototype.hideObject = function($element) {
         $element.attr('aria-hidden', true);
         $element.hide();
-    } // end hideObject()
+    }; // end hideObject()
 
     /**
      *	showObject() is a member function to show an element of the datepicker.
@@ -2093,7 +2093,7 @@
     Datepicker.prototype.showObject = function($element) {
         $element.attr('aria-hidden', false);
         $element.show();
-    } // end showObject()
+    }; // end showObject()
 
     /**
      *	show() is a member function to show the Datepicker and give it focus.
@@ -2164,7 +2164,7 @@
         this.$calendar.attr('aria-hidden', 'false');
         this.$calendar.fadeIn();
         $('.datepicker-calendar').trigger('ab.datepicker.opened', [self.id]);
-    } // end show()
+    }; // end show()
 
     /**
      *	refresh() is a member function to refesh the datepicker content when an option change.
@@ -2184,7 +2184,7 @@
                 this.populateYearsCalendar();
                 break;
         }
-    } // end refresh()
+    }; // end refresh()
 
     /**
      *	handleDocumentClick() is a member function to handle click on document.
@@ -2204,7 +2204,7 @@
             e.stopPropagation;
             return false;
         }
-    } // end handleDocumentClick()
+    }; // end handleDocumentClick()
 
     /**
      *	hide() is a member function to hide the Datepicker and remove focus.
@@ -2232,7 +2232,7 @@
                 this.$target.focus();
             }
         }
-    } // end hide()
+    }; // end hide()
 
     /**
      *	greyOut() is a member function to grey out the document background.
@@ -2258,7 +2258,7 @@
         } else {
             $overlay.fadeOut(500);
         }
-    } // end greyOut()
+    }; // end greyOut()
 
     /**
      *	absolutePosition() is a member function that compute the absolute position
@@ -2287,7 +2287,7 @@
             }
         }
         return {top: top, left: left};
-    } // end absolutePosition()
+    }; // end absolutePosition()
 
     /**
      *	getDaysInMonth() is a member function to calculate the number of days in a given month
@@ -2299,7 +2299,7 @@
      */
     Datepicker.prototype.getDaysInMonth = function(year, month) {
         return 32 - new Date(year, month, 32).getDate();
-    } // end getDaysInMonth()
+    }; // end getDaysInMonth()
 
     /**
      *	previousMonth() is a member function that compute the month
@@ -2317,7 +2317,7 @@
             month--;
         }
         return {year: year, month: month};
-    } // end previousMonth()
+    }; // end previousMonth()
 
     /**
      *	nextMonth() is a member function that compute the month
@@ -2335,7 +2335,7 @@
             month++;
         }
         return {year: year, month: month};
-    } // end nextMonth()
+    }; // end nextMonth()
 
     /**
      *	formatDate (date_object, format)
@@ -2460,7 +2460,7 @@
                 return mask.charAt(0) === "'" ? mask.substr(1, mask.length - 2) : values[mask] || mask;
             }
         );
-    } // end formatDate()
+    }; // end formatDate()
 
     /**
      *	createDateFromFormat( format_string, date_string )
@@ -2692,7 +2692,7 @@
             hh -= 12;
         }
         return new Date(year, month - 1, date, hh, mm, ss);
-    } // end createDateFromFormat()
+    }; // end createDateFromFormat()
 
     /**
      *	parseDate() is a member function which parse a date string.
@@ -2717,7 +2717,7 @@
             date = self.createDateFromFormat(this.options.outputFormat, value);
         }
         return date;
-    } // end parseDate()
+    }; // end parseDate()
 
     /**
      *	min() is a public member function which allow change the smallest selectable date.
@@ -2738,7 +2738,7 @@
             }
         }
         return this.options.min;
-    } // end min()
+    }; // end min()
 
     /**
      *	max() is a public member function which allow change the biggest selectable date.
@@ -2759,7 +2759,7 @@
             }
         }
         return this.options.max;
-    } // end max()
+    }; // end max()
 
     /**
      *	theme() is a public member function which allow change the datepicker theme.
@@ -2776,7 +2776,7 @@
             this.$calendar.addClass(this.options.theme);
         }
         return this.options.theme;
-    } // end theme()
+    }; // end theme()
 
     /**
      *	firstDayOfWeek() is a public member function which allow change the first Day Of Week.
@@ -2794,7 +2794,7 @@
             }
         }
         return this.options.firstDayOfWeek;
-    } // end firstDayOfWeek()
+    }; // end firstDayOfWeek()
 
     /**
      *	daysOfWeekDisabled() is a public member function which allow disabling of some weekdays.
@@ -2818,7 +2818,7 @@
             });
         }
         return this.options.daysOfWeekDisabled;
-    } // end daysOfWeekDisabled()
+    }; // end daysOfWeekDisabled()
 
     /**
      *	weekDayFormat() is a public member function which allow change the format of weekdays name.
@@ -2832,7 +2832,7 @@
             this.drawCalendarHeader();
         }
         return this.options.weekDayFormat;
-    } // end weekDayFormat()
+    }; // end weekDayFormat()
 
     /**
      *	inputFormat() is a public member function which allow change the input format.
@@ -2851,7 +2851,7 @@
             this.options.inputFormat = value;
         }
         return this.options.inputFormat;
-    } // end inputFormat()
+    }; // end inputFormat()
 
     /**
      *	outputFormat() is a public member function which allow change the output format.
@@ -2864,7 +2864,7 @@
             this.options.outputFormat = value;
         }
         return this.options.outputFormat;
-    } // end outputFormat()
+    }; // end outputFormat()
 
     /**
      *	modal() is a public member function which allow to set or unset the modal mode.
@@ -2896,7 +2896,7 @@
             }
         }
         return this.options.modal;
-    } // end modal()
+    }; // end modal()
 
     /**
      *	inline() is a public member function which allow to set or unset the inline mode.
@@ -2932,7 +2932,7 @@
             }
         }
         return this.options.inline;
-    } // end inline()
+    }; // end inline()
 
 
     /**
@@ -2943,7 +2943,7 @@
      */
     Datepicker.prototype.format = function(date) {
         return this.formatDate(date, this.options.outputFormat);
-    } // end format()
+    }; // end format()
 
     /**
      *	setLocales() is a public member function which allow change the locales.
@@ -2978,12 +2978,12 @@
         } else {
             this.$grid.removeClass('rtl');
         }
-    } // end outputFormat()
+    }; // end outputFormat()
 
     // DATEPICKER PLUGIN DEFINITION
     // ==========================
 
-    var old = $.fn.datepicker
+    var old = $.fn.datepicker;
 
     $.fn.datepicker = function (option, value) {
         if (typeof option == 'string' && $(this).length == 1) {
@@ -2998,15 +2998,15 @@
                 if (typeof option == 'string') data[option](value);
             });
         }
-    }
+    };
 
-    $.fn.datepicker.Constructor = Datepicker
+    $.fn.datepicker.Constructor = Datepicker;
 
     // DATEPICKER NO CONFLICT
     // ====================
 
     $.fn.datepicker.noConflict = function () {
-        $.fn.datepicker = old
+        $.fn.datepicker = old;
         return this
     }
 

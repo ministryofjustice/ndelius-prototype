@@ -10,6 +10,7 @@ export const initialState: ISignature = {
   email: '',
   phone: '',
   counterSignature: '',
+  counterSignatureRole: '',
   startDate: '',
   reportDate: '',
   saved: false,

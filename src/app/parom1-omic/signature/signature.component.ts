@@ -48,6 +48,7 @@ export class SignatureComponent implements OnDestroy {
       phone: [this.reportData.phone, Validators.required],
       division: [this.reportData.division, Validators.required],
       counterSignature: this.reportData.counterSignature,
+      counterSignatureRole: this.reportData.counterSignatureRole,
       startDate: this.reportData.startDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'),
       reportDate: [this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
     });

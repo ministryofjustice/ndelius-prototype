@@ -55,7 +55,7 @@ export class PrisonerDetailsComponent implements OnDestroy {
         month: this.reportData.determinateReleaseDate.month,
         year: this.reportData.determinateReleaseDate.year,
       }),
-      tariffLength: [this.reportData.tariffLength, Validators.required],
+      tariffLength: [this.reportData.tariffLength],
       tariffExpiryDate: this.formBuilder.group({
         day: this.reportData.tariffExpiryDate.day,
         month: this.reportData.tariffExpiryDate.month,

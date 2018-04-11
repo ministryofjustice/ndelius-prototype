@@ -1,18 +1,18 @@
 // Extension to track errors using google analytics as a data store.
 ;(function (global) {
-  'use strict'
+  'use strict';
 
-  var GOVUK = global.GOVUK || {}
+  var GOVUK = global.GOVUK || {};
 
-  GOVUK.analyticsPlugins = GOVUK.analyticsPlugins || {}
+  GOVUK.analyticsPlugins = GOVUK.analyticsPlugins || {};
 
   GOVUK.analyticsPlugins.error = function (options) {
-    options = options || {}
-    var filenameMustMatch = options.filenameMustMatch
+    options = options || {};
+    var filenameMustMatch = options.filenameMustMatch;
 
     var trackJavaScriptError = function (e) {
-      var errorFilename = e.filename
-      var errorSource = errorFilename + ': ' + e.lineno
+      var errorFilename = e.filename;
+      var errorSource = errorFilename + ': ' + e.lineno;
 
       if (shouldTrackThisError(errorFilename)) {
         GOVUK.analytics.trackEvent('JavaScript Error', e.message, {
@@ -21,7 +21,7 @@
           nonInteraction: true
         })
       }
-    }
+    };
 
     function shouldTrackThisError (errorFilename) {
       // Errors in page should always be tracked
@@ -45,7 +45,7 @@
     } else {
       global.onerror = trackJavaScriptError
     }
-  }
+  };
 
   global.GOVUK = GOVUK
-})(window)
+})(window);

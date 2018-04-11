@@ -1,18 +1,18 @@
 ;(function (global) {
-  'use strict'
+  'use strict';
 
-  var $ = global.jQuery
-  var GOVUK = global.GOVUK || {}
-  GOVUK.Modules = GOVUK.Modules || {}
+  var $ = global.jQuery;
+  var GOVUK = global.GOVUK || {};
+  GOVUK.Modules = GOVUK.Modules || {};
 
   GOVUK.modules = {
     find: function (container) {
-      container = container || $('body')
+      container = container || $('body');
 
-      var modules
-      var moduleSelector = '[data-module]'
+      var modules;
+      var moduleSelector = '[data-module]';
 
-      modules = container.find(moduleSelector)
+      modules = container.find(moduleSelector);
 
       // Container could be a module too
       if (container.is(moduleSelector)) {
@@ -23,17 +23,17 @@
     },
 
     start: function (container) {
-      var modules = this.find(container)
+      var modules = this.find(container);
 
       for (var i = 0, l = modules.length; i < l; i++) {
-        var module
-        var element = $(modules[i])
-        var type = camelCaseAndCapitalise(element.data('module'))
-        var started = element.data('module-started')
+        var module;
+        var element = $(modules[i]);
+        var type = camelCaseAndCapitalise(element.data('module'));
+        var started = element.data('module-started');
 
         if (typeof GOVUK.Modules[type] === 'function' && !started) {
-          module = new GOVUK.Modules[type]()
-          module.start(element)
+          module = new GOVUK.Modules[type]();
+          module.start(element);
           element.data('module-started', true)
         }
       }
@@ -55,7 +55,7 @@
         return string.charAt(0).toUpperCase() + string.slice(1)
       }
     }
-  }
+  };
 
   global.GOVUK = GOVUK
-})(window)
+})(window);

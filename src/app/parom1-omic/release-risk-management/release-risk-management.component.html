@@ -12,13 +12,14 @@
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
-                    { name: 'agencies', error: '' },
-                    { name: 'support', error: '' },
-                    { name: 'control', error: '' },
-                    { name: 'riskMeasures', error: '' },
-                    { name: 'requirements', error: '' },
-                    { name: 'contactLevel', error: '' },
-                    { name: 'contingencyPlan', error: '' }
+                    { name: 'agencies', error: 'Enter the agencies' },
+                    { name: 'support', error: 'Enter the support' },
+                    { name: 'control', error: 'Enter the control' },
+                    { name: 'riskMeasures', error: 'Enter the added measures for specific risks' },
+                    { name: 'requirements', error: 'Enter the additional conditions or requirements' },
+                    { name: 'contactLevel', error: 'Enter the level of contact' },
+                    { name: 'agencyActions', error: 'Enter the agency actions' },
+                    { name: 'contingencyPlan', error: 'Enter the contingency plan' }
                     ]">
     </app-form-error>
 
@@ -50,43 +51,49 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="agencies"
                       label="Agencies"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the agencies">
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="support"
                       label="Support"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the support">
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="control"
                       label="Control"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the control">
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="riskMeasures"
                       label="Added measures for specific risks"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the added measures for specific risks">
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="requirements"
                       label="Additional conditions or requirements"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the additional conditions or requirements">
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="contactLevel"
                       label="Level of contact"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the level of contact">
+      </app-text-entry>
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="agencyActions"
+                      label="Agency actions"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the agency actions">
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="contingencyPlan"
                       label="Contingency plan"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the contingency plan">
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

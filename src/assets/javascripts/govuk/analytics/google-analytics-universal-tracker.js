@@ -1,8 +1,8 @@
 ;(function (global) {
-  'use strict'
+  'use strict';
 
-  var $ = global.jQuery
-  var GOVUK = global.GOVUK || {}
+  var $ = global.jQuery;
+  var GOVUK = global.GOVUK || {};
 
   var GoogleAnalyticsUniversalTracker = function (trackingId, fieldsObject) {
     function configureProfile () {
@@ -25,10 +25,10 @@
       fieldsObject = { cookieDomain: fieldsObject }
     }
 
-    configureProfile()
-    anonymizeIp()
+    configureProfile();
+    anonymizeIp();
     disableAdTracking()
-  }
+  };
 
   GoogleAnalyticsUniversalTracker.load = function () {
     /* eslint-disable */
@@ -37,18 +37,18 @@
                              m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
     })(global, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
     /* eslint-enable */
-  }
+  };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/pages
   GoogleAnalyticsUniversalTracker.prototype.trackPageview = function (path, title, options) {
-    var pageviewObject
+    var pageviewObject;
 
     if (typeof path === 'string') {
       pageviewObject = { page: path }
     }
 
     if (typeof title === 'string') {
-      pageviewObject = pageviewObject || {}
+      pageviewObject = pageviewObject || {};
       pageviewObject.title = title
     }
 
@@ -63,21 +63,21 @@
     } else {
       sendToGa('send', 'pageview')
     }
-  }
+  };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
   GoogleAnalyticsUniversalTracker.prototype.trackEvent = function (category, action, options) {
-    options = options || {}
-    var value
+    options = options || {};
+    var value;
     var evt = {
       hitType: 'event',
       eventCategory: category,
       eventAction: action
-    }
+    };
 
     // Label is optional
     if (typeof options.label === 'string') {
-      evt.eventLabel = options.label
+      evt.eventLabel = options.label;
       delete options.label
     }
 
@@ -85,7 +85,7 @@
     // integer, otherwise the event will be invalid
     // and not logged
     if (options.value || options.value === 0) {
-      value = parseInt(options.value, 10)
+      value = parseInt(options.value, 10);
       if (typeof value === 'number' && !isNaN(value)) {
         options.eventValue = value
       }
@@ -103,7 +103,7 @@
     }
 
     sendToGa('send', evt)
-  }
+  };
 
   /*
     https://developers.google.com/analytics/devguides/collection/analyticsjs/social-interactions
@@ -118,12 +118,12 @@
       'socialNetwork': network,
       'socialAction': action,
       'socialTarget': target
-    }
+    };
 
-    $.extend(trackingOptions, options)
+    $.extend(trackingOptions, options);
 
     sendToGa('send', trackingOptions)
-  }
+  };
 
   /*
    https://developers.google.com/analytics/devguides/collection/analyticsjs/cross-domain
@@ -135,24 +135,24 @@
     sendToGa('create',
              trackerId,
              'auto',
-             {'name': name})
+             {'name': name});
     // Load the plugin.
-    sendToGa('require', 'linker')
-    sendToGa(name + '.require', 'linker')
+    sendToGa('require', 'linker');
+    sendToGa(name + '.require', 'linker');
 
     // Define which domains to autoLink.
-    sendToGa('linker:autoLink', [domain])
-    sendToGa(name + '.linker:autoLink', [domain])
+    sendToGa('linker:autoLink', [domain]);
+    sendToGa(name + '.linker:autoLink', [domain]);
 
-    sendToGa(name + '.set', 'anonymizeIp', true)
-    sendToGa(name + '.set', 'displayFeaturesTask', null)
+    sendToGa(name + '.set', 'anonymizeIp', true);
+    sendToGa(name + '.set', 'displayFeaturesTask', null);
     sendToGa(name + '.send', 'pageview')
-  }
+  };
 
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dims-mets
   GoogleAnalyticsUniversalTracker.prototype.setDimension = function (index, value) {
     sendToGa('set', 'dimension' + index, String(value))
-  }
+  };
 
   function sendToGa () {
     if (typeof global.ga === 'function') {
@@ -160,7 +160,7 @@
     }
   }
 
-  GOVUK.GoogleAnalyticsUniversalTracker = GoogleAnalyticsUniversalTracker
+  GOVUK.GoogleAnalyticsUniversalTracker = GoogleAnalyticsUniversalTracker;
 
   global.GOVUK = GOVUK
-})(window)
+})(window);
