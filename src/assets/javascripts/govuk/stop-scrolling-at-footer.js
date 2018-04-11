@@ -11,10 +11,10 @@
 // itself.
 
 ;(function (global) {
-  'use strict'
+  'use strict';
 
-  var $ = global.jQuery
-  var GOVUK = global.GOVUK || {}
+  var $ = global.jQuery;
+  var GOVUK = global.GOVUK || {};
 
   var stopScrollingAtFooter = {
     _pollingId: null,
@@ -23,33 +23,33 @@
     _els: [],
 
     addEl: function ($fixedEl, height) {
-      var fixedOffset
+      var fixedOffset;
 
       if (!$fixedEl.length) { return }
 
-      fixedOffset = parseInt($fixedEl.css('top'), 10)
-      fixedOffset = isNaN(fixedOffset) ? 0 : fixedOffset
+      fixedOffset = parseInt($fixedEl.css('top'), 10);
+      fixedOffset = isNaN(fixedOffset) ? 0 : fixedOffset;
 
-      stopScrollingAtFooter.updateFooterTop()
-      $(global).on('govuk.pageSizeChanged', stopScrollingAtFooter.updateFooterTop)
+      stopScrollingAtFooter.updateFooterTop();
+      $(global).on('govuk.pageSizeChanged', stopScrollingAtFooter.updateFooterTop);
 
-      var $siblingEl = $('<div></div>')
-      $siblingEl.insertBefore($fixedEl)
-      var fixedTop = $siblingEl.offset().top - $siblingEl.position().top
-      $siblingEl.remove()
+      var $siblingEl = $('<div></div>');
+      $siblingEl.insertBefore($fixedEl);
+      var fixedTop = $siblingEl.offset().top - $siblingEl.position().top;
+      $siblingEl.remove();
 
       var el = {
         $fixedEl: $fixedEl,
         height: height + fixedOffset,
         fixedTop: height + fixedTop,
         state: 'fixed'
-      }
-      stopScrollingAtFooter._els.push(el)
+      };
+      stopScrollingAtFooter._els.push(el);
 
       stopScrollingAtFooter.initTimeout()
     },
     updateFooterTop: function () {
-      var footer = $('.js-footer:eq(0)')
+      var footer = $('.js-footer:eq(0)');
       if (footer.length === 0) {
         return 0
       }
@@ -57,7 +57,7 @@
     },
     initTimeout: function () {
       if (stopScrollingAtFooter._hasScrollEvt === false) {
-        $(window).scroll(stopScrollingAtFooter.onScroll)
+        $(window).scroll(stopScrollingAtFooter.onScroll);
         stopScrollingAtFooter._hasScrollEvt = true
       }
     },
@@ -70,17 +70,17 @@
       if (window.requestAnimationFrame) {
         return function () {
           var callback = function () {
-            stopScrollingAtFooter.checkScroll()
+            stopScrollingAtFooter.checkScroll();
             if (stopScrollingAtFooter._isPolling === true) {
               stopScrollingAtFooter.startPolling()
             }
-          }
-          stopScrollingAtFooter._pollingId = window.requestAnimationFrame(callback)
+          };
+          stopScrollingAtFooter._pollingId = window.requestAnimationFrame(callback);
           stopScrollingAtFooter._isPolling = true
         }
       } else {
         return function () {
-          stopScrollingAtFooter._pollingId = window.setInterval(stopScrollingAtFooter.checkScroll, 16)
+          stopScrollingAtFooter._pollingId = window.setInterval(stopScrollingAtFooter.checkScroll, 16);
           stopScrollingAtFooter._isPolling = true
         }
       }
@@ -88,27 +88,27 @@
     stopPolling: (function () {
       if (window.requestAnimationFrame) {
         return function () {
-          window.cancelAnimationFrame(stopScrollingAtFooter._pollingId)
+          window.cancelAnimationFrame(stopScrollingAtFooter._pollingId);
           stopScrollingAtFooter._isPolling = false
         }
       } else {
         return function () {
-          window.clearInterval(stopScrollingAtFooter._pollingId)
+          window.clearInterval(stopScrollingAtFooter._pollingId);
           stopScrollingAtFooter._isPolling = false
         }
       }
     }()),
     checkScroll: function () {
-      var cachedScrollTop = $(window).scrollTop()
+      var cachedScrollTop = $(window).scrollTop();
       if ((cachedScrollTop < (stopScrollingAtFooter.cachedScrollTop + 2)) && (cachedScrollTop > (stopScrollingAtFooter.cachedScrollTop - 2))) {
-        stopScrollingAtFooter.stopPolling()
+        stopScrollingAtFooter.stopPolling();
         return
       } else {
         stopScrollingAtFooter.cachedScrollTop = cachedScrollTop
       }
 
       $.each(stopScrollingAtFooter._els, function (i, el) {
-        var bottomOfEl = cachedScrollTop + el.height
+        var bottomOfEl = cachedScrollTop + el.height;
 
         if (bottomOfEl > stopScrollingAtFooter.footerTop) {
           stopScrollingAtFooter.stick(el)
@@ -119,21 +119,21 @@
     },
     stick: function (el) {
       if (el.state === 'fixed' && el.$fixedEl.css('position') === 'fixed') {
-        el.$fixedEl.css({ 'position': 'absolute', 'top': stopScrollingAtFooter.footerTop - el.fixedTop })
+        el.$fixedEl.css({ 'position': 'absolute', 'top': stopScrollingAtFooter.footerTop - el.fixedTop });
         el.state = 'absolute'
       }
     },
     unstick: function (el) {
       if (el.state === 'absolute') {
-        el.$fixedEl.css({ 'position': '', 'top': '' })
+        el.$fixedEl.css({ 'position': '', 'top': '' });
         el.state = 'fixed'
       }
     }
-  }
+  };
 
-  GOVUK.stopScrollingAtFooter = stopScrollingAtFooter
+  GOVUK.stopScrollingAtFooter = stopScrollingAtFooter;
 
-  $(global).load(function () { $(global).trigger('govuk.pageSizeChanged') })
+  $(global).load(function () { $(global).trigger('govuk.pageSizeChanged') });
 
   global.GOVUK = GOVUK
-})(window)
+})(window);

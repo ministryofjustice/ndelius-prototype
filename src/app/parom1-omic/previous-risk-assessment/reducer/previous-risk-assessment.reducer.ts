@@ -13,6 +13,7 @@ export const initialState: IPreviousRiskAssessment = {
   riskKnownAdult: '',
   riskChildren: '',
   riskPrisoners: '',
+  riskStaff: '',
   attitude: '',
   saved: false,
   valid: false

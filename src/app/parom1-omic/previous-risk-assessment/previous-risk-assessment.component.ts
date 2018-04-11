@@ -48,7 +48,8 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
       riskPublic: [this.reportData.riskPublic, Validators.required],
       riskKnownAdult: [this.reportData.riskKnownAdult, Validators.required],
       riskChildren: [this.reportData.riskChildren, Validators.required],
-      riskPrisoners: [this.reportData.riskPrisoners, Validators.required]
+      riskPrisoners: [this.reportData.riskPrisoners, Validators.required],
+      riskStaff: [this.reportData.riskStaff, Validators.required]
     });
   }
 

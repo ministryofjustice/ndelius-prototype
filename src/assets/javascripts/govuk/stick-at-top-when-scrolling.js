@@ -1,8 +1,8 @@
 ;(function (global) {
-  'use strict'
+  'use strict';
 
-  var $ = global.jQuery
-  var GOVUK = global.GOVUK || {}
+  var $ = global.jQuery;
+  var GOVUK = global.GOVUK || {};
 
   // Stick elements to top of screen when you scroll past, documentation is in the README.md
   var sticky = {
@@ -26,29 +26,29 @@
       return $el.offset()
     },
     init: function () {
-      var $els = $('.js-stick-at-top-when-scrolling')
+      var $els = $('.js-stick-at-top-when-scrolling');
 
       if ($els.length > 0) {
-        sticky.$els = $els
+        sticky.$els = $els;
 
         if (sticky._scrollTimeout === false) {
-          $(global).scroll(sticky.onScroll)
+          $(global).scroll(sticky.onScroll);
           sticky._scrollTimeout = global.setInterval(sticky.checkScroll, 50)
         }
 
         if (sticky._resizeTimeout === false) {
-          $(global).resize(sticky.onResize)
+          $(global).resize(sticky.onResize);
           sticky._resizeTimeout = global.setInterval(sticky.checkResize, 50)
         }
       }
       if (GOVUK.stopScrollingAtFooter) {
         $els.each(function (i, el) {
-          var $img = $(el).find('img')
+          var $img = $(el).find('img');
           if ($img.length > 0) {
-            var image = new global.Image()
+            var image = new global.Image();
             image.onload = function () {
               GOVUK.stopScrollingAtFooter.addEl($(el), $(el).outerHeight())
-            }
+            };
             image.src = $img.attr('src')
           } else {
             GOVUK.stopScrollingAtFooter.addEl($(el), $(el).outerHeight())
@@ -64,15 +64,15 @@
     },
     checkScroll: function () {
       if (sticky._hasScrolled === true) {
-        sticky._hasScrolled = false
+        sticky._hasScrolled = false;
 
-        var windowVerticalPosition = sticky.getWindowPositions().scrollTop
+        var windowVerticalPosition = sticky.getWindowPositions().scrollTop;
 
-        var windowDimensions = sticky.getWindowDimensions()
+        var windowDimensions = sticky.getWindowDimensions();
 
         sticky.$els.each(function (i, el) {
-          var $el = $(el)
-          var scrolledFrom = $el.data('scrolled-from')
+          var $el = $(el);
+          var scrolledFrom = $el.data('scrolled-from');
 
           if (scrolledFrom && windowVerticalPosition < scrolledFrom) {
             sticky.release($el)
@@ -84,19 +84,19 @@
     },
     checkResize: function () {
       if (sticky._hasResized === true) {
-        sticky._hasResized = false
+        sticky._hasResized = false;
 
-        var windowDimensions = sticky.getWindowDimensions()
+        var windowDimensions = sticky.getWindowDimensions();
 
         sticky.$els.each(function (i, el) {
-          var $el = $(el)
+          var $el = $(el);
 
-          var elResize = $el.hasClass('js-sticky-resize')
+          var elResize = $el.hasClass('js-sticky-resize');
           if (elResize) {
-            var $shim = $('.shim')
-            var $elParent = $el.parent('div')
-            var elParentWidth = $elParent.width()
-            $shim.css('width', elParentWidth)
+            var $shim = $('.shim');
+            var $elParent = $el.parent('div');
+            var elParentWidth = $elParent.width();
+            $shim.css('width', elParentWidth);
             $el.css('width', elParentWidth)
           }
 
@@ -108,21 +108,21 @@
     },
     stick: function ($el) {
       if (!$el.hasClass('content-fixed')) {
-        $el.data('scrolled-from', sticky.getElementOffset($el).top)
-        var height = Math.max($el.height(), 1)
-        var width = $el.width()
-        $el.before('<div class="shim" style="width: ' + width + 'px; height: ' + height + 'px">&nbsp;</div>')
+        $el.data('scrolled-from', sticky.getElementOffset($el).top);
+        var height = Math.max($el.height(), 1);
+        var width = $el.width();
+        $el.before('<div class="shim" style="width: ' + width + 'px; height: ' + height + 'px">&nbsp;</div>');
         $el.css('width', width + 'px').addClass('content-fixed')
       }
     },
     release: function ($el) {
       if ($el.hasClass('content-fixed')) {
-        $el.data('scrolled-from', false)
-        $el.removeClass('content-fixed').css('width', '')
+        $el.data('scrolled-from', false);
+        $el.removeClass('content-fixed').css('width', '');
         $el.siblings('.shim').remove()
       }
     }
-  }
-  GOVUK.stickAtTopWhenScrolling = sticky
+  };
+  GOVUK.stickAtTopWhenScrolling = sticky;
   global.GOVUK = GOVUK
-})(window)
+})(window);

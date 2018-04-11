@@ -53,12 +53,9 @@
       <app-input [group]="reportForm" name="counterSignature"
                  label="Name of counter signature (if required)"></app-input>
 
-      <div class="form-group">
-        <label for="counterSignature">
-          <span class="form-label-bold">Name of counter signature (if required)</span>
-        </label>
-        <input class="form-control half-width" type="text" role="textbox" id="counterSignature" formControlName="counterSignature" maxlength="250" />
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="counterSignatureRole"
+                 label="Role of counter signature"></app-input>
 
       <div class="form-group">
         <label for="startDate" class="form-label-bold">Start date</label>

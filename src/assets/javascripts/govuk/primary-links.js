@@ -1,19 +1,19 @@
 ;(function (global) {
-  'use strict'
+  'use strict';
 
-  var $ = global.jQuery
-  var GOVUK = global.GOVUK || {}
+  var $ = global.jQuery;
+  var GOVUK = global.GOVUK || {};
 
   // Only show the first {n} items in a list, documentation is in the README.md
   var PrimaryList = function (el, selector) {
-    this.$el = $(el)
-    this.$extraLinks = this.$el.find('li:not(' + selector + ')')
+    this.$el = $(el);
+    this.$extraLinks = this.$el.find('li:not(' + selector + ')');
     // only hide more than one extra link
     if (this.$extraLinks.length > 1) {
-      this.addToggleLink()
+      this.addToggleLink();
       this.hideExtraLinks()
     }
-  }
+  };
 
   PrimaryList.prototype = {
     toggleText: function () {
@@ -24,26 +24,26 @@
       }
     },
     addToggleLink: function () {
-      this.$toggleLink = $('<a href="#">' + this.toggleText() + '</a>')
-      this.$toggleLink.click($.proxy(this.toggleLinks, this))
+      this.$toggleLink = $('<a href="#">' + this.toggleText() + '</a>');
+      this.$toggleLink.click($.proxy(this.toggleLinks, this));
       this.$toggleLink.insertAfter(this.$el)
     },
     toggleLinks: function (e) {
-      e.preventDefault()
-      this.$toggleLink.remove()
+      e.preventDefault();
+      this.$toggleLink.remove();
       this.showExtraLinks()
     },
     hideExtraLinks: function () {
-      this.$extraLinks.addClass('visuallyhidden')
+      this.$extraLinks.addClass('visuallyhidden');
       $(window).trigger('govuk.pageSizeChanged')
     },
     showExtraLinks: function () {
-      this.$extraLinks.removeClass('visuallyhidden')
+      this.$extraLinks.removeClass('visuallyhidden');
       $(window).trigger('govuk.pageSizeChanged')
     }
-  }
+  };
 
-  GOVUK.PrimaryList = PrimaryList
+  GOVUK.PrimaryList = PrimaryList;
 
   GOVUK.primaryLinks = {
     init: function (selector) {
@@ -51,7 +51,7 @@
         new GOVUK.PrimaryList(el, selector) // eslint-disable-line no-new
       })
     }
-  }
+  };
 
   global.GOVUK = GOVUK
-})(window)
+})(window);

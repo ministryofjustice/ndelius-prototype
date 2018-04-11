@@ -1,20 +1,20 @@
 ;(function (global) {
-  'use strict'
+  'use strict';
 
-  var $ = global.jQuery
-  var GOVUK = global.GOVUK || {}
+  var $ = global.jQuery;
+  var GOVUK = global.GOVUK || {};
 
-  GOVUK.analyticsPlugins = GOVUK.analyticsPlugins || {}
+  GOVUK.analyticsPlugins = GOVUK.analyticsPlugins || {};
   GOVUK.analyticsPlugins.mailtoLinkTracker = function () {
-    var mailtoLinkSelector = 'a[href^="mailto:"]'
+    var mailtoLinkSelector = 'a[href^="mailto:"]';
 
-    $('body').on('click', mailtoLinkSelector, trackClickEvent)
+    $('body').on('click', mailtoLinkSelector, trackClickEvent);
 
     function trackClickEvent (evt) {
-      var $link = getLinkFromEvent(evt)
-      var options = { transport: 'beacon' }
-      var href = $link.attr('href')
-      var linkText = $.trim($link.text())
+      var $link = getLinkFromEvent(evt);
+      var options = { transport: 'beacon' };
+      var href = $link.attr('href');
+      var linkText = $.trim($link.text());
 
       if (linkText) {
         options.label = linkText
@@ -24,7 +24,7 @@
     }
 
     function getLinkFromEvent (evt) {
-      var $target = $(evt.target)
+      var $target = $(evt.target);
 
       if (!$target.is('a')) {
         $target = $target.parents('a')
@@ -32,7 +32,7 @@
 
       return $target
     }
-  }
+  };
 
   global.GOVUK = GOVUK
-})(window)
+})(window);

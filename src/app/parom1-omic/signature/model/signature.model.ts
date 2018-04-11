@@ -5,6 +5,7 @@ export interface ISignature {
   email: string;
   phone: string;
   counterSignature: string;
+  counterSignatureRole: string;
   startDate: string;
   reportDate: string;
   saved: boolean;
