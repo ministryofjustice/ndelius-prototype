@@ -21,6 +21,10 @@
 .notice {
   background: #e8eff7;
   padding: 10px;
+  strong span {
+    position: relative;
+    left: 10px;
+  }
   .icon {
     left: 15px;
   }

@@ -3,6 +3,7 @@ export interface ISection {
   label: string;
   state: string;
   interactions?: Array<Object>;
+  dataOnly?: boolean;
   hide?: boolean;
   saved?: boolean;
   valid?: boolean;
@@ -105,6 +106,12 @@ export function sections(): Array<ISection> {
       state: 'sources'
     },
     {
+      dataOnly: true,
+      route: '/parom1-omic/signature',
+      label: 'Signature and date',
+      state: 'signature'
+    },
+    {
       hide: true,
       route: '/parom1-omic/pom-prisoner-knowledge',
       label: 'Prisoner knowledge and contact',
@@ -115,6 +122,13 @@ export function sections(): Array<ISection> {
       route: '/parom1-omic/pom-recommendation',
       label: 'Your recommendation',
       state: 'pomRecommendation'
+    },
+    {
+      hide: true,
+      dataOnly: true,
+      route: '/parom1-omic/pom-signature',
+      label: 'Signature and date',
+      state: 'pomSignature'
     }
   ];
 }
