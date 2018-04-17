@@ -22,7 +22,7 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="detail" label="Enter your addendum to the Pre-sentence report" errorMessage="You must enter your addendum" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
-      <input class="button" id="nextButton" type="submit" value="Save & continue" />
+      <app-footer></app-footer>
 
     </form>
 

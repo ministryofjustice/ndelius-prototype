@@ -63,7 +63,7 @@
         <input class="form-control date-picker" type="text" role="textbox" id="reportDate" formControlName="reportDate" maxlength="10" aria-described-by="reportDate_error" aria-required="true" required />
       </div>
 
-      <input class="button button-start margin-top medium" id="nextButton" type="submit" value="Submit and view your addendum" />
+      <app-footer [draftEnabled]="false" label="Submit" hint="Submit and view your addendum"></app-footer>
 
     </form>
 

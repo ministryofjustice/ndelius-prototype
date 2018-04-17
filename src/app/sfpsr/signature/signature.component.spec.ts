@@ -10,6 +10,7 @@ import { SignatureComponent } from './signature.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
+import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 
 import * as model from './reducer/signature.reducer';
 
@@ -25,7 +26,8 @@ describe('SFPSR - Component: Signature', () => {
         SignatureComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent
+        MockErrorMessagesComponent,
+        MockFooterComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

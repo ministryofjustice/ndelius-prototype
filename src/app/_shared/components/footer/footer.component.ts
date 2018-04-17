@@ -19,6 +19,7 @@ export class FooterComponent {
   @Input('draftEnabled') public draftEnabled = true;
   @Input('label') public label = 'Continue';
   @Input('hint') public hint = 'Continue your report';
+  @Input('continue') public continue = () => {};
 
   constructor(private router: Router) {
     // Empty

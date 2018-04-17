@@ -9,4 +9,5 @@ export class MockFooterComponent {
   @Input('draftEnabled') public draftEnabled = true;
   @Input('label') public label = 'Continue';
   @Input('hint') public hint = 'Continue your report';
+  @Input('continue') public continue = () => {};
 }

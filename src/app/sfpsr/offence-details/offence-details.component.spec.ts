@@ -9,9 +9,10 @@ import { OffenceDetailsComponent } from './offence-details.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
+import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 
 import * as model from './reducer/offence-details.reducer';
-import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
 describe('SFPSR - Component: Offence details', () => {
 
@@ -26,7 +27,8 @@ describe('SFPSR - Component: Offence details', () => {
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
-        MockTextEntryComponent
+        MockTextEntryComponent,
+        MockFooterComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

@@ -10,6 +10,7 @@ import { MockSubNavigationComponent } from '../../_shared/components/sub-navigat
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 
 import * as model from './reducer/offence-analysis.reducer';
 
@@ -26,7 +27,8 @@ describe('SFPSR - Component: Offence analysis', () => {
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
-        MockTextEntryComponent
+        MockTextEntryComponent,
+        MockFooterComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
