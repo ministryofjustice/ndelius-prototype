@@ -45,7 +45,7 @@ export class CheckReportComponent implements OnDestroy {
   /**
    *
    */
-  signReport() {
+  continueJourney() {
     this.router.navigate(['parom1-omic/signature']);
   }
 

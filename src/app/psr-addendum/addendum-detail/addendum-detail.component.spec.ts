@@ -4,13 +4,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { ShareBaseModule } from '../../_shared/share-base.module';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { AddendumDetailComponent } from './addendum-detail.component';
+import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/addendum-detail.reducer';
 
@@ -22,17 +23,18 @@ describe('Addendum - Component: Addendum detail', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        StoreModule.forRoot(reducers),
+        ReactiveFormsModule,
+        RouterTestingModule.withRoutes([])
+      ],
       declarations: [
         AddendumDetailComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent
-      ],
-      imports: [
-        ShareBaseModule,
-        StoreModule.forRoot(reducers),
-        ReactiveFormsModule,
-        RouterTestingModule.withRoutes([])
+        MockTextEntryComponent,
+        MockErrorMessagesComponent,
+        MockFooterComponent
       ],
       providers: [
         DatePipe

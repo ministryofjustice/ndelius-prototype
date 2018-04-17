@@ -35,7 +35,7 @@ describe('SFPSR - Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('Save draft report');
+    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('- Offender details');
   });
 
 });

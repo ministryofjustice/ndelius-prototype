@@ -41,7 +41,7 @@ export class CheckReportComponent implements OnDestroy {
   /**
    *
    */
-  signReport() {
+  continueJourney() {
     this.router.navigate(['sfpsr/signature']);
   }
 
