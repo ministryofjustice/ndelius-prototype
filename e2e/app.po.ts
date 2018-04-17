@@ -2,6 +2,7 @@ import { browser, by, element } from 'protractor';
 
 export class PrototypePage {
 
+  // Now we have the sticky footer, elements need to be clickable so we scroll to them...
   scrollToElement(target) {
     browser.controlFlow().execute(function() {
       browser.executeScript('arguments[0].scrollIntoView(true)', target.getWebElement());
@@ -29,6 +30,10 @@ export class PrototypePage {
     return element.all(by.css('app-root h2')).first().getText();
   }
 
+  getCloseButton() {
+    return element(by.id('closeButton'));
+  }
+
   getNextButton() {
     return element(by.id('nextButton'));
   }
@@ -42,14 +47,14 @@ export class PrototypePage {
   }
 
   setElementByIdValue(id: string, value: string) {
-    element(by.id(id)).clear();
-    element(by.id(id)).sendKeys(value);
-    return element(by.id(id)).getAttribute('value');
+    const foundElement = this.getElementById(id);
+    foundElement.clear();
+    foundElement.sendKeys(value);
+    return foundElement.getAttribute('value');
   }
 
   changeSelectOption(id: string, value: string) {
-    const foundElement = element(by.id(id));
-    this.scrollToElement(foundElement);
+    const foundElement = this.getElementById(id);
     foundElement.element(by.cssContainingText('option', value)).click();
     return foundElement.getAttribute('value');
   }

@@ -7,12 +7,12 @@
 
 <div class="grid-row choice-container">
   <div class="column-half">
-    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'com' }" (click)="select('com')">
+    <div id="com-journey" class="main-choice" [ngClass]="{ 'active': currentSelection === 'com' }" (click)="select('com')">
       Community Offender<br/>Manager
     </div>
   </div>
   <div class="column-half">
-    <div class="main-choice" [ngClass]="{ 'active': currentSelection === 'pom' }" (click)="select('pom')">
+    <div id="pom-journey" class="main-choice" [ngClass]="{ 'active': currentSelection === 'pom' }" (click)="select('pom')">
       Prison Offender<br/>Manager
     </div>
   </div>
