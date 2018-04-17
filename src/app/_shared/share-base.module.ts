@@ -10,6 +10,7 @@ import { RadioButtonsComponent } from './components/radio-buttons/radio-buttons.
 import { ThreeFieldDateComponent } from './components/three-field-date/three-field-date.component';
 import { InputComponent } from './components/input/input.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { FormErrorComponent } from './components/form-error/form-error.component
     TextEntryComponent,
     RadioButtonsComponent,
     ThreeFieldDateComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent
   ],
   declarations: [
     InputComponent,
@@ -34,7 +36,8 @@ import { FormErrorComponent } from './components/form-error/form-error.component
     TextEntryComponent,
     RadioButtonsComponent,
     ThreeFieldDateComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent
   ]
 })
 export class ShareBaseModule {

@@ -25,10 +25,10 @@ describe('PAROM1-OMIC - Component: Your recommendation (POM)', () => {
     TestBed.configureTestingModule({
       declarations: [
         PomRecommendationComponent,
+        MockFooterComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
-        MockFooterComponent,
         MockFormErrorComponent,
         MockTextEntryComponent
       ],

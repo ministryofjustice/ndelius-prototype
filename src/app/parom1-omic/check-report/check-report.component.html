@@ -41,6 +41,4 @@
 
 </ng-template>
 
-<app-parom1-footer [continueEnabled]="false" *ngIf="awaitingPOM"></app-parom1-footer>
-
-<button id="nextButton" class="button margin-top large" type="button" (click)="signReport()" *ngIf="isValid">Sign your report</button>
+<app-footer [continueEnabled]="isValid" label="Sign" hint="Sign your report" [continue]="continueJourney"></app-footer>

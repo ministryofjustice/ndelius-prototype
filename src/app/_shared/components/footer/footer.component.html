@@ -11,8 +11,8 @@
       <span>Changes saved</span>
     </div>&nbsp;
 
-    <button id="nextButton" class="button tooltip" type="submit" *ngIf="continueEnabled">Continue<span>Continue your report</span></button>
+    <button id="nextButton" class="button tooltip" type="submit" *ngIf="continueEnabled" (click)="continue()">{{label}}<span>{{hint}}</span></button>
     &nbsp;
-    <button id="closeButton" class="button secondary tooltip" type="button" (click)="saveDraft()">Close<span>Save and close your report</span></button>
+    <button id="closeButton" class="button secondary tooltip" type="button" (click)="saveDraft()" *ngIf="draftEnabled">Close<span>Save and close your report</span></button>
   </div>
 </footer>
