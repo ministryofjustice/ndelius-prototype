@@ -13,8 +13,8 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'seriousHarmOthers', error: 'Detail the nature of the risk of serious harm' },
-                    { name: 'increaseFactors', error: 'Analyse the factors that may increase the risk of serious harm' },
-                    { name: 'reductionFactors', error: 'Analyse the factors that may contribute towards a risk of serious harm reduction' }
+                    { name: 'increaseFactors', error: 'What factors might increase the risk of serious harm' },
+                    { name: 'reductionFactors', error: 'What factors that might decrease the risk of serious harm' }
                     ]">
     </app-form-error>
 
@@ -33,17 +33,17 @@
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="increaseFactors"
-                      label="Analyse the factors that may increase the risk of serious harm to all known groups, now or in the future"
+                      label="What factors might increase the risk of serious harm"
                       help="Include identified patterns of behaviour and offending, consider offence parallel behaviours."
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="Analyse the factors that may increase the risk of serious harm">
+                      errorMessage="What factors might increase the risk of serious harm">
       </app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="reductionFactors"
-                      label="Analyse the factors that may contribute towards a risk of serious harm reduction to all known groups"
+                      label="What factors that might decrease the risk of serious harm"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="Analyse the factors that may contribute towards a risk of serious harm reduction">
+                      errorMessage="What factors that might decrease the risk of serious harm">
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

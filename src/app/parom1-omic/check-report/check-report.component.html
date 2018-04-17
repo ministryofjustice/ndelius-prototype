@@ -11,7 +11,7 @@
     </i>
     <strong class="font-small">
       <span *ngIf="awaitingPOM">The Prison Offender Manager has not yet completed their section of this report.<br/>You cannot sign and date this report until they have done so.</span>
-      <span *ngIf="!awaitingPOM">The Prison Offender Manager has completed their section of this report.</span>
+      <span *ngIf="!awaitingPOM">The Prison Offender Manager has completed their section of this report.<br/>You may sign and date your report when ready.</span>
     </strong>
   </div>
 
@@ -19,7 +19,7 @@
 
 <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
-  <div *ngIf="!section.hide">
+  <div *ngIf="!section.hide && !section.dataOnly">
 
     <table role="presentation">
       <tbody>

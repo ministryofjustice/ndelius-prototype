@@ -60,7 +60,7 @@ describe('PAROM1-OMIC - Component: Victim issues', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Victim issues');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Victims');
   });
 
   it('should navigate to the Court details page', () => {

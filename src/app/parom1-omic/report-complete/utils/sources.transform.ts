@@ -32,8 +32,8 @@ export const sourcesTransform = (data: ISources) => {
         ]
       }
     },
-    { text: 'Other documents', style: 'fieldHeading' },
-    data.otherDocuments,
+    data.other ? { text: 'Other documents', style: 'fieldHeading' } : [],
+    data.other ? data.otherDocuments : [],
     { text: 'Has any information not been made available to you or are there any limitations to the sources?', style: 'fieldHeading' },
     data.sourceLimitations,
     { text: 'Provide an explanation', style: 'fieldHeading' },
