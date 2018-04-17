@@ -21,7 +21,12 @@
                       label="Your recommendation"
                       [limit]="4000"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your recommendation">
-        <p>This definitely needs some extra info on what to consider etc.</p>
+        <ul>
+          <li class="list-bullet">appropriate next steps</li>
+          <li class="list-bullet">interventions</li>
+          <li class="list-bullet">progressive moves</li>
+          <li class="list-bullet">release</li>
+        </ul>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

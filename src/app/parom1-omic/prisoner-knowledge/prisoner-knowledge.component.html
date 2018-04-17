@@ -13,8 +13,8 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'prisonerContact', error: 'Specify how long have you been assigned to the prisoner and what contact have you had with them' },
-                    { name: 'prisonerFamilyContact', error: 'Specify what contact have you had with the prisoner\'s family, partner or significant other' },
-                    { name: 'prisonerStaffContact', error: 'Specify what contact have you had with other relevant agencies or staff who are involved with the prisoner' }
+                    { name: 'prisonerFamilyContact', error: 'Specify what contact have you had with the prisoner\'s family, partner or significant others' },
+                    { name: 'prisonerStaffContact', error: 'Specify what contact have you had with other relevant agencies or staff about the prisoner' }
                     ]">
     </app-form-error>
 
@@ -27,13 +27,13 @@
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerFamilyContact"
-                      label="What contact have you had with the prisoner's family, partner or significant other?"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with the prisoner's family, partner or significant other"></app-text-entry>
+                      label="What contact have you had with the prisoner's family, partner or significant others?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with the prisoner's family, partner or significant others"></app-text-entry>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerStaffContact"
-                      label="What contact have you had with other relevant agencies or staff who are involved with the prisoner?"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with other relevant agencies or staff who are involved with the prisoner"></app-text-entry>
+                      label="What contact have you had with other relevant agencies or staff about the prisoner?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with other relevant agencies or staff about the prisoner"></app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
       <app-parom1-footer></app-parom1-footer>

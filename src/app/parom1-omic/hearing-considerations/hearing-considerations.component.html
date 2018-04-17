@@ -18,7 +18,7 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="oralHearingConsiderations"
-                      label="Does the prisoner need any additional support or special measures to take part in an oral hearing?"
+                      label="Does the prisoner need any support or special measures to take part in an oral hearing?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the oral hearing considerations">
         <ul>
           <li class="list-bullet">learning difficulty</li>
@@ -27,7 +27,7 @@
           <li class="list-bullet">mental health problem</li>
           <li class="list-bullet">whether the prisoner requires an interpreter</li>
           <li class="list-bullet">literacy problem</li>
-          <li class="list-bullet">security considerations due to the RoSH</li>
+          <li class="list-bullet">RoSH security considerations</li>
           <li class="list-bullet">anything that may affect the prisoner’s ability to engage at oral hearing</li>
         </ul>
       </app-text-entry>

@@ -17,12 +17,12 @@
                     { name: 'riskChildren', error: 'Select the risk to children' },
                     { name: 'riskPrisoners', error: 'Select the risk to prisoners' },
                     { name: 'riskStaff', error: 'Select the risk to staff' },
-                    { name: 'riskSelf', error: 'Select whether the prisoner has been assessed as posing a risk of harm to themselves whilst in custody' },
-                    { name: 'riskOthers', error: 'Select whether the prisoner has been assessed as posing a risk of harm to others whilst in custody' }
+                    { name: 'riskSelf', error: 'Select whether the prisoner poses a self harming risk in custody' },
+                    { name: 'riskOthers', error: 'Select whether the prisoner is at risk of serious harm from others in custody' }
                     ]">
     </app-form-error>
 
-    <p class="lede no-margin-top">Specify the prisoner's current risk of serious harm whilst in custody</p>
+    <p class="lede no-margin-top">Select the prisoner's current risk of serious harm whilst in custody</p>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -46,11 +46,11 @@
 
       <br/>
 
-      <app-radio-buttons [group]="reportForm" name="riskSelf" label="Has the prisoner been assessed as posing a risk of harm to themselves whilst in custody?" [error]="formError" errorMessage="Select whether the prisoner has been assessed as posing a risk of harm to themselves whilst in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="riskSelf" label="Does the prisoner pose a self harming risk in custody?" [error]="formError" errorMessage="Select whether the prisoner poses a self harming risk in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
 
       <br/>
 
-      <app-radio-buttons [group]="reportForm" name="riskOthers" label="Has the prisoner been assessed as posing a risk of harm to others whilst in custody?" [error]="formError" errorMessage="Select whether the prisoner has been assessed as posing a risk of harm to others whilst in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="riskOthers" label="Is the prisoner at risk of serious harm from others in custody?" [error]="formError" errorMessage="Select whether the prisoner is at risk of serious harm from others in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
 
       <br/>
 
