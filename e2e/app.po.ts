@@ -2,6 +2,12 @@ import { browser, by, element } from 'protractor';
 
 export class PrototypePage {
 
+  scrollToElement(target) {
+    browser.controlFlow().execute(function() {
+      browser.executeScript('arguments[0].scrollIntoView(true)', target.getWebElement());
+    });
+  }
+
   navigateTo() {
     return browser.get('/');
   }
@@ -42,11 +48,15 @@ export class PrototypePage {
   }
 
   changeSelectOption(id: string, value: string) {
-    element(by.id(id)).element(by.cssContainingText('option', value)).click();
-    return element(by.id(id)).getAttribute('value');
+    const foundElement = element(by.id(id));
+    this.scrollToElement(foundElement);
+    foundElement.element(by.cssContainingText('option', value)).click();
+    return foundElement.getAttribute('value');
   }
 
   getElementById(id: string) {
-    return element(by.id(id));
+    const foundElement = element(by.id(id));
+    this.scrollToElement(foundElement);
+    return foundElement;
   }
 }

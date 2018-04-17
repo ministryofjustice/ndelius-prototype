@@ -382,10 +382,6 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Sign and date your report');
       });
 
-      it('should NOT include the Save draft option in the navigation', () => {
-        expect(page.getElementById('saveDraft').isPresent()).toBeFalsy();
-      });
-
       it('should display pre-populated Report Date', () => {
         expect(page.getElementByIdValue('reportDate')).toEqual(page.getDateToday());
       });
@@ -459,7 +455,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     });
 
     it('should allow the report to be saved as a draft', () => {
-      page.getElementById('saveDraft').click();
+      page.getElementById('closeButton').click();
       expect(page.getHeadingText()).toEqual('Draft report saved');
     });
 
