@@ -3,7 +3,7 @@
 
     <legend class="form-label-bold">{{label}}</legend>
     <span class="form-hint" *ngIf="help">{{help}}</span>
-    <app-error-messages control="sentence" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
+    <app-error-messages [control]="name" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
 
     <div class="margin-top medium"></div>
 

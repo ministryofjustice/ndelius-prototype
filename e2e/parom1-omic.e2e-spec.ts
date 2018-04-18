@@ -81,10 +81,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to select the prisoner\'s category', () => {
-        page.getElementById('category-radio-0').click();
-        page.getElementById('category-radio-1').click();
-        page.getElementById('category-radio-2').click();
-        page.getElementById('category-radio-3').click();
+        page.clickRadios('category', 4);
       });
 
       it('should allow the user to enter the prisoner\'s sentence', () => {
@@ -134,6 +131,43 @@ describe('New Probation Services - Rapid Prototype', () => {
           .toEqual('Some prisoner family contact information');
         expect(page.setElementByIdValue('prisonerStaffContact', 'Some prisoner staff contact information'))
           .toEqual('Some prisoner staff contact information');
+      });
+
+      it('should allow the user to continue through the journey', () => {
+        page.getNextButton().click();
+      });
+
+    });
+
+    /* Prisoner knowledge */
+
+    describe('Previous risk assessment', () => {
+
+      it('should display the correct page', () => {
+        expect(page.getHeadingText()).toEqual('Previous risk assessment');
+      });
+
+      it('should display form error messages if the form is invalid and NOT continue', () => {
+        page.getNextButton().click();
+        expect(page.getElementById('previousDate_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('riskPublic_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('riskKnownAdult_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('riskChildren_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('riskPrisoners_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('riskStaff_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('attitude_error').isDisplayed()).toBeTruthy();
+      });
+
+      it('should allow the user to complete the report section', () => {
+        expect(page.setElementByIdValue('previousDate-month', '05'))
+          .toEqual('05');
+        expect(page.setElementByIdValue('previousDate-year', '2021'))
+          .toEqual('2021');
+
+        page.clickRadios('riskPublic', 4);
+
+        expect(page.setElementByIdValue('attitude', 'Some prisoner attitude information'))
+          .toEqual('Some prisoner attitude information');
       });
 
       it('should allow the user to continue through the journey', () => {

@@ -61,4 +61,12 @@ export class ThreeFieldDateComponent {
    */
   @Input('maxYear') public maxYear = new Date().getFullYear();
 
+  hasGroupError = () => {
+    const group = this.group.get(this.name);
+    let fieldInvalid =  group.get('day') && group.get('day').touched && group.get('day').errors;
+    fieldInvalid = fieldInvalid || group.get('month') && group.get('month').touched && group.get('month').errors;
+    fieldInvalid = fieldInvalid || group.get('year') && group.get('year').touched && group.get('year').errors;
+    return fieldInvalid || this.error;
+  }
+
 }

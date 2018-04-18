@@ -240,9 +240,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     });
 
     it('should navigate to the Feedback page', () => {
-      const feedbackLink = page.getElementById('feedback-link');
-      page.scrollTop();
-      feedbackLink.click();
+      page.getElementById('feedback-link').click();
       expect(page.getHeadingText()).toEqual('Give feedback');
     });
 

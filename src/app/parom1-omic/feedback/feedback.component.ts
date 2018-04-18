@@ -59,7 +59,9 @@ export class FeedbackComponent {
   onSubmit(form: any) {
     this.formError = !form.valid;
     if (form.valid) {
-      this.emailFeedback(form.value);
+      if (location.port !== '9876' && location.port !== '49152') {
+        this.emailFeedback(form.value);
+      }
       this.continueJourney();
     }
   }

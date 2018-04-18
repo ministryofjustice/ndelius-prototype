@@ -2,16 +2,19 @@ import { browser, by, element } from 'protractor';
 
 export class PrototypePage {
 
-  // Now we have the sticky footer, elements need to be clickable so we scroll to them...
-  scrollToElement(target) {
-    browser.controlFlow().execute(function() {
-      browser.executeScript('arguments[0].scrollIntoView(true)', target.getWebElement());
-    });
+  clickRadios(group, count) {
+    for (let i = 0, len = count; i < len; i++) {
+      this.getElementById(group + '-radio-' + i).click();
+    }
   }
 
-  scrollTop() {
+  // Now we have the sticky footer, elements need to be clickable so we scroll to them...
+  // We also unfix the header
+  scrollToElement(target) {
     browser.controlFlow().execute(function() {
-      browser.executeScript('window.scrollTo(0, 0)');
+      browser.executeScript("document.querySelector('header').style.position = 'absolute'");
+      browser.executeScript("if(document.querySelector('.sub-header')){document.querySelector('.sub-header').style.position='absolute'}");
+      browser.executeScript('arguments[0].scrollIntoView(true)', target.getWebElement());
     });
   }
 
