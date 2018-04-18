@@ -2,6 +2,7 @@ import { browser, by, element } from 'protractor';
 
 export class PrototypePage {
 
+  // Only works with radio-buttons component
   clickRadios(group, count) {
     for (let i = 0, len = count; i < len; i++) {
       this.getElementById(group + '-radio-' + i).click();
@@ -12,8 +13,9 @@ export class PrototypePage {
   // We also unfix the header
   scrollToElement(target) {
     browser.controlFlow().execute(function() {
-      browser.executeScript("document.querySelector('header').style.position = 'absolute'");
-      browser.executeScript("if(document.querySelector('.sub-header')){document.querySelector('.sub-header').style.position='absolute'}");
+      browser.executeScript('document.querySelector(\'header\').style.position = \'absolute\'');
+      browser
+        .executeScript('if(document.querySelector(\'.sub-header\')){document.querySelector(\'.sub-header\').style.position=\'absolute\'}');
       browser.executeScript('arguments[0].scrollIntoView(true)', target.getWebElement());
     });
   }

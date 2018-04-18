@@ -80,22 +80,16 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.setElementByIdValue('nomisNumber', 'N123456789')).toEqual('N123456789');
       });
 
-      it('should allow the user to select the prisoner\'s category', () => {
+      it('should allow the user to complete the report section', () => {
         page.clickRadios('category', 4);
-      });
 
-      it('should allow the user to enter the prisoner\'s sentence', () => {
         expect(page.setElementByIdValue('sentence', 'Death by monkeys')).toEqual('Death by monkeys');
-      });
 
-      it('should allow the user to select the sentence type as "Determinate" and enter the release/parole date', () => {
         page.getElementById('sentenceType-radio-0').click();
         expect(page.setElementByIdValue('determinateReleaseDate-day', '23')).toEqual('23');
         expect(page.setElementByIdValue('determinateReleaseDate-month', '05')).toEqual('05');
         expect(page.setElementByIdValue('determinateReleaseDate-year', '2021')).toEqual('2021');
-      });
 
-      it('should allow the user to select the sentence type as "Indeterminate", enter tariff length and expiry date', () => {
         page.getElementById('sentenceType-radio-1').click();
         expect(page.setElementByIdValue('tariffLength', 'Infinite')).toEqual('Infinite');
         expect(page.setElementByIdValue('tariffExpiryDate-day', '23')).toEqual('23');
@@ -165,9 +159,68 @@ describe('New Probation Services - Rapid Prototype', () => {
           .toEqual('2021');
 
         page.clickRadios('riskPublic', 4);
+        page.clickRadios('riskKnownAdult', 4);
+        page.clickRadios('riskChildren', 4);
+        page.clickRadios('riskPrisoners', 4);
+        page.clickRadios('riskStaff', 4);
 
         expect(page.setElementByIdValue('attitude', 'Some prisoner attitude information'))
           .toEqual('Some prisoner attitude information');
+      });
+
+      it('should allow the user to continue through the journey', () => {
+        page.getNextButton().click();
+      });
+
+    });
+
+    /* Victims */
+
+    describe('Victims', () => {
+
+      it('should display the correct page', () => {
+        expect(page.getHeadingText()).toEqual('Victims');
+      });
+
+      it('should display form error messages if the form is invalid and NOT continue', () => {
+        page.getNextButton().click();
+        expect(page.getElementById('victimContactService_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('victimPersonalStatement_error').isDisplayed()).toBeTruthy();
+        expect(page.getElementById('impactOfOffence_error').isDisplayed()).toBeTruthy();
+      });
+
+      it('should allow the user to complete the report section', () => {
+        expect(page.setElementByIdValue('vloContactDate', '21/03/2018'))
+          .toEqual('21/03/2018');
+
+        page.clickRadios('victimContactService', 2);
+        page.clickRadios('victimPersonalStatement', 2);
+
+        expect(page.setElementByIdValue('impactOfOffence', 'Some impact of offence information'))
+          .toEqual('Some impact of offence information');
+      });
+
+      it('should allow the user to continue through the journey', () => {
+        page.getNextButton().click();
+      });
+
+    });
+
+    /* OPD pathway */
+
+    describe('OPD pathway', () => {
+
+      it('should display the correct page', () => {
+        expect(page.getHeadingText()).toEqual('Offender personality disorder pathway');
+      });
+
+      it('should display form error messages if the form is invalid and NOT continue', () => {
+        page.getNextButton().click();
+        expect(page.getElementById('opdPathway_error').isDisplayed()).toBeTruthy();
+      });
+
+      it('should allow the user to complete the report section', () => {
+        page.clickRadios('opdPathway', 2);
       });
 
       it('should allow the user to continue through the journey', () => {
