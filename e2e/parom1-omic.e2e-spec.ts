@@ -95,14 +95,14 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.setElementByIdValue('sentence', 'Death by monkeys')).toEqual('Death by monkeys');
       });
 
-      it('should allow the user to select the prisoner\'s sentence type as "Determinate" and enter the release/parole date', () => {
+      it('should allow the user to select the sentence type as "Determinate" and enter the release/parole date', () => {
         page.getElementById('sentenceType-radio-0').click();
         expect(page.setElementByIdValue('determinateReleaseDate-day', '23')).toEqual('23');
         expect(page.setElementByIdValue('determinateReleaseDate-month', '05')).toEqual('05');
         expect(page.setElementByIdValue('determinateReleaseDate-year', '2021')).toEqual('2021');
       });
 
-      it('should allow the user to select the prisoner\'s sentence type as "Indeterminate" and enter the tariff length and expiry date', () => {
+      it('should allow the user to select the sentence type as "Indeterminate", enter tariff length and expiry date', () => {
         page.getElementById('sentenceType-radio-1').click();
         expect(page.setElementByIdValue('tariffLength', 'Infinite')).toEqual('Infinite');
         expect(page.setElementByIdValue('tariffExpiryDate-day', '23')).toEqual('23');
@@ -134,9 +134,12 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the user to complete the report section', () => {
         browser.waitForAngularEnabled(true);
-        expect(page.setElementByIdValue('prisonerContact', 'Some prisoner contact information')).toEqual('Some prisoner contact information');
-        expect(page.setElementByIdValue('prisonerFamilyContact', 'Some prisoner family contact information')).toEqual('Some prisoner family contact information');
-        expect(page.setElementByIdValue('prisonerStaffContact', 'Some prisoner staff contact information')).toEqual('Some prisoner staff contact information');
+        expect(page.setElementByIdValue('prisonerContact', 'Some prisoner contact information'))
+          .toEqual('Some prisoner contact information');
+        expect(page.setElementByIdValue('prisonerFamilyContact', 'Some prisoner family contact information'))
+          .toEqual('Some prisoner family contact information');
+        expect(page.setElementByIdValue('prisonerStaffContact', 'Some prisoner staff contact information'))
+          .toEqual('Some prisoner staff contact information');
       });
 
       it('should allow the user to continue through the journey', () => {
