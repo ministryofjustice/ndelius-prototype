@@ -3,7 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
-  Input,
+  Input, NgZone,
   OnDestroy,
   OnInit,
   Output,
@@ -140,10 +140,11 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
 
   /**
    * @constructor
+   * @param {NgZone} ngZone ngZone
    * @param {Renderer2} renderer Renderer2
    * @param {ChangeDetectorRef} ref ChangeDetectorRef
    */
-  constructor(private renderer: Renderer2, private ref: ChangeDetectorRef) {
+  constructor(private ngZone: NgZone, private renderer: Renderer2, private ref: ChangeDetectorRef) {
     // Empty
   }
 
@@ -151,9 +152,13 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    * Initiate saving user input data every n seconds
    */
   startSaving() {
-    const timer = TimerObservable.create(5000, 5000);
-    this.saving.interval = timer.subscribe(() => {
-      this.saveProgress(true);
+    this.ngZone.runOutsideAngular(() => {
+      const timer = TimerObservable.create(5000, 5000);
+      this.saving.interval = timer.subscribe(() => {
+        this.ngZone.run(() => {
+          this.saveProgress(true);
+        });
+      });
     });
   }
 
@@ -181,10 +186,14 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.saving.active = true;
         this.onSaveContent.emit();
 
-        const pause = TimerObservable.create(1000);
-        timer = pause.subscribe(() => {
-          this.saving.active = false;
-          timer.unsubscribe();
+        this.ngZone.runOutsideAngular(() => {
+          const pause = TimerObservable.create(1000);
+          timer = pause.subscribe(() => {
+            this.ngZone.run(() => {
+              this.saving.active = false;
+              timer.unsubscribe();
+            });
+          });
         });
       }
 
@@ -200,10 +209,9 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    * Event fired on keyup - used to update/check optional character count recommendation
    */
   private onKeyUp() {
-    if (!this.limit) {
-      return;
+    if (this.limit) {
+      this.limitText = this.limit + ' recommended characters, you have used ' + this.textArea.nativeElement.value.length;
     }
-    this.limitText = this.limit + ' recommended characters, you have used ' + this.textArea.nativeElement.value.length;
   }
 
   /**

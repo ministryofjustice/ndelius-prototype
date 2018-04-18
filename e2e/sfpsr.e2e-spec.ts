@@ -1,7 +1,7 @@
 import { PrototypePage } from './app.po';
 import { browser } from 'protractor';
 
-xdescribe('New Probation Services - Rapid Prototype', () => {
+describe('New Probation Services - Rapid Prototype', () => {
 
   let page: PrototypePage;
 
@@ -20,10 +20,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     beforeEach(() => {
       configureSuite();
-    });
-
-    afterEach(() => {
-      browser.waitForAngularEnabled(true);
     });
 
     describe('Report Selection', () => {
@@ -133,17 +129,12 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     describe('Offence details', () => {
 
-      beforeEach(() => {
-        browser.waitForAngularEnabled(false);
-      });
-
       it('should route', () => {
         expect(page.getHeadingText()).toEqual('Offence details');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         expect(page.getElementById('mainOffence_error').isDisplayed()).toBeTruthy();
         expect(page.getElementById('offenceSummary_error').isDisplayed()).toBeTruthy();
         expect(page.getHeadingText()).toEqual('Offence details');
@@ -166,8 +157,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -176,17 +165,12 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     describe('Offence analysis', () => {
 
-      beforeEach(() => {
-        browser.waitForAngularEnabled(false);
-      });
-
       it('should route', () => {
         expect(page.getHeadingText()).toEqual('Offence analysis');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         expect(page.getElementById('offenceAnalysisEntry_error').isDisplayed()).toBeTruthy();
         expect(page.getHeadingText()).toEqual('Offence analysis');
       });
@@ -203,7 +187,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
       });
 
     });
@@ -212,16 +195,11 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     describe('Offender assessment', () => {
 
-      beforeEach(() => {
-        browser.waitForAngularEnabled(false);
-      });
-
       it('should route', () => {
         expect(page.getHeadingText()).toEqual('Offender assessment');
       });
 
       it('should allow the selection of Offender assessment issues', () => {
-        browser.waitForAngularEnabled(true);
         page.getElementById('issueAccommodation').click();
         page.getElementById('issueEmployment').click();
         page.getElementById('issueFinance').click();
@@ -274,8 +252,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -284,17 +260,12 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     describe('Risk assessment', () => {
 
-      beforeEach(() => {
-        browser.waitForAngularEnabled(false);
-      });
-
       it('should route', () => {
         expect(page.getHeadingText()).toEqual('Risk assessment');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         expect(page.getElementById('likelihoodOfReOffending_error').isDisplayed()).toBeTruthy();
         expect(page.getElementById('riskOfSeriousHarm_error').isDisplayed()).toBeTruthy();
         expect(page.getHeadingText()).toEqual('Risk assessment');
@@ -324,8 +295,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
-        page.getNextButton().click();
       });
 
     });
@@ -334,17 +303,12 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     describe('Conclusion', () => {
 
-      beforeEach(() => {
-        browser.waitForAngularEnabled(false);
-      });
-
       it('should route', () => {
         expect(page.getHeadingText()).toEqual('Conclusion');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         expect(page.getElementById('proposal_error').isDisplayed()).toBeTruthy();
         expect(page.getHeadingText()).toEqual('Conclusion');
       });
@@ -355,7 +319,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
       });
 
     });
@@ -426,7 +389,7 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
   /* Save Draft Report */
 
-  describe('Save draft report', () => {
+  describe('SFPSR - Save draft report', () => {
 
     beforeEach(() => {
       configureSuite();
@@ -463,7 +426,7 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
   /* Give Feedback */
 
-  describe('Give feedback', () => {
+  describe('SFPSR - Give feedback', () => {
 
     beforeEach(() => {
       configureSuite();
@@ -487,7 +450,9 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
     });
 
     it('should navigate to the Feedback page', () => {
-      page.getElementById('feedback-link').click();
+      const feedbackLink = page.getElementById('feedback-link');
+      page.scrollTop();
+      feedbackLink.click();
       expect(page.getHeadingText()).toEqual('Give feedback');
     });
 

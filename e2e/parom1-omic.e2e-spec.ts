@@ -22,10 +22,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       configureSuite();
     });
 
-    afterEach(() => {
-      browser.waitForAngularEnabled(true);
-    });
-
     describe('Report Selection', () => {
 
       it('should display the correct page', () => {
@@ -118,7 +114,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
     /* Prisoner knowledge */
 
-    xdescribe('Prisoner knowledge', () => {
+    describe('Prisoner knowledge', () => {
 
       it('should display the correct page', () => {
         expect(page.getHeadingText()).toEqual('Prisoner knowledge');
@@ -126,14 +122,12 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         expect(page.getElementById('prisonerContact_error').isDisplayed()).toBeTruthy();
         expect(page.getElementById('prisonerFamilyContact_error').isDisplayed()).toBeTruthy();
         expect(page.getElementById('prisonerStaffContact_error').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the user to complete the report section', () => {
-        browser.waitForAngularEnabled(true);
         expect(page.setElementByIdValue('prisonerContact', 'Some prisoner contact information'))
           .toEqual('Some prisoner contact information');
         expect(page.setElementByIdValue('prisonerFamilyContact', 'Some prisoner family contact information'))
@@ -143,8 +137,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to continue through the journey', () => {
-        page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         page.getNextButton().click();
       });
 

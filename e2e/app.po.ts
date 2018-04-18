@@ -9,6 +9,12 @@ export class PrototypePage {
     });
   }
 
+  scrollTop() {
+    browser.controlFlow().execute(function() {
+      browser.executeScript('window.scrollTo(0, 0)');
+    });
+  }
+
   navigateTo() {
     return browser.get('/');
   }

@@ -1,7 +1,7 @@
 import { PrototypePage } from './app.po';
 import { browser } from 'protractor';
 
-xdescribe('New Probation Services - Rapid Prototype', () => {
+describe('New Probation Services - Rapid Prototype', () => {
 
   let page: PrototypePage;
 
@@ -20,10 +20,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     beforeEach(() => {
       configureSuite();
-    });
-
-    afterEach(() => {
-      browser.waitForAngularEnabled(true);
     });
 
     describe('Report Selection', () => {
@@ -106,17 +102,12 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     describe('Addendum detail', () => {
 
-      beforeEach(() => {
-        browser.waitForAngularEnabled(false);
-      });
-
       it('should route', () => {
         expect(page.getHeadingText()).toEqual('Addendum detail');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         expect(page.getElementById('detail_error').isDisplayed()).toBeTruthy();
         expect(page.getHeadingText()).toEqual('Addendum detail');
       });
@@ -131,8 +122,6 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to continue through the journey', () => {
-        page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         page.getNextButton().click();
       });
 
@@ -251,7 +240,9 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
     });
 
     it('should navigate to the Feedback page', () => {
-      page.getElementById('feedback-link').click();
+      const feedbackLink = page.getElementById('feedback-link');
+      page.scrollTop();
+      feedbackLink.click();
       expect(page.getHeadingText()).toEqual('Give feedback');
     });
 
