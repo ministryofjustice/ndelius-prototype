@@ -24,7 +24,7 @@ jobs:
           command: yarn ng test --single-run --no-progress --browsers ChromeHeadless
       - run:
           name: Smoke test
-          command: yarn ng e2e
+          command: yarn ng e2e --browsers ChromeHeadless
       - run:
           name: Production build
           command: yarn ng build --prod --build-optimizer --aot --no-progress
