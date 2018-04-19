@@ -6,10 +6,6 @@
 
 [![CircleCI](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master.svg?style=svg)](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master)
 
-![Browserstack](browserstack-logo.png)
-
-With special thanks to [BrowserStack](https://www.browserstack.com) for providing cross browser testing.
-
 ---
 
 :warning: **This is *NOT* production code and is used entirely for the rapid prototyping of new features for user testing.**
@@ -59,6 +55,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor].
 Run `ng serve --prod` to test a production build. Navigate to `http://localhost:4200/`.
 
 As noted above; this should **ONLY** be used to test a build before committing to *develop* and *master* branches.
+
+## Continuous Integration
+
+The project is tested and built automatically through integration with [Circle CI].
+
+Pushes to the master branch are also deployed automatically to AWS upon a successful build.
 
 ## Documentation
 
@@ -111,6 +113,12 @@ This project uses:
 * [Angular].
 * [@ngrx/store].
 
+---
+
+![Browserstack](browserstack-logo.png)
+
+With special thanks to [BrowserStack](https://www.browserstack.com) for providing cross browser testing.
+
 [Node.js]: http://www.nodejs.org
 [Karma]: https://karma-runner.github.io
 [Protractor]: http://www.protractortest.org
@@ -121,3 +129,4 @@ This project uses:
 [Angular CLI]: https://cli.angular.io
 [Angular]: https://angular.io
 [compodoc]: https://compodoc.github.io/website
+[Circle CI]: https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/feature%2Fe2e-tests
