@@ -88,7 +88,7 @@ In order to work with the Rapid Prototype code you should be familiar with [Angu
 
 Many widely used controls have been componentised for consistency and rapid development purposes.
 
-Each shared component includes their own README file with instructions and information for that component.  
+Each shared component *should* include their own [Markdown] file with instructions and information for that component.  
 
 ### State
 
@@ -129,4 +129,5 @@ With special thanks to [BrowserStack](https://www.browserstack.com) for providin
 [Angular CLI]: https://cli.angular.io
 [Angular]: https://angular.io
 [compodoc]: https://compodoc.github.io/website
+[Markdown]: https://daringfireball.net/projects/markdown
 [Circle CI]: https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/feature%2Fe2e-tests
