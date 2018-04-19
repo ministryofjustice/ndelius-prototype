@@ -12,13 +12,11 @@ With special thanks to [BrowserStack](https://www.browserstack.com) for providin
 
 ---
 
-**N.B. This is *NOT* production code and is used entirely for the rapid prototyping of new features.**
+:warning: **This is *NOT* production code and is used entirely for the rapid prototyping of new features for user testing.**
 
 ---
 
-The prototype has been developed in order to rapidly develop UI and UX features in order to test with users before committing to development of the master application.
-
-The prototype has been developed close to "vanilla" HTML so that design staff can work with the code more easily. 
+The prototype has been developed in order to rapidly develop UI and UX features in order to test with users before committing to development of the master application. 
 
 This *README* details the use of *[npm]* as *[Yarn]* is a development preference and not a requirement; feel free to use whichever you prefer.
 
@@ -83,6 +81,12 @@ Navigate to `http://localhost:8080/`. The documentation will generate automatica
 ## Further info
 
 In order to work with the Rapid Prototype code you should be familiar with [Angular] development and use of the [Angular CLI].
+
+### Components
+
+Many widely used controls have been componentised for consistency and rapid development purposes.
+
+Each shared component includes their own README file with instructions and information for that component.  
 
 ### State
 
