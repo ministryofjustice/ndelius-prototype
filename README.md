@@ -54,7 +54,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor].
 
 Run `ng serve --prod` to test a production build. Navigate to `http://localhost:4200/`.
 
-As noted above; this should **ONLY** be used to test a build before committing to *develop* and *master* branches.
+Production builds are used for deployment to AWS for user testing.
 
 ## Continuous Integration
 
