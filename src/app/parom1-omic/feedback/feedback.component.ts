@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-feedback',
@@ -59,7 +60,7 @@ export class FeedbackComponent {
   onSubmit(form: any) {
     this.formError = !form.valid;
     if (form.valid) {
-      if (location.port !== '9876' && location.port !== '49152') {
+      if (environment.production) {
         this.emailFeedback(form.value);
       }
       this.continueJourney();
