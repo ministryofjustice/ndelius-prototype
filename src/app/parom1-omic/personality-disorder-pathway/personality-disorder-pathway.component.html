@@ -18,7 +18,7 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" required="true" [error]="formError"
-                         label="Has the prisoner met with the OPD screen to be considered for OPD pathway services?"
+                         label="Has the prisoner been considered for OPD pathway services?"
                          errorMessage="Specify whether the prisoner has met with the OPD screen">
         <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('opdPathway').value !== 'Yes' }">
           <p>Make reference, where relevant, throughout this report if:</p>

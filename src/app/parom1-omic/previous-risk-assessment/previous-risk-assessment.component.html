@@ -28,12 +28,12 @@
 
       <!-- ANGULAR COMPONENT (only using month and year) -->
       <app-three-field-date [group]="reportForm" name="previousDate" required="true" [error]="formError"
-                            label="When was the previous risk assessment done?"
+                            label="When was the previous risk assessment completed?"
                             help="For example, 3 2018"></app-three-field-date>
 
       <br/>
 
-      <p class="lede">Risk factors from the previous risk assessment</p>
+      <p class="lede">Select the levels for the previous risk assessment</p>
 
       <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPublic" label="Public" errorMessage="Select the risk to public" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
@@ -57,7 +57,7 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="attitude"
-                      label="Prisoner's attitude to index offence"
+                      label="What is the prisoner's attitude to the index offence?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="Enter the prisoner's attitude to index offence">
         <ul>
