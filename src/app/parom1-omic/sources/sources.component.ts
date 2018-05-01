@@ -23,13 +23,13 @@ export class SourcesComponent implements OnDestroy {
   formError: boolean;
 
   documents: Array<any> = [
-    { control: 'probationCaseRecords', label: 'Probation case records' },
     { control: 'previousConvictions', label: 'Previous convictions' },
-    { control: 'paroleDossier', label: 'Parole dossier' },
     { control: 'cpsDocuments', label: 'Crown Prosecution Service (CPS) documents' },
     { control: 'preSentenceReport', label: 'Pre-sentence report' },
-    { control: 'previousParoleReports', label: 'Previous parole reports' },
     { control: 'judgesComments', label: 'Judges comments' },
+    { control: 'previousParoleReports', label: 'Previous parole reports' },
+    { control: 'paroleDossier', label: 'Parole dossier' },
+    { control: 'probationCaseRecords', label: 'Probation case records' },
     { control: 'other', label: 'Other (please specify below)' }
   ];
 

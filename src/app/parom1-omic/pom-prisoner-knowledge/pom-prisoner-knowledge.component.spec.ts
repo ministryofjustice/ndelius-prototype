@@ -54,7 +54,7 @@ describe('PAROM1-OMIC - Component: Knowledge and contact (POM)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Prisoner knowledge and contact');
+    expect(compiled.querySelector('h1').innerHTML).toBe('POM: Prisoner relationship');
   });
 
   it('should navigate to the Court details page', () => {
