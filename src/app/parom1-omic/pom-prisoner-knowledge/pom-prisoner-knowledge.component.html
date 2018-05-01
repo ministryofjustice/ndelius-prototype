@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Prisoner knowledge and contact</h1>
+<h1 class="heading-xlarge">POM: Prisoner relationship</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
@@ -21,6 +21,22 @@
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="lengthOfAssignment" [error]="formError"
+                      label="How long have you been assigned to the prisoner and what contact have you had with them?"
+                      help="Include the prisoner’s attitude to one to one work and their sentence plan since the last parole review"
+                      errorMessage="Enter the term that you been assigned to the prisoner and what contact have you had with them"
+                      (onSaveContent)="saveContent(reportForm)">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="behaviourInPrison" [error]="formError"
+                      label="How has the prisoner behaved in prison?"
+                      help="Detail significant positive and negative behaviour"
+                      errorMessage="Enter the prisoner's behaviour in prison"
+                      (onSaveContent)="saveContent(reportForm)">
+      </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="riskOfAbsconding" [options]="['Yes', 'No']" required="true" [error]="formError"
@@ -58,22 +74,6 @@
       </app-radio-buttons>
 
       <br/>
-
-      <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="lengthOfAssignment" [error]="formError"
-                      label="How long have you been assigned to the prisoner and what contact have you had with them?"
-                      help="Include the prisoner’s attitude to one to one work and their sentence plan since the last parole review"
-                      errorMessage="Enter the term that you been assigned to the prisoner and what contact have you had with them"
-                      (onSaveContent)="saveContent(reportForm)">
-      </app-text-entry>
-
-      <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="behaviourInPrison" [error]="formError"
-                      label="Prisoner's behaviour in prison"
-                      help="Detail significant positive and negative behaviour"
-                      errorMessage="Enter the prisoner's behaviour in prison"
-                      (onSaveContent)="saveContent(reportForm)">
-      </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="furtherInformation" [error]="formError"

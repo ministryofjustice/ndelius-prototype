@@ -21,21 +21,21 @@
 <div [ngClass]="{ 'js-hidden': currentSelection === '' }" [attr.aria-hidden]="currentSelection === ''">
   <div class="govuk-interrupt">
 
-    <p class="lede">This is the parole report for the Offender Manager in Custody (OMIC) model.</p>
-    <p class="lede">In this service you can:</p>
+    <p class="lede">As a {{currentSelection === 'com' ? 'COM' : 'POM'}} using the Parom1 - OMIC report you can:</p>
 
-    <ul class="list-bullet">
-      <div *ngIf="currentSelection === 'com'">
-        <li><span class="bold">Save and close your report at any point</span><br/>
-          <span class="font-xsmall">You can save and close your report so you don't have to complete the whole thing at once.</span>
-        </li>
-        <li class="margin-top"><span class="bold">Saves as you write</span><br/>
-          <span class="font-xsmall">Your report will be saved as you write so you'll never lose your work.</span></li>
-        <li class="margin-top"><span class="bold">Return to complete your report later</span><br/>
-          <span class="font-xsmall">You can finish your report when it suits you.</span></li>
-        <li class="margin-top"><span class="bold">Edit your completed report</span><br/>
-          <span class="font-xsmall">You can edit your report whenever you want, even after you've finished.</span></li>
-      </div>
+    <ul class="list-bullet" *ngIf="currentSelection === 'com'">
+      <li>complete the report in your preferred order</li>
+      <li>save and close the report at any point - it also saves as you write</li>
+      <li>review and edit the COM sections</li>
+      <li>view the POM section</li>
+      <li>check the overall progress of the report</li>
+    </ul>
+
+    <ul class="list-bullet" *ngIf="currentSelection === 'pom'">
+      <li>go straight to the POM section</li>
+      <li>save and close the report at any point - it also saves as you write</li>
+      <li>review and edit the POM section</li>
+      <li>view the COM sections</li>
     </ul>
 
     <div class="notice margin-top margin-bottom large">
