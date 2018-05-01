@@ -52,7 +52,7 @@ describe('PAROM1-OMIC - Component: Prisoner knowledge', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Prisoner knowledge');
+    expect(compiled.querySelector('h1').innerHTML).toBe('COM: Prisoner relationship');
   });
 
   it('should navigate to the Court details page', () => {

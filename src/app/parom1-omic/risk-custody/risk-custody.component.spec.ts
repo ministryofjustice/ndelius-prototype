@@ -54,7 +54,7 @@ describe('PAROM1-OMIC - Component: Risk whilst in custody', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk whilst in custody');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Risk in custody');
   });
 
   it('should navigate to the Court details page', () => {

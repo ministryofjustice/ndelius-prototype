@@ -38,6 +38,17 @@
         </strong>
       </div>
 
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="impactOfOffence"
+                      label="Analyse the impact of the offence on the victim"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your analysis of the impact of the offence on the victim">
+        <ul>
+          <li class="list-bullet">impact on the victims - even if they are in the victim scheme</li>
+          <li class="list-bullet">victims’ personal statement information</li>
+          <li class="list-bullet">address the impact on all victims</li>
+        </ul>
+      </app-text-entry>
+
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="vloContactDate" date="true" [error]="formError" required="true"
                  label="On what date did you contact the VLO?"
@@ -61,18 +72,7 @@
         </div>
       </app-radio-buttons>
 
-      <br/>
-
-      <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="impactOfOffence"
-                      label="Analyse the impact of the offence on the victim"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your analysis of the impact of the offence on the victim">
-        <ul>
-          <li class="list-bullet">impact on the victims - even if they are in the victim scheme</li>
-          <li class="list-bullet">victims’ personal statement information</li>
-          <li class="list-bullet">address the impact on all victims</li>
-        </ul>
-      </app-text-entry>
+      <br />
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>
