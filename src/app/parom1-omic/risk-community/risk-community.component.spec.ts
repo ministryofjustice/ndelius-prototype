@@ -54,7 +54,7 @@ describe('PAROM1-OMIC - Component: Risk within the community', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk within the community');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Risk in the community');
   });
 
   it('should navigate to the Court details page', () => {
