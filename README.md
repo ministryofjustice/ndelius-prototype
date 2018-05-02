@@ -18,9 +18,14 @@
 
 **Next release**
 
-[![GitHub (pre-)release](https://img.shields.io/github/release/ministryofjustice/ndelius-prototype/all.svg)](https://github.com/ministryofjustice/ndelius-prototype/releases)
+[![GitHub (pre-)release](https://img.shields.io/github/release/ministryofjustice/ndelius-prototype/all.svg?label=pre-release)](https://github.com/ministryofjustice/ndelius-prototype/releases)
 [![Github commits (since latest release)](https://img.shields.io/github/commits-since/ministryofjustice/ndelius-prototype/latest.svg)](https://github.com/ministryofjustice/ndelius-prototype/commits/master)
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ministryofjustice/ndelius-prototype.svg)
+
+**Latest changes**
+
+![CircleCI](https://img.shields.io/circleci/project/github/ministryofjustice/ndelius-prototype.svg?label=last%20build)
+![GitHub last commit](https://img.shields.io/github/last-commit/ministryofjustice/ndelius-prototype.svg)
 
 ---
 
