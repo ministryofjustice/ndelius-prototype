@@ -26,7 +26,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the correct page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Demonstration');
+        expect(page.getHeadingText()).toEqual('Prototype');
       });
 
       it('should allow the user to select the Parole Report (PAROM1-OMIC) journey', () => {
@@ -745,7 +745,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the correct page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Demonstration');
+        expect(page.getHeadingText()).toEqual('Prototype');
 
         // Clear local storage
         page.clearStorage();

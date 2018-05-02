@@ -22,7 +22,6 @@
 [![Github commits (since latest release)](https://img.shields.io/github/commits-since/ministryofjustice/ndelius-prototype/latest.svg)](https://github.com/ministryofjustice/ndelius-prototype/commits/master)
 ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ministryofjustice/ndelius-prototype.svg)
 
-**Prototype**
 ---
 
 :warning: **This is *NOT* production code and is used entirely for the rapid prototyping of new features for user testing.**
@@ -32,6 +31,14 @@
 The prototype has been developed in order to rapidly develop UI and UX features in order to test with users before committing to development of the master application. 
 
 This *README* details the use of *[npm]* as *[Yarn]* is a development preference and not a requirement; feel free to use whichever you prefer.
+
+## Features
+
+The prototype currently contains the following report journeys:
+
+* Parole Report (PAROM1-OMIC)
+* Short Format Pre-Sentence Report 
+* Pre-Sentence Report Addendum  
 
 ## Requirements
 
