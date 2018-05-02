@@ -1,6 +1,16 @@
 import { browser, by, element } from 'protractor';
 
+const fs = require('fs');
+
 export class PrototypePage {
+
+  takeScreenshot() {
+    browser.takeScreenshot().then(function (png) {
+      let stream = fs.createWriteStream('grab_' + new Date().getTime() + '.png');
+      stream.write(new Buffer(png, 'base64'));
+      stream.end();
+    });
+  }
 
   // Only works with radio-buttons component
   clickRadios(group, count) {
@@ -9,10 +19,14 @@ export class PrototypePage {
     }
   }
 
+  testTextEntry(id: string, text: string) {
+    expect(this.setElementByIdValue(id, text)).toEqual(text);
+  }
+
   // Now we have the sticky footer, elements need to be clickable so we scroll to them...
   // We also unfix the header
   scrollToElement(target) {
-    browser.controlFlow().execute(function() {
+    browser.controlFlow().execute(function () {
       browser.executeScript('document.querySelector(\'header\').style.position = \'absolute\'');
       browser
         .executeScript('if(document.querySelector(\'.sub-header\')){document.querySelector(\'.sub-header\').style.position=\'absolute\'}');
@@ -68,6 +82,10 @@ export class PrototypePage {
     const foundElement = this.getElementById(id);
     foundElement.element(by.cssContainingText('option', value)).click();
     return foundElement.getAttribute('value');
+  }
+
+  getElementByClassName(name: string) {
+    return element(by.className(name));
   }
 
   getElementById(id: string) {
