@@ -107,7 +107,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('yourRecommendation', 'Some recommendation');
+        page.testTextEntry('yourRecommendation', 'Some recommendation would go here');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -130,11 +130,11 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('reportAuthor', 'Arthur Author');
+        page.testTextEntry('reportAuthor', 'Axel Foley');
         expect(page.changeSelectOption('prison', 'Doncaster')).toEqual('23: Doncaster');
-        page.testTextEntry('counterSignature', 'Lou Roll');
+        page.testTextEntry('counterSignature', 'Johnny Wishbone');
         page.testTextEntry('counterSignatureRole', 'Arctic Roll');
-        page.testTextEntry('reportDate', '01/05/2018');
+        page.testTextEntry('reportDate', page.getDateToday());
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -703,14 +703,14 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('reportAuthor', 'Arthur Author');
+        page.testTextEntry('reportAuthor', 'Billy-Ray Valentine');
         page.testTextEntry('division', 'Joy Division');
-        page.testTextEntry('address', '1 Some Place\nSome Town\nSome County\nS0 1ME');
-        page.testTextEntry('email', 'arthur.author@joydivision.com');
+        page.testTextEntry('address', '1 Trading Places\nSome Town\nSome County\nS0 1ME');
+        page.testTextEntry('email', 'user@host.com');
         page.testTextEntry('phone', '07777 777 777');
-        page.testTextEntry('counterSignature', 'Lou Roll');
-        page.testTextEntry('counterSignatureRole', 'Arctic Roll');
-        page.testTextEntry('reportDate', '01/05/2018');
+        page.testTextEntry('counterSignature', 'Nenge Mboko');
+        page.testTextEntry('counterSignatureRole', 'Swiss Roll');
+        page.testTextEntry('reportDate', page.getDateToday());
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -727,8 +727,13 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Report saved');
       });
 
+      /*
+      it('should generate a PDF', () => {
+        page.getElementById('viewReport').click();
+      });
+      */
+
       it('should allow the user to return to the main menu', () => {
-        // THIS IS IMPORTANT AS IT ALSO DELETES ALL LOCAL STORAGE
         page.getElementById('quitReport').click();
       });
 
@@ -741,6 +746,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       it('should display the correct page', () => {
         page.navigateTo();
         expect(page.getHeadingText()).toEqual('Demonstration');
+
+        // Clear local storage
+        page.clearStorage();
       });
 
     });

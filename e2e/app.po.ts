@@ -6,9 +6,16 @@ export class PrototypePage {
 
   takeScreenshot() {
     browser.takeScreenshot().then(function (png) {
-      let stream = fs.createWriteStream('grab_' + new Date().getTime() + '.png');
+      const stream = fs.createWriteStream('grab_' + new Date().getTime() + '.png');
       stream.write(new Buffer(png, 'base64'));
       stream.end();
+    });
+  }
+
+  clearStorage() {
+    browser.controlFlow().execute(function () {
+      browser.executeScript('window.sessionStorage.clear();');
+      browser.executeScript('window.localStorage.clear();');
     });
   }
 

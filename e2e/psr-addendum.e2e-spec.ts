@@ -263,6 +263,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
       expect(page.getHeadingText()).toEqual('Pre-sentence Report Addendum');
+
+      // Clear local storage
+      page.clearStorage();
     });
 
   });

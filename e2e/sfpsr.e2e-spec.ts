@@ -473,6 +473,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
       expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
+
+      // Clear local storage
+      page.clearStorage();
     });
 
   });
