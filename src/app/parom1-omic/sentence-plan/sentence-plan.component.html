@@ -11,7 +11,7 @@
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
-                    [controls]="[{ name: 'screenedDate', error: 'Enter the sentence plan objectives and their progress' }]">
+                    [controls]="[{ name: 'sentencePlanObjectives', error: 'Enter the sentence plan objectives and their progress' }]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
@@ -19,7 +19,7 @@
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="sentencePlanObjectives"
                       label="Detail the prisoner's sentence plan objectives and their progress"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('screenedDate').errors" errorMessage="Enter the sentence plan objectives and their progress">
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('sentencePlanObjectives').errors" errorMessage="Enter the sentence plan objectives and their progress">
         <ul>
           <li class="list-bullet">current and planned interventions</li>
           <li class="list-bullet">if the prisoner has not made progress, explain why</li>

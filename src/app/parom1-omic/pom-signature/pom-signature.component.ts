@@ -10,6 +10,7 @@ import { getPomSignature } from './reducer/pom-signature.reducer';
 
 import { IPomSignature } from './model/pom-signature.model';
 import { UpdatePomSignatureAction } from './action/pom-signature.action';
+import { prisonsAndYoungOffenderInstitutions } from '../_shared/model/default-data';
 
 @Component({
   selector: 'app-signature',
@@ -22,6 +23,7 @@ export class PomSignatureComponent implements OnDestroy {
   reportData: IPomSignature;
   reportForm: FormGroup;
   formError: boolean;
+  prisonsAndYoungOffenderInstitutions = prisonsAndYoungOffenderInstitutions();
 
   /**
    * @constructor
@@ -70,7 +72,8 @@ export class PomSignatureComponent implements OnDestroy {
     const updatedValue = Object.assign(value, {
       saved: true,
       valid: valid,
-      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
+      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value,
+      prison: (<HTMLInputElement>document.getElementById('prison')).value.trim()
     });
     this.store.dispatch(new UpdatePomSignatureAction(updatedValue));
 

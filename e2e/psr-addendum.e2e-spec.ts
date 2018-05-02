@@ -22,10 +22,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       configureSuite();
     });
 
-    afterEach(() => {
-      browser.waitForAngularEnabled(true);
-    });
-
     describe('Report Selection', () => {
 
       it('should display the Report Selection page', () => {
@@ -106,17 +102,12 @@ describe('New Probation Services - Rapid Prototype', () => {
 
     describe('Addendum detail', () => {
 
-      beforeEach(() => {
-        browser.waitForAngularEnabled(false);
-      });
-
       it('should route', () => {
         expect(page.getHeadingText()).toEqual('Addendum detail');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         expect(page.getElementById('detail_error').isDisplayed()).toBeTruthy();
         expect(page.getHeadingText()).toEqual('Addendum detail');
       });
@@ -131,8 +122,6 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to continue through the journey', () => {
-        page.getNextButton().click();
-        browser.waitForAngularEnabled(true);
         page.getNextButton().click();
       });
 
@@ -219,7 +208,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     });
 
     it('should allow the report to be saved as a draft', () => {
-      page.getElementById('closeButton').click();
+      page.getCloseButton().click();
       expect(page.getHeadingText()).toEqual('Draft addendum saved');
     });
 
@@ -274,6 +263,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
       expect(page.getHeadingText()).toEqual('Pre-sentence Report Addendum');
+
+      // Clear local storage
+      page.clearStorage();
     });
 
   });

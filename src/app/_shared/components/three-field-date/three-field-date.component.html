@@ -1,21 +1,22 @@
-<div [ngClass]="{ 'form-group-error': ((group.get(name).get('day') && group.get(name).get('day').touched) || (group.get(name).get('month') && group.get(name).get('month').touched) || (group.get(name).get('year') && group.get(name).get('year').touched) || error) && !group.get(name).valid && required }">
+<div [ngClass]="{ 'form-group-error': hasGroupError() }">
   <fieldset [formGroup]="group.get(name)">
     <legend>
       <span class="form-label-bold">{{label}}</span>
       <span class="form-hint" *ngIf="help">{{help}}</span>
     </legend>
+    <app-error-messages [control]="name" [message]="errorMessage" [active]="hasGroupError()"></app-error-messages>
     <div class="form-date">
       <div class="form-group form-group-day" *ngIf="group.get(name).get('day')">
         <label class="form-label" [for]="name + '-day'">Day</label>
-        <input class="form-control" [id]="name + '-day'" [name]="name + '-day'" [ngClass]="{ 'form-control-error': (group.get(name).get('day').touched || error) && group.get(name).get('day').errors && required }" formControlName="day" type="number" pattern="[0-9]*" min="0" max="31"/>
+        <input class="form-control" [id]="name + '-day'" [name]="name + '-day'" [ngClass]="{ 'form-control-error': (group.get(name).get('day').touched || error) && group.get(name).get('day').errors }" formControlName="day" type="number" pattern="[0-9]*" min="0" max="31"/>
       </div>
       <div class="form-group form-group-month" *ngIf="group.get(name).get('month')">
         <label class="form-label" [for]="name + '-month'">Month</label>
-        <input class="form-control" [id]="name + '-month'" [name]="name + '-month'" [ngClass]="{ 'form-control-error': (group.get(name).get('month').touched || error) && group.get(name).get('month').errors && required }" formControlName="month" type="number" pattern="[0-9]*" min="0" max="12"/>
+        <input class="form-control" [id]="name + '-month'" [name]="name + '-month'" [ngClass]="{ 'form-control-error': (group.get(name).get('month').touched || error) && group.get(name).get('month').errors }" formControlName="month" type="number" pattern="[0-9]*" min="0" max="12"/>
       </div>
       <div class="form-group form-group-year" *ngIf="group.get(name).get('year')">
         <label class="form-label" [for]="name + '-year'">Year</label>
-        <input class="form-control" [id]="name + '-year'" [name]="name + '-year'" [ngClass]="{ 'form-control-error': (group.get(name).get('year').touched || error) && group.get(name).get('year').errors && required }" formControlName="year" type="number" pattern="[0-9]*" min="0" [max]="maxYear"/>
+        <input class="form-control" [id]="name + '-year'" [name]="name + '-year'" [ngClass]="{ 'form-control-error': (group.get(name).get('year').touched || error) && group.get(name).get('year').errors }" formControlName="year" type="number" pattern="[0-9]*" min="0" [max]="maxYear"/>
       </div>
     </div>
   </fieldset>
