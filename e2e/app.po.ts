@@ -1,9 +1,42 @@
 import { browser, by, element } from 'protractor';
 
+const fs = require('fs');
+
 export class PrototypePage {
 
+  takeScreenshot() {
+    browser.takeScreenshot().then(function (png) {
+      const stream = fs.createWriteStream('grab_' + new Date().getTime() + '.png');
+      stream.write(new Buffer(png, 'base64'));
+      stream.end();
+    });
+  }
+
+  clearStorage() {
+    browser.controlFlow().execute(function () {
+      browser.executeScript('window.sessionStorage.clear();');
+      browser.executeScript('window.localStorage.clear();');
+    });
+  }
+
+  // Only works with radio-buttons component
+  clickRadios(group, count) {
+    for (let i = 0, len = count; i < len; i++) {
+      this.getElementById(group + '-radio-' + i).click();
+    }
+  }
+
+  testTextEntry(id: string, text: string) {
+    expect(this.setElementByIdValue(id, text)).toEqual(text);
+  }
+
+  // Now we have the sticky footer, elements need to be clickable so we scroll to them...
+  // We also unfix the header
   scrollToElement(target) {
-    browser.controlFlow().execute(function() {
+    browser.controlFlow().execute(function () {
+      browser.executeScript('document.querySelector(\'header\').style.position = \'absolute\'');
+      browser
+        .executeScript('if(document.querySelector(\'.sub-header\')){document.querySelector(\'.sub-header\').style.position=\'absolute\'}');
       browser.executeScript('arguments[0].scrollIntoView(true)', target.getWebElement());
     });
   }
@@ -29,6 +62,10 @@ export class PrototypePage {
     return element.all(by.css('app-root h2')).first().getText();
   }
 
+  getCloseButton() {
+    return element(by.id('closeButton'));
+  }
+
   getNextButton() {
     return element(by.id('nextButton'));
   }
@@ -42,16 +79,20 @@ export class PrototypePage {
   }
 
   setElementByIdValue(id: string, value: string) {
-    element(by.id(id)).clear();
-    element(by.id(id)).sendKeys(value);
-    return element(by.id(id)).getAttribute('value');
+    const foundElement = this.getElementById(id);
+    foundElement.clear();
+    foundElement.sendKeys(value);
+    return foundElement.getAttribute('value');
   }
 
   changeSelectOption(id: string, value: string) {
-    const foundElement = element(by.id(id));
-    this.scrollToElement(foundElement);
+    const foundElement = this.getElementById(id);
     foundElement.element(by.cssContainingText('option', value)).click();
     return foundElement.getAttribute('value');
+  }
+
+  getElementByClassName(name: string) {
+    return element(by.className(name));
   }
 
   getElementById(id: string) {

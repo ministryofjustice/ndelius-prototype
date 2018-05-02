@@ -36,7 +36,7 @@
       <div class="form-group half-width" [ngClass]="{ 'form-group-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }">
         <label for="address" class="form-label-bold">Office address</label>
         <app-error-messages control="address" message="Enter the office address" [active]="(reportForm.get('address').touched || formError) && reportForm.get('address').errors"></app-error-messages>
-        <textarea class="form-control classic wide" [ngClass]="{ 'form-control-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }" type="text" role="textbox" id="address" formControlName="address" aria-described-by="address_error" aria-required="true" required></textarea>
+        <textarea class="form-control classic" [ngClass]="{ 'form-control-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }" type="text" role="textbox" id="address" formControlName="address" aria-described-by="address_error" aria-required="true" required></textarea>
       </div>
 
       <!-- ANGULAR COMPONENT -->

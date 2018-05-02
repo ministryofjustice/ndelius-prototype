@@ -21,7 +21,7 @@
         <span class="icon pdf"></span>
       </td>
       <td style="padding: 0;">
-        <p>Review and print your 'Parole Report PAROM1-OMIC'<br/><a href="javascript:void(0);" class="bold" (click)="generateReport()">View your PDF report</a></p>
+        <p>Review and print your 'Parole Report PAROM1-OMIC'<br/><a id="viewReport" href="javascript:void(0);" class="bold" (click)="generateReport()">View your PDF report</a></p>
       </td>
     </tr>
     <tr>
@@ -29,7 +29,7 @@
         <span class="icon edit"></span>
       </td>
       <td>
-        <p>Check or edit your report again<br/><a href="javascript:void(0);" class="bold" (click)="startOver()">Select a section to update or change</a></p>
+        <p>Check or edit your report again<br/><a id="editReport" href="javascript:void(0);" class="bold" (click)="startOver()">Select a section to update or change</a></p>
       </td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@
         <span class="icon list"></span>
       </td>
       <td>
-        <p>Close this report<br/><a href="javascript:void(0);" class="bold" (click)="close()">View your document list</a></p>
+        <p>Close this report<br/><a id="quitReport" href="javascript:void(0);" class="bold" (click)="close()">View your document list</a></p>
       </td>
     </tr>
     </tbody>

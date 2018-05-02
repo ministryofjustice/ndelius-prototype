@@ -6,19 +6,13 @@
 
 [![CircleCI](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master.svg?style=svg)](https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/master)
 
-![Browserstack](browserstack-logo.png)
+---
 
-With special thanks to [BrowserStack](https://www.browserstack.com) for providing cross browser testing.
+:warning: **This is *NOT* production code and is used entirely for the rapid prototyping of new features for user testing.**
 
 ---
 
-**N.B. This is *NOT* production code and is used entirely for the rapid prototyping of new features.**
-
----
-
-The prototype has been developed in order to rapidly develop UI and UX features in order to test with users before committing to development of the master application.
-
-The prototype has been developed close to "vanilla" HTML so that design staff can work with the code more easily. 
+The prototype has been developed in order to rapidly develop UI and UX features in order to test with users before committing to development of the master application. 
 
 This *README* details the use of *[npm]* as *[Yarn]* is a development preference and not a requirement; feel free to use whichever you prefer.
 
@@ -60,7 +54,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor].
 
 Run `ng serve --prod` to test a production build. Navigate to `http://localhost:4200/`.
 
-As noted above; this should **ONLY** be used to test a build before committing to *develop* and *master* branches.
+Production builds are used for deployment to AWS for user testing.
+
+## Continuous Integration
+
+The project is tested and built automatically through integration with [Circle CI].
+
+Pushes to the master branch are also deployed automatically to AWS upon a successful build.
 
 ## Documentation
 
@@ -83,6 +83,12 @@ Navigate to `http://localhost:8080/`. The documentation will generate automatica
 ## Further info
 
 In order to work with the Rapid Prototype code you should be familiar with [Angular] development and use of the [Angular CLI].
+
+### Components
+
+Many widely used controls have been componentised for consistency and rapid development purposes.
+
+Each shared component *should* include their own [Markdown] file with instructions and information for that component.  
 
 ### State
 
@@ -107,6 +113,12 @@ This project uses:
 * [Angular].
 * [@ngrx/store].
 
+---
+
+![Browserstack](browserstack-logo.png)
+
+With special thanks to [BrowserStack](https://www.browserstack.com) for providing cross browser testing.
+
 [Node.js]: http://www.nodejs.org
 [Karma]: https://karma-runner.github.io
 [Protractor]: http://www.protractortest.org
@@ -117,3 +129,5 @@ This project uses:
 [Angular CLI]: https://cli.angular.io
 [Angular]: https://angular.io
 [compodoc]: https://compodoc.github.io/website
+[Markdown]: https://daringfireball.net/projects/markdown
+[Circle CI]: https://circleci.com/gh/ministryofjustice/ndelius-prototype/tree/feature%2Fe2e-tests

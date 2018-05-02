@@ -12,10 +12,10 @@
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
+                    { name: 'lengthOfAssignment', error: 'Enter the term that you been assigned to the prisoner and what contact have you had with them' },
+                    { name: 'behaviourInPrison', error: 'Enter the prisoner\'s behaviour in prison' },
                     { name: 'riskOfAbsconding', error: 'Specify whether the prisoner been assessed as posing a risk of absconding' },
                     { name: 'rotl', error: 'Specify whether the prisoner undertaking or likely to undertake ROTL' },
-                    { name: 'sourcesOfInformation', error: 'Enter the term that you been assigned to the prisoner and what contact have you had with them' },
-                    { name: 'behaviourInPrison', error: 'Enter the prisoner\'s behaviour in prison' },
                     { name: 'furtherInformation', error: 'Enter any further information' }
                     ]">
     </app-form-error>
@@ -39,11 +39,14 @@
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="riskOfAbsconding" [options]="['Yes', 'No']" required="true" [error]="formError"
+      <app-radio-buttons [group]="reportForm" name="riskOfAbsconding" [options]="['Yes', 'No']" required="true"
+                         [error]="formError"
                          label="Has the prisoner been assessed as posing a risk of absconding? (only in closed conditions)"
                          errorMessage="Specify whether the prisoner been assessed as posing a risk of absconding">
 
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('riskOfAbsconding').value || reportForm.get('riskOfAbsconding').value === 'No' }" [attr.aria-hidden]="!reportForm.get('riskOfAbsconding').value || reportForm.get('riskOfAbsconding').value === 'No'">
+        <div class="panel panel-border-narrow"
+             [ngClass]="{ 'js-hidden': reportForm.get('riskOfAbsconding').value !== 'Yes' }"
+             [attr.aria-hidden]="reportForm.get('riskOfAbsconding').value !== 'Yes'">
           <!-- ANGULAR COMPONENT -->
           <app-text-entry [group]="reportForm" name="riskOfAbscondingDetails"
                           label="Provide details of the absconding risk"
@@ -60,7 +63,8 @@
                          help="Detail all relevant ROTL information including previous periods and it’s success. Give an explanation if the prisoner has not undertaken ROTL"
                          errorMessage="Specify whether the prisoner undertaking or likely to undertake ROTL">
 
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('rotl').value || reportForm.get('rotl').value === 'No' }" [attr.aria-hidden]="!reportForm.get('rotl').value || reportForm.get('rotl').value === 'No'">
+        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('rotl').value !== 'Yes' }"
+             [attr.aria-hidden]="reportForm.get('rotl').value !== 'Yes'">
           <!-- ANGULAR COMPONENT -->
           <app-text-entry [group]="reportForm" name="rotlDetails"
                           label="Provide further ROTL information"

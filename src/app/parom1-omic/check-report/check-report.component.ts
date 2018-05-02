@@ -32,7 +32,7 @@ export class CheckReportComponent implements OnDestroy {
       this.sections.forEach((item) => {
         const model = currentState[item.state];
         Object.assign(item, { saved: model.saved, valid: model.valid });
-        if (!model.valid) {
+        if (!model.valid && !item.dataOnly) {
           if (item.hide) { // @FIXME: This needs to be done properly
             this.awaitingPOM = true;
           }
