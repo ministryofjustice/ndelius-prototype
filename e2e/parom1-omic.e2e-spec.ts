@@ -727,11 +727,11 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Report saved');
       });
 
-      /*
+
       it('should generate a PDF', () => {
         page.getElementById('viewReport').click();
       });
-      */
+
 
       it('should allow the user to return to the main menu', () => {
         page.getElementById('quitReport').click();
