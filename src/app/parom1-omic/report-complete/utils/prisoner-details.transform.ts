@@ -24,7 +24,7 @@ export const prisonerDetailsTranform = (data: IPrisonerDetails) => {
           [{ text: 'Prisoner\'s full name', style: 'fontBold' }, data.name || ''],
           [{ text: 'Prison number', style: 'fontBold' }, data.prisonNumber || ''],
           [{ text: 'NOMIS number', style: 'fontBold' }, data.nomisNumber || ''],
-          [{ text: 'Prison or YOI', style: 'fontBold' }, data.prison || ''],
+          [{ text: 'Prison or YOI', style: 'fontBold' }, data.prison ? data.prison.substring(data.prison.indexOf(':') + 1)  : ''],
           [{ text: 'Prisoner\'s category', style: 'fontBold' }, data.category || ''],
           [{ text: 'Sentence', style: 'fontBold' }, data.sentence || ''],
           [{ text: 'Sentence type', style: 'fontBold' }, data.sentenceType || '']

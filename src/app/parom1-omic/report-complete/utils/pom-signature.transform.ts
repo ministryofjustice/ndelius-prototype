@@ -9,7 +9,7 @@ export const pomSignatureTransform = (data: IPomSignature) => {
         widths: [150, '*'],
         body: [
           [{ text: 'Name', style: 'fontBold' }, data.reportAuthor || ''],
-          [{ text: 'Prison', style: 'fontBold' }, data.prison || ''],
+          [{ text: 'Prison', style: 'fontBold' }, data.prison ? data.prison.substring(data.prison.indexOf(':') + 1)  : ''],
           [{ text: 'Countersignature', style: 'fontBold' }, data.counterSignature || ''],
           [{ text: 'Role', style: 'fontBold' }, data.counterSignatureRole || ''],
           [{ text: 'Start date', style: 'fontBold' }, data.startDate || ''],

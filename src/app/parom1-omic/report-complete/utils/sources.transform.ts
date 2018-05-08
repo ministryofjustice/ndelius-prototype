@@ -4,7 +4,6 @@ import { yesNo } from './utils';
 export const sourcesTransform = (data: ISources) => {
   return [
     { text: 'Sources', style: 'sectionHeading' },
-    { text: 'Site all sources of information used to inform this PARAM 1', style: 'fieldHeading' },
     {
       style: 'tableDefault',
       table: {
