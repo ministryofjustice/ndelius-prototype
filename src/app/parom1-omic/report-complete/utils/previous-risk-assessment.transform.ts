@@ -6,7 +6,7 @@ export const previousRiskAssessmentTransform = (data: IPreviousRiskAssessment) =
       { text: 'Previous risk assessment', style: 'sectionHeading', margin: [ 0, 20, 0, 0 ] },
       {
         text: [{ text: 'Completed: ', style: 'fontBold' },
-          pipeMonth(data.previousDate.month) + ' ' + data.previousDate.year || ''
+          pipeMonth(data.previousDate.month) + ' ' + (data.previousDate.year || '')
         ], margin: [ 0, 5, 0, 10 ]
       },
       /*

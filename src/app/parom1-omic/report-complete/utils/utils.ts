@@ -1,6 +1,8 @@
 /**
  *
  */
+import { isUndefined } from 'util';
+
 interface IDate {
   day: Number;
   month: Number;
@@ -34,5 +36,5 @@ export const pipeMonth = (num: number): string => {
  * @returns {string}
  */
 export const yesNo = (bool: boolean): string => {
-  return bool ? 'Yes' : 'No';
+  return isUndefined(bool) ? '' : bool ? 'Yes' : 'No';
 };
