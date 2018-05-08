@@ -2,8 +2,7 @@ import { IRiskCommunity } from '../../risk-community/model/risk-community.model'
 
 export const riskCommunityTransform = (data: IRiskCommunity) => {
   return [
-    { text: 'Risk within the community', style: 'sectionHeading' },
-    { text: 'Risk of serious harm within the community', style: 'fieldHeading' },
+    { text: 'Risk in the community', style: 'sectionHeading' },
     {
       style: 'tableDefault',
       table: {
@@ -19,9 +18,9 @@ export const riskCommunityTransform = (data: IRiskCommunity) => {
         ]
       }
     },
-    { text: 'Has the prisoner been assessed as posing a risk of harm to themselves in the community?', style: 'fieldHeading' },
+    { text: 'Self harming risk', style: 'fieldHeading' },
     data.riskSelf || '',
-    { text: 'Has the prisoner been assessed as posing a risk of harm to others in the community?', style: 'fieldHeading' },
+    { text: 'Risk of harm from others', style: 'fieldHeading' },
     data.riskOthers || ''
   ];
 };

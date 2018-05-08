@@ -11,20 +11,20 @@ export const sourcesTransform = (data: ISources) => {
         widths: ['*', 50, '*', 50],
         body: [
           [{
-            text: 'Probation case records',
-            style: 'fontBold'
-          }, yesNo(data.probationCaseRecords), {
             text: 'Previous convictions',
             style: 'fontBold'
-          }, yesNo(data.previousConvictions)],
-          [{ text: 'Parole dossier', style: 'fontBold' }, yesNo(data.paroleDossier), {
-            text: 'CPS documents',
-            style: 'fontBold'
-          }, yesNo(data.cpsDocuments)],
-          [{ text: 'Pre-sentence report', style: 'fontBold' }, yesNo(data.preSentenceReport), {
+          }, yesNo(data.previousConvictions), {
             text: 'Previous parole reports',
             style: 'fontBold'
           }, yesNo(data.previousParoleReports)],
+          [{ text: 'CPS documents', style: 'fontBold' }, yesNo(data.cpsDocuments), {
+            text: 'Parole dossier',
+            style: 'fontBold'
+          }, yesNo(data.paroleDossier)],
+          [{ text: 'Pre-sentence report', style: 'fontBold' }, yesNo(data.preSentenceReport), {
+            text: 'Probation case records',
+            style: 'fontBold'
+          }, yesNo(data.probationCaseRecords)],
           [{ text: 'Judges comments', style: 'fontBold' }, yesNo(data.judgesComments), {
             text: 'Other',
             style: 'fontBold'
@@ -34,11 +34,9 @@ export const sourcesTransform = (data: ISources) => {
     },
     data.other ? { text: 'Other documents', style: 'fieldHeading' } : [],
     data.other ? data.otherDocuments : [],
-    { text: 'Has any information not been made available to you or are there any limitations to the sources?', style: 'fieldHeading' },
-    data.sourceLimitations || '',
-    { text: 'Provide an explanation', style: 'fieldHeading' },
-    data.sourceLimitationExplanation || '',
-    { text: 'List all the reports, assessments and directions you have used for this PAROM 1', style: 'fieldHeading' },
+    { text: 'Reports, assessments and directions', style: 'fieldHeading' },
     data.reportsAssessmentsDirections || '',
+    { text: 'Sources: issues and limitations', style: 'fieldHeading' },
+    data.sourceLimitationExplanation || '',
   ];
 };

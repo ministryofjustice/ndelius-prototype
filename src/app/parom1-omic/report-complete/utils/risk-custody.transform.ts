@@ -2,8 +2,7 @@ import { IRiskCustody } from '../../risk-custody/model/risk-custody.model';
 
 export const riskCustodyTransform = (data: IRiskCustody) => {
   return [
-    { text: 'Risk whilst in custody', style: 'sectionHeading' },
-    { text: 'Risk of serious harm whilst in custody', style: 'fieldHeading' },
+    { text: 'Risk in custody', style: 'sectionHeading' },
     {
       style: 'tableDefault',
       table: {
@@ -15,9 +14,9 @@ export const riskCustodyTransform = (data: IRiskCustody) => {
         ]
       }
     },
-    { text: 'Has the prisoner been assessed as posing a risk of harm to themselves whilst in custody?', style: 'fieldHeading' },
+    { text: 'Self harming risk', style: 'fieldHeading' },
     data.riskSelf || '',
-    { text: 'Has the prisoner been assessed as posing a risk of harm to others whilst in custody?', style: 'fieldHeading' },
+    { text: 'Risk of harm from others', style: 'fieldHeading' },
     data.riskOthers || ''
   ];
 };

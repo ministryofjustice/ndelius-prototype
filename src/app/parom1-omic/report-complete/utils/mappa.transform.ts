@@ -2,9 +2,10 @@ import { IMappa } from '../../mappa/model/mappa.model';
 
 export const mappaTransform = (data: IMappa) => {
   return [
-    { text: 'Multi Agency Public Protection Arrangements (MAPPA)', style: 'sectionHeading' },
-    { text: 'What date was the prisoner screened for MAPPA (MAPPAQ completed)?', style: 'fieldHeading' },
-    data.screenedDate || '',
+    { text: 'MAPPA', style: 'sectionHeading' },
+    {
+      text: [{ text: 'MAPPAQ completed on ', style: 'fontBold' }, data.screenedDate || ''], margin: [0, 5, 0, 10]
+    },
     {
       style: 'tableDefault',
       margin: [0, 15, 0, 15],

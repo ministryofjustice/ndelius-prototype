@@ -11,7 +11,7 @@ export const releaseRiskManagementTransform = (data: IReleaseRiskManagement) => 
     data.control || '',
     { text: 'Added measures for specific risks', style: 'fieldHeading' },
     data.riskMeasures || '',
-    { text: 'Additional conditions or requirements', style: 'fieldHeading' },
+    { text: 'Additional conditions or requirement', style: 'fieldHeading' },
     data.requirements || '',
     { text: 'Level of contact', style: 'fieldHeading' },
     data.contactLevel || '',
