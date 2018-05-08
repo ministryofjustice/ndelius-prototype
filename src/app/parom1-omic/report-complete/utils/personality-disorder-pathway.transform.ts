@@ -3,6 +3,6 @@ import { IPersonalityDisorderPathway } from '../../personality-disorder-pathway/
 export const personalityDisorderPathwayTransform = (data: IPersonalityDisorderPathway) => {
   return [
     { text: 'OPD pathway consideration', style: 'fieldHeading' },
-    data.opdPathway
+    data.opdPathway || ''
   ];
 };

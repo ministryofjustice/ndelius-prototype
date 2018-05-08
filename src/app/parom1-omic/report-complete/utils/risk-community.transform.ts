@@ -15,13 +15,13 @@ export const riskCommunityTransform = (data: IRiskCommunity) => {
           }, { text: 'Prisoners', style: 'fontBold' }, {
             text: 'Staff',
             style: 'fontBold'
-          }], [data.riskPublic, data.riskKnownAdult, data.riskChildren, data.riskPrisoners, data.riskStaff]
+          }], [data.riskPublic || '', data.riskKnownAdult || '', data.riskChildren || '', data.riskPrisoners || '', data.riskStaff || '']
         ]
       }
     },
     { text: 'Has the prisoner been assessed as posing a risk of harm to themselves in the community?', style: 'fieldHeading' },
-    data.riskSelf,
+    data.riskSelf || '',
     { text: 'Has the prisoner been assessed as posing a risk of harm to others in the community?', style: 'fieldHeading' },
-    data.riskOthers
+    data.riskOthers || ''
   ];
 };

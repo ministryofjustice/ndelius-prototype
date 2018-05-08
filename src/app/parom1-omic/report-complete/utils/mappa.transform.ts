@@ -4,7 +4,7 @@ export const mappaTransform = (data: IMappa) => {
   return [
     { text: 'Multi Agency Public Protection Arrangements (MAPPA)', style: 'sectionHeading' },
     { text: 'What date was the prisoner screened for MAPPA (MAPPAQ completed)?', style: 'fieldHeading' },
-    data.screenedDate,
+    data.screenedDate || '',
     {
       style: 'tableDefault',
       margin: [0, 15, 0, 15],
@@ -15,7 +15,7 @@ export const mappaTransform = (data: IMappa) => {
             text: 'Prisoner\'s current MAPPA level',
             style: 'fontBold'
           }],
-          [data.mappaCategory, data.mappaLevel]
+          [data.mappaCategory || '', data.mappaLevel || '']
         ]
       }
     }

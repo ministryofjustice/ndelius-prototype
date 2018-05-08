@@ -9,7 +9,7 @@ export const prisonerKnowledgeTransform = (data: IPrisonerKnowledge) => {
       style: 'fieldHeading'
     },
     */
-    data.prisonerContact,
+    data.prisonerContact || '',
     /*
     {
       text: 'What contact have you had with the prisoner\'s family, partner or significant other?',
@@ -21,6 +21,6 @@ export const prisonerKnowledgeTransform = (data: IPrisonerKnowledge) => {
       style: 'fieldHeading'
     },
     */
-    data.prisonerStaffContact
+    data.prisonerStaffContact || ''
   ];
 };

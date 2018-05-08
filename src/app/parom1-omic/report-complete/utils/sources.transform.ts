@@ -35,10 +35,10 @@ export const sourcesTransform = (data: ISources) => {
     data.other ? { text: 'Other documents', style: 'fieldHeading' } : [],
     data.other ? data.otherDocuments : [],
     { text: 'Has any information not been made available to you or are there any limitations to the sources?', style: 'fieldHeading' },
-    data.sourceLimitations,
+    data.sourceLimitations || '',
     { text: 'Provide an explanation', style: 'fieldHeading' },
-    data.sourceLimitationExplanation,
+    data.sourceLimitationExplanation || '',
     { text: 'List all the reports, assessments and directions you have used for this PAROM 1', style: 'fieldHeading' },
-    data.reportsAssessmentsDirections,
+    data.reportsAssessmentsDirections || '',
   ];
 };

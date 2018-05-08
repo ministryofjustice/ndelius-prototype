@@ -11,14 +11,13 @@ export const riskCustodyTransform = (data: IRiskCustody) => {
         body: [
           [{ text: 'Public', style: 'fontBold' }, { text: 'Known adult', style: 'fontBold' }, { text: 'Children', style: 'fontBold' },
             { text: 'Prisoners', style: 'fontBold' }, { text: 'Staff', style: 'fontBold' }],
-          [data.riskPublic, data.riskKnownAdult, data.riskChildren,
-            data.riskPrisoners, data.riskStaff]
+          [data.riskPublic || '', data.riskKnownAdult || '', data.riskChildren || '', data.riskPrisoners || '', data.riskStaff || '']
         ]
       }
     },
     { text: 'Has the prisoner been assessed as posing a risk of harm to themselves whilst in custody?', style: 'fieldHeading' },
-    data.riskSelf,
+    data.riskSelf || '',
     { text: 'Has the prisoner been assessed as posing a risk of harm to others whilst in custody?', style: 'fieldHeading' },
-    data.riskOthers
+    data.riskOthers || ''
   ];
 };

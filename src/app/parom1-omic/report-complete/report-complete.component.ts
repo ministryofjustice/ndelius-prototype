@@ -70,14 +70,14 @@ export class ReportCompleteComponent implements OnDestroy {
 
     return {
       info: {
-        title: 'Parole Report PAROM1-OMIC',
-        author: data.signature.reportAuthor
+        title: 'Parole Report Parom 1 (OMIC)',
+        author: data.signature.reportAuthor || ''
       },
       pageSize: 'A4',
       pageMargins: [40, 60, 40, 60],
       footer: function (currentPage, pageCount) {
         return {
-          columns: [{ text: 'PAROM1-OMIC', style: 'fontFooter' }, {
+          columns: [{ text: 'Parom 1 (OMIC)', style: 'fontFooter' }, {
             text: currentPage.toString() + ' of ' + pageCount,
             alignment: 'right',
             style: 'fontFooter'

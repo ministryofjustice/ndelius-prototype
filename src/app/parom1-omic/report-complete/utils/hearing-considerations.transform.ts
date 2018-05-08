@@ -7,6 +7,6 @@ export const hearingRecommendationsTransform = (data: IHearingConsiderations) =>
       text: 'Does the prisoner need any additional support or special measures to take part in an oral hearing?',
       style: 'fieldHeading'
     },
-    data.oralHearingConsiderations,
+    data.oralHearingConsiderations || '',
   ];
 };
