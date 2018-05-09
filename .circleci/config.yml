@@ -3,7 +3,7 @@ jobs:
   build-job:
     working_directory: ~/hmpps-prototype
     docker:
-      - image: circleci/node:8.11.1-browsers
+      - image: circleci/node:10.0.0-browsers
     steps:
       - checkout
       - restore_cache:
@@ -18,20 +18,20 @@ jobs:
             - ./node_modules
       - run:
           name: Lint
-          command: yarn ng lint --type-check
+          command: yarn ng lint
       - run:
           name: Unit test
           command: yarn ng test --single-run --no-progress --browsers ChromeHeadless
       - run:
           name: Production build
-          command: yarn ng build --prod --build-optimizer --aot --no-progress
+          command: yarn ng build --prod --build-optimizer --aot --no-progress --source-map
       - persist_to_workspace:
           root: ~/hmpps-prototype
           paths:
             - dist
   deploy-job:
     docker:
-      - image: circleci/node:8.11.1
+      - image: circleci/node:10.0.0
     steps:
       - run:
           name: Install awscli

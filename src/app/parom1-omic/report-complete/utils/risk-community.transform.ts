@@ -2,8 +2,7 @@ import { IRiskCommunity } from '../../risk-community/model/risk-community.model'
 
 export const riskCommunityTransform = (data: IRiskCommunity) => {
   return [
-    { text: 'Risk within the community', style: 'sectionHeading' },
-    { text: 'Risk of serious harm within the community', style: 'fieldHeading' },
+    { text: 'Risk in the community', style: 'sectionHeading' },
     {
       style: 'tableDefault',
       table: {
@@ -15,13 +14,13 @@ export const riskCommunityTransform = (data: IRiskCommunity) => {
           }, { text: 'Prisoners', style: 'fontBold' }, {
             text: 'Staff',
             style: 'fontBold'
-          }], [data.riskPublic, data.riskKnownAdult, data.riskChildren, data.riskPrisoners, data.riskStaff]
+          }], [data.riskPublic || '', data.riskKnownAdult || '', data.riskChildren || '', data.riskPrisoners || '', data.riskStaff || '']
         ]
       }
     },
-    { text: 'Has the prisoner been assessed as posing a risk of harm to themselves in the community?', style: 'fieldHeading' },
-    data.riskSelf,
-    { text: 'Has the prisoner been assessed as posing a risk of harm to others in the community?', style: 'fieldHeading' },
-    data.riskOthers
+    { text: 'Self harming risk', style: 'fieldHeading' },
+    data.riskSelf || '',
+    { text: 'Risk of harm from others', style: 'fieldHeading' },
+    data.riskOthers || ''
   ];
 };
