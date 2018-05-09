@@ -160,7 +160,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
     describe('Route', () => {
       it('should route back to the COM and POM journey options page', () => {
-        browser.get('/parom1-omic/');
+        browser.get('/#/parom1-omic/');
       });
     });
 
