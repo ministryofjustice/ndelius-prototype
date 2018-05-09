@@ -18,13 +18,13 @@ jobs:
             - ./node_modules
       - run:
           name: Lint
-          command: yarn ng lint --type-check
+          command: yarn ng lint
       - run:
           name: Unit test
           command: yarn ng test --single-run --no-progress --browsers ChromeHeadless
       - run:
           name: Production build
-          command: yarn ng build --prod --build-optimizer --aot --no-progress
+          command: yarn ng build --prod --build-optimizer --aot --no-progress --source-map
       - persist_to_workspace:
           root: ~/hmpps-prototype
           paths:
