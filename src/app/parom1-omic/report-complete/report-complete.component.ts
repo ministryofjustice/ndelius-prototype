@@ -70,14 +70,14 @@ export class ReportCompleteComponent implements OnDestroy {
 
     return {
       info: {
-        title: 'Parole Report PAROM1-OMIC',
-        author: data.signature.reportAuthor
+        title: 'Parole Report Parom 1 (OMIC)',
+        author: data.signature.reportAuthor || ''
       },
       pageSize: 'A4',
       pageMargins: [40, 60, 40, 60],
       footer: function (currentPage, pageCount) {
         return {
-          columns: [{ text: 'PAROM1-OMIC', style: 'fontFooter' }, {
+          columns: [{ text: 'Parom 1 (OMIC)', style: 'fontFooter' }, {
             text: currentPage.toString() + ' of ' + pageCount,
             alignment: 'right',
             style: 'fontFooter'
@@ -85,7 +85,7 @@ export class ReportCompleteComponent implements OnDestroy {
         };
       },
       content: [
-        { text: 'Parole Report PAROM1-OMIC', style: 'reportTitle', alignment: 'center' },
+        { text: 'Parole Report Parom 1 (OMIC)', style: 'reportTitle', alignment: 'center' },
         prisonerDetailsTranform(data.prisonerDetails),
         prisonerKnowledgeTransform(data.prisonerKnowledge),
         previousRiskAssessmentTransform(data.previousRiskAssessment),
@@ -94,6 +94,7 @@ export class ReportCompleteComponent implements OnDestroy {
         /**
          * POM JOURNEY START
          */
+        { text: 'Prison offender manager section', style: 'sectionHeading', margin: [0, 20, 0, 0] },
         pomPrisonerKnowledgeTransform(data.pomPrisonerKnowledge),
         pomRecommendationTransform(data.pomRecommendation),
         pomSignatureTransform(data.pomSignature),
@@ -134,6 +135,7 @@ export class ReportCompleteComponent implements OnDestroy {
         },
         fontFooter: {
           fontSize: 10,
+          color: 'gray',
           margin: [40, 0]
         },
         tableDefault: {

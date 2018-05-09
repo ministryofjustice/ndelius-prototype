@@ -2,20 +2,23 @@ import { IRiskReoffending } from '../../risk-reoffending/model/risk-reoffending.
 
 export const riskReoffendingTransform = (data: IRiskReoffending) => {
   return [
-    { text: 'Risk of re-offending', style: 'sectionHeading' },
-    { text: 'Risk of serious recidivism (RSR) score', style: 'fieldHeading' },
-    data.rsrScore,
-    { text: 'OGRS3 percentage of proven re-offending', style: 'fieldHeading' },
-    data.ogrs3Percentage,
-    { text: 'OGP probability of proven non-violent type re-offending', style: 'fieldHeading' },
-    data.ogpProbability,
-    { text: 'OVP probability of proven violent type re-offending', style: 'fieldHeading' },
-    data.ovpProbability,
-    { text: 'Risk Matrix 2000', style: 'fieldHeading' },
-    data.riskMatrix2000,
-    { text: 'SARA', style: 'fieldHeading' },
-    data.sara,
-    { text: 'Analyse the likelihood of further offending', style: 'fieldHeading' },
-    data.likelihoodOfReoffending,
+    { text: 'Risk of reoffending', style: 'sectionHeading' },
+
+    {
+      style: 'tableDefault',
+      table: {
+        widths: ['*', '*'],
+        body: [
+          [{ text: 'RSR', style: 'fontBold' }, data.rsrScore || '' || ''],
+          [{ text: 'OGRS3', style: 'fontBold' }, data.ogrs3Percentage || ''],
+          [{ text: 'OGP', style: 'fontBold' }, data.ogpProbability || ''],
+          [{ text: 'OVP', style: 'fontBold' }, data.ovpProbability],
+          [{ text: 'Risk matrix 2000', style: 'fontBold' }, data.riskMatrix2000 || ''],
+          [{ text: 'SARA', style: 'fontBold' }, data.sara || '']
+        ]
+      }
+    },
+    { text: 'Likelihood of further offending', style: 'fieldHeading' },
+    data.likelihoodOfReoffending || '',
   ];
 };

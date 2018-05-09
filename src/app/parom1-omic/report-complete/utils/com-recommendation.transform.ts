@@ -2,8 +2,7 @@ import { IComRecommendation } from '../../com-recommendation/model/com-recommend
 
 export const comRecommendationTransform = (data: IComRecommendation) => {
   return [
-    { text: 'Your recommendation', style: 'sectionHeading' },
-    { text: 'Your recommendation', style: 'fieldHeading' },
-    data.yourRecommendation,
+    { text: 'Recommendation', style: 'sectionHeading' },
+    data.yourRecommendation || '',
   ];
 };

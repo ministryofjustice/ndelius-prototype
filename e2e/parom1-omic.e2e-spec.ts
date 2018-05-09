@@ -1,6 +1,8 @@
 import { PrototypePage } from './app.po';
 import { browser } from 'protractor';
 
+const testData = require('./parom1-data.json');
+
 describe('New Probation Services - Rapid Prototype', () => {
 
   let page: PrototypePage;
@@ -12,6 +14,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     page = new PrototypePage();
     // We're using jQuery to pull in application.js in order to run the jQuery code we use in the MVP so mock it.
     browser.executeScript('$ = { getScript: function() { return true; } }');
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
   }
 
   describe('Parole Report (PAROM1-OMIC) journey', () => {
@@ -26,7 +29,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the correct page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Demonstration');
+        expect(page.getHeadingText()).toEqual('Prototype');
       });
 
       it('should allow the user to select the Parole Report (PAROM1-OMIC) journey', () => {
@@ -72,8 +75,8 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('lengthOfAssignment', 'Some length of assignment information');
-        page.testTextEntry('behaviourInPrison', 'Some prisoner behaviour information');
+        page.setElementByIdValue('lengthOfAssignment', testData.pom_relationship);
+        page.setElementByIdValue('behaviourInPrison', testData.pom_behaviour);
 
         page.clickRadios('riskOfAbsconding', 2);
         page.clickRadios('rotl', 2);
@@ -84,7 +87,7 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.testTextEntry('riskOfAbscondingDetails', 'Some risk of absconding');
         page.testTextEntry('rotlDetails', 'Some more ROTL information');
 
-        page.testTextEntry('furtherInformation', 'Some further information');
+        page.setElementByIdValue('furtherInformation', testData.pom_information);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -107,7 +110,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('yourRecommendation', 'Some recommendation would go here');
+        page.setElementByIdValue('yourRecommendation', testData.pom_recommendation);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -243,9 +246,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('prisonerContact', 'Some prisoner contact information');
-        page.testTextEntry('prisonerFamilyContact', 'Some prisoner family contact information');
-        page.testTextEntry('prisonerStaffContact', 'Some prisoner staff contact information');
+        page.setElementByIdValue('prisonerContact', testData.com_relationship);
+        page.setElementByIdValue('prisonerFamilyContact', testData.com_familyContact);
+        page.setElementByIdValue('prisonerStaffContact', testData.com_staffContact);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -275,7 +278,8 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.clickRadios('riskChildren', 4);
         page.clickRadios('riskPrisoners', 4);
         page.clickRadios('riskStaff', 4);
-        page.testTextEntry('attitude', 'Some prisoner attitude information');
+
+        page.setElementByIdValue('attitude', testData.attitudeOffence);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -298,7 +302,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('impactOfOffence', 'Some impact of offence information');
+        page.setElementByIdValue('impactOfOffence', testData.victimImpact);
         page.testTextEntry('vloContactDate', '21/03/2018');
         page.clickRadios('victimContactService', 2);
         page.clickRadios('victimPersonalStatement', 2);
@@ -347,8 +351,8 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('interventionsList', 'Some interventions list');
-        page.testTextEntry('interventionsSummary', 'Some interventions summary');
+        page.setElementByIdValue('interventionsList', testData.interventionsCompleted);
+        page.setElementByIdValue('interventionsSummary', testData.interventionsSummary);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -371,7 +375,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('sentencePlanObjectives', 'Some sentence plan objectives');
+        page.setElementByIdValue('sentencePlanObjectives', testData.sentencePlan);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -425,7 +429,8 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.testTextEntry('ovpProbability', '32%');
         page.clickRadios('riskMatrix2000', 4);
         page.clickRadios('sara', 3);
-        page.testTextEntry('likelihoodOfReoffending', 'Extremely likely');
+
+        page.setElementByIdValue('likelihoodOfReoffending', testData.likelihoodReoffending);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -506,9 +511,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('seriousHarmOthers', 'Nature of the risk to others');
-        page.testTextEntry('increaseFactors', 'Some increase factors');
-        page.testTextEntry('reductionFactors', 'Some reduction factors');
+        page.setElementByIdValue('seriousHarmOthers', testData.riskOfSeriousHarm);
+        page.setElementByIdValue('increaseFactors', testData.increaseFactors);
+        page.setElementByIdValue('reductionFactors', testData.reductionFactors);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -531,14 +536,15 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('agencies', 'Some agencies');
-        page.testTextEntry('support', 'Some support');
-        page.testTextEntry('control', 'Some control');
-        page.testTextEntry('riskMeasures', 'Some risk measures');
-        page.testTextEntry('requirements', 'Some additional conditions or requirements');
-        page.testTextEntry('contactLevel', 'Some contact level');
-        page.testTextEntry('agencyActions', 'Some agency actions');
-        page.testTextEntry('contingencyPlan', 'Some contingency plan');
+
+        page.setElementByIdValue('agencies', testData.agencies);
+        page.setElementByIdValue('support', testData.support);
+        page.setElementByIdValue('control', testData.control);
+        page.setElementByIdValue('riskMeasures', testData.riskMeasures);
+        page.setElementByIdValue('requirements', testData.requirements);
+        page.setElementByIdValue('contactLevel', testData.contactLevel);
+        page.setElementByIdValue('agencyActions', testData.agencyActions);
+        page.setElementByIdValue('contingencyPlan', testData.contingencyPlan);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -561,7 +567,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('resettlementPlanForRelease', 'Some resettlement plan for release');
+        page.setElementByIdValue('resettlementPlanForRelease', testData.resettlementPlanForRelease);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -584,7 +590,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('supervisionPlanForRelease', 'Some supervision plan for release');
+        page.setElementByIdValue('supervisionPlanForRelease', testData.supervisionPlanForRelease);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -607,7 +613,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('yourRecommendation', 'I recommend that the prisoner is not released.');
+        page.setElementByIdValue('yourRecommendation', testData.recommendation);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -630,7 +636,7 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.testTextEntry('oralHearingConsiderations', 'The prisoner has no ears.');
+        page.setElementByIdValue('oralHearingConsiderations', testData.oralHearingConsiderations);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -661,12 +667,13 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.getElementById('paroleDossier').click();
         page.getElementById('probationCaseRecords').click();
         page.getElementById('other').click();
-        page.testTextEntry('otherDocuments', 'Some other documents');
 
-        page.testTextEntry('reportsAssessmentsDirections', 'Some reports, assessments and directions would be listed here...');
+        page.setElementByIdValue('otherDocuments', testData.otherDocuments);
+        page.setElementByIdValue('reportsAssessmentsDirections', testData.reportsAssessmentsDirections);
+
         page.clickRadios('sourceLimitations', 2);
         page.getElementById('sourceLimitations-radio-0').click();
-        page.testTextEntry('sourceLimitationExplanation', 'Some explanation');
+        page.setElementByIdValue('sourceLimitationExplanation', testData.sourceLimitationExplanation);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -727,11 +734,11 @@ describe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Report saved');
       });
 
-      /*
+
       it('should generate a PDF', () => {
         page.getElementById('viewReport').click();
       });
-      */
+
 
       it('should allow the user to return to the main menu', () => {
         page.getElementById('quitReport').click();
@@ -745,7 +752,7 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display the correct page', () => {
         page.navigateTo();
-        expect(page.getHeadingText()).toEqual('Demonstration');
+        expect(page.getHeadingText()).toEqual('Prototype');
 
         // Clear local storage
         page.clearStorage();

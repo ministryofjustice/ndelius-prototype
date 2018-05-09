@@ -2,20 +2,17 @@ import { IPomPrisonerKnowledge } from '../../pom-prisoner-knowledge/model/pom-pr
 
 export const pomPrisonerKnowledgeTransform = (data: IPomPrisonerKnowledge) => {
   return [
-    { text: 'Prison Offender Manager - Prisoner knowledge and contact', style: 'sectionHeading' },
-    { text: 'Has the prisoner been assessed as posing a risk of absconding? (only in closed conditions)', style: 'fieldHeading' },
-    data.riskOfAbsconding,
-    { text: 'Provide details of the absconding risk', style: 'fieldHeading' },
-    data.riskOfAbscondingDetails,
-    { text: 'Is the prisoner being, or likely to be Released on Temporary Licence (ROTL)?', style: 'fieldHeading' },
-    data.rotl,
-    { text: 'Provide further ROTL information', style: 'fieldHeading' },
-    data.rotlDetails,
-    { text: 'How long have you been assigned to the prisoner and what contact have you had with them?', style: 'fieldHeading' },
-    data.lengthOfAssignment,
-    { text: 'Prisoner\'s behaviour in prison', style: 'fieldHeading' },
+    { text: 'POM: Prisoner relationship', style: 'sectionHeading' },
+    data.lengthOfAssignment || '',
+    { text: 'Behaviour in prison', style: 'fieldHeading' },
     data.behaviourInPrison,
+    { text: 'Absconding risk', style: 'fieldHeading' },
+    data.riskOfAbsconding || '',
+    { text: data.riskOfAbscondingDetails || '', margin: [0, 10, 0, 0]},
+    { text: 'ROTL', style: 'fieldHeading' },
+    data.rotl || '',
+    { text: data.rotlDetails || '', margin: [0, 10, 0, 0]},
     { text: 'Further information', style: 'fieldHeading' },
-    data.furtherInformation
+    data.furtherInformation || ''
   ];
 };

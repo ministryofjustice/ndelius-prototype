@@ -2,8 +2,7 @@ import { IPomRecommendation } from '../../pom-recommendation/model/pom-recommend
 
 export const pomRecommendationTransform = (data: IPomRecommendation) => {
   return [
-    { text: 'Prison Offender Manager - Your recommendation', style: 'sectionHeading' },
-    { text: 'Your recommendation', style: 'fieldHeading' },
-    data.yourRecommendation,
+    { text: 'POM recommendation', style: 'fieldHeading' },
+    data.yourRecommendation || ''
   ];
 };
