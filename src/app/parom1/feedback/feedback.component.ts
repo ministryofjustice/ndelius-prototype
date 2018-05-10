@@ -35,7 +35,7 @@ export class FeedbackComponent {
    *
    */
   private continueJourney() {
-    this.router.navigate(['/parom1-omic/']);
+    this.router.navigate(['/parom1/']);
   }
 
   /**
@@ -44,8 +44,8 @@ export class FeedbackComponent {
    */
   private emailFeedback(value: any) {
     window.location.href = 'mailto:nick.gallon@digital.justice.gov.uk?subject=' +
-      'Parole%20Report%20PAROM1-OMIC%20-%20feedback' +
-      '&body=Overall,%20how%20did%20you%20feel%20about%20the%20Parole%20Report%20PAROM1-OMIC%20-%20service' +
+      'Parole%20Report%20PAROM1%20-%20feedback' +
+      '&body=Overall,%20how%20did%20you%20feel%20about%20the%20Parole%20Report%20PAROM1%20-%20service' +
       '%20you%20used%20today%3F%0D%0A%0D%0A' +
       value.rating +
       '%0D%0A%0D%0A%0D%0A%0D%0A' +
