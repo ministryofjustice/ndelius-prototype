@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'sfpsr', loadChildren: './sfpsr/sfpsr.module#SfpsrModule' },
   { path: 'psr-addendum', loadChildren: './psr-addendum/psr-addendum.module#PsrAddendumModule' },
   { path: 'parom1-omic', loadChildren: './parom1-omic/parom1-omic.module#Parom1OmicModule' },
+  { path: 'parom1', loadChildren: './parom1/parom1.module#Parom1Module' },
   { path: '**', redirectTo: 'start', pathMatch: 'full' }
 
 ];

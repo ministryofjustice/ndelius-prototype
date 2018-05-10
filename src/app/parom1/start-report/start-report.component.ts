@@ -4,9 +4,8 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { IPrisonerDetails } from '../prisoner-details/model/prisoner-details.model';
-import { UpdatePrisonerDetailsAction } from '../prisoner-details/action/prisoner-details.action';
-import { getCurrentState, IState } from '../_shared/reducer/state.reducers';
+import { getCurrentState, IState } from '../../parom1-omic/_shared/reducer/state.reducers';
+import { UpdatePrisonerDetailsAction } from '../../parom1-omic/prisoner-details/action/prisoner-details.action';
 
 @Component({
   selector: 'app-start-report',
@@ -18,10 +17,8 @@ export class StartReportComponent implements OnInit, OnDestroy {
   private routeSubscriber: Subscription;
   private reportData: IState;
 
-  currentSelection = '';
-
   /**
-   * @constructor
+   *
    * @param {ActivatedRoute} activatedRoute
    * @param {Router} router
    * @param {Store<IPrisonerDetails>} store
@@ -34,18 +31,16 @@ export class StartReportComponent implements OnInit, OnDestroy {
 
   /**
    *
-   * @param {string} role
    */
-  select(role: string) {
-    window.scrollTo(0, 0);
-    this.currentSelection = role;
+  private continueJourney() {
+    this.router.navigate(['parom1/prisoner-details']);
   }
 
   /**
    *
    */
   startReport() {
-    this.router.navigate([this.currentSelection === 'com' ? 'parom1-omic/prisoner-details' : 'parom1-omic/pom-prisoner-knowledge']);
+    this.continueJourney();
   }
 
   /**
@@ -94,4 +89,5 @@ export class StartReportComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.routeSubscriber.unsubscribe();
   }
+
 }

@@ -41,9 +41,10 @@ This *README* details the use of *[npm]* as *[Yarn]* is a development preference
 
 The prototype currently contains the following report journeys:
 
-* Parole Report (PAROM1-OMIC)
-* Short Format Pre-Sentence Report 
-* Pre-Sentence Report Addendum  
+* [Parole Report Parom 1](./src/app/parom1/README.md)
+* [Parole Report Parom 1 (OMIC)](./src/app/parom1-omic/README.md)
+* [Short Format Pre-Sentence Report](./src/app/sfpsr/README.md) 
+* [Pre-Sentence Report Addendum](./src/app/psr-addendum/README.md)  
 
 ## Requirements
 
@@ -125,9 +126,7 @@ The application manages state with *[@ngrx/store]* and stores state automaticall
 
 The application will automatically *re-hydrate* the state from *[sessionStorage]* if the browser is refreshed to ensure that any user input is not lost.
 
-The state will be cleared on the *save as draft* and *report complete* pages.
-
-State is also cleared when the browser or tab is closed. 
+State will be cleared when the browser or tab is closed. 
 
 To use the ngrx debugger, install the Redux Devtools extension for either Chrome or Firefox
 
