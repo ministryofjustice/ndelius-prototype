@@ -4,9 +4,12 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from './_shared/shared.module';
 import { Parom1Router } from './parom1.router';
 
-import { StartReportComponent } from './start-report/start-report.component';
 import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { StartReportComponent } from './start-report/start-report.component';
+import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.component';
+import { CheckReportComponent } from './check-report/check-report.component';
+import { SignatureComponent } from './signature/signature.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 
 @NgModule({
@@ -16,9 +19,12 @@ import { ReportCompleteComponent } from './report-complete/report-complete.compo
     SharedModule
   ],
   declarations: [
-    FeedbackComponent,
     SaveDraftComponent,
+    FeedbackComponent,
     StartReportComponent,
+    PrisonerDetailsComponent,
+    CheckReportComponent,
+    SignatureComponent,
     ReportCompleteComponent
   ]
 })

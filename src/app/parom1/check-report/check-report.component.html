@@ -1,0 +1,30 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Check your report</h1>
+
+<ng-template ngFor let-section [ngForOf]="sections" let-index="index">
+
+  <div *ngIf="!section.dataOnly || isValid">
+
+    <table role="presentation">
+      <tbody>
+      <tr>
+        <td width="30" class="font-medium">{{index + 1}}.</td>
+        <td><a [routerLink]="section.route" class="font-medium">{{section.label}}</a></td>
+        <td width="80" align="right">
+          <strong class="page-status-tag saved fixed-width" *ngIf="section.saved && section.valid">SAVED</strong>
+          <strong class="page-status-tag incomplete fixed-width" *ngIf="section.saved && !section.valid">INCOMPLETE</strong>
+          <strong class="font-xsmall margin-right" *ngIf="!section.valid && !section.saved">Not started</strong>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <hr class="margin-top margin-bottom" noshade/>
+
+  </div>
+
+</ng-template>
+
+<app-footer [continueEnabled]="isValid" label="Sign" hint="Sign your report" [continue]="continueJourney"></app-footer>

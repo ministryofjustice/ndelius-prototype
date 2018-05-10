@@ -1,6 +1,11 @@
 <nav class="sub-nav top-bar">
 
+  <p class="nav-title">Report sections</p>
 
+  <li routerLinkActive="active" routerLink="/parom1/prisoner-details" class="sub-sub-item clickable">- Prisoner details</li>
+  <li routerLinkActive="active" routerLink="/parom1/check-report" class="sub-sub-item clickable">- Check your report</li>
+
+  <li routerLinkActive="active" routerLink="/parom1/signature" #rla="routerLinkActive" [ngClass]="{ 'js-hidden': !isValid }" class="sub-sub-item clickable">- Signature &amp; date</li>
 
 </nav>
 
