@@ -1,7 +1,7 @@
 import { PrototypePage } from './app.po';
 import { browser } from 'protractor';
 
-xdescribe('New Probation Services - Rapid Prototype', () => {
+describe('New Probation Services - Rapid Prototype', () => {
 
   let page: PrototypePage;
 
