@@ -12,19 +12,19 @@ export class ThreeFieldDateComponent {
    *
    * **Required**
    */
-  @Input('group') public group: FormGroup;
+  @Input() public group: FormGroup;
 
   /**
    * The label for the radio button Elements
    *
    * **Required**
    */
-  @Input('label') public label: string;
+  @Input() public label: string;
 
   /**
    * Additional help text to be displayed beneath the label Element
    */
-  @Input('help') public help: string;
+  @Input() public help: string;
 
   /**
    * The name of the FormGroup which *must* include any of day|month|year FormControls
@@ -33,33 +33,33 @@ export class ThreeFieldDateComponent {
    *
    * This is also used to generate attributes like the DOM id where required
    */
-  @Input('name') public name: string;
+  @Input() public name: string;
 
   /**
    * Is the radio group required
    */
-  @Input('required') public required: boolean;
+  @Input() public required: boolean;
 
   /**
    * Flag to specify an error on submission of the parent form
    */
-  @Input('error') public error: boolean;
+  @Input() public error: boolean;
 
   /**
    * Error message to be displayed when the field is required
    */
-  @Input('errorMessage') public errorMessage = 'This field is required';
-
-  /**
-   * Gain access to the 'hint' set within the child DOM
-   */
-  @ViewChild('hint') hint;
+  @Input() public errorMessage = 'This field is required';
 
   /**
    *
    * @type {number}
    */
-  @Input('maxYear') public maxYear = new Date().getFullYear();
+  @Input() public maxYear = new Date().getFullYear();
+
+  /**
+   * Gain access to the 'hint' set within the child DOM
+   */
+  @ViewChild('hint') hint;
 
   hasGroupError = () => {
     const group = this.group.get(this.name);

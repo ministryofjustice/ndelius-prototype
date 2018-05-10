@@ -15,11 +15,11 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent {
 
-  @Input('continueEnabled') public continueEnabled = true;
-  @Input('draftEnabled') public draftEnabled = true;
-  @Input('label') public label = 'Continue';
-  @Input('hint') public hint = 'Continue your report';
-  @Input('continue') public continue = () => {};
+  @Input() public continueEnabled = true;
+  @Input() public draftEnabled = true;
+  @Input() public label = 'Continue';
+  @Input() public hint = 'Continue your report';
+  @Input() public continue = () => {};
 
   constructor(private router: Router) {
     // Empty

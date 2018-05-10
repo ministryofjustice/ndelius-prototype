@@ -18,7 +18,7 @@ import { ISection, sections } from '../../model/sections';
 })
 export class SubNavigationComponent {
 
-  @Input('role') public role = 'com';
+  @Input() public role = 'com';
 
   isValid = true;
   sections: Array<ISection> = sections();

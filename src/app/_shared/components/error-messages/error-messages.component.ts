@@ -21,18 +21,18 @@ export class ErrorMessagesComponent {
    *
    * **Required**
    */
-  @Input('control') public control: string;
+  @Input() public control: string;
 
   /**
    * Flag to set the active/displayed state of the error-messages component
    *
    * **Required**
    */
-  @Input('active') public active: boolean;
+  @Input() public active: boolean;
 
   /**
    * Error message to be displayed when the field is required
    */
-  @Input('message') public message = 'This field is required';
+  @Input() public message = 'This field is required';
 
 }

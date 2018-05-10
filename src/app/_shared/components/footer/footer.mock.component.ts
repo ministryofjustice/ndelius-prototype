@@ -1,13 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { FooterComponent } from './footer.component';
 
 @Component({
   selector: 'app-footer',
   template: ''
 })
-export class MockFooterComponent {
-  @Input('continueEnabled') public continueEnabled = true;
-  @Input('draftEnabled') public draftEnabled = true;
-  @Input('label') public label = 'Continue';
-  @Input('hint') public hint = 'Continue your report';
-  @Input('continue') public continue = () => {};
+export class MockFooterComponent extends FooterComponent {
+  // Empty
 }

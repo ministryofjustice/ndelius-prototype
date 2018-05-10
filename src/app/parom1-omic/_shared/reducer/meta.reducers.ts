@@ -15,6 +15,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
   return localStorageSync({
     storage: sessionStorage,
     rehydrate: true,
+    storageKeySerializer: (key) => 'omic_' + key,
     keys: allSections.map(section => {
       return section.state;
     })
