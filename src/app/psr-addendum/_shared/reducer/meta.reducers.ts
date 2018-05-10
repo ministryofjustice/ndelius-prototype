@@ -10,6 +10,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
   return localStorageSync({
     storage: sessionStorage,
     rehydrate: true,
+    storageKeySerializer: (key) => 'psra_' + key,
     keys: [
       'offenderDetails',
       'courtDetails',

@@ -47,14 +47,14 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    *
    * **Required**
    */
-  @Input('group') public group: FormGroup;
+  @Input() public group: FormGroup;
 
   /**
    * The label for the textarea Element
    *
    * **Required**
    */
-  @Input('label') public label: string;
+  @Input() public label: string;
 
   /**
    * The name of the FormControl
@@ -63,27 +63,27 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    *
    * This is also used to generate attributes like the DOM id where required
    */
-  @Input('name') public name: string;
+  @Input() public name: string;
 
   /**
    * Additional help text to be displayed beneath the label Element
    */
-  @Input('help') public help: string;
+  @Input() public help: string;
 
   /**
    * Flag to specify an error on submission of the parent form
    */
-  @Input('error') public error: boolean;
+  @Input() public error: boolean;
 
   /**
    * Specify a character count soft limit (used to display a recommended character count)
    */
-  @Input('limit') public limit: number;
+  @Input() public limit: number;
 
   /**
    * Error message to be displayed when the field is required
    */
-  @Input('errorMessage') public errorMessage = 'This field is required';
+  @Input() public errorMessage = 'This field is required';
 
   /**
    * Gain access to the 'hint' set within the child DOM

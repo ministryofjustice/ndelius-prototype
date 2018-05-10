@@ -12,19 +12,19 @@ export class RadioButtonsComponent {
    *
    * **Required**
    */
-  @Input('group') public group: FormGroup;
+  @Input() public group: FormGroup;
 
   /**
    * The label for the radio button Elements
    *
    * **Required**
    */
-  @Input('label') public label: string;
+  @Input() public label: string;
 
   /**
    * Additional help text to be displayed beneath the label Element
    */
-  @Input('help') public help: string;
+  @Input() public help: string;
 
   /**
    * The name of the FormControl
@@ -33,29 +33,29 @@ export class RadioButtonsComponent {
    *
    * This is also used to generate attributes like the DOM id where required
    */
-  @Input('name') public name: string;
+  @Input() public name: string;
 
   /**
    * Is the radio group required
    */
-  @Input('required') public required: boolean;
+  @Input() public required: boolean;
 
   /**
    * The list of options for the radio button group
    *
    * **Required**
    */
-  @Input('options') public options: Array<string>;
+  @Input() public options: Array<string>;
 
   /**
    * Flag to specify an error on submission of the parent form
    */
-  @Input('error') public error: boolean;
+  @Input() public error: boolean;
 
   /**
    * Error message to be displayed when the field is required
    */
-  @Input('errorMessage') public errorMessage = 'This field is required';
+  @Input() public errorMessage = 'This field is required';
 
   /**
    * Gain access to the 'hint' set within the child DOM

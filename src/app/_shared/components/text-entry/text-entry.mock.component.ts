@@ -7,13 +7,13 @@ import { FormGroup } from '@angular/forms';
 })
 export class MockTextEntryComponent {
 
-  @Input('label') public label: string;
-  @Input('name') public name: string;
-  @Input('help') public help: string;
-  @Input('group') public group: FormGroup;
-  @Input('error') public error: boolean;
-  @Input('errorMessage') public errorMessage = 'This field is required';
-  @Input('required') public required: boolean;
-  @Input('limit') public limit: number;
+  @Input() public label: string;
+  @Input() public name: string;
+  @Input() public help: string;
+  @Input() public group: FormGroup;
+  @Input() public error: boolean;
+  @Input() public errorMessage = 'This field is required';
+  @Input() public required: boolean;
+  @Input() public limit: number;
 
 }

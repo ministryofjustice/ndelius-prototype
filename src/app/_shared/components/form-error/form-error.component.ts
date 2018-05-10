@@ -17,16 +17,16 @@ export class FormErrorComponent {
    *
    * **Required**
    */
-  @Input('group') public group: FormGroup;
+  @Input() public group: FormGroup;
 
   /**
    * Additional help text to be displayed beneath the label Element
    */
-  @Input('controls') public controls: Array<IControl>;
+  @Input() public controls: Array<IControl>;
 
   /**
    * Flag to specify an error on submission of the parent form
    */
-  @Input('error') public error: boolean;
+  @Input() public error: boolean;
 
 }

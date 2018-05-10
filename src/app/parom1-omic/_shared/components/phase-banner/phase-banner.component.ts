@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core';
 })
 export class PhaseBannerComponent {
 
-  @Input('isFeedbackRoute') public isFeedbackRoute: boolean;
+  @Input() public isFeedbackRoute: boolean;
 
   /**
    *
