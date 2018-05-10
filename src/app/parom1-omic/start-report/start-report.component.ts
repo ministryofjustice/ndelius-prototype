@@ -82,7 +82,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
             year: data.tariffExpiryDate.year || params['tariffExpiryDateYear']
           },
           saved: true,
-          valid: true
+          valid: data.valid || false
         }));
       }
     });
