@@ -8,7 +8,7 @@ import { StartReportComponent } from './start-report.component';
 import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('SFPSR - Component: Start Report', () => {
+describe('PAROM1 - Component: Start Report', () => {
 
   let fixture: ComponentFixture<StartReportComponent>;
   let component: StartReportComponent;
@@ -40,13 +40,13 @@ describe('SFPSR - Component: Start Report', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Short Format Pre-sentence Report');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Start a Parole report <span class="font-medium">Parom 1</span>');
   });
 
   it('should navigate to the Court Details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.startReport();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/offender-details']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1/prisoner-details']);
   });
 
 });

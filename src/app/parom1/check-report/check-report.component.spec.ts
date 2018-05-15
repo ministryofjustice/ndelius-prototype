@@ -8,7 +8,7 @@ import { CheckReportComponent } from './check-report.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 
-describe('SFPSR - CheckReportComponent', () => {
+describe('PAROM1 - CheckReportComponent', () => {
 
   let component: CheckReportComponent;
   let fixture: ComponentFixture<CheckReportComponent>;
