@@ -43,7 +43,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     describe('Start report', () => {
 
       it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('Start a Parole report PAROM1-OMIC');
+        expect(page.getHeadingText()).toEqual('Start a Parole report Parom 1 (OMIC)');
       });
 
       it('should include COM and POM journey options', () => {
@@ -169,7 +169,7 @@ describe('New Probation Services - Rapid Prototype', () => {
     describe('Start report', () => {
 
       it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('Start a Parole report PAROM1-OMIC');
+        expect(page.getHeadingText()).toEqual('Start a Parole report Parom 1 (OMIC)');
       });
 
       it('should include COM and POM journey options', () => {
