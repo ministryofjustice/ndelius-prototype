@@ -5,7 +5,8 @@
     <span class="form-hint" *ngIf="help">{{help}}</span>
   </label>
   <app-error-messages [control]="name" [message]="errorMessage" [active]="(group.get(name).touched || error) && required && group.get(name).errors"></app-error-messages>
-  <input [id]="name" type="text" role="textbox" class="form-control half-width"
-         [ngClass]="{ 'form-control-error': (group.get(name).touched || error) && required && group.get(name).errors, 'date-picker': date }"
+  <!-- @TODO: Readonly field option -->
+  <input [id]="name" type="text" role="textbox" class="form-control"
+         [ngClass]="{ 'half-width': !wide, 'form-control-error': (group.get(name).touched || error) && required && group.get(name).errors, 'date-picker': date }"
          [formControlName]="name" [attr.aria-described-by]="name + '_error'" [attr.aria-required]="required" />
 </div>

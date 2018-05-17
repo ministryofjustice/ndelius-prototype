@@ -6,7 +6,7 @@ import { ReportCompleteComponent } from './report-complete.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('PAROM1-OMIC - Component: Report complete', () => {
+describe('PAROM1 - Component: Report complete', () => {
 
   let component: ReportCompleteComponent;
   let fixture: ComponentFixture<ReportCompleteComponent>;

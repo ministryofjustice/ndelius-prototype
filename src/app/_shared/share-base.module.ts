@@ -11,6 +11,7 @@ import { ThreeFieldDateComponent } from './components/three-field-date/three-fie
 import { InputComponent } from './components/input/input.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NoticeComponent } from './components/alert/notice.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
     RouterModule,
     ReactiveFormsModule,
     InputComponent,
+    NoticeComponent,
     ErrorMessagesComponent,
     FormErrorComponent,
     TextEntryComponent,
@@ -31,6 +33,7 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   declarations: [
     InputComponent,
+    NoticeComponent,
     ErrorMessagesComponent,
     FormErrorComponent,
     TextEntryComponent,

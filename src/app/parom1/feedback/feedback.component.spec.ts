@@ -7,7 +7,7 @@ import { MockErrorMessagesComponent } from '../../_shared/components/error-messa
 import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('PAROM1-OMIC - FeedbackComponent', () => {
+describe('PAROM1 - FeedbackComponent', () => {
 
   let component: FeedbackComponent;
   let fixture: ComponentFixture<FeedbackComponent>;
@@ -58,7 +58,7 @@ describe('PAROM1-OMIC - FeedbackComponent', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: { rating: '', feedback: '' } });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['/psr-addendum/']);
+    expect(navigateSpy).toHaveBeenCalledWith(['/parom1/']);
   });
 
 });

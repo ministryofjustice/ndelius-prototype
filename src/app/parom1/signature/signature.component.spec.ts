@@ -16,7 +16,7 @@ import { MockInputComponent } from '../../_shared/components/input/input.mock.co
 
 import * as model from './reducer/signature.reducer';
 
-describe('SFPSR - Component: Signature and date', () => {
+describe('PAROM1 - Component: Signature and date', () => {
 
   let fixture: ComponentFixture<SignatureComponent>;
   let component: SignatureComponent;
@@ -74,7 +74,7 @@ describe('SFPSR - Component: Signature and date', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1-omic/report-complete']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1/report-complete']);
   });
 
 });

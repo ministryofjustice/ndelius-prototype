@@ -58,7 +58,7 @@ describe('PAROM1-OMIC - FeedbackComponent', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: { rating: '', feedback: '' } });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['/psr-addendum/']);
+    expect(navigateSpy).toHaveBeenCalledWith(['/parom1-omic/']);
   });
 
 });
