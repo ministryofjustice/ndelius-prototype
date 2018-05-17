@@ -1,81 +1,59 @@
-<!-- ANGULAR COMPONENT -->
+<!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
 <h1 class="heading-xlarge">Risk assessment</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
+    <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
-
-      <p>See highlighted errors below</p>
-
-      <p class="error-message" *ngIf="reportForm.get('likelihoodOfReOffending').errors">Tell us their likelihood of re-offending</p>
-      <p class="error-message" *ngIf="reportForm.get('riskOfSeriousHarm').errors">Tell us the risk of serious harm</p>
-    </div>
+    <!-- Angular component -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'likelihoodOfReOffending', error: 'Tell us their likelihood of re-offending' },
+                    { name: 'riskOfSeriousHarm', error: 'Tell us the risk of serious harm' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="likelihoodOfReOffending" label="Likelihood of reoffending" errorMessage="Tell us their likelihood of reoffending" [error]="formError" required="true" (onSaveContent)="saveContent(reportForm)">
-        <p>This is about the offender’s capacity to change.</p>
-        <p>Indicate which tools have been used (RM2000,OGRS etc.)</p>
+        <p>This should include the use of both static tools (for example, OGRS,OVP, RM2000, RSR scores) and professional assessment. The outcomes of static tools should be noted and professional assessment used. Make clear their relevance for this particular person.</p>
+        <p>Indicate which tools have been used.</p>
       </app-text-entry>
 
       <hr />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" limit="1000" errorMessage="Tell us the risk of serious harm" [error]="formError" (onSaveContent)="saveContent(reportForm)">
-        <p>This is about harm, not reoffending.</p>
-        <p class="margin-top">Outline if you have made a referral to other agencies or attempted contact and not received a satisfactory response.</p>
-        <p class="margin-top">Any information from other agencies for the court must not place any identifiable groups at risk.</p>
-        <p class="margin-top">Consider the impact on the overall assessment, including the impact on safer sentencing principles.</p>
-        <p class="margin-top">You must clearly state how this information adds value to the assessment.</p>
-        <p class="margin-top">Any information you have from other agencies should state how they will assist in monitoring and managing risk, including partnership working.</p>
+        <p>This is about the risk of serious harm occurring.</p>
+        <p>The nature and imminence of harm should be evidenced within this section and should be based on information already provided within the report.</p>
+        <p>Outline if you have made a referral to other agencies or attempted contact, and not received a satisfactory response.</p>
+        <p>Any information from other agencies for the court must not place any identifiable groups at risk.</p>
+        <p>Consider the impact of this information on the overall assessment, including the impact on safer sentencing principles.</p>
+        <p>Any information you have from other agencies should state how they will assist in monitoring and managing risk, including partnership working.</p>
+        <p>Remember that you should also make clear any risk that the offender presents to themselves.</p>
       </app-text-entry>
 
       <hr />
 
-      <div class="form-group margin-bottom">
-        <fieldset>
+      <!-- Angular component -->
+      <app-radio-buttons [group]="reportForm" name="previousSupervisionResponse" label="Response to previous supervision"
+                         help="Include their compliance with any Youth Offending Supervision Orders"
+                         [options]="['Good', 'Satisfactory', 'Poor', 'Not applicable']"></app-radio-buttons>
 
-          <legend>
-            <span class="form-label-bold">Response to previous supervision</span>
-            <span class="form-hint">Include their compliance with any Youth Offending Supervision Orders</span>
-          </legend>
-
-          <div class="multiple-choice margin-top medium">
-            <input id="radio-1" type="radio" formControlName="previousSupervisionResponse" value="Good" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'Good'" />
-            <label for="radio-1">Good</label>
-          </div>
-
-          <div class="multiple-choice">
-            <input id="radio-2" type="radio" formControlName="previousSupervisionResponse" value="Satisfactory" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'Satisfactory'" />
-            <label for="radio-2">Satisfactory</label>
-          </div>
-          <br>
-          <div class="multiple-choice">
-            <input id="radio-3" type="radio" formControlName="previousSupervisionResponse" value="Poor" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'Poor'" />
-            <label for="radio-3">Poor</label>
-          </div>
-          <div class="multiple-choice">
-            <input id="radio-4" type="radio" formControlName="previousSupervisionResponse" value="N/A" [attr.aria-checked]="reportForm.get('previousSupervisionResponse').value === 'N/A'" />
-            <label for="radio-4">Not applicable</label>
-          </div>
-        </fieldset>
-      </div>
-
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('previousSupervisionResponse').value || reportForm.get('previousSupervisionResponse').value === 'N/A' }" [attr.aria-hidden]="!reportForm.get('previousSupervisionResponse').value || reportForm.get('previousSupervisionResponse').value === 'N/A'">
+      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('previousSupervisionResponse').value || reportForm.get('previousSupervisionResponse').value === 'Not applicable' }" [attr.aria-hidden]="!reportForm.get('previousSupervisionResponse').value || reportForm.get('previousSupervisionResponse').value === 'N/A'">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" label="Add additional details on previous supervision (if applicable)" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
       </div>
 
+      <!-- Angular component -->
       <app-footer></app-footer>
 
     </form>

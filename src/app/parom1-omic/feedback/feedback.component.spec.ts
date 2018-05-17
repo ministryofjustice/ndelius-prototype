@@ -6,6 +6,8 @@ import { FeedbackComponent } from './feedback.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockNavigationComponent } from '../../_shared/components/navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
+import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 describe('PAROM1-OMIC - FeedbackComponent', () => {
 
@@ -17,6 +19,8 @@ describe('PAROM1-OMIC - FeedbackComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         FeedbackComponent,
+        MockRadioButtonsComponent,
+        MockTextEntryComponent,
         MockNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent
@@ -58,7 +62,7 @@ describe('PAROM1-OMIC - FeedbackComponent', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: { rating: '', feedback: '' } });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['/psr-addendum/']);
+    expect(navigateSpy).toHaveBeenCalledWith(['/parom1-omic/']);
   });
 
 });

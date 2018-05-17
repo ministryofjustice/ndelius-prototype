@@ -6,7 +6,7 @@ import { SaveDraftComponent } from './save-draft.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 
-describe('PAROM1-OMIC - Component: Save draft', () => {
+describe('PAROM1 - Component: Save draft', () => {
 
   let component: SaveDraftComponent;
   let fixture: ComponentFixture<SaveDraftComponent>;

@@ -1,55 +1,45 @@
-<!-- ANGULAR COMPONENT -->
+<!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
 <h1 class="heading-xlarge">Sentencing court details</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
+    <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
-
-      <p>See highlighted errors below</p>
-
-      <p class="error-message" *ngIf="reportForm.get('court').errors">Enter the name of the sentencing court</p>
-      <p class="error-message" *ngIf="reportForm.get('localJusticeArea').errors">Enter the local justice area of the sentencing court</p>
-      <p class="error-message" *ngIf="reportForm.get('hearingDate').errors">Enter the date of the hearing</p>
-    </div>
+    <!-- Angular component -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'court', error: 'Enter the name of the sentencing court' },
+                    { name: 'localJusticeArea', error: 'Enter the local justice area of the sentencing court' },
+                    { name: 'hearingDate', error: 'Enter the date of the hearing' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }">
-
-        <label for="court" class="form-label-bold">Court</label>
-        <app-error-messages control="court" message="Enter the name of the sentencing court" [active]="(reportForm.get('court').touched || formError) && reportForm.get('court').errors"></app-error-messages>
-        <input class="form-control" [ngClass]="{ 'form-control-error': (reportForm.get('court').touched || formError) && reportForm.get('court').errors }" type="text" role="textbox" id="court" formControlName="court" maxlength="250" aria-described-by="court_error" aria-required="true" required />
-
-      </div>
+      <!-- Angular component -->
+      <app-input [group]="reportForm" name="court" required="true" [error]="formError" label="Court"
+                 wide="true" errorMessage="Enter the name of the sentencing court"></app-input>
 
       <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }">
-
         <label for="localJusticeArea" class="form-label-bold">Local justice area</label>
+        <!-- Angular component -->
         <app-error-messages control="localJusticeArea" message="Enter the local justice area of the sentencing court" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
         <select formControlName="localJusticeArea" id="localJusticeArea" class="form-control auto-complete">
           <option *ngFor="let area of localJusticeAreas" [ngValue]="area">{{area}}</option>
         </select>
-
       </div>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors }">
+      <!-- Angular component -->
+      <app-input [group]="reportForm" name="hearingDate" required="true" [error]="formError" label="Date of hearing"
+                 help="For example: 28/06/2017" date="true"
+                 errorMessage="Enter the name of the sentencing court"></app-input>
 
-        <label for="hearingDate">
-          <span class="form-label-bold">Date of hearing</span>
-          <span class="form-hint">For example: 28/06/2017</span>
-        </label>
-        <app-error-messages control="hearingDate" message="Enter the date of the hearing" [active]="(reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors"></app-error-messages>
-        <input class="form-control date-picker" [ngClass]="{ 'form-control-error': (reportForm.get('hearingDate').touched || formError) && reportForm.get('hearingDate').errors }" type="text" role="textbox" id="hearingDate" formControlName="hearingDate" maxlength="10" aria-described-by="hearingDate_error" aria-required="true" required />
-
-      </div>
-
+      <!-- Angular component -->
       <app-footer></app-footer>
 
     </form>

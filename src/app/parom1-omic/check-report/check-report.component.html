@@ -19,7 +19,7 @@
 
 <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
-  <div *ngIf="!section.hide && !section.dataOnly">
+  <div *ngIf="!section.hide && (!section.dataOnly || isValid)">
 
     <table role="presentation">
       <tbody>

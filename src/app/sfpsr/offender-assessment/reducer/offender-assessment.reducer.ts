@@ -20,6 +20,10 @@ export const initialState: IOffenderAssessment = {
   detailsBehaviour: '',
   issueOther: null,
   detailsOther: '',
+  trauma: '',
+  traumaDetails: '',
+  caring: '',
+  caringDetails: '',
   saved: false,
   valid: false
 };

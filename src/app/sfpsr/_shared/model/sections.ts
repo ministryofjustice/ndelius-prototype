@@ -3,6 +3,7 @@ export interface ISection {
   label: string;
   state: string;
   interactions?: Array<Object>;
+  dataOnly?: boolean;
   saved?: boolean;
   valid?: boolean;
 }
@@ -50,8 +51,14 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/sfpsr/proposed-sentence',
-      label: 'Conclusion',
+      label: 'Proposal',
       state: 'proposedSentence'
+    },
+    {
+      dataOnly: true,
+      route: '/sfpsr/signature',
+      label: 'Sign and date your report',
+      state: 'signature'
     }
   ];
 }

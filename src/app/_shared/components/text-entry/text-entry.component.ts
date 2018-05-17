@@ -86,6 +86,12 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() public errorMessage = 'This field is required';
 
   /**
+   *
+   * @type {string}
+   */
+  @Input() public classic: boolean;
+
+  /**
    * Gain access to the 'hint' set within the child DOM
    */
   @ViewChild('hint') hint;
@@ -112,6 +118,11 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    * Flag to show/hide the expanded content
    */
   expandContent: boolean;
+
+  /**
+   *
+   */
+  placeholder: string;
 
   /**
    * Saving status Object
@@ -219,6 +230,7 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   ngOnInit() {
     this.showHint = this.hint.nativeElement.children.length > 0;
+    this.placeholder = this.classic ? '' : 'Start typing here...';
   }
 
   /**

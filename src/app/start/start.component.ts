@@ -28,7 +28,7 @@ export class StartComponent {
    * @type {Object}
    */
   queryParams: IQueryParams = {
-    name: 'Alan Smith',
+    name: 'Alice Smith',
     prison: 'Doncaster',
     prisonNumber: 'P98793-123',
     nomisNumber: 'N2124214-3423',

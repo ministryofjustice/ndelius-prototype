@@ -29,14 +29,8 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="notice margin-bottom large">
-        <i class="icon icon-important">
-          <span class="visually-hidden">Important</span>
-        </i>
-        <strong class="font-small">
-          You must contact the VLO for each hearing as part of designing the Risk Management Plan.
-        </strong>
-      </div>
+      <!-- Angular component -->
+      <app-notice message="You must contact the VLO for each hearing as part of designing the Risk Management Plan."></app-notice>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="impactOfOffence"

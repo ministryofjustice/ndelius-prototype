@@ -1,4 +1,4 @@
-<!-- ANGULAR COMPONENT -->
+<!-- Angular component -->
 <app-phase-banner isFeedbackRoute="true"></app-phase-banner>
 
 <h1 class="heading-xlarge">Give feedback</h1>
@@ -8,49 +8,14 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group">
-        <fieldset>
-
-          <legend>
-            <span class="form-label-bold">Overall, how did you feel about the Short Format Pre-sentence Report service you used today?</span>
-          </legend>
-
-          <div class="multiple-choice margin-top medium">
-            <input id="radio-1" type="radio" formControlName="rating" value="Very satisfied" [attr.aria-checked]="reportForm.get('rating').value === 'Very satisfied'" />
-            <label for="radio-1">Very satisfied</label>
-          </div>
-
-          <div class="multiple-choice">
-            <input id="radio-2" type="radio" formControlName="rating" value="Satisfied" [attr.aria-checked]="reportForm.get('rating').value === 'Satisfied'" />
-            <label for="radio-2">Satisfied</label>
-          </div>
-
-          <div class="multiple-choice">
-            <input id="radio-3" type="radio" formControlName="rating" value="Neither satisfied or dissatisfied" [attr.aria-checked]="reportForm.get('rating').value === 'Neither satisfied or dissatisfied'" />
-            <label for="radio-3">Neither satisfied or dissatisfied</label>
-          </div>
-          <br>
-          <div class="multiple-choice">
-            <input id="radio-4" type="radio" formControlName="rating" value="Dissatisfied" [attr.aria-checked]="reportForm.get('rating').value === 'Dissatisfied'" />
-            <label for="radio-4">Dissatisfied</label>
-          </div>
-          <div class="multiple-choice">
-            <input id="radio-5" type="radio" formControlName="rating" value="Very dissatisfied" [attr.aria-checked]="reportForm.get('rating').value === 'Very dissatisfied'" />
-            <label for="radio-5">Very dissatisfied</label>
-          </div>
-        </fieldset>
-
-      </div>
+      <!-- Angular component -->
+      <app-radio-buttons [group]="reportForm" name="rating" label="Overall, how did you feel about the Pre-sentence Report Addendum service you used today?"
+                         [options]="['Very satisfied', 'Satisfied', 'Neither satisfied or dissatisfied', 'Dissatisfied', 'Very dissatisfied']"></app-radio-buttons>
 
       <hr noshade />
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('feedback').touched || formError) && reportForm.get('feedback').errors }">
-        <label for="feedback">
-          <span class="form-label-bold">How could we improve this service?</span>
-        </label>
-        <app-error-messages control="feedback" [active]="(reportForm.get('feedback').touched || formError) && reportForm.get('feedback').errors"></app-error-messages>
-        <textarea id="feedback" formControlName="feedback" class="form-control wide" role="textbox" placeholder="Start typing here..." aria-required="true" aria-describedby="feedback_error" required></textarea>
-      </div>
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="feedback" label="How could we improve this service?"></app-text-entry>
 
       <input id="nextButton" class="button" type="submit" value="Submit feedback" />
 

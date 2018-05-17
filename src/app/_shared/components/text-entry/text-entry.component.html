@@ -11,7 +11,7 @@
   </div>
   <div *ngIf="expandContent">&nbsp;</div>
   <app-error-messages [control]="name" [active]="group.get(name).errors && (group.get(name).touched || error)" [message]="errorMessage"></app-error-messages>
-  <textarea #textArea [id]="name" [formControlName]="name" class="form-control wide" placeholder="Start typing here..." (focus)="startSaving()" (blur)="saveProgress()"></textarea>
+  <textarea #textArea [id]="name" [formControlName]="name" class="form-control wide" [ngClass]="{ 'classic': classic }" [placeholder]="placeholder" (focus)="startSaving()" (blur)="saveProgress()"></textarea>
 </div>
 
 <div class="pull-left" *ngIf="limit && group.get(name).value.length">

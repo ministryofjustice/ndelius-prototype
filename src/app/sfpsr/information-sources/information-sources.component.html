@@ -1,10 +1,11 @@
-<!-- ANGULAR COMPONENT -->
+<!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
 <h1 class="heading-xlarge">Sources of information</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
+    <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
   <div class="column-two-thirds">
@@ -23,12 +24,8 @@
 
         <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('otherInformationSource').value }" [attr.aria-hidden]="!reportForm.get('otherInformationSource').value">
 
-          <div class="form-group">
-            <label for="otherInformationDetails">
-              <span class="form-label-bold">Other source(s) of information</span>
-            </label>
-            <textarea id="otherInformationDetails" formControlName="otherInformationDetails" class="form-control wide" role="textbox" placeholder="Start typing here..."></textarea>
-          </div>
+          <!-- Angular component -->
+          <app-text-entry [group]="reportForm" name="otherInformationDetails" label="Other source(s) of information"></app-text-entry>
 
         </div>
 
@@ -36,6 +33,7 @@
 
       </fieldset>
 
+      <!-- Angular component -->
       <app-footer></app-footer>
 
     </form>

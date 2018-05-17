@@ -56,10 +56,10 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should display the Offender Details', () => {
-        expect(page.getElementByIdValue('name')).toEqual('Alan Smith');
-        expect(page.getElementByIdValue('dob-day')).toEqual('21');
-        expect(page.getElementByIdValue('dob-month')).toEqual('6');
-        expect(page.getElementByIdValue('dob-year')).toEqual('1976');
+        expect(page.getElementByIdValue('name')).toEqual('Alice Smith');
+        expect(page.getElementByIdValue('dateOfBirth-day')).toEqual('21');
+        expect(page.getElementByIdValue('dateOfBirth-month')).toEqual('6');
+        expect(page.getElementByIdValue('dateOfBirth-year')).toEqual('1976');
         expect(page.getElementByIdValue('address')).toEqual('1 Albert Square, Manchester, Greater Manchester, M60 2LA');
         expect(page.getElementByIdValue('phone')).toEqual('07777 777 777');
         expect(page.getElementByIdValue('pnc')).toEqual('B98793');
@@ -87,9 +87,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow changes to Sentencing court details', () => {
-        expect(page.setElementByIdValue('court', 'Sheffield Magistrates Court')).toEqual('Sheffield Magistrates Court');
+        page.testTextEntry('court', 'Sheffield Magistrates Court');
         expect(page.changeSelectOption('localJusticeArea', 'South Yorkshire')).toEqual('45: South Yorkshire');
-        expect(page.setElementByIdValue('hearingDate', '20/01/2017')).toEqual('20/01/2017');
+        page.testTextEntry('hearingDate', '20/01/2017');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -108,17 +108,11 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        expect(page.getElementById('detail_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Addendum detail');
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the entry of the addendum detail', () => {
-        expect(page.setElementByIdValue('detail', 'Some addendum detail'))
-          .toEqual('Some addendum detail');
-      });
-
-      it('should NOT display form error messages now the form is valid', () => {
-        expect(page.getElementById('detail_error').isDisplayed()).toBeFalsy();
+        page.testTextEntry('detail', 'Some addendum detail');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -141,22 +135,15 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        expect(page.getElementById('reportAuthor_error').isDisplayed()).toBeTruthy();
-        expect(page.getElementById('office_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Sign your addendum');
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the completion of the form', () => {
-        expect(page.setElementByIdValue('reportAuthor', 'Arthur Author')).toEqual('Arthur Author');
-        expect(page.setElementByIdValue('office', 'Sheffield Digital Studio')).toEqual('Sheffield Digital Studio');
-        expect(page.setElementByIdValue('phone', '0161 234 4343')).toEqual('0161 234 4343');
-        expect(page.setElementByIdValue('counterSignature', 'Counter signatory')).toEqual('Counter signatory');
-        expect(page.setElementByIdValue('reportDate', '20/01/2017')).toEqual('20/01/2017');
-      });
-
-      it('should NOT display form error messages now the form is valid', () => {
-        expect(page.getElementById('reportAuthor_error').isDisplayed()).toBeFalsy();
-        expect(page.getElementById('office_error').isDisplayed()).toBeFalsy();
+        page.testTextEntry('reportAuthor', 'Arthur Author');
+        page.testTextEntry('office', 'Sheffield Digital Studio');
+        page.testTextEntry('phone', '0114 234 4343');
+        page.testTextEntry('counterSignature', 'Counter signatory');
+        page.testTextEntry('reportDate', '20/01/2017');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -244,19 +231,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       expect(page.getHeadingText()).toEqual('Give feedback');
     });
 
-    it('should display form error messages if the form is invalid and NOT continue', () => {
-      page.getNextButton().click();
-      expect(page.getElementById('feedback_error').isDisplayed()).toBeTruthy();
-      expect(page.getHeadingText()).toEqual('Give feedback');
-    });
-
     it('should allow the user to rate the service and enter feedback', () => {
-      page.getElementById('radio-1').click();
-      page.getElementById('radio-2').click();
-      page.getElementById('radio-3').click();
-      page.getElementById('radio-4').click();
-      page.getElementById('radio-5').click();
-      expect(page.setElementByIdValue('feedback', 'Some valuable feedback')).toEqual('Some valuable feedback');
+      page.clickRadios('rating', 5);
+      page.testTextEntry('feedback', 'Some valuable feedback');
     });
 
     it('should submit feedback and return to the Choose your report page', () => {
