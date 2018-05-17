@@ -11,20 +11,13 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ministryofjustice/ndelius-prototype.svg)
 ![GitHub top language](https://img.shields.io/github/languages/top/ministryofjustice/ndelius-prototype.svg)
 
-**Current release**
-
 [![GitHub release](https://img.shields.io/github/release/ministryofjustice/ndelius-prototype.svg)](https://github.com/ministryofjustice/ndelius-prototype/releases)
 ![GitHub Release Date](https://img.shields.io/github/release-date/ministryofjustice/ndelius-prototype.svg)
-
-**Next release**
-
-[![GitHub (pre-)release](https://img.shields.io/github/release/ministryofjustice/ndelius-prototype/all.svg?label=pre-release)](https://github.com/ministryofjustice/ndelius-prototype/releases)
-[![Github commits (since latest release)](https://img.shields.io/github/commits-since/ministryofjustice/ndelius-prototype/latest.svg)](https://github.com/ministryofjustice/ndelius-prototype/commits/master)
-![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/ministryofjustice/ndelius-prototype.svg)
 
 **Latest changes**
 
 ![CircleCI](https://img.shields.io/circleci/project/github/ministryofjustice/ndelius-prototype.svg?label=last%20build)
+[![Github commits (since latest release)](https://img.shields.io/github/commits-since/ministryofjustice/ndelius-prototype/latest.svg)](https://github.com/ministryofjustice/ndelius-prototype/commits/master)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ministryofjustice/ndelius-prototype.svg)
 
 ---
