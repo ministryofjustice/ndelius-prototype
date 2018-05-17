@@ -11,16 +11,8 @@
 
     <h2 class="lede no-margin-top margin-bottom medium">Select the underlying issues that are relevant as motivators or drivers for the main offence</h2>
 
-    <div class="notice">
-      <i class="icon icon-important">
-        <span class="visually-hidden">Warning</span>
-      </i>
-      <strong class="font-small">
-        By not selecting an issue you are indicating it is not relevant
-      </strong>
-    </div>
-
-    <p>&nbsp;</p>
+    <!-- Angular component -->
+    <app-notice message="By not selecting an issue you are indicating it is not relevant"></app-notice>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -43,6 +35,7 @@
 
       <div class="clearfix"></div>
 
+      <!-- Angular component -->
       <app-footer></app-footer>
 
     </form>

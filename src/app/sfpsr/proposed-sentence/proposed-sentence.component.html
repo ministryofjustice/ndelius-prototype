@@ -1,21 +1,21 @@
-<!-- ANGULAR COMPONENT -->
+<!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
 <h1 class="heading-xlarge">Conclusion</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
+    <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
-
-      <p>See highlighted errors below</p>
-
-      <p class="error-message" *ngIf="reportForm.get('proposal').errors">Enter your conclusion</p>
-    </div>
+    <!-- Angular component -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'proposal', error: 'Enter your conclusion' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -34,6 +34,7 @@
 
       </app-text-entry>
 
+      <!-- Angular component -->
       <app-footer></app-footer>
 
     </form>

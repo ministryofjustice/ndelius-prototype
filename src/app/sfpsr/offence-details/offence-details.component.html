@@ -1,22 +1,22 @@
-<!-- ANGULAR COMPONENT -->
+<!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
 <h1 class="heading-xlarge">Offence details</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
+    <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
-
-      <p>See highlighted errors below</p>
-
-      <p class="error-message" *ngIf="reportForm.get('mainOffence').errors">Enter the main offence and dates</p>
-      <p class="error-message" *ngIf="reportForm.get('offenceSummary').errors">You must enter a brief summary of the offence</p>
-    </div>
+    <!-- Angular component -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'mainOffence', error: 'Enter the main offence and dates' },
+                    { name: 'offenceSummary', error: 'You must enter a brief summary of the offence' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -35,6 +35,7 @@
         <p>Describe the offence or the incident. In this summary, judges and magistrates need to know where your information is coming from. Be clear when it’s from CPS, probation or from the offender.</p>
       </app-text-entry>
 
+      <!-- Angular component -->
       <app-footer></app-footer>
 
     </form>

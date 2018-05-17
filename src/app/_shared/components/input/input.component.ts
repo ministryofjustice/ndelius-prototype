@@ -56,6 +56,16 @@ export class InputComponent {
   @Input() public errorMessage = 'This field is required';
 
   /**
+   * Readonly field
+   */
+  @Input() public readonly: boolean; // @TODO: Include this in template
+
+  /**
+   * Full width field
+   */
+  @Input() public wide: boolean;
+
+  /**
    * Gain access to the 'hint' set within the child DOM
    */
   @ViewChild('hint') hint;

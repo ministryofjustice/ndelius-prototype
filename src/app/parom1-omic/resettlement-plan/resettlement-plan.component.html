@@ -14,14 +14,8 @@
                     [controls]="[{ name: 'resettlementPlanForRelease', error: 'Enter the resettlement plan for release' }]">
     </app-form-error>
 
-    <div class="notice margin-bottom large">
-      <i class="icon icon-important">
-        <span class="visually-hidden">Important</span>
-      </i>
-      <strong class="font-small">
-        This must be included for all prisoners
-      </strong>
-    </div>
+    <!-- Angular component -->
+    <app-notice message="This must be included for all prisoners"></app-notice>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 

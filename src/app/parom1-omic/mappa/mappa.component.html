@@ -20,14 +20,8 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="notice margin-bottom large">
-        <i class="icon icon-important">
-          <span class="visually-hidden">Important</span>
-        </i>
-        <strong class="font-small">
-          This must be completed if a prisoner is eligible for release
-        </strong>
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-notice message="This must be completed if a prisoner is eligible for release"></app-notice>
 
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="screenedDate" date="true" [error]="formError" required="true"

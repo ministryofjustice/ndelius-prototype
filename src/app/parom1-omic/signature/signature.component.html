@@ -33,11 +33,8 @@
                  label="NPS Division and LDU"
                  errorMessage="Enter the NPS Division and LDU"></app-input>
 
-      <div class="form-group half-width" [ngClass]="{ 'form-group-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }">
-        <label for="address" class="form-label-bold">Office address</label>
-        <app-error-messages control="address" message="Enter the office address" [active]="(reportForm.get('address').touched || formError) && reportForm.get('address').errors"></app-error-messages>
-        <textarea class="form-control classic" [ngClass]="{ 'form-control-error': (reportForm.get('address').touched || formError) && reportForm.get('address').errors }" type="text" role="textbox" id="address" formControlName="address" aria-described-by="address_error" aria-required="true" required></textarea>
-      </div>
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="address" [error]="formError" label="Office address" errorMessage="Enter the office address" classic="true" required="true"></app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="email" [error]="formError" required="true"
