@@ -8,9 +8,10 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { RiskAssessmentComponent } from './risk-assessment.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
-import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
 import * as model from './reducer/risk-assessment.reducer';
 
@@ -24,10 +25,11 @@ describe('SFPSR - Component: Risk assessment', () => {
     TestBed.configureTestingModule({
       declarations: [
         RiskAssessmentComponent,
+        MockFormErrorComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent,
         MockTextEntryComponent,
+        MockRadioButtonsComponent,
         MockFooterComponent
       ],
       imports: [

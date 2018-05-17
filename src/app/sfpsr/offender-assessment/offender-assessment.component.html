@@ -11,6 +11,8 @@
 
     <h2 class="lede no-margin-top margin-bottom medium">Select the underlying issues that are relevant as motivators or drivers for the main offence</h2>
 
+    <p>Key aspects of the person’s circumstances should be detailed. Those which are linked to their offending behaviour should be highlighted. Make sure that you select all of the factors that have impacted on offending, and that may impact on future risk of re offending. Also, consider if there are factors that are not directly linked. These may cause difficulties for the offender and impact on their desistance from crime.</p>
+
     <!-- Angular component -->
     <app-notice message="By not selecting an issue you are indicating it is not relevant"></app-notice>
 
@@ -34,6 +36,30 @@
       </ng-template>
 
       <div class="clearfix"></div>
+
+      <hr />
+
+      <app-radio-buttons [group]="reportForm" name="trauma" [options]="['Yes', 'No']" label="Is there evidence of the offender experiencing trauma?"></app-radio-buttons>
+
+      <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('trauma').value !== 'Yes' }">
+
+        <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma">
+          <p>Trauma can affect an offender’s ability to engage and make decisions. Detail the offender’s experience of trauma, and how it’s affected their offending and their engagement with rehabilitative interventions.</p>
+        </app-text-entry>
+
+      </div>
+
+      <hr />
+
+      <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']" label="Does the offender have caring responsibilities for children or adults or, have they ever had caring responsibilities for children or adults?"></app-radio-buttons>
+
+      <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('caring').value !== 'Yes' }">
+
+        <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities">
+          <p>Detail the offender’s current and past caring responsibilities for children and adults. How have those responsibilities have affected their offending and their engagement with rehabilitative interventions?</p>
+        </app-text-entry>
+
+      </div>
 
       <!-- Angular component -->
       <app-footer></app-footer>

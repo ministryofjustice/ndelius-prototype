@@ -9,6 +9,7 @@ import { InformationSourcesComponent } from './information-sources.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/information-sources.reducer';
 
@@ -24,6 +25,7 @@ describe('SFPSR - Component: Sources of information', () => {
         InformationSourcesComponent,
         MockPhaseBannerComponent,
         MockSubNavigationComponent,
+        MockTextEntryComponent,
         MockFooterComponent
       ],
       imports: [

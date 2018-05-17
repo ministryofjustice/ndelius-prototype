@@ -28,6 +28,7 @@ export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
   reportData: IOffenderAssessment;
   reportForm: FormGroup;
   formError: boolean;
+  isFemale: boolean;
   sections: Array<ISection> = [
     {
       checkControl: 'issueAccommodation',
@@ -112,7 +113,11 @@ export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
       issueBehaviour: this.reportData.issueBehaviour,
       detailsBehaviour: this.reportData.detailsBehaviour,
       issueOther: this.reportData.issueOther,
-      detailsOther: this.reportData.detailsOther
+      detailsOther: this.reportData.detailsOther,
+      trauma: this.reportData.trauma,
+      traumaDetails: this.reportData.traumaDetails,
+      caring: this.reportData.caring,
+      caringDetails: this.reportData.caringDetails
     });
   }
 

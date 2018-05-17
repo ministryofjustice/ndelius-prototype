@@ -51,7 +51,7 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/sfpsr/proposed-sentence',
-      label: 'Conclusion',
+      label: 'Proposal',
       state: 'proposedSentence'
     },
     {

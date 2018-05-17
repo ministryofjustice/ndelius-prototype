@@ -8,8 +8,11 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { OffenderDetailsComponent } from './offender-details.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
-import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 
 import * as model from './reducer/offender-details.reducer';
 
@@ -23,9 +26,12 @@ describe('SFPSR - Component: Offender details', () => {
     TestBed.configureTestingModule({
       declarations: [
         OffenderDetailsComponent,
+        MockFormErrorComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent,
+        MockThreeFieldDateComponent,
+        MockTextEntryComponent,
+        MockInputComponent,
         MockFooterComponent
       ],
       imports: [

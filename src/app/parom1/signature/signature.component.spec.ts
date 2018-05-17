@@ -15,6 +15,7 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 
 import * as model from './reducer/signature.reducer';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 describe('PAROM1 - Component: Signature and date', () => {
 
@@ -31,6 +32,7 @@ describe('PAROM1 - Component: Signature and date', () => {
         MockPhaseBannerComponent,
         MockFormErrorComponent,
         MockInputComponent,
+        MockTextEntryComponent,
         MockErrorMessagesComponent
       ],
       imports: [
