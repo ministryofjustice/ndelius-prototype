@@ -3,7 +3,7 @@ import { browser } from 'protractor';
 
 const testData = require('./parom1-data.json');
 
-describe('New Probation Services - Rapid Prototype', () => {
+xdescribe('New Probation Services - Rapid Prototype', () => {
 
   let page: PrototypePage;
 

@@ -38,7 +38,7 @@
 
       <hr />
 
-      <app-radio-buttons [group]="reportForm" name="diversity" [options]="['Yes', 'No']" label="Have you considered what equality and Diversity Issues are present, and how they can help inform your assessment and proposal?"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="diversity" [options]="['Yes', 'No']" required="true" [error]="formError" label="Have you considered what equality and Diversity Issues are present, and how they can help inform your assessment and proposal?"></app-radio-buttons>
 
       <!-- Angular component -->
       <app-footer></app-footer>
