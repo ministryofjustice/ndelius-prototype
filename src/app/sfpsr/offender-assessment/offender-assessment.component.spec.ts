@@ -8,10 +8,11 @@ import { reducers } from '../_shared/reducer/state.reducers';
 
 import { OffenderAssessmentComponent } from './offender-assessment.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
-import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
+import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
+import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
 import * as model from './reducer/offender-assessment.reducer';
 
@@ -26,9 +27,10 @@ describe('SFPSR - Component: Offender assessment issues', () => {
       declarations: [
         OffenderAssessmentComponent,
         MockSubNavigationComponent,
+        MockNoticeComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent,
         MockTextEntryComponent,
+        MockRadioButtonsComponent,
         MockFooterComponent
       ],
       imports: [

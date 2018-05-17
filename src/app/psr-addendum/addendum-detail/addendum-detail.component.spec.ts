@@ -4,7 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { reducers } from '../_shared/reducer/state.reducers';
 
 import { AddendumDetailComponent } from './addendum-detail.component';
@@ -12,6 +11,8 @@ import { MockFooterComponent } from '../../_shared/components/footer/footer.mock
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 
 import * as model from './reducer/addendum-detail.reducer';
 
@@ -30,6 +31,7 @@ describe('Addendum - Component: Addendum detail', () => {
       ],
       declarations: [
         AddendumDetailComponent,
+        MockFormErrorComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockTextEntryComponent,

@@ -41,7 +41,8 @@ export class ProposedSentenceComponent implements AfterViewInit, OnDestroy {
    */
   createForm() {
     this.reportForm = this.formBuilder.group({
-      proposal: [this.reportData.proposal, Validators.required]
+      proposal: [this.reportData.proposal, Validators.required],
+      diversity: [this.reportData.diversity, Validators.required]
     });
   }
 

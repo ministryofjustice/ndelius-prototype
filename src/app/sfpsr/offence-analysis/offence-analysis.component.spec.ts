@@ -11,6 +11,7 @@ import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 
 import * as model from './reducer/offence-analysis.reducer';
 
@@ -24,6 +25,7 @@ describe('SFPSR - Component: Offence analysis', () => {
     TestBed.configureTestingModule({
       declarations: [
         OffenceAnalysisComponent,
+        MockFormErrorComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,

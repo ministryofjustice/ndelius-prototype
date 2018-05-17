@@ -14,6 +14,7 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 
 import * as model from './reducer/release-risk-management.reducer';
+import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
 
 describe('PAROM1-OMIC - Component: Release risk management plan', () => {
 
@@ -25,6 +26,7 @@ describe('PAROM1-OMIC - Component: Release risk management plan', () => {
     TestBed.configureTestingModule({
       declarations: [
         ReleaseRiskManagementComponent,
+        MockNoticeComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,

@@ -8,13 +8,14 @@ import { reducers } from '../_shared/reducer/state.reducers';
 import { ProposedSentenceComponent } from './proposed-sentence.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
-import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
 import * as model from './reducer/proposed-sentence.reducer';
 
-describe('SFPSR - Component: Conclusion', () => {
+describe('SFPSR - Component: Proposal', () => {
 
   let fixture: ComponentFixture<ProposedSentenceComponent>;
   let component: ProposedSentenceComponent;
@@ -24,9 +25,10 @@ describe('SFPSR - Component: Conclusion', () => {
     TestBed.configureTestingModule({
       declarations: [
         ProposedSentenceComponent,
+        MockFormErrorComponent,
+        MockRadioButtonsComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockErrorMessagesComponent,
         MockTextEntryComponent,
         MockFooterComponent
       ],
@@ -50,7 +52,7 @@ describe('SFPSR - Component: Conclusion', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Conclusion');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Proposal');
   });
 
   it('should include the reactive form', () => {

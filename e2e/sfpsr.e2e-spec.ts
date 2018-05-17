@@ -56,10 +56,10 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should display the Offender Details', () => {
-        expect(page.getElementByIdValue('name')).toEqual('Alan Smith');
-        expect(page.getElementByIdValue('dob-day')).toEqual('21');
-        expect(page.getElementByIdValue('dob-month')).toEqual('6');
-        expect(page.getElementByIdValue('dob-year')).toEqual('1976');
+        expect(page.getElementByIdValue('name')).toEqual('Alice Smith');
+        expect(page.getElementByIdValue('dateOfBirth-day')).toEqual('21');
+        expect(page.getElementByIdValue('dateOfBirth-month')).toEqual('6');
+        expect(page.getElementByIdValue('dateOfBirth-year')).toEqual('1976');
         expect(page.getElementByIdValue('address')).toEqual('1 Albert Square, Manchester, Greater Manchester, M60 2LA');
         expect(page.getElementByIdValue('phone')).toEqual('07777 777 777');
         expect(page.getElementByIdValue('pnc')).toEqual('B98793');
@@ -87,9 +87,9 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow changes to Sentencing court details', () => {
-        expect(page.setElementByIdValue('court', 'Sheffield Magistrates Court')).toEqual('Sheffield Magistrates Court');
+        page.testTextEntry('court', 'Sheffield Magistrates Court');
         expect(page.changeSelectOption('localJusticeArea', 'South Yorkshire')).toEqual('45: South Yorkshire');
-        expect(page.setElementByIdValue('hearingDate', '20/01/2017')).toEqual('20/01/2017');
+        page.testTextEntry('hearingDate', '20/01/2017');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -135,24 +135,19 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        expect(page.getElementById('mainOffence_error').isDisplayed()).toBeTruthy();
-        expect(page.getElementById('offenceSummary_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Offence details');
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the entry of the main offence details', () => {
-        expect(page.setElementByIdValue('mainOffence', 'Some Main Offence Details'))
-          .toEqual('Some Main Offence Details');
+        page.testTextEntry('mainOffence', 'Some Main Offence Details');
       });
 
       it('should allow the entry of other offence details', () => {
-        expect(page.setElementByIdValue('otherOffence', 'Some Other Offence Details'))
-          .toEqual('Some Other Offence Details');
+        page.testTextEntry('otherOffence', 'Some Other Offence Details');
       });
 
       it('should allow the entry of the offence summary', () => {
-        expect(page.setElementByIdValue('offenceSummary', 'A Summary of the offence'))
-          .toEqual('A Summary of the offence');
+        page.testTextEntry('offenceSummary', 'A Summary of the offence');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -171,18 +166,15 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        expect(page.getElementById('offenceAnalysisEntry_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Offence analysis');
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the entry of offence analysis', () => {
-        expect(page.setElementByIdValue('offenceAnalysisEntry', 'An analysis of the offence'))
-          .toEqual('An analysis of the offence');
+        page.testTextEntry('offenceAnalysisEntry', 'An analysis of the offence');
       });
 
       it('should allow the entry of patterns of offending', () => {
-        expect(page.setElementByIdValue('patternOfOffending', 'Some patterns of offending'))
-          .toEqual('Some patterns of offending');
+        page.testTextEntry('patternOfOffending', 'Some patterns of offending');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -211,43 +203,35 @@ describe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the entry of Offender assessment details for accommodation', () => {
-        expect(page.setElementByIdValue('detailsAccommodation', 'Some detail relating to accommodation'))
-          .toEqual('Some detail relating to accommodation');
+        page.testTextEntry('detailsAccommodation', 'Some detail relating to accommodation');
       });
 
       it('should allow the entry of Offender assessment details for employment', () => {
-        expect(page.setElementByIdValue('detailsEmployment', 'Some detail relating to employment'))
-          .toEqual('Some detail relating to employment');
+        page.testTextEntry('detailsEmployment', 'Some detail relating to employment');
       });
 
       it('should allow the entry of Offender assessment details for finance', () => {
-        expect(page.setElementByIdValue('detailsFinance', 'Some detail relating to finance'))
-          .toEqual('Some detail relating to finance');
+        page.testTextEntry('detailsFinance', 'Some detail relating to finance');
       });
 
       it('should allow the entry of Offender assessment details for relationships', () => {
-        expect(page.setElementByIdValue('detailsRelationships', 'Some detail relating to relationships'))
-          .toEqual('Some detail relating to relationships');
+        page.testTextEntry('detailsRelationships', 'Some detail relating to relationships');
       });
 
       it('should allow the entry of Offender assessment details for substance abuse', () => {
-        expect(page.setElementByIdValue('detailsSubstance', 'Some detail relating to substance abuse'))
-          .toEqual('Some detail relating to substance abuse');
+        page.testTextEntry('detailsSubstance', 'Some detail relating to substance abuse');
       });
 
       it('should allow the entry of Offender assessment details for physical & mental health', () => {
-        expect(page.setElementByIdValue('detailsHealth', 'Some detail relating to physical & mental health'))
-          .toEqual('Some detail relating to physical & mental health');
+        page.testTextEntry('detailsHealth', 'Some detail relating to physical & mental health');
       });
 
       it('should allow the entry of Offender assessment details for thinking & behaviour', () => {
-        expect(page.setElementByIdValue('detailsBehaviour', 'Some detail relating to thinking & behaviour'))
-          .toEqual('Some detail relating to thinking & behaviour');
+        page.testTextEntry('detailsBehaviour', 'Some detail relating to thinking & behaviour');
       });
 
       it('should allow the entry of Offender assessment details for other issues', () => {
-        expect(page.setElementByIdValue('detailsOther', 'Some detail relating to other issues'))
-          .toEqual('Some detail relating to other issues');
+        page.testTextEntry('detailsOther', 'Some detail relating to other issues');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -266,31 +250,26 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        expect(page.getElementById('likelihoodOfReOffending_error').isDisplayed()).toBeTruthy();
-        expect(page.getElementById('riskOfSeriousHarm_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Risk assessment');
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the selection of response to previous supervision', () => {
-        page.getElementById('radio-1').click();
-        page.getElementById('radio-2').click();
-        page.getElementById('radio-4').click(); // Radio 4 hides the additional details
-        page.getElementById('radio-3').click();
+        page.getElementById('previousSupervisionResponse-radio-0').click();
+        page.getElementById('previousSupervisionResponse-radio-1').click();
+        page.getElementById('previousSupervisionResponse-radio-3').click(); // Last one hides input
+        page.getElementById('previousSupervisionResponse-radio-2').click();
       });
 
       it('should allow the entry of the likelihood of re-offending', () => {
-        expect(page.setElementByIdValue('likelihoodOfReOffending', 'Some information on the likelihood of re-offending'))
-          .toEqual('Some information on the likelihood of re-offending');
+        page.testTextEntry('likelihoodOfReOffending', 'Some information on the likelihood of re-offending');
       });
 
       it('should allow the entry of the risk of serious harm', () => {
-        expect(page.setElementByIdValue('riskOfSeriousHarm', 'Some information on the risk of serious harm'))
-          .toEqual('Some information on the risk of serious harm');
+        page.testTextEntry('riskOfSeriousHarm', 'Some information on the risk of serious harm');
       });
 
       it('should allow the entry of additional details of previous supervision', () => {
-        expect(page.setElementByIdValue('additionalPreviousSupervision', 'Additional details of previous supervision'))
-          .toEqual('Additional details of previous supervision');
+        page.testTextEntry('additionalPreviousSupervision', 'Additional details of previous supervision');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -299,22 +278,22 @@ describe('New Probation Services - Rapid Prototype', () => {
 
     });
 
-    /* Conclusion */
+    /* Proposal */
 
-    describe('Conclusion', () => {
+    describe('Proposal', () => {
 
       it('should route', () => {
-        expect(page.getHeadingText()).toEqual('Conclusion');
+        expect(page.getHeadingText()).toEqual('Proposal');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        expect(page.getElementById('proposal_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Conclusion');
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the entry of Proposed sentence', () => {
-        expect(page.setElementByIdValue('proposal', 'Some sentencing proposal')).toEqual('Some sentencing proposal');
+        page.testTextEntry('proposal', 'Some sentencing proposal');
+        page.clickRadios('diversity', 2);
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -351,22 +330,15 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
         page.getNextButton().click();
-        expect(page.getElementById('reportAuthor_error').isDisplayed()).toBeTruthy();
-        expect(page.getElementById('office_error').isDisplayed()).toBeTruthy();
-        expect(page.getHeadingText()).toEqual('Sign and date your report');
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
       });
 
       it('should allow the completion of the form', () => {
-        expect(page.setElementByIdValue('reportAuthor', 'Arthur Author')).toEqual('Arthur Author');
-        expect(page.setElementByIdValue('office', 'Sheffield Digital Studio')).toEqual('Sheffield Digital Studio');
-        expect(page.setElementByIdValue('phone', '0161 234 4343')).toEqual('0161 234 4343');
-        expect(page.setElementByIdValue('counterSignature', 'Counter signatory')).toEqual('Counter signatory');
-        expect(page.setElementByIdValue('reportDate', '20/01/2017')).toEqual('20/01/2017');
-      });
-
-      it('should NOT display form error messages now the form is valid', () => {
-        expect(page.getElementById('reportAuthor_error').isDisplayed()).toBeFalsy();
-        expect(page.getElementById('office_error').isDisplayed()).toBeFalsy();
+        page.testTextEntry('reportAuthor', 'Arthur Author');
+        page.testTextEntry('office', 'Sheffield Digital Studio');
+        page.testTextEntry('phone', '0114 234 4343');
+        page.testTextEntry('counterSignature', 'Counter signatory');
+        page.testTextEntry('reportDate', '20/01/2017');
       });
 
       it('should allow the user to continue through the journey', () => {
@@ -454,23 +426,12 @@ describe('New Probation Services - Rapid Prototype', () => {
       expect(page.getHeadingText()).toEqual('Give feedback');
     });
 
-    it('should display form error messages if the form is invalid and NOT continue', () => {
-      page.getNextButton().click();
-      expect(page.getElementById('feedback_error').isDisplayed()).toBeTruthy();
-      expect(page.getHeadingText()).toEqual('Give feedback');
-    });
-
     it('should allow the user to rate the service and enter feedback', () => {
-      page.getElementById('radio-1').click();
-      page.getElementById('radio-2').click();
-      page.getElementById('radio-3').click();
-      page.getElementById('radio-4').click();
-      page.getElementById('radio-5').click();
-      expect(page.setElementByIdValue('feedback', 'Some valuable feedback')).toEqual('Some valuable feedback');
+      page.clickRadios('rating', 5);
+      page.testTextEntry('feedback', 'Some valuable feedback');
     });
 
     it('should submit feedback and return to the Choose your report page', () => {
-      expect(page.getElementById('feedback_error').isDisplayed()).toBeFalsy();
       page.getNextButton().click();
       expect(page.getHeadingText()).toEqual('Short Format Pre-sentence Report');
 

@@ -15,6 +15,7 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
+import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
 
 import * as model from './reducer/victim-issues.reducer';
 
@@ -29,6 +30,7 @@ describe('PAROM1-OMIC - Component: Victim issues', () => {
       declarations: [
         VictimIssuesComponent,
         MockSubNavigationComponent,
+        MockNoticeComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
         MockFooterComponent,

@@ -15,6 +15,10 @@ export interface IOffenderAssessment {
   detailsBehaviour: string;
   issueOther: boolean;
   detailsOther: string;
+  trauma: string;
+  traumaDetails: string;
+  caring: string;
+  caringDetails: string;
   saved: boolean;
   valid: boolean;
 }

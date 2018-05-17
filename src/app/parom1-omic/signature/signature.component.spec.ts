@@ -15,8 +15,9 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 
 import * as model from './reducer/signature.reducer';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
-describe('SFPSR - Component: Signature and date', () => {
+describe('PAROM1-OMIC - Component: Signature and date', () => {
 
   let fixture: ComponentFixture<SignatureComponent>;
   let component: SignatureComponent;
@@ -30,6 +31,7 @@ describe('SFPSR - Component: Signature and date', () => {
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockFormErrorComponent,
+        MockTextEntryComponent,
         MockInputComponent,
         MockErrorMessagesComponent
       ],
