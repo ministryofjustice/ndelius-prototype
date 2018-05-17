@@ -234,6 +234,18 @@ describe('New Probation Services - Rapid Prototype', () => {
         page.testTextEntry('detailsOther', 'Some detail relating to other issues');
       });
 
+      it('should allow the user to answer trauma question', () => {
+        page.getElementById('trauma-radio-1').click();
+        page.getElementById('trauma-radio-0').click();
+        page.testTextEntry('traumaDetails', 'Some detail relating to trauma');
+      });
+
+      it('should allow the user to answer caring question', () => {
+        page.getElementById('caring-radio-1').click();
+        page.getElementById('caring-radio-0').click();
+        page.testTextEntry('caringDetails', 'Some detail relating to caring');
+      });
+
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
       });
@@ -293,6 +305,9 @@ describe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the entry of Proposed sentence', () => {
         page.testTextEntry('proposal', 'Some sentencing proposal');
+      });
+
+      it('should include the diversity question', () => {
         page.clickRadios('diversity', 2);
       });
 
