@@ -1,27 +1,28 @@
-<!-- ANGULAR COMPONENT -->
+<!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
 <h1 class="heading-xlarge">Addendum detail</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
+    <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
   <div class="column-two-thirds">
 
-    <div class="error-summary no-margin-top" *ngIf="formError && !reportForm.valid">
-      <h2 class="heading-medium no-margin-top">You need to fix the errors on this page before continuing</h2>
-
-      <p>See highlighted errors below</p>
-
-      <p class="error-message" *ngIf="reportForm.get('detail').errors">You must enter your addendum</p>
-    </div>
+    <!-- Angular component -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'detail', error: 'You must enter your addendum' }
+                    ]">
+    </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="detail" label="Enter your addendum to the Pre-sentence report" errorMessage="You must enter your addendum" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
+      <!-- Angular component -->
       <app-footer></app-footer>
 
     </form>
