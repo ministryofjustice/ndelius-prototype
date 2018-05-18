@@ -1,11 +1,11 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-radio-buttons',
   templateUrl: './radio-buttons.component.html'
 })
-export class RadioButtonsComponent {
+export class RadioButtonsComponent implements OnInit {
 
   /**
    * The control's parent FormGroup to be used as reference
@@ -61,5 +61,16 @@ export class RadioButtonsComponent {
    * Gain access to the 'hint' set within the child DOM
    */
   @ViewChild('hint') hint;
+
+  showHint: boolean;
+  expandContent: boolean;
+
+  /**
+   * Determine the presence of hint content to be included with the component
+   */
+  ngOnInit() {
+    this.showHint = this.hint.nativeElement.children.length > 0;
+  }
+
 
 }
