@@ -3,6 +3,13 @@
 
     <legend class="form-label-bold">{{label}}</legend>
     <span class="form-hint" *ngIf="help">{{help}}</span>
+    <div [hidden]="!showHint">
+      <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
+      <div #hint class="panel panel-border-narrow margin-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <div *ngIf="expandContent">&nbsp;</div>
     <app-error-messages [control]="name" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
 
     <div class="margin-top medium"></div>
@@ -17,6 +24,4 @@
     </ng-template>
 
   </fieldset>
-
-  <ng-content></ng-content>
 </div>

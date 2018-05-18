@@ -13,6 +13,7 @@ import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
+import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 
 import * as model from './reducer/offender-assessment.reducer';
 
@@ -26,6 +27,7 @@ describe('SFPSR - Component: Offender assessment issues', () => {
     TestBed.configureTestingModule({
       declarations: [
         OffenderAssessmentComponent,
+        MockFormErrorComponent,
         MockSubNavigationComponent,
         MockNoticeComponent,
         MockPhaseBannerComponent,

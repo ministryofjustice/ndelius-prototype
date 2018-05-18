@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -28,7 +28,6 @@ export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
   reportData: IOffenderAssessment;
   reportForm: FormGroup;
   formError: boolean;
-  isFemale: boolean;
   sections: Array<ISection> = [
     {
       checkControl: 'issueAccommodation',
@@ -114,9 +113,9 @@ export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
       detailsBehaviour: this.reportData.detailsBehaviour,
       issueOther: this.reportData.issueOther,
       detailsOther: this.reportData.detailsOther,
-      trauma: this.reportData.trauma,
+      trauma: [this.reportData.trauma, Validators.required],
       traumaDetails: this.reportData.traumaDetails,
-      caring: this.reportData.caring,
+      caring: [this.reportData.caring, Validators.required],
       caringDetails: this.reportData.caringDetails
     });
   }

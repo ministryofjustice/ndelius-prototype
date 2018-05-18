@@ -13,7 +13,8 @@
     <!-- Angular component -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
-                    { name: 'proposal', error: 'Enter your conclusion' }
+                    { name: 'proposal', error: 'Enter your conclusion' },
+                    { name: 'diversity', error: 'Specify whether you have considered what equality and diversity issues are present' }
                     ]">
     </app-form-error>
 
@@ -38,7 +39,7 @@
 
       <hr />
 
-      <app-radio-buttons [group]="reportForm" name="diversity" [options]="['Yes', 'No']" required="true" [error]="formError" label="Have you considered what equality and Diversity Issues are present, and how they can help inform your assessment and proposal?"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="diversity" [options]="['Yes', 'No']" required="true" [error]="formError" label="Have you considered what equality and diversity issues are present, and how they can help inform your assessment and proposal?" errorMessage="Specify whether you have considered what equality and diversity issues are present"></app-radio-buttons>
 
       <!-- Angular component -->
       <app-footer></app-footer>
