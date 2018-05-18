@@ -43,7 +43,7 @@ export class RiskAssessmentComponent implements AfterViewInit, OnDestroy {
     this.reportForm = this.formBuilder.group({
       likelihoodOfReOffending: [this.reportData.likelihoodOfReOffending, Validators.required],
       riskOfSeriousHarm: [this.reportData.riskOfSeriousHarm, Validators.required],
-      previousSupervisionResponse: this.reportData.previousSupervisionResponse,
+      previousSupervisionResponse: [this.reportData.previousSupervisionResponse, Validators.required],
       additionalPreviousSupervision: this.reportData.additionalPreviousSupervision,
     });
   }

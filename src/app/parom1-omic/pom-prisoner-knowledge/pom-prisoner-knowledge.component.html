@@ -43,17 +43,17 @@
                          [error]="formError"
                          label="Has the prisoner been assessed as posing a risk of absconding? (only in closed conditions)"
                          errorMessage="Specify whether the prisoner been assessed as posing a risk of absconding">
-
-        <div class="panel panel-border-narrow"
-             [ngClass]="{ 'js-hidden': reportForm.get('riskOfAbsconding').value !== 'Yes' }"
-             [attr.aria-hidden]="reportForm.get('riskOfAbsconding').value !== 'Yes'">
-          <!-- ANGULAR COMPONENT -->
-          <app-text-entry [group]="reportForm" name="riskOfAbscondingDetails"
-                          label="Provide details of the absconding risk"
-                          (onSaveContent)="saveContent(reportForm)">
-          </app-text-entry>
-        </div>
       </app-radio-buttons>
+
+      <div class="panel panel-border-narrow"
+           [ngClass]="{ 'js-hidden': reportForm.get('riskOfAbsconding').value !== 'Yes' }"
+           [attr.aria-hidden]="reportForm.get('riskOfAbsconding').value !== 'Yes'">
+        <!-- ANGULAR COMPONENT -->
+        <app-text-entry [group]="reportForm" name="riskOfAbscondingDetails"
+                        label="Provide details of the absconding risk"
+                        (onSaveContent)="saveContent(reportForm)">
+        </app-text-entry>
+      </div>
 
       <br/>
 
@@ -62,20 +62,20 @@
                          label="Is the prisoner being, or likely to be Released on Temporary Licence (ROTL)?"
                          help="Detail all relevant ROTL information including previous periods and it’s success. Give an explanation if the prisoner has not undertaken ROTL"
                          errorMessage="Specify whether the prisoner undertaking or likely to undertake ROTL">
-
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('rotl').value !== 'Yes' }"
-             [attr.aria-hidden]="reportForm.get('rotl').value !== 'Yes'">
-          <!-- ANGULAR COMPONENT -->
-          <app-text-entry [group]="reportForm" name="rotlDetails"
-                          label="Provide further ROTL information"
-                          (onSaveContent)="saveContent(reportForm)">
-            <ul>
-              <li class="list-bullet">relevant information not already covered in this section</li>
-              <li class="list-bullet">feedback from chaplaincy, healthcare, work or key worker</li>
-            </ul>
-          </app-text-entry>
-        </div>
       </app-radio-buttons>
+
+      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('rotl').value !== 'Yes' }"
+           [attr.aria-hidden]="reportForm.get('rotl').value !== 'Yes'">
+        <!-- ANGULAR COMPONENT -->
+        <app-text-entry [group]="reportForm" name="rotlDetails"
+                        label="Provide further ROTL information"
+                        (onSaveContent)="saveContent(reportForm)">
+          <ul>
+            <li class="list-bullet">relevant information not already covered in this section</li>
+            <li class="list-bullet">feedback from chaplaincy, healthcare, work or key worker</li>
+          </ul>
+        </app-text-entry>
+      </div>
 
       <br/>
 

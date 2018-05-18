@@ -54,8 +54,9 @@
                          [options]="['Category A', 'Category B', 'Category C', 'Category D']" required="true"
                          [error]="formError"
                          label="Prisoner's category" errorMessage="Select the prisoner's category">
-        <br/>
       </app-radio-buttons>
+
+      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="sentence" required="true" [error]="formError" label="Sentence"
@@ -65,38 +66,37 @@
       <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Determinate', 'Indeterminate']"
                          required="true" [error]="formError"
                          label="Sentence type" errorMessage="Select the sentence type">
-
-        <!-- DETERMINATE -->
-        <div class="panel panel-border-narrow"
-             [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
-             [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
-
-          <!-- ANGULAR COMPONENT -->
-          <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
-                                label="Automatic release date / non parole eligibility date"
-                                help="For example, 31 3 2018"></app-three-field-date>
-        </div>
-
-        <!-- INDETERMINATE -->
-        <div class="panel panel-border-narrow"
-             [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
-             [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
-
-          <div class="form-group">
-
-            <label for="tariffLength" class="form-label-bold">Tariff length</label>
-            <input class="form-control half-width" type="text" role="textbox" id="tariffLength"
-                   formControlName="tariffLength" maxlength="250"/>
-
-          </div>
-
-          <!-- ANGULAR COMPONENT -->
-          <app-three-field-date [group]="reportForm" name="tariffExpiryDate"
-                                label="Tariff expiry date" help="For example, 31 3 2018"></app-three-field-date>
-
-        </div>
-
       </app-radio-buttons>
+
+      <!-- DETERMINATE -->
+      <div class="panel panel-border-narrow"
+           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
+           [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
+
+        <!-- ANGULAR COMPONENT -->
+        <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
+                              label="Automatic release date / non parole eligibility date"
+                              help="For example, 31 3 2018"></app-three-field-date>
+      </div>
+
+      <!-- INDETERMINATE -->
+      <div class="panel panel-border-narrow"
+           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
+           [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
+
+        <div class="form-group">
+
+          <label for="tariffLength" class="form-label-bold">Tariff length</label>
+          <input class="form-control half-width" type="text" role="textbox" id="tariffLength"
+                 formControlName="tariffLength" maxlength="250"/>
+
+        </div>
+
+        <!-- ANGULAR COMPONENT -->
+        <app-three-field-date [group]="reportForm" name="tariffExpiryDate"
+                              label="Tariff expiry date" help="For example, 31 3 2018"></app-three-field-date>
+
+      </div>
 
       <br/>
 

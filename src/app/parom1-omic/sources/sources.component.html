@@ -67,17 +67,17 @@
       <app-radio-buttons [group]="reportForm" name="sourceLimitations" [options]="['Yes', 'No']" required="true" [error]="formError"
                          label="Has any information not been made available to you or are there any limitations to the sources?"
                          errorMessage="Specify whether there are any omissions or limitations">
-
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
-
-          <!-- Angular component -->
-          <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"
-                          label="Provide an explanation"
-                          (onSaveContent)="saveContent(reportForm)">
-          </app-text-entry>
-
-        </div>
       </app-radio-buttons>
+
+      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
+
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"
+                        label="Provide an explanation"
+                        (onSaveContent)="saveContent(reportForm)">
+        </app-text-entry>
+
+      </div>
 
       <br/>
 

@@ -61,10 +61,11 @@
       <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No']" required="true" [error]="formError"
                          label="Does the victim wish to submit a Victim Personal Statement?"
                          errorMessage="Specify if the victim wishes to submit a Victim Personal Statement">
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
-          <p>The VPS should be submitted with this report if possible.</p>
-        </div>
       </app-radio-buttons>
+
+      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
+        <p>The VPS should be submitted with this report if possible.</p>
+      </div>
 
       <br />
 

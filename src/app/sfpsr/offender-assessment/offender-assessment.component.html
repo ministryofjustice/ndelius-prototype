@@ -9,6 +9,14 @@
   </div>
   <div class="column-two-thirds">
 
+    <!-- Angular component -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'trauma', error: 'Specify whether there is evidence of the offender experiencing trauma' },
+                    { name: 'caring', error: 'Specify whether the offender has caring responsibilities for children or adults' }
+                    ]">
+    </app-form-error>
+
     <h2 class="lede no-margin-top margin-bottom medium">Select the underlying issues that are relevant as motivators or drivers for the main offence</h2>
 
     <details>
@@ -48,7 +56,8 @@
 
       <hr />
 
-      <app-radio-buttons [group]="reportForm" name="trauma" [options]="['Yes', 'No']" label="Is there evidence of the offender experiencing trauma?"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="trauma" [options]="['Yes', 'No']" label="Is there evidence of the offender experiencing trauma?"
+      required="true" [error]="formError" errorMessage="Specify whether there is evidence of the offender experiencing trauma"></app-radio-buttons>
 
       <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('trauma').value !== 'Yes' }">
 
@@ -60,7 +69,8 @@
 
       <hr />
 
-      <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']" label="Does the offender have caring responsibilities for children or adults or, have they ever had caring responsibilities for children or adults?"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']" label="Does the offender have caring responsibilities for children or adults or, have they ever had caring responsibilities for children or adults?"
+      required="true" [error]="formError" errorMessage="Specify whether the offender has caring responsibilities for children or adults"></app-radio-buttons>
 
       <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('caring').value !== 'Yes' }">
 
