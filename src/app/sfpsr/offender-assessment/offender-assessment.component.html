@@ -62,20 +62,20 @@
       <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('trauma').value !== 'Yes' }">
 
         <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma">
-          <p>Trauma can affect an offender’s ability to engage and make decisions. Detail the offender’s experience of trauma, and how it’s affected their offending and their engagement with rehabilitative interventions.</p>
+          <p>Trauma can affect an offender’s ability to engage and make decisions. Detail the offender’s experience of trauma, and how it has affected their offending and their engagement with rehabilitative interventions.</p>
         </app-text-entry>
 
       </div>
 
       <hr />
 
-      <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']" label="Does the offender have caring responsibilities for children or adults or, have they ever had caring responsibilities for children or adults?"
+      <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']" label="Does the offender have caring responsibilities for children or adults, or have they ever had caring responsibilities for children or adults?"
       required="true" [error]="formError" errorMessage="Specify whether the offender has caring responsibilities for children or adults"></app-radio-buttons>
 
       <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('caring').value !== 'Yes' }">
 
         <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities">
-          <p>Detail the offender’s current and past caring responsibilities for children and adults. How have those responsibilities have affected their offending and their engagement with rehabilitative interventions?</p>
+          <p>Detail the offender’s current and past caring responsibilities for children and adults. How have those responsibilities affected their offending and their engagement with rehabilitative interventions?</p>
         </app-text-entry>
 
       </div>
