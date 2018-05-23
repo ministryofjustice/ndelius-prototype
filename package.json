@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --source-map",
-    "test": "ng test --source-map",
+    "test": "ng test --sourceMap=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "doc": "./node_modules/.bin/compodoc -p tsconfig.json -n \"nDelius Prototype\""

@@ -5,21 +5,26 @@
 
 <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
-  <table role="presentation">
-    <tbody>
+  <div *ngIf="!section.dataOnly || isValid">
+
+    <table role="presentation">
+      <tbody>
       <tr>
         <td width="30" class="font-medium">{{index + 1}}.</td>
         <td><a [routerLink]="section.route" class="font-medium">{{section.label}}</a></td>
         <td width="80" align="right">
           <strong class="page-status-tag saved fixed-width" *ngIf="section.saved && section.valid">SAVED</strong>
-          <strong class="page-status-tag incomplete fixed-width" *ngIf="section.saved && !section.valid">INCOMPLETE</strong>
+          <strong class="page-status-tag incomplete fixed-width"
+                  *ngIf="section.saved && !section.valid">INCOMPLETE</strong>
           <strong class="font-xsmall margin-right" *ngIf="!section.valid && !section.saved">Not started</strong>
         </td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
 
-  <hr class="margin-top margin-bottom" noshade />
+    <hr class="margin-top margin-bottom" noshade/>
+
+  </div>
 
 </ng-template>
 
