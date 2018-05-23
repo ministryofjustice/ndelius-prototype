@@ -6,5 +6,7 @@ import { RadioButtonsComponent } from './radio-buttons.component';
   template: ''
 })
 export class MockRadioButtonsComponent extends RadioButtonsComponent {
-  // Empty
+  ngOnInit() {
+    // OVERRIDE
+  }
 }
