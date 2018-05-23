@@ -10,9 +10,16 @@ import { IInformationSources } from '../../information-sources/model/information
 import { ICourtDetails } from '../../court-details/model/court-details.model';
 import { ISignature } from '../../signature/model/signature.model';
 
+// @FIXME: DRY this up and refactor.
+
 export class PdfContentUtil {
 
-  static generateContent(data: IState) {
+  /**
+   *
+   * @param {IState} data
+   * @returns {Array<any>}
+   */
+  static generateContent(data: IState): Array<any> {
     return [
       { text: 'Short Format Pre-Sentence Report', style: 'reportTitle', alignment: 'center' },
       { text: 'This is a Pre-Sentence Report as defined in Section 1 58 of the Criminal Justice Act 2003.', margin: [0, 20, 0, 20] },
@@ -28,9 +35,27 @@ export class PdfContentUtil {
     ];
   }
 
-  private static getOffenderDetails(data: IOffenderDetails) {
+  /**
+   *
+   * @param {string} title
+   * @param {string} text
+   * @returns {Array<any>}
+   */
+  static textWithTitle(title: string, text: string): Array<any> {
+    return [
+      { text: title, style: 'fontBold', margin: [0, 10, 0, 5] },
+      text || ''
+    ];
+  }
 
-    let parseDob = (dob: IDateOfBirth) => {
+  /**
+   *
+   * @param {IOffenderDetails} data
+   * @returns {Array<any>}
+   */
+  private static getOffenderDetails(data: IOffenderDetails): Array<any> {
+
+    const parseDob = (dob: IDateOfBirth) => {
       return dob.day ? dob.day + '/' + dob.month + '/' + dob.year : '';
     };
 
@@ -51,7 +76,12 @@ export class PdfContentUtil {
     ];
   }
 
-  private static getOffenceDetails(data: IOffenceDetails) {
+  /**
+   *
+   * @param {IOffenceDetails} data
+   * @returns {Array<any>}
+   */
+  private static getOffenceDetails(data: IOffenceDetails): Array<any> {
     return [
       {
         style: 'tableDefault',
@@ -73,7 +103,12 @@ export class PdfContentUtil {
     ];
   }
 
-  private static getOffenceAnalysis(data: IOffenceAnalysis) {
+  /**
+   *
+   * @param {IOffenceAnalysis} data
+   * @returns {Array<any>}
+   */
+  private static getOffenceAnalysis(data: IOffenceAnalysis): Array<any> {
     return [
       {
         style: 'tableDefault',
@@ -98,78 +133,71 @@ export class PdfContentUtil {
     ];
   }
 
-  private static getOffenderAssessment(data: IOffenderAssessment) {
+  /**
+   *
+   * @param {IOffenderAssessment} data
+   * @returns {Array<any>}
+   */
+  private static getOffenderAssessment(data: IOffenderAssessment): Array<any> {
 
-    let content: Array<any> = [
+    const content: Array<any> = [
       {
         style: 'tableDefault',
         table: {
           widths: ['*', 35, '*', 35],
           body: [
             [{ text: 'Offender assessment issues', style: 'tableHeading', colSpan: 4 }, {}, {}, {}],
-            [{ text: 'Accommodation', style: 'fontBold' }, data.issueAccommodation ? '√' : '', { text: 'Employment, training and education', style: 'fontBold' }, data.issueEmployment ? '√' : ''],
-            [{ text: 'Finance', style: 'fontBold' }, data.issueFinance ? '√' : '', { text: 'Relationships', style: 'fontBold' }, data.issueRelationships ? '√' : ''],
-            [{ text: 'Substance misuse', style: 'fontBold' }, data.issueSubstance ? '√' : '', { text: 'Physical & mental health', style: 'fontBold' }, data.issueHealth ? '√' : ''],
-            [{ text: 'Thinking and behaviour', style: 'fontBold' }, data.issueBehaviour ? '√' : '', { text: 'Other issues (specified below)', style: 'fontBold' }, data.issueOther ? '√' : '']
+            [{ text: 'Accommodation', style: 'fontBold' }, data.issueAccommodation ? '√' : '', {
+              text: 'Employment, training and education',
+              style: 'fontBold'
+            }, data.issueEmployment ? '√' : ''],
+            [{ text: 'Finance', style: 'fontBold' }, data.issueFinance ? '√' : '', {
+              text: 'Relationships',
+              style: 'fontBold'
+            }, data.issueRelationships ? '√' : ''],
+            [{ text: 'Substance misuse', style: 'fontBold' }, data.issueSubstance ? '√' : '', {
+              text: 'Physical & mental health',
+              style: 'fontBold'
+            }, data.issueHealth ? '√' : ''],
+            [{
+              text: 'Thinking and behaviour',
+              style: 'fontBold'
+            }, data.issueBehaviour ? '√' : '', { text: 'Other issues (specified below)', style: 'fontBold' }, data.issueOther ? '√' : '']
           ]
         }
       }
     ];
 
     if (data.issueAccommodation) {
-      content.push([
-        { text: 'Accommodation', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsAccommodation || ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Accommodation', data.detailsAccommodation));
     }
 
     if (data.issueEmployment) {
-      content.push([
-        { text: 'Employment', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsEmployment || ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Employment', data.detailsEmployment));
     }
 
     if (data.issueFinance) {
-      content.push([
-        { text: 'Finance', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsFinance || ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Finance', data.detailsFinance));
     }
 
     if (data.issueRelationships) {
-      content.push([
-        { text: 'Relationships', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsRelationships|| ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Relationships', data.detailsRelationships));
     }
 
     if (data.issueSubstance) {
-      content.push([
-        { text: 'Substance misuse', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsSubstance|| ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Substance misuse', data.detailsSubstance));
     }
 
     if (data.issueHealth) {
-      content.push([
-        { text: 'Physical & mental health', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsHealth|| ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Physical & mental health', data.detailsHealth));
     }
 
     if (data.issueBehaviour) {
-      content.push([
-        { text: 'Thinking and behaviour', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsBehaviour|| ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Thinking and behaviour', data.detailsBehaviour));
     }
 
     if (data.issueOther) {
-      content.push([
-        { text: 'Other', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.detailsOther|| ''
-      ]);
+      content.push(PdfContentUtil.textWithTitle('Other', data.detailsOther));
     }
 
     content.push({
@@ -197,7 +225,12 @@ export class PdfContentUtil {
     return content;
   }
 
-  private static getRiskAssessment(data: IRiskAssessment) {
+  /**
+   *
+   * @param {IRiskAssessment} data
+   * @returns {Array<any>}
+   */
+  private static getRiskAssessment(data: IRiskAssessment): Array<any> {
     return [
       {
         style: 'tableDefault',
@@ -221,7 +254,12 @@ export class PdfContentUtil {
     ];
   }
 
-  private static getProposal(data: IProposedSentence) {
+  /**
+   *
+   * @param {IProposedSentence} data
+   * @returns {Array<any>}
+   */
+  private static getProposal(data: IProposedSentence): Array<any> {
     return [
       {
         style: 'tableDefault',
@@ -232,24 +270,50 @@ export class PdfContentUtil {
           ]
         }
       },
-      { text: data.proposal, margin: [0, 10, 0, 0] },
+      { text: data.proposal, margin: [0, 10, 0, 0] }
     ];
   }
 
+  /**
+   *
+   * @param {IInformationSources} data
+   * @returns {Array<any>}
+   */
   private static getSourcesOfInformation(data: IInformationSources): Array<any> {
 
-    let content: Array<any> = [
+    const content: Array<any> = [
       {
         style: 'tableDefault',
         table: {
           widths: ['*', 35, '*', 35],
           body: [
             [{ text: 'Sources of information', style: 'tableHeading', colSpan: 4 }, {}, {}, {}],
-            [{ text: 'Interview', style: 'fontBold' }, data.interviewInformationSource ? '√' : '', { text: 'Service Records', style: 'fontBold' }, data.serviceRecordsInformationSource ? '√' : ''],
-            [{ text: 'CPS Summary', style: 'fontBold' }, data.cpsSummaryInformationSource ? '√' : '', { text: 'Previous OASys Assessments', style: 'fontBold' }, data.oasysAssessmentsInformationSource ? '√' : ''],
-            [{ text: 'Previous Convictions', style: 'fontBold' }, data.previousConvictionsInformationSource ? '√' : '', { text: 'Victim Statement', style: 'fontBold' }, data.victimStatementInformationSource ? '√' : ''],
-            [{ text: 'Sentencing guidelines', style: 'fontBold' }, data.guidelinesSource ? '√' : '', { text: 'Police information', style: 'fontBold' }, data.policeInformationSource ? '√' : ''],
-            [{ text: 'Children Services Checks', style: 'fontBold' }, data.childrenServicesInformationSource ? '√' : '', { text: 'Other (specified below)', style: 'fontBold' }, data.otherInformationSource ? '√' : '']
+            [{ text: 'Interview', style: 'fontBold' }, data.interviewInformationSource ? '√' : '', {
+              text: 'Service Records',
+              style: 'fontBold'
+            }, data.serviceRecordsInformationSource ? '√' : ''],
+            [{ text: 'CPS Summary', style: 'fontBold' }, data.cpsSummaryInformationSource ? '√' : '', {
+              text: 'Previous OASys Assessments',
+              style: 'fontBold'
+            }, data.oasysAssessmentsInformationSource ? '√' : ''],
+            [{
+              text: 'Previous Convictions',
+              style: 'fontBold'
+            }, data.previousConvictionsInformationSource ? '√' : '', {
+              text: 'Victim Statement',
+              style: 'fontBold'
+            }, data.victimStatementInformationSource ? '√' : ''],
+            [{ text: 'Sentencing guidelines', style: 'fontBold' }, data.guidelinesSource ? '√' : '', {
+              text: 'Police information',
+              style: 'fontBold'
+            }, data.policeInformationSource ? '√' : ''],
+            [{
+              text: 'Children Services Checks',
+              style: 'fontBold'
+            }, data.childrenServicesInformationSource ? '√' : '', {
+              text: 'Other (specified below)',
+              style: 'fontBold'
+            }, data.otherInformationSource ? '√' : '']
           ]
         }
       }
@@ -258,14 +322,19 @@ export class PdfContentUtil {
     if (data.otherInformationSource) {
       content.push([
         { text: 'Other', style: 'fontBold', margin: [0, 10, 0, 5] },
-        data.otherInformationDetails|| ''
+        data.otherInformationDetails || ''
       ]);
     }
 
     return content;
   }
 
-  private static getCourtDetails(data: ICourtDetails) {
+  /**
+   *
+   * @param {ICourtDetails} data
+   * @returns {Array<any>}
+   */
+  private static getCourtDetails(data: ICourtDetails): Array<any> {
     return [
       {
         style: 'tableDefault',
@@ -282,7 +351,12 @@ export class PdfContentUtil {
     ];
   }
 
-  private static getCompletionDetails(data: ISignature) {
+  /**
+   *
+   * @param {ISignature} data
+   * @returns {Array<any>}
+   */
+  private static getCompletionDetails(data: ISignature): Array<any> {
     return [
       {
         style: 'tableDefault',
