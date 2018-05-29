@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { UpdateResettlementPlanAction } from './action/resettlement-plan.action';
 import { IResettlementPlan } from './model/resettlement-plan.model';

@@ -4,7 +4,7 @@ import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { UpdateMappaAction } from './action/mappa.action';
 import { IMappa } from './model/mappa.model';

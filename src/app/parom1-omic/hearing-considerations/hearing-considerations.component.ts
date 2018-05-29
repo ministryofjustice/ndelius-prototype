@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { UpdateHearingConsiderationsAction } from './action/hearing-considerations.action';
 import { IHearingConsiderations } from './model/hearing-considerations.model';

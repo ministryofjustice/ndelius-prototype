@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { UpdateRiskSeriousHarmAction } from './action/risk-serious-harm.action';
 import { IRiskSeriousHarm } from './model/risk-serious-harm.model';

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { UpdatePrisonerKnowledgeAction } from './action/prisoner-knowledge.action';
 import { IPrisonerKnowledge } from './model/prisoner-knowledge.model';
