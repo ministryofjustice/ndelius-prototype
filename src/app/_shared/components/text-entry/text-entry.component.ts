@@ -132,21 +132,18 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
     timer: void 0,
     interval: void 0
   };
-
-  /**
-   * Listener used for recommended character count
-   */
-  private rendererListener: Function;
-
-  /**
-   *
-   */
-  private currentContent: string;
-
   /**
    *
    */
   limitText: string;
+  /**
+   * Listener used for recommended character count
+   */
+  private rendererListener: Function;
+  /**
+   *
+   */
+  private currentContent: string;
 
   /**
    * @constructor
@@ -216,15 +213,6 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   /**
-   * Event fired on keyup - used to update/check optional character count recommendation
-   */
-  private onKeyUp() {
-    if (this.limit) {
-      this.limitText = this.limit + ' recommended characters, you have used ' + this.textArea.nativeElement.value.length;
-    }
-  }
-
-  /**
    * Determine the presence of hint content to be included with the component
    */
   ngOnInit() {
@@ -260,6 +248,15 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     if (listener) {
       listener();
+    }
+  }
+
+  /**
+   * Event fired on keyup - used to update/check optional character count recommendation
+   */
+  private onKeyUp() {
+    if (this.limit) {
+      this.limitText = this.limit + ' recommended characters, you have used ' + this.textArea.nativeElement.value.length;
     }
   }
 }
