@@ -73,8 +73,7 @@ export class PdfContentUtil {
       prisonerDetails.table.body.push(
         [{ text: 'Release date', style: 'fontBold' }, { text: parseDate(data.determinateReleaseDate), colSpan: 3 }]
       );
-    }
-    else if (data.sentenceType && data.sentenceType.toLowerCase() === 'indeterminate') {
+    } else if (data.sentenceType && data.sentenceType.toLowerCase() === 'indeterminate') {
       prisonerDetails.table.body.push(
         [{ text: 'Tariff length', style: 'fontBold' }, data.tariffLength || '', {
           text: 'Expiry date',
