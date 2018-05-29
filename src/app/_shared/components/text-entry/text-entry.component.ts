@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 /**
  * Interface to be used for saving Object

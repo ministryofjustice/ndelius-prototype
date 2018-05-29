@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { IPrisonerDetails } from '../prisoner-details/model/prisoner-details.model';
 import { UpdatePrisonerDetailsAction } from '../prisoner-details/action/prisoner-details.action';
