@@ -26,6 +26,13 @@ export class SaveDraftComponent {
   /**
    *
    */
+  generatePdf() {
+
+  }
+
+  /**
+   *
+   */
   startOver() {
     this.router.navigate(['parom1/check-report']);
   }
