@@ -11,8 +11,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { TimerObservable } from 'rxjs/observable/TimerObservable';
-import { Subscription } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 
 /**
  * Interface to be used for saving Object
@@ -164,8 +163,8 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   startSaving() {
     this.ngZone.runOutsideAngular(() => {
-      const timer = TimerObservable.create(5000, 5000);
-      this.saving.interval = timer.subscribe(() => {
+      const timerObs = timer(5000, 5000);
+      this.saving.interval = timerObs.subscribe(() => {
         this.ngZone.run(() => {
           this.saveProgress(true);
         });
@@ -179,12 +178,12 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   saveProgress(usingInterval?: boolean) {
 
-    let timer: Subscription = this.saving.timer;
+    let timerSub: Subscription = this.saving.timer;
     const interval: Subscription = this.saving.interval;
     const currentValue = this.group.get(this.name).value.toString();
 
-    if (timer) {
-      timer.unsubscribe();
+    if (timerSub) {
+      timerSub.unsubscribe();
     }
     if (!usingInterval && interval) {
       interval.unsubscribe();
@@ -198,11 +197,11 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
         this.onSaveContent.emit();
 
         this.ngZone.runOutsideAngular(() => {
-          const pause = TimerObservable.create(1000);
-          timer = pause.subscribe(() => {
+          const pause = timer(1000);
+          timerSub = pause.subscribe(() => {
             this.ngZone.run(() => {
               this.saving.active = false;
-              timer.unsubscribe();
+              timerSub.unsubscribe();
             });
           });
         });
