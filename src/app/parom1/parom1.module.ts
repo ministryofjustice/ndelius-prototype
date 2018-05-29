@@ -8,10 +8,14 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { StartReportComponent } from './start-report/start-report.component';
 import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.component';
+import { PrisonerRelationshipComponent } from './prisoner-relationship/prisoner-relationship.component';
+import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
+import { ReportCompleteComponent } from './report-complete/report-complete.component';
+import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
+import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
+
 import { CheckReportComponent } from './check-report/check-report.component';
 import { SignatureComponent } from './signature/signature.component';
-import { ReportCompleteComponent } from './report-complete/report-complete.component';
-import { PrisonerRelationshipComponent } from './prisoner-relationship/prisoner-relationship.component';
 
 @NgModule({
   imports: [
@@ -25,6 +29,9 @@ import { PrisonerRelationshipComponent } from './prisoner-relationship/prisoner-
     StartReportComponent,
     PrisonerDetailsComponent,
     PrisonerRelationshipComponent,
+    PreviousRiskAssessmentComponent,
+    VictimIssuesComponent,
+    PersonalityDisorderPathwayComponent,
     CheckReportComponent,
     SignatureComponent,
     ReportCompleteComponent

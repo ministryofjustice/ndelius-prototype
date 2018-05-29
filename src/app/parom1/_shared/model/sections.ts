@@ -24,6 +24,21 @@ export function sections(): Array<ISection> {
       state: 'prisonerRelationship'
     },
     {
+      route: '/parom1/previous-risk-assessment',
+      label: 'Previous risk assessment',
+      state: 'previousRiskAssessment'
+    },
+    {
+      route: '/parom1/victim-issues',
+      label: 'Victims',
+      state: 'victimIssues'
+    },
+    {
+      route: '/parom1/personality-disorder-pathway',
+      label: 'OPD pathway',
+      state: 'personalityDisorderPathway'
+    },
+    {
       dataOnly: true,
       route: '/parom1/signature',
       label: 'Signature and date',

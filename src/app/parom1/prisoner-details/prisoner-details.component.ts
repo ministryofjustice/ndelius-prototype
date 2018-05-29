@@ -69,7 +69,7 @@ export class PrisonerDetailsComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1/prisoner-knowledge']);
+    this.router.navigate(['parom1/prisoner-relationship']);
   }
 
   /**

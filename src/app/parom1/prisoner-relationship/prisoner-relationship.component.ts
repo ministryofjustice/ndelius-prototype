@@ -49,7 +49,7 @@ export class PrisonerRelationshipComponent implements OnDestroy {
    *
    */
   private continueJourney() {
-    this.router.navigate(['parom1-omic/previous-risk-assessment']);
+    this.router.navigate(['parom1/previous-risk-assessment']);
   }
 
   /**
