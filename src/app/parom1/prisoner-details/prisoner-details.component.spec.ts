@@ -14,6 +14,7 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/prisoner-details.reducer';
 
@@ -34,6 +35,7 @@ describe('PAROM1 - Component: Prisoner details', () => {
         MockInputComponent,
         MockRadioButtonsComponent,
         MockThreeFieldDateComponent,
+        MockTextEntryComponent,
         MockFooterComponent
       ],
       imports: [

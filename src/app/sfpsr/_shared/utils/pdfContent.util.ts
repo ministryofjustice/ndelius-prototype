@@ -78,9 +78,9 @@ export class PdfContentUtil {
    */
   private static getOffenderDetails(data: IOffenderDetails): Array<any> {
 
-    const parseDob = (dob: IDateOfBirth) => {
+    function parseDob(dob: IDateOfBirth) {
       return dob.day ? dob.day + '/' + dob.month + '/' + dob.year : '';
-    };
+    }
 
     return [
       {

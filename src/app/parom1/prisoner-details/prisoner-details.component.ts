@@ -48,6 +48,7 @@ export class PrisonerDetailsComponent implements OnDestroy {
       prisonNumber: [this.reportData.prisonNumber, Validators.required],
       nomisNumber: [this.reportData.nomisNumber, Validators.required],
       category: [this.reportData.category, Validators.required],
+      offence: [this.reportData.offence, Validators.required],
       sentence: [this.reportData.sentence, Validators.required],
       sentenceType: [this.reportData.sentenceType, Validators.required],
       determinateReleaseDate: this.formBuilder.group({
