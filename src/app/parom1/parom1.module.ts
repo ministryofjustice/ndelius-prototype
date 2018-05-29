@@ -11,6 +11,7 @@ import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.co
 import { CheckReportComponent } from './check-report/check-report.component';
 import { SignatureComponent } from './signature/signature.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
+import { PrisonerRelationshipComponent } from './prisoner-relationship/prisoner-relationship.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { ReportCompleteComponent } from './report-complete/report-complete.compo
     FeedbackComponent,
     StartReportComponent,
     PrisonerDetailsComponent,
+    PrisonerRelationshipComponent,
     CheckReportComponent,
     SignatureComponent,
     ReportCompleteComponent

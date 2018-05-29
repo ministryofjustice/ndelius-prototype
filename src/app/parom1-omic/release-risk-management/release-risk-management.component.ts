@@ -69,7 +69,7 @@ export class ReleaseRiskManagementComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IReleaseRiskManagement }) {
     this.formError = !valid;

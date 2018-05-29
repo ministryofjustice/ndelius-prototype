@@ -26,7 +26,7 @@ export class InterventionsComponent implements OnDestroy {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerKnowledge>} store
+   * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IInterventions>) {
     this.stateSubscriber = store.select(getInterventions).subscribe(data => {
@@ -63,7 +63,7 @@ export class InterventionsComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IInterventions }) {
     this.formError = !valid;

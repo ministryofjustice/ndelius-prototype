@@ -66,7 +66,7 @@ export class MappaComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IMappa }) {
     this.formError = !valid;

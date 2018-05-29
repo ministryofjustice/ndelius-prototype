@@ -62,7 +62,7 @@ export class SentencePlanComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: ISentencePlan }) {
     this.formError = !valid;

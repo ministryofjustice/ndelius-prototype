@@ -26,7 +26,7 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerKnowledge>} store
+   * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPreviousRiskAssessment>) {
     this.stateSubscriber = store.select(getPreviousRiskAssessment).subscribe(data => {
@@ -71,7 +71,7 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IPreviousRiskAssessment }) {
     this.formError = !valid;

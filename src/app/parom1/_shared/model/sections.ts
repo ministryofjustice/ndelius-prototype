@@ -19,6 +19,11 @@ export function sections(): Array<ISection> {
       state: 'prisonerDetails'
     },
     {
+      route: '/parom1/prisoner-relationship',
+      label: 'Prisoner relationship',
+      state: 'prisonerRelationship'
+    },
+    {
       dataOnly: true,
       route: '/parom1/signature',
       label: 'Signature and date',

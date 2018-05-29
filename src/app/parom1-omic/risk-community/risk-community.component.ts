@@ -25,7 +25,7 @@ export class RiskCommunityComponent implements OnDestroy {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerKnowledge>} store
+   * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskCommunity>) {
     this.stateSubscriber = store.select(getRiskCommunity).subscribe(data => {
@@ -67,7 +67,7 @@ export class RiskCommunityComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IRiskCommunity }) {
     this.formError = !valid;

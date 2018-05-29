@@ -68,7 +68,7 @@ export class PomPrisonerKnowledgeComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IPomPrisonerKnowledge }) {
     this.formError = !valid;

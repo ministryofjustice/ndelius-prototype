@@ -26,7 +26,7 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerKnowledge>} store
+   * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPersonalityDisorderPathway>) {
     this.stateSubscriber = store.select(getPersonalityDisorderPathway).subscribe(data => {
@@ -62,7 +62,7 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
   /**
    *
    * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
+   * @param {IPrisonerRelationship} value
    */
   onSubmit({ valid, value }: { valid: boolean, value: IPersonalityDisorderPathway }) {
     this.formError = !valid;
