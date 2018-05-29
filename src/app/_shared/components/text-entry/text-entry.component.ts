@@ -248,12 +248,12 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    * Cleanup timers and listeners on destroy
    */
   ngOnDestroy() {
-    const timer: Subscription = this.saving.timer;
+    const timerSub: Subscription = this.saving.timer;
     const interval: Subscription = this.saving.interval;
     const listener: Function = this.rendererListener;
 
-    if (timer) {
-      timer.unsubscribe();
+    if (timerSub) {
+      timerSub.unsubscribe();
     }
     if (interval) {
       interval.unsubscribe();
