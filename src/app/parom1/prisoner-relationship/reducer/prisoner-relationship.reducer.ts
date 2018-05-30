@@ -14,7 +14,7 @@ export const initialState: IPrisonerRelationship = {
 export function prisonerRelationshipReducer(state = initialState, action: actionClass.Actions): IPrisonerRelationship {
 
   switch (action.type) {
-    case actionClass.UPDATE_PRISONER_KNOWLEDGE: {
+    case actionClass.UPDATE_PRISONER_RELATIONSHIP: {
       return Object.assign({}, state, action.payload);
     }
     case RESET_STATE: {

@@ -13,6 +13,7 @@ import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/prev
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
 import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
+import { BehaviourComponent } from './behaviour/behaviour.component';
 
 import { CheckReportComponent } from './check-report/check-report.component';
 import { SignatureComponent } from './signature/signature.component';
@@ -32,6 +33,7 @@ import { SignatureComponent } from './signature/signature.component';
     PreviousRiskAssessmentComponent,
     VictimIssuesComponent,
     PersonalityDisorderPathwayComponent,
+    BehaviourComponent,
     CheckReportComponent,
     SignatureComponent,
     ReportCompleteComponent

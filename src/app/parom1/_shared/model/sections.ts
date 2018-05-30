@@ -39,6 +39,11 @@ export function sections(): Array<ISection> {
       state: 'personalityDisorderPathway'
     },
     {
+      route: '/parom1/behaviour',
+      label: 'Behaviour in prison',
+      state: 'behaviour'
+    },
+    {
       dataOnly: true,
       route: '/parom1/signature',
       label: 'Signature and date',

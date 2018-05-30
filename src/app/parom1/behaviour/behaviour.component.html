@@ -1,0 +1,43 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Behaviour in prison</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'rotl', error: 'Specify whether the prisoner is undertaking or likely to undertake ROTL' },
+                    { name: 'rotlInformation', error: 'Provide further information about ROTL' }
+                    ]">
+    </app-form-error>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-radio-buttons [group]="reportForm" name="rotl" [options]="['Yes', 'No']" required="true" [error]="formError"
+                         label="Is the prisoner undertaking or likely to undertake ROTL?"
+                         errorMessage="Specify whether the prisoner has met with the OPD screen">
+      </app-radio-buttons>
+
+      <br/>
+
+      <app-text-entry [group]="reportForm" name="rotlInformation" label="Further information about ROTL"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
+                      errorMessage="Provide further information about ROTL">
+        <p>Detail and any relevant information relating to this. Where periods of ROTL have taken place, include how
+          successful this has been to the prisoner’s resettlement. If ROTL not being undertaken explain why</p>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-footer></app-footer>
+
+    </form>
+
+  </div>
+</div>

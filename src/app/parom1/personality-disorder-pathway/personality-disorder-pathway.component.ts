@@ -1,26 +1,27 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdatePersonalityDisorderPathwayAction } from './action/personality-disorder-pathway.action';
 import { IPersonalityDisorderPathway } from './model/personality-disorder-pathway.model';
+
 import { getPersonalityDisorderPathway } from './reducer/personality-disorder-pathway.reducer';
 
 
 @Component({
-  selector: 'app-previous-risk-assessment',
+  selector: 'app-personality-disorder-pathway',
   templateUrl: './personality-disorder-pathway.component.html'
 })
-export class PersonalityDisorderPathwayComponent implements OnDestroy {
+export class PersonalityDisorderPathwayComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IPersonalityDisorderPathway;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IPersonalityDisorderPathway;
 
   /**
    * @constructor
@@ -29,26 +30,11 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
    * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPersonalityDisorderPathway>) {
+    super();
     this.stateSubscriber = store.select(getPersonalityDisorderPathway).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
-  }
-
-  /**
-   *
-   */
-  private createForm() {
-    this.reportForm = this.formBuilder.group({
-      opdPathway: [this.reportData.opdPathway, Validators.required]
-    });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1/interventions']);
   }
 
   /**
@@ -61,28 +47,18 @@ export class PersonalityDisorderPathwayComponent implements OnDestroy {
 
   /**
    *
-   * @param {boolean} valid
-   * @param {IPrisonerRelationship} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: IPersonalityDisorderPathway }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdatePersonalityDisorderPathwayAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
+  protected continueJourney() {
+    this.router.navigate(['parom1/behaviour']);
   }
 
   /**
    *
    */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
+  private createForm() {
+    this.reportForm = this.formBuilder.group({
+      opdPathway: [this.reportData.opdPathway, Validators.required]
+    });
   }
 
 }

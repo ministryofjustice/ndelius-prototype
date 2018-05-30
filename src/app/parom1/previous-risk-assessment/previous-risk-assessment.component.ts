@@ -1,26 +1,22 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdatePreviousRiskAssessmentAction } from './action/previous-risk-assessment.action';
 import { IPreviousRiskAssessment } from './model/previous-risk-assessment.model';
-import { getPreviousRiskAssessment } from './reducer/previous-risk-assessment.reducer';
 
+import { getPreviousRiskAssessment } from './reducer/previous-risk-assessment.reducer';
 
 @Component({
   selector: 'app-previous-risk-assessment',
   templateUrl: './previous-risk-assessment.component.html'
 })
-export class PreviousRiskAssessmentComponent implements OnDestroy {
-
-  private stateSubscriber: Subscription;
+export class PreviousRiskAssessmentComponent extends BaseComponent {
 
   reportData: IPreviousRiskAssessment;
-  reportForm: FormGroup;
-  formError: boolean;
 
   /**
    * @constructor
@@ -29,10 +25,26 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
    * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPreviousRiskAssessment>) {
+    super();
     this.stateSubscriber = store.select(getPreviousRiskAssessment).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   */
+  saveContent({ value }: { value: IPreviousRiskAssessment }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdatePreviousRiskAssessmentAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1/victim-issues']);
   }
 
   /**
@@ -51,47 +63,6 @@ export class PreviousRiskAssessmentComponent implements OnDestroy {
       riskPrisoners: [this.reportData.riskPrisoners, Validators.required],
       riskStaff: [this.reportData.riskStaff, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1/victim-issues']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IPreviousRiskAssessment }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdatePreviousRiskAssessmentAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerRelationship} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IPreviousRiskAssessment }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdatePreviousRiskAssessmentAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

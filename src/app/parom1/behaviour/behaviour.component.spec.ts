@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { DatePipe } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway.component';
+import { BehaviourComponent } from './behaviour.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
@@ -14,18 +15,18 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
-import * as model from './reducer/personality-disorder-pathway.reducer';
+import * as model from './reducer/behaviour.reducer';
 
-describe('PAROM1 - Component: Offender personality disorder pathway', () => {
+describe('PAROM1 - Component: Behaviour in prison', () => {
 
-  let fixture: ComponentFixture<PersonalityDisorderPathwayComponent>;
-  let component: PersonalityDisorderPathwayComponent;
+  let fixture: ComponentFixture<BehaviourComponent>;
+  let component: BehaviourComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        PersonalityDisorderPathwayComponent,
+        BehaviourComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
@@ -38,12 +39,15 @@ describe('PAROM1 - Component: Offender personality disorder pathway', () => {
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
+      ],
+      providers: [
+        DatePipe
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonalityDisorderPathwayComponent);
+    fixture = TestBed.createComponent(BehaviourComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -54,14 +58,14 @@ describe('PAROM1 - Component: Offender personality disorder pathway', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Offender personality disorder pathway');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Behaviour in prison');
   });
 
-  it('should navigate to the Court details page', () => {
+  it('should navigate to the Interventions page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1/behaviour']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1/interventions']);
   });
 
 });

@@ -7,6 +7,7 @@ import { IPrisonerRelationship } from '../../prisoner-relationship/model/prisone
 import { IPreviousRiskAssessment } from '../../previous-risk-assessment/model/previous-risk-assessment.model';
 import { IVictimIssues } from '../../victim-issues/model/victim-issues.model';
 import { IPersonalityDisorderPathway } from '../../personality-disorder-pathway/model/personality-disorder-pathway.model';
+import { IBehaviour } from '../../behaviour/model/behaviour.model';
 import { ISignature } from '../../signature/model/signature.model';
 
 import { logInfo } from '../../../_shared/reducer/meta.reducers';
@@ -17,6 +18,7 @@ import { prisonerRelationshipReducer } from '../../prisoner-relationship/reducer
 import { previousRiskAssessmentReducer } from '../../previous-risk-assessment/reducer/previous-risk-assessment.reducer';
 import { victimIssuesReducer } from '../../victim-issues/reducer/victim-issues.reducer';
 import { personalityDisorderPathwayReducer } from '../../personality-disorder-pathway/reducer/personality-disorder-pathway.reducer';
+import { behaviourReducer } from '../../behaviour/reducer/behaviour.reducer';
 import { signatureReducer } from '../../signature/reducer/signature.reducer';
 
 /**
@@ -28,6 +30,7 @@ export interface IState {
   previousRiskAssessment: IPreviousRiskAssessment;
   victimIssues: IVictimIssues;
   personalityDisorderPathway: IPersonalityDisorderPathway;
+  behaviour: IBehaviour;
   signature: ISignature;
 }
 
@@ -41,6 +44,7 @@ export const reducers: ActionReducerMap<IState> = {
   previousRiskAssessment: previousRiskAssessmentReducer,
   victimIssues: victimIssuesReducer,
   personalityDisorderPathway: personalityDisorderPathwayReducer,
+  behaviour: behaviourReducer,
   signature: signatureReducer
 };
 
