@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AgePipe } from './pipe/age.pipe';
+
 import { ErrorMessagesComponent } from './components/error-messages/error-messages.component';
 import { TextEntryComponent } from './components/text-entry/text-entry.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -12,8 +14,6 @@ import { InputComponent } from './components/input/input.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NoticeComponent } from './components/notice/notice.component';
-
-import { AgePipe } from './pipe/age.pipe';
 
 @NgModule({
   imports: [
@@ -34,6 +34,7 @@ import { AgePipe } from './pipe/age.pipe';
     FooterComponent
   ],
   declarations: [
+    AgePipe,
     InputComponent,
     NoticeComponent,
     ErrorMessagesComponent,
@@ -46,7 +47,7 @@ import { AgePipe } from './pipe/age.pipe';
   ],
   providers: [
     AgePipe
-  ],
+  ]
 })
 export class ShareBaseModule {
   // Empty
