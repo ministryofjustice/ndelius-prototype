@@ -1,0 +1,41 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Oral hearing considerations</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[{ name: 'oralHearingConsiderations', error: 'Enter the oral hearing considerations' }]">
+    </app-form-error>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="oralHearingConsiderations"
+                      label="Does the prisoner need any support or special measures to take part in an oral hearing?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the oral hearing considerations">
+        <ul>
+          <li class="list-bullet">learning difficulty</li>
+          <li class="list-bullet">hearing, sight or speech impairment</li>
+          <li class="list-bullet">physical disability</li>
+          <li class="list-bullet">mental health problem</li>
+          <li class="list-bullet">whether the prisoner requires an interpreter</li>
+          <li class="list-bullet">literacy problem</li>
+          <li class="list-bullet">RoSH security considerations</li>
+          <li class="list-bullet">anything that may affect the prisoner’s ability to engage at oral hearing</li>
+        </ul>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-footer></app-footer>
+
+    </form>
+
+  </div>
+</div>

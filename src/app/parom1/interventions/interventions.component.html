@@ -1,0 +1,49 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Interventions</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'interventionsList', error: 'List the interventions the prisoner has completed' },
+                    { name: 'interventionsSummary', error: 'Enter the interventions summary' }
+                    ]">
+    </app-form-error>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="interventionsList"
+                      label="List the interventions the prisoner has completed, in chronological order"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
+                      errorMessage="List the interventions the prisoner has completed">
+        <ul>
+          <li class="list-bullet">those designed to reduce risk</li>
+          <li class="list-bullet">those designed to increase social capital</li>
+          <li class="list-bullet">employment</li>
+          <li class="list-bullet">training</li>
+        </ul>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="interventionsSummary"
+                      label="Interventions summary"
+                      help="Include the prisoner’s application of learning and the impact of this. Link this to future risk"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
+                      errorMessage="Enter the interventions summary">
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-footer></app-footer>
+
+    </form>
+
+  </div>
+</div>
