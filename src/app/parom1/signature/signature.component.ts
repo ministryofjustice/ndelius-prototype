@@ -42,20 +42,12 @@ export class SignatureComponent extends BaseComponent {
    * @param {ISignature} value
    */
   saveContent({ value }: { value: ISignature }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateSignatureAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {ISignature} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: ISignature }) {
     const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
       reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
     });
-    super.onSubmit({ valid: valid, value: updatedValue });
+    this.store.dispatch(new UpdateSignatureAction(updatedValue));
   }
 
   /**

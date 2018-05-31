@@ -48,20 +48,12 @@ export class PrisonerDetailsComponent extends BaseComponent {
    * @param {IPrisonerDetails} value
    */
   saveContent({ value }: { value: IPrisonerDetails }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdatePrisonerDetailsAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerDetails} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IPrisonerDetails }) {
     const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
       prison: (<HTMLInputElement>document.getElementById('prison')).value.trim()
     });
-    super.onSubmit({ valid: valid, value: updatedValue });
+    this.store.dispatch(new UpdatePrisonerDetailsAction(updatedValue));
   }
 
   /**
