@@ -1,8 +1,4 @@
-interface IMultiFieldDate {
-  day: number;
-  month: number;
-  year: number;
-}
+import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
 
 export interface IPrisonerDetails {
   prison: string;

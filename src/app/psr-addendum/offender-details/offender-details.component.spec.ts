@@ -3,9 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { reducers } from '../_shared/reducer/state.reducers';
-
-import { OffenderDetailsComponent } from './offender-details.component';
+import { AgePipe } from '../../_shared/pipe/age.pipe';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockSubNavigationComponent } from '../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
@@ -14,6 +12,10 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+
+import { reducers } from '../_shared/reducer/state.reducers';
+
+import { OffenderDetailsComponent } from './offender-details.component';
 
 import * as model from './reducer/offender-details.reducer';
 
@@ -40,6 +42,9 @@ describe('Addendum - Component: Offender details', () => {
         StoreModule.forRoot(reducers),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
+      ],
+      providers: [
+        AgePipe
       ]
     }).compileComponents();
   }));

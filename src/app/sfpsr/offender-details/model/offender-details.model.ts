@@ -1,14 +1,10 @@
-export interface IDateOfBirth {
-  day: number;
-  month: number;
-  year: number;
-}
+import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
 
 export interface IOffenderDetails {
   name: string;
   address: string;
   phone: string;
-  dateOfBirth: IDateOfBirth;
+  dateOfBirth: IMultiFieldDate;
   age: number;
   crn: string;
   pnc: string;
