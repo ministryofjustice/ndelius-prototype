@@ -1,0 +1,76 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Previous risk assessment</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'attitude', error: 'Enter the prisoner\'s attitude to index offence' },
+                    { name: 'previousDate', error: 'Enter the previous risk assessment month and year' },
+                    { name: 'riskPublic', error: 'Select the risk to public' },
+                    { name: 'riskKnownAdult', error: 'Select the risk to any known adult' },
+                    { name: 'riskChildren', error: 'Select the risk to children' },
+                    { name: 'riskPrisoners', error: 'Select the risk to other prisoners' },
+                    { name: 'riskStaff', error: 'Select the risk to staff' }
+                    ]">
+    </app-form-error>
+
+    <p class="lede no-margin-top">This is the risk assessment at the point of sentence for the index offence.</p>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT (only using month and year) -->
+      <app-three-field-date [group]="reportForm" name="previousDate" required="true" [error]="formError"
+                            label="When was the previous risk assessment completed?"
+                            help="For example, 3 2018"></app-three-field-date>
+
+      <br/>
+
+      <p class="lede">Select the levels for the previous risk assessment</p>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPublic" label="Public" errorMessage="Select the risk to public" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskKnownAdult" label="Known adult" errorMessage="Select the risk to any known adult" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskChildren" label="Children" errorMessage="Select the risk to children" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPrisoners" label="Prisoners" errorMessage="Select the risk to other prisoners" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskStaff" label="Staff" errorMessage="Select the risk to staff" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="attitude"
+                      label="What is the prisoner's attitude to the index offence?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
+                      errorMessage="Enter the prisoner's attitude to index offence">
+        <ul>
+          <li class="list-bullet">evidence of any change in attitude</li>
+          <li class="list-bullet">reasons for the change</li>
+          <li class="list-bullet">your analysis of the change</li>
+        </ul>
+      </app-text-entry>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-footer></app-footer>
+
+    </form>
+
+  </div>
+</div>

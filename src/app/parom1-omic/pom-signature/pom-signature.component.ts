@@ -1,29 +1,34 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { getPomSignature } from './reducer/pom-signature.reducer';
+import { prisonsAndYoungOffenderInstitutions } from '../_shared/model/default-data';
 
 import { IPomSignature } from './model/pom-signature.model';
 import { UpdatePomSignatureAction } from './action/pom-signature.action';
-import { prisonsAndYoungOffenderInstitutions } from '../_shared/model/default-data';
 
 @Component({
   selector: 'app-signature',
   templateUrl: './pom-signature.component.html'
 })
-export class PomSignatureComponent implements OnDestroy {
+export class PomSignatureComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IPomSignature;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   * @type {Array<string>}
+   */
   prisonsAndYoungOffenderInstitutions = prisonsAndYoungOffenderInstitutions();
+
+  /**
+   *
+   * @type {IPomSignature}
+   */
+  private reportData: IPomSignature;
 
   /**
    * @constructor
@@ -33,10 +38,32 @@ export class PomSignatureComponent implements OnDestroy {
    * @param {Store<IPomSignature>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<IPomSignature>) {
+    super();
     this.stateSubscriber = store.select(getPomSignature).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IPomSignature} value
+   */
+  saveContent({ value }: { value: IPomSignature }) {
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
+      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value,
+      prison: (<HTMLInputElement>document.getElementById('prison')).value.trim()
+    });
+    this.store.dispatch(new UpdatePomSignatureAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/report-complete']);
   }
 
   /**
@@ -51,44 +78,6 @@ export class PomSignatureComponent implements OnDestroy {
       startDate: this.reportData.startDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'),
       reportDate: this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy')
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/report-complete']);
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPomSignature} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IPomSignature }) {
-    this.formError = !valid;
-
-    // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
-    const updatedValue = Object.assign(value, {
-      saved: true,
-      valid: valid,
-      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value,
-      prison: (<HTMLInputElement>document.getElementById('prison')).value.trim()
-    });
-    this.store.dispatch(new UpdatePomSignatureAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

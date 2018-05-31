@@ -1,9 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateReleaseRiskManagementAction } from './action/release-risk-management.action';
 import { IReleaseRiskManagement } from './model/release-risk-management.model';
@@ -14,13 +14,12 @@ import { getReleaseRiskManagement } from './reducer/release-risk-management.redu
   selector: 'app-release-risk-management',
   templateUrl: './release-risk-management.component.html'
 })
-export class ReleaseRiskManagementComponent implements OnDestroy {
+export class ReleaseRiskManagementComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IReleaseRiskManagement;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IReleaseRiskManagement;
 
   /**
    *
@@ -29,10 +28,27 @@ export class ReleaseRiskManagementComponent implements OnDestroy {
    * @param {Store<IReleaseRiskManagement>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IReleaseRiskManagement>) {
+    super();
     this.stateSubscriber = store.select(getReleaseRiskManagement).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IReleaseRiskManagement} value
+   */
+  saveContent({ value }: { value: IReleaseRiskManagement }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateReleaseRiskManagementAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/resettlement-plan']);
   }
 
   /**
@@ -49,47 +65,6 @@ export class ReleaseRiskManagementComponent implements OnDestroy {
       contactLevel: [this.reportData.contactLevel, Validators.required],
       contingencyPlan: [this.reportData.contingencyPlan, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/resettlement-plan']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IReleaseRiskManagement }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateReleaseRiskManagementAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IReleaseRiskManagement }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateReleaseRiskManagementAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

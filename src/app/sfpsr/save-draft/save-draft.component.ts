@@ -4,12 +4,12 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs';
 
-import { IState } from '../_shared/reducer/state.reducers';
-import { getCurrentState } from '../_shared/reducer/state.reducers';
-
 import { ResetStateAction } from '../../_shared/action/reset-state.action';
 import { PdfGeneratorUtil } from '../../_shared/utils/pdf-generator.util';
+
+import { IState } from '../_shared/reducer/state.reducers';
 import { PdfContentUtil } from '../_shared/utils/pdfContent.util';
+import { getCurrentState } from '../_shared/reducer/state.reducers';
 
 /**
  * Save draft component

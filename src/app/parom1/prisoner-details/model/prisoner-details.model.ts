@@ -11,6 +11,7 @@ export interface IPrisonerDetails {
   nomisNumber: string;
   gender: number;
   category: string;
+  offence: string;
   sentence: string;
   sentenceType: string;
   determinateReleaseDate: IMultiFieldDate;

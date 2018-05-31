@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { getInformationSources } from './reducer/information-sources.reducer';
 
@@ -19,14 +19,16 @@ interface ISection {
   selector: 'app-information-sources',
   templateUrl: './information-sources.component.html'
 })
-export class InformationSourcesComponent implements AfterViewInit, OnDestroy {
+export class InformationSourcesComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IInformationSources;
-  reportForm: FormGroup;
+  /**
+   *
+   */
   expandContent: boolean;
-
+  /**
+   *
+   * @type {ISection[]}
+   */
   sections: Array<ISection> = [
     { control: 'interviewInformationSource', label: 'Interview' },
     { control: 'serviceRecordsInformationSource', label: 'Service records' },
@@ -41,16 +43,38 @@ export class InformationSourcesComponent implements AfterViewInit, OnDestroy {
   ];
 
   /**
+   *
+   */
+  private reportData: IInformationSources;
+
+  /**
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
    * @param {Store} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IInformationSources>) {
+    super();
     this.stateSubscriber = store.select(getInformationSources).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IInformationSources} value
+   */
+  saveContent({ value }: { value: IInformationSources }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateInformationSourcesAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['sfpsr/offence-details']);
   }
 
   /**
@@ -70,48 +94,6 @@ export class InformationSourcesComponent implements AfterViewInit, OnDestroy {
       otherInformationSource: this.reportData.otherInformationSource,
       otherInformationDetails: this.reportData.otherInformationDetails
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['sfpsr/offence-details']);
-  }
-
-  /**
-   *
-   */
-  private saveContent({ value }: { value: IInformationSources }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateInformationSourcesAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {IInformationSources} value
-   */
-  onSubmit({ value }: { value: IInformationSources }) {
-
-    this.saveContent({ value: value });
-    this.continueJourney();
-  }
-
-  /**
-   *
-   */
-  ngAfterViewInit() {
-    if (this.stateSubscriber) {
-      this.stateSubscriber.unsubscribe();
-    }
-    this.saveContent({ value: this.reportData });
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

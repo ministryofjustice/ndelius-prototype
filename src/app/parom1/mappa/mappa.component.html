@@ -1,0 +1,52 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Multi Agency Public Protection Arrangements (MAPPA)</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'screenedDate', error: 'Enter the date the prisoner was screened for MAPPA' },
+                    { name: 'mappaCategory', error: 'Select the prisoner\'s current MAPPA category' },
+                    { name: 'mappaLevel', error: 'Select the prisoner\'s current MAPPA level' }
+                    ]">
+    </app-form-error>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-notice message="This must be completed if a prisoner is eligible for release"></app-notice>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="screenedDate" date="true" [error]="formError" required="true"
+                 label="What date was the prisoner screened for MAPPA (MAPPAQ completed)?"
+                 errorMessage="Enter the date the prisoner was screened for MAPPA">
+      </app-input>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-radio-buttons [group]="reportForm" name="mappaCategory" [options]="['1', '2', '3']" required="true" [error]="formError"
+                         label="What is the prisoner's current MAPPA category?"
+                         errorMessage="Select the prisoner's current MAPPA category">
+      </app-radio-buttons>
+
+      <br/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-radio-buttons [group]="reportForm" name="mappaLevel" [options]="['1', '2', '3']" required="true" [error]="formError"
+                         label="What is the prisoner's current MAPPA level?"
+                         errorMessage="Select the prisoner's current MAPPA level">
+      </app-radio-buttons>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-footer></app-footer>
+
+    </form>
+
+  </div>
+</div>

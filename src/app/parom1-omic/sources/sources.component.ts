@@ -1,12 +1,12 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateSourcesAction } from './action/sources.action';
-import { ISources } from './model/sources.model';
+import { ISources, IControls } from './model/sources.model';
 
 import { getSources } from './reducer/sources.reducer';
 
@@ -14,15 +14,13 @@ import { getSources } from './reducer/sources.reducer';
   selector: 'app-supervision-plan',
   templateUrl: './sources.component.html'
 })
-export class SourcesComponent implements OnDestroy {
+export class SourcesComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: ISources;
-  reportForm: FormGroup;
-  formError: boolean;
-
-  documents: Array<any> = [
+  /**
+   *
+   * @type {IControls[]}
+   */
+  documents: Array<IControls> = [
     { control: 'previousConvictions', label: 'Previous convictions' },
     { control: 'cpsDocuments', label: 'Crown Prosecution Service (CPS) documents' },
     { control: 'preSentenceReport', label: 'Pre-sentence report' },
@@ -32,6 +30,10 @@ export class SourcesComponent implements OnDestroy {
     { control: 'probationCaseRecords', label: 'Probation case records' },
     { control: 'other', label: 'Other (please specify below)' }
   ];
+  /**
+   *
+   */
+  private reportData: ISources;
 
   /**
    *
@@ -40,10 +42,27 @@ export class SourcesComponent implements OnDestroy {
    * @param {Store<ISources>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<ISources>) {
+    super();
     this.stateSubscriber = store.select(getSources).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {ISources} value
+   */
+  saveContent({ value }: { value: ISources }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateSourcesAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/check-report']);
   }
 
   /**
@@ -64,47 +83,6 @@ export class SourcesComponent implements OnDestroy {
       sourceLimitations: [this.reportData.sourceLimitations, Validators.required],
       sourceLimitationExplanation: this.reportData.sourceLimitationExplanation
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/check-report']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: ISources }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateSourcesAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: ISources }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateSourcesAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

@@ -1,9 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateResettlementPlanAction } from './action/resettlement-plan.action';
 import { IResettlementPlan } from './model/resettlement-plan.model';
@@ -14,13 +14,12 @@ import { getResettlementPlan } from './reducer/resettlement-plan.reducer';
   selector: 'app-resettlement-plan',
   templateUrl: './resettlement-plan.component.html'
 })
-export class ResettlementPlanComponent implements OnDestroy {
+export class ResettlementPlanComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IResettlementPlan;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IResettlementPlan;
 
   /**
    *
@@ -29,10 +28,27 @@ export class ResettlementPlanComponent implements OnDestroy {
    * @param {Store<IResettlementPlan>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IResettlementPlan>) {
+    super();
     this.stateSubscriber = store.select(getResettlementPlan).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IResettlementPlan} value
+   */
+  saveContent({ value }: { value: IResettlementPlan }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateResettlementPlanAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/supervision-plan']);
   }
 
   /**
@@ -42,47 +58,6 @@ export class ResettlementPlanComponent implements OnDestroy {
     this.reportForm = this.formBuilder.group({
       resettlementPlanForRelease: [this.reportData.resettlementPlanForRelease, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/supervision-plan']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IResettlementPlan }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateResettlementPlanAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IResettlementPlan }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateResettlementPlanAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

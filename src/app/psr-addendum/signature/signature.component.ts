@@ -1,10 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { getSignature } from './reducer/signature.reducer';
 
@@ -15,13 +15,12 @@ import { UpdateSignatureAction } from './action/signature.action';
   selector: 'app-signature',
   templateUrl: './signature.component.html'
 })
-export class SignatureComponent implements OnDestroy {
+export class SignatureComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: ISignature;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: ISignature;
 
   /**
    * @constructor
@@ -31,10 +30,31 @@ export class SignatureComponent implements OnDestroy {
    * @param {Store<ISignature>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ISignature>) {
+    super();
     this.stateSubscriber = store.select(getSignature).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {ISignature} value
+   */
+  saveContent({ value }: { value: ISignature }) {
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
+      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
+    });
+    this.store.dispatch(new UpdateSignatureAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['psr-addendum/report-complete']);
   }
 
   /**
@@ -50,39 +70,5 @@ export class SignatureComponent implements OnDestroy {
     });
   }
 
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['psr-addendum/report-complete']);
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {ISignature} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: ISignature }) {
-    this.formError = !valid;
-
-    // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
-    const updatedValue = Object.assign(value, {
-      saved: true,
-      valid: valid,
-      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
-    });
-    this.store.dispatch(new UpdateSignatureAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
-  }
 
 }
