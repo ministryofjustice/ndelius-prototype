@@ -3,7 +3,7 @@ import { browser } from 'protractor';
 
 const testData = require('./parom1-data.json');
 
-xdescribe('New Probation Services - Rapid Prototype', () => {
+describe('New Probation Services - Rapid Prototype', () => {
 
   let page: PrototypePage;
 
@@ -17,7 +17,7 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
   }
 
-  describe('Parole Report (PAROM1-OMIC) journey', () => {
+  describe('Parole Report - Parom 1 journey', () => {
 
     /* START PAGE */
 
@@ -32,157 +32,22 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
         expect(page.getHeadingText()).toEqual('Prototype');
       });
 
-      it('should allow the user to select the Parole Report (PAROM1-OMIC) journey', () => {
-        page.getElementById('parom1-omic').click();
+      it('should allow the user to select the Parole Report - Parom 1 journey', () => {
+        page.getElementById('parom1').click();
       });
 
     });
 
-    /* START REPORT (POM journey) */
+    /* START REPORT */
 
     describe('Start report', () => {
 
-      it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('Start a Parole report Parom 1 (OMIC)');
-      });
-
-      it('should include COM and POM journey options', () => {
-        expect(page.getElementById('com-journey').isPresent()).toBeTruthy();
-        expect(page.getElementById('pom-journey').isPresent()).toBeTruthy();
-      });
-
-      it('should allow the user to choose the POM journey', () => {
-        page.getElementById('pom-journey').click();
-      });
-
-      it('should allow the user to start the journey', () => {
-        page.getElementById('startButton').click();
-      });
-
-    });
-
-    /* NEW PAGE */
-
-    describe('Prisoner relationship (POM)', () => {
-
-      it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('POM: Prisoner relationship');
-      });
-
-      it('should display form error messages if the form is invalid and NOT continue', () => {
-        page.getNextButton().click();
-        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
-      });
-
-      it('should allow the user to complete the report section', () => {
-        page.setElementByIdValue('lengthOfAssignment', testData.pom_relationship);
-        page.setElementByIdValue('behaviourInPrison', testData.pom_behaviour);
-
-        page.clickRadios('riskOfAbsconding', 2);
-        page.clickRadios('rotl', 2);
-
-        page.getElementById('riskOfAbsconding-radio-0').click();
-        page.getElementById('rotl-radio-0').click();
-
-        page.testTextEntry('riskOfAbscondingDetails', 'Some risk of absconding');
-        page.testTextEntry('rotlDetails', 'Some more ROTL information');
-
-        page.setElementByIdValue('furtherInformation', testData.pom_information);
+      it('should display the Start Report page', () => {
+        expect(page.getHeadingText()).toEqual('Start a Parole report Parom 1');
       });
 
       it('should allow the user to continue through the journey', () => {
         page.getNextButton().click();
-      });
-
-    });
-
-    /* NEW PAGE */
-
-    describe('Your recommendation', () => {
-
-      it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('Your recommendation');
-      });
-
-      it('should display form error messages if the form is invalid and NOT continue', () => {
-        page.getNextButton().click();
-        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
-      });
-
-      it('should allow the user to complete the report section', () => {
-        page.setElementByIdValue('yourRecommendation', testData.pom_recommendation);
-      });
-
-      it('should allow the user to continue through the journey', () => {
-        page.getNextButton().click();
-      });
-
-    });
-
-    /* NEW PAGE */
-
-    describe('Signature and date', () => {
-
-      it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('Signature and date');
-      });
-
-      it('should display form error messages if the form is invalid and NOT continue', () => {
-        page.getNextButton().click();
-        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
-      });
-
-      it('should allow the user to complete the report section', () => {
-        page.testTextEntry('reportAuthor', 'Axel Foley');
-        expect(page.changeSelectOption('prison', 'Doncaster')).toEqual('23: Doncaster');
-        page.testTextEntry('counterSignature', 'Johnny Wishbone');
-        page.testTextEntry('counterSignatureRole', 'Arctic Roll');
-        page.testTextEntry('reportDate', page.getDateToday());
-      });
-
-      it('should allow the user to continue through the journey', () => {
-        page.getNextButton().click();
-      });
-
-    });
-
-    /* NEW PAGE */
-
-    describe('Report saved', () => {
-
-      it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('Report saved');
-      });
-
-    });
-
-    /* ROUTE */
-
-    describe('Route', () => {
-      it('should route back to the COM and POM journey options page', () => {
-        browser.get('/#/parom1-omic/');
-      });
-    });
-
-    /* START REPORT (COM journey) */
-
-    describe('Start report', () => {
-
-      it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('Start a Parole report Parom 1 (OMIC)');
-      });
-
-      it('should include COM and POM journey options', () => {
-        expect(page.getElementById('com-journey').isPresent()).toBeTruthy();
-        expect(page.getElementById('pom-journey').isPresent()).toBeTruthy();
-      });
-
-      it('should allow the user to choose the COM journey', () => {
-        page.getElementById('com-journey').click();
-      });
-
-      it('should allow the user to start the journey', () => {
-        page.getElementById('startButton').click();
       });
 
     });
@@ -197,7 +62,7 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
       it('should display pre-populated details', () => {
         expect(page.getElementByIdValue('prison')).toEqual('23: Doncaster');
-        expect(page.getElementByIdValue('name')).toEqual('Alan Smith');
+        expect(page.getElementByIdValue('name')).toEqual('Alice Smith');
         expect(page.getElementByIdValue('prisonNumber')).toEqual('P98793-123');
         expect(page.getElementByIdValue('nomisNumber')).toEqual('N2124214-3423');
       });
@@ -210,7 +75,7 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
       });
 
       it('should allow the user to complete the report section', () => {
-        page.clickRadios('category', 4);
+        page.clickRadios('category', 3);
 
         page.testTextEntry('offence', 'Theft of a pre-packed sandwich from Tesco');
         page.testTextEntry('sentence', 'Death by monkeys');
@@ -235,10 +100,10 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
     /* NEW PAGE */
 
-    describe('Prisoner relationship (COM)', () => {
+    describe('Prisoner relationship', () => {
 
       it('should display the correct page', () => {
-        expect(page.getHeadingText()).toEqual('COM: Prisoner relationship');
+        expect(page.getHeadingText()).toEqual('Prisoner relationship');
       });
 
       it('should display form error messages if the form is invalid and NOT continue', () => {
@@ -330,6 +195,30 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
 
       it('should allow the user to complete the report section', () => {
         page.clickRadios('opdPathway', 2);
+      });
+
+      it('should allow the user to continue through the journey', () => {
+        page.getNextButton().click();
+      });
+
+    });
+
+    /* NEW PAGE */
+
+    describe('Behaviour in prison', () => {
+
+      it('should display the correct page', () => {
+        expect(page.getHeadingText()).toEqual('Behaviour in prison');
+      });
+
+      it('should display form error messages if the form is invalid and NOT continue', () => {
+        page.getNextButton().click();
+        expect(page.getElementByClassName('error-summary').isDisplayed()).toBeTruthy();
+      });
+
+      it('should allow the user to complete the report section', () => {
+        page.clickRadios('rotl', 2);
+        page.testTextEntry('rotlInformation', testData.pom_behaviour);
       });
 
       it('should allow the user to continue through the journey', () => {
