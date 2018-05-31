@@ -13,6 +13,8 @@ import { FormErrorComponent } from './components/form-error/form-error.component
 import { FooterComponent } from './components/footer/footer.component';
 import { NoticeComponent } from './components/notice/notice.component';
 
+import { AgePipe } from './pipes/age.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -41,7 +43,10 @@ import { NoticeComponent } from './components/notice/notice.component';
     ThreeFieldDateComponent,
     NavigationComponent,
     FooterComponent
-  ]
+  ],
+  providers: [
+    AgePipe
+  ],
 })
 export class ShareBaseModule {
   // Empty

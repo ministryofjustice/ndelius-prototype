@@ -3,9 +3,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
+import { AgePipe } from '../../_shared/pipes/age.pipe';
 import { BaseComponent } from '../../_shared/components/base.component';
 
-import { IDateOfBirth, IOffenderDetails } from './model/offender-details.model';
+import { IOffenderDetails } from './model/offender-details.model';
 import { UpdateOffenderDetailsAction } from './action/offender-details.action';
 
 import { getOffenderDetails } from './reducer/offender-details.reducer';
@@ -25,33 +26,15 @@ export class OffenderDetailsComponent extends BaseComponent {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
+   * @param {AgePipe} agePipe
    * @param {Store<IOffenderDetails>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderDetails>) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private agePipe: AgePipe, private store: Store<IOffenderDetails>) {
     super();
     this.stateSubscriber = store.select(getOffenderDetails).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
-  }
-
-  /**
-   *
-   * @param {IDateOfBirth} dateOfBirth
-   * @returns {number}
-   */
-  private static getAge(dateOfBirth: IDateOfBirth): number {
-    const dateString = dateOfBirth.month + '/' + dateOfBirth.day + '/' + dateOfBirth.year;
-    const today = new Date();
-    const birthDate = new Date(dateString);
-    const m = today.getMonth() - birthDate.getMonth();
-
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
   }
 
   /**
@@ -62,7 +45,7 @@ export class OffenderDetailsComponent extends BaseComponent {
     const updatedValue = Object.assign(value, {
       saved: true,
       valid: this.reportForm.valid,
-      age: OffenderDetailsComponent.getAge(value.dateOfBirth)
+      age: this.agePipe.transform(value.dateOfBirth)
     });
     this.store.dispatch(new UpdateOffenderDetailsAction(updatedValue));
   }
