@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { getOffenderAssessment } from './reducer/offender-assessment.reducer';
 
@@ -21,13 +21,12 @@ interface ISection {
   selector: 'app-offender-assessment',
   templateUrl: './offender-assessment.component.html'
 })
-export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
+export class OffenderAssessmentComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IOffenderAssessment;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   * @type {ISection[]}
+   */
   sections: Array<ISection> = [
     {
       checkControl: 'issueAccommodation',
@@ -80,16 +79,38 @@ export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
   ];
 
   /**
+   *
+   */
+  private reportData: IOffenderAssessment;
+
+  /**
    * @constructor
    * @param router
    * @param formBuilder
    * @param store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderAssessment>) {
+    super();
     this.stateSubscriber = store.select(getOffenderAssessment).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IOffenderAssessment} value
+   */
+  saveContent({ value }: { value: IOffenderAssessment }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateOffenderAssessmentAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['sfpsr/risk-assessment']);
   }
 
   /**
@@ -118,56 +139,6 @@ export class OffenderAssessmentComponent implements AfterViewInit, OnDestroy {
       caring: [this.reportData.caring, Validators.required],
       caringDetails: this.reportData.caringDetails
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['sfpsr/risk-assessment']);
-  }
-
-  /**
-   *
-   * @param {IOffenderAssessment} value
-   */
-  saveContent({ value }: { value: IOffenderAssessment }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateOffenderAssessmentAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IOffenderAssessment} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IOffenderAssessment }) {
-    this.formError = !valid;
-
-    this.saveContent({ value: value });
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngAfterViewInit() {
-    if (this.stateSubscriber) {
-      this.stateSubscriber.unsubscribe();
-    }
-    this.saveContent({ value: this.reportData });
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

@@ -2,14 +2,14 @@ import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
-
-import { IState } from '../_shared/reducer/state.reducers';
-import { getCurrentState } from '../_shared/reducer/state.reducers';
+import { Subscription } from 'rxjs';
 
 import { ResetStateAction } from '../../_shared/action/reset-state.action';
 import { PdfGeneratorUtil } from '../../_shared/utils/pdf-generator.util';
+
+import { IState } from '../_shared/reducer/state.reducers';
 import { PdfContentUtil } from '../_shared/utils/pdfContent.util';
+import { getCurrentState } from '../_shared/reducer/state.reducers';
 
 /**
  * Save draft component

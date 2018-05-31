@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 import { getCurrentState, IState } from '../../parom1-omic/_shared/reducer/state.reducers';
 import { UpdatePrisonerDetailsAction } from '../../parom1-omic/prisoner-details/action/prisoner-details.action';

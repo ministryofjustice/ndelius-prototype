@@ -10,6 +10,7 @@ export const initialState: IPrisonerDetails = {
   nomisNumber: '',
   gender: void 0,
   category: '',
+  offence: '',
   sentence: '',
   sentenceType: '',
   determinateReleaseDate: {

@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { getProposedSentence } from './reducer/proposed-sentence.reducer';
 
@@ -14,14 +14,17 @@ import { UpdateProposedSentenceAction } from './action/proposed-sentence.action'
   selector: 'app-proposed-sentence',
   templateUrl: './proposed-sentence.component.html'
 })
-export class ProposedSentenceComponent implements AfterViewInit, OnDestroy {
+export class ProposedSentenceComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IProposedSentence;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
   expandContent: boolean;
+
+  /**
+   *
+   */
+  private reportData: IProposedSentence;
 
   /**
    * @constructor
@@ -30,27 +33,11 @@ export class ProposedSentenceComponent implements AfterViewInit, OnDestroy {
    * @param {Store<IProposedSentence>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IProposedSentence>) {
+    super();
     this.stateSubscriber = store.select(getProposedSentence).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
-  }
-
-  /**
-   *
-   */
-  createForm() {
-    this.reportForm = this.formBuilder.group({
-      proposal: [this.reportData.proposal, Validators.required],
-      diversity: [this.reportData.diversity, Validators.required]
-    });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['sfpsr/check-report']);
   }
 
   /**
@@ -63,36 +50,19 @@ export class ProposedSentenceComponent implements AfterViewInit, OnDestroy {
 
   /**
    *
-   * @param {boolean} valid
-   * @param {IProposedSentence} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: IProposedSentence }) {
-    this.formError = !valid;
-
-    this.saveContent({ value: value });
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
+  protected continueJourney() {
+    this.router.navigate(['sfpsr/check-report']);
   }
 
   /**
    *
    */
-  ngAfterViewInit() {
-    if (this.stateSubscriber) {
-      this.stateSubscriber.unsubscribe();
-    }
-    this.saveContent({ value: this.reportData });
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
+  private createForm() {
+    this.reportForm = this.formBuilder.group({
+      proposal: [this.reportData.proposal, Validators.required],
+      diversity: [this.reportData.diversity, Validators.required]
+    });
   }
 
 }

@@ -1,9 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { getPrisonerDetails } from './reducer/prisoner-details.reducer';
 
@@ -16,14 +16,18 @@ import { prisonsAndYoungOffenderInstitutions } from '../_shared/model/default-da
   selector: 'app-prisoner-details',
   templateUrl: './prisoner-details.component.html'
 })
-export class PrisonerDetailsComponent implements OnDestroy {
+export class PrisonerDetailsComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IPrisonerDetails;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   * @type {Array<string>}
+   */
   prisonsAndYoungOffenderInstitutions = prisonsAndYoungOffenderInstitutions();
+
+  /**
+   *
+   */
+  private reportData: IPrisonerDetails;
 
   /**
    * @constructor
@@ -32,10 +36,31 @@ export class PrisonerDetailsComponent implements OnDestroy {
    * @param {Store<IPrisonerDetails>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPrisonerDetails>) {
+    super();
     this.stateSubscriber = store.select(getPrisonerDetails).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IPrisonerDetails} value
+   */
+  saveContent({ value }: { value: IPrisonerDetails }) {
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
+      prison: (<HTMLInputElement>document.getElementById('prison')).value.trim()
+    });
+    this.store.dispatch(new UpdatePrisonerDetailsAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/prisoner-knowledge']);
   }
 
   /**
@@ -53,49 +78,15 @@ export class PrisonerDetailsComponent implements OnDestroy {
       determinateReleaseDate: this.formBuilder.group({
         day: this.reportData.determinateReleaseDate.day,
         month: this.reportData.determinateReleaseDate.month,
-        year: this.reportData.determinateReleaseDate.year,
+        year: this.reportData.determinateReleaseDate.year
       }),
       tariffLength: [this.reportData.tariffLength],
       tariffExpiryDate: this.formBuilder.group({
         day: this.reportData.tariffExpiryDate.day,
         month: this.reportData.tariffExpiryDate.month,
-        year: this.reportData.tariffExpiryDate.year,
+        year: this.reportData.tariffExpiryDate.year
       })
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/prisoner-knowledge']);
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerDetails} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IPrisonerDetails }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid,
-      prison: (<HTMLInputElement>document.getElementById('prison')).value.trim(), });
-
-    this.store.dispatch(new UpdatePrisonerDetailsAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

@@ -1,9 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateSupervisionPlanAction } from './action/supervision-plan.action';
 import { ISupervisionPlan } from './model/supervision-plan.model';
@@ -14,13 +14,12 @@ import { getSupervisionPlan } from './reducer/supervision-plan.reducer';
   selector: 'app-supervision-plan',
   templateUrl: './supervision-plan.component.html'
 })
-export class SupervisionPlanComponent implements OnDestroy {
+export class SupervisionPlanComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: ISupervisionPlan;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: ISupervisionPlan;
 
   /**
    *
@@ -29,26 +28,11 @@ export class SupervisionPlanComponent implements OnDestroy {
    * @param {Store<ISupervisionPlan>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<ISupervisionPlan>) {
+    super();
     this.stateSubscriber = store.select(getSupervisionPlan).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
-  }
-
-  /**
-   *
-   */
-  private createForm() {
-    this.reportForm = this.formBuilder.group({
-      supervisionPlanForRelease: [this.reportData.supervisionPlanForRelease, Validators.required]
-    });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/com-recommendation']);
   }
 
   /**
@@ -61,28 +45,18 @@ export class SupervisionPlanComponent implements OnDestroy {
 
   /**
    *
-   * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
    */
-  onSubmit({ valid, value }: { valid: boolean, value: ISupervisionPlan }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateSupervisionPlanAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/com-recommendation']);
   }
 
   /**
    *
    */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
+  private createForm() {
+    this.reportForm = this.formBuilder.group({
+      supervisionPlanForRelease: [this.reportData.supervisionPlanForRelease, Validators.required]
+    });
   }
 
 }

@@ -1,10 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateMappaAction } from './action/mappa.action';
 import { IMappa } from './model/mappa.model';
@@ -15,13 +15,12 @@ import { getMappa } from './reducer/mappa.reducer';
   selector: 'app-sentence-plan',
   templateUrl: './mappa.component.html'
 })
-export class MappaComponent implements OnDestroy {
+export class MappaComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IMappa;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IMappa;
 
   /**
    *
@@ -31,10 +30,31 @@ export class MappaComponent implements OnDestroy {
    * @param {Store<IMappa>} store
    */
   constructor(private router: Router, private datePipe: DatePipe, private formBuilder: FormBuilder, private store: Store<IMappa>) {
+    super();
     this.stateSubscriber = store.select(getMappa).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IMappa} value
+   */
+  saveContent({ value }: { value: IMappa }) {
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
+      screenedDate: (<HTMLInputElement>document.getElementById('screenedDate')).value
+    });
+    this.store.dispatch(new UpdateMappaAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/risk-reoffending']);
   }
 
   /**
@@ -46,47 +66,6 @@ export class MappaComponent implements OnDestroy {
       mappaCategory: [this.reportData.mappaCategory, Validators.required],
       mappaLevel: [this.reportData.mappaLevel, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/risk-reoffending']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IMappa }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateMappaAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IMappa }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateMappaAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

@@ -5,7 +5,7 @@ import { SubNavigationComponent } from './sub-navigation.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../../reducer/state.reducers';
 
-describe('PAROM1-OMIC - Component: Navigation (shared)', () => {
+describe('PAROM1 - Component: Navigation (shared)', () => {
 
   let fixture: ComponentFixture<SubNavigationComponent>;
   let component: SubNavigationComponent;
@@ -35,7 +35,7 @@ describe('PAROM1-OMIC - Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('- Prisoner details');
+    expect(compiled.querySelector('.sub-sub-item').innerHTML.trim()).toBe('- Prisoner details');
   });
 
 });

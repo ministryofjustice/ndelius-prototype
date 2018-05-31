@@ -1,30 +1,33 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
+import { localJusticeAreas } from '../../_shared/model/default-data';
 import { getCourtDetails } from './reducer/court-details.reducer';
 
 import { ICourtDetails } from './model/court-details.model';
 import { UpdateCourtDetailsAction } from './action/court-details.action';
 
-import { localJusticeAreas } from '../../_shared/model/default-data';
-
 @Component({
   selector: 'app-court-details',
   templateUrl: './court-details.component.html'
 })
-export class CourtDetailsComponent implements OnDestroy {
+export class CourtDetailsComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: ICourtDetails;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   * @type {Array<string>}
+   */
   localJusticeAreas = localJusticeAreas();
+
+  /**
+   *
+   */
+  private reportData: ICourtDetails;
 
   /**
    * @constructor
@@ -34,10 +37,31 @@ export class CourtDetailsComponent implements OnDestroy {
    * @param {Store<ICourtDetails>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ICourtDetails>) {
+    super();
     this.stateSubscriber = store.select(getCourtDetails).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   */
+  saveContent({ value }: { value: ICourtDetails }) {
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
+      localJusticeArea: (<HTMLInputElement>document.getElementById('localJusticeArea')).value,
+      hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value
+    });
+    this.store.dispatch(new UpdateCourtDetailsAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['sfpsr/information-sources']);
   }
 
   /**
@@ -49,44 +73,6 @@ export class CourtDetailsComponent implements OnDestroy {
       localJusticeArea: [this.reportData.localJusticeArea, Validators.required],
       hearingDate: [this.reportData.hearingDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['sfpsr/information-sources']);
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {ICourtDetails} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: ICourtDetails }) {
-    this.formError = !valid;
-
-    // @TODO: Can this be fixed or is this an inherent issue within the jQuery based date picker?
-    const updatedValue = Object.assign(value, {
-      saved: true,
-      valid: valid,
-      localJusticeArea: (<HTMLInputElement>document.getElementById('localJusticeArea')).value,
-      hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value
-    });
-    this.store.dispatch(new UpdateCourtDetailsAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

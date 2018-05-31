@@ -1,25 +1,25 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdatePrisonerKnowledgeAction } from './action/prisoner-knowledge.action';
 import { IPrisonerKnowledge } from './model/prisoner-knowledge.model';
+
 import { getPrisonerKnowledge } from './reducer/prisoner-knowledge.reducer';
 
 @Component({
   selector: 'app-prisoner-knowledge',
   templateUrl: './prisoner-knowledge.component.html'
 })
-export class PrisonerKnowledgeComponent implements OnDestroy {
+export class PrisonerKnowledgeComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IPrisonerKnowledge;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IPrisonerKnowledge;
 
   /**
    * @constructor
@@ -28,10 +28,27 @@ export class PrisonerKnowledgeComponent implements OnDestroy {
    * @param {Store<IPrisonerKnowledge>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPrisonerKnowledge>) {
+    super();
     this.stateSubscriber = store.select(getPrisonerKnowledge).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IPrisonerKnowledge} value
+   */
+  saveContent({ value }: { value: IPrisonerKnowledge }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdatePrisonerKnowledgeAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/previous-risk-assessment']);
   }
 
   /**
@@ -43,47 +60,6 @@ export class PrisonerKnowledgeComponent implements OnDestroy {
       prisonerFamilyContact: [this.reportData.prisonerFamilyContact, Validators.required],
       prisonerStaffContact: [this.reportData.prisonerStaffContact, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/previous-risk-assessment']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IPrisonerKnowledge }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdatePrisonerKnowledgeAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IPrisonerKnowledge }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdatePrisonerKnowledgeAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

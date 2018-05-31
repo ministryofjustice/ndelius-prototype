@@ -1,37 +1,54 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs/Subscription';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateRiskCommunityAction } from './action/risk-community.action';
 import { IRiskCommunity } from './model/risk-community.model';
+
 import { getRiskCommunity } from './reducer/risk-community.reducer';
 
 @Component({
   selector: 'app-risk-community',
   templateUrl: './risk-community.component.html'
 })
-export class RiskCommunityComponent implements OnDestroy {
+export class RiskCommunityComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IRiskCommunity;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IRiskCommunity;
 
   /**
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerKnowledge>} store
+   * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskCommunity>) {
+    super();
     this.stateSubscriber = store.select(getRiskCommunity).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IRiskCommunity} value
+   */
+  saveContent({ value }: { value: IRiskCommunity }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateRiskCommunityAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/risk-custody']);
   }
 
   /**
@@ -48,46 +65,4 @@ export class RiskCommunityComponent implements OnDestroy {
       riskOthers: [this.reportData.riskOthers, Validators.required]
     });
   }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/risk-custody']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IRiskCommunity }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateRiskCommunityAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerKnowledge} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IRiskCommunity }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateRiskCommunityAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
-  }
-
 }
