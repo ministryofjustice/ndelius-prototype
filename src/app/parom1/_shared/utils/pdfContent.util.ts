@@ -1,12 +1,6 @@
-import { IState } from '../reducer/state.reducers';
-
+import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
 import { IPrisonerDetails } from '../../prisoner-details/model/prisoner-details.model';
-
-interface IDate {
-  day: number;
-  month: number;
-  year: number;
-}
+import { IState } from '../reducer/state.reducers';
 
 export class PdfContentUtil {
 
@@ -47,7 +41,7 @@ export class PdfContentUtil {
    */
   private static getPrisonerDetails(data: IPrisonerDetails): Object {
 
-    function parseDate(date: IDate) {
+    function parseDate(date: IMultiFieldDate) {
       return date.day ? date.day + '/' + date.month + '/' + date.year : '';
     }
 
