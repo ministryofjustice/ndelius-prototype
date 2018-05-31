@@ -2,19 +2,14 @@
  *
  */
 import { isUndefined } from 'util';
-
-interface IDate {
-  day: Number;
-  month: Number;
-  year: Number;
-}
+import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
 
 /**
  *
  * @param {IDate} date
  * @returns {string}
  */
-export const pipeDate = (date: IDate): string => {
+export const pipeDate = (date: IMultiFieldDate): string => {
   function zero(num) {
     return (parseInt(num, 10) < 10 ? '0' + parseInt(num, 10) : num).toString();
   }

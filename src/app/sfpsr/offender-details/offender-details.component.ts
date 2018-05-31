@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { AgePipe } from '../../_shared/pipes/age.pipe';
+import { AgePipe } from '../../_shared/pipe/age.pipe';
 import { BaseComponent } from '../../_shared/components/base.component';
 
 import { getOffenderDetails } from './reducer/offender-details.reducer';

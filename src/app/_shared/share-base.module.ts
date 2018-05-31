@@ -13,7 +13,7 @@ import { FormErrorComponent } from './components/form-error/form-error.component
 import { FooterComponent } from './components/footer/footer.component';
 import { NoticeComponent } from './components/notice/notice.component';
 
-import { AgePipe } from './pipes/age.pipe';
+import { AgePipe } from './pipe/age.pipe';
 
 @NgModule({
   imports: [

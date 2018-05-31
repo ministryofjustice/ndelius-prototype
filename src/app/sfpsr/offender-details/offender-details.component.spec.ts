@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { AgePipe } from '../../_shared/pipes/age.pipe';
+import { AgePipe } from '../../_shared/pipe/age.pipe';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';

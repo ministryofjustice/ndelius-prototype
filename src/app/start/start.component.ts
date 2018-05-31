@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AgePipe } from '../_shared/pipes/age.pipe';
+import { AgePipe } from '../_shared/pipe/age.pipe';
 
 interface IQueryParams {
   name: string;

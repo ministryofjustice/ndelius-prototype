@@ -1,6 +1,8 @@
 import { IState } from '../reducer/state.reducers';
 
-import { IDateOfBirth, IOffenderDetails } from '../../offender-details/model/offender-details.model';
+import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
+
+import { IOffenderDetails } from '../../offender-details/model/offender-details.model';
 import { IOffenceDetails } from '../../offence-details/model/offence-details.model';
 import { IOffenceAnalysis } from '../../offence-analysis/model/offence-analysis.model';
 import { IOffenderAssessment } from '../../offender-assessment/model/offender-assessment.model';
@@ -78,7 +80,7 @@ export class PdfContentUtil {
    */
   private static getOffenderDetails(data: IOffenderDetails): Array<any> {
 
-    function parseDob(dob: IDateOfBirth) {
+    function parseDob(dob: IMultiFieldDate) {
       return dob.day ? dob.day + '/' + dob.month + '/' + dob.year : '';
     }
 
