@@ -7,6 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { metaReducers, reducers } from './reducer/state.reducers';
 
 import { environment } from '../../../environments/environment';
+import { ShareBaseModule } from '../../_shared/share-base.module';
 
 import { SubNavigationComponent } from './components/sub-navigation/sub-navigation.component';
 import { PhaseBannerComponent } from './components/phase-banner/phase-banner.component';
@@ -19,11 +20,13 @@ import { PhaseBannerComponent } from './components/phase-banner/phase-banner.com
 @NgModule({
   imports: [
     CommonModule,
+    ShareBaseModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   exports: [
     PhaseBannerComponent,
+    ShareBaseModule,
     SubNavigationComponent
   ],
   declarations: [
