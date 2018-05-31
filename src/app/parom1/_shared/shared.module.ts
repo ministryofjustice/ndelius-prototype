@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -11,6 +11,7 @@ import { ShareBaseModule } from '../../_shared/share-base.module';
 
 import { SubNavigationComponent } from './components/sub-navigation/sub-navigation.component';
 import { PhaseBannerComponent } from './components/phase-banner/phase-banner.component';
+import { AgePipe } from '../../_shared/pipe/age.pipe';
 
 /**
  * To use the ngrx debugger, install the Redux Devtools extension for either Chrome or Firefox
@@ -34,7 +35,7 @@ import { PhaseBannerComponent } from './components/phase-banner/phase-banner.com
     SubNavigationComponent
   ],
   providers: [
-    DatePipe
+    AgePipe
   ]
 })
 export class SharedModule {
