@@ -1,25 +1,25 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateRiskReoffendingAction } from './action/risk-reoffending.action';
 import { IRiskReoffending } from './model/risk-reoffending.model';
+
 import { getRiskOfReoffending } from './reducer/risk-reoffending.reducer';
 
 @Component({
   selector: 'app-risk-reoffending',
   templateUrl: './risk-reoffending.component.html'
 })
-export class RiskReoffendingComponent implements OnDestroy {
+export class RiskReoffendingComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IRiskReoffending;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IRiskReoffending;
 
   /**
    * @constructor
@@ -28,10 +28,27 @@ export class RiskReoffendingComponent implements OnDestroy {
    * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskReoffending>) {
+    super();
     this.stateSubscriber = store.select(getRiskOfReoffending).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IRiskReoffending} value
+   */
+  saveContent({ value }: { value: IRiskReoffending }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateRiskReoffendingAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/risk-community']);
   }
 
   /**
@@ -47,47 +64,6 @@ export class RiskReoffendingComponent implements OnDestroy {
       sara: [this.reportData.sara, Validators.required],
       likelihoodOfReoffending: [this.reportData.likelihoodOfReoffending, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/risk-community']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IRiskReoffending }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateRiskReoffendingAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerRelationship} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IRiskReoffending }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateRiskReoffendingAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

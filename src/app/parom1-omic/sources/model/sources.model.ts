@@ -14,3 +14,8 @@ export interface ISources {
   saved: boolean;
   valid: boolean;
 }
+
+export interface IControls {
+  control: string;
+  label: string;
+}

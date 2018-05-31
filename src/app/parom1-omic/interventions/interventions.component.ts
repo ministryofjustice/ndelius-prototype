@@ -1,9 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdateInterventionsAction } from './action/interventions.action';
 import { IInterventions } from './model/interventions.model';
@@ -14,13 +14,12 @@ import { getInterventions } from './reducer/interventions.reducer';
   selector: 'app-interventions',
   templateUrl: './interventions.component.html'
 })
-export class InterventionsComponent implements OnDestroy {
+export class InterventionsComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IInterventions;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IInterventions;
 
   /**
    * @constructor
@@ -29,10 +28,27 @@ export class InterventionsComponent implements OnDestroy {
    * @param {Store<IPrisonerRelationship>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IInterventions>) {
+    super();
     this.stateSubscriber = store.select(getInterventions).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IInterventions} value
+   */
+  saveContent({ value }: { value: IInterventions }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdateInterventionsAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/sentence-plan']);
   }
 
   /**
@@ -43,47 +59,6 @@ export class InterventionsComponent implements OnDestroy {
       interventionsList: [this.reportData.interventionsList, Validators.required],
       interventionsSummary: [this.reportData.interventionsSummary, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/sentence-plan']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IInterventions }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateInterventionsAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerRelationship} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IInterventions }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdateInterventionsAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

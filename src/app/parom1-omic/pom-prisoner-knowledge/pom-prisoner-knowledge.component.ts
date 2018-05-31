@@ -1,9 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
+import { BaseComponent } from '../../_shared/components/base.component';
 
 import { UpdatePomPrisonerKnowledgeAction } from './action/pom-prisoner-knowledge.action';
 import { IPomPrisonerKnowledge } from './model/pom-prisoner-knowledge.model';
@@ -14,13 +14,12 @@ import { getPomPrisionerKnowledge } from './reducer/pom-prisoner-knowledge.reduc
   selector: 'app-knowledge-and-contact',
   templateUrl: './pom-prisoner-knowledge.component.html'
 })
-export class PomPrisonerKnowledgeComponent implements OnDestroy {
+export class PomPrisonerKnowledgeComponent extends BaseComponent {
 
-  private stateSubscriber: Subscription;
-
-  reportData: IPomPrisonerKnowledge;
-  reportForm: FormGroup;
-  formError: boolean;
+  /**
+   *
+   */
+  private reportData: IPomPrisonerKnowledge;
 
   /**
    *
@@ -29,10 +28,27 @@ export class PomPrisonerKnowledgeComponent implements OnDestroy {
    * @param {Store<IPomPrisonerKnowledge>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPomPrisonerKnowledge>) {
+    super();
     this.stateSubscriber = store.select(getPomPrisionerKnowledge).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
+  }
+
+  /**
+   *
+   * @param {IPomPrisonerKnowledge} value
+   */
+  saveContent({ value }: { value: IPomPrisonerKnowledge }) {
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    this.store.dispatch(new UpdatePomPrisonerKnowledgeAction(updatedValue));
+  }
+
+  /**
+   *
+   */
+  protected continueJourney() {
+    this.router.navigate(['parom1-omic/pom-recommendation']);
   }
 
   /**
@@ -48,47 +64,6 @@ export class PomPrisonerKnowledgeComponent implements OnDestroy {
       rotlDetails: [this.reportData.rotlDetails],
       furtherInformation: [this.reportData.furtherInformation, Validators.required]
     });
-  }
-
-  /**
-   *
-   */
-  private continueJourney() {
-    this.router.navigate(['parom1-omic/pom-recommendation']);
-  }
-
-  /**
-   *
-   */
-  saveContent({ value }: { value: IPomPrisonerKnowledge }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdatePomPrisonerKnowledgeAction(updatedValue));
-  }
-
-  /**
-   *
-   * @param {boolean} valid
-   * @param {IPrisonerRelationship} value
-   */
-  onSubmit({ valid, value }: { valid: boolean, value: IPomPrisonerKnowledge }) {
-    this.formError = !valid;
-
-    const updatedValue = Object.assign(value, { saved: true, valid: valid });
-
-    this.store.dispatch(new UpdatePomPrisonerKnowledgeAction(updatedValue));
-
-    if (valid) {
-      this.continueJourney();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.stateSubscriber.unsubscribe();
   }
 
 }

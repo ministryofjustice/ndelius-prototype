@@ -41,7 +41,11 @@ export class MappaComponent extends BaseComponent {
    *
    */
   saveContent({ value }: { value: IMappa }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
+      screenedDate: (<HTMLInputElement>document.getElementById('screenedDate')).value
+    });
     this.store.dispatch(new UpdateMappaAction(updatedValue));
   }
 

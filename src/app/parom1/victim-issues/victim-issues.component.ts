@@ -39,9 +39,14 @@ export class VictimIssuesComponent extends BaseComponent {
 
   /**
    *
+   * @param {IVictimIssues} value
    */
   saveContent({ value }: { value: IVictimIssues }) {
-    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
+    const updatedValue = Object.assign(value, {
+      saved: true,
+      valid: this.reportForm.valid,
+      vloContactDate: (<HTMLInputElement>document.getElementById('vloContactDate')).value
+    });
     this.store.dispatch(new UpdateVictimIssuesAction(updatedValue));
   }
 
