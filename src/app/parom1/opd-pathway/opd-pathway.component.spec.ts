@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway.component';
+import { OpdPathwayComponent } from './opd-pathway.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
@@ -14,18 +14,18 @@ import { MockTextEntryComponent } from '../../_shared/components/text-entry/text
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
-import * as model from './reducer/personality-disorder-pathway.reducer';
+import * as model from './reducer/opd-pathway.reducer';
 
 describe('PAROM1 - Component: Offender personality disorder pathway', () => {
 
-  let fixture: ComponentFixture<PersonalityDisorderPathwayComponent>;
-  let component: PersonalityDisorderPathwayComponent;
+  let fixture: ComponentFixture<OpdPathwayComponent>;
+  let component: OpdPathwayComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        PersonalityDisorderPathwayComponent,
+        OpdPathwayComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
@@ -43,7 +43,7 @@ describe('PAROM1 - Component: Offender personality disorder pathway', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonalityDisorderPathwayComponent);
+    fixture = TestBed.createComponent(OpdPathwayComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();

@@ -1,5 +1,5 @@
 import { IPrisonerDetails } from '../../prisoner-details/model/prisoner-details.model';
-import { pipeDate } from './utils';
+import { pipeDate } from '../../../_shared/utils/utils';
 
 export const prisonerDetailsTranform = (data: IPrisonerDetails) => {
 

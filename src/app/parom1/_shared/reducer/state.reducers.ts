@@ -6,7 +6,7 @@ import { IPrisonerDetails } from '../../prisoner-details/model/prisoner-details.
 import { IPrisonerRelationship } from '../../prisoner-relationship/model/prisoner-relationship.model';
 import { IPreviousRiskAssessment } from '../../previous-risk-assessment/model/previous-risk-assessment.model';
 import { IVictimIssues } from '../../victim-issues/model/victim-issues.model';
-import { IPersonalityDisorderPathway } from '../../personality-disorder-pathway/model/personality-disorder-pathway.model';
+import { IOffenderPersonalityDisorderPathway } from '../../opd-pathway/model/opd-pathway.model';
 import { IBehaviour } from '../../behaviour/model/behaviour.model';
 import { IInterventions } from '../../interventions/model/interventions.model';
 import { ISentencePlan } from '../../sentence-plan/model/sentence-plan.model';
@@ -30,7 +30,7 @@ import { prisonerDetailsReducer } from '../../prisoner-details/reducer/prisoner-
 import { prisonerRelationshipReducer } from '../../prisoner-relationship/reducer/prisoner-relationship.reducer';
 import { previousRiskAssessmentReducer } from '../../previous-risk-assessment/reducer/previous-risk-assessment.reducer';
 import { victimIssuesReducer } from '../../victim-issues/reducer/victim-issues.reducer';
-import { personalityDisorderPathwayReducer } from '../../personality-disorder-pathway/reducer/personality-disorder-pathway.reducer';
+import { opdPathwayReducer } from '../../opd-pathway/reducer/opd-pathway.reducer';
 import { behaviourReducer } from '../../behaviour/reducer/behaviour.reducer';
 import { interventionsReducer } from '../../interventions/reducer/interventions.reducer';
 import { sentencePlanReducer } from '../../sentence-plan/reducer/sentence-plan.reducer';
@@ -55,7 +55,7 @@ export interface IState {
   prisonerRelationship: IPrisonerRelationship;
   previousRiskAssessment: IPreviousRiskAssessment;
   victimIssues: IVictimIssues;
-  personalityDisorderPathway: IPersonalityDisorderPathway;
+  offenderPersonalityDisorderPathway: IOffenderPersonalityDisorderPathway;
   behaviour: IBehaviour;
   interventions: IInterventions;
   sentencePlan: ISentencePlan;
@@ -82,7 +82,7 @@ export const reducers: ActionReducerMap<IState> = {
   prisonerRelationship: prisonerRelationshipReducer,
   previousRiskAssessment: previousRiskAssessmentReducer,
   victimIssues: victimIssuesReducer,
-  personalityDisorderPathway: personalityDisorderPathwayReducer,
+  offenderPersonalityDisorderPathway: opdPathwayReducer,
   behaviour: behaviourReducer,
   interventions: interventionsReducer,
   sentencePlan: sentencePlanReducer,

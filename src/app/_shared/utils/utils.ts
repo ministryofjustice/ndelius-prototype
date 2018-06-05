@@ -1,12 +1,11 @@
 /**
  *
  */
-import { isUndefined } from 'util';
-import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
+import { IMultiFieldDate } from '../interface/three-field-date.interface';
 
 /**
  *
- * @param {IDate} date
+ * @param {IMultiFieldDate} date
  * @returns {string}
  */
 export const pipeDate = (date: IMultiFieldDate): string => {
@@ -30,6 +29,6 @@ export const pipeMonth = (num: number): string => {
  * @param {boolean} bool
  * @returns {string}
  */
-export const yesNo = (bool: boolean): string => {
-  return isUndefined(bool) ? '' : bool ? 'Yes' : 'No';
+export const pipeYesNo = (bool: boolean): string => {
+  return typeof bool === 'undefined' ? '' : bool ? 'Yes' : 'No';
 };

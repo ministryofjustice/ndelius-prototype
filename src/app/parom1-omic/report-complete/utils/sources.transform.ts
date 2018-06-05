@@ -1,5 +1,5 @@
 import { ISources } from '../../sources/model/sources.model';
-import { yesNo } from './utils';
+import { pipeYesNo } from '../../../_shared/utils/utils';
 
 export const sourcesTransform = (data: ISources) => {
   return [
@@ -12,22 +12,22 @@ export const sourcesTransform = (data: ISources) => {
           [{
             text: 'Previous convictions',
             style: 'fontBold'
-          }, yesNo(data.previousConvictions), {
+          }, pipeYesNo(data.previousConvictions), {
             text: 'Previous parole reports',
             style: 'fontBold'
-          }, yesNo(data.previousParoleReports)],
-          [{ text: 'CPS documents', style: 'fontBold' }, yesNo(data.cpsDocuments), {
+          }, pipeYesNo(data.previousParoleReports)],
+          [{ text: 'CPS documents', style: 'fontBold' }, pipeYesNo(data.cpsDocuments), {
             text: 'Parole dossier',
             style: 'fontBold'
-          }, yesNo(data.paroleDossier)],
-          [{ text: 'Pre-sentence report', style: 'fontBold' }, yesNo(data.preSentenceReport), {
+          }, pipeYesNo(data.paroleDossier)],
+          [{ text: 'Pre-sentence report', style: 'fontBold' }, pipeYesNo(data.preSentenceReport), {
             text: 'Probation case records',
             style: 'fontBold'
-          }, yesNo(data.probationCaseRecords)],
-          [{ text: 'Judges comments', style: 'fontBold' }, yesNo(data.judgesComments), {
+          }, pipeYesNo(data.probationCaseRecords)],
+          [{ text: 'Judges comments', style: 'fontBold' }, pipeYesNo(data.judgesComments), {
             text: 'Other',
             style: 'fontBold'
-          }, yesNo(data.other)]
+          }, pipeYesNo(data.other)]
         ]
       }
     },

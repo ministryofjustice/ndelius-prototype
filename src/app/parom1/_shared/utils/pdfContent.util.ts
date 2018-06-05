@@ -1,9 +1,36 @@
-import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
-import { IPrisonerDetails } from '../../prisoner-details/model/prisoner-details.model';
 import { IState } from '../reducer/state.reducers';
 
+import { PrisonerDetailsTransform } from '../../prisoner-details/utils/prisoner-details.transform';
+import { PrisonerRelationshipTransform } from '../../prisoner-relationship/utils/prisoner-relationship.transform';
+import { PreviousRiskAssessmentTransform } from '../../previous-risk-assessment/utils/previous-risk-assessment.transform';
+import { VictimsTransform } from '../../victim-issues/utils/victims.transform';
+import { OpdPathwayTransform } from '../../opd-pathway/utils/opd-pathway.transform';
+import { BehaviourTransform } from '../../behaviour/utils/behaviour.transform';
+import { InterventionsTransform } from '../../interventions/utils/interventions.transform';
+import { SentencePlanTransform } from '../../sentence-plan/utils/sentence-plan.transform';
+import { MappaTransform } from '../../mappa/utils/mappa.transform';
+import { RiskReoffendingTransform } from '../../risk-reoffending/utils/risk-reoffending.transform';
+import { RiskCommunityTransform } from '../../risk-community/utils/risk-community.transform';
+import { RiskCustodyTransform } from '../../risk-custody/utils/risk-custody.transform';
+import { RiskSeriousHarmTransform } from '../../risk-serious-harm/utils/risk-serious-harm.transform';
+import { ReleaseRiskManagementTransform } from '../../release-risk-management/utils/release-risk-management.transform';
+import { ResettlementPlanTransform } from '../../resettlement-plan/utils/resettlement-plan.transform';
+import { SupervisionPlanTransform } from '../../supervision-plan/utils/supervision-plan.transform';
+import { RecommendationTransform } from '../../recommendation/utils/recommendation.transform';
+import { HearingConsiderationsTransform } from '../../hearing-considerations/utils/hearing-considerations.transform';
+import { SourcesTransform } from '../../sources/utils/sources.transform';
+import { SignatureTransform } from '../../signature/utils/signature.transform';
+
+/**
+ *
+ */
 export class PdfContentUtil {
 
+  /**
+   *
+   * @param {IState} data
+   * @returns {Array<any>}
+   */
   static generateContent(data: IState): Array<any> {
     return [
       {
@@ -30,53 +57,27 @@ export class PdfContentUtil {
         }
       },
       { text: 'Parole Assessment Report Offender Manager (PAROM 1)', style: 'reportTitle', alignment: 'center', margin: [0, 20, 0, 0] },
-      PdfContentUtil.getPrisonerDetails(data.prisonerDetails)
+      PrisonerDetailsTransform.process(data.prisonerDetails),
+      PrisonerRelationshipTransform.process(data.prisonerRelationship),
+      PreviousRiskAssessmentTransform.process(data.previousRiskAssessment),
+      VictimsTransform.process(data.victimIssues),
+      OpdPathwayTransform.process(data.offenderPersonalityDisorderPathway),
+      BehaviourTransform.process(data.behaviour),
+      InterventionsTransform.process(data.interventions),
+      SentencePlanTransform.process(data.sentencePlan),
+      MappaTransform.process(data.mappa),
+      RiskReoffendingTransform.process(data.riskReoffending),
+      RiskCommunityTransform.process(data.riskCommunity),
+      RiskCustodyTransform.process(data.riskCustody),
+      RiskSeriousHarmTransform.process(data.riskSeriousHarm),
+      ReleaseRiskManagementTransform.process(data.releaseRiskManagement),
+      ResettlementPlanTransform.process(data.resettlementPlan),
+      SupervisionPlanTransform.process(data.supervisionPlan),
+      RecommendationTransform.process(data.recommendation),
+      HearingConsiderationsTransform.process(data.hearingConsiderations),
+      SourcesTransform.process(data.sources),
+      SignatureTransform.process(data.signature)
     ];
-  }
-
-  /**
-   *
-   * @param {IOffenderDetails} data
-   * @returns {Object}
-   */
-  private static getPrisonerDetails(data: IPrisonerDetails): Object {
-
-    function parseDate(date: IMultiFieldDate) {
-      return date.day ? date.day + '/' + date.month + '/' + date.year : '';
-    }
-
-    const prisonerDetails = {
-      style: 'tableDefault',
-      table: {
-        widths: [100, '*', 100, '*'],
-        body: [
-          [{ colSpan: 4, text: 'Prisoner details', style: 'tableHeading' }, {}, {}, {}],
-          [{ text: 'HMP / YOI', style: 'fontBold' }, data.prison || '', { text: 'Report date', style: 'fontBold' }, ''],
-          [{ text: 'Prison number', style: 'fontBold' }, data.prisonNumber || '', {
-            text: 'Category',
-            style: 'fontBold'
-          }, data.category || ''],
-          [{ text: 'Name', style: 'fontBold' }, { text: data.name || '', colSpan: 3 }],
-          [{ text: 'Offence', style: 'fontBold' }, { text: data.offence || '', colSpan: 3 }],
-          [{ text: 'Sentence', style: 'fontBold' }, { text: data.sentence || '', colSpan: 3 }]
-        ]
-      }
-    };
-
-    if (data.sentenceType && data.sentenceType.toLowerCase() === 'determinate') {
-      prisonerDetails.table.body.push(
-        [{ text: 'Release date', style: 'fontBold' }, { text: parseDate(data.determinateReleaseDate), colSpan: 3 }]
-      );
-    } else if (data.sentenceType && data.sentenceType.toLowerCase() === 'indeterminate') {
-      prisonerDetails.table.body.push(
-        [{ text: 'Tariff length', style: 'fontBold' }, data.tariffLength || '', {
-          text: 'Expiry date',
-          style: 'fontBold'
-        }, parseDate(data.tariffExpiryDate)]
-      );
-    }
-
-    return prisonerDetails;
   }
 
 }
