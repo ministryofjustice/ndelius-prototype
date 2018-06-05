@@ -31,10 +31,10 @@ export class SaveDraftComponent {
    */
   constructor(private router: Router, private store: Store<IState>) {
     this.pdfGenerator = new PdfGeneratorUtil();
-    this.pdfGenerator.isDraft = true;
     this.pdfGenerator.reportTitle = 'Parole Assessment Report Offender Manager (PAROM 1)';
-    this.pdfGenerator.fileName = 'PAROM1_Draft';
+    this.pdfGenerator.fileName = 'PAROM1';
     this.pdfGenerator.shortName = 'Parom 1 (Draft) v0.0.1';
+    this.pdfGenerator.isDraft = true;
 
     this.stateSubscriber = store.select(getCurrentState).subscribe(data => {
       this.pdfGenerator.reportContent = PdfContentUtil.generateContent(data);

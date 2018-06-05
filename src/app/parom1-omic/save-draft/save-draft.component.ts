@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
+import { Subscription } from 'rxjs';
+
+import { PdfGeneratorUtil } from '../../_shared/utils/pdf-generator.util';
 import { ResetStateAction } from '../../_shared/action/reset-state.action';
-import { IState } from '../_shared/reducer/state.reducers';
+
+import { PdfContentUtil } from '../_shared/utils/pdfContent.util';
+import { getCurrentState, IState } from '../_shared/reducer/state.reducers';
 
 /**
  * Save draft component
@@ -12,7 +17,10 @@ import { IState } from '../_shared/reducer/state.reducers';
   selector: 'app-save-draft',
   templateUrl: './save-draft.component.html'
 })
-export class SaveDraftComponent {
+export class SaveDraftComponent implements OnDestroy {
+
+  private pdfGenerator: PdfGeneratorUtil;
+  private stateSubscriber: Subscription;
 
   /**
    * @constructor
@@ -20,7 +28,22 @@ export class SaveDraftComponent {
    * @param {Store<IState>} store
    */
   constructor(private router: Router, private store: Store<IState>) {
-    // Empty
+    this.pdfGenerator = new PdfGeneratorUtil();
+    this.pdfGenerator.reportTitle = 'Parole Assessment Report Offender Manager (PAROM 1 OMIC)';
+    this.pdfGenerator.fileName = 'PAROM1_OMIC';
+    this.pdfGenerator.shortName = 'Parom 1 OMIC (Draft) v0.0.1';
+    this.pdfGenerator.isDraft = true;
+
+    this.stateSubscriber = store.select(getCurrentState).subscribe(data => {
+      this.pdfGenerator.reportContent = PdfContentUtil.generateContent(data);
+    });
+  }
+
+  /**
+   *
+   */
+  generateReport() {
+    this.pdfGenerator.generatePdf();
   }
 
   /**
@@ -36,5 +59,12 @@ export class SaveDraftComponent {
   close() {
     this.store.dispatch(new ResetStateAction());
     this.router.navigate(['/']);
+  }
+
+  /**
+   *
+   */
+  ngOnDestroy() {
+    this.stateSubscriber.unsubscribe();
   }
 }

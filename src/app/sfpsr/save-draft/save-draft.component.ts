@@ -30,10 +30,10 @@ export class SaveDraftComponent implements OnDestroy {
    */
   constructor(private router: Router, private store: Store<IState>) {
     this.pdfGenerator = new PdfGeneratorUtil();
-    this.pdfGenerator.isDraft = true;
     this.pdfGenerator.reportTitle = 'Short Format Pre-Sentence Report (Draft)';
-    this.pdfGenerator.fileName = 'SFPSR_Draft';
+    this.pdfGenerator.fileName = 'SFPSR';
     this.pdfGenerator.shortName = 'SFPSR1 (Draft) v0.0.1';
+    this.pdfGenerator.isDraft = true;
 
     this.stateSubscriber = store.select(getCurrentState).subscribe(data => {
       this.pdfGenerator.reportContent = PdfContentUtil.generateContent(data);

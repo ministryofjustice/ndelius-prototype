@@ -80,7 +80,7 @@ export class PdfGeneratorUtil {
   }
 
   generatePdf() {
-    pdfMake.createPdf(this.transformData()).download(this.fileName + '_' + new Date().getTime() + '.pdf');
+    pdfMake.createPdf(this.transformData()).download(this.fileName + '_' + new Date().getTime() + (this.isDraft ? '_draft' : '') + '.pdf');
   }
 
 }
