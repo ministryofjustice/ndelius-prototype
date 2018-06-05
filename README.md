@@ -41,7 +41,7 @@ The prototype currently contains the following report journeys:
 
 ## Requirements
 
-The project requires [Node.js] >=10.0.0 <11.0.0
+The project requires [Node.js] >=10.3.0 <11.0.0
 
 You will need to install the project dependencies (in the project dir):
 
