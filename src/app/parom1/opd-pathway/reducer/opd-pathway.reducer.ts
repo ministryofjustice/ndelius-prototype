@@ -26,4 +26,5 @@ export function opdPathwayReducer(state = initialState, action: actionClass.Acti
   }
 }
 
-export const getOffenderPersonalityDisorderPathway = (state: IOffenderPersonalityDisorderPathway) => state['offenderPersonalityDisorderPathway'];
+export const getOffenderPersonalityDisorderPathway = (state: IOffenderPersonalityDisorderPathway) =>
+  state['offenderPersonalityDisorderPathway'];
