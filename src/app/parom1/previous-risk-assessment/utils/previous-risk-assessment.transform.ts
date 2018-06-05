@@ -1,7 +1,14 @@
-import { IPreviousRiskAssessment } from '../../previous-risk-assessment/model/previous-risk-assessment.model';
 import { pipeMonth } from '../../../_shared/utils/utils';
+import { IPreviousRiskAssessment } from '../model/previous-risk-assessment.model';
 
-export const previousRiskAssessmentTransform = (data: IPreviousRiskAssessment) => {
+export class PreviousRiskAssessmentTransform {
+
+  /**
+   *
+   * @param {IPrisonerRelationship} data
+   * @returns {Object}
+   */
+  static process(data: IPreviousRiskAssessment): Array<any> {
     return [
       { text: 'Previous risk assessment', style: 'sectionHeading', margin: [ 0, 20, 0, 0 ] },
       {
@@ -31,4 +38,5 @@ export const previousRiskAssessmentTransform = (data: IPreviousRiskAssessment) =
       data.attitude || ''
     ];
   }
-;
+
+}

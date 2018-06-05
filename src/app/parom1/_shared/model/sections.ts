@@ -36,7 +36,7 @@ export function sections(): Array<ISection> {
     {
       route: '/parom1/personality-disorder-pathway',
       label: 'OPD pathway',
-      state: 'personalityDisorderPathway'
+      state: 'offenderPersonalityDisorderPathway'
     },
     {
       route: '/parom1/behaviour',

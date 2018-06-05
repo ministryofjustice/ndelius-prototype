@@ -12,7 +12,7 @@ import { PrisonerRelationshipComponent } from './prisoner-relationship/prisoner-
 import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
-import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
+import { OpdPathwayComponent } from './opd-pathway/opd-pathway.component';
 import { BehaviourComponent } from './behaviour/behaviour.component';
 import { InterventionsComponent } from './interventions/interventions.component';
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
@@ -44,7 +44,7 @@ import { SignatureComponent } from './signature/signature.component';
     PrisonerRelationshipComponent,
     PreviousRiskAssessmentComponent,
     VictimIssuesComponent,
-    PersonalityDisorderPathwayComponent,
+    OpdPathwayComponent,
     BehaviourComponent,
     InterventionsComponent,
     SentencePlanComponent,

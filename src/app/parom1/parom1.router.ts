@@ -9,7 +9,7 @@ import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.co
 import { PrisonerRelationshipComponent } from './prisoner-relationship/prisoner-relationship.component';
 import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
-import { PersonalityDisorderPathwayComponent } from './personality-disorder-pathway/personality-disorder-pathway.component';
+import { OpdPathwayComponent } from './opd-pathway/opd-pathway.component';
 import { BehaviourComponent } from './behaviour/behaviour.component';
 import { InterventionsComponent } from './interventions/interventions.component';
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'prisoner-relationship', data: { title: 'Prisoner relationship' }, component: PrisonerRelationshipComponent },
   { path: 'previous-risk-assessment', data: { title: 'Previous risk assessment' }, component: PreviousRiskAssessmentComponent },
   { path: 'victim-issues', data: { title: 'Victims' }, component: VictimIssuesComponent },
-  { path: 'personality-disorder-pathway', data: { title: 'Personality disorder pathway' }, component: PersonalityDisorderPathwayComponent },
+  { path: 'personality-disorder-pathway', data: { title: 'Personality disorder pathway' }, component: OpdPathwayComponent },
   { path: 'behaviour', data: { title: 'Behaviour in prison' }, component: BehaviourComponent },
   { path: 'interventions', data: { title: 'Interventions' }, component: InterventionsComponent },
   { path: 'sentence-plan', data: { title: 'Current sentence plan' }, component: SentencePlanComponent },

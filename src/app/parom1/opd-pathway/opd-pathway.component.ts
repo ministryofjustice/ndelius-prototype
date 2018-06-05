@@ -6,22 +6,21 @@ import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
 
-import { UpdatePersonalityDisorderPathwayAction } from './action/personality-disorder-pathway.action';
-import { IPersonalityDisorderPathway } from './model/personality-disorder-pathway.model';
+import { UpdatePersonalityDisorderPathwayAction } from './action/opd-pathway.action';
+import { IOffenderPersonalityDisorderPathway } from './model/opd-pathway.model';
 
-import { getPersonalityDisorderPathway } from './reducer/personality-disorder-pathway.reducer';
-
+import { getOffenderPersonalityDisorderPathway } from './reducer/opd-pathway.reducer';
 
 @Component({
-  selector: 'app-personality-disorder-pathway',
-  templateUrl: './personality-disorder-pathway.component.html'
+  selector: 'app-opd-pathway',
+  templateUrl: './opd-pathway.component.html'
 })
-export class PersonalityDisorderPathwayComponent extends BaseComponent {
+export class OpdPathwayComponent extends BaseComponent {
 
   /**
    *
    */
-  private reportData: IPersonalityDisorderPathway;
+  private reportData: IOffenderPersonalityDisorderPathway;
 
   /**
    * @constructor
@@ -29,9 +28,9 @@ export class PersonalityDisorderPathwayComponent extends BaseComponent {
    * @param {FormBuilder} formBuilder
    * @param {Store<IPrisonerRelationship>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPersonalityDisorderPathway>) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderPersonalityDisorderPathway>) {
     super();
-    this.stateSubscriber = store.select(getPersonalityDisorderPathway).subscribe(data => {
+    this.stateSubscriber = store.select(getOffenderPersonalityDisorderPathway).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -40,7 +39,7 @@ export class PersonalityDisorderPathwayComponent extends BaseComponent {
   /**
    *
    */
-  saveContent({ value }: { value: IPersonalityDisorderPathway }) {
+  saveContent({ value }: { value: IOffenderPersonalityDisorderPathway }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
     this.store.dispatch(new UpdatePersonalityDisorderPathwayAction(updatedValue));
   }
