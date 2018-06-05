@@ -14,7 +14,7 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
     page = new PrototypePage();
     // We're using jQuery to pull in application.js in order to run the jQuery code we use in the MVP so mock it.
     browser.executeScript('$ = { getScript: function() { return true; } }');
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 50000;
   }
 
   describe('Parole Report (PAROM1-OMIC) journey', () => {

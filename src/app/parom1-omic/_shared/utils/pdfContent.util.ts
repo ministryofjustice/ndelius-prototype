@@ -58,7 +58,12 @@ export class PdfContentUtil {
           ]
         }
       },
-      { text: 'Parole Assessment Report Offender Manager (PAROM 1 - OMIC)', style: 'reportTitle', alignment: 'center', margin: [0, 20, 0, 0] },
+      {
+        text: 'Parole Assessment Report Offender Manager (PAROM 1 - OMIC)',
+        style: 'reportTitle',
+        alignment: 'center',
+        margin: [0, 20, 0, 0]
+      },
       prisonerDetailsTranform(data.prisonerDetails),
       prisonerKnowledgeTransform(data.prisonerKnowledge),
       previousRiskAssessmentTransform(data.previousRiskAssessment),
