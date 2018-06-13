@@ -3,19 +3,19 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
-import { reducers } from '../../sfpsr/_shared/reducer/state.reducers';
+import { reducers } from '../_shared/reducer/state.reducers';
 
 import { RiskPrisonerComponent } from './risk-prisoner.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
-import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
-import * as model from './reducer/risk-assessment.reducer';
+import * as model from './reducer/risk-prisoner.reducer';
 
-describe('SFPSR - Component: Risk assessment', () => {
+describe('PAROM1 - Component: Risk to the prisoner', () => {
 
   let fixture: ComponentFixture<RiskPrisonerComponent>;
   let component: RiskPrisonerComponent;
@@ -25,12 +25,12 @@ describe('SFPSR - Component: Risk assessment', () => {
     TestBed.configureTestingModule({
       declarations: [
         RiskPrisonerComponent,
-        MockFormErrorComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
-        MockTextEntryComponent,
+        MockErrorMessagesComponent,
+        MockFooterComponent,
         MockRadioButtonsComponent,
-        MockFooterComponent
+        MockFormErrorComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),
@@ -52,25 +52,14 @@ describe('SFPSR - Component: Risk assessment', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk assessment');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Risk to the prisoner');
   });
 
-  it('should include the reactive form', () => {
-    expect(component.reportForm).toBeDefined();
-  });
-
-  it('should set error property if form is invalid and NOT navigate', () => {
+  it('should navigate to the correct page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
-    component.onSubmit({ valid: false, value: model.initialState });
-    expect(component.formError).toBeTruthy();
-    expect(navigateSpy).not.toHaveBeenCalled();
-  });
-
-  it('should navigate to the Risk of serious harm page', () => {
-    const navigateSpy = spyOn((<any>component).router, 'navigate');
+    // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/proposed-sentence']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1/risk-serious-harm']);
   });
 
 });
