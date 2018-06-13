@@ -20,6 +20,7 @@ import { RiskReoffendingComponent } from './risk-reoffending/risk-reoffending.co
 import { MappaComponent } from './mappa/mappa.component';
 import { RiskCommunityComponent } from './risk-community/risk-community.component';
 import { RiskCustodyComponent } from './risk-custody/risk-custody.component';
+import { RiskPrisonerComponent } from './risk-prisoner/risk-prisoner.component';
 import { RiskSeriousHarmComponent } from './risk-serious-harm/risk-serious-harm.component';
 import { ReleaseRiskManagementComponent } from './release-risk-management/release-risk-management.component';
 import { ResettlementPlanComponent } from './resettlement-plan/resettlement-plan.component';
@@ -52,6 +53,7 @@ import { SignatureComponent } from './signature/signature.component';
     RiskReoffendingComponent,
     RiskCommunityComponent,
     RiskCustodyComponent,
+    RiskPrisonerComponent,
     RiskSeriousHarmComponent,
     ReleaseRiskManagementComponent,
     ResettlementPlanComponent,

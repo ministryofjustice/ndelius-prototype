@@ -74,6 +74,11 @@ export function sections(): Array<ISection> {
       state: 'riskCustody'
     },
     {
+      route: '/parom1/risk-prisoner',
+      label: 'Risk to the prisoner',
+      state: 'riskPrisoner'
+    },
+    {
       route: '/parom1/risk-serious-harm',
       label: 'Risk of serious harm',
       state: 'riskSeriousHarm'

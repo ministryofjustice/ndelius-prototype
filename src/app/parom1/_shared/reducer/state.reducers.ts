@@ -14,6 +14,7 @@ import { IMappa } from '../../mappa/model/mappa.model';
 import { IRiskReoffending } from '../../risk-reoffending/model/risk-reoffending.model';
 import { IRiskCommunity } from '../../risk-community/model/risk-community.model';
 import { IRiskCustody } from '../../risk-custody/model/risk-custody.model';
+import { IRiskPrisoner } from '../../risk-prisoner/model/risk-prisoner.model';
 import { IRiskSeriousHarm } from '../../risk-serious-harm/model/risk-serious-harm.model';
 import { IReleaseRiskManagement } from '../../release-risk-management/model/release-risk-management.model';
 import { IResettlementPlan } from '../../resettlement-plan/model/resettlement-plan.model';
@@ -37,6 +38,7 @@ import { sentencePlanReducer } from '../../sentence-plan/reducer/sentence-plan.r
 import { mappaReducer } from '../../mappa/reducer/mappa.reducer';
 import { riskReoffendingReducer } from '../../risk-reoffending/reducer/risk-reoffending.reducer';
 import { riskCommunityReducer } from '../../risk-community/reducer/risk-community.reducer';
+import { riskPrisonerReducer } from '../../risk-prisoner/reducer/risk-prisoner.reducer';
 import { riskCustodyReducer } from '../../risk-custody/reducer/risk-custody.reducer';
 import { riskSeriousHarmReducer } from '../../risk-serious-harm/reducer/risk-serious-harm.reducer';
 import { releaseRiskManagementReducer } from '../../release-risk-management/reducer/release-risk-management.reducer';
@@ -63,6 +65,7 @@ export interface IState {
   riskReoffending: IRiskReoffending;
   riskCommunity: IRiskCommunity;
   riskCustody: IRiskCustody;
+  riskPrisoner: IRiskPrisoner;
   riskSeriousHarm: IRiskSeriousHarm;
   releaseRiskManagement: IReleaseRiskManagement;
   resettlementPlan: IResettlementPlan;
@@ -90,6 +93,7 @@ export const reducers: ActionReducerMap<IState> = {
   riskReoffending: riskReoffendingReducer,
   riskCommunity: riskCommunityReducer,
   riskCustody: riskCustodyReducer,
+  riskPrisoner: riskPrisonerReducer,
   riskSeriousHarm: riskSeriousHarmReducer,
   releaseRiskManagement: releaseRiskManagementReducer,
   resettlementPlan: resettlementPlanReducer,

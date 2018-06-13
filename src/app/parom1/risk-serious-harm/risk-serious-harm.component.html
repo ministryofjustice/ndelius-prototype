@@ -31,6 +31,8 @@
         </ul>
       </app-text-entry>
 
+      <hr/>
+
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="increaseFactors"
                       label="What factors might increase the risk of serious harm?"
@@ -38,6 +40,8 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="What factors might increase the risk of serious harm">
       </app-text-entry>
+
+      <hr/>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="reductionFactors"

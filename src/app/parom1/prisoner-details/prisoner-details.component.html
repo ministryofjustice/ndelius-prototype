@@ -57,15 +57,19 @@
                          label="Prisoner's category" errorMessage="Select the prisoner's category">
       </app-radio-buttons>
 
-      <br/>
+      <hr/>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="offence" required="true" [error]="formError" label="Offence"
                  errorMessage="Enter the offence"></app-text-entry>
 
+      <hr/>
+
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="sentence" required="true" [error]="formError" label="Sentence"
                  errorMessage="Enter the sentence"></app-text-entry>
+
+      <hr/>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Determinate', 'Indeterminate']"

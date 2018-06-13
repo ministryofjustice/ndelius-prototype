@@ -17,6 +17,7 @@ import { MappaComponent } from './mappa/mappa.component';
 import { RiskReoffendingComponent } from './risk-reoffending/risk-reoffending.component';
 import { RiskCommunityComponent } from './risk-community/risk-community.component';
 import { RiskCustodyComponent } from './risk-custody/risk-custody.component';
+import { RiskPrisonerComponent } from './risk-prisoner/risk-prisoner.component';
 import { RiskSeriousHarmComponent } from './risk-serious-harm/risk-serious-harm.component';
 import { SourcesComponent } from './sources/sources.component';
 import { HearingConsiderationsComponent } from './hearing-considerations/hearing-considerations.component';
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'risk-reoffending', data: { title: 'Risk of re-offending' }, component: RiskReoffendingComponent },
   { path: 'risk-community', data: { title: 'Risk within the community' }, component: RiskCommunityComponent },
   { path: 'risk-custody', data: { title: 'Risk whilst in custody' }, component: RiskCustodyComponent },
+  { path: 'risk-prisoner', data: { title: 'Risk prisoner' }, component: RiskPrisonerComponent },
   { path: 'risk-serious-harm', data: { title: 'Risk of serious harm' }, component: RiskSeriousHarmComponent },
   { path: 'release-risk-management', data: { title: 'Release risk management plan' }, component: ReleaseRiskManagementComponent },
   { path: 'resettlement-plan', data: { title: 'Resettlement plan for release' }, component: ResettlementPlanComponent },

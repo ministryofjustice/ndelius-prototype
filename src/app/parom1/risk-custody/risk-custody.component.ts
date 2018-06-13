@@ -47,7 +47,7 @@ export class RiskCustodyComponent extends BaseComponent {
    *
    */
   protected continueJourney() {
-    this.router.navigate(['parom1/risk-serious-harm']);
+    this.router.navigate(['parom1/risk-prisoner']);
   }
 
   /**
@@ -59,9 +59,7 @@ export class RiskCustodyComponent extends BaseComponent {
       riskKnownAdult: [this.reportData.riskKnownAdult, Validators.required],
       riskChildren: [this.reportData.riskChildren, Validators.required],
       riskPrisoners: [this.reportData.riskPrisoners, Validators.required],
-      riskSelf: [this.reportData.riskSelf, Validators.required],
-      riskStaff: [this.reportData.riskStaff, Validators.required],
-      riskOthers: [this.reportData.riskOthers, Validators.required]
+      riskStaff: [this.reportData.riskStaff, Validators.required]
     });
   }
 

@@ -25,10 +25,14 @@
                       label="How long have you been assigned to the prisoner and what contact have you had with them?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify how long have you been assigned to the prisoner and what contact have you had with them"></app-text-entry>
 
+      <hr/>
+
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerFamilyContact"
                       label="What contact have you had with the prisoner's family, partner or significant others?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with the prisoner's family, partner or significant others"></app-text-entry>
+
+      <hr/>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerStaffContact"

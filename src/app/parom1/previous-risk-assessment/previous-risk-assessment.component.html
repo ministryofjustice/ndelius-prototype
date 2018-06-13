@@ -31,7 +31,7 @@
                             label="When was the previous risk assessment completed?"
                             help="For example, 3 2018"></app-three-field-date>
 
-      <br/>
+      <hr/>
 
       <p class="lede">Select the levels for the previous risk assessment</p>
 
@@ -53,7 +53,7 @@
 
       <app-radio-buttons [group]="reportForm" [error]="formError" name="riskStaff" label="Staff" errorMessage="Select the risk to staff" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
-      <br/>
+      <hr/>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="attitude"

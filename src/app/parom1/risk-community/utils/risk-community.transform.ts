@@ -25,11 +25,7 @@ export class RiskCommunityTransform {
             }], [data.riskPublic || '', data.riskKnownAdult || '', data.riskChildren || '', data.riskPrisoners || '', data.riskStaff || '']
           ]
         }
-      },
-      { text: 'Self harming risk', style: 'fieldHeading' },
-      data.riskSelf || '',
-      { text: 'Risk of harm from others', style: 'fieldHeading' },
-      data.riskOthers || ''
+      }
     ];
   }
 

@@ -45,6 +45,8 @@
 
       </fieldset>
 
+      <hr/>
+
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="reportsAssessmentsDirections"
                       label="List all the reports, assessments and directions you have used for this PAROM 1"
@@ -62,6 +64,8 @@
           <li class="list-bullet">SARA assessment</li>
         </ul>
       </app-text-entry>
+
+      <hr/>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="sourceLimitations" [options]="['Yes', 'No']" required="true" [error]="formError"
