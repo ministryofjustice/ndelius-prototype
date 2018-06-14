@@ -21,7 +21,7 @@ jobs:
           command: yarn ng lint
       - run:
           name: Unit test
-          command: yarn ng test --single-run --no-progress --browsers ChromeHeadless
+          command: yarn ng test --no-progress --browsers ChromeHeadless
       - run:
           name: Production build
           command: yarn ng build --prod --build-optimizer --aot --no-progress --source-map
