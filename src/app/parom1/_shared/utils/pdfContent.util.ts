@@ -1,7 +1,7 @@
 import { IState } from '../reducer/state.reducers';
 
 import { PrisonerDetailsTransform } from '../../prisoner-details/utils/prisoner-details.transform';
-import { PrisonerRelationshipTransform } from '../../prisoner-relationship/utils/prisoner-relationship.transform';
+import { PrisonerContactTransform } from '../../prisoner-contact/utils/prisoner-contact.transform';
 import { PreviousRiskAssessmentTransform } from '../../previous-risk-assessment/utils/previous-risk-assessment.transform';
 import { VictimsTransform } from '../../victim-issues/utils/victims.transform';
 import { OpdPathwayTransform } from '../../opd-pathway/utils/opd-pathway.transform';
@@ -9,7 +9,7 @@ import { BehaviourTransform } from '../../behaviour/utils/behaviour.transform';
 import { InterventionsTransform } from '../../interventions/utils/interventions.transform';
 import { SentencePlanTransform } from '../../sentence-plan/utils/sentence-plan.transform';
 import { MappaTransform } from '../../mappa/utils/mappa.transform';
-import { RiskReoffendingTransform } from '../../risk-reoffending/utils/risk-reoffending.transform';
+import { CurrentRiskAssessmentTransform } from '../../current-risk-assessment/utils/current-risk-assessment.transform';
 import { RiskCommunityTransform } from '../../risk-community/utils/risk-community.transform';
 import { RiskCustodyTransform } from '../../risk-custody/utils/risk-custody.transform';
 import { RiskSeriousHarmTransform } from '../../risk-serious-harm/utils/risk-serious-harm.transform';
@@ -20,6 +20,7 @@ import { RecommendationTransform } from '../../recommendation/utils/recommendati
 import { HearingConsiderationsTransform } from '../../hearing-considerations/utils/hearing-considerations.transform';
 import { SourcesTransform } from '../../sources/utils/sources.transform';
 import { SignatureTransform } from '../../signature/utils/signature.transform';
+import { RiskPrisonerTransform } from '../../risk-prisoner/utils/risk-prisoner.transform';
 
 /**
  *
@@ -58,7 +59,7 @@ export class PdfContentUtil {
       },
       { text: 'Parole Assessment Report Offender Manager (PAROM 1)', style: 'reportTitle', alignment: 'center', margin: [0, 20, 0, 0] },
       PrisonerDetailsTransform.process(data.prisonerDetails),
-      PrisonerRelationshipTransform.process(data.prisonerRelationship),
+      PrisonerContactTransform.process(data.prisonerContact),
       PreviousRiskAssessmentTransform.process(data.previousRiskAssessment),
       VictimsTransform.process(data.victimIssues),
       OpdPathwayTransform.process(data.offenderPersonalityDisorderPathway),
@@ -66,9 +67,10 @@ export class PdfContentUtil {
       InterventionsTransform.process(data.interventions),
       SentencePlanTransform.process(data.sentencePlan),
       MappaTransform.process(data.mappa),
-      RiskReoffendingTransform.process(data.riskReoffending),
+      CurrentRiskAssessmentTransform.process(data.riskAssessment),
       RiskCommunityTransform.process(data.riskCommunity),
       RiskCustodyTransform.process(data.riskCustody),
+      RiskPrisonerTransform.process(data.riskPrisoner),
       RiskSeriousHarmTransform.process(data.riskSeriousHarm),
       ReleaseRiskManagementTransform.process(data.releaseRiskManagement),
       ResettlementPlanTransform.process(data.resettlementPlan),

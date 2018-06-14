@@ -25,7 +25,7 @@ export class BehaviourComponent extends BaseComponent {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerRelationship>} store
+   * @param {Store<IPrisonerContact>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IBehaviour>) {
     super();
@@ -55,6 +55,7 @@ export class BehaviourComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
+      behaviourDetail: [this.reportData.behaviourDetail, Validators.required],
       rotl: [this.reportData.rotl, Validators.required],
       rotlInformation: [this.reportData.rotlInformation, Validators.required]
     });

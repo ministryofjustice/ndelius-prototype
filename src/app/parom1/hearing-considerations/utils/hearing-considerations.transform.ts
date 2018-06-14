@@ -9,7 +9,7 @@ export class HearingConsiderationsTransform {
    */
   static process(data: IHearingConsiderations): Array<any> {
     return [
-      { text: 'Oral hearing considerations', style: 'sectionHeading' },
+      { text: 'Oral hearing', style: 'sectionHeading' },
       data.oralHearingConsiderations || '',
     ];
   }

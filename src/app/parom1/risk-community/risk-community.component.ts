@@ -25,7 +25,7 @@ export class RiskCommunityComponent extends BaseComponent {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerRelationship>} store
+   * @param {Store<IPrisonerContact>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskCommunity>) {
     super();

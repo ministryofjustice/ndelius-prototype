@@ -10,7 +10,7 @@ export class RiskCommunityTransform {
    */
   static process(data: IRiskCommunity): Array<any> {
     return [
-      { text: 'Risk in the community', style: 'sectionHeading' },
+      { text: 'Current ROSH: community', style: 'sectionHeading' },
       {
         style: 'tableDefault',
         table: {

@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { PrisonerRelationshipComponent } from './prisoner-relationship.component';
+import { PrisonerContactComponent } from './prisoner-contact.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
@@ -13,18 +13,18 @@ import { MockFooterComponent } from '../../_shared/components/footer/footer.mock
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 
-import * as model from './reducer/prisoner-relationship.reducer';
+import * as model from './reducer/prisoner-contact.reducer';
 
-describe('PAROM1 - Component: Prisoner knowledge', () => {
+describe('PAROM1 - Component: Prisoner contact', () => {
 
-  let fixture: ComponentFixture<PrisonerRelationshipComponent>;
-  let component: PrisonerRelationshipComponent;
+  let fixture: ComponentFixture<PrisonerContactComponent>;
+  let component: PrisonerContactComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        PrisonerRelationshipComponent,
+        PrisonerContactComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
@@ -41,7 +41,7 @@ describe('PAROM1 - Component: Prisoner knowledge', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PrisonerRelationshipComponent);
+    fixture = TestBed.createComponent(PrisonerContactComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -52,7 +52,7 @@ describe('PAROM1 - Component: Prisoner knowledge', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Prisoner relationship');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Offender manager: prisoner contact');
   });
 
   it('should navigate to the Court details page', () => {

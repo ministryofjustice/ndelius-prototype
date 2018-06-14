@@ -12,7 +12,7 @@
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
-                    { name: 'interventionsList', error: 'List the interventions the prisoner has completed' },
+                    { name: 'interventionsList', error: 'Detail the interventions the prisoner has completed' },
                     { name: 'interventionsSummary', error: 'Enter the interventions summary' }
                     ]">
     </app-form-error>
@@ -21,9 +21,9 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="interventionsList"
-                      label="List the interventions the prisoner has completed, in chronological order"
+                      label="Detail the interventions the prisoner has completed"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="List the interventions the prisoner has completed">
+                      errorMessage="Detail the interventions the prisoner has completed">
         <ul>
           <li class="list-bullet">those designed to reduce risk</li>
           <li class="list-bullet">those designed to increase social capital</li>

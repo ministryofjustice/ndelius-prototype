@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Risk of serious harm</h1>
+<h1 class="heading-xlarge">ROSH analysis</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
@@ -14,26 +14,25 @@
                     [controls]="[
                     { name: 'seriousHarmOthers', error: 'Detail the nature of the risk of serious harm' },
                     { name: 'increaseFactors', error: 'What factors might increase the risk of serious harm' },
-                    { name: 'reductionFactors', error: 'What factors that might decrease the risk of serious harm' }
+                    { name: 'reductionFactors', error: 'What factors that might decrease the risk of serious harm' },
+                    { name: 'likelihoodOfReoffending', error: 'Enter the likelihood of further offending' },
+                    { name: 'abscondingRisk', error: 'Specify if in closed conditions, the prisoner poses an absconding risk' }
                     ]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <!-- Angular component -->
+      <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="seriousHarmOthers"
-                      label="Detail the nature of the risk of serious harm to the identified groups and explain why"
+                      label="Detail the nature of the risk of serious harm to all relevant groups"
+                      help="Explain why they are at risk"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="Detail the nature of the risk of serious harm">
-        <ul>
-          <li class="list-bullet">risk of self-harm</li>
-          <li class="list-bullet">risk others pose to the prisoner</li>
-        </ul>
       </app-text-entry>
 
       <hr/>
 
-      <!-- Angular component -->
+      <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="increaseFactors"
                       label="What factors might increase the risk of serious harm?"
                       help="Include identified patterns of behaviour and offending, consider offence parallel behaviours."
@@ -43,12 +42,43 @@
 
       <hr/>
 
-      <!-- Angular component -->
+      <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="reductionFactors"
                       label="What factors that might decrease the risk of serious harm?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="What factors that might decrease the risk of serious harm">
       </app-text-entry>
+
+      <hr/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="likelihoodOfReoffending" [error]="formError"
+                      label="Analyse the likelihood of further offending"
+                      help="Consider the static and dynamic assessment scores in this report and the impact of further offending"
+                      errorMessage="Enter the likelihood of further offending"></app-text-entry>
+
+      <hr/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-radio-buttons [group]="reportForm" name="abscondingRisk" [options]="['Yes', 'No']" required="true"
+                         [error]="formError"
+                         label="If in closed conditions, does the prisoner pose an absconding risk?"
+                         errorMessage="Specify if in closed conditions, the prisoner poses an absconding risk">
+      </app-radio-buttons>
+
+      <!-- ABSCONDING RISK -->
+      <div class="panel panel-border-narrow"
+           [ngClass]="{ 'js-hidden': reportForm.get('abscondingRisk').value !== 'Yes' }"
+           [attr.aria-hidden]="reportForm.get('abscondingRisk').value !== 'Yes'">
+
+        <!-- ANGULAR COMPONENT -->
+        <app-text-entry [group]="reportForm" name="abscondingRiskDetails"
+                        label="Provide details of the absconding risk">
+        </app-text-entry>
+
+      </div>
+
+      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

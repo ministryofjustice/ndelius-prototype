@@ -15,7 +15,7 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 
 import * as model from './reducer/hearing-considerations.reducer';
 
-describe('PAROM1 - Component: Oral hearing considerations', () => {
+describe('PAROM1 - Component: Oral hearing', () => {
 
   let fixture: ComponentFixture<HearingConsiderationsComponent>;
   let component: HearingConsiderationsComponent;
@@ -52,7 +52,7 @@ describe('PAROM1 - Component: Oral hearing considerations', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Oral hearing considerations');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Oral hearing');
   });
 
   it('should navigate to the Court details page', () => {

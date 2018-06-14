@@ -17,7 +17,7 @@ import { MockThreeFieldDateComponent } from '../../_shared/components/three-fiel
 import * as model from './reducer/previous-risk-assessment.reducer';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
-describe('PAROM1 - Component: Previous risk assessment', () => {
+describe('PAROM1 - Component: ROSH at point of sentence', () => {
 
   let fixture: ComponentFixture<PreviousRiskAssessmentComponent>;
   let component: PreviousRiskAssessmentComponent;
@@ -56,7 +56,7 @@ describe('PAROM1 - Component: Previous risk assessment', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Previous risk assessment');
+    expect(compiled.querySelector('h1').innerHTML).toBe('ROSH at point of sentence');
   });
 
   it('should navigate to the Court details page', () => {

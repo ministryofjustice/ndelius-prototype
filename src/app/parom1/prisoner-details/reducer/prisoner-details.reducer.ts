@@ -18,6 +18,11 @@ export const initialState: IPrisonerDetails = {
     month: void 0,
     year: void 0
   },
+  determinateEligibilityDate: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
   tariffLength: '',
   tariffExpiryDate: {
     day: void 0,

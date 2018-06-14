@@ -54,7 +54,7 @@ describe('PAROM1 - Component: Release risk management plan', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Release risk management plan');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Community RMP');
   });
 
   it('should navigate to the Court details page', () => {

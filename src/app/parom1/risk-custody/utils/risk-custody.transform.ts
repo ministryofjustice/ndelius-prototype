@@ -9,7 +9,7 @@ export class RiskCustodyTransform {
    */
   static process(data: IRiskCustody): Array<any> {
     return [
-      { text: 'Risk in custody', style: 'sectionHeading' },
+      { text: 'Current ROSH: custody', style: 'sectionHeading' },
       {
         style: 'tableDefault',
         table: {

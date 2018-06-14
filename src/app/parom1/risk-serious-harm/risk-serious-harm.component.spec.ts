@@ -16,7 +16,7 @@ import { MockRadioButtonsComponent } from '../../_shared/components/radio-button
 
 import * as model from './reducer/risk-serious-harm.reducer';
 
-describe('PAROM1 - Component: RIsk of serious harm', () => {
+describe('PAROM1 - Component: ROSH analysis', () => {
 
   let fixture: ComponentFixture<RiskSeriousHarmComponent>;
   let component: RiskSeriousHarmComponent;
@@ -54,7 +54,7 @@ describe('PAROM1 - Component: RIsk of serious harm', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk of serious harm');
+    expect(compiled.querySelector('h1').innerHTML).toBe('ROSH analysis');
   });
 
   it('should navigate to the Court details page', () => {

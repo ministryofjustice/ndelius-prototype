@@ -52,7 +52,7 @@ describe('PAROM1 - Component: Current sentence plan and response', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Current sentence plan');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Current sentence plan and response');
   });
 
   it('should navigate to the Court details page', () => {

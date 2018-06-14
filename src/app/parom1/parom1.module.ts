@@ -8,7 +8,7 @@ import { SaveDraftComponent } from './save-draft/save-draft.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { StartReportComponent } from './start-report/start-report.component';
 import { PrisonerDetailsComponent } from './prisoner-details/prisoner-details.component';
-import { PrisonerRelationshipComponent } from './prisoner-relationship/prisoner-relationship.component';
+import { PrisonerContactComponent } from './prisoner-contact/prisoner-contact.component';
 import { PreviousRiskAssessmentComponent } from './previous-risk-assessment/previous-risk-assessment.component';
 import { ReportCompleteComponent } from './report-complete/report-complete.component';
 import { VictimIssuesComponent } from './victim-issues/victim-issues.component';
@@ -16,7 +16,7 @@ import { OpdPathwayComponent } from './opd-pathway/opd-pathway.component';
 import { BehaviourComponent } from './behaviour/behaviour.component';
 import { InterventionsComponent } from './interventions/interventions.component';
 import { SentencePlanComponent } from './sentence-plan/sentence-plan.component';
-import { RiskReoffendingComponent } from './risk-reoffending/risk-reoffending.component';
+import { CurrentRiskAssessmentComponent } from './current-risk-assessment/current-risk-assessment.component';
 import { MappaComponent } from './mappa/mappa.component';
 import { RiskCommunityComponent } from './risk-community/risk-community.component';
 import { RiskCustodyComponent } from './risk-custody/risk-custody.component';
@@ -42,7 +42,7 @@ import { SignatureComponent } from './signature/signature.component';
     FeedbackComponent,
     StartReportComponent,
     PrisonerDetailsComponent,
-    PrisonerRelationshipComponent,
+    PrisonerContactComponent,
     PreviousRiskAssessmentComponent,
     VictimIssuesComponent,
     OpdPathwayComponent,
@@ -50,7 +50,7 @@ import { SignatureComponent } from './signature/signature.component';
     InterventionsComponent,
     SentencePlanComponent,
     MappaComponent,
-    RiskReoffendingComponent,
+    CurrentRiskAssessmentComponent,
     RiskCommunityComponent,
     RiskCustodyComponent,
     RiskPrisonerComponent,

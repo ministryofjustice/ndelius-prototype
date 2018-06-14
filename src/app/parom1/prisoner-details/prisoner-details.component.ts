@@ -60,7 +60,7 @@ export class PrisonerDetailsComponent extends BaseComponent {
    *
    */
   protected continueJourney() {
-    this.router.navigate(['parom1/prisoner-relationship']);
+    this.router.navigate(['parom1/prisoner-contact']);
   }
 
   /**
@@ -76,6 +76,11 @@ export class PrisonerDetailsComponent extends BaseComponent {
       offence: [this.reportData.offence, Validators.required],
       sentence: [this.reportData.sentence, Validators.required],
       sentenceType: [this.reportData.sentenceType, Validators.required],
+      determinateEligibilityDate: this.formBuilder.group({
+        day: this.reportData.determinateEligibilityDate.day,
+        month: this.reportData.determinateEligibilityDate.month,
+        year: this.reportData.determinateEligibilityDate.year
+      }),
       determinateReleaseDate: this.formBuilder.group({
         day: this.reportData.determinateReleaseDate.day,
         month: this.reportData.determinateReleaseDate.month,

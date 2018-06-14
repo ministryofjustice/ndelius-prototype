@@ -52,7 +52,7 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="category"
-                         [options]="['Category A', 'Category B', 'Category C']" required="true"
+                         [options]="['A', 'Restricted', 'Closed', 'Open']" required="true"
                          [error]="formError"
                          label="Prisoner's category" errorMessage="Select the prisoner's category">
       </app-radio-buttons>
@@ -72,21 +72,10 @@
       <hr/>
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Determinate', 'Indeterminate']"
+      <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Indeterminate', 'Determinate']"
                          required="true" [error]="formError"
                          label="Sentence type" errorMessage="Select the sentence type">
       </app-radio-buttons>
-
-      <!-- DETERMINATE -->
-      <div class="panel panel-border-narrow"
-           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
-           [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
-
-        <!-- ANGULAR COMPONENT -->
-        <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
-                              label="Automatic release date / non parole eligibility date"
-                              help="For example, 31 3 2018"></app-three-field-date>
-      </div>
 
       <!-- INDETERMINATE -->
       <div class="panel panel-border-narrow"
@@ -105,6 +94,24 @@
         <app-three-field-date [group]="reportForm" name="tariffExpiryDate"
                               label="Tariff expiry date" help="For example, 31 3 2018"></app-three-field-date>
 
+      </div>
+
+      <!-- DETERMINATE -->
+      <div class="panel panel-border-narrow"
+           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
+           [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
+
+        <!-- ANGULAR COMPONENT -->
+        <app-three-field-date [group]="reportForm" name="determinateEligibilityDate"
+                              label="Parole eligibility date"
+                              help="For example, 31 3 2018"></app-three-field-date>
+
+        <br/>
+
+        <!-- ANGULAR COMPONENT -->
+        <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
+                              label="Automatic release date / non parole eligibility date"
+                              help="For example, 31 3 2018"></app-three-field-date>
       </div>
 
       <br/>

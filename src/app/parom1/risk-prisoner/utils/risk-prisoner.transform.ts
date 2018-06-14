@@ -1,6 +1,6 @@
 import { IRiskPrisoner } from '../model/risk-prisoner.model';
 
-export class RiskCustodyTransform {
+export class RiskPrisonerTransform {
 
   /**
    *

@@ -19,13 +19,13 @@ export function sections(): Array<ISection> {
       state: 'prisonerDetails'
     },
     {
-      route: '/parom1/prisoner-relationship',
-      label: 'Prisoner relationship',
-      state: 'prisonerRelationship'
+      route: '/parom1/prisoner-contact',
+      label: 'Prisoner contact',
+      state: 'prisonerContact'
     },
     {
       route: '/parom1/previous-risk-assessment',
-      label: 'Previous risk assessment',
+      label: 'ROSH at point of sentence',
       state: 'previousRiskAssessment'
     },
     {
@@ -59,18 +59,18 @@ export function sections(): Array<ISection> {
       state: 'mappa'
     },
     {
-      route: '/parom1/risk-reoffending',
-      label: 'Risk of re-offending',
-      state: 'riskReoffending'
+      route: '/parom1/risk-assessment',
+      label: 'Current risk assessment',
+      state: 'riskAssessment'
     },
     {
       route: '/parom1/risk-community',
-      label: 'Risk within the community',
+      label: 'Current ROSH: community',
       state: 'riskCommunity'
     },
     {
       route: '/parom1/risk-custody',
-      label: 'Risk whilst in custody',
+      label: 'Current ROSH: custody',
       state: 'riskCustody'
     },
     {
@@ -80,12 +80,12 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/risk-serious-harm',
-      label: 'Risk of serious harm',
+      label: 'ROSH analysis',
       state: 'riskSeriousHarm'
     },
     {
       route: '/parom1/release-risk-management',
-      label: 'Risk management plan',
+      label: 'Community RMP',
       state: 'releaseRiskManagement'
     },
     {
@@ -100,12 +100,12 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/recommendation',
-      label: 'Your recommendation',
+      label: 'Recommendation',
       state: 'recommendation'
     },
     {
       route: '/parom1/hearing-considerations',
-      label: 'Oral hearing considerations',
+      label: 'Oral hearing',
       state: 'hearingConsiderations'
     },
     {
