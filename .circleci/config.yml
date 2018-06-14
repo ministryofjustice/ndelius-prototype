@@ -3,7 +3,7 @@ jobs:
   build-job:
     working_directory: ~/hmpps-prototype
     docker:
-      - image: circleci/node:10.4.0-browsers
+      - image: circleci/node:10.4.1-browsers
     steps:
       - checkout
       - restore_cache:
@@ -31,7 +31,7 @@ jobs:
             - dist
   deploy-job:
     docker:
-      - image: circleci/node:10.4.0
+      - image: circleci/node:10.4.1
     steps:
       - run:
           name: Install awscli
