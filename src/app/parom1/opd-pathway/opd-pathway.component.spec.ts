@@ -54,7 +54,7 @@ describe('PAROM1 - Component: Offender personality disorder pathway', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Offender personality disorder pathway');
+    expect(compiled.querySelector('h1').innerHTML).toBe('OPD pathway');
   });
 
   it('should navigate to the Court details page', () => {

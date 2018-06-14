@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { reducers } from '../_shared/reducer/state.reducers';
 
-import { RiskReoffendingComponent } from './risk-reoffending.component';
+import { CurrentRiskAssessmentComponent } from './current-risk-assessment.component';
 import { MockSubNavigationComponent } from '../../_shared/components/sub-navigation.mock.component';
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
@@ -13,20 +13,20 @@ import { MockFooterComponent } from '../../_shared/components/footer/footer.mock
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
-
-import * as model from './reducer/risk-reoffending.reducer';
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
+
+import * as model from './reducer/current-risk-assessment.reducer';
 
 describe('PAROM1 - Component: Risk of re-offending', () => {
 
-  let fixture: ComponentFixture<RiskReoffendingComponent>;
-  let component: RiskReoffendingComponent;
+  let fixture: ComponentFixture<CurrentRiskAssessmentComponent>;
+  let component: CurrentRiskAssessmentComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        RiskReoffendingComponent,
+        CurrentRiskAssessmentComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
@@ -45,7 +45,7 @@ describe('PAROM1 - Component: Risk of re-offending', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RiskReoffendingComponent);
+    fixture = TestBed.createComponent(CurrentRiskAssessmentComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -56,7 +56,7 @@ describe('PAROM1 - Component: Risk of re-offending', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk of re-offending');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Current risk assessment');
   });
 
   it('should navigate to the correct page', () => {

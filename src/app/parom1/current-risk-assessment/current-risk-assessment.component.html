@@ -1,0 +1,48 @@
+<!-- ANGULAR COMPONENT -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Current risk assessment</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- ANGULAR COMPONENT -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'rsrScore', error: 'Enter the risk of serious recidivism score' },
+                    { name: 'ogrs3Percentage', error: 'Enter the OGRS3 probability of proven re-offending' },
+                    { name: 'ogpProbability', error: 'Enter the OGP probability of proven non-violent type reoffending' },
+                    { name: 'ovpProbability', error: 'Enter the OVP probability of proven violent type reoffending' },
+                    { name: 'riskMatrix2000', error: 'Select the Risk Matrix 2000 level' },
+                    { name: 'sara', error: 'Select the SARA level' }
+                    ]">
+    </app-form-error>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <app-input [group]="reportForm" name="rsrScore" [error]="formError" label="Risk of serious recidivism (RSR) score" help="For example 6.32 or 4.78" errorMessage="Enter the risk of serious recidivism score" required="true"></app-input>
+
+      <app-input [group]="reportForm" name="ogrs3Percentage" [error]="formError" label="OGRS3 probability of proven reoffending" help="For example 23%" errorMessage="Enter the OGRS3 percentage of proven re-offending" required="true"></app-input>
+
+      <app-input [group]="reportForm" name="ogpProbability" [error]="formError" label="OGP probability of proven non-violent type reoffending" help="For example 23%" errorMessage="Enter the OGP probability of proven non-violent type re-offending" required="true"></app-input>
+
+      <app-input [group]="reportForm" name="ovpProbability" [error]="formError" label="OVP probability of proven violent type reoffending" help="For example 23%" errorMessage="Enter the OVP probability of proven violent type re-offending" required="true"></app-input>
+
+      <app-radio-buttons [group]="reportForm" name="riskMatrix2000" [error]="formError" label="Risk Matrix 2000" errorMessage="Select the Risk Matrix 2000 level" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+
+      <br />
+
+      <app-radio-buttons [group]="reportForm" name="sara" label="SARA" [error]="formError" errorMessage="Select the SARA level" [options]="['Low', 'Medium', 'High']" required="true"></app-radio-buttons>
+
+      <br/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-footer></app-footer>
+
+    </form>
+
+  </div>
+</div>

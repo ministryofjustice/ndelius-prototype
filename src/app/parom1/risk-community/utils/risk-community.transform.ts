@@ -10,7 +10,7 @@ export class RiskCommunityTransform {
    */
   static process(data: IRiskCommunity): Array<any> {
     return [
-      { text: 'Risk in the community', style: 'sectionHeading' },
+      { text: 'Current ROSH: community', style: 'sectionHeading' },
       {
         style: 'tableDefault',
         table: {
@@ -25,11 +25,7 @@ export class RiskCommunityTransform {
             }], [data.riskPublic || '', data.riskKnownAdult || '', data.riskChildren || '', data.riskPrisoners || '', data.riskStaff || '']
           ]
         }
-      },
-      { text: 'Self harming risk', style: 'fieldHeading' },
-      data.riskSelf || '',
-      { text: 'Risk of harm from others', style: 'fieldHeading' },
-      data.riskOthers || ''
+      }
     ];
   }
 

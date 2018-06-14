@@ -4,7 +4,7 @@ export class VictimsTransform {
 
   /**
    *
-   * @param {IPrisonerRelationship} data
+   * @param {IPrisonerContact} data
    * @returns {Object}
    */
   static process(data: IVictimIssues): Array<any> {

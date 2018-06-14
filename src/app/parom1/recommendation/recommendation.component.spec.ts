@@ -16,7 +16,7 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 
 import * as model from './reducer/recommendation.reducer';
 
-describe('PAROM1 - Component: Your recommendation (COM)', () => {
+describe('PAROM1 - Component: Recommendation', () => {
 
   let fixture: ComponentFixture<RecommendationComponent>;
   let component: RecommendationComponent;
@@ -53,7 +53,7 @@ describe('PAROM1 - Component: Your recommendation (COM)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Your recommendation');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Recommendation');
   });
 
   it('should navigate to the Court details page', () => {

@@ -25,7 +25,7 @@ export class RiskSeriousHarmComponent extends BaseComponent {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerRelationship>} store
+   * @param {Store<IPrisonerContact>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskSeriousHarm>) {
     super();
@@ -57,7 +57,10 @@ export class RiskSeriousHarmComponent extends BaseComponent {
     this.reportForm = this.formBuilder.group({
       seriousHarmOthers: [this.reportData.seriousHarmOthers, Validators.required],
       increaseFactors: [this.reportData.increaseFactors, Validators.required],
-      reductionFactors: [this.reportData.reductionFactors, Validators.required]
+      reductionFactors: [this.reportData.reductionFactors, Validators.required],
+      likelihoodOfReoffending: [this.reportData.likelihoodOfReoffending, Validators.required],
+      abscondingRisk: [this.reportData.abscondingRisk, Validators.required],
+      abscondingRiskDetails: this.reportData.abscondingRiskDetails
     });
   }
 

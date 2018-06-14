@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -26,8 +26,8 @@ export class FeedbackComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      rating: void 0,
-      feedback: ''
+      rating: [void 0, Validators.required],
+      feedback: ['', Validators.required]
     });
   }
 
@@ -58,7 +58,6 @@ export class FeedbackComponent {
    * @param {any} form
    */
   onSubmit(form: any) {
-
     this.formError = !form.valid;
     if (form.valid) {
       if (environment.production) {

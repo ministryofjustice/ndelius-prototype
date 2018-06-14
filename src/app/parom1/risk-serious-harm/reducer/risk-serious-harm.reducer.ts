@@ -8,6 +8,9 @@ export const initialState: IRiskSeriousHarm = {
   seriousHarmOthers: '',
   increaseFactors: '',
   reductionFactors: '',
+  likelihoodOfReoffending: '',
+  abscondingRisk: '',
+  abscondingRiskDetails: '',
   saved: false,
   valid: false
 };

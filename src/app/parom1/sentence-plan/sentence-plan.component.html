@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Current sentence plan</h1>
+<h1 class="heading-xlarge">Current sentence plan and response</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
@@ -11,14 +11,14 @@
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
-                    [controls]="[{ name: 'sentencePlanObjectives', error: 'Enter the sentence plan objectives and their progress' }]">
+                    [controls]="[{ name: 'sentencePlanObjectives', error: 'Enter the prisoner’s current sentence plan objectives, including their response' }]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="sentencePlanObjectives"
-                      label="Detail the prisoner's sentence plan objectives and their progress"
+                      label="Detail the prisoner’s current sentence plan objectives, including their response"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('sentencePlanObjectives').errors" errorMessage="Enter the sentence plan objectives and their progress">
         <ul>
           <li class="list-bullet">current and planned interventions</li>

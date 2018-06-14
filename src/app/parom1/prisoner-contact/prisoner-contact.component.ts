@@ -5,29 +5,29 @@ import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
 
-import { UpdatePrisonerRelationshipAction } from './action/prisoner-relationship.action';
-import { IPrisonerRelationship } from './model/prisoner-relationship.model';
+import { UpdatePrisonerContactAction } from './action/prisoner-contact.action';
+import { IPrisonerContact } from './model/prisoner-contact.model';
 
-import { getPrisonerRelationship } from './reducer/prisoner-relationship.reducer';
+import { getPrisonerRelationship } from './reducer/prisoner-contact.reducer';
 
 @Component({
   selector: 'app-prisoner-relationship',
-  templateUrl: './prisoner-relationship.component.html'
+  templateUrl: './prisoner-contact.component.html'
 })
-export class PrisonerRelationshipComponent extends BaseComponent {
+export class PrisonerContactComponent extends BaseComponent {
 
   /**
    *
    */
-  private reportData: IPrisonerRelationship;
+  private reportData: IPrisonerContact;
 
   /**
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerRelationship>} store
+   * @param {Store<IPrisonerContact>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPrisonerRelationship>) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IPrisonerContact>) {
     super();
     this.stateSubscriber = store.select(getPrisonerRelationship).subscribe(data => {
       this.reportData = data;
@@ -38,9 +38,9 @@ export class PrisonerRelationshipComponent extends BaseComponent {
   /**
    *
    */
-  saveContent({ value }: { value: IPrisonerRelationship }) {
+  saveContent({ value }: { value: IPrisonerContact }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdatePrisonerRelationshipAction(updatedValue));
+    this.store.dispatch(new UpdatePrisonerContactAction(updatedValue));
   }
 
   /**
@@ -55,7 +55,7 @@ export class PrisonerRelationshipComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      prisonerContact: [this.reportData.prisonerContact, Validators.required],
+      prisonerContactDetails: [this.reportData.prisonerContactDetails, Validators.required],
       prisonerFamilyContact: [this.reportData.prisonerFamilyContact, Validators.required],
       prisonerStaffContact: [this.reportData.prisonerStaffContact, Validators.required]
     });

@@ -1,16 +1,16 @@
-import { IPrisonerRelationship } from '../model/prisoner-relationship.model';
+import { IPrisonerContact } from '../model/prisoner-contact.model';
 
-export class PrisonerRelationshipTransform {
+export class PrisonerContactTransform {
 
   /**
    *
-   * @param {IPrisonerRelationship} data
+   * @param {IPrisonerContact} data
    * @returns {Object}
    */
-  static process(data: IPrisonerRelationship): Array<any> {
+  static process(data: IPrisonerContact): Array<any> {
     return [
       { text: 'Prisoner relationship', style: 'sectionHeading' },
-      data.prisonerContact || '',
+      data.prisonerContactDetails || '',
       { text: data.prisonerFamilyContact || '', margin: [0, 15, 0, 0] },
       { text: data.prisonerStaffContact || '', margin: [0, 15, 0, 0] }
     ];

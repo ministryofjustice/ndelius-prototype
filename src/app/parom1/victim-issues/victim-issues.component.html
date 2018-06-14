@@ -13,9 +13,9 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'vloContactDate', error: 'Enter the date that you contacted the VLO' },
-                    { name: 'victimContactService', error: 'Specify if the victim is engaged in the Victim Contact Service' },
-                    { name: 'victimPersonalStatement', error: 'Specify if the victim wishes to submit a Victim Personal Statement' },
-                    { name: 'impactOfOffence', error: 'Enter your analysis of the impact of the offence on the victim' }
+                    { name: 'victimContactService', error: 'Specify if the victims are engaged in the Victim Contact Service' },
+                    { name: 'victimPersonalStatement', error: 'Specify if the victims wish to submit a Victim Personal Statement' },
+                    { name: 'impactOfOffence', error: 'Enter your analysis of the impact of the offence on the victims' }
                     ]">
     </app-form-error>
 
@@ -34,7 +34,7 @@
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="impactOfOffence"
-                      label="Analyse the impact of the offence on the victim"
+                      label="Analyse the impact of the offence on the victims"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your analysis of the impact of the offence on the victim">
         <ul>
           <li class="list-bullet">impact on the victims - even if they are in the victim scheme</li>
@@ -42,6 +42,8 @@
           <li class="list-bullet">address the impact on all victims</li>
         </ul>
       </app-text-entry>
+
+      <hr/>
 
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="vloContactDate" date="true" [error]="formError" required="true"
@@ -58,9 +60,9 @@
       <br/>
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No']" required="true" [error]="formError"
-                         label="Does the victim wish to submit a Victim Personal Statement?"
-                         errorMessage="Specify if the victim wishes to submit a Victim Personal Statement">
+      <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No', 'Don\'t know']" required="true" [error]="formError"
+                         label="Do the victims wish to submit a Victim Personal Statement (VPS)?"
+                         errorMessage="Specify if the victims wish to submit a Victim Personal Statement">
       </app-radio-buttons>
 
       <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">

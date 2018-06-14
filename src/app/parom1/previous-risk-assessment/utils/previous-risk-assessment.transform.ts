@@ -5,7 +5,7 @@ export class PreviousRiskAssessmentTransform {
 
   /**
    *
-   * @param {IPrisonerRelationship} data
+   * @param {IPrisonerContact} data
    * @returns {Object}
    */
   static process(data: IPreviousRiskAssessment): Array<any> {

@@ -39,7 +39,10 @@ export class PrisonerDetailsTransform {
 
     if (data.sentenceType && data.sentenceType.toLowerCase() === 'determinate') {
       prisonerDetails.table.body.push(
-        [{ text: 'Release date', style: 'fontBold' }, { text: parseDate(data.determinateReleaseDate), colSpan: 3 }]
+        [
+          { text: 'Eligibility date', style: 'fontBold' }, { text: parseDate(data.determinateEligibilityDate), colSpan: 3 },
+          { text: 'Release date', style: 'fontBold' }, { text: parseDate(data.determinateReleaseDate), colSpan: 3 }
+        ]
       );
     } else if (data.sentenceType && data.sentenceType.toLowerCase() === 'indeterminate') {
       prisonerDetails.table.body.push(

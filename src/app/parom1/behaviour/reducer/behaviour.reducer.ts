@@ -4,6 +4,7 @@ import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 import { IBehaviour } from '../model/behaviour.model';
 
 export const initialState: IBehaviour = {
+  behaviourDetail: '',
   rotl: '',
   rotlInformation: '',
   saved: false,

@@ -5,31 +5,31 @@ import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
 
-import { UpdateRiskReoffendingAction } from './action/risk-reoffending.action';
-import { IRiskReoffending } from './model/risk-reoffending.model';
+import { UpdateRiskAssessmentAction } from './action/current-risk-assessment.action';
+import { IRiskAssessment } from './model/current-risk-assessment.model';
 
-import { getRiskOfReoffending } from './reducer/risk-reoffending.reducer';
+import { getRiskAssessment } from './reducer/current-risk-assessment.reducer';
 
 @Component({
-  selector: 'app-risk-reoffending',
-  templateUrl: './risk-reoffending.component.html'
+  selector: 'app-current-risk-assessment',
+  templateUrl: './current-risk-assessment.component.html'
 })
-export class RiskReoffendingComponent extends BaseComponent {
+export class CurrentRiskAssessmentComponent extends BaseComponent {
 
   /**
    *
    */
-  private reportData: IRiskReoffending;
+  private reportData: IRiskAssessment;
 
   /**
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerRelationship>} store
+   * @param {Store<IPrisonerContact>} store
    */
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskReoffending>) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskAssessment>) {
     super();
-    this.stateSubscriber = store.select(getRiskOfReoffending).subscribe(data => {
+    this.stateSubscriber = store.select(getRiskAssessment).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });
@@ -38,9 +38,9 @@ export class RiskReoffendingComponent extends BaseComponent {
   /**
    *
    */
-  saveContent({ value }: { value: IRiskReoffending }) {
+  saveContent({ value }: { value: IRiskAssessment }) {
     const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
-    this.store.dispatch(new UpdateRiskReoffendingAction(updatedValue));
+    this.store.dispatch(new UpdateRiskAssessmentAction(updatedValue));
   }
 
   /**
@@ -60,8 +60,7 @@ export class RiskReoffendingComponent extends BaseComponent {
       ogpProbability: [this.reportData.ogpProbability, Validators.required],
       ovpProbability: [this.reportData.ovpProbability, Validators.required],
       riskMatrix2000: [this.reportData.riskMatrix2000, Validators.required],
-      sara: [this.reportData.sara, Validators.required],
-      likelihoodOfReoffending: [this.reportData.likelihoodOfReoffending, Validators.required]
+      sara: [this.reportData.sara, Validators.required]
     });
   }
 
