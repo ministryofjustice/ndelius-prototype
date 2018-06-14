@@ -15,7 +15,7 @@ export class CurrentRiskAssessmentTransform {
      * @returns {number}
      */
     function getPercentage(score: string): number {
-      let len = score.indexOf('%') !== -1 ? score.indexOf('%') : score.length;
+      const len = score.indexOf('%') !== -1 ? score.indexOf('%') : score.length;
       return parseInt(score.substr(0, len), 10);
     }
 
