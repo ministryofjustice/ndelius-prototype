@@ -9,7 +9,7 @@ export class RiskSeriousHarmTransform {
    */
   static process(data: IRiskSeriousHarm): Array<any> {
     return [
-      { text: 'Risk of serious harm', style: 'sectionHeading' },
+      { text: 'ROSH analysis', style: 'sectionHeading' },
       { text: 'Risk of serious harm details', style: 'fieldHeading' },
       data.seriousHarmOthers || '',
       {
@@ -22,6 +22,21 @@ export class RiskSeriousHarmTransform {
         style: 'fieldHeading'
       },
       data.reductionFactors || '',
+      {
+        text: 'Likelihood of further offending',
+        style: 'fieldHeading'
+      },
+      data.likelihoodOfReoffending || '',
+      {
+        text: 'If in closed conditions, does the prisoner pose an absconding risk?',
+        style: 'fieldHeading'
+      },
+      data.abscondingRisk || '',
+      {
+        text: 'Details of the absconding risk',
+        style: 'fieldHeading'
+      },
+      data.abscondingRiskDetails || '',
     ];
   }
 

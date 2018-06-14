@@ -53,7 +53,7 @@ export class MappaComponent extends BaseComponent {
    *
    */
   protected continueJourney() {
-    this.router.navigate(['parom1/risk-reoffending']);
+    this.router.navigate(['parom1/risk-assessment']);
   }
 
   /**

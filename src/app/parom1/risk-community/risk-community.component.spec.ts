@@ -16,7 +16,7 @@ import { MockRadioButtonsComponent } from '../../_shared/components/radio-button
 
 import * as model from './reducer/risk-community.reducer';
 
-describe('PAROM1 - Component: Risk within the community', () => {
+describe('PAROM1 - Component: Current ROSH: community', () => {
 
   let fixture: ComponentFixture<RiskCommunityComponent>;
   let component: RiskCommunityComponent;
@@ -54,7 +54,7 @@ describe('PAROM1 - Component: Risk within the community', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk in the community');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Current ROSH: community');
   });
 
   it('should navigate to the Court details page', () => {

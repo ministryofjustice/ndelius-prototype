@@ -1,0 +1,75 @@
+<!-- Angular component -->
+<app-phase-banner></app-phase-banner>
+
+<h1 class="heading-xlarge">Risk to the prisoner</h1>
+
+<div class="grid-row">
+  <div class="column-one-third">
+    <!-- Angular component -->
+    <app-sub-navigation></app-sub-navigation>
+  </div>
+  <div class="column-two-thirds">
+
+    <!-- Angular component -->
+    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
+                    [controls]="[
+                    { name: 'selfHarmCommunity', error: 'Tell us if the prisoner poses a self harming risk in the community' },
+                    { name: 'selfHarmCustody', error: 'Tell us if the prisoner poses a self harming risk in custody' },
+                    { name: 'harmOthersCommunity', error: 'Tell us if the prisoner is at risk of serious harm from others in the community' },
+                    { name: 'harmOthersCustody', error: 'Tell us if the prisoner is at risk of serious harm from others in custody' }
+                    ]">
+    </app-form-error>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <h2 class="lede">Does the prisoner pose a self harming risk?</h2>
+
+      <br/>
+
+      <!-- Angular component -->
+      <app-radio-buttons [group]="reportForm" name="selfHarmCommunity"
+                         label="In the community"
+                         [options]="['Yes', 'No']" required="true" [error]="formError"
+                         errorMessage="Tell us if the prisoner poses a self harming risk in the community">
+      </app-radio-buttons>
+
+      <br/>
+
+      <!-- Angular component -->
+      <app-radio-buttons [group]="reportForm" name="selfHarmCustody"
+                         label="In custody"
+                         [options]="['Yes', 'No']" required="true" [error]="formError"
+                         errorMessage="Tell us if the prisoner poses a self harming risk in custody">
+      </app-radio-buttons>
+
+      <hr/>
+
+      <h2 class="lede">Is the prisoner at risk of serious harm from others?</h2>
+
+      <br/>
+
+      <!-- Angular component -->
+      <app-radio-buttons [group]="reportForm" name="harmOthersCommunity"
+                         label="In the community"
+                         [options]="['Yes', 'No']" required="true" [error]="formError"
+                         errorMessage="Tell us if the prisoner is at risk of serious harm from others in the community">
+      </app-radio-buttons>
+
+      <br/>
+
+      <!-- Angular component -->
+      <app-radio-buttons [group]="reportForm" name="harmOthersCustody"
+                         label="In custody"
+                         [options]="['Yes', 'No']" required="true" [error]="formError"
+                         errorMessage="Tell us if the prisoner is at risk of serious harm from others in custody">
+      </app-radio-buttons>
+
+      <br/>
+
+      <!-- Angular component -->
+      <app-footer></app-footer>
+
+    </form>
+
+  </div>
+</div>

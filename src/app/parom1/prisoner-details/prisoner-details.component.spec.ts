@@ -65,7 +65,7 @@ describe('PAROM1 - Component: Prisoner details', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1/prisoner-relationship']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1/prisoner-contact']);
   });
 
 });

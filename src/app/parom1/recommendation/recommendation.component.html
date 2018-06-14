@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Your recommendation</h1>
+<h1 class="heading-xlarge">Recommendation</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
@@ -18,7 +18,7 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="yourRecommendation"
-                      label="Your recommendation"
+                      label="What is your recommendation?"
                       [limit]="4000"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your recommendation">
         <ul>

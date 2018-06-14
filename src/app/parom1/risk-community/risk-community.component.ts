@@ -25,7 +25,7 @@ export class RiskCommunityComponent extends BaseComponent {
    * @constructor
    * @param {Router} router
    * @param {FormBuilder} formBuilder
-   * @param {Store<IPrisonerRelationship>} store
+   * @param {Store<IPrisonerContact>} store
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskCommunity>) {
     super();
@@ -59,9 +59,7 @@ export class RiskCommunityComponent extends BaseComponent {
       riskKnownAdult: [this.reportData.riskKnownAdult, Validators.required],
       riskChildren: [this.reportData.riskChildren, Validators.required],
       riskPrisoners: [this.reportData.riskPrisoners, Validators.required],
-      riskSelf: [this.reportData.riskSelf, Validators.required],
-      riskStaff: [this.reportData.riskStaff, Validators.required],
-      riskOthers: [this.reportData.riskOthers, Validators.required]
+      riskStaff: [this.reportData.riskStaff, Validators.required]
     });
   }
 

@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Risk in custody</h1>
+<h1 class="heading-xlarge">Current ROSH: custody</h1>
 
 <div class="grid-row">
   <div class="column-one-third">
@@ -22,7 +22,7 @@
                     ]">
     </app-form-error>
 
-    <p class="lede no-margin-top">Select the prisoner's current risk of serious harm in custody</p>
+    <p class="lede no-margin-top">Select the prisoner's current ROSH in custody</p>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -43,14 +43,6 @@
       <br/>
 
       <app-radio-buttons [group]="reportForm" name="riskStaff" label="Staff" [error]="formError" errorMessage="Select the risk to staff" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
-
-      <br/>
-
-      <app-radio-buttons [group]="reportForm" name="riskSelf" label="Does the prisoner pose a self harming risk in custody?" [error]="formError" errorMessage="Select whether the prisoner poses a self harming risk in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
-
-      <br/>
-
-      <app-radio-buttons [group]="reportForm" name="riskOthers" label="Is the prisoner at risk of serious harm from others in custody?" [error]="formError" errorMessage="Select whether the prisoner is at risk of serious harm from others in custody" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
 
       <br/>
 

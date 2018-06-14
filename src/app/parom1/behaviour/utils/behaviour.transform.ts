@@ -10,6 +10,7 @@ export class BehaviourTransform {
   static process(data: IBehaviour): Array<any> {
     return [
       { text: 'Behaviour in prison', style: 'sectionHeading' },
+      data.behaviourDetail || '',
       { text: 'ROTL', style: 'fieldHeading' },
       data.rotl || '',
       { text: 'Further information', style: 'fieldHeading' },

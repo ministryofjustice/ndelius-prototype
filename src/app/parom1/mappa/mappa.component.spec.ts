@@ -69,7 +69,7 @@ describe('PAROM1 - Component: MAPPA', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1/risk-reoffending']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1/risk-assessment']);
   });
 
 });

@@ -16,7 +16,7 @@ import { MockRadioButtonsComponent } from '../../_shared/components/radio-button
 
 import * as model from './reducer/risk-custody.reducer';
 
-describe('PAROM1 - Component: Risk whilst in custody', () => {
+describe('PAROM1 - Component: Current ROSH: custody', () => {
 
   let fixture: ComponentFixture<RiskCustodyComponent>;
   let component: RiskCustodyComponent;
@@ -54,14 +54,14 @@ describe('PAROM1 - Component: Risk whilst in custody', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Risk in custody');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Current ROSH: custody');
   });
 
   it('should navigate to the Court details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     // Age is calculated from dateOfBirth so we need to supply in the test
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['parom1/risk-serious-harm']);
+    expect(navigateSpy).toHaveBeenCalledWith(['parom1/risk-prisoner']);
   });
 
 });
