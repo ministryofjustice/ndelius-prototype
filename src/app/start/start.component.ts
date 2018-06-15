@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { AgePipe } from '../_shared/pipe/age.pipe';
 
+import { VERSION } from 'environments/version';
+
 interface IQueryParams {
   name: string;
   prison: string;
@@ -24,6 +26,8 @@ interface IQueryParams {
   templateUrl: './start.component.html'
 })
 export class StartComponent {
+
+  version = 'v' + VERSION.version;
 
   /**
    *
