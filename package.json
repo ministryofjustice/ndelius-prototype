@@ -1,15 +1,16 @@
 {
   "name": "HMPPS_RapidPrototype",
-  "version": "1.8.0-beta.2",
+  "version": "1.8.0-beta.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --source-map",
-    "test": "ng test --sourceMap=false",
+    "test": "ng test --sourceMap=false --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "doc": "./node_modules/.bin/compodoc -p tsconfig.json -n \"nDelius Prototype\""
+    "doc": "./node_modules/.bin/compodoc -p tsconfig.json -n \"nDelius Prototype\"",
+    "postinstall": "node version.js"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "@types/jasminewd2": "2.0.3",
     "@types/node": "10.3.3",
     "codelyzer": "4.3.0",
+    "git-describe": "4.0.2",
     "jasmine-core": "3.1.0",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "2.0.2",
