@@ -75,6 +75,14 @@
       <hr/>
 
       <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="agencyActions"
+                      label="Agency actions"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the agency actions">
+      </app-text-entry>
+
+      <hr/>
+
+      <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="requirements"
                       label="Additional conditions or requirements"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the additional conditions or requirements">
@@ -86,14 +94,6 @@
       <app-text-entry [group]="reportForm" name="contactLevel"
                       label="Level of contact"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the level of contact">
-      </app-text-entry>
-
-      <hr/>
-
-      <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="agencyActions"
-                      label="Agency actions"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the agency actions">
       </app-text-entry>
 
       <hr/>
