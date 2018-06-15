@@ -18,6 +18,8 @@ export class ReleaseRiskManagementTransform {
       data.control || '',
       { text: 'Added measures for specific risks', style: 'fieldHeading' },
       data.riskMeasures || '',
+      { text: 'Agency actions', style: 'fieldHeading' },
+      data.agencyActions || '',
       { text: 'Additional conditions or requirement', style: 'fieldHeading' },
       data.requirements || '',
       { text: 'Level of contact', style: 'fieldHeading' },
