@@ -1,6 +1,6 @@
 {
   "name": "HMPPS_RapidPrototype",
-  "version": "1.8.0-beta.4",
+  "version": "1.8.0-rc.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
