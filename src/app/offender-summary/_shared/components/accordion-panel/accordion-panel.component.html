@@ -1,0 +1,13 @@
+<div class="accordion-container">
+
+  <h2 class="heading-medium no-margin clickable" (click)="isActive = !isActive"><span class="toggle" [ngClass]="{ 'active': isActive }"></span> {{title}}</h2>
+
+  <div *ngIf="isActive">
+
+    <br/>
+
+    <ng-content></ng-content>
+
+  </div>
+
+</div>

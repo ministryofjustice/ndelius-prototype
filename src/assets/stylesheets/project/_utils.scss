@@ -16,3 +16,17 @@
     display: none;
   }
 }
+
+.column-one-half {
+  &.no-padding-left {
+    @include media(tablet) {
+      padding-left: 0;
+    }
+  }
+
+  &.no-padding-right {
+    @include media(tablet) {
+      padding-right: 0;
+    }
+  }
+}

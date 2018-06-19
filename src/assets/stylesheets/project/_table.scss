@@ -1,0 +1,9 @@
+table.split-rows {
+  tr {
+    border-bottom: 1px solid $grey-3;
+
+    &:last-child {
+      border: 0;
+    }
+  }
+}

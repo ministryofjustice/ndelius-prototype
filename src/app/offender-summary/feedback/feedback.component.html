@@ -1,0 +1,26 @@
+<!-- Angular component -->
+<app-phase-banner isFeedbackRoute="true"></app-phase-banner>
+
+<h1 class="heading-xlarge">Give feedback</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- Angular component -->
+      <app-radio-buttons [group]="reportForm" name="rating" label="Overall, how did you feel about the Offender Summary service you used today?"
+      [options]="['Very satisfied', 'Satisfied', 'Neither satisfied or dissatisfied', 'Dissatisfied', 'Very dissatisfied']"></app-radio-buttons>
+
+      <hr noshade />
+
+      <!-- Angular component -->
+      <app-text-entry [group]="reportForm" name="feedback" label="How could we improve this service?"></app-text-entry>
+
+      <input id="nextButton" class="button" type="submit" value="Submit feedback" />
+
+    </form>
+
+  </div>
+  <div class="column-one-third">&nbsp;</div>
+</div>

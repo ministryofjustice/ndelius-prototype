@@ -1,0 +1,35 @@
+<!-- Angular component -->
+<app-phase-banner></app-phase-banner>
+
+<!-- Angular component -->
+<app-offender-header [data]="offenderData" risk="High"></app-offender-header>
+
+<!-- Angular component -->
+<app-offender-panels [data]="offenderData"></app-offender-panels>
+
+<!-- Angular component -->
+
+<app-accordion-panel title="Offender management" [isActive]="true">
+  <app-offender-management [data]="offenderData"></app-offender-management>
+</app-accordion-panel>
+
+<!-- Angular component -->
+<app-accordion-panel title="Offender details">
+  <app-offender-details [data]="offenderData"></app-offender-details>
+</app-accordion-panel>
+
+<!-- Angular component -->
+<app-accordion-panel title="Contact details">
+  <app-offender-contact [data]="offenderData"></app-offender-contact>
+</app-accordion-panel>
+
+<h2 class="heading-medium">Notes</h2>
+<hr class="no-margin-top margin-bottom"/>
+<div class="box notes">
+  <p>Additional information</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit mattis nisl, eu elementum sem. In molestie
+    fringilla metus, sit amet elementum magna mattis a. Vivamus in nulla a ipsum finibus ultrices in at ligula. Aenean
+    dui justo, tempor sed condimentum eget, luctus sit amet ligula. Donec sagittis diam et libero ullamcorper
+    pellentesque. Nulla ut diam eu quam ultrices posuere. Cras in libero sollicitudin, fringilla felis a, iaculis felis.
+    Pellentesque auctor magna ut nulla aliquam, sed ornare eros dictum.</p>
+</div>

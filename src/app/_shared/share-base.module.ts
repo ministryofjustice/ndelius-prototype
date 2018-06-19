@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -21,6 +21,7 @@ import { NoticeComponent } from './components/notice/notice.component';
     ReactiveFormsModule
   ],
   exports: [
+    CommonModule,
     RouterModule,
     ReactiveFormsModule,
     InputComponent,
@@ -46,6 +47,7 @@ import { NoticeComponent } from './components/notice/notice.component';
     FooterComponent
   ],
   providers: [
+    DatePipe,
     AgePipe
   ]
 })

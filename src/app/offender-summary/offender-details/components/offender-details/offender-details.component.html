@@ -1,0 +1,54 @@
+<div class="grid-row">
+  <div class="column-one-half no-padding-right">
+
+    <table class="split-rows" role="presentation">
+      <tr>
+        <td class="bold" width="50%">Title</td>
+        <td>Ms</td>
+      </tr>
+      <tr>
+        <td class="bold">First name</td>
+        <td>{{data.name.substr(0, data.name.indexOf(' '))}}</td>
+      </tr>
+      <tr>
+        <td class="bold">Surname</td>
+        <td>{{data.name.substr(data.name.indexOf(' '))}}</td>
+      </tr>
+      <tr>
+        <td class="bold">Other names</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="bold">Interpreter required</td>
+        <td>No</td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="column-one-half no-padding-left">
+
+    <table class="split-rows" role="presentation">
+      <tr>
+        <td class="bold" width="50%">Date of birth</td>
+        <td>{{data.dobDay + '/' + data.dobMonth + '/' + data.dobYear}}</td>
+      </tr>
+      <tr>
+        <td class="bold">Age</td>
+        <td>43</td>
+      </tr>
+      <tr>
+        <td class="bold">Gender</td>
+        <td>Female</td>
+      </tr>
+      <tr>
+        <td class="bold">Nationality</td>
+        <td>British</td>
+      </tr>
+      <tr>
+        <td class="bold">Disability status</td>
+        <td>No disabilities recorded</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
