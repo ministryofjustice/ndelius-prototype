@@ -295,7 +295,9 @@ export class PdfContentUtil {
           ]
         }
       },
-      { text: data.proposal, margin: [0, 10, 0, 0] }
+      { text: data.proposal, margin: [0, 10, 0, 0] },
+      { text: 'Equality and diversity issues', style: 'fieldHeading' },
+      data.diversity || ''
     ];
   }
 

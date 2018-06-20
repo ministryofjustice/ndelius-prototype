@@ -14,7 +14,8 @@
                     [controls]="[
                     { name: 'sourceLimitations', error: 'Specify whether there are any omissions or limitations' },
                     { name: 'sourceLimitationExplanation', error: 'Provide an explanation' },
-                    { name: 'reportsAssessmentsDirections', error: 'List all the reports, assessments and directions you have used' }
+                    { name: 'reportsAssessmentsDirections', error: 'List all the reports, assessments and directions you have used' },
+                    { name: 'diversity', error: 'Specify whether you have considered what equality and diversity issues are present' }
                     ]">
     </app-form-error>
 
@@ -82,6 +83,10 @@
         </app-text-entry>
 
       </div>
+
+      <hr/>
+
+      <app-radio-buttons [group]="reportForm" name="diversity" [options]="['Yes', 'No']" required="true" [error]="formError" label="Have you considered what equality and diversity issues are present?" errorMessage="Specify whether you have considered what equality and diversity issues are present"></app-radio-buttons>
 
       <br/>
 

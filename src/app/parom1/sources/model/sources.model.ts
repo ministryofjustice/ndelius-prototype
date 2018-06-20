@@ -11,6 +11,7 @@ export interface ISources {
   reportsAssessmentsDirections: string;
   sourceLimitations: string;
   sourceLimitationExplanation: string;
+  diversity: string;
   saved: boolean;
   valid: boolean;
 }

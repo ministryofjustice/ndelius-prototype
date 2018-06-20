@@ -81,7 +81,8 @@ export class SourcesComponent extends BaseComponent {
       otherDocuments: this.reportData.otherDocuments,
       reportsAssessmentsDirections: [this.reportData.reportsAssessmentsDirections, Validators.required],
       sourceLimitations: [this.reportData.sourceLimitations, Validators.required],
-      sourceLimitationExplanation: this.reportData.sourceLimitationExplanation
+      sourceLimitationExplanation: this.reportData.sourceLimitationExplanation,
+      diversity: [this.reportData.diversity, Validators.required],
     });
   }
 
