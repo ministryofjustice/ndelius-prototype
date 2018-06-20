@@ -8,7 +8,16 @@
 <app-offender-panels [data]="offenderData"></app-offender-panels>
 
 <!-- Angular component -->
+<app-accordion-panel title="0 Risk registers">
+  <p class="align-center">No data</p>
+</app-accordion-panel>
 
+<!-- Angular component -->
+<app-accordion-panel title="0 Recent documents">
+  <p class="align-center">No data</p>
+</app-accordion-panel>
+
+<!-- Angular component -->
 <app-accordion-panel title="Offender management" [isActive]="true">
   <app-offender-management [data]="offenderData"></app-offender-management>
 </app-accordion-panel>
