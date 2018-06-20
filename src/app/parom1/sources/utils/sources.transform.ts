@@ -44,6 +44,8 @@ export class SourcesTransform {
       data.reportsAssessmentsDirections || '',
       { text: 'Sources: issues and limitations', style: 'fieldHeading' },
       data.sourceLimitationExplanation || '',
+      { text: 'Equality and diversity issues', style: 'fieldHeading' },
+      data.diversity || ''
     ];
   }
 
