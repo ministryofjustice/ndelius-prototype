@@ -1,6 +1,6 @@
 <div class="accordion-container">
 
-  <h2 class="heading-medium no-margin clickable" (click)="isActive = !isActive"><span class="toggle" [ngClass]="{ 'active': isActive }"></span> {{title}}</h2>
+  <h2 class="heading-medium no-margin text-blue clickable" (click)="isActive = !isActive">{{title}}<span class="toggle far" [ngClass]="{ 'fa-plus': !isActive, 'fa-minus': isActive }"></span></h2>
 
   <div *ngIf="isActive">
 
@@ -11,3 +11,5 @@
   </div>
 
 </div>
+
+<hr class="margin-top margin-bottom"/>

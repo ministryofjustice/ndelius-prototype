@@ -7,19 +7,16 @@
 <!-- Angular component -->
 <app-offender-panels [data]="offenderData"></app-offender-panels>
 
+<br/>
+
 <!-- Angular component -->
-<app-accordion-panel title="0 Risk registers">
-  <p class="align-center">No data</p>
+<app-accordion-panel title="Offender chronology" [isActive]="true">
+  <app-offender-chronology [data]="offenderData"></app-offender-chronology>
 </app-accordion-panel>
 
 <!-- Angular component -->
-<app-accordion-panel title="0 Recent documents">
+<app-accordion-panel title="Registers and warnings (0)">
   <p class="align-center">No data</p>
-</app-accordion-panel>
-
-<!-- Angular component -->
-<app-accordion-panel title="Offender management" [isActive]="true">
-  <app-offender-management [data]="offenderData"></app-offender-management>
 </app-accordion-panel>
 
 <!-- Angular component -->
@@ -28,12 +25,11 @@
 </app-accordion-panel>
 
 <!-- Angular component -->
-<app-accordion-panel title="Contact details">
-  <app-offender-contact [data]="offenderData"></app-offender-contact>
+<app-accordion-panel title="Offender manager">
+  <app-offender-management [data]="offenderData"></app-offender-management>
 </app-accordion-panel>
 
 <h2 class="heading-medium">Notes</h2>
-<hr class="no-margin-top margin-bottom"/>
 <div class="box notes">
   <p>Additional information</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit mattis nisl, eu elementum sem. In molestie

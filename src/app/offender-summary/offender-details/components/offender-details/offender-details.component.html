@@ -1,5 +1,6 @@
-<div class="grid-row">
-  <div class="column-one-half no-padding-right">
+<app-details label="Personal information" [isActive]="true" [hideBar]="true">
+
+  <div class="inside-panel">
 
     <table class="split-rows" role="presentation">
       <tr>
@@ -19,16 +20,6 @@
         <td></td>
       </tr>
       <tr>
-        <td class="bold">Interpreter required</td>
-        <td>No</td>
-      </tr>
-    </table>
-
-  </div>
-  <div class="column-one-half no-padding-left">
-
-    <table class="split-rows" role="presentation">
-      <tr>
         <td class="bold" width="50%">Date of birth</td>
         <td>{{data.dobDay + '/' + data.dobMonth + '/' + data.dobYear}}</td>
       </tr>
@@ -45,10 +36,69 @@
         <td>British</td>
       </tr>
       <tr>
+        <td class="bold">Interpreter required</td>
+        <td>No</td>
+      </tr>
+      <tr>
         <td class="bold">Disability status</td>
         <td>No disabilities recorded</td>
       </tr>
     </table>
 
   </div>
+
+</app-details>
+
+<div class="margin-top">
+
+  <app-details label="Addresses" [hideBar]="true">
+
+    <div class="inside-panel">
+
+      <table class="split-rows" role="presentation">
+        <tr>
+          <td class="bold" width="50%">Telephone</td>
+          <td>0114 114 114</td>
+        </tr>
+        <tr>
+          <td class="bold">Email</td>
+          <td>alice.smith@gmail.com</td>
+        </tr>
+        <tr>
+          <td class="bold" width="50%">Mobile</td>
+          <td>07777 777 777</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </app-details>
+
+</div>
+
+<div class="margin-top">
+
+  <app-details label="Contact details" [hideBar]="true">
+
+    <div class="inside-panel">
+
+      <table class="split-rows" role="presentation">
+        <tr>
+          <td class="bold" width="50%">Telephone</td>
+          <td>0114 114 114</td>
+        </tr>
+        <tr>
+          <td class="bold">Email</td>
+          <td>alice.smith@gmail.com</td>
+        </tr>
+        <tr>
+          <td class="bold" width="50%">Mobile</td>
+          <td>07777 777 777</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </app-details>
+
 </div>

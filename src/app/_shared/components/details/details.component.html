@@ -1,0 +1,9 @@
+<div>
+  <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': isActive }"
+     (click)="isActive = !isActive">{{label}}</a>
+  <div class="margin-top" [ngClass]="{ 'js-hidden': !isActive, 'panel panel-border-narrow': !hideBar }"
+       [attr.aria-hidden]="!isActive">
+    <ng-content></ng-content>
+    <br/>
+  </div>
+</div>

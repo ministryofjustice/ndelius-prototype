@@ -9,7 +9,7 @@ import { OffenderSummaryComponent } from './offender-details/offender-summary.co
 import { OffenderHeaderComponent } from './offender-details/components/offender-header/offender-header.component';
 import { OffenderPanelsComponent } from './offender-details/components/offender-panels/offender-panels.component';
 import { OffenderDetailsComponent } from './offender-details/components/offender-details/offender-details.component';
-import { OffenderContactComponent } from './offender-details/components/offender-contact/offender-contact.component';
+import { OffenderChronologyComponent } from './offender-details/components/offender-chronology/offender-chronology.component';
 import { OffenderManagementComponent } from './offender-details/components/offender-management/offender-management.component';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { OffenderManagementComponent } from './offender-details/components/offen
     OffenderHeaderComponent,
     OffenderPanelsComponent,
     OffenderDetailsComponent,
-    OffenderContactComponent,
+    OffenderChronologyComponent,
     OffenderManagementComponent
   ]
 })

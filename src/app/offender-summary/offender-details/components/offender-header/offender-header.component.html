@@ -7,9 +7,12 @@
           <img src="/assets/images/placeholder_f.jpg"/>
         </td>
         <td>
-          <h1 class="heading-large no-margin">{{data.name}}</h1>
+          <h1 class="heading-medium no-margin">{{data.name}}</h1>
           <p class="margin-top no-margin-bottom">Date of birth</p>
           <p class="heading-medium no-margin">{{data.dobDay + '/' + data.dobMonth + '/' + data.dobYear}}</p>
+
+          <p class="margin-top no-margin-bottom">CRN</p>
+          <p class="heading-medium no-margin">{{data.crn}}</p>
         </td>
       </tr>
     </table>
@@ -19,7 +22,7 @@
 
     <div class="risk-alert"
          [ngClass]="{ 'high': risk.toLowerCase() === 'high', 'medium': risk.toLowerCase() ==='medium' }" *ngIf="risk">
-      {{risk}} risk of self harm
+      {{risk}} risk of serious harm
     </div>
 
   </div>

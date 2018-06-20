@@ -55,16 +55,6 @@
 
 .toggle {
   display: inline-block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 7.5px 0 7.5px 10px;
-  border-color: transparent transparent transparent black;
-  margin-bottom: 0;
-
-  &.active {
-    border-width: 10px 7.5px 0 7.5px;
-    border-color: black transparent transparent transparent;
-    margin-bottom: 3px;
-  }
+  float: right;
+  color: black;
 }

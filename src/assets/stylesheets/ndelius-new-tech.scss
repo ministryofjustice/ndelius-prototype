@@ -37,6 +37,9 @@ $path: "/assets/images/";
 @import 'fontawesome/icons';
 @import 'fontawesome/screen-reader';
 
+// Import the project specific mixins
+@import "project/mixins";
+
 // Import the project specific styles
 @import "project/autocomplete";
 @import "project/box";
@@ -51,6 +54,7 @@ $path: "/assets/images/";
 @import "project/lists";
 @import "project/logo";
 @import "project/navigation";
+@import "project/panel";
 @import "project/risk";
 @import "project/spacing";
 @import "project/table";
