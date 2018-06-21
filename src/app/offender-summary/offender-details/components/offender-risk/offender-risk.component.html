@@ -1,0 +1,51 @@
+<app-accordion-panel [title]="'Registers and warnings (' + riskData.length + ')'" [isActive]="true">
+
+  <div class="inside-panel">
+
+    <!-- NO RISK DATA -->
+    <div *ngIf="!riskData.length">
+      <p class="align-center">No data</p>
+    </div>
+
+    <!-- RISK DATA -->
+    <table class="split-rows" role="presentation" *ngIf="riskData.length">
+      <thead>
+      <tr>
+        <th width="220">Type</th>
+        <th width="130">Status</th>
+        <th>Description</th>
+        <th width="120">Date</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <ng-template ngFor let-option [ngForOf]="riskData" let-index="index">
+
+        <tr [ngClass]="{ 'no-border': option.active }">
+          <td><a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': option.active }"
+                 (click)="option.active = !option.active">{{option.type}}</a></td>
+          <td><span class="risk-tag"
+                    [ngClass]="{
+                      'low': option.level.toLowerCase().indexOf('low') !== -1,
+                      'medium': option.level.toLowerCase().indexOf('medium') !== -1,
+                      'high': option.level.toLowerCase().indexOf('high') !== -1
+                    }">{{option.level}}</span>
+          </td>
+          <td>{{option.details}}</td>
+          <td>{{option.date}}</td>
+        </tr>
+
+        <tr *ngIf="option.active">
+          <td colspan="4">
+            <p>{{option.information}}</p>
+          </td>
+        </tr>
+
+      </ng-template>
+
+      </tbody>
+    </table>
+
+  </div>
+
+</app-accordion-panel>

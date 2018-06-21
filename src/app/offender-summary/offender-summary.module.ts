@@ -11,6 +11,7 @@ import { OffenderPanelsComponent } from './offender-details/components/offender-
 import { OffenderDetailsComponent } from './offender-details/components/offender-details/offender-details.component';
 import { OffenderChronologyComponent } from './offender-details/components/offender-chronology/offender-chronology.component';
 import { OffenderManagementComponent } from './offender-details/components/offender-management/offender-management.component';
+import { OffenderRiskComponent } from './offender-details/components/offender-risk/offender-risk.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { OffenderManagementComponent } from './offender-details/components/offen
     OffenderPanelsComponent,
     OffenderDetailsComponent,
     OffenderChronologyComponent,
-    OffenderManagementComponent
+    OffenderManagementComponent,
+    OffenderRiskComponent
   ]
 })
 export class OffenderSummaryModule {

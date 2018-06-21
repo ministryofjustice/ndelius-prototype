@@ -10,24 +10,16 @@
 <br/>
 
 <!-- Angular component -->
-<app-accordion-panel title="Offender chronology" [isActive]="true">
-  <app-offender-chronology [data]="offenderData"></app-offender-chronology>
-</app-accordion-panel>
+<app-offender-risk [data]="offenderData"></app-offender-risk>
 
 <!-- Angular component -->
-<app-accordion-panel title="Registers and warnings (0)">
-  <p class="align-center">No data</p>
-</app-accordion-panel>
+<app-offender-chronology [data]="offenderData"></app-offender-chronology>
 
 <!-- Angular component -->
-<app-accordion-panel title="Offender details">
-  <app-offender-details [data]="offenderData"></app-offender-details>
-</app-accordion-panel>
+<app-offender-details [data]="offenderData"></app-offender-details>
 
 <!-- Angular component -->
-<app-accordion-panel title="Offender manager">
-  <app-offender-management [data]="offenderData"></app-offender-management>
-</app-accordion-panel>
+<app-offender-management [data]="offenderData"></app-offender-management>
 
 <h2 class="heading-medium">Notes</h2>
 <div class="box notes">
