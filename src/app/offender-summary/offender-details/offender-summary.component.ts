@@ -17,7 +17,6 @@ export class OffenderSummaryComponent {
   constructor(private http: HttpClient) {
     this.http.get('/assets/data/stub.json').subscribe((data) => {
       this.offenderData = data['offenders'][0]['_source'];
-      console.info(this.offenderData);
     });
   }
 
