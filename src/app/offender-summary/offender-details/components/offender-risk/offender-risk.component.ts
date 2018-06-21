@@ -29,7 +29,7 @@ export class OffenderRiskComponent {
       level: 'low',
       type: 'RoSH',
       details: 'Children',
-      date: '03/109/2015',
+      date: '03/09/2015',
       information: 'No data',
       active: false
     },

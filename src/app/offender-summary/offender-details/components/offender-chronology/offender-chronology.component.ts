@@ -14,8 +14,7 @@ export class OffenderChronologyComponent {
       primaryOffence: 'Sexual assault on a female (Sexual Offences Act 2003) - 02005',
       status: 'Short Format Pre-Sentence Report (adjourned)',
       date: '27/06/2018',
-      active: true,
-      route: '/sfpsr'
+      active: true
     },
     {
       primaryOffence: 'Displaying indecent matter - 08603',

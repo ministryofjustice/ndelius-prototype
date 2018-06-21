@@ -1,16 +1,40 @@
-<app-accordion-panel title="Offender chronology" [isActive]="true">
+<app-accordion-panel [title]="'Offender chronology (' + offenderChronology.length + ')'" [isActive]="true">
 
   <div class="inside-panel">
 
-    <div class="timeline">
+    <!-- NO RISK DATA -->
+    <div *ngIf="!offenderChronology.length">
+      <p class="align-center">No data</p>
+    </div>
+
+    <!--  -->
+    <div class="timeline" *ngIf="offenderChronology.length">
 
       <ng-template ngFor let-option [ngForOf]="offenderChronology" let-index="index">
 
-      <div class="timeline-item" [ngClass]="{ 'primary': option.active }">
-        <p [ngClass]="{ 'heading-medium no-margin': option.active, 'heading-small text-blue clickable': !option.active }">{{option.status}}</p>
-        <p class="text-grey" [ngClass]="{ 'bold margin-bottom': option.active }">{{option.primaryOffence}}</p>
-        <button type="button" class="button" (click)="startSFPSR()" *ngIf="option.route">Start</button>
-      </div>
+        <div class="timeline-item" [ngClass]="{ 'primary': option.active }">
+          <p [ngClass]="{
+                          'heading-medium no-margin': option.active,
+                          'heading-small text-blue clickable': !option.active
+                        }">{{option.status}}</p>
+
+          <table role="presentation" class="no-margin">
+            <tbody>
+            <tr>
+              <td class="no-padding">
+                <p class="text-grey" [ngClass]="{ 'bold margin-bottom': option.active }">{{option.primaryOffence}}</p>
+              </td>
+              <td width="110" class="no-padding">
+                <p class="text-grey">{{option.date}}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+          <button type="button" class="button" (click)="startSFPSR()" *ngIf="option.active">Start</button>
+        </div>
+
+        <hr class="margin-top margin-bottom" *ngIf="!option.active && index < offenderChronology.length - 1"/>
 
       </ng-template>
 
