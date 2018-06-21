@@ -17,14 +17,18 @@
                     ]">
     </app-form-error>
 
-    <h2 class="lede no-margin-top margin-bottom medium">Select the underlying issues that are relevant as motivators or drivers for the main offence</h2>
+    <h2 class="lede no-margin-top margin-bottom medium">Select the underlying issues that are relevant as motivators or
+      drivers for the main offence</h2>
 
     <details>
       <summary><span class="summary">Offender assessment guidance</span></summary>
       <div class="panel panel-border-narrow">
-        <p>Key aspects of the person’s circumstances should be detailed. Those which are linked to their offending behaviour should be highlighted.</p>
-        <p>Make sure that you select all of the factors that have impacted on offending, and that may impact on future risk of re offending.</p>
-        <p>Also, consider if there are factors that are not directly linked. These may cause difficulties for the offender and impact on their desistance from crime.</p>
+        <p>Key aspects of the person’s circumstances should be detailed. Those which are linked to their offending
+          behaviour should be highlighted.</p>
+        <p>Make sure that you select all of the factors that have impacted on offending, and that may impact on future
+          risk of re offending.</p>
+        <p>Also, consider if there are factors that are not directly linked. These may cause difficulties for the
+          offender and impact on their desistance from crime.</p>
       </div>
     </details>
 
@@ -39,14 +43,18 @@
       <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
         <div class="multiple-choice" [ngClass]="{ 'margin-top': index > 0 }">
-          <input type="checkbox" role="checkbox" [id]="section.checkControl" [formControlName]="section.checkControl" value="true" />
+          <input type="checkbox" role="checkbox" [id]="section.checkControl" [formControlName]="section.checkControl"
+                 value="true"/>
           <label [attr.for]="section.checkControl" class="form-label-bold">{{section.checkLabel}}</label>
         </div>
 
-        <div class="panel panel-border-narrow" [ngClass]="{ 'form-group-error': (reportForm.get(section.checkControl).touched || formError) && reportForm.get(section.checkControl).errors, 'js-hidden': !reportForm.get(section.checkControl).value }" [attr.aria-hidden]="!reportForm.get(section.checkControl).value">
+        <div class="panel panel-border-narrow"
+             [ngClass]="{ 'form-group-error': (reportForm.get(section.checkControl).touched || formError) && reportForm.get(section.checkControl).errors, 'js-hidden': !reportForm.get(section.checkControl).value }"
+             [attr.aria-hidden]="!reportForm.get(section.checkControl).value">
 
           <!-- Angular component -->
-          <app-text-entry [group]="reportForm" [name]="section.detailControl" [label]="section.detailLabel" [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+          <app-text-entry [group]="reportForm" [name]="section.detailControl" [label]="section.detailLabel"
+                          [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
 
         </div>
 
@@ -54,29 +62,35 @@
 
       <div class="clearfix"></div>
 
-      <hr />
+      <hr/>
 
-      <app-radio-buttons [group]="reportForm" name="trauma" [options]="['Yes', 'No']" label="Is there evidence of the offender experiencing trauma?"
-      required="true" [error]="formError" errorMessage="Specify whether there is evidence of the offender experiencing trauma"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="trauma" [options]="['Yes', 'No']"
+                         label="Is there evidence of the offender experiencing trauma?"
+                         required="true" [error]="formError"
+                         errorMessage="Specify whether there is evidence of the offender experiencing trauma">
+        <p>Trauma can affect an offender’s ability to engage and make decisions. Detail the offender’s experience of
+          trauma, and how it has affected their offending and their engagement with rehabilitative interventions.</p>
+      </app-radio-buttons>
 
       <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('trauma').value !== 'Yes' }">
 
-        <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma">
-          <p>Trauma can affect an offender’s ability to engage and make decisions. Detail the offender’s experience of trauma, and how it has affected their offending and their engagement with rehabilitative interventions.</p>
-        </app-text-entry>
+        <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma"></app-text-entry>
 
       </div>
 
-      <hr />
+      <hr/>
 
-      <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']" label="Does the offender have caring responsibilities for children or adults, or have they ever had caring responsibilities for children or adults?"
-      required="true" [error]="formError" errorMessage="Specify whether the offender has caring responsibilities for children or adults"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']"
+                         label="Does the offender have caring responsibilities for children or adults, or have they ever had caring responsibilities for children or adults?"
+                         required="true" [error]="formError"
+                         errorMessage="Specify whether the offender has caring responsibilities for children or adults">
+        <p>Detail the offender’s current and past caring responsibilities for children and adults. How have those
+          responsibilities affected their offending and their engagement with rehabilitative interventions?</p>
+      </app-radio-buttons>
 
       <div class="panel panel-border-narrow" [ngClass]="{'js-hidden': reportForm.get('caring').value !== 'Yes' }">
 
-        <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities">
-          <p>Detail the offender’s current and past caring responsibilities for children and adults. How have those responsibilities affected their offending and their engagement with rehabilitative interventions?</p>
-        </app-text-entry>
+        <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities"></app-text-entry>
 
       </div>
 

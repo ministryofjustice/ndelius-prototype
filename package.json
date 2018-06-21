@@ -1,6 +1,6 @@
 {
   "name": "HMPPS_RapidPrototype",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -24,13 +24,13 @@
     "node": ">=10.4.1 < 11.0.0"
   },
   "dependencies": {
-    "@angular/common": "6.0.5",
-    "@angular/compiler": "6.0.5",
-    "@angular/core": "6.0.5",
-    "@angular/forms": "6.0.5",
-    "@angular/platform-browser": "6.0.5",
-    "@angular/platform-browser-dynamic": "6.0.5",
-    "@angular/router": "6.0.5",
+    "@angular/common": "6.0.6",
+    "@angular/compiler": "6.0.6",
+    "@angular/core": "6.0.6",
+    "@angular/forms": "6.0.6",
+    "@angular/platform-browser": "6.0.6",
+    "@angular/platform-browser-dynamic": "6.0.6",
+    "@angular/router": "6.0.6",
     "@ngrx/store": "6.0.1",
     "core-js": "2.5.7",
     "pdfmake": "0.1.36",
@@ -41,8 +41,8 @@
     "@angular-devkit/build-angular": "0.7.0-beta.1",
     "@angular-devkit/core": "0.7.0-beta.1",
     "@angular/cli": "6.0.8",
-    "@angular/compiler-cli": "6.0.5",
-    "@angular/language-service": "6.0.5",
+    "@angular/compiler-cli": "6.0.6",
+    "@angular/language-service": "6.0.6",
     "@compodoc/compodoc": "1.1.3",
     "@ngrx/store-devtools": "6.0.1",
     "@types/jasmine": "2.8.8",
@@ -60,7 +60,7 @@
     "karma-jasmine-html-reporter": "1.1.0",
     "ngrx-store-localstorage": "5.0.0",
     "protractor": "5.3.2",
-    "ts-node": "6.1.1",
+    "ts-node": "6.1.2",
     "tslint": "5.10.0",
     "typescript": "2.7.2",
     "webpack": "4.12.0"
