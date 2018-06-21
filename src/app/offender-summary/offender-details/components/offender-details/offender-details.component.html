@@ -1,37 +1,45 @@
 <app-accordion-panel title="Offender details">
 
-  <app-details label="Personal information" [isActive]="true" [hideBar]="true">
+  <app-details label="Personal information" [hideBar]="true">
 
     <div class="inside-panel">
 
       <table class="split-rows" role="presentation">
         <tr>
           <td class="bold" width="50%">Title</td>
-          <td>Ms</td>
+          <td>{{pipeTitle(data.TITLE_ID)}}</td>
         </tr>
         <tr>
           <td class="bold">First name</td>
-          <td>{{data.name.substr(0, data.name.indexOf(' '))}}</td>
+          <td>{{data.FIRST_NAME}}</td>
         </tr>
         <tr>
           <td class="bold">Surname</td>
-          <td>{{data.name.substr(data.name.indexOf(' '))}}</td>
+          <td>{{data.SURNAME}}</td>
         </tr>
         <tr>
           <td class="bold">Other names</td>
-          <td></td>
+          <td>{{data.SECOND_NAME + (data.SECOND_NAME && data.THIRD_NAME ? ',' : '') + ' ' + data.THIRD_NAME}}</td>
+        </tr>
+        <tr>
+          <td class="bold">Previous surname</td>
+          <td>{{data.PREVIOUS_SURNAME}}</td>
         </tr>
         <tr>
           <td class="bold" width="50%">Date of birth</td>
-          <td>{{data.dobDay + '/' + data.dobMonth + '/' + data.dobYear}}</td>
+          <td>{{pipeDate(data.DATE_OF_BIRTH_DATE)}}</td>
         </tr>
         <tr>
           <td class="bold">Age</td>
-          <td>43</td>
+          <td>{{pipeAge(data.DATE_OF_BIRTH_DATE)}}</td>
         </tr>
         <tr>
           <td class="bold">Gender</td>
-          <td>Female</td>
+          <td>{{pipeGender(data.GENDER_ID)}}</td>
+        </tr>
+        <tr>
+          <td class="bold">NI Number</td>
+          <td>{{data.NI_NUMBER}}</td>
         </tr>
         <tr>
           <td class="bold">Nationality</td>
@@ -39,7 +47,7 @@
         </tr>
         <tr>
           <td class="bold">Interpreter required</td>
-          <td>No</td>
+          <td>{{data.INTERPRETER_REQUIRED ? 'Yes' : 'No'}}</td>
         </tr>
         <tr>
           <td class="bold">Disability status</td>
@@ -51,25 +59,66 @@
 
   </app-details>
 
-  <div class="margin-top">
+  <div class="margin-top" *ngIf="data.ALIASES && data.ALIASES.length">
+
+    <app-details label="Aliases" [hideBar]="true">
+
+      <div class="inside-panel">
+
+        <table class="split-rows" role="presentation">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Other name(s)</th>
+            <th>Gender</th>
+            <th width="120">D.O.B</th>
+          </tr>
+          </thead>
+          <tbody>
+          <ng-template ngFor let-alias [ngForOf]="data.ALIASES" let-index="index">
+            <tr>
+              <td>{{alias.SURNAME + ', ' + alias.FIRST_NAME}}</td>
+              <td>{{alias.SECOND_NAME + (alias.SECOND_NAME && alias.THIRD_NAME ? ',' : '') + ' ' + alias.THIRD_NAME}}</td>
+              <td>{{pipeGender(alias.GENDER_ID)}}</td>
+              <td>{{pipeDate(alias.DATE_OF_BIRTH_DATE)}}</td>
+            </tr>
+          </ng-template>
+          </tbody>
+        </table>
+
+      </div>
+
+    </app-details>
+
+  </div>
+
+  <div class="margin-top" *ngIf="data.ADDRESSES && data.ADDRESSES.length">
 
     <app-details label="Addresses" [hideBar]="true">
 
       <div class="inside-panel">
 
         <table class="split-rows" role="presentation">
+          <thead>
           <tr>
-            <td class="bold" width="50%">Telephone</td>
-            <td>0114 114 114</td>
+            <th>Number</th>
+            <th>Street</th>
+            <th>County</th>
+            <th>Town/City</th>
+            <th>Postcode</th>
           </tr>
+          </thead>
+          <tbody>
+          <ng-template ngFor let-address [ngForOf]="data.ADDRESSES" let-index="index">
           <tr>
-            <td class="bold">Email</td>
-            <td>alice.smith@gmail.com</td>
+            <td>{{address.ADDRESS_NUMBER}}</td>
+            <td>{{address.STREET_NAME}}</td>
+            <td>{{address.TOWN_CITY}}</td>
+            <td>{{address.COUNTY}}</td>
+            <td>{{address.POSTCODE}}</td>
           </tr>
-          <tr>
-            <td class="bold" width="50%">Mobile</td>
-            <td>07777 777 777</td>
-          </tr>
+          </ng-template>
+          </tbody>
         </table>
 
       </div>
@@ -87,15 +136,15 @@
         <table class="split-rows" role="presentation">
           <tr>
             <td class="bold" width="50%">Telephone</td>
-            <td>0114 114 114</td>
+            <td>{{data.TELEPHONE_NUMBER}}</td>
           </tr>
           <tr>
             <td class="bold">Email</td>
-            <td>alice.smith@gmail.com</td>
+            <td>{{data.E_MAIL_ADDRESS}}</td>
           </tr>
           <tr>
             <td class="bold" width="50%">Mobile</td>
-            <td>07777 777 777</td>
+            <td>{{data.MOBILE_NUMBER}}</td>
           </tr>
         </table>
 

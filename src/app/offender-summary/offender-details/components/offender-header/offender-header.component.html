@@ -4,15 +4,15 @@
     <table role="presentation">
       <tr>
         <td width="125">
-          <img src="/assets/images/placeholder_f.jpg"/>
+          <img [src]="'/assets/images/' + (data.CURRENT_DISPOSAL ? data.OFFENDER_ID : 'new_offender') + '.png'"/>
         </td>
         <td>
-          <h1 class="heading-medium no-margin">{{data.name}}</h1>
+          <h1 class="heading-large no-margin">{{data.SURNAME + ', ' + data.FIRST_NAME}}</h1>
           <p class="margin-top no-margin-bottom">Date of birth</p>
-          <p class="heading-medium no-margin">{{data.dobDay + '/' + data.dobMonth + '/' + data.dobYear}}</p>
+          <p class="heading-medium no-margin">{{pipeDate(data.DATE_OF_BIRTH_DATE)}}</p>
 
           <p class="margin-top no-margin-bottom">CRN</p>
-          <p class="heading-medium no-margin">{{data.crn}}</p>
+          <p class="heading-medium no-margin">{{data.CRN}}</p>
         </td>
       </tr>
     </table>

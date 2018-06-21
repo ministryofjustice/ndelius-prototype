@@ -1,4 +1,4 @@
-<app-accordion-panel [title]="'Registers and warnings (' + riskData.length + ')'" [isActive]="true">
+<app-accordion-panel [title]="'Registers and warnings (' + riskData.length + ')'">
 
   <div class="inside-panel">
 
@@ -20,7 +20,6 @@
       <tbody>
 
       <ng-template ngFor let-option [ngForOf]="riskData" let-index="index">
-
         <tr [ngClass]="{ 'no-border': option.active }">
           <td><a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': option.active }"
                  (click)="option.active = !option.active">{{option.type}}</a></td>
@@ -34,13 +33,13 @@
           <td>{{option.details}}</td>
           <td>{{option.date}}</td>
         </tr>
-
         <tr *ngIf="option.active">
           <td colspan="4">
-            <p>{{option.information}}</p>
+            <div class="inside-panel">
+              <p>{{option.information}}</p>
+            </div>
           </td>
         </tr>
-
       </ng-template>
 
       </tbody>

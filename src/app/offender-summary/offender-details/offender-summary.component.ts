@@ -1,41 +1,24 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 
-import { Subscription } from 'rxjs/index';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-offender-summary',
   templateUrl: './offender-summary.component.html'
 })
-export class OffenderSummaryComponent implements OnInit, OnDestroy {
+export class OffenderSummaryComponent {
 
-  offenderData: object;
-  private routeSubscriber: Subscription;
+  offenderData = {};
 
   /**
    * @constructor
-   * @param {ActivatedRoute} activatedRoute
+   * @param {HttpClient} http
    */
-  constructor(private activatedRoute: ActivatedRoute) {
-    // Empty
-  }
-
-  /**
-   *
-   */
-  ngOnInit() {
-    this.routeSubscriber = this.activatedRoute.queryParams.subscribe(params => {
-      if (params && Object.keys(params).length) {
-        this.offenderData = params;
-      }
+  constructor(private http: HttpClient) {
+    this.http.get('/assets/data/stub.json').subscribe((data) => {
+      this.offenderData = data['offenders'][0]['_source'];
+      console.info(this.offenderData);
     });
-  }
-
-  /**
-   *
-   */
-  ngOnDestroy() {
-    this.routeSubscriber.unsubscribe();
   }
 
 }

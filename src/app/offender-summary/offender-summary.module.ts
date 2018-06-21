@@ -12,9 +12,11 @@ import { OffenderDetailsComponent } from './offender-details/components/offender
 import { OffenderChronologyComponent } from './offender-details/components/offender-chronology/offender-chronology.component';
 import { OffenderManagementComponent } from './offender-details/components/offender-management/offender-management.component';
 import { OffenderRiskComponent } from './offender-details/components/offender-risk/offender-risk.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     OffenderSummaryRouter,
     SharedModule
   ],

@@ -4,8 +4,13 @@
     <div class="card">
 
       <div class="card-header">
-        <p class="heading-medium no-margin text-blue">3 previous events</p>
-        <p class="no-margin text-blue">1 active events</p>
+        <p class="heading-medium no-margin">{{data.CURRENT_DISPOSAL ? 'Current offender' : 'Not current'}}</p>
+      </div>
+      <div class="card-body">
+        <p class="no-margin text-blue font-small" *ngIf="data.CURRENT_DISPOSAL"><span class="bold">Provider:</span> NPS
+          North West</p>
+        <p class="no-margin text-blue font-small" *ngIf="data.CURRENT_DISPOSAL"><span
+          class="bold">Offender manager:</span> Sarah Smith</p>
       </div>
 
     </div>
@@ -16,8 +21,10 @@
     <div class="card">
 
       <div class="card-header">
-        <p class="heading-medium no-margin text-blue">Current offender</p>
-        <p class="no-margin text-blue">NPS North West</p>
+        <p class="heading-medium no-margin">3 previous events</p>
+      </div>
+      <div class="card-body">
+        <p class="no-margin text-blue"><span class="bold">1 active event:</span> Short Format Pre-Sentence Report (adjourned)</p>
       </div>
 
     </div>
