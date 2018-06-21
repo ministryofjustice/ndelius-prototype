@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+
+import { Subscription } from 'rxjs/index';
 
 @Component({
   selector: 'app-offender-summary',
@@ -9,14 +11,22 @@ import { HttpClient } from '@angular/common/http';
 export class OffenderSummaryComponent {
 
   offenderData = {};
+  private routeSubscriber: Subscription;
 
   /**
-   * @constructor
+   *
+   * @param {ActivatedRoute} activatedRoute
    * @param {HttpClient} http
    */
-  constructor(private http: HttpClient) {
-    this.http.get('/assets/data/stub.json').subscribe((data) => {
-      this.offenderData = data['offenders'][0]['_source'];
+  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) {
+    // Update state with passed parameters
+    this.routeSubscriber = this.activatedRoute.queryParams.subscribe(params => {
+
+      if (params && Object.keys(params).length) {
+        this.http.get('/assets/data/stub.json').subscribe((data) => {
+          this.offenderData = data['offenders'][params.offender]['_source'];
+        });
+      }
     });
   }
 

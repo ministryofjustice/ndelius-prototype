@@ -11,6 +11,7 @@
     padding: 10px;
     background: $grey-4;
     border: 1px solid $grey-3;
+    min-height: 72px;
   }
 
   @include media(mobile) {
