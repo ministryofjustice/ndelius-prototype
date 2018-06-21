@@ -10,7 +10,7 @@
 <br/>
 
 <!-- Angular component -->
-<app-offender-risk [data]="offenderData"></app-offender-risk>
+<app-offender-risk [data]="offenderData['RISK_REGISTERS'] || []"></app-offender-risk>
 
 <!-- Angular component -->
 <app-offender-chronology [data]="offenderData"></app-offender-chronology>

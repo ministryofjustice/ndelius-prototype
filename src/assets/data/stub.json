@@ -6,6 +6,36 @@
       "_id": "6",
       "_score": 33.98652,
       "_source": {
+        "RISK_REGISTERS": [
+          {
+            "type": "Safeguarding",
+            "level": "low",
+            "description": "Weapons",
+            "date": "21/11/2017",
+            "information": "No data"
+          },
+          {
+            "type": "Public protection",
+            "level": "medium",
+            "description": "Domestic violence",
+            "date": "18/10/2016",
+            "information": "No data"
+          },
+          {
+            "type": "RoSH",
+            "level": "medium",
+            "description": "Children",
+            "date": "03/09/2015",
+            "information": "No data"
+          },
+          {
+            "type": "Information",
+            "level": "very high",
+            "description": "Home Office Interest",
+            "date": "21/11/2017",
+            "information": "No data"
+          }
+        ],
         "OFFENDER_ID": 1829444326,
         "GENDER_ID": 545,
         "FIRST_NAME": "John",
@@ -173,6 +203,29 @@
       "_id": "4",
       "_score": 32.27014,
       "_source": {
+        "RISK_REGISTERS": [
+          {
+            "type": "Safeguarding",
+            "level": "high",
+            "description": "Weapons",
+            "date": "21/11/2017",
+            "information": "No data"
+          },
+          {
+            "type": "Public protection",
+            "level": "very high",
+            "description": "Domestic violence",
+            "date": "18/10/2016",
+            "information": "No data"
+          },
+          {
+            "type": "RoSH",
+            "level": "high",
+            "description": "Children",
+            "date": "03/09/2015",
+            "information": "No data"
+          }
+        ],
         "OFFENDER_ID": 2601750731,
         "GENDER_ID": 545,
         "FIRST_NAME": "John",
@@ -717,6 +770,29 @@
       "_id": "582",
       "_score": 28.622114,
       "_source": {
+        "RISK_REGISTERS": [
+          {
+            "type": "Safeguarding",
+            "level": "medium",
+            "description": "Weapons",
+            "date": "21/11/2017",
+            "information": "No data"
+          },
+          {
+            "type": "Public protection",
+            "level": "high",
+            "description": "Domestic violence",
+            "date": "18/10/2016",
+            "information": "No data"
+          },
+          {
+            "type": "RoSH",
+            "level": "high",
+            "description": "Children",
+            "date": "03/09/2015",
+            "information": "No data"
+          }
+        ],
         "OFFENDER_ID": 2877118348,
         "GENDER_ID": 545,
         "FIRST_NAME": "Paul",
@@ -883,6 +959,29 @@
       "_id": "542",
       "_score": 25.264116,
       "_source": {
+        "RISK_REGISTERS": [
+          {
+            "type": "Safeguarding",
+            "level": "low",
+            "description": "Weapons",
+            "date": "21/11/2017",
+            "information": "No data"
+          },
+          {
+            "type": "Public protection",
+            "level": "low",
+            "description": "Domestic violence",
+            "date": "18/10/2016",
+            "information": "No data"
+          },
+          {
+            "type": "RoSH",
+            "level": "low",
+            "description": "Children",
+            "date": "03/09/2015",
+            "information": "No data"
+          }
+        ],
         "OFFENDER_ID": 961579331,
         "GENDER_ID": 546,
         "FIRST_NAME": "Estela",
