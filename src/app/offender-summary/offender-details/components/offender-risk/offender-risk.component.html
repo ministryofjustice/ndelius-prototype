@@ -21,7 +21,7 @@
         <tbody>
 
         <ng-template ngFor let-option [ngForOf]="data['RISK_REGISTERS']" let-index="index">
-          <tr [ngClass]="{ 'moj-table--no-border': option.active }">
+          <tr [ngClass]="{ 'moj-!-border-0': option.active }">
             <td><a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': option.active }"
                    (click)="option.active = !option.active">{{option.type}}</a></td>
             <td><span class="moj-risk-tag"
