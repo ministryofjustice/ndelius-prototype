@@ -1,6 +1,6 @@
 {
   "name": "HMPPS_RapidPrototype",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -21,7 +21,7 @@
   },
   "private": true,
   "engines": {
-    "node": ">=10.4.1 < 11.0.0"
+    "node": ">=10.5.0 < 11.0.0"
   },
   "dependencies": {
     "@angular/common": "6.0.6",
