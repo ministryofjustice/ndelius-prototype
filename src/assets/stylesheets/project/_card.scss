@@ -1,20 +1,26 @@
-.card {
+.moj-card {
 
-  .card-header {
-    border: 1px solid $grey-3;
-    padding: 5px 10px;
-    background: $grey-3;
-    color: $grey-1;
+  .moj-card__header {
+    @include govuk-responsive-padding(2, all);
+    @include govuk-responsive-padding(1, top);
+    @include govuk-responsive-padding(1, bottom);
+    border: 1px solid govuk-colour("grey-3");
+    background: govuk-colour("grey-3");
+    color: govuk-colour("grey-1");
   }
 
-  .card-body {
-    padding: 10px;
-    background: $grey-4;
-    border: 1px solid $grey-3;
+  .moj-card__body {
+    @include govuk-responsive-padding(2, all);
+    background: govuk-colour("grey-4");
+    border: 1px solid govuk-colour("grey-3");
     min-height: 72px;
   }
 
+  .moj-card__body--no-border {
+    border: 0;
+  }
+
   @include media(mobile) {
-    margin-bottom: 10px;
+    @include govuk-responsive-margin(2, bottom);
   }
 }

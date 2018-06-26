@@ -1,9 +1,10 @@
-<div>
-  <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': isActive }"
-     (click)="isActive = !isActive">{{label}}</a>
-  <div class="margin-top" [ngClass]="{ 'js-hidden': !isActive, 'panel panel-border-narrow': !hideBar }"
-       [attr.aria-hidden]="!isActive">
+<details class="govuk-details govuk-!-margin-bottom-0">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      {{label}}
+    </span>
+  </summary>
+  <div class="govuk-details__text moj-details__text--no-border">
     <ng-content></ng-content>
-    <br/>
   </div>
-</div>
+</details>

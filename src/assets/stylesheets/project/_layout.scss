@@ -147,7 +147,7 @@ canvas {
   min-height: 200px;
 }
 
-.expand-content {
+.moj-expand-content {
 
   &:before {
     content: "";
@@ -160,7 +160,7 @@ canvas {
     margin-right: 10px;
   }
 
-  &.active {
+  &.moj-expand-content--active {
     &:before {
       border-width: 8.7px 5px 0 5px;
       border-color: $govuk-blue transparent transparent transparent;

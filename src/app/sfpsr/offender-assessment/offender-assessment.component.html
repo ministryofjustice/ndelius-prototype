@@ -35,7 +35,9 @@
     <br/>
 
     <!-- Angular component -->
-    <app-notice message="By not selecting an issue you are indicating it is not relevant"></app-notice>
+    <app-notice>
+      By not selecting an issue you are indicating it is not relevant
+    </app-notice>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 

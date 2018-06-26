@@ -1,3 +1,4 @@
-.inside-panel {
-  padding: 0 20px;
+.moj-inside-panel {
+  @include govuk-responsive-padding(4, left);
+  @include govuk-responsive-padding(4, right);
 }

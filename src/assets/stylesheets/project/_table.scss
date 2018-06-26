@@ -1,18 +1,16 @@
-table.split-rows {
+.moj-table {
+  &.moj-table--split-rows {
 
-  thead tr {
-    border-bottom: 2px solid black;
-  }
-
-  tbody tr {
-    border-bottom: 1px solid $grey-3;
-
-    &:last-child {
-      border: 0;
+    thead tr {
+      border-bottom: 2px solid govuk-colour("black");
     }
-  }
 
-  .no-border {
-    border: 0;
+    tbody tr {
+      border-bottom: 1px solid govuk-colour("grey-3");
+
+      &:last-child {
+        border: 0;
+      }
+    }
   }
 }

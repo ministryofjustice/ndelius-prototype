@@ -1,0 +1,11 @@
+.moj-accordion {
+  @include govuk-responsive-padding(2, top);
+  @include govuk-responsive-padding(2, bottom);
+  @include govuk-clearfix;
+
+  .moj-accordion__toggle {
+    display: inline-block;
+    float: right;
+    color: govuk-colour("black");
+  }
+}

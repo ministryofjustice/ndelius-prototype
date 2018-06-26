@@ -6,36 +6,10 @@
   text-align: left;
 }
 
-.govuk-interrupt {
+.moj-interrupt {
   margin: 1em 0;
   padding: 1em;
   background: $govuk-blue;
   text-align: left;
   color: white;
-
-  .notice {
-    background: transparent;
-  }
-}
-
-.notice {
-  background: #e8eff7;
-  padding: 10px;
-  min-height: 70px;
-  strong {
-    margin-left: 0;
-    span {
-      position: relative;
-      left: 10px;
-    }
-  }
-  .icon {
-    left: 15px;
-    margin-top: -20px;
-  }
-}
-
-.accordion-container {
-  padding: 10px 0;
-  @include clearfix;
 }
