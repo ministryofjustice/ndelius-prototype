@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/index';
 })
 export class OffenderSummaryComponent {
 
-  offenderData = {};
+  offenderData: any;
   private routeSubscriber: Subscription;
 
   /**
@@ -24,7 +24,7 @@ export class OffenderSummaryComponent {
 
       if (params && Object.keys(params).length) {
         this.http.get('/assets/data/stub.json').subscribe((data) => {
-          this.offenderData = data['offenders'][params.offender]['_source'];
+          this.offenderData = data['offenders'][params.offender]['_source'] || {};
         });
       }
     });
