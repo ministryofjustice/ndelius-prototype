@@ -7,4 +7,13 @@
       left: 20px;
     }
   }
+
+  .moj-warning-text__icon--reverse {
+    color: govuk-colour("blue");
+    background: govuk-colour("white");
+  }
+
+  .moj-warning-text__text--reverse {
+    color: govuk-colour("white");
+  }
 }
