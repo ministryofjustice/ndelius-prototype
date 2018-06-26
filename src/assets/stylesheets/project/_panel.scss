@@ -1,4 +1,4 @@
 .moj-inside-panel {
-  @include _govuk-responsive-spacing(4, padding, left, true);
-  @include _govuk-responsive-spacing(4, padding, right, true);
+  @include govuk-responsive-padding(4, left);
+  @include govuk-responsive-padding(4, right);
 }

@@ -1,16 +1,15 @@
 .moj-risk-alert {
   @include govuk-font(27, bold);
+  @include govuk-responsive-margin(8, top);
+  @include govuk-responsive-padding(3, all);
+  @include govuk-media-query(mobile, tablet) {
+    @include govuk-responsive-margin(0, top);
+    @include govuk-responsive-margin(2, bottom);
+  }
 
   text-align: center;
-  padding: 15px;
   color: govuk-colour("grey-1");
   border: 3px solid govuk-colour("grey-1");
-  @include _govuk-responsive-spacing(8, margin, top);
-
-  @include govuk-media-query(mobile, tablet) {
-    @include _govuk-responsive-spacing(0, margin, top);
-    @include _govuk-responsive-spacing(2, margin, bottom);
-  }
 
   &.moj-risk-alert--high {
     color: govuk-colour("bright-red");
@@ -29,23 +28,23 @@
 
   &.moj-risk-alert--small {
     @include govuk-font(19, bold);
-    @include _govuk-responsive-spacing(2, padding, all);
-    @include _govuk-responsive-spacing(3, margin, top);
+    @include govuk-responsive-padding(2, all);
+    @include govuk-responsive-margin(3, top);
 
     @include govuk-media-query(mobile, tablet) {
-      @include _govuk-responsive-spacing(2, margin, top);
+      @include govuk-responsive-margin(2, top);
     }
   }
 }
 
 .moj-risk-tag {
-  display: inline-block;
   @include govuk-font(14);
-  @include _govuk-responsive-spacing(1, padding, top);
-  @include _govuk-responsive-spacing(1, padding, bottom);
-  @include _govuk-responsive-spacing(4, padding, left);
-  @include _govuk-responsive-spacing(4, padding, right);
+  @include govuk-responsive-padding(1, top);
+  @include govuk-responsive-padding(1, bottom);
+  @include govuk-responsive-padding(4, left);
+  @include govuk-responsive-padding(4, right);
 
+  display: inline-block;
   border: 1px solid govuk-colour("grey-1");
   color: govuk-colour("grey-1");
   min-width: 100px;

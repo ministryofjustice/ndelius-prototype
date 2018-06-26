@@ -1,6 +1,6 @@
 .moj-accordion {
-  @include _govuk-responsive-spacing(2, padding, top);
-  @include _govuk-responsive-spacing(2, padding, bottom);
+  @include govuk-responsive-padding(2, top);
+  @include govuk-responsive-padding(2, bottom);
   @include govuk-clearfix;
 
   .moj-accordion__toggle {

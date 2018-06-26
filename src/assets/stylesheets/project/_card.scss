@@ -1,16 +1,16 @@
 .moj-card {
 
   .moj-card__header {
-    @include _govuk-responsive-spacing(2, padding, all);
-    @include _govuk-responsive-spacing(1, padding, top);
-    @include _govuk-responsive-spacing(1, padding, bottom);
+    @include govuk-responsive-padding(2, all);
+    @include govuk-responsive-padding(1, top);
+    @include govuk-responsive-padding(1, bottom);
     border: 1px solid govuk-colour("grey-3");
     background: govuk-colour("grey-3");
     color: govuk-colour("grey-1");
   }
 
   .moj-card__body {
-    @include _govuk-responsive-spacing(2, padding, all);
+    @include govuk-responsive-padding(2, all);
     background: govuk-colour("grey-4");
     border: 1px solid govuk-colour("grey-3");
     min-height: 72px;
@@ -21,6 +21,6 @@
   }
 
   @include media(mobile) {
-    @include _govuk-responsive-spacing(2, margin, bottom);
+    @include govuk-responsive-margin(2, bottom);
   }
 }

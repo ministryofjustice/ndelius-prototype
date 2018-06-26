@@ -1,11 +1,11 @@
 .moj-timeline {
   border-left: 5px solid govuk-colour("grey-1");
-  @include _govuk-responsive-spacing(4, padding, left);
+  @include govuk-responsive-padding(4, left);
 
   .moj-timeline__item {
     position: relative;
-    @include _govuk-responsive-spacing(4, padding, left);
-    @include _govuk-responsive-spacing(4, padding, right);
+    @include govuk-responsive-padding(4, left);
+    @include govuk-responsive-padding(4, right);
 
     &::before {
       display: inline-block;
@@ -22,7 +22,7 @@
 
     &.moj-timeline__item--primary {
       background: $grey-3;
-      @include _govuk-responsive-spacing(4, padding, all);
+      @include govuk-responsive-padding(4, all);
 
       &::after {
         content: '';
