@@ -2,11 +2,11 @@
   &.moj-table--split-rows {
 
     thead tr {
-      border-bottom: 2px solid black;
+      border-bottom: 2px solid govuk-colour("black");
     }
 
     tbody tr {
-      border-bottom: 1px solid $grey-3;
+      border-bottom: 1px solid govuk-colour("grey-3");
 
       &:last-child {
         border: 0;
