@@ -1,6 +1,6 @@
-<div class="accordion-container">
+<div class="moj-accordion">
 
-  <h2 class="heading-medium no-margin text-blue clickable" (click)="isActive = !isActive">{{title}}<span class="toggle far" [ngClass]="{ 'fa-plus': !isActive, 'fa-minus': isActive }"></span></h2>
+  <h2 class="govuk-heading-m govuk-!-margin-0 moj-!-color-blue moj-util-clickable" (click)="isActive = !isActive">{{title}}<span class="moj-accordion__toggle far" [ngClass]="{ 'fa-plus': !isActive, 'fa-minus': isActive }"></span></h2>
 
   <div *ngIf="isActive">
 
@@ -12,4 +12,4 @@
 
 </div>
 
-<hr class="margin-top margin-bottom"/>
+<hr class="govuk-!-margin-0 govuk-!-margin-top-3 govuk-!-margin-bottom-3"/>

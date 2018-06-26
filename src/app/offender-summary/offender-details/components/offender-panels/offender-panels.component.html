@@ -1,30 +1,30 @@
-<div class="grid-row margin-top" *ngIf="data">
-  <div class="column-one-half">
+<div class="govuk-grid-row" *ngIf="data">
+  <div class="govuk-grid-column-one-half">
 
-    <div class="card">
+    <div class="moj-card">
 
-      <div class="card-header">
-        <p class="heading-medium no-margin">{{data.CURRENT_DISPOSAL ? 'Current offender' : 'Not current'}}</p>
+      <div class="moj-card__header">
+        <p class="govuk-heading-m govuk-!-margin-0">{{data.CURRENT_DISPOSAL ? 'Current offender' : 'Not current'}}</p>
       </div>
-      <div class="card-body">
-        <p class="no-margin text-blue font-small" *ngIf="data.CURRENT_DISPOSAL"><span class="bold">Provider:</span> NPS
+      <div class="moj-card__body">
+        <p class="govuk-!-margin-0 moj-!-color-blue" *ngIf="data.CURRENT_DISPOSAL"><span class="govuk-!-font-weight-bold">Provider:</span> NPS
           North West</p>
-        <p class="no-margin text-blue font-small" *ngIf="data.CURRENT_DISPOSAL"><span
-          class="bold">Offender manager:</span> Sarah Smith</p>
+        <p class="govuk-!-margin-0 moj-!-color-blue" *ngIf="data.CURRENT_DISPOSAL"><span
+          class="govuk-!-font-weight-bold">Offender manager:</span> Sarah Smith</p>
       </div>
 
     </div>
 
   </div>
-  <div class="column-one-half">
+  <div class="govuk-grid-column-one-half">
 
-    <div class="card">
+    <div class="moj-card">
 
-      <div class="card-header">
-        <p class="heading-medium no-margin">{{data.EVENTS.length}} {{data.EVENTS.length > 1 || data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
+      <div class="moj-card__header">
+        <p class="govuk-heading-m govuk-!-margin-0">{{data.EVENTS.length}} {{data.EVENTS.length > 1 || data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
       </div>
-      <div class="card-body">
-        <p class="no-margin text-blue" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span> <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
+      <div class="moj-card__body">
+        <p class="govuk-!-margin-0 moj-!-color-blue" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span> <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
       </div>
 
     </div>

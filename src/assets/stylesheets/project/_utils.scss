@@ -1,5 +1,5 @@
 .clearfix {
-  @include clearfix;
+  @include govuk-clearfix;
 }
 
 .clickable {
@@ -24,4 +24,8 @@
       padding-right: 0;
     }
   }
+}
+
+.moj-util-clickable {
+  cursor: pointer;
 }

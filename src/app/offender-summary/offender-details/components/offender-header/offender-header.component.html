@@ -1,5 +1,5 @@
-<div class="grid-row margin-top medium" *ngIf="data">
-  <div class="column-one-half">
+<div class="govuk-grid-row margin-top medium" *ngIf="data">
+  <div class="govuk-grid-column-one-half">
 
     <table role="presentation">
       <tr>
@@ -7,25 +7,29 @@
           <img [src]="'/assets/images/' + (data.CURRENT_DISPOSAL ? data.OFFENDER_ID : 'new_offender') + '.png'"/>
         </td>
         <td>
-          <h1 class="heading-large no-margin">{{data.SURNAME + ', ' + data.FIRST_NAME}}</h1>
-          <p class="margin-top no-margin-bottom">Date of birth</p>
-          <p class="heading-medium no-margin">{{pipeDate(data.DATE_OF_BIRTH_DATE)}}</p>
+          <h1 class="govuk-heading-l govuk-!-margin-0">{{data.SURNAME + ', ' + data.FIRST_NAME}}</h1>
+          <p class="govuk-!-margin-0 govuk-!-margin-top-2">Date of birth</p>
+          <p class="govuk-heading-m govuk-!-margin-0">{{pipeDate(data.DATE_OF_BIRTH_DATE)}}</p>
 
-          <p class="margin-top no-margin-bottom">CRN</p>
-          <p class="heading-medium no-margin">{{data.CRN}}</p>
+          <p class="govuk-!-margin-0 govuk-!-margin-top-2">CRN</p>
+          <p class="govuk-heading-m govuk-!-margin-0">{{data.CRN}}</p>
         </td>
       </tr>
     </table>
 
   </div>
-  <div class="column-one-half">
+  <div class="govuk-grid-column-one-half">
 
-    <div class="risk-alert"
-         [ngClass]="{ 'high': risk.toLowerCase() === 'high', 'medium': risk.toLowerCase() ==='medium' }" *ngIf="risk">
+    <div class="moj-risk-alert"
+         [ngClass]="{
+            'moj-risk-alert--high': risk.toLowerCase() === 'high',
+            'moj-risk-alert--medium': risk.toLowerCase() ==='medium',
+            'moj-risk-alert--low': risk.toLowerCase() ==='low'
+            }" *ngIf="risk">
       {{risk}} risk of serious harm
     </div>
 
-    <div class="risk-alert small high margin-top" *ngIf="data.ALERT">
+    <div class="moj-risk-alert moj-risk-alert--high moj-risk-alert--small" *ngIf="data.ALERT">
       {{data.ALERT.description}}
     </div>
 

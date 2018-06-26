@@ -1,18 +1,20 @@
-table.split-rows {
+.moj-table {
+  &.moj-table--split-rows {
 
-  thead tr {
-    border-bottom: 2px solid black;
-  }
+    thead tr {
+      border-bottom: 2px solid black;
+    }
 
-  tbody tr {
-    border-bottom: 1px solid $grey-3;
+    tbody tr {
+      border-bottom: 1px solid $grey-3;
 
-    &:last-child {
-      border: 0;
+      &:last-child {
+        border: 0;
+      }
     }
   }
 
-  .no-border {
+  &.moj-table--no-border {
     border: 0;
   }
 }

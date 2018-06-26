@@ -61,8 +61,30 @@
   color: gray;
 }
 
-.toggle {
-  display: inline-block;
-  float: right;
-  color: black;
+/*
+  MOJ Pattern Library
+ */
+
+.moj-\!-color-blue {
+  color: govuk-colour("blue");
+}
+
+.moj-\!-color-grey {
+  color: govuk-colour("grey-1");
+}
+
+.moj-\!-color-green {
+  color: govuk-colour("green");
+}
+
+.moj-\!-color-red {
+  color: govuk-colour("red");
+}
+
+.moj-\!-text-align-center {
+  text-align: center;
+}
+
+.moj-\!-text-align-right {
+  text-align: right;
 }

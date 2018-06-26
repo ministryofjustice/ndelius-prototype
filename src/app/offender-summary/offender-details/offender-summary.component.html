@@ -18,9 +18,9 @@
 <!-- Angular component -->
 <app-offender-details [data]="offenderData"></app-offender-details>
 
-<div *ngIf="offenderData && offenderData['NOTES']">
-  <h2 class="heading-medium">Notes</h2>
-  <div class="box notes">
-    <p>{{offenderData.NOTES}}</p>
+<div class="moj-card govuk-!-margin-top-4" *ngIf="offenderData && offenderData['NOTES']">
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Notes</h2>
+  <div class="moj-card__body moj-card__body--no-border govuk-!-padding-4">
+    <p class="govuk-!-margin-0">{{offenderData.NOTES}}</p>
   </div>
 </div>

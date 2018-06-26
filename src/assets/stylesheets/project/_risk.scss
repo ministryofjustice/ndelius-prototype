@@ -1,26 +1,71 @@
-.risk-alert {
-  @include bold-27;
+.moj-risk-alert {
+  @include govuk-typography-responsive(27);
+  @include govuk-typography-weight-bold;
+
   text-align: center;
   padding: 15px;
-  margin-top: 50px;
-  border: 3px solid $green;
+  color: govuk-colour("grey-1");
+  border: 3px solid govuk-colour("grey-1");
+  @include _govuk-responsive-spacing(8, margin, top);
 
-  @include media(mobile) {
-    margin: 10px 0;
+  @include govuk-media-query(mobile, tablet) {
+    @include _govuk-responsive-spacing(0, margin, top);
+    @include _govuk-responsive-spacing(2, margin, bottom);
   }
 
-  &.high {
-    color: $red;
-    border-color: $red;
+  &.moj-risk-alert--high {
+    color: govuk-colour("bright-red");
+    border-color: govuk-colour("bright-red");
   }
 
-  &.medium {
-    color: $yellow;
-    border-color: $yellow;
+  &.moj-risk-alert--medium {
+    color: govuk-colour("yellow");
+    border-color: govuk-colour("yellow");
   }
 
-  &.small {
-    @include bold-19;
-    padding: 10px;
+  &.moj-risk-alert--low {
+    color: govuk-colour("light-green");
+    border-color: govuk-colour("light-green");
+  }
+
+  &.moj-risk-alert--small {
+    @include govuk-typography-responsive(19);
+    @include _govuk-responsive-spacing(2, padding, all);
+    @include _govuk-responsive-spacing(3, margin, top);
+
+    @include govuk-media-query(mobile, tablet) {
+      @include _govuk-responsive-spacing(2, margin, top);
+    }
+  }
+}
+
+.moj-risk-tag {
+  display: inline-block;
+  @include govuk-typography-responsive(14);
+  @include _govuk-responsive-spacing(1, padding, top);
+  @include _govuk-responsive-spacing(1, padding, bottom);
+  @include _govuk-responsive-spacing(4, padding, left);
+  @include _govuk-responsive-spacing(4, padding, right);
+
+  border: 1px solid govuk-colour("grey-1");
+  color: govuk-colour("grey-1");
+  min-width: 100px;
+  text-align: center;
+
+  &.moj-risk-tag--low, &.moj-risk-tag--medium, &.moj-risk-tag--high {
+    color: govuk-colour("white");
+    border: 0;
+  }
+
+  &.moj-risk-tag--low {
+    background: $green;
+  }
+
+  &.moj-risk-tag--medium {
+    background: $yellow;
+  }
+
+  &.moj-risk-tag--high {
+    background: $red;
   }
 }

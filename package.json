@@ -33,6 +33,7 @@
     "@angular/router": "6.0.6",
     "@ngrx/store": "6.0.1",
     "core-js": "2.5.7",
+    "govuk-frontend": "1.0.0",
     "pdfmake": "0.1.37",
     "rxjs": "6.2.1",
     "zone.js": "0.8.26"
