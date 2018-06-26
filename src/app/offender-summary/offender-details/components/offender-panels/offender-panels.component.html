@@ -1,0 +1,33 @@
+<div class="grid-row margin-top" *ngIf="data">
+  <div class="column-one-half">
+
+    <div class="card">
+
+      <div class="card-header">
+        <p class="heading-medium no-margin">{{data.CURRENT_DISPOSAL ? 'Current offender' : 'Not current'}}</p>
+      </div>
+      <div class="card-body">
+        <p class="no-margin text-blue font-small" *ngIf="data.CURRENT_DISPOSAL"><span class="bold">Provider:</span> NPS
+          North West</p>
+        <p class="no-margin text-blue font-small" *ngIf="data.CURRENT_DISPOSAL"><span
+          class="bold">Offender manager:</span> Sarah Smith</p>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="column-one-half">
+
+    <div class="card">
+
+      <div class="card-header">
+        <p class="heading-medium no-margin">{{data.EVENTS.length}} {{data.EVENTS.length > 1 || data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
+      </div>
+      <div class="card-body">
+        <p class="no-margin text-blue" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span> <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

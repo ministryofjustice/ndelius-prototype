@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,6 +14,7 @@ import { InputComponent } from './components/input/input.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NoticeComponent } from './components/notice/notice.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { NoticeComponent } from './components/notice/notice.component';
     ReactiveFormsModule
   ],
   exports: [
+    CommonModule,
     RouterModule,
     ReactiveFormsModule,
     InputComponent,
@@ -30,6 +32,7 @@ import { NoticeComponent } from './components/notice/notice.component';
     TextEntryComponent,
     RadioButtonsComponent,
     ThreeFieldDateComponent,
+    DetailsComponent,
     NavigationComponent,
     FooterComponent
   ],
@@ -42,10 +45,12 @@ import { NoticeComponent } from './components/notice/notice.component';
     TextEntryComponent,
     RadioButtonsComponent,
     ThreeFieldDateComponent,
+    DetailsComponent,
     NavigationComponent,
     FooterComponent
   ],
   providers: [
+    DatePipe,
     AgePipe
   ]
 })

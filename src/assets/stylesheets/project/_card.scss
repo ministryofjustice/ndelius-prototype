@@ -1,0 +1,20 @@
+.card {
+
+  .card-header {
+    border: 1px solid $grey-3;
+    padding: 5px 10px;
+    background: $grey-3;
+    color: $grey-1;
+  }
+
+  .card-body {
+    padding: 10px;
+    background: $grey-4;
+    border: 1px solid $grey-3;
+    min-height: 72px;
+  }
+
+  @include media(mobile) {
+    margin-bottom: 10px;
+  }
+}

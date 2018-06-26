@@ -1,0 +1,18 @@
+table.split-rows {
+
+  thead tr {
+    border-bottom: 2px solid black;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $grey-3;
+
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  .no-border {
+    border: 0;
+  }
+}

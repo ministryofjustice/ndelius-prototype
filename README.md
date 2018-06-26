@@ -37,7 +37,8 @@ The prototype currently contains the following report journeys:
 * [Parole Report Parom 1](./src/app/parom1/README.md)
 * [Parole Report Parom 1 (OMIC)](./src/app/parom1-omic/README.md)
 * [Short Format Pre-Sentence Report](./src/app/sfpsr/README.md) 
-* [Pre-Sentence Report Addendum](./src/app/psr-addendum/README.md)  
+* [Pre-Sentence Report Addendum](./src/app/psr-addendum/README.md)
+* [Offender Summary](./src/app/offender-summary/README.md)  
 
 ## Requirements
 

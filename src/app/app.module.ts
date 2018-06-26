@@ -19,7 +19,7 @@ import { StartComponent } from './start/start.component';
   ],
   declarations: [
     AppComponent,
-    StartComponent
+    StartComponent,
   ],
   bootstrap: [
     AppComponent

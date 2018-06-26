@@ -1,10 +1,5 @@
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
+.clearfix {
+  @include clearfix;
 }
 
 .clickable {
@@ -14,5 +9,19 @@
 .omit-mobile {
   @include media(mobile) {
     display: none;
+  }
+}
+
+.column-one-half {
+  &.no-padding-left {
+    @include media(tablet) {
+      padding-left: 0;
+    }
+  }
+
+  &.no-padding-right {
+    @include media(tablet) {
+      padding-right: 0;
+    }
   }
 }

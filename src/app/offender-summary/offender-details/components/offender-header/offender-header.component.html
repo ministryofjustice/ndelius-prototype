@@ -1,0 +1,33 @@
+<div class="grid-row margin-top medium" *ngIf="data">
+  <div class="column-one-half">
+
+    <table role="presentation">
+      <tr>
+        <td width="125">
+          <img [src]="'/assets/images/' + (data.CURRENT_DISPOSAL ? data.OFFENDER_ID : 'new_offender') + '.png'"/>
+        </td>
+        <td>
+          <h1 class="heading-large no-margin">{{data.SURNAME + ', ' + data.FIRST_NAME}}</h1>
+          <p class="margin-top no-margin-bottom">Date of birth</p>
+          <p class="heading-medium no-margin">{{pipeDate(data.DATE_OF_BIRTH_DATE)}}</p>
+
+          <p class="margin-top no-margin-bottom">CRN</p>
+          <p class="heading-medium no-margin">{{data.CRN}}</p>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="column-one-half">
+
+    <div class="risk-alert"
+         [ngClass]="{ 'high': risk.toLowerCase() === 'high', 'medium': risk.toLowerCase() ==='medium' }" *ngIf="risk">
+      {{risk}} risk of serious harm
+    </div>
+
+    <div class="risk-alert small high margin-top" *ngIf="data.ALERT">
+      {{data.ALERT.description}}
+    </div>
+
+  </div>
+</div>
