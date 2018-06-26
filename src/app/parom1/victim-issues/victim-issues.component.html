@@ -19,7 +19,7 @@
                     ]">
     </app-form-error>
 
-    <div class="govuk-interrupt no-margin-top">
+    <div class="moj-interrupt no-margin-top">
       <p class="bold no-margin-bottom">This report will be disclosed to the prisoner.</p>
 
       <p class="font-xsmall">
@@ -30,7 +30,9 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-notice message="You must contact the VLO for each hearing as part of designing the Risk Management Plan."></app-notice>
+      <app-notice>
+        You must contact the VLO for each hearing as part of designing the Risk Management Plan.
+      </app-notice>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="impactOfOffence"

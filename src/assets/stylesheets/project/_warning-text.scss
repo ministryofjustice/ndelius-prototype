@@ -1,0 +1,19 @@
+.govuk-warning-text {
+  &.moj-warning-text {
+    @include govuk-responsive-padding(4, all);
+    background: $moj-light-blue;
+
+    .govuk-warning-text__icon {
+      left: 20px;
+    }
+  }
+
+  .moj-warning-text__icon--reverse {
+    color: govuk-colour("blue");
+    background: govuk-colour("white");
+  }
+
+  .moj-warning-text__text--reverse {
+    color: govuk-colour("white");
+  }
+}

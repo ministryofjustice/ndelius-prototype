@@ -19,7 +19,7 @@
 </div>
 
 <div [ngClass]="{ 'js-hidden': currentSelection === '' }" [attr.aria-hidden]="currentSelection === ''">
-  <div class="govuk-interrupt">
+  <div class="moj-interrupt">
 
     <p class="lede">As a {{currentSelection === 'com' ? 'COM' : 'POM'}} using the Parom1 - OMIC report you can:</p>
 
@@ -38,11 +38,10 @@
       <li>view the COM sections</li>
     </ul>
 
-    <div class="notice margin-top margin-bottom large">
-      <i class="icon icon-important white">
-        <span class="visually-hidden">Important</span>
-      </i>
-      <strong class="font-small">
+    <div class="govuk-warning-text govuk-!-margin-top-4">
+      <span class="govuk-warning-text__icon moj-warning-text__icon--reverse" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text moj-warning-text__text--reverse">
+        <span class="govuk-warning-text__assistive">Warning</span>
         This report will be disclosed to the prisoner
       </strong>
     </div>

@@ -5,6 +5,8 @@ $path: "/assets/images/";
 // Import all the govuk-elements partials listed in _govuk-elements.scss
 @import "govuk/govuk-elements";
 
+@import "node_modules/govuk-frontend/all";
+
 @import 'fontawesome/variables';
 
 @font-face {
@@ -39,13 +41,16 @@ $path: "/assets/images/";
 
 // Import the project specific mixins
 @import "project/mixins";
+@import "project/colour";
 
 // Import the project specific styles
+@import "project/accordion";
 @import "project/autocomplete";
 @import "project/box";
 @import "project/card";
 @import "project/choice";
 @import "project/components";
+@import "project/details";
 @import "project/forms";
 @import "project/footer";
 @import "project/icon";
@@ -64,3 +69,4 @@ $path: "/assets/images/";
 @import "project/utils";
 @import "project/date-picker";
 @import "project/typography";
+@import "project/warning-text";

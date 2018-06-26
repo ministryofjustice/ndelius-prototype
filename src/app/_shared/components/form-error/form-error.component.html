@@ -1,8 +1,14 @@
-<div class="error-summary no-margin-top" *ngIf="error">
-  <h2 class="heading-medium no-margin-top">There is a problem</h2>
-
-  <ng-template ngFor let-control [ngForOf]="controls" let-index="index">
-    <p class="error-message" *ngIf="group.get(control.name).errors || !group.get(control.name).valid">{{control.error}}</p>
-  </ng-template>
-
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary" *ngIf="error">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <ng-template ngFor let-control [ngForOf]="controls" let-index="index">
+        <li *ngIf="group.get(control.name).errors || !group.get(control.name).valid">
+          <a [href]="'#' + control.name + '_error'">{{control.error}}</a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
 </div>

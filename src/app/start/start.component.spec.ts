@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { StartComponent } from './start.component';
 import { AgePipe } from '../_shared/pipe/age.pipe';
+import { MockNoticeComponent } from '../_shared/components/notice/notice.mock.component';
 
 describe('SFPSR - StartComponent', () => {
   let component: StartComponent;
@@ -14,7 +15,8 @@ describe('SFPSR - StartComponent', () => {
         RouterTestingModule.withRoutes([])
       ],
       declarations: [
-        StartComponent
+        StartComponent,
+        MockNoticeComponent
       ],
       providers: [
         AgePipe
