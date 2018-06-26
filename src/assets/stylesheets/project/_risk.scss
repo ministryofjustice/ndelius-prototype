@@ -1,6 +1,5 @@
 .moj-risk-alert {
-  @include govuk-typography-responsive(27);
-  @include govuk-typography-weight-bold;
+  @include govuk-font(27, bold);
 
   text-align: center;
   padding: 15px;
@@ -29,7 +28,7 @@
   }
 
   &.moj-risk-alert--small {
-    @include govuk-typography-responsive(19);
+    @include govuk-font(19, bold);
     @include _govuk-responsive-spacing(2, padding, all);
     @include _govuk-responsive-spacing(3, margin, top);
 
@@ -41,7 +40,7 @@
 
 .moj-risk-tag {
   display: inline-block;
-  @include govuk-typography-responsive(14);
+  @include govuk-font(14);
   @include _govuk-responsive-spacing(1, padding, top);
   @include _govuk-responsive-spacing(1, padding, bottom);
   @include _govuk-responsive-spacing(4, padding, left);
