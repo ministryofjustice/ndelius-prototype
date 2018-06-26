@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -18,7 +17,6 @@ import { PhaseBannerComponent } from './components/phase-banner/phase-banner.com
  */
 @NgModule({
   imports: [
-    CommonModule,
     ShareBaseModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
@@ -31,9 +29,6 @@ import { PhaseBannerComponent } from './components/phase-banner/phase-banner.com
   declarations: [
     SubNavigationComponent,
     PhaseBannerComponent
-  ],
-  providers: [
-    DatePipe
   ]
 })
 export class SharedModule {

@@ -34,3 +34,8 @@
     margin-top: -20px;
   }
 }
+
+.accordion-container {
+  padding: 10px 0;
+  @include clearfix;
+}

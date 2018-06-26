@@ -22,6 +22,10 @@
   }
 }
 
+.align-center {
+  text-align: center;
+}
+
 .font-regular {
   font-weight: 100 !important;
 }
@@ -45,6 +49,20 @@
   color: #2069b8;
 }
 
+.text-green {
+  color: $green;
+}
+
+.text-red {
+  color: $red;
+}
+
 .text-grey {
   color: gray;
+}
+
+.toggle {
+  display: inline-block;
+  float: right;
+  color: black;
 }

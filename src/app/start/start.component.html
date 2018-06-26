@@ -1,5 +1,11 @@
 <h1 class="heading-xlarge">Prototype <span class="font-xsmall">{{version}}</span></h1>
 
+<div class="notice margin-bottom large">
+  <i class="icon icon-important"><span class="visually-hidden">Important</span></i>
+  <strong class="font-small">No real data is used anywhere within this prototype.<br/>
+    Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</strong>
+</div>
+
 <h2 class="lede">Select the required prototype journey for consideration</h2>
 
 <ul class="margin-top large">
@@ -7,4 +13,18 @@
   <li class="list-bullet"><a id="parom1-omic" routerLink="/parom1-omic/start-report" [queryParams]="queryParams">Parole Report - Parom 1 (OMIC)</a></li>
   <li class="list-bullet"><a id="sfpsr" routerLink="/sfpsr/start-report" [queryParams]="queryParams">Short Format Pre-Sentence Report</a></li>
   <li class="list-bullet"><a id="psr-addendum" routerLink="/psr-addendum/start-report" [queryParams]="queryParams">Pre-Sentence Report Addendum</a></li>
+</ul>
+
+<br/>
+
+<h3 class="heading-small margin-bottom">Offender summary screens</h3>
+
+<ul class="margin-top">
+  <li class="list-bullet"><a id="offender-summary-1" routerLink="/offender-summary" [queryParams]="{ offender: 0 }">Offender Summary (1)</a></li>
+  <li class="list-bullet"><a id="offender-summary-2" routerLink="/offender-summary" [queryParams]="{ offender: 1 }">Offender Summary (2)</a></li>
+  <li class="list-bullet"><a id="offender-summary-3" routerLink="/offender-summary" [queryParams]="{ offender: 2 }">Offender Summary (3)</a></li>
+  <li class="list-bullet"><a id="offender-summary-4" routerLink="/offender-summary" [queryParams]="{ offender: 3 }">Offender Summary (4)</a></li>
+  <li class="list-bullet"><a id="offender-summary-5" routerLink="/offender-summary" [queryParams]="{ offender: 4 }">Offender Summary (5)</a></li>
+  <li class="list-bullet"><a id="offender-summary-6" routerLink="/offender-summary" [queryParams]="{ offender: 5 }">Offender Summary (6)</a></li>
+  <li class="list-bullet"><a id="offender-summary-7" routerLink="/offender-summary" [queryParams]="{ offender: 6 }">Offender Summary (7)</a></li>
 </ul>

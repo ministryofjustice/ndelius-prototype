@@ -1,0 +1,26 @@
+<!-- Angular component -->
+<app-phase-banner></app-phase-banner>
+
+<!-- Angular component -->
+<app-offender-header [data]="offenderData"></app-offender-header>
+
+<!-- Angular component -->
+<app-offender-panels [data]="offenderData"></app-offender-panels>
+
+<br/>
+
+<!-- Angular component -->
+<app-offender-risk [data]="offenderData"></app-offender-risk>
+
+<!-- Angular component -->
+<app-offender-chronology [data]="offenderData"></app-offender-chronology>
+
+<!-- Angular component -->
+<app-offender-details [data]="offenderData"></app-offender-details>
+
+<div *ngIf="offenderData && offenderData['NOTES']">
+  <h2 class="heading-medium">Notes</h2>
+  <div class="box notes">
+    <p>{{offenderData.NOTES}}</p>
+  </div>
+</div>
