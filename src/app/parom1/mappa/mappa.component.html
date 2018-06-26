@@ -21,7 +21,9 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
-      <app-notice message="This must be completed if a prisoner is eligible for release"></app-notice>
+      <app-notice>
+        This must be completed if a prisoner is eligible for release
+      </app-notice>
 
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="screenedDate" date="true" [error]="formError" required="true"

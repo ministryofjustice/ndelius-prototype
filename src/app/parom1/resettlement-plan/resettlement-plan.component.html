@@ -15,7 +15,9 @@
     </app-form-error>
 
     <!-- Angular component -->
-    <app-notice message="This must be included for all prisoners"></app-notice>
+    <app-notice>
+      This must be included for all prisoners
+    </app-notice>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 

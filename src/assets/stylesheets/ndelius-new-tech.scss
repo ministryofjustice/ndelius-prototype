@@ -41,6 +41,7 @@ $path: "/assets/images/";
 
 // Import the project specific mixins
 @import "project/mixins";
+@import "project/colour";
 
 // Import the project specific styles
 @import "project/accordion";
@@ -68,3 +69,4 @@ $path: "/assets/images/";
 @import "project/utils";
 @import "project/date-picker";
 @import "project/typography";
+@import "project/warning-text";

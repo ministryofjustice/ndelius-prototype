@@ -30,7 +30,9 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-notice message="You must contact the VLO for each hearing as part of designing the Risk Management Plan."></app-notice>
+      <app-notice>
+        You must contact the VLO for each hearing as part of designing the Risk Management Plan.
+      </app-notice>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="impactOfOffence"
