@@ -9,7 +9,7 @@
         "EVENTS": [
           {
             "type": "event",
-            "status": "Short Format Pre-Sentence Report",
+            "status": "Short Format Pre-Sentence Report (adjourned)",
             "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
             "date": "27/06/2018",
             "active": true
@@ -236,7 +236,7 @@
         "EVENTS": [
           {
             "type": "event",
-            "status": "Short Format Pre-Sentence Report",
+            "status": "Short Format Pre-Sentence Report (adjourned)",
             "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
             "date": "27/06/2018",
             "active": true
@@ -826,7 +826,7 @@
         "EVENTS": [
           {
             "type": "event",
-            "status": "Short Format Pre-Sentence Report",
+            "status": "Short Format Pre-Sentence Report (adjourned)",
             "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
             "date": "27/06/2018",
             "active": true
@@ -1493,7 +1493,7 @@
         "EVENTS": [
           {
             "type": "event",
-            "status": "Short Format Pre-Sentence Report",
+            "status": "Short Format Pre-Sentence Report (adjourned)",
             "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
             "date": "27/06/2018",
             "active": true
