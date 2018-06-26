@@ -10,7 +10,7 @@
 <br/>
 
 <!-- Angular component -->
-<app-offender-risk [data]="offenderData['RISK_REGISTERS'] || []"></app-offender-risk>
+<app-offender-risk [data]="offenderData"></app-offender-risk>
 
 <!-- Angular component -->
 <app-offender-chronology [data]="offenderData"></app-offender-chronology>
@@ -18,7 +18,9 @@
 <!-- Angular component -->
 <app-offender-details [data]="offenderData"></app-offender-details>
 
-<h2 class="heading-medium">Notes</h2>
-<div class="box notes">
-  <p>{{offenderData.NOTES}}</p>
+<div *ngIf="offenderData && offenderData['NOTES']">
+  <h2 class="heading-medium">Notes</h2>
+  <div class="box notes">
+    <p>{{offenderData.NOTES}}</p>
+  </div>
 </div>

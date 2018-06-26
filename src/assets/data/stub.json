@@ -6,6 +6,36 @@
       "_id": "6",
       "_score": 33.98652,
       "_source": {
+        "EVENTS": [
+          {
+            "type": "event",
+            "status": "Short Format Pre-Sentence Report",
+            "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
+            "date": "27/06/2018",
+            "active": true
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (12 months)",
+            "primaryOffence": "Displaying indecent matter - 08603",
+            "date": "18/02/2017",
+            "active": false
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (6 months)",
+            "primaryOffence": "Disorderly behaviour - 16200",
+            "date": "15/05/2015",
+            "active": false
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (6 months)",
+            "primaryOffence": "Disorderly behaviour - 16200",
+            "date": "25/07/2013",
+            "active": false
+          }
+        ],
         "RISK_REGISTERS": [
           {
             "type": "Safeguarding",
@@ -203,6 +233,22 @@
       "_id": "4",
       "_score": 32.27014,
       "_source": {
+        "EVENTS": [
+          {
+            "type": "event",
+            "status": "Short Format Pre-Sentence Report",
+            "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
+            "date": "27/06/2018",
+            "active": true
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (12 months)",
+            "primaryOffence": "Displaying indecent matter - 08603",
+            "date": "18/02/2017",
+            "active": false
+          }
+        ],
         "RISK_REGISTERS": [
           {
             "type": "Safeguarding",
@@ -532,6 +578,8 @@
       "_id": "7",
       "_score": 29.93231,
       "_source": {
+        "EVENTS": [
+        ],
         "OFFENDER_ID": 2697747496,
         "GENDER_ID": 545,
         "FIRST_NAME": "John",
@@ -770,6 +818,41 @@
       "_id": "582",
       "_score": 28.622114,
       "_source": {
+        "ALERT": {
+          "type": "breach",
+          "description": "Breached conditions",
+          "level": 3
+        },
+        "EVENTS": [
+          {
+            "type": "event",
+            "status": "Short Format Pre-Sentence Report",
+            "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
+            "date": "27/06/2018",
+            "active": true
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (12 months)",
+            "primaryOffence": "Displaying indecent matter - 08603",
+            "date": "18/02/2017",
+            "active": false
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (6 months)",
+            "primaryOffence": "Disorderly behaviour - 16200",
+            "date": "15/05/2015",
+            "active": false
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (6 months)",
+            "primaryOffence": "Disorderly behaviour - 16200",
+            "date": "25/07/2013",
+            "active": false
+          }
+        ],
         "RISK_REGISTERS": [
           {
             "type": "Safeguarding",
@@ -959,6 +1042,22 @@
       "_id": "542",
       "_score": 25.264116,
       "_source": {
+        "EVENTS": [
+          {
+            "type": "event",
+            "status": "CJA Community Order (6 months)",
+            "primaryOffence": "Disorderly behaviour - 16200",
+            "date": "15/05/2015",
+            "active": false
+          },
+          {
+            "type": "event",
+            "status": "CJA Community Order (6 months)",
+            "primaryOffence": "Disorderly behaviour - 16200",
+            "date": "25/07/2013",
+            "active": false
+          }
+        ],
         "RISK_REGISTERS": [
           {
             "type": "Safeguarding",
@@ -1239,6 +1338,9 @@
       "_id": "11",
       "_score": 16.093693,
       "_source": {
+        "EVENTS": [
+
+        ],
         "OFFENDER_ID": 2335897277,
         "GENDER_ID": 545,
         "FIRST_NAME": "Chris",
@@ -1388,6 +1490,15 @@
       "_id": "882",
       "_score": 12.140841,
       "_source": {
+        "EVENTS": [
+          {
+            "type": "event",
+            "status": "Short Format Pre-Sentence Report",
+            "primaryOffence": "Sexual assault on a female (Sexual Offences Act 2003) - 02005",
+            "date": "27/06/2018",
+            "active": true
+          }
+        ],
         "OFFENDER_ID": 216467082,
         "GENDER_ID": 545,
         "FIRST_NAME": "David",

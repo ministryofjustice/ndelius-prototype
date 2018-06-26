@@ -26,7 +26,10 @@ export class OffenderHeaderComponent implements OnChanges {
    *
    */
   ngOnChanges() {
-    switch (this.data.CURRENT_HIGHEST_RISK_COLOUR) {
+    if (!this.data) {
+      return;
+    }
+    switch (this.data['CURRENT_HIGHEST_RISK_COLOUR']) {
       case 'Red':
         this.risk = 'high';
         break;

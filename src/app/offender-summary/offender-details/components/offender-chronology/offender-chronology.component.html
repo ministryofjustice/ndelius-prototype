@@ -1,45 +1,50 @@
-<app-accordion-panel [title]="'Events (' + offenderChronology.length + ')'">
+<div *ngIf="data">
+  <app-accordion-panel [title]="'Events (' + data.EVENTS.length + ')'">
 
-  <div class="inside-panel">
+    <div class="inside-panel">
 
-    <!-- NO RISK DATA -->
-    <div *ngIf="!offenderChronology.length">
-      <p class="align-center">No data</p>
-    </div>
+      <!-- NO RISK DATA -->
+      <div *ngIf="!data.EVENTS.length">
+        <p class="align-center">No data</p>
+      </div>
 
-    <!--  -->
-    <div class="timeline" *ngIf="offenderChronology.length">
+      <!--  -->
+      <div class="timeline" *ngIf="data.EVENTS && data.EVENTS.length">
 
-      <ng-template ngFor let-option [ngForOf]="offenderChronology" let-index="index">
+        <ng-template ngFor let-option [ngForOf]="data.EVENTS" let-index="index">
 
-        <div class="timeline-item" [ngClass]="{ 'primary': option.active }">
-          <p [ngClass]="{
+          <div class="timeline-item" [ngClass]="{ 'primary': option.active }">
+            <p [ngClass]="{
                           'heading-medium no-margin': option.active,
                           'heading-small text-blue clickable': !option.active
                         }">{{option.status}}</p>
 
-          <table role="presentation" class="no-margin">
-            <tbody>
-            <tr>
-              <td class="no-padding">
-                <p class="text-grey" [ngClass]="{ 'bold margin-bottom': option.active }">{{option.primaryOffence}}</p>
-              </td>
-              <td width="110" class="no-padding">
-                <p class="text-grey">{{option.date}}</p>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+            <table role="presentation" class="no-margin">
+              <tbody>
+              <tr>
+                <td class="no-padding">
+                  <p class="text-grey" [ngClass]="{ 'bold margin-bottom': option.active }">{{option.primaryOffence}}</p>
+                </td>
+                <td width="110" class="no-padding">
+                  <p class="text-grey">{{option.date}}</p>
+                </td>
+                <td width="100" class="no-padding">
+                  <p class="font-small align-right" [ngClass]="{ 'text-green bold': option.active, 'text-red': !option.active }">{{option.active ? 'Active' : 'Terminated'}}</p>
+                </td>
+              </tr>
+              </tbody>
+            </table>
 
-          <button type="button" class="button" (click)="startSFPSR()" *ngIf="option.active">Start</button>
-        </div>
+            <button type="button" class="button" (click)="startSFPSR()" *ngIf="option.active">Start</button>
+          </div>
 
-        <hr class="margin-top margin-bottom" *ngIf="!option.active && index < offenderChronology.length - 1"/>
+          <hr class="margin-top margin-bottom" *ngIf="!option.active && index < data.EVENTS.length - 1"/>
 
-      </ng-template>
+        </ng-template>
+
+      </div>
 
     </div>
 
-  </div>
-
-</app-accordion-panel>
+  </app-accordion-panel>
+</div>

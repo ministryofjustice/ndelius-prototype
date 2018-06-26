@@ -4,7 +4,6 @@
   padding: 15px;
   margin-top: 50px;
   border: 3px solid $green;
-  // border-radius: 5px;
 
   @include media(mobile) {
     margin: 10px 0;
@@ -18,5 +17,10 @@
   &.medium {
     color: $yellow;
     border-color: $yellow;
+  }
+
+  &.small {
+    @include bold-19;
+    padding: 10px;
   }
 }

@@ -1,4 +1,4 @@
-<div class="grid-row margin-top">
+<div class="grid-row margin-top" *ngIf="data">
   <div class="column-one-half">
 
     <div class="card">
@@ -21,10 +21,10 @@
     <div class="card">
 
       <div class="card-header">
-        <p class="heading-medium no-margin">3 previous events</p>
+        <p class="heading-medium no-margin">{{data.EVENTS.length}} {{data.EVENTS.length > 1 || data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
       </div>
       <div class="card-body">
-        <p class="no-margin text-blue"><span class="bold">1 active event:</span> Short Format Pre-Sentence Report (adjourned)</p>
+        <p class="no-margin text-blue" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span> <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
       </div>
 
     </div>
