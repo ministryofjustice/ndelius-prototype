@@ -16,6 +16,7 @@ import { MockRadioButtonsComponent } from '../../_shared/components/radio-button
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 
 import * as model from './reducer/offender-assessment.reducer';
+import { MockCheckboxesComponent } from '../../_shared/components/checkboxes/checkboxes.mock.component';
 
 describe('SFPSR - Component: Offender assessment issues', () => {
 
@@ -33,6 +34,7 @@ describe('SFPSR - Component: Offender assessment issues', () => {
         MockPhaseBannerComponent,
         MockTextEntryComponent,
         MockRadioButtonsComponent,
+        MockCheckboxesComponent,
         MockFooterComponent
       ],
       imports: [

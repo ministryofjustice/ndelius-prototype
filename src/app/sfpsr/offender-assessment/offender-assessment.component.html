@@ -17,65 +17,34 @@
                     ]">
     </app-form-error>
 
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+    <h1 class="govuk-fieldset__heading">
+      <span class="govuk-caption-xl">Select the underlying issues that are relevant as motivators or drivers for the main offence</span>
+    </h1>
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-fieldset__heading">
-              <span class="govuk-caption-xl">Select the underlying issues that are relevant as motivators or drivers for the main offence</span>
-            </h1>
-          </legend>
-
-          <details class="govuk-details">
-            <summary class="govuk-details__summary">
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
                 Offender assessment guidance
               </span>
-            </summary>
-            <div class="govuk-details__text">
-              <p>Key aspects of the person’s circumstances should be detailed. Those which are linked to their offending
-                behaviour should be highlighted.</p>
-              <p>Make sure that you select all of the factors that have impacted on offending, and that may impact on future
-                risk of re offending.</p>
-              <p>Also, consider if there are factors that are not directly linked. These may cause difficulties for the
-                offender and impact on their desistance from crime.</p>
-            </div>
-          </details>
-
-          <!-- Angular component -->
-          <app-notice>
-            By not selecting an issue you are indicating it is not relevant
-          </app-notice>
-
-          <div class="govuk-checkboxes" data-module="checkboxes">
-
-            <!-- Loop through the "sections" specified in the controller: offender-assessment.component.ts -->
-            <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
-
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" [id]="section.checkControl" [formControlName]="section.checkControl" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional-1">
-                <label class="govuk-label govuk-checkboxes__label" [for]="section.checkControl">
-                  {{section.checkLabel}}
-                </label>
-              </div>
-              <div class="govuk-checkboxes__conditional" [id]="'conditional-' + section.checkControl"
-                   [ngClass]="{
-                      'govuk-form-group--error': (reportForm.get(section.checkControl).touched || formError) && reportForm.get(section.checkControl).errors,
-                      'js-hidden': !reportForm.get(section.checkControl).value
-                    }" [attr.aria-hidden]="!reportForm.get(section.checkControl).value">
-
-                <!-- Angular component -->
-                <app-text-entry [group]="reportForm" [name]="section.detailControl" [label]="section.detailLabel"
-                                [error]="formError" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-              </div>
-
-            </ng-template>
-
-          </div>
-        </fieldset>
+      </summary>
+      <div class="govuk-details__text">
+        <p>Key aspects of the person’s circumstances should be detailed. Those which are linked to their offending
+          behaviour should be highlighted.</p>
+        <p>Make sure that you select all of the factors that have impacted on offending, and that may impact on future
+          risk of re offending.</p>
+        <p>Also, consider if there are factors that are not directly linked. These may cause difficulties for the
+          offender and impact on their desistance from crime.</p>
       </div>
+    </details>
+
+    <!-- Angular component -->
+    <app-notice>
+      By not selecting an issue you are indicating it is not relevant
+    </app-notice>
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <app-checkboxes [options]="sections" [group]="reportForm"></app-checkboxes>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 

@@ -1,7 +1,7 @@
 <div class="govuk-form-group" [formGroup]="group">
   <fieldset class="govuk-fieldset">
 
-    <legend class="govuk-fieldset__legend govuk-label">
+    <legend class="govuk-fieldset__legend govuk-label" [ngClass]="{ 'js-hidden': !legend }">
       {{legend}}
     </legend>
 
