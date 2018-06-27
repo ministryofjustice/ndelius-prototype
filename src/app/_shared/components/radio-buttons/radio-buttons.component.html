@@ -1,27 +1,37 @@
-<div class="form-group margin-bottom" [formGroup]="group" [ngClass]="{ 'form-group-error': required && error && group.get(name).errors }">
-  <fieldset>
+<div class="govuk-form-group" [formGroup]="group" [ngClass]="{ 'govuk-form-group--error': required && error && group.get(name).errors, 'govuk-!-margin-bottom-1': conditional }">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-label">
+      {{label}}
+    </legend>
+    <span [id]="name + '-hint'" class="govuk-hint" *ngIf="help">{{help}}</span>
 
-    <legend class="form-label-bold">{{label}}</legend>
-    <span class="form-hint" *ngIf="help">{{help}}</span>
     <div [hidden]="!showHint">
-      <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
-      <div #hint class="panel panel-border-narrow margin-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
-        <ng-content></ng-content>
-      </div>
+      <details class="govuk-details govuk-!-margin-bottom-2">
+        <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        What to include
+      </span>
+        </summary>
+        <div #hint class="govuk-details__text govuk-!-margin-bottom-4">
+          <ng-content></ng-content>
+        </div>
+      </details>
     </div>
-    <div *ngIf="expandContent">&nbsp;</div>
+
     <app-error-messages [control]="name" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
+    <div class="govuk-radios">
 
-    <div class="margin-top medium"></div>
+      <ng-template ngFor let-option [ngForOf]="options" let-index="index">
 
-    <ng-template ngFor let-option [ngForOf]="options" let-index="index">
+        <div class="govuk-radios__item">
+          <input [formControlName]="name" class="govuk-radios__input" [id]="name + '-radio-' + index" type="radio" [value]="option" [attr.aria-checked]="group.get(name).value === option">
+          <label class="govuk-label govuk-radios__label" [for]="name + '-radio-' + index">
+            {{option}}
+          </label>
+        </div>
 
-      <div class="multiple-choice">
-        <input [id]="name + '-radio-' + index" type="radio" [formControlName]="name" [value]="option" [attr.aria-checked]="group.get(name).value === option" />
-        <label [for]="name + '-radio-' + index">{{option}}</label>
-      </div>
+      </ng-template>
 
-    </ng-template>
-
+    </div>
   </fieldset>
 </div>

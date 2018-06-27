@@ -7,7 +7,7 @@
 
   showHideContent.init();
   GOVUK.stickAtTopWhenScrolling.init();
-  autosize(document.querySelectorAll('textarea'));
+  autosize(document.querySelectorAll('textarea:not(.moj-textarea--classic)'));
 
   if (!!autoComplete) {
     accessibleAutocomplete.enhanceSelectElement({

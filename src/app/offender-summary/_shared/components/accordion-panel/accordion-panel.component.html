@@ -1,13 +1,11 @@
 <div class="moj-accordion">
 
-  <h2 class="govuk-heading-m govuk-!-margin-0 moj-!-color-blue moj-util-clickable" (click)="isActive = !isActive">{{title}}<span class="moj-accordion__toggle far" [ngClass]="{ 'fa-plus': !isActive, 'fa-minus': isActive }"></span></h2>
+  <h2 class="govuk-heading-m govuk-!-margin-0 moj-!-color-blue moj-util-clickable" (click)="isActive = !isActive">
+    {{title}}<span class="moj-accordion__toggle far" [ngClass]="{ 'fa-plus': !isActive, 'fa-minus': isActive }"></span>
+  </h2>
 
-  <div *ngIf="isActive">
-
-    <br/>
-
+  <div class="govuk-!-margin-top-4" [ngClass]="{ 'js-hidden': !isActive }" [attr.aria-expanded]="isActive">
     <ng-content></ng-content>
-
   </div>
 
 </div>

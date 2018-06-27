@@ -1,14 +1,14 @@
 <!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Sentencing court details</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Sentencing court details</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- Angular component -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -25,8 +25,8 @@
       <app-input [group]="reportForm" name="court" required="true" [error]="formError" label="Court"
                  wide="true" errorMessage="Enter the name of the sentencing court"></app-input>
 
-      <div class="form-group" [ngClass]="{ 'form-group-error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }">
-        <label for="localJusticeArea" class="form-label-bold">Local justice area</label>
+      <div class="govuk-form-group" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }">
+        <label for="localJusticeArea" class="govuk-label">Local justice area</label>
         <!-- Angular component -->
         <app-error-messages control="localJusticeArea" message="Enter the local justice area of the sentencing court" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
         <select formControlName="localJusticeArea" id="localJusticeArea" class="form-control auto-complete">

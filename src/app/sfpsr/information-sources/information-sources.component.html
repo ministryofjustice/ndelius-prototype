@@ -1,37 +1,48 @@
 <!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Sources of information</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Sources of information</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <fieldset>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="nationality-hint">
 
-        <legend class="lede margin-bottom medium">Select the relevant options</legend>
+          <legend class="govuk-fieldset__legend govuk-label">
+            Select the relevant options
+          </legend>
 
-        <!-- Loop through the "sections" specified in the controller: information-sources.component.ts -->
-        <div class="multiple-choice" *ngFor="let section of sections; let i = index" [ngClass]="{ 'margin-top': i > 0 }">
-          <input type="checkbox" role="checkbox" [id]="section.control" [formControlName]="section.control" value="true" />
-          <label [for]="section.control" class="form-label-bold">{{section.label}}</label>
-        </div>
+          <div class="govuk-checkboxes govuk-!-margin-top-2">
 
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('otherInformationSource').value }" [attr.aria-hidden]="!reportForm.get('otherInformationSource').value">
+            <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
 
-          <!-- Angular component -->
-          <app-text-entry [group]="reportForm" name="otherInformationDetails" label="Other source(s) of information"></app-text-entry>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" [id]="section.control" [name]="section.control" [formControlName]="section.control" type="checkbox" value="true">
+                <label class="govuk-label govuk-checkboxes__label" [for]="section.control">
+                  {{section.label}}
+                </label>
+              </div>
 
-        </div>
+            </ng-template>
 
-        <div class="clearfix"></div>
+          </div>
 
-      </fieldset>
+          <div class="govuk-checkboxes__conditional" [ngClass]="{ 'js-hidden': !reportForm.get('otherInformationSource').value }" [attr.aria-hidden]="!reportForm.get('otherInformationSource').value">
+
+            <!-- Angular component -->
+            <app-text-entry [group]="reportForm" name="otherInformationDetails" label="Other source(s) of information"></app-text-entry>
+
+          </div>
+
+        </fieldset>
+      </div>
 
       <!-- Angular component -->
       <app-footer></app-footer>

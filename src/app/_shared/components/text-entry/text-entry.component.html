@@ -1,21 +1,29 @@
-<div class="form-group" [formGroup]="group" [ngClass]="{ 'form-group-error': group.get(name).errors && (group.get(name).touched || error) }">
-  <label [for]="name">
-    <span class="form-label-bold">{{label}}</span>
-    <span class="form-hint" *ngIf="help">{{help}}</span>
+<div class="govuk-form-group" [formGroup]="group" [ngClass]="{ 'govuk-form-group--error': group.get(name).errors && (group.get(name).touched || error) }">
+  <label class="govuk-label" [for]="name">
+    {{label}}
   </label>
+  <span [id]="name + '-hint'" class="govuk-hint" *ngIf="help">
+    {{help}}
+  </span>
+
   <div [hidden]="!showHint">
-    <a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': expandContent }" (click)="expandContent = !expandContent">What to include</a>
-    <div #hint class="panel panel-border-narrow margin-top" [ngClass]="{ 'js-hidden': !expandContent }" [attr.aria-hidden]="!expandContent">
-      <ng-content></ng-content>
-    </div>
+    <details class="govuk-details govuk-!-margin-bottom-2">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        What to include
+      </span>
+      </summary>
+      <div #hint class="govuk-details__text govuk-!-margin-bottom-4">
+        <ng-content></ng-content>
+      </div>
+    </details>
   </div>
-  <div *ngIf="expandContent">&nbsp;</div>
+
   <app-error-messages [control]="name" [active]="group.get(name).errors && (group.get(name).touched || error)" [message]="errorMessage"></app-error-messages>
-  <textarea #textArea [id]="name" [formControlName]="name" class="form-control wide" [ngClass]="{ 'classic': classic }" [placeholder]="placeholder" (focus)="startSaving()" (blur)="saveProgress()"></textarea>
-</div>
+  <textarea #textArea [id]="name" [name]="name" [formControlName]="name" class="govuk-textarea moj-textarea" [attr.aria-describedby]="name + '-hint ' + name + '-error'" [ngClass]="{ 'moj-textarea--classic': classic, 'govuk-!-width-one-half': classic && !wide }" [placeholder]="placeholder" (focus)="startSaving()" (blur)="saveProgress()"></textarea>
 
-<div class="pull-left" *ngIf="limit && group.get(name).value.length">
-  <p class="form-hint">{{limitText}}</p>
-</div>
+  <div *ngIf="limit && group.get(name).value.length">
+    <p class="govuk-hint">{{limitText}}</p>
+  </div>
 
-<div class="clearfix"></div>
+</div>

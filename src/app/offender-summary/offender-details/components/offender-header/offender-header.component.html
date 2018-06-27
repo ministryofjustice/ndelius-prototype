@@ -20,7 +20,7 @@
   </div>
   <div class="govuk-grid-column-one-half">
 
-    <div class="moj-risk-alert"
+    <div class="moj-risk-alert" role="alert"
          [ngClass]="{
             'moj-risk-alert--high': risk.toLowerCase() === 'high',
             'moj-risk-alert--medium': risk.toLowerCase() ==='medium',
@@ -29,7 +29,7 @@
       {{risk}} risk of serious harm
     </div>
 
-    <div class="moj-risk-alert moj-risk-alert--high moj-risk-alert--small" *ngIf="data.ALERT">
+    <div class="moj-risk-alert moj-risk-alert--high moj-risk-alert--small" role="alert" *ngIf="data.ALERT">
       {{data.ALERT.description}}
     </div>
 

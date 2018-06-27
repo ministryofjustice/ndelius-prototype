@@ -20,7 +20,7 @@
     border: 0;
   }
 
-  @include media(mobile) {
+  @include govuk-media-query(mobile, tablet) {
     @include govuk-responsive-margin(2, bottom);
   }
 }

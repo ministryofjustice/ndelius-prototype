@@ -11,21 +11,25 @@
       <!-- RISK DATA -->
       <table class="moj-table moj-table--split-rows" role="presentation" *ngIf="data['RISK_REGISTERS'].length">
         <thead>
+
         <tr>
           <th width="220">Type</th>
           <th width="130">Status</th>
           <th>Description</th>
           <th width="130">Date</th>
         </tr>
+
         </thead>
         <tbody>
 
         <ng-template ngFor let-option [ngForOf]="data['RISK_REGISTERS']" let-index="index">
           <tr [ngClass]="{ 'moj-!-border-0': option.active }">
-            <td><a href="javascript:void(0)" class="expand-content" [ngClass]="{ 'active': option.active }"
-                   (click)="option.active = !option.active">{{option.type}}</a></td>
-            <td><span class="moj-risk-tag"
-                      [ngClass]="{
+            <td>
+              <a href="javascript:void(0)" (click)="option.active = !option.active">{{option.type}}</a>
+            </td>
+            <td>
+              <span class="moj-risk-tag"
+                    [ngClass]="{
                       'moj-risk-tag--low': option.level.toLowerCase().indexOf('low') !== -1,
                       'moj-risk-tag--medium': option.level.toLowerCase().indexOf('medium') !== -1,
                       'moj-risk-tag--high': option.level.toLowerCase().indexOf('high') !== -1
@@ -34,7 +38,7 @@
             <td>{{option.description}}</td>
             <td>{{option.date}}</td>
           </tr>
-          <tr *ngIf="option.active">
+          <tr [ngClass]="{ 'js-hidden': !option.active }" [attr.aria-expanded]="option.active">
             <td colspan="4">
               <div class="moj-inside-panel">
                 <p>{{option.information}}</p>

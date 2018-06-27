@@ -91,6 +91,12 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() public classic: boolean;
 
   /**
+   *
+   * @type {string}
+   */
+  @Input() public wide: boolean;
+
+  /**
    * Gain access to the 'hint' set within the child DOM
    */
   @ViewChild('hint') hint;
@@ -136,6 +142,7 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
    *
    */
   limitText: string;
+
   /**
    * Listener used for recommended character count
    */
@@ -186,26 +193,20 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
       interval.unsubscribe();
     }
 
-    if (currentValue.length) {
+    // Check the content for changes
+    if (currentValue !== this.currentContent) {
+      this.saving.active = true;
+      this.onSaveContent.emit();
 
-      // Check the content for changes
-      if (currentValue !== this.currentContent) {
-        this.saving.active = true;
-        this.onSaveContent.emit();
-
-        this.ngZone.runOutsideAngular(() => {
-          const pause = timer(1000);
-          timerSub = pause.subscribe(() => {
-            this.ngZone.run(() => {
-              this.saving.active = false;
-              timerSub.unsubscribe();
-            });
+      this.ngZone.runOutsideAngular(() => {
+        const pause = timer(1000);
+        timerSub = pause.subscribe(() => {
+          this.ngZone.run(() => {
+            this.saving.active = false;
+            timerSub.unsubscribe();
           });
         });
-      }
-
-    } else {
-      this.saving.active = void 0;
+      });
     }
 
     // Store the current content

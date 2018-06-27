@@ -88,3 +88,35 @@ input[type="checkbox"].right {
     @include box-shadow(0 2px 0 darken($grey-3, 15%));
   }
 }
+
+// Override the input style to match the new GOV.UK Design System
+.autocomplete__input {
+  @include govuk-font($size: 19);
+  @include govuk-focusable;
+  height: 40px;
+  margin-top: 0;
+  padding: govuk-spacing(1);
+  border: $govuk-border-width-form-element solid $govuk-input-border-colour;
+  border-radius: 0;
+}
+
+.govuk-textarea {
+
+  &.moj-textarea {
+    resize: none;
+    border: 0;
+    padding-left: 0;
+    overflow: auto;
+    @include govuk-responsive-margin(3, bottom);
+
+    &::placeholder {
+      @include govuk-font(24);
+    }
+
+    &.moj-textarea--classic {
+      border: 2px solid $govuk-text-colour;
+      min-height: 150px;
+      @include govuk-responsive-padding(2);
+    }
+  }
+}
