@@ -6,5 +6,5 @@
   <span [id]="name + '-hint'" class="govuk-hint" *ngIf="help">
     {{help}}
   </span>
-  <input class="govuk-input" [ngClass]="{ 'govuk-!-width-one-half': !wide, 'govuk-input--error': (group.get(name).touched || error) && required && group.get(name).errors, 'date-picker': date }" [formControlName]="name" [id]="name" [name]="name" type="text" [attr.aria-describedby]="name + '-hint ' + name + '_error'" [attr.aria-required]="required">
+  <input class="govuk-input" [ngClass]="{ 'govuk-!-width-one-half': !wide, 'govuk-input--error': (group.get(name).touched || error) && required && group.get(name).errors, 'moj-input--readonly': readonly,  'date-picker': date }" [formControlName]="name" [id]="name" [name]="name" [type]="type" [attr.aria-describedby]="name + '-hint ' + name + '_error'" [attr.aria-required]="required" [readonly]="readonly" />
 </div>

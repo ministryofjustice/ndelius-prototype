@@ -58,7 +58,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"].right {
-  +label {
+  + label {
     span {
       padding-top: 4px;
       padding-right: 40px;
@@ -98,6 +98,13 @@ input[type="checkbox"].right {
   padding: govuk-spacing(1);
   border: $govuk-border-width-form-element solid $govuk-input-border-colour;
   border-radius: 0;
+}
+
+.govuk-input {
+  &.moj-input--readonly {
+    border: 0;
+    padding-left: 0;
+  }
 }
 
 .govuk-textarea {
