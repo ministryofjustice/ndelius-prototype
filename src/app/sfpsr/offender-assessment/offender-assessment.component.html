@@ -44,10 +44,12 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
+      <!-- Angular component -->
       <app-checkboxes [options]="sections" [group]="reportForm"></app-checkboxes>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
+      <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="trauma" [options]="['Yes', 'No']"
                          label="Is there evidence of the offender experiencing trauma?"
                          required="true" conditional="true" [error]="formError"
@@ -58,12 +60,14 @@
 
       <div class="govuk-radios__conditional" [ngClass]="{'js-hidden': reportForm.get('trauma').value !== 'Yes' }">
 
+        <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma"></app-text-entry>
 
       </div>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
+      <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="caring" [options]="['Yes', 'No']"
                          label="Does the offender have caring responsibilities for children or adults, or have they ever had caring responsibilities for children or adults?"
                          required="true" conditional="true" [error]="formError"
@@ -74,6 +78,7 @@
 
       <div class="govuk-radios__conditional" [ngClass]="{'js-hidden': reportForm.get('caring').value !== 'Yes' }">
 
+        <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities"></app-text-entry>
 
       </div>
