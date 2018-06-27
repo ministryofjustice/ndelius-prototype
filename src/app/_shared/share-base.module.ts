@@ -15,6 +15,7 @@ import { FormErrorComponent } from './components/form-error/form-error.component
 import { FooterComponent } from './components/footer/footer.component';
 import { NoticeComponent } from './components/notice/notice.component';
 import { DetailsComponent } from './components/details/details.component';
+import { CheckboxesComponent } from './components/checkboxes/checkboxes.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { DetailsComponent } from './components/details/details.component';
     TextEntryComponent,
     RadioButtonsComponent,
     ThreeFieldDateComponent,
+    CheckboxesComponent,
     DetailsComponent,
     NavigationComponent,
     FooterComponent
@@ -45,6 +47,7 @@ import { DetailsComponent } from './components/details/details.component';
     TextEntryComponent,
     RadioButtonsComponent,
     ThreeFieldDateComponent,
+    CheckboxesComponent,
     DetailsComponent,
     NavigationComponent,
     FooterComponent

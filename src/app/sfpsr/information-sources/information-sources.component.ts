@@ -13,6 +13,7 @@ import { UpdateInformationSourcesAction } from './action/information-sources.act
 interface ISection {
   control: string;
   label: string;
+  conditional?: any;
 }
 
 @Component({
@@ -39,7 +40,12 @@ export class InformationSourcesComponent extends BaseComponent {
     { control: 'childrenServicesInformationSource', label: 'Children services checks' },
     { control: 'policeInformationSource', label: 'Police information' },
     { control: 'guidelinesSource', label: 'Sentencing guidelines' },
-    { control: 'otherInformationSource', label: 'Other (please specify below)' }
+    {
+      control: 'otherInformationSource', label: 'Other (please specify below)',
+      conditional: {
+        control: 'otherInformationDetails', label: 'Other source(s) of information'
+      }
+    }
   ];
 
   /**

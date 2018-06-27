@@ -1,0 +1,31 @@
+<div class="govuk-form-group" [formGroup]="group">
+  <fieldset class="govuk-fieldset">
+
+    <legend class="govuk-fieldset__legend govuk-label">
+      {{legend}}
+    </legend>
+
+    <div class="govuk-checkboxes govuk-!-margin-top-2">
+
+      <ng-template ngFor let-section [ngForOf]="options" let-index="index">
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" [id]="section.control" [name]="section.control" [formControlName]="section.control" type="checkbox" value="true">
+          <label class="govuk-label govuk-checkboxes__label" [for]="section.control">
+            {{section.label}}
+          </label>
+        </div>
+
+        <div class="govuk-checkboxes__conditional" [ngClass]="{ 'js-hidden': !group.get(section.control).value }" [attr.aria-hidden]="!group.get(section.control).value" *ngIf="section.conditional">
+
+          <!-- Angular component -->
+          <app-text-entry [group]="group" [name]="section.conditional.control" [label]="section.conditional.label"></app-text-entry>
+
+        </div>
+
+      </ng-template>
+
+    </div>
+
+  </fieldset>
+</div>

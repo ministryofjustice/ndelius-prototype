@@ -12,37 +12,8 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="nationality-hint">
-
-          <legend class="govuk-fieldset__legend govuk-label">
-            Select the relevant options
-          </legend>
-
-          <div class="govuk-checkboxes govuk-!-margin-top-2">
-
-            <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
-
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" [id]="section.control" [name]="section.control" [formControlName]="section.control" type="checkbox" value="true">
-                <label class="govuk-label govuk-checkboxes__label" [for]="section.control">
-                  {{section.label}}
-                </label>
-              </div>
-
-            </ng-template>
-
-          </div>
-
-          <div class="govuk-checkboxes__conditional" [ngClass]="{ 'js-hidden': !reportForm.get('otherInformationSource').value }" [attr.aria-hidden]="!reportForm.get('otherInformationSource').value">
-
-            <!-- Angular component -->
-            <app-text-entry [group]="reportForm" name="otherInformationDetails" label="Other source(s) of information"></app-text-entry>
-
-          </div>
-
-        </fieldset>
-      </div>
+      <!-- Angular component -->
+      <app-checkboxes [group]="reportForm" legend="Select the relevant options" [options]="sections"></app-checkboxes>
 
       <!-- Angular component -->
       <app-footer></app-footer>
