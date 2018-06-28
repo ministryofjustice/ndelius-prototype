@@ -1,29 +1,64 @@
-<h1 class="heading-xlarge">Prototype <span class="font-xsmall">{{version}}</span></h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Prototype <span class="govuk-body-xs">{{version}}</span></h1>
 
 <app-notice>
   No real data is used anywhere within this prototype.<br/>
   Any resemblance to actual persons, living or dead, or actual events is purely coincidental.
 </app-notice>
 
-<h2 class="lede">Select the required prototype journey for consideration</h2>
+<h2 class="govuk-caption-xl">Select the required prototype journey for consideration</h2>
 
-<ul class="margin-top large">
-  <li class="list-bullet"><a id="parom1" routerLink="/parom1/start-report" [queryParams]="queryParams">Parole Report - Parom 1</a></li>
-  <li class="list-bullet"><a id="parom1-omic" routerLink="/parom1-omic/start-report" [queryParams]="queryParams">Parole Report - Parom 1 (OMIC)</a></li>
-  <li class="list-bullet"><a id="sfpsr" routerLink="/sfpsr/start-report" [queryParams]="queryParams">Short Format Pre-Sentence Report</a></li>
-  <li class="list-bullet"><a id="psr-addendum" routerLink="/psr-addendum/start-report" [queryParams]="queryParams">Pre-Sentence Report Addendum</a></li>
+<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-4">
+  <li><a id="parom1" routerLink="/parom1/start-report" [queryParams]="queryParams">Parole Report - Parom 1</a></li>
+  <li><a id="parom1-omic" routerLink="/parom1-omic/start-report" [queryParams]="queryParams">Parole Report - Parom 1
+    (OMIC)</a></li>
+  <li><a id="sfpsr" routerLink="/sfpsr/start-report" [queryParams]="queryParams">Short Format Pre-Sentence Report</a>
+  </li>
+  <li><a id="psr-addendum" routerLink="/psr-addendum/start-report" [queryParams]="queryParams">Pre-Sentence Report
+    Addendum</a></li>
 </ul>
 
-<br/>
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-<h3 class="heading-small margin-bottom">Offender summary screens</h3>
+<h2 class="govuk-caption-m govuk-!-margin-bottom-4">Experimental patterns</h2>
 
-<ul class="margin-top">
-  <li class="list-bullet"><a id="offender-summary-1" routerLink="/offender-summary" [queryParams]="{ offender: 0 }">Offender Summary (1)</a></li>
-  <li class="list-bullet"><a id="offender-summary-2" routerLink="/offender-summary" [queryParams]="{ offender: 1 }">Offender Summary (2)</a></li>
-  <li class="list-bullet"><a id="offender-summary-3" routerLink="/offender-summary" [queryParams]="{ offender: 2 }">Offender Summary (3)</a></li>
-  <li class="list-bullet"><a id="offender-summary-4" routerLink="/offender-summary" [queryParams]="{ offender: 3 }">Offender Summary (4)</a></li>
-  <li class="list-bullet"><a id="offender-summary-5" routerLink="/offender-summary" [queryParams]="{ offender: 4 }">Offender Summary (5)</a></li>
-  <li class="list-bullet"><a id="offender-summary-6" routerLink="/offender-summary" [queryParams]="{ offender: 5 }">Offender Summary (6)</a></li>
-  <li class="list-bullet"><a id="offender-summary-7" routerLink="/offender-summary" [queryParams]="{ offender: 6 }">Offender Summary (7)</a></li>
-</ul>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text"> Offender summary screens </span>
+  </summary>
+  <div class="govuk-details__text">
+
+    <table class="moj-table moj-table--split-rows" role="presentation">
+      <thead>
+      <tr>
+        <th>Offender</th>
+        <th>CRN</th>
+        <th>Date of birth</th>
+        <th>RoSH</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <ng-template ngFor let-offender [ngForOf]="offenderData" let-index="index">
+        <tr>
+          <td>{{offender._source.SURNAME + ', ' + offender._source.FIRST_NAME}}</td>
+          <td>{{offender._source.CRN}}</td>
+          <td>{{pipeDate(offender._source.DATE_OF_BIRTH_DATE)}}</td>
+          <td>
+            <span class="moj-risk-tag" *ngIf="offender._source.CURRENT_HIGHEST_RISK_COLOUR"
+                  [ngClass]="{
+                      'moj-risk-tag--low': offender._source.CURRENT_HIGHEST_RISK_COLOUR.toLowerCase() === 'green',
+                      'moj-risk-tag--medium': offender._source.CURRENT_HIGHEST_RISK_COLOUR.toLowerCase() === 'amber',
+                      'moj-risk-tag--high': offender._source.CURRENT_HIGHEST_RISK_COLOUR.toLowerCase() === 'red'
+                    }">{{offender._source.CURRENT_HIGHEST_RISK_COLOUR.toLowerCase() === 'green' ? 'low' : offender._source.CURRENT_HIGHEST_RISK_COLOUR.toLowerCase() === 'amber' ? 'medium' : offender._source.CURRENT_HIGHEST_RISK_COLOUR.toLowerCase() === 'red' ? 'high' : 'none' }}</span>
+          </td>
+          <td><a [id]="'offender-summary-' + index" routerLink="/offender-summary" [queryParams]="{ offender: index }">View</a>
+          </td>
+        </tr>
+      </ng-template>
+
+      </tbody>
+    </table>
+
+  </div>
+</details>

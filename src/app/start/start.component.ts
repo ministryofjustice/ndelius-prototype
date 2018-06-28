@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { AgePipe } from '../_shared/pipe/age.pipe';
 
@@ -29,6 +30,8 @@ export class StartComponent {
 
   version = 'v' + VERSION.version + ' (' + VERSION.hash + ')';
 
+  offenderData: any;
+
   /**
    *
    * @type {Object}
@@ -53,8 +56,23 @@ export class StartComponent {
   /**
    *
    */
-  constructor(private agePipe: AgePipe) {
-    // Empty
+  constructor(private http: HttpClient, private agePipe: AgePipe) {
+    this.http.get('/assets/data/stub.json').subscribe((data) => {
+      this.offenderData = data['offenders'];
+    });
+  }
+
+  /**
+   * Return a date string as DD/MM/YYYY
+   * @param dateString
+   * @returns {string}
+   */
+  pipeDate(dateString: string): string {
+    if (!dateString) {
+      return '';
+    }
+    const splitDate = dateString.substr(0, dateString.indexOf(' ')).split('-');
+    return [splitDate[2], splitDate[1], splitDate[0]].join('/');
   }
 
 }
