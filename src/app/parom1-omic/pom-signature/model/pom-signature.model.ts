@@ -3,7 +3,6 @@ export interface IPomSignature {
   prison: string;
   counterSignature: string;
   counterSignatureRole: string;
-  startDate: string;
   reportDate: string;
   saved: boolean;
   valid: boolean;

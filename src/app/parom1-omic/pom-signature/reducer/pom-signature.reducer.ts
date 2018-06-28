@@ -8,7 +8,6 @@ export const initialState: IPomSignature = {
   prison: '',
   counterSignature: '',
   counterSignatureRole: '',
-  startDate: '',
   reportDate: '',
   saved: false,
   valid: false

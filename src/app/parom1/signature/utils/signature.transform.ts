@@ -22,7 +22,6 @@ export class SignatureTransform {
             [{ text: 'Telephone number', style: 'fontBold' }, data.phone || ''],
             [{ text: 'Countersignature', style: 'fontBold' }, data.counterSignature || ''],
             [{ text: 'Role', style: 'fontBold' }, data.counterSignatureRole || ''],
-            [{ text: 'Start date', style: 'fontBold' }, data.startDate || ''],
             [{ text: 'Completion date', style: 'fontBold' }, data.reportDate || '']
           ]
         }

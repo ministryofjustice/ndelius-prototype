@@ -4,8 +4,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 
-import { Subscription } from 'rxjs';
-
 import { getSignature } from './reducer/signature.reducer';
 
 import { ISignature } from './model/signature.model';
@@ -70,7 +68,6 @@ export class SignatureComponent extends BaseComponent {
       division: [this.reportData.division, Validators.required],
       counterSignature: this.reportData.counterSignature,
       counterSignatureRole: this.reportData.counterSignatureRole,
-      startDate: this.reportData.startDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'),
       reportDate: [this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
     });
   }

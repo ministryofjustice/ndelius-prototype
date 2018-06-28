@@ -11,7 +11,6 @@ export const initialState: ISignature = {
   phone: '',
   counterSignature: '',
   counterSignatureRole: '',
-  startDate: '',
   reportDate: '',
   saved: false,
   valid: false
