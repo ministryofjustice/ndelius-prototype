@@ -1,3 +1,13 @@
+.autocomplete__input {
+  @include govuk-font($size: 19);
+  @include govuk-focusable;
+  height: 40px;
+  margin-top: 0;
+  padding: govuk-spacing(1);
+  border: $govuk-border-width-form-element solid $govuk-input-border-colour;
+  border-radius: 0;
+}
+
 .autocomplete__wrapper {
   position: relative;
 }
