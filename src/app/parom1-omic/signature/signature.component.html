@@ -54,11 +54,6 @@
       <app-input [group]="reportForm" name="counterSignatureRole"
                  label="Role of counter signature"></app-input>
 
-      <div class="form-group">
-        <label for="startDate" class="form-label-bold">Start date</label>
-        <input class="form-control half-width no-border" id="startDate" formControlName="startDate" type="text" aria-readonly="true" readonly />
-      </div>
-
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="reportDate" [error]="formError" required="true" date="true"
                  label="Completion date"

@@ -3,7 +3,7 @@
     {{label}}
   </label>
   <app-error-messages [control]="name" [message]="errorMessage" [active]="(group.get(name).touched || error) && required && group.get(name).errors"></app-error-messages>
-  <span [id]="name + '-hint'" class="govuk-hint" *ngIf="help">
+  <span [id]="name + '-hint'" class="govuk-hint" [ngClass]="{ 'govuk-!-margin-bottom-0': date }" *ngIf="help">
     {{help}}
   </span>
   <input class="govuk-input" [ngClass]="{ 'govuk-!-width-one-half': !wide, 'govuk-input--error': (group.get(name).touched || error) && required && group.get(name).errors, 'moj-input--readonly': readonly,  'date-picker': date }" [formControlName]="name" [id]="name" [name]="name" [type]="type" [attr.aria-describedby]="name + '-hint ' + name + '_error'" [attr.aria-required]="required" [readonly]="readonly" />

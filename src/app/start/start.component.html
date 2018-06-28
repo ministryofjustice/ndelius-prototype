@@ -7,15 +7,48 @@
 
 <h2 class="govuk-caption-xl">Select the required prototype journey for consideration</h2>
 
-<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-4">
-  <li><a id="parom1" routerLink="/parom1/start-report" [queryParams]="queryParams">Parole Report - Parom 1</a></li>
-  <li><a id="parom1-omic" routerLink="/parom1-omic/start-report" [queryParams]="queryParams">Parole Report - Parom 1
-    (OMIC)</a></li>
-  <li><a id="sfpsr" routerLink="/sfpsr/start-report" [queryParams]="queryParams">Short Format Pre-Sentence Report</a>
-  </li>
-  <li><a id="psr-addendum" routerLink="/psr-addendum/start-report" [queryParams]="queryParams">Pre-Sentence Report
-    Addendum</a></li>
-</ul>
+<table class="moj-table moj-table--split-rows" role="presentation">
+  <thead>
+  <tr>
+    <th>Journey</th>
+    <th width="175">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <a id="sfpsr" routerLink="/sfpsr/start-report" [queryParams]="queryParams">Short Format Pre-Sentence Report</a>
+    </td>
+    <td>
+      <span class="govuk-tag govuk-phase-banner__content__tag">recommended</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a id="psr-addendum" routerLink="/psr-addendum/start-report" [queryParams]="queryParams">Pre-Sentence Report Addendum</a>
+    </td>
+    <td>
+      <span class="govuk-tag govuk-phase-banner__content__tag">recommended</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a id="parom1" routerLink="/parom1/start-report" [queryParams]="queryParams">Parole Report - Parom 1</a>
+    </td>
+    <td>
+      <span class="govuk-tag moj-tag--prototype govuk-phase-banner__content__tag">experimental</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a id="parom1-omic" routerLink="/parom1-omic/start-report" [queryParams]="queryParams">Parole Report - Parom 1 (OMIC)</a>
+    </td>
+    <td>
+      <span class="govuk-tag moj-tag--prototype govuk-phase-banner__content__tag">experimental</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
 
 <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
