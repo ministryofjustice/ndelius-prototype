@@ -27,6 +27,11 @@ export class InputComponent {
   @Input() public help: string;
 
   /**
+   * Input type
+   */
+  @Input() public type = 'text';
+
+  /**
    * The name of the FormControl
    *
    * **Required**

@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Victims</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Victims</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -19,33 +19,36 @@
                     ]">
     </app-form-error>
 
-    <div class="moj-interrupt no-margin-top">
-      <p class="bold no-margin-bottom">This report will be disclosed to the prisoner.</p>
-
-      <p class="font-xsmall">
+    <div class="moj-interrupt govuk-!-margin-top-0">
+      <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">This report will be disclosed to the prisoner.</p>
+      <p class="govuk-body-s govuk-!-margin-bottom-0 moj-!-color-white">
         Consider how you present sensitive information in this section.
       </p>
     </div>
 
-    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+    <!-- Angular component -->
+    <app-notice>
+      You must contact the VLO for each hearing as part of designing the Risk Management Plan.
+    </app-notice>
 
-      <!-- Angular component -->
-      <app-notice>
-        You must contact the VLO for each hearing as part of designing the Risk Management Plan.
-      </app-notice>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+
+    <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="impactOfOffence"
                       label="Analyse the impact of the offence on the victims"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your analysis of the impact of the offence on the victim">
-        <ul>
-          <li class="list-bullet">impact on the victims - even if they are in the victim scheme</li>
-          <li class="list-bullet">victims’ personal statement information</li>
-          <li class="list-bullet">address the impact on all victims</li>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>impact on the victims - even if they are in the victim scheme</li>
+          <li>victims’ personal statement information</li>
+          <li>address the impact on all victims</li>
         </ul>
+
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="vloContactDate" date="true" [error]="formError" required="true"
@@ -59,19 +62,17 @@
                          errorMessage="Specify if the victim is engaged in the Victim Contact Service">
       </app-radio-buttons>
 
-      <br/>
-
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No', 'Don\'t know']" required="true" [error]="formError"
+      <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No', 'Don\'t know']" conditional="true" required="true" [error]="formError"
                          label="Do the victims wish to submit a Victim Personal Statement (VPS)?"
                          errorMessage="Specify if the victims wish to submit a Victim Personal Statement">
       </app-radio-buttons>
 
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
+      <div class="govuk-radios__conditional" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
         <p>The VPS should be submitted with this report if possible.</p>
       </div>
 
-      <br />
+      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
       .pipe(mergeMap(route => route.data))
       .subscribe((event) => {
         this.titleService.setTitle(event['title'] + pathSuffix);
+        $.getScript('assets/javascripts/govuk-frontend-1.0.0.min.js');
         $.getScript('assets/javascripts/application.js');
         window.scrollTo(0, 0);
       });

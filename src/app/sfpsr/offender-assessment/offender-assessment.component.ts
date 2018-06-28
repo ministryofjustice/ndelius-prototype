@@ -4,18 +4,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
+import { IOption } from '../../_shared/components/checkboxes/checkboxes.component';
 
 import { getOffenderAssessment } from './reducer/offender-assessment.reducer';
 
 import { IOffenderAssessment } from './model/offender-assessment.model';
 import { UpdateOffenderAssessmentAction } from './action/offender-assessment.action';
-
-interface ISection {
-  checkControl: string;
-  checkLabel: string;
-  detailControl: string;
-  detailLabel: string;
-}
 
 @Component({
   selector: 'app-offender-assessment',
@@ -27,54 +21,70 @@ export class OffenderAssessmentComponent extends BaseComponent {
    *
    * @type {ISection[]}
    */
-  sections: Array<ISection> = [
+  sections: Array<IOption> = [
     {
-      checkControl: 'issueAccommodation',
-      checkLabel: 'Accommodation',
-      detailControl: 'detailsAccommodation',
-      detailLabel: 'Provide a brief assessment of accommodation issues'
+      control: 'issueAccommodation',
+      label: 'Accommodation',
+      conditional: {
+        control: 'detailsAccommodation',
+        label: 'Provide a brief assessment of accommodation issues'
+      }
     },
     {
-      checkControl: 'issueEmployment',
-      checkLabel: 'Employment, training and education',
-      detailControl: 'detailsEmployment',
-      detailLabel: 'Provide a brief assessment of employment issues'
+      control: 'issueEmployment',
+      label: 'Employment, training and education',
+      conditional: {
+        control: 'detailsEmployment',
+        label: 'Provide a brief assessment of employment issues'
+      }
     },
     {
-      checkControl: 'issueFinance',
-      checkLabel: 'Finance',
-      detailControl: 'detailsFinance',
-      detailLabel: 'Provide a brief assessment of finance issues'
+      control: 'issueFinance',
+      label: 'Finance',
+      conditional: {
+        control: 'detailsFinance',
+        label: 'Provide a brief assessment of finance issues'
+      }
     },
     {
-      checkControl: 'issueRelationships',
-      checkLabel: 'Relationships',
-      detailControl: 'detailsRelationships',
-      detailLabel: 'Provide a brief assessment of relationship issues'
+      control: 'issueRelationships',
+      label: 'Relationships',
+      conditional: {
+        control: 'detailsRelationships',
+        label: 'Provide a brief assessment of relationship issues'
+      }
     },
     {
-      checkControl: 'issueSubstance',
-      checkLabel: 'Substance misuse',
-      detailControl: 'detailsSubstance',
-      detailLabel: 'Provide a brief assessment of substance misuse issues'
+      control: 'issueSubstance',
+      label: 'Substance misuse',
+      conditional: {
+        control: 'detailsSubstance',
+        label: 'Provide a brief assessment of substance misuse issues'
+      }
     },
     {
-      checkControl: 'issueHealth',
-      checkLabel: 'Physical & mental health',
-      detailControl: 'detailsHealth',
-      detailLabel: 'Provide a brief assessment of physical & mental health issues'
+      control: 'issueHealth',
+      label: 'Physical & mental health',
+      conditional: {
+        control: 'detailsHealth',
+        label: 'Provide a brief assessment of physical & mental health issues'
+      }
     },
     {
-      checkControl: 'issueBehaviour',
-      checkLabel: 'Thinking & behaviour',
-      detailControl: 'detailsBehaviour',
-      detailLabel: 'Provide a brief assessment of thinking & behaviour issues'
+      control: 'issueBehaviour',
+      label: 'Thinking & behaviour',
+      conditional: {
+        control: 'detailsBehaviour',
+        label: 'Provide a brief assessment of thinking & behaviour issues'
+      }
     },
     {
-      checkControl: 'issueOther',
-      checkLabel: 'Other',
-      detailControl: 'detailsOther',
-      detailLabel: 'Provide a brief assessment of any other issues'
+      control: 'issueOther',
+      label: 'Other',
+      conditional: {
+        control: 'detailsOther',
+        label: 'Provide a brief assessment of any other issues'
+      }
     }
   ];
 

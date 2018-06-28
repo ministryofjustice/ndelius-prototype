@@ -27,7 +27,7 @@ interface IQueryParams {
 })
 export class StartComponent {
 
-  version = 'v' + VERSION.version;
+  version = 'v' + VERSION.version + ' (' + VERSION.hash + ')';
 
   /**
    *

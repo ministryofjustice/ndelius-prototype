@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Resettlement plan for release</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Resettlement plan for release</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -25,11 +25,13 @@
       <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"
                       label="Detail the resettlement plan for release"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the resettlement plan for release">
-        <ul>
-          <li class="list-bullet">accomodation details</li>
-          <li class="list-bullet">motivation to comply if released</li>
-          <li class="list-bullet">if the prisoner is safe to release</li>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>accomodation details</li>
+          <li>motivation to comply if released</li>
+          <li>if the prisoner is safe to release</li>
         </ul>
+
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

@@ -12,6 +12,7 @@ import { MockFooterComponent } from '../../_shared/components/footer/footer.mock
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 import * as model from './reducer/information-sources.reducer';
+import { MockCheckboxesComponent } from '../../_shared/components/checkboxes/checkboxes.mock.component';
 
 describe('SFPSR - Component: Sources of information', () => {
 
@@ -26,6 +27,7 @@ describe('SFPSR - Component: Sources of information', () => {
         MockPhaseBannerComponent,
         MockSubNavigationComponent,
         MockTextEntryComponent,
+        MockCheckboxesComponent,
         MockFooterComponent
       ],
       imports: [

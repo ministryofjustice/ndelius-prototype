@@ -38,11 +38,13 @@
       <app-text-entry [group]="reportForm" name="impactOfOffence"
                       label="Analyse the impact of the offence on the victim"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your analysis of the impact of the offence on the victim">
-        <ul>
-          <li class="list-bullet">impact on the victims - even if they are in the victim scheme</li>
-          <li class="list-bullet">victims’ personal statement information</li>
-          <li class="list-bullet">address the impact on all victims</li>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>impact on the victims - even if they are in the victim scheme</li>
+          <li>victims’ personal statement information</li>
+          <li>address the impact on all victims</li>
         </ul>
+
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
@@ -57,15 +59,13 @@
                          errorMessage="Specify if the victim is engaged in the Victim Contact Service">
       </app-radio-buttons>
 
-      <br/>
-
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No']" required="true" [error]="formError"
+      <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No']" conditional="true" required="true" [error]="formError"
                          label="Does the victim wish to submit a Victim Personal Statement?"
                          errorMessage="Specify if the victim wishes to submit a Victim Personal Statement">
       </app-radio-buttons>
 
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
+      <div class="govuk-radios__conditional" [ngClass]="{ 'js-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
         <p>The VPS should be submitted with this report if possible.</p>
       </div>
 

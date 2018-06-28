@@ -13,9 +13,9 @@
         <td width="30" class="font-medium">{{index + 1}}.</td>
         <td><a [routerLink]="section.route" class="font-medium">{{section.label}}</a></td>
         <td width="80" align="right">
-          <strong class="page-status-tag saved fixed-width" *ngIf="section.saved && section.valid">SAVED</strong>
-          <strong class="page-status-tag incomplete fixed-width" *ngIf="section.saved && !section.valid">INCOMPLETE</strong>
-          <strong class="font-xsmall margin-right" *ngIf="!section.valid && !section.saved">Not started</strong>
+          <strong class="moj-page-status-tag moj-page-status-tag--saved" *ngIf="section.saved && section.valid">SAVED</strong>
+          <strong class="moj-page-status-tag moj-page-status-tag--incomplete" *ngIf="section.saved && !section.valid">INCOMPLETE</strong>
+          <strong class="moj-page-status-tag moj-page-status-tag--empty" *ngIf="!section.valid && !section.saved">Not started</strong>
         </td>
       </tr>
       </tbody>

@@ -1,14 +1,14 @@
 <!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Risk assessment</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Risk assessment</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- Angular component -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -28,7 +28,7 @@
         <p>Indicate which tools have been used.</p>
       </app-text-entry>
 
-      <hr />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" limit="1000" errorMessage="Tell us the risk of serious harm" [error]="formError" (onSaveContent)="saveContent(reportForm)">
@@ -41,11 +41,11 @@
         <p>Remember that you should also make clear any risk that the offender presents to themselves.</p>
       </app-text-entry>
 
-      <hr />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="previousSupervisionResponse" label="Response to previous supervision"
-                         [options]="['Good', 'Satisfactory', 'Poor', 'Not applicable']" required="true" [error]="formError" errorMessage="Tell us their response to previous supervision">
+                         [options]="['Good', 'Satisfactory', 'Poor', 'Not applicable']" required="true" conditional="true" [error]="formError" errorMessage="Tell us their response to previous supervision">
         <p>Include their compliance with any youth offending supervision orders.</p>
         <p>Remember to make clear in the text boxes previous periods of supervision and whether or not they were completed successfully.</p>
         <p>Include information about the effectiveness of previous interventions, and make links to likely compliance with further interventions.</p>
@@ -53,7 +53,7 @@
         <p>Detail what level of compliance there was with these, and make links to likely compliance with future interventions.</p>
       </app-radio-buttons>
 
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('previousSupervisionResponse').value }" [attr.aria-hidden]="!reportForm.get('previousSupervisionResponse').value">
+      <div class="govuk-radios__conditional" [ngClass]="{ 'js-hidden': !reportForm.get('previousSupervisionResponse').value }" [attr.aria-hidden]="!reportForm.get('previousSupervisionResponse').value">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" [label]="reportForm.get('previousSupervisionResponse').value === 'Not applicable' ? 'Add relevant details (if applicable)' : 'Add additional details on previous supervision (if applicable)'" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>

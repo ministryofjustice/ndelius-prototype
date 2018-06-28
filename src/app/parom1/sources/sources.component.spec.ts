@@ -15,6 +15,7 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
 import * as model from './reducer/sources.reducer';
+import { MockCheckboxesComponent } from '../../_shared/components/checkboxes/checkboxes.mock.component';
 
 describe('PAROM1 - Component: Sources', () => {
 
@@ -32,6 +33,7 @@ describe('PAROM1 - Component: Sources', () => {
         MockFooterComponent,
         MockFormErrorComponent,
         MockRadioButtonsComponent,
+        MockCheckboxesComponent,
         MockTextEntryComponent
       ],
       imports: [

@@ -1,26 +1,27 @@
 <!-- Angular component -->
 <app-phase-banner isFeedbackRoute="true"></app-phase-banner>
 
-<h1 class="heading-xlarge">Give feedback</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Give feedback</h1>
 
-<div class="grid-row">
-  <div class="column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-radio-buttons [group]="reportForm" name="rating" label="Overall, how did you feel about the Parole Report - Parom 1 (OMIC) service you used today?"
+      <app-radio-buttons [group]="reportForm" name="rating"
+                         label="Overall, how did you feel about the Parole Report - Parom 1 (OMIC) service you used today?"
                          [options]="['Very satisfied', 'Satisfied', 'Neither satisfied or dissatisfied', 'Dissatisfied', 'Very dissatisfied']"></app-radio-buttons>
 
-      <hr noshade />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="feedback" label="How could we improve this service?"></app-text-entry>
 
-      <input id="nextButton" class="button" type="submit" value="Submit feedback" />
+      <input id="nextButton" class="govuk-button" type="submit" value="Submit feedback"/>
 
     </form>
 
   </div>
-  <div class="column-one-third">&nbsp;</div>
+  <div class="govuk-grid-column-one-third">&nbsp;</div>
 </div>

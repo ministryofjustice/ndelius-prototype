@@ -4,16 +4,12 @@ import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
+import { IOption } from '../../_shared/components/checkboxes/checkboxes.component';
 
 import { getInformationSources } from './reducer/information-sources.reducer';
 
 import { IInformationSources } from './model/information-sources.model';
 import { UpdateInformationSourcesAction } from './action/information-sources.action';
-
-interface ISection {
-  control: string;
-  label: string;
-}
 
 @Component({
   selector: 'app-information-sources',
@@ -29,7 +25,7 @@ export class InformationSourcesComponent extends BaseComponent {
    *
    * @type {ISection[]}
    */
-  sections: Array<ISection> = [
+  sections: Array<IOption> = [
     { control: 'interviewInformationSource', label: 'Interview' },
     { control: 'serviceRecordsInformationSource', label: 'Service records' },
     { control: 'cpsSummaryInformationSource', label: 'CPS summary' },
@@ -39,7 +35,12 @@ export class InformationSourcesComponent extends BaseComponent {
     { control: 'childrenServicesInformationSource', label: 'Children services checks' },
     { control: 'policeInformationSource', label: 'Police information' },
     { control: 'guidelinesSource', label: 'Sentencing guidelines' },
-    { control: 'otherInformationSource', label: 'Other (please specify below)' }
+    {
+      control: 'otherInformationSource', label: 'Other (please specify below)',
+      conditional: {
+        control: 'otherInformationDetails', label: 'Other source(s) of information'
+      }
+    }
   ];
 
   /**

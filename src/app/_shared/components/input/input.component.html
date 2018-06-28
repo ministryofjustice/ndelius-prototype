@@ -1,12 +1,10 @@
-<div class="form-group half-width" [formGroup]="group" [ngClass]="{ 'form-group-error': (group.get(name).touched || error) && required && group.get(name).errors }">
-
-  <label [for]="name" class="form-label-bold">
-    <span class="form-label-bold">{{label}}</span>
-    <span class="form-hint" *ngIf="help">{{help}}</span>
+<div class="govuk-form-group" [formGroup]="group"  [ngClass]="{ 'govuk-form-group--error': (group.get(name).touched || error) && required && group.get(name).errors }">
+  <label class="govuk-label" [for]="name">
+    {{label}}
   </label>
   <app-error-messages [control]="name" [message]="errorMessage" [active]="(group.get(name).touched || error) && required && group.get(name).errors"></app-error-messages>
-  <!-- @TODO: Readonly field option -->
-  <input [id]="name" type="text" role="textbox" class="form-control"
-         [ngClass]="{ 'half-width': !wide, 'form-control-error': (group.get(name).touched || error) && required && group.get(name).errors, 'date-picker': date }"
-         [formControlName]="name" [attr.aria-described-by]="name + '_error'" [attr.aria-required]="required" />
+  <span [id]="name + '-hint'" class="govuk-hint" *ngIf="help">
+    {{help}}
+  </span>
+  <input class="govuk-input" [ngClass]="{ 'govuk-!-width-one-half': !wide, 'govuk-input--error': (group.get(name).touched || error) && required && group.get(name).errors, 'moj-input--readonly': readonly,  'date-picker': date }" [formControlName]="name" [id]="name" [name]="name" [type]="type" [attr.aria-describedby]="name + '-hint ' + name + '_error'" [attr.aria-required]="required" [readonly]="readonly" />
 </div>

@@ -16,6 +16,17 @@ footer {
       float: right;
       padding-right: 250px;
     }
+
+    @include govuk-media-query(mobile, tablet) {
+      left: 0;
+      .container {
+        padding-right: 0;
+      }
+
+      .button {
+        width: auto;
+      }
+    }
   }
 }
 

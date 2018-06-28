@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Current ROSH: community</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Current ROSH: community</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -28,23 +28,13 @@
 
       <app-radio-buttons [group]="reportForm" name="riskPublic" [error]="formError" label="Public" errorMessage="Select the risk to public" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
-      <br />
-
       <app-radio-buttons [group]="reportForm" name="riskKnownAdult" label="Known adult" [error]="formError" errorMessage="Select the risk to any known adult" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
-
-      <br/>
 
       <app-radio-buttons [group]="reportForm" name="riskChildren" label="Children" [error]="formError" errorMessage="Select the risk to children" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
-      <br/>
-
       <app-radio-buttons [group]="reportForm" name="riskPrisoners" label="Prisoners" [error]="formError" errorMessage="Select the risk to prisoners" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
-      <br/>
-
       <app-radio-buttons [group]="reportForm" name="riskStaff" label="Staff" [error]="formError" errorMessage="Select the risk to staff" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
-
-      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

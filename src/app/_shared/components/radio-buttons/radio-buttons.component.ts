@@ -41,6 +41,11 @@ export class RadioButtonsComponent implements OnInit {
   @Input() public required: boolean;
 
   /**
+   * Is there conditional content relating to the radio group
+   */
+  @Input() public conditional: boolean;
+
+  /**
    * The list of options for the radio button group
    *
    * **Required**
