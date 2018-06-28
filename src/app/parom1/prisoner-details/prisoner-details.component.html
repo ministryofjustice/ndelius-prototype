@@ -25,7 +25,7 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="govuk-form-group" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
+      <div class="govuk-form-group govuk-!-width-one-half" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
         <label for="prison" class="govuk-label">Prison or Young Offender Institution</label>
         <!-- Angular component -->
         <app-error-messages control="prison" message="Enter the prison or Young Offender Institution" [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>

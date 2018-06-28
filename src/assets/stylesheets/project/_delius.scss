@@ -6,6 +6,10 @@
   color: gray;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .delius-omit-mobile {
   @include govuk-media-query(mobile, tablet) {
     display: none;

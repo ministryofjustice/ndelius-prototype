@@ -16,6 +16,7 @@ import { MockRadioButtonsComponent } from '../../_shared/components/radio-button
 import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/prisoner-details.reducer';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 describe('PAROM1-OMIC - Component: Prisoner details', () => {
 
@@ -34,6 +35,7 @@ describe('PAROM1-OMIC - Component: Prisoner details', () => {
         MockInputComponent,
         MockRadioButtonsComponent,
         MockThreeFieldDateComponent,
+        MockTextEntryComponent,
         MockFooterComponent
       ],
       imports: [
