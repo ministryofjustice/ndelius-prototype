@@ -9,15 +9,16 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- Angular component -->
-      <app-radio-buttons [group]="reportForm" name="rating" label="Overall, how did you feel about the Short Format Pre-sentence Report service you used today?"
-      [options]="['Very satisfied', 'Satisfied', 'Neither satisfied or dissatisfied', 'Dissatisfied', 'Very dissatisfied']"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="rating"
+                         label="Overall, how did you feel about the Short Format Pre-sentence Report service you used today?"
+                         [options]="['Very satisfied', 'Satisfied', 'Neither satisfied or dissatisfied', 'Dissatisfied', 'Very dissatisfied']"></app-radio-buttons>
 
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="feedback" label="How could we improve this service?"></app-text-entry>
 
-      <input id="nextButton" class="button" type="submit" value="Submit feedback" />
+      <input id="nextButton" class="govuk-button" type="submit" value="Submit feedback"/>
 
     </form>
 
