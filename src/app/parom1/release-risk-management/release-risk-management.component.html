@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Community RMP</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Community RMP</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -28,19 +28,19 @@
       You must complete this whether you are supporting the prisoner’s release or not.
     </app-notice>
 
-    <p class="lede no-margin-top">Detail the risk management plan (RMP)</p>
+    <p class="govuk-caption-xl govuk-!-margin-bottom-3">Detail the risk management plan (RMP)</p>
 
-    <p class="form-label-bold no-margin-bottom">Include:</p>
+    <p>Include:</p>
 
-    <ul>
-      <li class="list-bullet">Any progressive move, to open or closed conditions, being considered</li>
-      <li class="list-bullet">ROTL condition considerations</li>
-      <li class="list-bullet">MAPPA</li>
-      <li class="list-bullet">Police concerns</li>
-      <li class="list-bullet">Visor</li>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Any progressive move, to open or closed conditions, being considered</li>
+      <li>ROTL condition considerations</li>
+      <li>MAPPA</li>
+      <li>Police concerns</li>
+      <li>Visor</li>
     </ul>
 
-    <br/>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
@@ -50,7 +50,7 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the agencies">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="support"
@@ -58,7 +58,7 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the support">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="control"
@@ -66,7 +66,7 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the control">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="riskMeasures"
@@ -74,7 +74,7 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the added measures for specific risks">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="agencyActions"
@@ -82,7 +82,7 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the agency actions">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="requirements"
@@ -90,7 +90,7 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the additional conditions or requirements">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="contactLevel"
@@ -98,7 +98,7 @@
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the level of contact">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="contingencyPlan"

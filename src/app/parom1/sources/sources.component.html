@@ -21,60 +21,39 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <fieldset class="margin-bottom medium">
+      <app-checkboxes [group]="reportForm" [options]="documents" legend="Select all case documents you have used"></app-checkboxes>
 
-        <legend class="lede margin-bottom medium">Select all case documents you have used</legend>
-
-        <!-- Loop through the "sections" specified in the controller: information-sources.component.ts -->
-        <div class="multiple-choice" *ngFor="let document of documents; let i = index" [ngClass]="{ 'margin-top': i > 0 }">
-          <input type="checkbox" role="checkbox" [id]="document.control" [formControlName]="document.control" value="true" />
-          <label [for]="document.control" class="form-label-bold">{{document.label}}</label>
-        </div>
-
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('other').value }" [attr.aria-hidden]="!reportForm.get('other').value">
-
-          <div class="form-group">
-            <label for="otherDocuments">
-              <span class="form-label-bold">Please enter the names of the other case documents</span>
-            </label>
-            <textarea id="otherDocuments" formControlName="otherDocuments" class="form-control wide" role="textbox" placeholder="Start typing here..."></textarea>
-          </div>
-
-        </div>
-
-        <div class="clearfix"></div>
-
-      </fieldset>
-
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="reportsAssessmentsDirections"
                       label="List all the reports, assessments and directions you have used for this PAROM 1"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="List all the reports, assessments and directions you have used">
-        <ul>
-          <li class="list-bullet">Interventions/programme reports</li>
-          <li class="list-bullet">Approved premises referral</li>
-          <li class="list-bullet">SARN assessments</li>
-          <li class="list-bullet">Psychology/psychiatry reports</li>
-          <li class="list-bullet">Previous parole directions</li>
-          <li class="list-bullet">ROTL paperwork</li>
-          <li class="list-bullet">OASys</li>
-          <li class="list-bullet">Sentence planning board notes</li>
-          <li class="list-bullet">Security information</li>
-          <li class="list-bullet">SARA assessment</li>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>Interventions/programme reports</li>
+          <li>Approved premises referral</li>
+          <li>SARN assessments</li>
+          <li>Psychology/psychiatry reports</li>
+          <li>Previous parole directions</li>
+          <li>ROTL paperwork</li>
+          <li>OASys</li>
+          <li>Sentence planning board notes</li>
+          <li>Security information</li>
+          <li>SARA assessment</li>
         </ul>
+
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="sourceLimitations" [options]="['Yes', 'No']" required="true" [error]="formError"
+      <app-radio-buttons [group]="reportForm" name="sourceLimitations" [options]="['Yes', 'No']" required="true" [error]="formError" conditional="true"
                          label="Has any information not been made available to you, or are there any limitations to the sources?"
                          errorMessage="Specify whether there are any omissions or limitations">
       </app-radio-buttons>
 
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
+      <div class="govuk-radios__conditional" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"
@@ -84,11 +63,9 @@
 
       </div>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <app-radio-buttons [group]="reportForm" name="diversity" [options]="['Yes', 'No']" required="true" [error]="formError" label="Have you considered what equality and diversity issues are present?" errorMessage="Specify whether you have considered what equality and diversity issues are present"></app-radio-buttons>
-
-      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

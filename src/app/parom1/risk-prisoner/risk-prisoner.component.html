@@ -1,14 +1,14 @@
 <!-- Angular component -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Risk to the prisoner</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Risk to the prisoner</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <!-- Angular component -->
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- Angular component -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -22,9 +22,7 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <h2 class="lede">Does the prisoner pose a self harming risk?</h2>
-
-      <br/>
+      <h2 class="govuk-caption-xl govuk-!-margin-bottom-3">Does the prisoner pose a self harming risk?</h2>
 
       <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="selfHarmCommunity"
@@ -33,8 +31,6 @@
                          errorMessage="Tell us if the prisoner poses a self harming risk in the community">
       </app-radio-buttons>
 
-      <br/>
-
       <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="selfHarmCustody"
                          label="In custody"
@@ -42,11 +38,9 @@
                          errorMessage="Tell us if the prisoner poses a self harming risk in custody">
       </app-radio-buttons>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
-      <h2 class="lede">Is the prisoner at risk of serious harm from others?</h2>
-
-      <br/>
+      <h2 class="govuk-caption-xl govuk-!-margin-bottom-3">Is the prisoner at risk of serious harm from others?</h2>
 
       <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="harmOthersCommunity"
@@ -55,16 +49,12 @@
                          errorMessage="Tell us if the prisoner is at risk of serious harm from others in the community">
       </app-radio-buttons>
 
-      <br/>
-
       <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="harmOthersCustody"
                          label="In custody"
                          [options]="['Yes', 'No']" required="true" [error]="formError"
                          errorMessage="Tell us if the prisoner is at risk of serious harm from others in custody">
       </app-radio-buttons>
-
-      <br/>
 
       <!-- Angular component -->
       <app-footer></app-footer>

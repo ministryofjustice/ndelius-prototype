@@ -4,17 +4,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
+import { IOption } from '../../_shared/components/checkboxes/checkboxes.component';
 
 import { getOffenderAssessment } from './reducer/offender-assessment.reducer';
 
 import { IOffenderAssessment } from './model/offender-assessment.model';
 import { UpdateOffenderAssessmentAction } from './action/offender-assessment.action';
-
-interface ISection {
-  control: string;
-  label: string;
-  conditional?: any;
-}
 
 @Component({
   selector: 'app-offender-assessment',
@@ -26,7 +21,7 @@ export class OffenderAssessmentComponent extends BaseComponent {
    *
    * @type {ISection[]}
    */
-  sections: Array<ISection> = [
+  sections: Array<IOption> = [
     {
       control: 'issueAccommodation',
       label: 'Accommodation',

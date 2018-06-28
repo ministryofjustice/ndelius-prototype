@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Behaviour in prison</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Behaviour in prison</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -26,7 +26,7 @@
                       errorMessage="Detail their behaviour in prison">
       </app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="rotl" [options]="['Yes', 'No']" required="true" [error]="formError"
@@ -34,7 +34,7 @@
                          errorMessage="Specify whether the prisoner has met with the OPD screen">
       </app-radio-buttons>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="rotlInformation" label="Prisoner’s ROTL progress"

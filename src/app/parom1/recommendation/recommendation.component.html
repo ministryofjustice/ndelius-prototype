@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Recommendation</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Recommendation</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -21,12 +21,14 @@
                       label="What is your recommendation?"
                       [limit]="4000"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter your recommendation">
-        <ul>
-          <li class="list-bullet">appropriate next steps</li>
-          <li class="list-bullet">interventions</li>
-          <li class="list-bullet">progressive moves</li>
-          <li class="list-bullet">release</li>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>appropriate next steps</li>
+          <li>interventions</li>
+          <li>progressive moves</li>
+          <li>release</li>
         </ul>
+
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

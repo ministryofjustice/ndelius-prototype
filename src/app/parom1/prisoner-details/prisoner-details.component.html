@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Prisoner details</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Prisoner details</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -25,17 +25,13 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="form-group half-width"
-           [ngClass]="{ 'form-group-error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
-
-        <label for="prison" class="form-label-bold">Prison or Young Offender Institution</label>
-        <app-error-messages control="prison" message="Enter the prison or Young Offender Institution"
-                            [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
+      <div class="govuk-form-group" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
+        <label for="prison" class="govuk-label">Prison or Young Offender Institution</label>
+        <!-- Angular component -->
+        <app-error-messages control="prison" message="Enter the prison or Young Offender Institution" [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
         <select formControlName="prison" id="prison" class="form-control auto-complete">
-          <option *ngFor="let placeName of prisonsAndYoungOffenderInstitutions" [ngValue]="placeName">{{placeName}}
-          </option>
+          <option *ngFor="let placeName of prisonsAndYoungOffenderInstitutions" [ngValue]="placeName">{{placeName}}</option>
         </select>
-
       </div>
 
       <!-- ANGULAR COMPONENT -->
@@ -57,38 +53,32 @@
                          label="Prisoner's category" errorMessage="Select the prisoner's category">
       </app-radio-buttons>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="offence" required="true" [error]="formError" label="Offence"
                  errorMessage="Enter the offence"></app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="sentence" required="true" [error]="formError" label="Sentence"
                  errorMessage="Enter the sentence"></app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Indeterminate', 'Determinate']"
-                         required="true" [error]="formError"
+                         required="true" [error]="formError" conditional="true"
                          label="Sentence type" errorMessage="Select the sentence type">
       </app-radio-buttons>
 
       <!-- INDETERMINATE -->
-      <div class="panel panel-border-narrow"
+      <div class="govuk-radios__conditional"
            [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
 
-        <div class="form-group">
-
-          <label for="tariffLength" class="form-label-bold">Tariff length</label>
-          <input class="form-control half-width" type="text" role="textbox" id="tariffLength"
-                 formControlName="tariffLength" maxlength="250"/>
-
-        </div>
+        <app-input [group]="reportForm" name="tariffLength" label="Tariff length"></app-input>
 
         <!-- ANGULAR COMPONENT -->
         <app-three-field-date [group]="reportForm" name="tariffExpiryDate"
@@ -97,7 +87,7 @@
       </div>
 
       <!-- DETERMINATE -->
-      <div class="panel panel-border-narrow"
+      <div class="govuk-radios__conditional"
            [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
 
@@ -106,15 +96,11 @@
                               label="Parole eligibility date"
                               help="For example, 31 3 2018"></app-three-field-date>
 
-        <br/>
-
         <!-- ANGULAR COMPONENT -->
         <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
                               label="Automatic release date / non parole eligibility date"
                               help="For example, 31 3 2018"></app-three-field-date>
       </div>
-
-      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

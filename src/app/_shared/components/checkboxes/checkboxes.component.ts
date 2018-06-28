@@ -1,6 +1,17 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+interface ISection {
+  control: string;
+  label: string;
+}
+
+export interface IOption {
+  control: string;
+  label: string;
+  conditional?: ISection;
+}
+
 @Component({
   selector: 'app-checkboxes',
   templateUrl: './checkboxes.component.html'
@@ -31,7 +42,7 @@ export class CheckboxesComponent implements OnInit {
    *
    * **Required**
    */
-  @Input() public options: Array<string>;
+  @Input() public options: Array<IOption>;
 
   /**
    * Gain access to the 'hint' set within the child DOM

@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Offender manager: prisoner contact</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Offender manager: prisoner contact</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -25,14 +25,14 @@
                       label="How long have you managed the prisoner, and what contact have you had with them?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify how long have you been assigned to the prisoner and what contact have you had with them"></app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerFamilyContact"
                       label="What contact have you had with the prisoner's family, partner or significant others?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with the prisoner's family, partner or significant others"></app-text-entry>
 
-      <hr/>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerStaffContact"

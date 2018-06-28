@@ -4,9 +4,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
+import { IOption } from '../../_shared/components/checkboxes/checkboxes.component';
 
 import { UpdateSourcesAction } from './action/sources.action';
-import { IControls, ISources } from './model/sources.model';
+import { ISources } from './model/sources.model';
 
 import { getSources } from './reducer/sources.reducer';
 
@@ -20,7 +21,7 @@ export class SourcesComponent extends BaseComponent {
    *
    * @type {IControls[]}
    */
-  documents: Array<IControls> = [
+  documents: Array<IOption> = [
     { control: 'previousConvictions', label: 'Previous convictions' },
     { control: 'cpsDocuments', label: 'Crown Prosecution Service (CPS) documents' },
     { control: 'preSentenceReport', label: 'Pre-sentence report' },
@@ -28,7 +29,14 @@ export class SourcesComponent extends BaseComponent {
     { control: 'previousParoleReports', label: 'Previous parole reports' },
     { control: 'paroleDossier', label: 'Parole dossier' },
     { control: 'probationCaseRecords', label: 'Probation case records' },
-    { control: 'other', label: 'Other (please specify below)' }
+    {
+      control: 'other',
+      label: 'Other (please specify below)',
+      conditional: {
+        control: 'otherDocuments',
+        label: 'Please enter the names of the other case documents'
+      }
+    }
   ];
 
   /**
@@ -82,7 +90,7 @@ export class SourcesComponent extends BaseComponent {
       reportsAssessmentsDirections: [this.reportData.reportsAssessmentsDirections, Validators.required],
       sourceLimitations: [this.reportData.sourceLimitations, Validators.required],
       sourceLimitationExplanation: this.reportData.sourceLimitationExplanation,
-      diversity: [this.reportData.diversity, Validators.required],
+      diversity: [this.reportData.diversity, Validators.required]
     });
   }
 

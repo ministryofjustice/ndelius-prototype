@@ -28,7 +28,7 @@
         <p>Indicate which tools have been used.</p>
       </app-text-entry>
 
-      <hr />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="riskOfSeriousHarm" label="Risk of serious harm" limit="1000" errorMessage="Tell us the risk of serious harm" [error]="formError" (onSaveContent)="saveContent(reportForm)">
@@ -41,7 +41,7 @@
         <p>Remember that you should also make clear any risk that the offender presents to themselves.</p>
       </app-text-entry>
 
-      <hr />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- Angular component -->
       <app-radio-buttons [group]="reportForm" name="previousSupervisionResponse" label="Response to previous supervision"

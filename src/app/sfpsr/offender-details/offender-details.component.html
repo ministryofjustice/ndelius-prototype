@@ -41,10 +41,8 @@
       <app-input [group]="reportForm" name="pnc" [error]="formError" label="PNC ID"
                  help="If available in CPS documentation"></app-input>
 
-      <div class="form-group">
-        <label for="crn" class="form-label-bold">Delius CRN</label>
-        <input class="form-control half-width no-border" id="crn" formControlName="crn" type="text" aria-readonly="true" readonly />
-      </div>
+      <!-- Angular component -->
+      <app-input [group]="reportForm" name="crn" label="Delius CRN" readonly="true"></app-input>
 
       <!-- Angular component -->
       <app-footer></app-footer>
