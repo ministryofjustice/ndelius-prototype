@@ -25,10 +25,12 @@
       <app-input [group]="reportForm" name="court" required="true" [error]="formError" label="Court"
                  wide="true" errorMessage="Enter the name of the sentencing court"></app-input>
 
-      <div class="govuk-form-group" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }">
+      <div class="govuk-form-group"
+           [ngClass]="{ 'govuk-form-group--error': (reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors }">
         <label for="localJusticeArea" class="govuk-label">Local justice area</label>
         <!-- Angular component -->
-        <app-error-messages control="localJusticeArea" message="Enter the local justice area of the sentencing court" [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
+        <app-error-messages control="localJusticeArea" message="Enter the local justice area of the sentencing court"
+                            [active]="(reportForm.get('localJusticeArea').touched || formError) && reportForm.get('localJusticeArea').errors"></app-error-messages>
         <select formControlName="localJusticeArea" id="localJusticeArea" class="form-control auto-complete">
           <option *ngFor="let area of localJusticeAreas" [ngValue]="area">{{area}}</option>
         </select>

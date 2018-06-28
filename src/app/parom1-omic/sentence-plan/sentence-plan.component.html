@@ -20,10 +20,12 @@
       <app-text-entry [group]="reportForm" name="sentencePlanObjectives"
                       label="Detail the prisoner's sentence plan objectives and their progress"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError && reportForm.get('sentencePlanObjectives').errors" errorMessage="Enter the sentence plan objectives and their progress">
-        <ul>
-          <li class="list-bullet">current and planned interventions</li>
-          <li class="list-bullet">if the prisoner has not made progress, explain why</li>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>current and planned interventions</li>
+          <li>if the prisoner has not made progress, explain why</li>
         </ul>
+
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

@@ -24,12 +24,14 @@
                       label="List the interventions the prisoner has completed, in chronological order"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="List the interventions the prisoner has completed">
-        <ul>
-          <li class="list-bullet">those designed to reduce risk</li>
-          <li class="list-bullet">those designed to increase social capital</li>
-          <li class="list-bullet">employment</li>
-          <li class="list-bullet">training</li>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>those designed to reduce risk</li>
+          <li>those designed to increase social capital</li>
+          <li>employment</li>
+          <li>training</li>
         </ul>
+
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->

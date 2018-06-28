@@ -1,13 +1,13 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="heading-xlarge">Offender details</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Offender details</h1>
 
-<div class="grid-row">
-  <div class="column-one-third">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
     <app-sub-navigation></app-sub-navigation>
   </div>
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <!-- Angular component -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
@@ -31,7 +31,8 @@
                             help="For example, 31 3 1982"></app-three-field-date>
 
       <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="address" [error]="formError" label="Address" errorMessage="Enter the offender's address" classic="true" required="true"></app-text-entry>
+      <app-text-entry [group]="reportForm" name="address" [error]="formError" label="Address"
+                      errorMessage="Enter the offender's address" classic="true" required="true"></app-text-entry>
 
       <!-- Angular component -->
       <app-input [group]="reportForm" name="phone" required="true" [error]="formError" label="Contact number"
@@ -41,10 +42,8 @@
       <app-input [group]="reportForm" name="pnc" [error]="formError" label="PNC ID"
                  help="If available in CPS documentation"></app-input>
 
-      <div class="form-group">
-        <label for="crn" class="form-label-bold">Delius CRN</label>
-        <input class="form-control half-width no-border" id="crn" formControlName="crn" type="text" aria-readonly="true" readonly />
-      </div>
+      <!-- Angular component -->
+      <app-input [group]="reportForm" name="crn" label="Delius CRN" readonly="true"></app-input>
 
       <!-- Angular component -->
       <app-footer></app-footer>
