@@ -1,19 +1,19 @@
-<nav class="sub-nav top-bar">
+<nav class="moj-navigation moj-navigation--top-bar">
 
-  <p class="nav-title">Report sections</p>
+  <p class="govuk-heading-s govuk-!-margin-top-3">Report sections</p>
 
   <ul>
     <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
-      <li routerLinkActive="active" [routerLink]="section.route" class="sub-sub-item clickable"
+      <li routerLinkActive="moj-left-navigation--active" [routerLink]="section.route" class="moj-left-navigation"
           *ngIf="!section.dataOnly">- {{section.label}}
       </li>
     </ng-template>
 
-    <li routerLinkActive="active" routerLink="/parom1/check-report" class="sub-sub-item clickable">
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1/check-report" class="moj-left-navigation">
       - Check your report
     </li>
-    <li routerLinkActive="active" routerLink="/parom1/signature" #rla="routerLinkActive"
-        [ngClass]="{ 'js-hidden': !isValid }" class="sub-sub-item clickable">- Signature &amp; date
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1/signature" #rla="routerLinkActive"
+        [ngClass]="{ 'govuk-visually-hidden': !isValid }" class="moj-left-navigation">- Signature &amp; date
     </li>
   </ul>
 </nav>

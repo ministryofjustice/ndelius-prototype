@@ -1,0 +1,67 @@
+.moj-auto-save {
+  display: inline-block;
+  margin: 10px 20px 0 0;
+
+  .moj-auto-save__spinner {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    bottom: -4px;
+    padding: 0;
+    margin-right: 4px;
+    display: inline-block;
+
+    .moj-auto-save__spinner__double-bounce1, .moj-auto-save__spinner__double-bounce2 {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: $grass-green;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 1;
+    }
+
+    .moj-auto-save__spinner__double-bounce2 {
+      background: transparent;
+      &::before {
+        display: inline-block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: transparent file-url("icon-tick.png") no-repeat;
+      }
+    }
+
+    &.active {
+      .moj-auto-save__spinner__double-bounce1, .moj-auto-save__spinner__double-bounce2 {
+        opacity: 0.6;
+        background-color: $mellow-red-50;
+        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+        animation: sk-bounce 2.0s infinite ease-in-out;
+      }
+      .moj-auto-save__spinner__double-bounce2 {
+        &::before {
+          display: none;
+        }
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+}

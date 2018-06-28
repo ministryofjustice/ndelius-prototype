@@ -1,46 +1,40 @@
-<nav class="sub-nav top-bar">
+<nav class="moj-navigation moj-navigation--top-bar">
 
-  <p class="nav-title"><span *ngIf="role === 'com'">Community</span><span *ngIf="role === 'pom'">Prison</span> Offender Manager<br/>Report sections</p>
+  <p class="govuk-heading-s govuk-!-margin-top-3">
+    <span *ngIf="role === 'com'">Community Offender Manager</span><span *ngIf="role === 'pom'">Prison Offender Manager</span> report sections
+  </p>
 
   <ul *ngIf="role === 'com'">
-    <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-details" class="sub-sub-item clickable">- Prisoner details</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/prisoner-knowledge" class="sub-sub-item clickable">- COM: Prisoner relationship</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/previous-risk-assessment" class="sub-sub-item clickable">- Previous risk assessment</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/victim-issues" class="sub-sub-item clickable">- Victims</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/personality-disorder-pathway" class="sub-sub-item clickable">- OPD pathway</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/interventions" class="sub-sub-item clickable">- Interventions</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/sentence-plan" class="sub-sub-item clickable">- Current sentence plan</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/mappa" class="sub-sub-item clickable">- MAPPA</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/risk-reoffending" class="sub-sub-item clickable">- Risk of re-offending</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/risk-community" class="sub-sub-item clickable">- Risk in the community</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/risk-custody" class="sub-sub-item clickable">- Risk in custody</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/risk-serious-harm" class="sub-sub-item clickable">- Risk of serious harm</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/release-risk-management" class="sub-sub-item clickable">- Risk management plan</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/resettlement-plan" class="sub-sub-item clickable">- Resettlement plan for release</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/supervision-plan" class="sub-sub-item clickable">- Supervision plan for release</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/com-recommendation" class="sub-sub-item clickable">- Your recommendation</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/hearing-considerations" class="sub-sub-item clickable">- Oral hearing considerations</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/sources" class="sub-sub-item clickable">- Sources</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/check-report" class="sub-sub-item clickable">- Check your report</li>
-    <li routerLink="/parom1-omic/signature" routerLinkActive="active" #rla="routerLinkActive" [ngClass]="{ 'js-hidden': !isValid }" class="sub-sub-item clickable">- Signature &amp; date</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/prisoner-details" class="moj-left-navigation">- Prisoner details</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/prisoner-knowledge" class="moj-left-navigation">- COM: Prisoner relationship</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/previous-risk-assessment" class="moj-left-navigation">- Previous risk assessment</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/victim-issues" class="moj-left-navigation">- Victims</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/personality-disorder-pathway" class="moj-left-navigation">- OPD pathway</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/interventions" class="moj-left-navigation">- Interventions</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/sentence-plan" class="moj-left-navigation">- Current sentence plan</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/mappa" class="moj-left-navigation">- MAPPA</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/risk-reoffending" class="moj-left-navigation">- Risk of re-offending</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/risk-community" class="moj-left-navigation">- Risk in the community</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/risk-custody" class="moj-left-navigation">- Risk in custody</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/risk-serious-harm" class="moj-left-navigation">- Risk of serious harm</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/release-risk-management" class="moj-left-navigation">- Risk management plan</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/resettlement-plan" class="moj-left-navigation">- Resettlement plan for release</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/supervision-plan" class="moj-left-navigation">- Supervision plan for release</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/com-recommendation" class="moj-left-navigation">- Your recommendation</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/hearing-considerations" class="moj-left-navigation">- Oral hearing considerations</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/sources" class="moj-left-navigation">- Sources</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/check-report" class="moj-left-navigation">- Check your report</li>
+    <li routerLink="/parom1-omic/signature" routerLinkActive="moj-left-navigation--active" #rla="routerLinkActive" [ngClass]="{ 'govuk-visually-hidden': !isValid }" class="moj-left-navigation">- Signature &amp; date</li>
   </ul>
 
   <ul *ngIf="role === 'pom'">
-    <li routerLinkActive="active" routerLink="/parom1-omic/pom-prisoner-knowledge" class="sub-sub-item clickable">- POM: Prisoner relationship</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/pom-recommendation" class="sub-sub-item clickable">- Your recommendation</li>
-    <li routerLinkActive="active" routerLink="/parom1-omic/pom-signature" class="sub-sub-item clickable">- Signature &amp; date</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/pom-prisoner-knowledge" class="moj-left-navigation">- POM: Prisoner relationship</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/pom-recommendation" class="moj-left-navigation">- Your recommendation</li>
+    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1-omic/pom-signature" class="moj-left-navigation">- Signature &amp; date</li>
   </ul>
-
-  <hr />
-
-  <p class="nav-title"><span *ngIf="role === 'com'">Prison</span><span *ngIf="role === 'pom'">Community</span> Offender Manager<br/>Report sections</p>
-
-  <p class="nav-title font-regular">Last update: 02/04/2018</p>
-
-  <p class="nav-title font-regular"><a href="assets/pdf/parom1_draft_report.pdf" target="_blank">View draft report</a></p>
 
 </nav>
 
-<div class="footer-compensate">&nbsp;</div>
+<div class="moj-footer-compensate">&nbsp;</div>
 
 <br/>

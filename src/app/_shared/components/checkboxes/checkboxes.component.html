@@ -1,7 +1,7 @@
 <div class="govuk-form-group" [formGroup]="group">
   <fieldset class="govuk-fieldset">
 
-    <legend class="govuk-fieldset__legend govuk-label" [ngClass]="{ 'js-hidden': !legend }">
+    <legend class="govuk-fieldset__legend govuk-label" [ngClass]="{ 'govuk-visually-hidden': !legend }">
       {{legend}}
     </legend>
 
@@ -16,7 +16,7 @@
           </label>
         </div>
 
-        <div class="govuk-checkboxes__conditional" [ngClass]="{ 'js-hidden': !group.get(section.control).value }" [attr.aria-hidden]="!group.get(section.control).value" *ngIf="section.conditional">
+        <div class="govuk-checkboxes__conditional" [ngClass]="{ 'govuk-visually-hidden': !group.get(section.control).value }" [attr.aria-hidden]="!group.get(section.control).value" *ngIf="section.conditional">
 
           <!-- Angular component -->
           <app-text-entry [group]="group" [name]="section.conditional.control" [label]="section.conditional.label"></app-text-entry>

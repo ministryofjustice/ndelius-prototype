@@ -1,6 +1,6 @@
 <header>
-  <span class="far fa-bars title mobile-only"></span>
-  <span class="title">National Delius</span>
+  <span class="far fa-bars delius-title mobile-only"></span>
+  <span class="delius-title">National Delius</span>
   <nav class="top-nav">
     <span class="margin-right medium"><span class="far fa-print"></span> Print</span>&nbsp;&nbsp;
     <span class="margin-right medium"><span class="far fa-file"></span> My Documents</span>&nbsp;&nbsp;
@@ -12,16 +12,16 @@
   <hr class="dotted"/>
 
   <div class="pull-left pad-left">
-    <p class=" delius text-white font-xxsmall">CRN: <span class="text-blue">X087946</span> Name: <span class="text-blue">Alice Smith</span>
-      D.O.B: 21/06/1976 (41) Offender Manager: <span class="text-blue">Created, CRC</span> - CRC Created, CPS Manchester</p>
-    <p class="delius text-white font-xxsmall">Remand Status: not Applicable Tier: Not Yet Assessed</p>
+    <p class="delius-body-xxsmall moj-!-color-white">CRN: <span class="moj-!-color-blue">X087946</span> Name: <span class="moj-!-color-white">Alice Smith</span>
+      D.O.B: 21/06/1976 (41) Offender Manager: <span class="moj-!-color-white">Created, CRC</span> - CRC Created, CPS Manchester</p>
+    <p class="delius-body-xxsmall moj-!-color-white">Remand Status: not Applicable Tier: Not Yet Assessed</p>
   </div>
   <div class="pull-right pad-right">
-    <span class="icon-risk"></span>
-    <span class="icon-risk"></span>
-    <span class="icon-risk"></span>
-    <span class="icon-risk"></span>
-    <span class="icon-risk"></span>
+    <span class="delius-icon-risk"></span>
+    <span class="delius-icon-risk"></span>
+    <span class="delius-icon-risk"></span>
+    <span class="delius-icon-risk"></span>
+    <span class="delius-icon-risk"></span>
   </div>
 </div>
 
@@ -29,7 +29,7 @@
 
   <div class="column-flex navigation omit-mobile">
 
-    <nav [ngClass]="{ 'push-down': !rla.isActive }">
+    <nav class="delius-nav" [ngClass]="{ 'push-down': !rla.isActive }">
       <ul>
         <li routerLinkActive="active" #rla="routerLinkActive" routerLink="/start" class="clickable"><span class="far fa-home"></span> Home
         </li>

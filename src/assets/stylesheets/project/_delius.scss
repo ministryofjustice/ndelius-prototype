@@ -1,0 +1,31 @@
+.delius-title {
+  font-family: "Arial", "Helvetica", sans-serif;
+  display: inline-block;
+  padding: 10px 0 0 15px;
+  font-size: 21px;
+  color: gray;
+}
+
+.delius-body-xxsmall {
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.delius-icon-risk {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 3px solid gray;
+  border-radius: 50%;
+  margin-top: 6px;
+  margin-left: 3px;
+
+  @include media(mobile) {
+    display: none;
+  }
+}
+
+.delius-nav {
+  font-family: "Arial", "Helvetica", sans-serif;
+}

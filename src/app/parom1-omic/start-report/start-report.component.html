@@ -5,25 +5,25 @@
 
 <p class="lede">Select your role for writing this report</p>
 
-<div class="grid-row choice-container">
-  <div class="column-half">
-    <div id="com-journey" class="main-choice" [ngClass]="{ 'active': currentSelection === 'com' }" (click)="select('com')">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half moj-choice">
+    <div id="com-journey" class="moj-choice__main" [ngClass]="{ 'moj-choice__main--active': currentSelection === 'com' }" (click)="select('com')">
       Community Offender<br/>Manager
     </div>
   </div>
-  <div class="column-half">
-    <div id="pom-journey" class="main-choice" [ngClass]="{ 'active': currentSelection === 'pom' }" (click)="select('pom')">
+  <div class="govuk-grid-column-one-half moj-choice">
+    <div id="pom-journey" class="moj-choice__main" [ngClass]="{ 'moj-choice__main--active': currentSelection === 'pom' }" (click)="select('pom')">
       Prison Offender<br/>Manager
     </div>
   </div>
 </div>
 
-<div [ngClass]="{ 'js-hidden': currentSelection === '' }" [attr.aria-hidden]="currentSelection === ''">
+<div [ngClass]="{ 'govuk-visually-hidden': currentSelection === '' }" [attr.aria-hidden]="currentSelection === ''">
   <div class="moj-interrupt">
 
-    <p class="lede">As a {{currentSelection === 'com' ? 'COM' : 'POM'}} using the Parom1 - OMIC report you can:</p>
+    <p class="govuk-caption-xl govuk-!-margin-bottom-4 moj-!-color-white">As a {{currentSelection === 'com' ? 'COM' : 'POM'}} using the Parom1 - OMIC report you can:</p>
 
-    <ul class="list-bullet" *ngIf="currentSelection === 'com'">
+    <ul class="govuk-list govuk-list--bullet moj-!-color-white" *ngIf="currentSelection === 'com'">
       <li>complete the report in your preferred order</li>
       <li>save and close the report at any point - it also saves as you write</li>
       <li>review and edit the COM sections</li>
@@ -31,7 +31,7 @@
       <li>check the overall progress of the report</li>
     </ul>
 
-    <ul class="list-bullet" *ngIf="currentSelection === 'pom'">
+    <ul class="govuk-list govuk-list--bullet moj-!-color-white" *ngIf="currentSelection === 'pom'">
       <li>go straight to the POM section</li>
       <li>save and close the report at any point - it also saves as you write</li>
       <li>review and edit the POM section</li>

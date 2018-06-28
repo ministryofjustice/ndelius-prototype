@@ -75,7 +75,7 @@
 
       <!-- INDETERMINATE -->
       <div class="govuk-radios__conditional"
-           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
 
         <app-input [group]="reportForm" name="tariffLength" label="Tariff length"></app-input>
@@ -88,7 +88,7 @@
 
       <!-- DETERMINATE -->
       <div class="govuk-radios__conditional"
-           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
 
         <!-- ANGULAR COMPONENT -->

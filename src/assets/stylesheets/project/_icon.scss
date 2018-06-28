@@ -1,102 +1,19 @@
-.icon {
+.moj-icon {
   display: inline-block;
   width: 45px;
   height: 50px;
 
-  &.icon-important{
-    &.white {
-      background: file-url("icon-important.svg") no-repeat;
-      background-size: 40px;
-    }
-  }
-
-  &.pdf {
+  &.moj-icon--pdf {
     background: file-url("icon_pdf.svg") no-repeat;
   }
 
-  &.edit {
+  &.moj-icon--edit {
     background: file-url("icon_edit.svg") no-repeat;
     width: 50px;
   }
 
-  &.list {
+  &.moj-icon--list {
     background: file-url("icon_list.svg") no-repeat;
     margin-top: 0;
   }
-}
-
-.icon-risk {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border: 3px solid gray;
-  border-radius: 50%;
-  margin-top: 6px;
-  margin-left: 3px;
-
-  @include media(mobile) {
-    display: none;
-  }
-}
-
-.spinner {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  bottom: -4px;
-  padding: 0;
-  margin-right: 4px;
-
-  .double-bounce1, .double-bounce2 {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: $grass-green;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-  }
-
-  .double-bounce2 {
-    background: transparent;
-    &::before {
-      display: inline-block;
-      content: "";
-      width: 20px;
-      height: 20px;
-      background: transparent file-url("icon-tick.png") no-repeat;
-    }
-  }
-
-  &.active {
-    .double-bounce1, .double-bounce2 {
-      opacity: 0.6;
-      background-color: $mellow-red-50;
-      -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-      animation: sk-bounce 2.0s infinite ease-in-out;
-    }
-    .double-bounce2 {
-      &::before {
-        display: none;
-      }
-      -webkit-animation-delay: -1.0s;
-      animation-delay: -1.0s;
-    }
-  }
-}
-
-@-webkit-keyframes sk-bounce {
-  0%, 100% { -webkit-transform: scale(0.0) }
-  50% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes sk-bounce {
-  0%, 100% {
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% {
-      transform: scale(1.0);
-      -webkit-transform: scale(1.0);
-    }
 }

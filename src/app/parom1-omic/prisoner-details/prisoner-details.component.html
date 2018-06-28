@@ -70,7 +70,7 @@
 
       <!-- DETERMINATE -->
       <div class="panel panel-border-narrow"
-           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
 
         <!-- ANGULAR COMPONENT -->
@@ -81,7 +81,7 @@
 
       <!-- INDETERMINATE -->
       <div class="panel panel-border-narrow"
-           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
 
         <div class="form-group">

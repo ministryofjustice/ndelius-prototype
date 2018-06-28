@@ -35,7 +35,7 @@ describe('SFPSR - Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('- Offender details');
+    expect(compiled.querySelector('.moj-left-navigation').innerHTML).toBe('- Offender details');
   });
 
 });

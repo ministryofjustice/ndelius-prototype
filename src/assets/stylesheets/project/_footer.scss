@@ -1,36 +1,36 @@
 footer {
 
-  &.report-footer {
+  &.moj-report-footer {
     position: fixed;
     bottom: 0;
     left: 250px;
     width: 100%;
-    border-top: #aeaeae 1px solid;
+    border-top: govuk-colour("grey-2") 1px solid;
     padding: 20px;
     background: rgba(255, 255, 255, 0.97);
     right: 250px;
     box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.1);
     z-index: 999;
 
-    .container {
+    .moj-report-footer__container {
       float: right;
       padding-right: 250px;
     }
 
     @include govuk-media-query(mobile, tablet) {
       left: 0;
-      .container {
+      .moj-report-footer__container {
         padding-right: 0;
       }
 
-      .button {
+      .govuk-button {
         width: auto;
       }
     }
   }
 }
 
-.footer-compensate {
+.moj-footer-compensate {
   display: block;
   height: 50px;
 }

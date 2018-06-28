@@ -4,4 +4,9 @@
     background-color: govuk-colour("white");
     color: govuk-colour("blue");
   }
+  &.moj-button--secondary {
+    background: govuk-colour("grey-3");
+    color: govuk-colour("grey-1");
+    box-shadow: 0 2px 0 govuk-colour("grey-2");
+  }
 }
