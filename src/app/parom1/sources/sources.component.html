@@ -53,7 +53,7 @@
                          errorMessage="Specify whether there are any omissions or limitations">
       </app-radio-buttons>
 
-      <div class="govuk-radios__conditional" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
+      <div class="govuk-radios__conditional" [ngClass]="{ 'govuk-visually-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"

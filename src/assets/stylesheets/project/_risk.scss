@@ -56,14 +56,14 @@
   }
 
   &.moj-risk-tag--low {
-    background: $green;
+    background: govuk-colour("green");
   }
 
   &.moj-risk-tag--medium {
-    background: $yellow;
+    background: govuk-colour("yellow");
   }
 
   &.moj-risk-tag--high {
-    background: $red;
+    background: govuk-colour("red");
   }
 }

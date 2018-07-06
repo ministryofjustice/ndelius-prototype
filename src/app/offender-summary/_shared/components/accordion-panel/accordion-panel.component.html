@@ -4,7 +4,7 @@
     {{title}}<span class="moj-accordion__toggle far" [ngClass]="{ 'fa-plus': !isActive, 'fa-minus': isActive }"></span>
   </h2>
 
-  <div class="govuk-!-margin-top-4" [ngClass]="{ 'js-hidden': !isActive }" [attr.aria-expanded]="isActive">
+  <div class="govuk-!-margin-top-4" [ngClass]="{ 'govuk-visually-hidden': !isActive }" [attr.aria-expanded]="isActive">
     <ng-content></ng-content>
   </div>
 

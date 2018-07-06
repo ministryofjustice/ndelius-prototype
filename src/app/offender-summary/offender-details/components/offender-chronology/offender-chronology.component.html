@@ -14,22 +14,22 @@
         <ng-template ngFor let-option [ngForOf]="data.EVENTS" let-index="index">
 
           <div class="moj-timeline__item" [ngClass]="{ 'moj-timeline__item--primary govuk-!-margin-bottom-3': option.active }">
-            <p class="govuk-!-margin-0" [ngClass]="{
+            <p class="govuk-body govuk-!-margin-0" [ngClass]="{
                           'govuk-heading-m ': option.active,
                           'govuk-heading-s moj-!-color-blue moj-util-clickable': !option.active
                         }">{{option.status}}</p>
 
-            <table role="presentation" class="govuk-!-margin-0">
+            <table class="moj-table govuk-!-margin-0" role="presentation">
               <tbody>
               <tr>
                 <td class="govuk-!-padding-0">
-                  <p class="moj-!-color-grey" [ngClass]="{ 'govuk-!-font-weight-bold govuk-!-margin-bottom-3': option.active }">{{option.primaryOffence}}</p>
+                  <p class="govuk-body moj-!-color-grey" [ngClass]="{ 'govuk-!-font-weight-bold govuk-!-margin-bottom-3': option.active }">{{option.primaryOffence}}</p>
                 </td>
                 <td width="110" class="govuk-!-padding-0">
-                  <p class="moj-!-color-grey">{{option.date}}</p>
+                  <p class="govuk-body moj-!-color-grey">{{option.date}}</p>
                 </td>
                 <td width="100" class="govuk-!-padding-0">
-                  <p class="govuk-!-font-size-19 moj-!-text-align-right" [ngClass]="{ 'govuk-!-font-weight-bold moj-!-color-green': option.active, 'moj-!-color-red': !option.active }">{{option.active ? 'Active' : 'Terminated'}}</p>
+                  <p class="govuk-body govuk-!-font-size-19 moj-!-text-align-right" [ngClass]="{ 'govuk-!-font-weight-bold moj-!-color-green': option.active, 'moj-!-color-red': !option.active }">{{option.active ? 'Active' : 'Terminated'}}</p>
                 </td>
               </tr>
               </tbody>

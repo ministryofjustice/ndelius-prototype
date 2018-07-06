@@ -1,4 +1,13 @@
+.autocomplete__input {
+  @include govuk-font($size: 19);
+  @include govuk-focusable;
+  padding: govuk-spacing(1);
+  height: 40px;
+}
+
 .autocomplete__wrapper {
+  @include govuk-font($size: 19);
+  line-height: 25px;
   position: relative;
 }
 
@@ -28,7 +37,7 @@
   position: absolute;
 }
 
-.autocomplete__input--default{
+.autocomplete__input--default {
   padding: 4px;
 }
 
@@ -42,7 +51,7 @@
   cursor: pointer;
 }
 
-.autocomplete__dropdown-arrow-down{
+.autocomplete__dropdown-arrow-down {
   z-index: -1;
   display: inline-block;
   position: absolute;

@@ -35,7 +35,7 @@ describe('PAROM1-OMIC - Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.sub-sub-item').innerHTML).toBe('- Prisoner details');
+    expect(compiled.querySelector('.moj-navigation-list__item').innerHTML).toBe('- Prisoner details');
   });
 
 });

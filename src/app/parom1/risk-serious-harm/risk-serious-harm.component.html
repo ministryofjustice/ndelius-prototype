@@ -68,7 +68,7 @@
 
       <!-- ABSCONDING RISK -->
       <div class="govuk-radios__conditional"
-           [ngClass]="{ 'js-hidden': reportForm.get('abscondingRisk').value !== 'Yes' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('abscondingRisk').value !== 'Yes' }"
            [attr.aria-hidden]="reportForm.get('abscondingRisk').value !== 'Yes'">
 
         <!-- ANGULAR COMPONENT -->

@@ -21,7 +21,7 @@
     }
 
     &.moj-timeline__item--primary {
-      background: $grey-3;
+      background: govuk-colour("grey-3");
       @include govuk-responsive-padding(4, all);
 
       &::after {

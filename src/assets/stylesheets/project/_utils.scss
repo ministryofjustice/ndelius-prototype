@@ -1,29 +1,5 @@
-.clearfix {
-  @include govuk-clearfix;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
-.omit-mobile {
-  @include media(mobile) {
-    display: none;
-  }
-}
-
-.column-one-half {
-  &.no-padding-left {
-    @include media(tablet) {
-      padding-left: 0;
-    }
-  }
-
-  &.no-padding-right {
-    @include media(tablet) {
-      padding-right: 0;
-    }
-  }
+.moj-util-inline {
+  display: inline-block;
 }
 
 .moj-util-clickable {

@@ -1,17 +1,16 @@
-.choice-container .column-half {
-  .main-choice {
-    border: $grey-1 2px solid;
-    min-height: 150px;
+.moj-choice {
+  .moj-choice__main {
+    border: 2px solid govuk-colour("grey-1");
     cursor: pointer;
-    padding: 60px 30px;
+    padding: govuk-spacing(9) govuk-spacing(6);
     text-align: center;
-    font-size: 24px;
+    @include govuk-font($size: 24);
     font-weight: 700;
-    color: $govuk-blue;
+    color: govuk-colour("blue");
     text-decoration: underline;
 
-    &.active {
-      background: $grey-1;
+    &.moj-choice__main--active {
+      background: govuk-colour("grey-1");
       color: white;
       text-decoration: none;
     }
@@ -19,12 +18,23 @@
 
   &:first-child {
     padding: 15px 0 15px 15px;
-    .main-choice {
+    .moj-choice__main {
       border-right: 0;
     }
   }
 
   &:last-child {
     padding: 15px 15px 15px 0;
+  }
+
+  @include govuk-media-query(mobile, tablet) {
+    &:first-child {
+      .moj-choice__main {
+        border: 2px solid govuk-colour("grey-1");
+      }
+    }
+    &:first-child, &:last-child {
+      padding: govuk-spacing(2);
+    }
   }
 }

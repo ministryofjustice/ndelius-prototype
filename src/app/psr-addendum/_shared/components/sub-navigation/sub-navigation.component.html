@@ -1,11 +1,11 @@
-<nav class="sub-nav top-bar">
+<nav class="moj-navigation moj-navigation--top-bar">
 
-  <p class="nav-title">Report sections</p>
+  <p class="govuk-heading-s govuk-!-margin-top-3">Report sections</p>
 
-  <ul>
-    <li routerLink="/psr-addendum/offender-details" routerLinkActive="active" class="sub-sub-item clickable">- Offender details</li>
-    <li routerLink="/psr-addendum/court-details" routerLinkActive="active" class="sub-sub-item clickable">- Sentencing court details</li>
-    <li routerLink="/psr-addendum/addendum-detail" routerLinkActive="active" class="sub-sub-item clickable">- Addendum detail</li>
-    <li routerLink="/psr-addendum/signature" routerLinkActive="active" #rla="routerLinkActive" class="sub-sub-item clickable">- Sign and date your addendum</li>
+  <ul class="moj-navigation-list">
+    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" routerLink="/psr-addendum/offender-details">- Offender details</li>
+    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" routerLink="/psr-addendum/court-details">- Sentencing court details</li>
+    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" routerLink="/psr-addendum/addendum-detail">- Addendum detail</li>
+    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" #rla="routerLinkActive" routerLink="/psr-addendum/signature">- Sign and date your addendum</li>
   </ul>
 </nav>

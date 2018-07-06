@@ -49,8 +49,8 @@
     // Show toggled content for control
     function showToggledContent ($control, $content) {
       // Show content
-      if ($content.hasClass('js-hidden')) {
-        $content.removeClass('js-hidden');
+      if ($content.hasClass('govuk-visually-hidden')) {
+        $content.removeClass('govuk-visually-hidden');
         $content.attr('aria-hidden', 'false');
 
         // If the controlling input, update aria-expanded
@@ -65,8 +65,8 @@
       $content = $content || getToggledContent($control);
 
       // Hide content
-      if (!$content.hasClass('js-hidden')) {
-        $content.addClass('js-hidden');
+      if (!$content.hasClass('govuk-visually-hidden')) {
+        $content.addClass('govuk-visually-hidden');
         $content.attr('aria-hidden', 'true');
 
         // If the controlling input, update aria-expanded

@@ -30,7 +30,7 @@
           <label [for]="document.control" class="form-label-bold">{{document.label}}</label>
         </div>
 
-        <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('other').value }" [attr.aria-hidden]="!reportForm.get('other').value">
+        <div class="panel panel-border-narrow" [ngClass]="{ 'govuk-visually-hidden': !reportForm.get('other').value }" [attr.aria-hidden]="!reportForm.get('other').value">
 
           <div class="form-group">
             <label for="otherDocuments">
@@ -71,7 +71,7 @@
                          errorMessage="Specify whether there are any omissions or limitations">
       </app-radio-buttons>
 
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
+      <div class="panel panel-border-narrow" [ngClass]="{ 'govuk-visually-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"

@@ -25,7 +25,7 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="govuk-form-group" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
+      <div class="govuk-form-group govuk-!-width-one-half" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
         <label for="prison" class="govuk-label">Prison or Young Offender Institution</label>
         <!-- Angular component -->
         <app-error-messages control="prison" message="Enter the prison or Young Offender Institution" [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
@@ -75,7 +75,7 @@
 
       <!-- INDETERMINATE -->
       <div class="govuk-radios__conditional"
-           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
 
         <app-input [group]="reportForm" name="tariffLength" label="Tariff length"></app-input>
@@ -88,7 +88,7 @@
 
       <!-- DETERMINATE -->
       <div class="govuk-radios__conditional"
-           [ngClass]="{ 'js-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
            [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
 
         <!-- ANGULAR COMPONENT -->

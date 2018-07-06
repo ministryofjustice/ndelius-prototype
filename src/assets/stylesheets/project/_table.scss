@@ -1,8 +1,18 @@
 .moj-table {
+
+  width:100%;
+  box-sizing: border-box;
+
   &.moj-table--split-rows {
 
     thead tr {
       border-bottom: 2px solid govuk-colour("black");
+    }
+
+    th, td {
+      padding: govuk-em(govuk-spacing(2), 19px) govuk-em(govuk-spacing(4), 19px) govuk-em(govuk-spacing(2), 19px) 0;
+      border-bottom: 1px solid $govuk-border-colour;
+      text-align: left;
     }
 
     tbody tr {
@@ -10,6 +20,9 @@
 
       &:last-child {
         border: 0;
+        td {
+          border-bottom: 0;
+        }
       }
     }
   }

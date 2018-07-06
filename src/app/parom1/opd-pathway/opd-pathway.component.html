@@ -22,7 +22,7 @@
                          errorMessage="Specify whether the prisoner has met with the OPD screen">
       </app-radio-buttons>
 
-      <div class="govuk-radios__conditional" [ngClass]="{ 'js-hidden': reportForm.get('opdPathway').value !== 'Yes' }">
+      <div class="govuk-radios__conditional" [ngClass]="{ 'govuk-visually-hidden': reportForm.get('opdPathway').value !== 'Yes' }">
         <p>Make reference, where relevant, throughout this report if:</p>
 
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">

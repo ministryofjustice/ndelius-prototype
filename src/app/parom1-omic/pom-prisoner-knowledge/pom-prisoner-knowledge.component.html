@@ -46,7 +46,7 @@
       </app-radio-buttons>
 
       <div class="panel panel-border-narrow"
-           [ngClass]="{ 'js-hidden': reportForm.get('riskOfAbsconding').value !== 'Yes' }"
+           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('riskOfAbsconding').value !== 'Yes' }"
            [attr.aria-hidden]="reportForm.get('riskOfAbsconding').value !== 'Yes'">
         <!-- ANGULAR COMPONENT -->
         <app-text-entry [group]="reportForm" name="riskOfAbscondingDetails"
@@ -64,7 +64,7 @@
                          errorMessage="Specify whether the prisoner undertaking or likely to undertake ROTL">
       </app-radio-buttons>
 
-      <div class="panel panel-border-narrow" [ngClass]="{ 'js-hidden': reportForm.get('rotl').value !== 'Yes' }"
+      <div class="panel panel-border-narrow" [ngClass]="{ 'govuk-visually-hidden': reportForm.get('rotl').value !== 'Yes' }"
            [attr.aria-hidden]="reportForm.get('rotl').value !== 'Yes'">
         <!-- ANGULAR COMPONENT -->
         <app-text-entry [group]="reportForm" name="rotlDetails"

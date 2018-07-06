@@ -1,86 +1,40 @@
 a, a:link, a:active, a:visited {
-  color: $govuk-blue;
+  color: govuk-colour("blue");
 }
 
 nav {
-  position: absolute;
-  top: 50px;
-  width: 250px;
-  background: #162c58;
-  color: white;
-  z-index: 1;
 
-  .nav-title {
-    color: black;
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    margin-top: 20px;
-    padding-left: 10px;
-  }
-
-  &.sub-nav {
+  &.moj-navigation {
     background: transparent;
     position: relative;
     top: 0;
 
-    &.top-bar {
-      border-top: $govuk-blue 10px solid;
-    }
-  }
-
-  &.push-down {
-    top: 100px;
-  }
-
-  li {
-    font-family: "Arial", "Helvetica", sans-serif;
-    font-size: 14px;
-    padding: 8px 10px;
-
-    &.sub-item {
-      background: #26549B;
-      padding-left: 30px;
-    }
-
-    &.sub-sub-item {
-      font-family: "NTA", "Arial", "Helvetica", sans-serif;
-      list-style: none;
-      background: transparent;
-      color: govuk-colour("blue");
-      font-size: 16px;
-      text-decoration: underline;
-      padding: 3px 10px; // @since PAROM-1
-
-      &.active {
-        background: transparent;
-        color: #162c58;
-        text-decoration: none;
-      }
-    }
-
-    &.active {
-      background: #e0e0e0;
-      color: black;
-    }
-  }
-
-  &.top-nav {
-    position: relative;
-    top: 14px;
-    right: 20px;
-    background: transparent;
-    width: auto;
-    color: gray;
-    font-size: 14px;
-    float: right;
-
-    @include media(mobile) {
-      display: none;
+    &.moj-navigation--top-bar {
+      border-top: govuk-colour("blue") 10px solid;
     }
   }
 }
 
-nav.content-fixed {
-  margin-top: 20px;
+.moj-navigation-list {
+  padding: 0;
+  @include govuk-font($size: 14);
+
+  .moj-navigation-list__item {
+    list-style: none;
+    background: transparent;
+    color: govuk-colour("blue");
+    font-size: 16px;
+    text-decoration: underline;
+    padding: 3px 10px;
+    cursor: pointer;
+    margin: 0 0 2px 0;
+
+    &.moj-navigation-list__item--active {
+      background: transparent;
+      color: #162c58;
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+
 }

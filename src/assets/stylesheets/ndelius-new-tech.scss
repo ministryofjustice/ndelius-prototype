@@ -3,7 +3,7 @@
 $path: "/assets/images/";
 
 // Import all the govuk-elements partials listed in _govuk-elements.scss
-@import "govuk/govuk-elements";
+// @import "govuk/govuk-elements";
 
 @import "node_modules/govuk-frontend/all";
 
@@ -40,13 +40,15 @@ $path: "/assets/images/";
 @import 'fontawesome/screen-reader';
 
 // Import the project specific mixins
-@import "project/mixins";
 @import "project/colour";
+
+// import styles for the delius style wrapper
+@import "project/delius";
 
 // Import the project specific styles
 @import "project/accordion";
 @import "project/autocomplete";
-@import "project/box";
+@import "project/auto-save";
 @import "project/button";
 @import "project/card";
 @import "project/choice";
@@ -55,14 +57,10 @@ $path: "/assets/images/";
 @import "project/forms";
 @import "project/footer";
 @import "project/icon";
-@import "project/iframe";
-@import "project/layout";
 @import "project/lists";
-@import "project/logo";
 @import "project/navigation";
 @import "project/panel";
 @import "project/risk";
-@import "project/spacing";
 @import "project/table";
 @import "project/tag";
 @import "project/timeline";
