@@ -1,9 +1,118 @@
+header {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: #222222;
+  z-index: 9999;
+}
+
+.sub-header {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: #222222;
+  z-index: 9999;
+  top: 50px;
+}
+
+.grid-flex {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.column-flex {
+  flex: 1;
+
+  &.navigation {
+    background: #222222;
+    flex: 0 0 250px;
+  }
+
+  &.main-content {
+    background: white;
+  }
+}
+
+.push-top {
+  padding-top: 60px;
+
+  &.double {
+    padding-top: 110px;
+  }
+}
+
+hr {
+  &.dotted {
+    margin: 0;
+    border: none;
+    border-top: 1px dashed gray;
+    background: transparent;
+    height: 1px;
+  }
+}
+
+#content {
+  margin: 0;
+  height: auto;
+  padding: 0 25px;
+}
+
+.mobile-only {
+  display: none !important;
+  @include govuk-media-query(mobile, tablet) {
+    display: inline-block !important;
+  }
+}
+
+.delius {
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
 .delius-title {
   font-family: "Arial", "Helvetica", sans-serif;
   display: inline-block;
   padding: 10px 0 0 15px;
   font-size: 21px;
   color: gray;
+}
+
+.delius-nav {
+  font-family: "Arial", "Helvetica", sans-serif;
+  position: absolute;
+  top: 34px;
+  width: 250px;
+  background: #162c58;
+  color: white;
+  z-index: 1;
+
+  &.push-down {
+    top: 90px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    font-size: 14px;
+    padding: 8px 10px;
+
+    &.sub-item {
+      background: #26549B;
+      padding-left: 30px;
+    }
+
+    &.active {
+      background: #e0e0e0;
+      color: black;
+    }
+  }
 }
 
 .clickable {
@@ -31,11 +140,49 @@
   margin-top: 6px;
   margin-left: 3px;
 
-  @include media(mobile) {
+  @include govuk-media-query(mobile, tablet) {
     display: none;
   }
 }
 
-.delius-nav {
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.delius-top-nav {
   font-family: "Arial", "Helvetica", sans-serif;
+  position: relative;
+  top: 14px;
+  right: 20px;
+  background: transparent;
+  width: auto;
+  color: gray;
+  font-size: 14px;
+  float: right;
+
+  @include govuk-media-query(mobile, tablet) {
+    display: none;
+  }
+
+  &.content-fixed {
+    margin-top: 20px;
+  }
+}
+
+footer {
+
+  &.moj-report-footer {
+    left: 250px !important;
+    width: calc(100% - 250px) !important;
+
+    @include govuk-media-query(mobile, tablet) {
+      left: 0 !important;
+      width: 100% !important;
+    }
+  }
+
 }

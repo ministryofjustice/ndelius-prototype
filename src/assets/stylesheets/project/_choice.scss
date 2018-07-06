@@ -1,11 +1,10 @@
 .moj-choice {
   .moj-choice__main {
     border: 2px solid govuk-colour("grey-1");
-    min-height: 150px;
     cursor: pointer;
     padding: govuk-spacing(9) govuk-spacing(6);
     text-align: center;
-    font-size: 24px;
+    @include govuk-font($size: 24);
     font-weight: 700;
     color: govuk-colour("blue");
     text-decoration: underline;

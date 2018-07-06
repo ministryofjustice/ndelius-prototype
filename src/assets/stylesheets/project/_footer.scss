@@ -2,27 +2,21 @@ footer {
 
   &.moj-report-footer {
     position: fixed;
+    left: 0;
     bottom: 0;
-    left: 250px;
     width: 100%;
-    border-top: govuk-colour("grey-2") 1px solid;
+    border-top: 1px solid govuk-colour("grey-2");
     padding: 20px;
     background: rgba(255, 255, 255, 0.97);
-    right: 250px;
     box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.1);
     z-index: 999;
 
     .moj-report-footer__container {
       float: right;
-      padding-right: 250px;
+      padding-right: 40px;
     }
 
     @include govuk-media-query(mobile, tablet) {
-      left: 0;
-      .moj-report-footer__container {
-        padding-right: 0;
-      }
-
       .govuk-button {
         width: auto;
       }

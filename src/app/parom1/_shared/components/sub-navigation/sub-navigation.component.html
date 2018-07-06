@@ -2,18 +2,18 @@
 
   <p class="govuk-heading-s govuk-!-margin-top-3">Report sections</p>
 
-  <ul>
+  <ul class="moj-navigation-list">
     <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
-      <li routerLinkActive="moj-left-navigation--active" [routerLink]="section.route" class="moj-left-navigation"
+      <li routerLinkActive="moj-navigation-list__item--active" [routerLink]="section.route" class="moj-navigation-list__item"
           *ngIf="!section.dataOnly">- {{section.label}}
       </li>
     </ng-template>
 
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1/check-report" class="moj-left-navigation">
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/parom1/check-report" class="moj-navigation-list__item">
       - Check your report
     </li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/parom1/signature" #rla="routerLinkActive"
-        [ngClass]="{ 'govuk-visually-hidden': !isValid }" class="moj-left-navigation">- Signature &amp; date
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/parom1/signature" #rla="routerLinkActive"
+        [ngClass]="{ 'govuk-visually-hidden': !isValid }" class="moj-navigation-list__item">- Signature &amp; date
     </li>
   </ul>
 </nav>

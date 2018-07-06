@@ -5,7 +5,7 @@
 
       <app-details label="Personal information" [hideBar]="true">
 
-        <table class="moj-table moj-table--split-rows" role="presentation">
+        <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
           <tr>
             <td class="govuk-!-font-weight-bold" width="50%">Title</td>
             <td>{{pipeTitle(data.TITLE_ID)}}</td>
@@ -62,7 +62,7 @@
 
         <app-details label="Aliases" [hideBar]="true">
 
-          <table class="moj-table moj-table--split-rows" role="presentation">
+          <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
             <thead>
             <tr>
               <th>Name</th>
@@ -93,13 +93,13 @@
 
         <app-details label="Addresses" [hideBar]="true">
 
-          <table class="moj-table moj-table--split-rows" role="presentation">
+          <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
             <thead>
             <tr>
               <th>Number</th>
               <th>Street</th>
-              <th>County</th>
               <th>Town/City</th>
+              <th>County</th>
               <th>Postcode</th>
             </tr>
             </thead>
@@ -124,7 +124,7 @@
 
         <app-details label="Contact details" [hideBar]="true">
 
-          <table class="moj-table moj-table--split-rows" role="presentation">
+          <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
             <tr>
               <td class="govuk-!-font-weight-bold" width="50%">Telephone</td>
               <td>{{data.TELEPHONE_NUMBER}}</td>

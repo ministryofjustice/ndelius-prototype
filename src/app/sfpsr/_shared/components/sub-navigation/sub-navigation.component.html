@@ -2,16 +2,16 @@
 
   <p class="govuk-heading-s govuk-!-margin-top-3">Report sections</p>
 
-  <ul>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/offender-details" class="moj-left-navigation">- Offender details</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/court-details" class="moj-left-navigation">- Sentencing court details</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/information-sources" class="moj-left-navigation">- Sources of information</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/offence-details" class="moj-left-navigation">- Offence details</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/offence-analysis" class="moj-left-navigation">- Offence analysis</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/offender-assessment" class="moj-left-navigation">- Offender assessment</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/risk-assessment" class="moj-left-navigation">- Risk assessment</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/proposed-sentence" class="moj-left-navigation">- Proposal</li>
-    <li routerLinkActive="moj-left-navigation--active" routerLink="/sfpsr/check-report" class="moj-left-navigation">- Check your report</li>
-    <li routerLink="/sfpsr/signature" routerLinkActive="moj-left-navigation--active" #rla="routerLinkActive" [ngClass]="{ 'govuk-visually-hidden': !isValid }" class="moj-left-navigation">- Sign and date your report</li>
+  <ul class="moj-navigation-list">
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/offender-details" class="moj-navigation-list__item">- Offender details</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/court-details" class="moj-navigation-list__item">- Sentencing court details</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/information-sources" class="moj-navigation-list__item">- Sources of information</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/offence-details" class="moj-navigation-list__item">- Offence details</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/offence-analysis" class="moj-navigation-list__item">- Offence analysis</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/offender-assessment" class="moj-navigation-list__item">- Offender assessment</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/risk-assessment" class="moj-navigation-list__item">- Risk assessment</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/proposed-sentence" class="moj-navigation-list__item">- Proposal</li>
+    <li routerLinkActive="moj-navigation-list__item--active" routerLink="/sfpsr/check-report" class="moj-navigation-list__item">- Check your report</li>
+    <li routerLink="/sfpsr/signature" routerLinkActive="moj-navigation-list__item--active" #rla="routerLinkActive" [ngClass]="{ 'govuk-visually-hidden': !isValid }" class="moj-navigation-list__item">- Sign and date your report</li>
   </ul>
 </nav>

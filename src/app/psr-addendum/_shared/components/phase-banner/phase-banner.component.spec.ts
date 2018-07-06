@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { PhaseBannerComponent } from './phase-banner.component';
 
-describe('Addendum - Component: Navigation (shared)', () => {
+describe('Addendum - Component: phase-banner (shared)', () => {
 
   let fixture: ComponentFixture<PhaseBannerComponent>;
   let component: PhaseBannerComponent;
@@ -32,7 +32,7 @@ describe('Addendum - Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('strong').innerHTML).toBe('PROTOTYPE');
+    expect(compiled.querySelector('.govuk-phase-banner__content__tag').innerHTML.trim()).toBe('prototype');
   });
 
 });

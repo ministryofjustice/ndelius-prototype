@@ -4,16 +4,16 @@
   height: 50px;
 
   &.moj-icon--pdf {
-    background: file-url("icon_pdf.svg") no-repeat;
+    background: url("/assets/images/icon_pdf.svg") no-repeat;
   }
 
   &.moj-icon--edit {
-    background: file-url("icon_edit.svg") no-repeat;
+    background: url("/assets/images/icon_edit.svg") no-repeat;
     width: 50px;
   }
 
   &.moj-icon--list {
-    background: file-url("icon_list.svg") no-repeat;
+    background: url("/assets/images/icon_list.svg") no-repeat;
     margin-top: 0;
   }
 }

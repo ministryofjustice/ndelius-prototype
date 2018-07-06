@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { SubNavigationComponent } from './sub-navigation.component';
+import { PhaseBannerComponent } from './phase-banner.component';
 
-describe('Addendum - Component: Navigation (shared)', () => {
+describe('PAROM1 - Component: phase-banner (shared)', () => {
 
-  let fixture: ComponentFixture<SubNavigationComponent>;
-  let component: SubNavigationComponent;
+  let fixture: ComponentFixture<PhaseBannerComponent>;
+  let component: PhaseBannerComponent;
   let compiled: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        SubNavigationComponent
+        PhaseBannerComponent
       ],
       imports: [
         RouterTestingModule.withRoutes([])
@@ -21,7 +21,7 @@ describe('Addendum - Component: Navigation (shared)', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubNavigationComponent);
+    fixture = TestBed.createComponent(PhaseBannerComponent);
     component = fixture.debugElement.componentInstance;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -32,7 +32,7 @@ describe('Addendum - Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.moj-navigation-list__item').innerHTML).toBe('- Offender details');
+    expect(compiled.querySelector('.govuk-phase-banner__content__tag').innerHTML.trim()).toBe('prototype');
   });
 
 });

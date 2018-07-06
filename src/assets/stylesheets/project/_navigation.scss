@@ -1,52 +1,5 @@
 a, a:link, a:active, a:visited {
-  color: $govuk-blue;
-}
-
-nav {
-  position: absolute;
-  top: 50px;
-  width: 250px;
-  background: #162c58;
-  color: white;
-  z-index: 1;
-
-  &.push-down {
-    top: 100px;
-  }
-
-  li {
-    font-size: 14px;
-    padding: 8px 10px;
-
-    &.sub-item {
-      background: #26549B;
-      padding-left: 30px;
-    }
-
-    &.active {
-      background: #e0e0e0;
-      color: black;
-    }
-  }
-
-  &.top-nav {
-    position: relative;
-    top: 14px;
-    right: 20px;
-    background: transparent;
-    width: auto;
-    color: gray;
-    font-size: 14px;
-    float: right;
-
-    @include media(mobile) {
-      display: none;
-    }
-  }
-}
-
-nav.content-fixed {
-  margin-top: 20px;
+  color: govuk-colour("blue");
 }
 
 nav {
@@ -57,14 +10,16 @@ nav {
     top: 0;
 
     &.moj-navigation--top-bar {
-      border-top: $govuk-blue 10px solid;
+      border-top: govuk-colour("blue") 10px solid;
     }
   }
 }
 
-nav li {
+.moj-navigation-list {
+  padding: 0;
+  @include govuk-font($size: 14);
 
-  &.moj-left-navigation {
+  .moj-navigation-list__item {
     list-style: none;
     background: transparent;
     color: govuk-colour("blue");
@@ -72,12 +27,14 @@ nav li {
     text-decoration: underline;
     padding: 3px 10px;
     cursor: pointer;
+    margin: 0 0 2px 0;
 
-    &.moj-left-navigation--active {
+    &.moj-navigation-list__item--active {
       background: transparent;
       color: #162c58;
       text-decoration: none;
       cursor: default;
     }
   }
+
 }
