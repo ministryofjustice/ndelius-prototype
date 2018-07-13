@@ -38,7 +38,7 @@
             <td>{{option.description}}</td>
             <td>{{option.date}}</td>
           </tr>
-          <tr [ngClass]="{ 'govuk-visually-hidden': !option.active }" [attr.aria-expanded]="option.active">
+          <tr *ngIf="option.active">
             <td colspan="4">
               <div class="moj-inside-panel">
                 <p>{{option.information}}</p>
