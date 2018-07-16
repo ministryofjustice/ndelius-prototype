@@ -6,6 +6,7 @@ $path: "/assets/images/";
 // @import "govuk/govuk-elements";
 
 @import "node_modules/govuk-frontend/all";
+@import "node_modules/@mojdigital/pattern-library/all";
 
 @import 'fontawesome/variables';
 
@@ -39,33 +40,6 @@ $path: "/assets/images/";
 @import 'fontawesome/icons';
 @import 'fontawesome/screen-reader';
 
-// Import the project specific mixins
-@import "project/colour";
-
 // import styles for the delius style wrapper
-@import "project/delius";
-
-// Import the project specific styles
-@import "project/accordion";
-@import "project/autocomplete";
-@import "project/auto-save";
-@import "project/button";
-@import "project/card";
-@import "project/choice";
-@import "project/components";
-@import "project/details";
-@import "project/forms";
-@import "project/footer";
-@import "project/icon";
-@import "project/lists";
-@import "project/navigation";
-@import "project/panel";
-@import "project/risk";
-@import "project/table";
-@import "project/tag";
-@import "project/timeline";
-@import "project/tooltip";
-@import "project/utils";
-@import "project/date-picker";
-@import "project/typography";
-@import "project/warning-text";
+@import "app/delius";
+@import "app/overrides";

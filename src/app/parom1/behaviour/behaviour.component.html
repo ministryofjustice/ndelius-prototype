@@ -12,18 +12,18 @@
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
-                    { name: 'behaviourDetail', error: 'Detail their behaviour in prison' },
+                    { name: 'behaviourDetail', error: 'Detail the prisoner’s behaviour whilst in prison' },
                     { name: 'rotl', error: 'Specify whether the prisoner is undertaking or likely to undertake ROTL' },
-                    { name: 'rotlInformation', error: 'Enter the prisoner’s ROTL progress' }
+                    { name: 'rotlInformation', error: 'Enter the prisoner’s ROTL summary' }
                     ]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="behaviourDetail" label="Detail their behaviour in prison"
+      <app-text-entry [group]="reportForm" name="behaviourDetail" label="Detail the prisoner’s behaviour whilst in prison"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="Detail their behaviour in prison">
+                      errorMessage="Detail the prisoner’s behaviour whilst in prison">
       </app-text-entry>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
@@ -37,9 +37,9 @@
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="rotlInformation" label="Prisoner’s ROTL progress"
+      <app-text-entry [group]="reportForm" name="rotlInformation" label="Prisoner’s ROTL summary"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="Enter the prisoner’s ROTL progress">
+                      errorMessage="Enter the prisoner’s ROTL summary">
         <p>Detail and any relevant information relating to this. Where periods of ROTL have taken place, include how
           successful this has been to the prisoner’s resettlement. If ROTL not being undertaken explain why</p>
       </app-text-entry>

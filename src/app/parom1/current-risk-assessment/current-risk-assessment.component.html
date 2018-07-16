@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="govuk-heading-xl govuk-!-margin-top-6">Current risk assessment</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Current risk assessment scores</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
@@ -31,9 +31,9 @@
 
       <app-input [group]="reportForm" name="ovpProbability" [error]="formError" label="OVP probability of proven violent type reoffending" help="For example 23%" errorMessage="Enter the OVP probability of proven violent type re-offending" required="true"></app-input>
 
-      <app-radio-buttons [group]="reportForm" name="riskMatrix2000" [error]="formError" label="Risk Matrix 2000" errorMessage="Select the Risk Matrix 2000 level" [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="riskMatrix2000" [error]="formError" label="Risk Matrix 2000" errorMessage="Select the Risk Matrix 2000 level" [options]="['Not applicable', 'Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
 
-      <app-radio-buttons [group]="reportForm" name="sara" label="SARA" [error]="formError" errorMessage="Select the SARA level" [options]="['Low', 'Medium', 'High']" required="true"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="sara" label="SARA" [error]="formError" errorMessage="Select the SARA level" [options]="['Not applicable', 'Low', 'Medium', 'High']" required="true"></app-radio-buttons>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>
