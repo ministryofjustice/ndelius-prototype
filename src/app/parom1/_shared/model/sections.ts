@@ -60,7 +60,7 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/risk-assessment',
-      label: 'Current risk assessment',
+      label: 'Current risk assessment scores',
       state: 'riskAssessment'
     },
     {
@@ -85,7 +85,7 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/release-risk-management',
-      label: 'Community RMP',
+      label: 'Risk Management Plan (RMP)',
       state: 'releaseRiskManagement'
     },
     {

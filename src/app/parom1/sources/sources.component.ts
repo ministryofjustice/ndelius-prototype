@@ -24,9 +24,7 @@ export class SourcesComponent extends BaseComponent {
   documents: Array<IOption> = [
     { control: 'previousConvictions', label: 'Previous convictions' },
     { control: 'cpsDocuments', label: 'Crown Prosecution Service (CPS) documents' },
-    { control: 'preSentenceReport', label: 'Pre-sentence report' },
     { control: 'judgesComments', label: 'Judges comments' },
-    { control: 'previousParoleReports', label: 'Previous parole reports' },
     { control: 'paroleDossier', label: 'Parole dossier' },
     { control: 'probationCaseRecords', label: 'Probation case records' },
     {

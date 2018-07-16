@@ -13,10 +13,10 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'seriousHarmOthers', error: 'Detail the nature of the risk of serious harm' },
-                    { name: 'increaseFactors', error: 'What factors might increase the risk of serious harm' },
-                    { name: 'reductionFactors', error: 'What factors that might decrease the risk of serious harm' },
+                    { name: 'increaseFactors', error: 'What factors might increase the risk of serious harm to all relevant groups' },
+                    { name: 'reductionFactors', error: 'What factors that might decrease the risk of serious harm to all relevant groups' },
                     { name: 'likelihoodOfReoffending', error: 'Enter the likelihood of further offending' },
-                    { name: 'abscondingRisk', error: 'Specify if in closed conditions, the prisoner poses an absconding risk' }
+                    { name: 'abscondingRisk', error: 'Specify if the prisoner poses a risk of absconding' }
                     ]">
     </app-form-error>
 
@@ -34,19 +34,19 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="increaseFactors"
-                      label="What factors might increase the risk of serious harm?"
+                      label="What factors might increase the risk of serious harm to all relevant groups?"
                       help="Include identified patterns of behaviour and offending, consider offence parallel behaviours."
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="What factors might increase the risk of serious harm">
+                      errorMessage="What factors might increase the risk of serious harm to all relevant groups">
       </app-text-entry>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="reductionFactors"
-                      label="What factors that might decrease the risk of serious harm?"
+                      label="What factors that might decrease the risk of serious harm to all relevant groups?"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="What factors that might decrease the risk of serious harm">
+                      errorMessage="What factors that might decrease the risk of serious harm to all relevant groups">
       </app-text-entry>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
@@ -62,8 +62,8 @@
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="abscondingRisk" [options]="['Yes', 'No']" required="true"
                          [error]="formError" conditional="true"
-                         label="If in closed conditions, does the prisoner pose an absconding risk?"
-                         errorMessage="Specify if in closed conditions, the prisoner poses an absconding risk">
+                         label="Does the prisoner pose a risk of absconding?"
+                         errorMessage="Specify if the prisoner poses a risk of absconding">
       </app-radio-buttons>
 
       <!-- ABSCONDING RISK -->

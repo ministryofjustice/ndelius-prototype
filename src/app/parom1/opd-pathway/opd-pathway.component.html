@@ -11,15 +11,15 @@
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
-                    [controls]="[{ name: 'opdPathway', error: 'Specify whether the prisoner has met with the OPD screen' }]">
+                    [controls]="[{ name: 'opdPathway', error: 'Specify whether the prisoner has met the OPD screening criteria and been considered for OPD pathway services' }]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" conditional="true" required="true" [error]="formError"
-                         label="Has the prisoner met with the OPD screen to be considered for OPD pathway services?"
-                         errorMessage="Specify whether the prisoner has met with the OPD screen">
+                         label="Has the prisoner met the OPD screening criteria and been considered for OPD pathway services?"
+                         errorMessage="Specify whether the prisoner has met the OPD screening criteria and been considered for OPD pathway services">
       </app-radio-buttons>
 
       <div class="govuk-radios__conditional" [ngClass]="{ 'govuk-visually-hidden': reportForm.get('opdPathway').value !== 'Yes' }">

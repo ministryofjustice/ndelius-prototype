@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="govuk-heading-xl govuk-!-margin-top-6">Community RMP</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">Risk Management Plan (RMP)</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
@@ -29,18 +29,6 @@
     </app-notice>
 
     <p class="govuk-caption-xl govuk-!-margin-bottom-4">Detail the risk management plan (RMP)</p>
-
-    <p class="govuk-body">Include:</p>
-
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Any progressive move, to open or closed conditions, being considered</li>
-      <li>ROTL condition considerations</li>
-      <li>MAPPA</li>
-      <li>Police concerns</li>
-      <li>Visor</li>
-    </ul>
-
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 

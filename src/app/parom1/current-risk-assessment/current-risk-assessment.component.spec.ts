@@ -56,7 +56,7 @@ describe('PAROM1 - Component: Risk of re-offending', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Current risk assessment');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Current risk assessment scores');
   });
 
   it('should navigate to the correct page', () => {

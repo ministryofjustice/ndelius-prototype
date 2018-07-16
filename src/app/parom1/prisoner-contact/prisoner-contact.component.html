@@ -14,7 +14,7 @@
                     [controls]="[
                     { name: 'prisonerContact', error: 'Specify how long have you been assigned to the prisoner and what contact have you had with them' },
                     { name: 'prisonerFamilyContact', error: 'Specify what contact have you had with the prisoner\'s family, partner or significant others' },
-                    { name: 'prisonerStaffContact', error: 'Specify what contact have you had with other relevant agencies or staff about the prisoner' }
+                    { name: 'prisonerStaffContact', error: 'Specify what contact have you had with other relevant agencies about the prisoner' }
                     ]">
     </app-form-error>
 
@@ -36,8 +36,8 @@
 
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerStaffContact"
-                      label="What contact have you had with other relevant agencies or staff about the prisoner?"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with other relevant agencies or staff about the prisoner"></app-text-entry>
+                      label="What contact have you had with other relevant agencies about the prisoner?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with other relevant agencies about the prisoner"></app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>
