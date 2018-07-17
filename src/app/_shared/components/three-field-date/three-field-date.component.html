@@ -11,7 +11,7 @@
           <label class="govuk-label govuk-date-input__label" [for]="name + '-day'">
             Day
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" [id]="name + '-day'" [name]="name + '-day'" [ngClass]="{ 'govuk-input--error': (group.get(name).get('day').touched || error) && group.get(name).get('day').errors }" formControlName="day" type="number" value="6" pattern="[0-9]*">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" [id]="name + '-day'" [name]="name + '-day'" [ngClass]="{ 'govuk-input--error': (group.get(name).get('day').touched || error) && group.get(name).get('day').errors }" formControlName="day" type="number" pattern="[0-9]*">
         </div>
       </div>
       <div class="govuk-date-input__item govuk-date-input__item--month" *ngIf="group.get(name).get('month')">
@@ -19,7 +19,7 @@
           <label class="govuk-label govuk-date-input__label" [for]="name + '-month'">
             Month
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" [id]="name + '-month'" [name]="name + '-month'" [ngClass]="{ 'govuk-input--error': (group.get(name).get('month').touched || error) && group.get(name).get('month').errors }" formControlName="month" type="number" value="3" pattern="[0-9]*">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" [id]="name + '-month'" [name]="name + '-month'" [ngClass]="{ 'govuk-input--error': (group.get(name).get('month').touched || error) && group.get(name).get('month').errors }" formControlName="month" type="number" pattern="[0-9]*">
         </div>
       </div>
       <div class="govuk-date-input__item govuk-date-input__item--year" *ngIf="group.get(name).get('year')">
@@ -27,7 +27,7 @@
           <label class="govuk-label govuk-date-input__label" [for]="name + '-year'">
             Year
           </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" [id]="name + '-year'" [name]="name + '-year'" [ngClass]="{ 'govuk-input--error': (group.get(name).get('year').touched || error) && group.get(name).get('year').errors }" formControlName="year" type="number" value="2076" pattern="[0-9]*">
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" [id]="name + '-year'" [name]="name + '-year'" [ngClass]="{ 'govuk-input--error': (group.get(name).get('year').touched || error) && group.get(name).get('year').errors }" formControlName="year" type="number" pattern="[0-9]*">
         </div>
       </div>
     </div>
