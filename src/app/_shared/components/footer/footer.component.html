@@ -1,7 +1,10 @@
 <div class="moj-footer-compensate"></div>
 
 <footer class="moj-report-footer">
-  <div class="moj-report-footer__container">
+  <div class="moj-report-footer__container-left">
+    <button id="draftButton" class="govuk-button moj-button--secondary govuk-!-margin-bottom-1" type="button" *ngIf="draftEnabled">View draft report</button>
+  </div>
+  <div class="moj-report-footer__container-right">
 
     <div class="moj-auto-save">
       <div class="moj-auto-save__spinner">
