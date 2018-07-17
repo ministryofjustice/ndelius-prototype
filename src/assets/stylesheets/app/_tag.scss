@@ -1,0 +1,18 @@
+.app-status-tag {
+  @include govuk-font(14);
+  @include govuk-responsive-padding(1, top);
+  @include govuk-responsive-padding(1, bottom);
+  @include govuk-responsive-padding(4, left);
+  @include govuk-responsive-padding(4, right);
+
+  display: inline-block;
+  color: govuk-colour("white");
+  background: govuk-colour('blue');
+  min-width: 100px;
+  text-align: center;
+  text-transform: lowercase;
+
+  &.app-status-tag--experimental {
+    background: govuk-colour('orange');
+  }
+}
