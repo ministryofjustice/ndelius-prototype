@@ -58,7 +58,7 @@
           trauma, and how it has affected their offending and their engagement with rehabilitative interventions.</p>
       </app-radio-buttons>
 
-      <div class="govuk-radios__conditional" [ngClass]="{'govuk-visually-hidden': reportForm.get('trauma').value !== 'Yes' }">
+      <div class="govuk-radios__conditional" [ngClass]="{'govuk-visually-hidden': reportForm.get('trauma').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('trauma').value !== 'Yes'">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma"></app-text-entry>
@@ -76,7 +76,7 @@
           responsibilities affected their offending and their engagement with rehabilitative interventions?</p>
       </app-radio-buttons>
 
-      <div class="govuk-radios__conditional" [ngClass]="{'govuk-visually-hidden': reportForm.get('caring').value !== 'Yes' }">
+      <div class="govuk-radios__conditional" [ngClass]="{'govuk-visually-hidden': reportForm.get('caring').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('caring').value !== 'Yes'">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities"></app-text-entry>
