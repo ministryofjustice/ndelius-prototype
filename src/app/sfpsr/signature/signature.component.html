@@ -33,10 +33,8 @@
       <!-- Angular component -->
       <app-input [group]="reportForm" name="counterSignature" label="Counter signature (if applicable)"></app-input>
 
-      <div class="form-group">
-        <label for="startDate" class="form-label-bold">Start date</label>
-        <input class="form-control half-width no-border" id="startDate" formControlName="startDate" type="text" aria-readonly="true" readonly />
-      </div>
+      <!-- Angular component -->
+      <app-input [group]="reportForm" name="startDate" label="Start date" readonly="true"></app-input>
 
       <!-- Angular component -->
       <app-input [group]="reportForm" name="reportDate" required="true" date="true" [error]="formError" label="Completion date" help="For example: 28/06/2017" errorMessage="Enter the report date"></app-input>
