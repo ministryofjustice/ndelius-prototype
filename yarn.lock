@@ -226,14 +226,17 @@
     is-absolute "^1.0.0"
     is-negated-glob "^1.0.0"
 
-"@mojdigital/pattern-library@0.0.1-alpha.7":
-  version "0.0.1-alpha.7"
-  resolved "https://registry.yarnpkg.com/@mojdigital/pattern-library/-/pattern-library-0.0.1-alpha.7.tgz#b09be2823374abad5d08b6282bdbade056b290ea"
+"@mojdigital/pattern-library@0.0.1-alpha.8":
+  version "0.0.1-alpha.8"
+  resolved "https://registry.yarnpkg.com/@mojdigital/pattern-library/-/pattern-library-0.0.1-alpha.8.tgz#6abdc0882ac15f79eb866ecb79cf5430edb7054a"
   dependencies:
     autosize "4.0.2"
+    govuk-frontend "1.1.1"
+    highlight.js "9.12.0"
     quill "1.3.6"
     react "16.4.1"
     react-dom "16.4.1"
+    react-ga "2.5.3"
     react-router-dom "4.3.1"
     react-scripts "1.1.4"
 
@@ -4685,6 +4688,10 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+highlight.js@9.12.0:
+  version "9.12.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.12.0.tgz#e6d9dbe57cbefe60751f02af336195870c90c01e"
+
 hipchat-notifier@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hipchat-notifier/-/hipchat-notifier-1.1.0.tgz#b6d249755437c191082367799d3ba9a0f23b231e"
@@ -8199,6 +8206,13 @@ react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
 
+react-ga@2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.3.tgz#0f447c73664c069a5fc341f6f431262e3d4c23c4"
+  optionalDependencies:
+    prop-types "^15.6.0"
+    react "^15.6.2 || ^16.0"
+
 react-router-dom@4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.3.1.tgz#4c2619fc24c4fa87c9fd18f4fb4a43fe63fbd5c6"
@@ -8267,7 +8281,7 @@ react-scripts@1.1.4:
   optionalDependencies:
     fsevents "^1.1.3"
 
-react@16.4.1:
+react@16.4.1, "react@^15.6.2 || ^16.0":
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:
