@@ -5,6 +5,8 @@ $path: "/assets/images/";
 // Import all the govuk-elements partials listed in _govuk-elements.scss
 // @import "govuk/govuk-elements";
 
+$govuk-typography-use-rem: true;
+
 @import "node_modules/govuk-frontend/all";
 @import "node_modules/@mojdigital/pattern-library/all";
 
