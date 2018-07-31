@@ -4,12 +4,12 @@
     <div class="moj-card">
 
       <div class="moj-card__header">
-        <p class="govuk-heading-m govuk-!-margin-0">{{data.CURRENT_DISPOSAL ? 'Current offender' : 'Not current'}}</p>
+        <p class="govuk-heading-m govuk-!-margin-0 moj-!-color-grey">{{data.CURRENT_DISPOSAL ? 'Current offender' : 'Not current'}}</p>
       </div>
       <div class="moj-card__body">
-        <p class="govuk-body govuk-!-margin-0 moj-!-color-blue" *ngIf="data.CURRENT_DISPOSAL"><span class="govuk-!-font-weight-bold">Provider:</span> NPS
+        <p class="govuk-body govuk-!-margin-0" *ngIf="data.CURRENT_DISPOSAL"><span class="govuk-!-font-weight-bold">Provider:</span> NPS
           North West</p>
-        <p class="govuk-body govuk-!-margin-0 moj-!-color-blue" *ngIf="data.CURRENT_DISPOSAL"><span
+        <p class="govuk-body govuk-!-margin-0" *ngIf="data.CURRENT_DISPOSAL"><span
           class="govuk-!-font-weight-bold">Offender manager:</span> Sarah Smith</p>
       </div>
 
@@ -21,10 +21,10 @@
     <div class="moj-card">
 
       <div class="moj-card__header">
-        <p class="govuk-heading-m govuk-!-margin-0">{{data.EVENTS.length}} {{data.EVENTS.length > 1 || data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
+        <p class="govuk-heading-m govuk-!-margin-0 moj-!-color-grey">{{data.EVENTS.length}} {{data.EVENTS.length > 1 || data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
       </div>
       <div class="moj-card__body">
-        <p class="govuk-body govuk-!-margin-0 moj-!-color-blue" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span> <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
+        <p class="govuk-body govuk-!-margin-0" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span> <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
       </div>
 
     </div>
