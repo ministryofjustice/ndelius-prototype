@@ -5,7 +5,7 @@
 
       <!-- NO RISK DATA -->
       <div *ngIf="!data.EVENTS.length">
-        <p class="moj-!-text-align-center">No data</p>
+        <p class="govuk-body moj-!-text-align-center">No data</p>
       </div>
 
       <!--  -->
@@ -13,34 +13,40 @@
 
         <ng-template ngFor let-option [ngForOf]="data.EVENTS" let-index="index">
 
-          <div class="moj-timeline__item" [ngClass]="{ 'moj-timeline__item--primary govuk-!-margin-bottom-3': option.active }">
-            <p class="govuk-body govuk-!-margin-0" [ngClass]="{
-                          'govuk-heading-m ': option.active,
-                          'govuk-heading-s moj-!-color-blue moj-util-clickable': !option.active
-                        }">{{option.status}}</p>
+          <div class="moj-timeline__item"
+               [ngClass]="{ 'moj-timeline__item--primary govuk-!-margin-bottom-3': option.active }" *ngIf="index < 3">
+            <p class="govuk-!-margin-0"
+               [ngClass]="{ 'govuk-heading-m ': option.active,'govuk-heading-s moj-!-color-blue moj-util-clickable': !option.active }">
+              {{option.status}}</p>
 
-            <table class="moj-table govuk-!-margin-0" role="presentation">
+            <table class="govuk-table moj-table govuk-!-margin-0" role="presentation">
               <tbody>
               <tr>
                 <td class="govuk-!-padding-0">
-                  <p class="govuk-body moj-!-color-grey" [ngClass]="{ 'govuk-!-font-weight-bold govuk-!-margin-bottom-3': option.active }">{{option.primaryOffence}}</p>
+                  <p class="govuk-body moj-!-color-grey govuk-!-margin-bottom-0"
+                     [ngClass]="{ 'govuk-!-font-weight-bold': option.active }">{{option.primaryOffence}}</p>
                 </td>
                 <td width="110" class="govuk-!-padding-0">
-                  <p class="govuk-body moj-!-color-grey">{{option.date}}</p>
+                  <p class="govuk-body moj-!-color-grey govuk-!-margin-bottom-0">{{option.date}}</p>
                 </td>
                 <td width="100" class="govuk-!-padding-0">
-                  <p class="govuk-body govuk-!-font-size-19 moj-!-text-align-right" [ngClass]="{ 'govuk-!-font-weight-bold moj-!-color-green': option.active, 'moj-!-color-red': !option.active }">{{option.active ? 'Active' : 'Terminated'}}</p>
+                  <p class="govuk-body govuk-!-font-size-19 moj-!-text-align-right govuk-!-margin-bottom-0"
+                     [ngClass]="{ 'moj-!-color-green': option.active, 'moj-!-color-red': !option.active }">
+                    {{option.active ? 'Active' : 'Terminated'}}</p>
                 </td>
               </tr>
               </tbody>
             </table>
 
-            <button type="button" class="govuk-button govuk-!-margin-bottom-2" (click)="startSFPSR()" *ngIf="option.active">Start</button>
           </div>
 
-          <hr class="govuk-!-margin-2" *ngIf="!option.active && index < data.EVENTS.length - 1"/>
+          <hr class="govuk-!-margin-2" [ngClass]="{ 'govuk-!-margin-bottom-0': index === 2 && data.EVENTS.length > 3 }" *ngIf="!option.active && index < data.EVENTS.length - 1 && index < 2"/>
 
         </ng-template>
+
+        <div class="moj-timeline__item moj-timeline__item--more-items govuk-!-margin-top-4" *ngIf="data.EVENTS.length > 3">
+          <p class="govuk-body moj-!-text-align-center govuk-!-margin-bottom-0"><a href="javascript:void(0);">Show more events</a></p>
+        </div>
 
       </div>
 

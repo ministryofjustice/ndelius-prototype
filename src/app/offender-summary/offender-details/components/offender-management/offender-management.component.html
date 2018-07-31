@@ -2,44 +2,96 @@
 
   <div class="moj-inside-panel">
 
-    <div class="grid-row">
-      <div class="column-one-half no-padding-right">
+    <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
+      <tbody>
+      <tr>
+        <th>Provider</th>
+        <td>Unallocated</td>
+      </tr>
+      <tr>
+        <th>Cluster</th>
+        <td>Unallocated</td>
+      </tr>
+      <tr>
+        <th>LDU and team</th>
+        <td>Unallocated (N07)</td>
+      </tr>
+      <tr>
+        <th>Officer</th>
+        <td>Sarah Francis</td>
+      </tr>
+      <tr>
+        <th>Team Telephone</th>
+        <td>0114 114 114</td>
+      </tr>
+      <tr>
+        <th>Date allocated</th>
+        <td>15/06/2018</td>
+      </tr>
+      <tr>
+        <th>Reason for allocation</th>
+        <td>Unknown</td>
+      </tr>
+      </tbody>
+    </table>
 
-        <table class="split-rows" role="presentation">
-          <tr>
-            <td class="govuk-!-font-weight-bold" width="50%">Provider</td>
-            <td>Unallocated</td>
-          </tr>
-          <tr>
-            <td class="govuk-!-font-weight-bold">Officer</td>
-            <td>Sarah Francis</td>
-          </tr>
-          <tr>
-            <td class="govuk-!-font-weight-bold">Telephone</td>
-            <td>0114 114 114</td>
-          </tr>
-        </table>
+    <app-details label="Personal circumstances" *ngIf="data && data.CURRENT_DISPOSAL">
 
-      </div>
-      <div class="column-one-half no-padding-left">
+      <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
+        <thead>
+        <tr>
+          <th>Type</th>
+          <th>Sub type</th>
+          <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Offender level recording (L)</td>
+          <td>Agree offender childcare</td>
+          <td>24/07/2018</td>
+        </tr>
+        </tbody>
+      </table>
 
-        <table class="split-rows" role="presentation">
-          <tr>
-            <td class="govuk-!-font-weight-bold" width="50%">Cluster</td>
-            <td>Unallocated</td>
-          </tr>
-          <tr>
-            <td class="govuk-!-font-weight-bold">LDU and team</td>
-            <td>Unallocated (N07)</td>
-          </tr>
-          <tr>
-            <td class="govuk-!-font-weight-bold">Date allocated</td>
-            <td>15/06/2018</td>
-          </tr>
-        </table>
+    </app-details>
 
-      </div>
-    </div>
+    <app-details label="Next appointment details" *ngIf="data && data.CURRENT_DISPOSAL">
+
+      <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
+        <tbody>
+        <tr>
+          <th>Contact type</th>
+          <td>Planned office visit (NS)</td>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <td>24/07/2018</td>
+        </tr>
+        <tr>
+          <th>Start time</th>
+          <td>14:00</td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td>Location 1</td>
+        </tr>
+        <tr>
+          <th>Provider</th>
+          <td>ZZ Bast Public Provider 1</td>
+        </tr>
+        <tr>
+          <th>Team</th>
+          <td>Team  1</td>
+        </tr>
+        <tr>
+          <th>Officer</th>
+          <td>Sarah Francis</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </app-details>
 
   </div>
 

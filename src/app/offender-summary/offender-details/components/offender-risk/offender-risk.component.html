@@ -5,7 +5,7 @@
 
       <!-- NO RISK DATA -->
       <div *ngIf="!data['RISK_REGISTERS'].length">
-        <p class="moj-text--align-center">No data</p>
+        <p class="govuk-body moj-!-text-align-center">No data</p>
       </div>
 
       <!-- RISK DATA -->
@@ -25,7 +25,7 @@
         <ng-template ngFor let-option [ngForOf]="data['RISK_REGISTERS']" let-index="index">
           <tr [ngClass]="{ 'moj-!-border-0': option.active }">
             <td>
-              <a href="javascript:void(0)" (click)="option.active = !option.active">{{option.type}}</a>
+              <p class="govuk-body">{{option.type}}</p>
             </td>
             <td>
               <span class="moj-risk-tag"
