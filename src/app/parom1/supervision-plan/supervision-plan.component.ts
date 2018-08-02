@@ -55,7 +55,8 @@ export class SupervisionPlanComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      supervisionPlanForRelease: [this.reportData.supervisionPlanForRelease, Validators.required]
+      supervisionPlanRequired: [this.reportData.supervisionPlanRequired, Validators.required],
+      supervisionPlanForRelease: this.reportData.supervisionPlanForRelease
     });
   }
 

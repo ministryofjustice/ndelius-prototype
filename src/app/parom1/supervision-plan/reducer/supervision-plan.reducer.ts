@@ -4,6 +4,7 @@ import { ISupervisionPlan } from '../model/supervision-plan.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: ISupervisionPlan = {
+  supervisionPlanRequired: void 0,
   supervisionPlanForRelease: '',
   saved: false,
   valid: false

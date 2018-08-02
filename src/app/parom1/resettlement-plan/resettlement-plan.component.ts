@@ -55,7 +55,8 @@ export class ResettlementPlanComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      resettlementPlanForRelease: [this.reportData.resettlementPlanForRelease, Validators.required]
+      resettlementPlanRequired: [this.reportData.resettlementPlanRequired, Validators.required],
+      resettlementPlanForRelease: this.reportData.resettlementPlanForRelease
     });
   }
 
