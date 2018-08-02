@@ -9,8 +9,10 @@ export const initialState: IRiskAssessment = {
   ogrs3Percentage: '',
   ogpProbability: '',
   ovpProbability: '',
-  riskMatrix2000: '',
-  sara: '',
+  riskMatrix2000Completed: void 0,
+  riskMatrix2000: void 0,
+  saraCompleted: void 0,
+  sara: void 0,
   saved: false,
   valid: false
 };

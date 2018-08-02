@@ -59,8 +59,10 @@ export class CurrentRiskAssessmentComponent extends BaseComponent {
       ogrs3Percentage: [this.reportData.ogrs3Percentage, Validators.required],
       ogpProbability: [this.reportData.ogpProbability, Validators.required],
       ovpProbability: [this.reportData.ovpProbability, Validators.required],
-      riskMatrix2000: [this.reportData.riskMatrix2000, Validators.required],
-      sara: [this.reportData.sara, Validators.required]
+      riskMatrix2000Completed: [this.reportData.riskMatrix2000Completed, Validators.required],
+      riskMatrix2000: this.reportData.riskMatrix2000Completed,
+      saraCompleted: [this.reportData.saraCompleted, Validators.required],
+      sara: this.reportData.saraCompleted
     });
   }
 

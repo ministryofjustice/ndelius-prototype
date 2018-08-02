@@ -13,47 +13,11 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'attitude', error: 'Enter the prisoner\'s attitude to index offence' },
-                    { name: 'previousDate', error: 'Enter the ROSH assessment at the point of sentence month and year' },
-                    { name: 'riskPublic', error: 'Select the risk to public' },
-                    { name: 'riskKnownAdult', error: 'Select the risk to any known adult' },
-                    { name: 'riskChildren', error: 'Select the risk to children' },
-                    { name: 'riskPrisoners', error: 'Select the risk to other prisoners' },
-                    { name: 'riskStaff', error: 'Select the risk to staff' }
+                    { name: 'roshCompleted', error: 'Specify whether a ROSH assessment was completed at the point of sentence' }
                     ]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
-
-      <!-- ANGULAR COMPONENT (only using month and year) -->
-      <app-three-field-date [group]="reportForm" name="previousDate" required="true" [error]="formError"
-                            label="If there was a ROSH assessment at the point of sentence, when was it completed?"
-                            help="For example, 3 2018"></app-three-field-date>
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
-
-      <p class="govuk-caption-xl govuk-!-margin-bottom-3">Select the ROSH scores at the point of sentence for the index offence.</p>
-
-      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPublic" label="Public"
-                         errorMessage="Select the risk to public" [options]="['Low', 'Medium', 'High', 'Very high']"
-                         required="true"></app-radio-buttons>
-
-      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskKnownAdult" label="Known adult"
-                         errorMessage="Select the risk to any known adult"
-                         [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
-
-      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskChildren" label="Children"
-                         errorMessage="Select the risk to children" [options]="['Low', 'Medium', 'High', 'Very high']"
-                         required="true"></app-radio-buttons>
-
-      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskPrisoners" label="Prisoners"
-                         errorMessage="Select the risk to other prisoners"
-                         [options]="['Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
-
-      <app-radio-buttons [group]="reportForm" [error]="formError" name="riskStaff" label="Staff"
-                         errorMessage="Select the risk to staff" [options]="['Low', 'Medium', 'High', 'Very high']"
-                         required="true"></app-radio-buttons>
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="attitude"
@@ -68,6 +32,44 @@
         </ul>
 
       </app-text-entry>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
+
+      <app-radio-buttons [group]="reportForm" [error]="formError" name="roshCompleted"
+                         label="Was a ROSH assessment completed at the point of sentence?"
+                         errorMessage="Specify whether a ROSH assessment was completed at the point of sentence"
+                         [options]="['Yes', 'No']" required="true" conditional="true">
+      </app-radio-buttons>
+
+      <div class="govuk-radios__conditional" *ngIf="reportForm.get('roshCompleted').value === 'Yes'">
+
+        <!-- ANGULAR COMPONENT (only using month and year) -->
+        <app-three-field-date [group]="reportForm" name="previousDate"
+                              label="When was the ROSH assessment completed?"
+                              help="For example, 3 2018"></app-three-field-date>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
+
+        <p class="govuk-caption-xl govuk-!-margin-bottom-3">Select the ROSH scores at the point of sentence for the index offence.</p>
+
+        <app-radio-buttons [group]="reportForm" name="riskPublic" label="Public"
+                           [options]="['Low', 'Medium', 'High', 'Very high']">
+
+        </app-radio-buttons>
+
+        <app-radio-buttons [group]="reportForm" [error]="formError" name="riskKnownAdult" label="Known adult"
+                           errorMessage="Select the risk to any known adult"
+                           [options]="['Low', 'Medium', 'High', 'Very high']"></app-radio-buttons>
+
+        <app-radio-buttons [group]="reportForm" name="riskChildren" label="Children"
+                           [options]="['Low', 'Medium', 'High', 'Very high']"></app-radio-buttons>
+
+        <app-radio-buttons [group]="reportForm" name="riskPrisoners" label="Prisoners"
+                           [options]="['Low', 'Medium', 'High', 'Very high']"></app-radio-buttons>
+
+        <app-radio-buttons [group]="reportForm" name="riskStaff" label="Staff"
+                           [options]="['Low', 'Medium', 'High', 'Very high']"></app-radio-buttons>
+      </div>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

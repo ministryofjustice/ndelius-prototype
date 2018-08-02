@@ -67,7 +67,7 @@
       </app-radio-buttons>
 
       <!-- ABSCONDING RISK -->
-      <div class="govuk-radios__conditional"
+      <div class="govuk-radios__conditional" *ngIf="reportForm.get('abscondingRisk').value === 'Yes'"
            [ngClass]="{ 'govuk-visually-hidden': reportForm.get('abscondingRisk').value !== 'Yes' }"
            [attr.aria-hidden]="reportForm.get('abscondingRisk').value !== 'Yes'">
 
