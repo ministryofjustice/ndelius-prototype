@@ -16,7 +16,7 @@
           </label>
         </div>
 
-        <div class="govuk-checkboxes__conditional" [ngClass]="{ 'govuk-visually-hidden': !group.get(section.control).value }" [attr.aria-hidden]="!group.get(section.control).value" *ngIf="section.conditional">
+        <div class="govuk-checkboxes__conditional" [ngClass]="{ 'govuk-visually-hidden': !group.get(section.control).value }" [attr.aria-hidden]="!group.get(section.control).value" *ngIf="section.conditional && group.get(section.control).value">
 
           <!-- Angular component -->
           <app-text-entry [group]="group" [name]="section.conditional.control" [label]="section.conditional.label"></app-text-entry>
