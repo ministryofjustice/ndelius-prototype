@@ -16,7 +16,7 @@
                     { name: 'ogrs3Percentage', error: 'Enter the OGRS3 probability of proven re-offending' },
                     { name: 'ogpProbability', error: 'Enter the OGP probability of proven non-violent type reoffending' },
                     { name: 'ovpProbability', error: 'Enter the OVP probability of proven violent type reoffending' },
-                    { name: 'riskMatrix2000', error: 'Select the Risk Matrix 2000 level' },
+                    { name: 'riskMatrix2000Completed', error: 'Specify if a Risk Matrix 2000 assessment has been completed' },
                     { name: 'sara', error: 'Select the SARA level' }
                     ]">
     </app-form-error>
@@ -31,9 +31,17 @@
 
       <app-input [group]="reportForm" name="ovpProbability" [error]="formError" label="OVP probability of proven violent type reoffending" help="For example 23%" errorMessage="Enter the OVP probability of proven violent type re-offending" required="true"></app-input>
 
-      <app-radio-buttons [group]="reportForm" name="riskMatrix2000" [error]="formError" label="Risk Matrix 2000" errorMessage="Select the Risk Matrix 2000 level" [options]="['Not applicable', 'Low', 'Medium', 'High', 'Very high']" required="true"></app-radio-buttons>
+      <app-radio-buttons [group]="reportForm" name="riskMatrix2000Completed" [error]="formError" label="Has a Risk Matrix 2000 assessment been completed?" errorMessage="Specify if a Risk Matrix 2000 assessment has been completed" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
 
-      <app-radio-buttons [group]="reportForm" name="sara" label="SARA" [error]="formError" errorMessage="Select the SARA level" [options]="['Not applicable', 'Low', 'Medium', 'High']" required="true"></app-radio-buttons>
+      <div class="govuk-radios__conditional" *ngIf="reportForm.get('riskMatrix2000Completed').value === 'Yes'">
+
+        <app-radio-buttons [group]="reportForm" name="riskMatrix2000" label="Risk Matrix 2000" [options]="['Low', 'Medium', 'High', 'Very high']"></app-radio-buttons>
+
+      </div>
+
+      <app-radio-buttons [group]="reportForm" name="riskMatrix2000Completed" [error]="formError" label="Has a Risk Matrix 2000 assessment been completed?" errorMessage="Specify if a Risk Matrix 2000 assessment has been completed" [options]="['Yes', 'No']" required="true"></app-radio-buttons>
+
+      <app-radio-buttons [group]="reportForm" name="sara" label="SARA" [options]="['Low', 'Medium', 'High']"></app-radio-buttons>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

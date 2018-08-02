@@ -52,16 +52,17 @@ export class PreviousRiskAssessmentComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
+      roshCompleted: [this.reportData.roshCompleted, Validators.required],
       attitude: [this.reportData.attitude, Validators.required],
       previousDate: this.formBuilder.group({
-        month: [this.reportData.previousDate.month, Validators.required],
-        year: [this.reportData.previousDate.year, Validators.required]
+        month: this.reportData.previousDate.month,
+        year: this.reportData.previousDate.year
       }),
-      riskPublic: [this.reportData.riskPublic, Validators.required],
-      riskKnownAdult: [this.reportData.riskKnownAdult, Validators.required],
-      riskChildren: [this.reportData.riskChildren, Validators.required],
-      riskPrisoners: [this.reportData.riskPrisoners, Validators.required],
-      riskStaff: [this.reportData.riskStaff, Validators.required]
+      riskPublic: this.reportData.riskPublic,
+      riskKnownAdult: this.reportData.riskKnownAdult,
+      riskChildren: this.reportData.riskChildren,
+      riskPrisoners: this.reportData.riskPrisoners,
+      riskStaff: this.reportData.riskStaff
     });
   }
 

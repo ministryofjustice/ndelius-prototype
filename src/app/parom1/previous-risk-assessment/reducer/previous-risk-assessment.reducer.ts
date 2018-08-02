@@ -5,6 +5,7 @@ import { IPreviousRiskAssessment } from '../model/previous-risk-assessment.model
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IPreviousRiskAssessment = {
+  roshCompleted: void 0,
   previousDate: {
     month: void 0,
     year: void 0
