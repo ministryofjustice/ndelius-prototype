@@ -53,7 +53,7 @@
         <p>Detail what level of compliance there was with these, and make links to likely compliance with future interventions.</p>
       </app-radio-buttons>
 
-      <div class="govuk-radios__conditional" [ngClass]="{ 'govuk-visually-hidden': !reportForm.get('previousSupervisionResponse').value }" [attr.aria-hidden]="!reportForm.get('previousSupervisionResponse').value">
+      <div class="govuk-radios__conditional" *ngIf="reportForm.get('previousSupervisionResponse').value" [ngClass]="{ 'govuk-visually-hidden': !reportForm.get('previousSupervisionResponse').value }" [attr.aria-hidden]="!reportForm.get('previousSupervisionResponse').value">
 
         <!-- Angular component -->
         <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" [label]="reportForm.get('previousSupervisionResponse').value === 'Not applicable' ? 'Add relevant details (if applicable)' : 'Add additional details on previous supervision (if applicable)'" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
