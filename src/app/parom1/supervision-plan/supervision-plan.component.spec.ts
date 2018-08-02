@@ -12,6 +12,7 @@ import { MockErrorMessagesComponent } from '../../_shared/components/error-messa
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockRadioButtonsComponent } from "../../_shared/components/radio-buttons/radio-buttons.mock.component";
 
 import * as model from './reducer/supervision-plan.reducer';
 import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
@@ -32,7 +33,8 @@ describe('PAROM1 - Component: Supervision plan for release', () => {
         MockErrorMessagesComponent,
         MockFooterComponent,
         MockFormErrorComponent,
-        MockTextEntryComponent
+        MockTextEntryComponent,
+        MockRadioButtonsComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

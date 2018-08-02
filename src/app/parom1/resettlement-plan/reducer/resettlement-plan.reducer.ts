@@ -4,6 +4,7 @@ import { IResettlementPlan } from '../model/resettlement-plan.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IResettlementPlan = {
+  resettlementPlanRequired: void 0,
   resettlementPlanForRelease: '',
   saved: false,
   valid: false

@@ -11,28 +11,34 @@
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
-                    [controls]="[{ name: 'resettlementPlanForRelease', error: 'Enter the resettlement plan for release' }]">
+                    [controls]="[{ name: 'resettlementPlanRequired', error: 'Specify if the prisoner requires a resettlement plan for release' }]">
     </app-form-error>
-
-    <!-- Angular component -->
-    <app-notice>
-      This must be included for all prisoners
-    </app-notice>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"
-                      label="Detail the resettlement plan for release"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the resettlement plan for release">
+      <app-radio-buttons [group]="reportForm" name="resettlementPlanRequired"
+                         label="Does the prisoner require a resettlement plan for release?" conditional="true"
+                         [error]="formError"
+                         errorMessage="Specify if the prisoner requires a resettlement plan for release"
+                         [options]="['Yes', 'No']"
+                         required="true"></app-radio-buttons>
 
-        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-          <li>accomodation details</li>
-          <li>motivation to comply if released</li>
-          <li>if the prisoner is safe to release</li>
-        </ul>
+      <div class="govuk-radios__conditional" *ngIf="reportForm.get('resettlementPlanRequired').value === 'Yes'">
 
-      </app-text-entry>
+        <!-- Angular component -->
+        <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"
+                        label="Detail the resettlement plan for release"
+                        (onSaveContent)="saveContent(reportForm)">
+
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+            <li>accomodation details</li>
+            <li>motivation to comply if released</li>
+            <li>if the prisoner is safe to release</li>
+          </ul>
+
+        </app-text-entry>
+
+      </div>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>
