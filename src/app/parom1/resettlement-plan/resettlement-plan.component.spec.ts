@@ -13,7 +13,7 @@ import { MockFooterComponent } from '../../_shared/components/footer/footer.mock
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
-import { MockRadioButtonsComponent } from "../../_shared/components/radio-buttons/radio-buttons.mock.component";
+import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 
 import * as model from './reducer/resettlement-plan.reducer';
 
