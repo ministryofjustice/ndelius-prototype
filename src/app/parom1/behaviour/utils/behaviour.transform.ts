@@ -12,8 +12,6 @@ export class BehaviourTransform {
       { text: 'Behaviour in prison', style: 'sectionHeading' },
       data.behaviourDetail || '',
       { text: 'ROTL', style: 'fieldHeading' },
-      data.rotl || '',
-      { text: 'Further information', style: 'fieldHeading' },
       data.rotlInformation || ''
     ];
   }

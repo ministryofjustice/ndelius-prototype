@@ -25,7 +25,7 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/previous-risk-assessment',
-      label: 'ROSH at point of sentence',
+      label: 'RoSH at point of sentence',
       state: 'previousRiskAssessment'
     },
     {
@@ -65,12 +65,12 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/risk-community',
-      label: 'Current ROSH: community',
+      label: 'Current RoSH: community',
       state: 'riskCommunity'
     },
     {
       route: '/parom1/risk-custody',
-      label: 'Current ROSH: custody',
+      label: 'Current RoSH: custody',
       state: 'riskCustody'
     },
     {
@@ -80,7 +80,7 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/risk-serious-harm',
-      label: 'ROSH analysis',
+      label: 'RoSH analysis',
       state: 'riskSeriousHarm'
     },
     {

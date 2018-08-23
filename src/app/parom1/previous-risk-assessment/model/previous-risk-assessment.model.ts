@@ -12,6 +12,7 @@ export interface IPreviousRiskAssessment {
   riskPrisoners: string;
   riskStaff: string;
   attitude: string;
+  attitudePrevious: string;
   saved: boolean;
   valid: boolean;
 }

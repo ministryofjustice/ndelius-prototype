@@ -56,7 +56,6 @@ export class BehaviourComponent extends BaseComponent {
   private createForm() {
     this.reportForm = this.formBuilder.group({
       behaviourDetail: [this.reportData.behaviourDetail, Validators.required],
-      rotl: [this.reportData.rotl, Validators.required],
       rotlInformation: [this.reportData.rotlInformation, Validators.required]
     });
   }

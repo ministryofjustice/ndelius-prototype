@@ -16,9 +16,6 @@ export class PreviousRiskAssessmentTransform {
           pipeMonth(data.previousDate.month) + ' ' + (data.previousDate.year || '')
         ], margin: [ 0, 5, 0, 10 ]
       },
-      /*
-      { text: 'Risk factors from the previous risk assessment', style: 'fieldHeading' },
-      */
       {
         style: 'tableDefault',
         table: {
@@ -35,7 +32,9 @@ export class PreviousRiskAssessmentTransform {
         }
       },
       { text: 'Attitude to index offence', style: 'sectionHeading', margin: [ 0, 10, 0, 0 ] },
-      data.attitude || ''
+      data.attitude || '',
+      { text: 'Attitude to previous offending', style: 'sectionHeading', margin: [ 0, 10, 0, 0 ] },
+      data.attitudePrevious || ''
     ];
   }
 

@@ -54,7 +54,7 @@ describe('PAROM1 - Component: Current ROSH: custody', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Current ROSH: custody');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Current RoSH: custody');
   });
 
   it('should navigate to the Court details page', () => {
