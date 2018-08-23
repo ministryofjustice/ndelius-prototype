@@ -112,58 +112,58 @@
     symbol-observable "^1.2.0"
     yargs-parser "^10.0.0"
 
-"@angular/common@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-6.1.3.tgz#ae3d45224348fd8b682c104ced6345e7bd7e2a64"
+"@angular/common@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-6.1.4.tgz#825de5b1fb98db5a1d3d2253ad7181bb25477551"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/compiler-cli@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-6.1.3.tgz#f8454d140b875454a9e58944a008ee2592638700"
+"@angular/compiler-cli@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-6.1.4.tgz#65f4c4382bb180d22905db57e28a4ca728b7bf8c"
   dependencies:
     chokidar "^1.4.2"
     minimist "^1.2.0"
     reflect-metadata "^0.1.2"
     tsickle "^0.32.1"
 
-"@angular/compiler@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-6.1.3.tgz#a02efd29e70bb7d1230ca877f9c720518bdf364c"
+"@angular/compiler@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-6.1.4.tgz#479e792ce012dc8481f1d87b919fcddb11c8eee0"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/core@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-6.1.3.tgz#6561ba0b40a12758e5237fc05186b56d6d0bdbc9"
+"@angular/core@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-6.1.4.tgz#2602ecc031bbb4ad968a7db78786017e92d19b98"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/forms@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-6.1.3.tgz#92ff08518bafae3c6a8019ac55dada3a9b2f0232"
+"@angular/forms@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-6.1.4.tgz#d0b83f9cd4cb35f58ee67766d17aae0cbd7de561"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/language-service@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-6.1.3.tgz#d8ddf7eabfe39b2f5922893a4ae71c3b9c93b4f1"
+"@angular/language-service@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-6.1.4.tgz#946a70e1afbf83dbae4c31b64784a5a77ae07e53"
 
-"@angular/platform-browser-dynamic@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-6.1.3.tgz#108c42b7eeee57325b686008323d8ddc46addd8c"
+"@angular/platform-browser-dynamic@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-6.1.4.tgz#1af3549decadfb8e73513d917eaa5479184c39ea"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/platform-browser@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-6.1.3.tgz#b918dfd05250e47c650dfe70f65173c65caaab91"
+"@angular/platform-browser@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-6.1.4.tgz#a5763f549f2073ba30b9d8baf8512c8076e8d58b"
   dependencies:
     tslib "^1.9.0"
 
-"@angular/router@6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-6.1.3.tgz#c11d4b9a9bfaa21d11c2464c82639f6dac3e8170"
+"@angular/router@6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-6.1.4.tgz#ec6d7400baea46386e3bbcf3e3acb0135f368fac"
   dependencies:
     tslib "^1.9.0"
 
@@ -218,16 +218,16 @@
     is-absolute "^1.0.0"
     is-negated-glob "^1.0.0"
 
-"@mojdigital/pattern-library@0.0.1-alpha.11":
-  version "0.0.1-alpha.11"
-  resolved "https://registry.yarnpkg.com/@mojdigital/pattern-library/-/pattern-library-0.0.1-alpha.11.tgz#9534182a6614b9ed93aef6c779548632f5d2f466"
+"@mojdigital/pattern-library@0.0.1-alpha.16":
+  version "0.0.1-alpha.16"
+  resolved "https://registry.yarnpkg.com/@mojdigital/pattern-library/-/pattern-library-0.0.1-alpha.16.tgz#8243b387c95cd5c7b2b05d5d8eea4e9923f03384"
   dependencies:
     autosize "4.0.2"
-    govuk-frontend "1.2.0"
+    govuk-frontend "1.3.0"
     highlight.js "9.12.0"
     quill "1.3.6"
-    react "16.4.1"
-    react-dom "16.4.1"
+    react "16.4.2"
+    react-dom "16.4.2"
     react-ga "2.5.3"
     react-router-dom "4.3.1"
     react-scripts "1.1.4"
@@ -4513,10 +4513,6 @@ got@^6.7.1:
     unzip-response "^2.0.1"
     url-parse-lax "^1.0.0"
 
-govuk-frontend@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-1.2.0.tgz#a741364f903534755e134c0db6ac65a63a368592"
-
 govuk-frontend@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-1.3.0.tgz#b145d8c5d6bd7e88a5b34b340867799f328bbb03"
@@ -5896,9 +5892,9 @@ karma-coverage-istanbul-reporter@2.0.1:
     istanbul-api "^1.3.1"
     minimatch "^3.0.4"
 
-karma-jasmine-html-reporter@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.3.0.tgz#e34768cdb6e6b47ad3190b81d12fb597001bfcda"
+karma-jasmine-html-reporter@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.3.1.tgz#17db92e76ecbce97b281c97c9ac3d8b1723848f9"
 
 karma-jasmine@1.1.2:
   version "1.1.2"
@@ -7938,9 +7934,9 @@ react-dev-utils@^5.0.1:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@16.4.1:
-  version "16.4.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.1.tgz#7f8b0223b3a5fbe205116c56deb85de32685dad6"
+react-dom@16.4.2:
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.2.tgz#4afed569689f2c561d2b8da0b819669c38a0bda4"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -8026,16 +8022,7 @@ react-scripts@1.1.4:
   optionalDependencies:
     fsevents "^1.1.3"
 
-react@16.4.1:
-  version "16.4.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
-
-"react@^15.6.2 || ^16.0":
+react@16.4.2, "react@^15.6.2 || ^16.0":
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
   dependencies:
@@ -10189,9 +10176,9 @@ webpack@3.8.1:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-webpack@4.16.5:
-  version "4.16.5"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.16.5.tgz#29fb39462823d7eb8aefcab8b45f7f241db0d092"
+webpack@4.17.1:
+  version "4.17.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.17.1.tgz#0f026e3d823f3fc604f811ed3ea8f0d9b267fb1e"
   dependencies:
     "@webassemblyjs/ast" "1.5.13"
     "@webassemblyjs/helper-module-context" "1.5.13"
