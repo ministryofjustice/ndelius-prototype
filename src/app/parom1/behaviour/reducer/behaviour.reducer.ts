@@ -5,7 +5,6 @@ import { IBehaviour } from '../model/behaviour.model';
 
 export const initialState: IBehaviour = {
   behaviourDetail: '',
-  rotl: '',
   rotlInformation: '',
   saved: false,
   valid: false

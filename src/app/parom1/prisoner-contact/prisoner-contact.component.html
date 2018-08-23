@@ -13,7 +13,7 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'prisonerContact', error: 'Specify how long have you been assigned to the prisoner and what contact have you had with them' },
-                    { name: 'prisonerFamilyContact', error: 'Specify what contact have you had with the prisoner\'s family, partner or significant others' },
+                    { name: 'prisonerFamilyContact', error: 'Specify what contact have you had with the prisoner\'s family, partners or significant others' },
                     { name: 'prisonerStaffContact', error: 'Specify what contact have you had with other relevant agencies about the prisoner' }
                     ]">
     </app-form-error>
@@ -30,7 +30,7 @@
       <!-- Angular component -->
       <app-text-entry [group]="reportForm" name="prisonerFamilyContact"
                       label="What contact have you had with the prisoner's family, partner or significant others?"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with the prisoner's family, partner or significant others"></app-text-entry>
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Specify what contact have you had with the prisoner's family, partners or significant others"></app-text-entry>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 

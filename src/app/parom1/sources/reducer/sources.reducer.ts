@@ -16,7 +16,6 @@ export const initialState: ISources = {
   reportsAssessmentsDirections: '',
   sourceLimitations: '',
   sourceLimitationExplanation: '',
-  diversity: '',
   saved: false,
   valid: false
 };

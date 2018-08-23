@@ -54,7 +54,7 @@ describe('PAROM1 - Component: Current ROSH: community', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Current ROSH: community');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Current RoSH: community');
   });
 
   it('should navigate to the Court details page', () => {

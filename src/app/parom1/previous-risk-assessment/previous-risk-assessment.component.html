@@ -1,7 +1,7 @@
 <!-- ANGULAR COMPONENT -->
 <app-phase-banner></app-phase-banner>
 
-<h1 class="govuk-heading-xl govuk-!-margin-top-6">ROSH at point of sentence</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-top-6">RoSH at point of sentence</h1>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
@@ -12,32 +12,17 @@
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
+                    { name: 'roshCompleted', error: 'Specify whether a RoSH assessment was completed at the point of sentence' },
                     { name: 'attitude', error: 'Enter the prisoner\'s attitude to index offence' },
-                    { name: 'roshCompleted', error: 'Specify whether a ROSH assessment was completed at the point of sentence' }
+                    { name: 'attitudePrevious', error: 'Enter the prisoner\'s to their previous offending' }
                     ]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="attitude"
-                      label="What is the prisoner's attitude to the index offence?"
-                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="Enter the prisoner's attitude to index offence">
-
-        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-          <li>evidence of any change in attitude</li>
-          <li>reasons for the change</li>
-          <li>your analysis of the change</li>
-        </ul>
-
-      </app-text-entry>
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
-
       <app-radio-buttons [group]="reportForm" [error]="formError" name="roshCompleted"
-                         label="Was a ROSH assessment completed at the point of sentence?"
-                         errorMessage="Specify whether a ROSH assessment was completed at the point of sentence"
+                         label="Was a RoSH assessment completed at the point of sentence?"
+                         errorMessage="Specify whether a RoSH assessment was completed at the point of sentence"
                          [options]="['Yes', 'No']" required="true" conditional="true">
       </app-radio-buttons>
 
@@ -45,12 +30,12 @@
 
         <!-- ANGULAR COMPONENT (only using month and year) -->
         <app-three-field-date [group]="reportForm" name="previousDate"
-                              label="When was the ROSH assessment completed?"
+                              label="When was the RoSH assessment completed?"
                               help="For example, 3 2018"></app-three-field-date>
 
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
-        <p class="govuk-caption-xl govuk-!-margin-bottom-3">Select the ROSH scores at the point of sentence for the index offence.</p>
+        <p class="govuk-caption-xl govuk-!-margin-bottom-3">Select the RoSH scores at the point of sentence for the index offence.</p>
 
         <app-radio-buttons [group]="reportForm" name="riskPublic" label="Public"
                            [options]="['Low', 'Medium', 'High', 'Very high']">
@@ -70,6 +55,31 @@
         <app-radio-buttons [group]="reportForm" name="riskStaff" label="Staff"
                            [options]="['Low', 'Medium', 'High', 'Very high']"></app-radio-buttons>
       </div>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="attitude"
+                      label="What is the prisoner's attitude to the index offence?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
+                      errorMessage="Enter the prisoner's attitude to index offence">
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>evidence of any change in attitude</li>
+          <li>reasons for the change</li>
+          <li>your analysis of the change</li>
+        </ul>
+
+      </app-text-entry>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-text-entry [group]="reportForm" name="attitudePrevious"
+                      label="What is the prisoner’s attitude to their previous offending?"
+                      (onSaveContent)="saveContent(reportForm)" [error]="formError"
+                      errorMessage="Enter the prisoner's attitude to their previous offending">
+      </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

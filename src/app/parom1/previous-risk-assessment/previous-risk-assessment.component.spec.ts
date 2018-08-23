@@ -56,7 +56,7 @@ describe('PAROM1 - Component: ROSH at point of sentence', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('ROSH at point of sentence');
+    expect(compiled.querySelector('h1').innerHTML).toBe('RoSH at point of sentence');
   });
 
   it('should navigate to the Court details page', () => {

@@ -54,7 +54,7 @@ describe('PAROM1 - Component: ROSH analysis', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('ROSH analysis');
+    expect(compiled.querySelector('h1').innerHTML).toBe('RoSH analysis');
   });
 
   it('should navigate to the Court details page', () => {

@@ -16,6 +16,7 @@ export const initialState: IPreviousRiskAssessment = {
   riskPrisoners: '',
   riskStaff: '',
   attitude: '',
+  attitudePrevious: '',
   saved: false,
   valid: false
 };

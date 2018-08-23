@@ -13,8 +13,7 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'behaviourDetail', error: 'Detail the prisoner’s behaviour whilst in prison' },
-                    { name: 'rotl', error: 'Specify whether the prisoner is undertaking or likely to undertake ROTL' },
-                    { name: 'rotlInformation', error: 'Enter the prisoner’s ROTL summary' }
+                    { name: 'rotlInformation', error: 'Enter the RoTL' }
                     ]">
     </app-form-error>
 
@@ -29,19 +28,11 @@
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="rotl" [options]="['Yes', 'No']" required="true" [error]="formError"
-                         label="Is the prisoner undertaking, or likely to undertake, ROTL?"
-                         errorMessage="Specify whether the prisoner has met with the OPD screen">
-      </app-radio-buttons>
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
-
-      <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="rotlInformation" label="Prisoner’s ROTL summary"
+      <app-text-entry [group]="reportForm" name="rotlInformation" label="RoTL"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="Enter the prisoner’s ROTL summary">
-        <p>Detail and any relevant information relating to this. Where periods of ROTL have taken place, include how
-          successful this has been to the prisoner’s resettlement. If ROTL not being undertaken explain why</p>
+                      errorMessage="Enter the RoTL">
+        <p>Detail and any relevant information relating to this. Where periods of RoTL have taken place, include how
+          successful this has been to the prisoner’s resettlement. If RoTL not being undertaken explain why</p>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
