@@ -13,7 +13,7 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'behaviourDetail', error: 'Detail the prisoner’s behaviour whilst in prison' },
-                    { name: 'rotlInformation', error: 'Enter the RoTL' }
+                    { name: 'rotlInformation', error: 'Enter the RoTL summary' }
                     ]">
     </app-form-error>
 
@@ -28,9 +28,9 @@
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
-      <app-text-entry [group]="reportForm" name="rotlInformation" label="RoTL"
+      <app-text-entry [group]="reportForm" name="rotlInformation" label="RoTL summary"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
-                      errorMessage="Enter the RoTL">
+                      errorMessage="Enter the RoTL summary">
         <p>Detail and any relevant information relating to this. Where periods of RoTL have taken place, include how
           successful this has been to the prisoner’s resettlement. If RoTL not being undertaken explain why</p>
       </app-text-entry>
