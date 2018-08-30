@@ -1,4 +1,4 @@
-<div class="govuk-form-group" [formGroup]="group" [ngClass]="{ 'govuk-form-group--error': required && error && group.get(name).errors, 'govuk-!-margin-bottom-1': conditional }">
+<div class="govuk-form-group" [formGroup]="group" [ngClass]="{ 'govuk-form-group--error': required && error && group.get(name).errors }">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-label">
       {{label}}
@@ -16,9 +16,9 @@
       </details>
     </div>
 
-    <app-error-messages [control]="name" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
+    <app-error-messages [control]="name" [message]="errorMessage"[active]="required && error && group.get(name).errors"></app-error-messages>
 
-    <div class="govuk-radios">
+    <div class="govuk-radios govuk-!-margin-top-2" [ngClass]="{ 'govuk-radios--inline': inline }">
 
       <ng-template ngFor let-option [ngForOf]="options" let-index="index">
 
@@ -29,10 +29,13 @@
           </label>
         </div>
 
-        <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: option}"></ng-template>
+        <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: option}" *ngIf="!inline"></ng-template>
 
       </ng-template>
 
     </div>
+
+    <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: inline}" *ngIf="inline"></ng-template>
+
   </fieldset>
 </div>

@@ -48,6 +48,11 @@ export class RadioButtonsComponent implements OnInit {
   @Input() public conditional: boolean;
 
   /**
+   * Display the radio buttons inline
+   */
+  @Input() public inline: boolean;
+
+  /**
    * The list of options for the radio button group
    *
    * **Required**
