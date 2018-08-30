@@ -61,12 +61,12 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="abscondingRisk" [options]="['Yes', 'No']" required="true"
-                         [error]="formError" conditional="true"
+                         [error]="formError" conditional="true" inline="true"
                          label="Does the prisoner pose a risk of absconding?"
                          errorMessage="Specify if the prisoner poses a risk of absconding">
 
-        <ng-template let-option>
-          <div class="govuk-radios__conditional" *ngIf="option === 'Yes' && reportForm.get('abscondingRisk').value === 'Yes'">
+        <ng-template let-option let-inline>
+          <div class="govuk-radios__conditional" *ngIf="(option === 'Yes' || inline) && reportForm.get('abscondingRisk').value === 'Yes'">
 
             <!-- ANGULAR COMPONENT -->
             <app-text-entry [group]="reportForm" name="abscondingRiskDetails"

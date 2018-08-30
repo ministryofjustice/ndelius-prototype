@@ -18,13 +18,13 @@
 
       <app-radio-buttons [group]="reportForm" name="resettlementPlanRequired"
                          label="Does the prisoner require a resettlement plan for release?" conditional="true"
-                         [error]="formError"
+                         [error]="formError" inline="true"
                          errorMessage="Specify if the prisoner requires a resettlement plan for release"
                          [options]="['Yes', 'No']"
                          required="true">
 
-        <ng-template let-option>
-          <div class="govuk-radios__conditional" *ngIf="option === 'Yes' && reportForm.get('resettlementPlanRequired').value === 'Yes'">
+        <ng-template let-option let-inline>
+          <div class="govuk-radios__conditional" *ngIf="(option === 'Yes' || inline) && reportForm.get('resettlementPlanRequired').value === 'Yes'">
 
             <!-- Angular component -->
             <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"

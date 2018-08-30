@@ -18,7 +18,7 @@
 
     <app-error-messages [control]="name" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
 
-    <div class="govuk-radios">
+    <div class="govuk-radios" [ngClass]="{ 'govuk-radios--inline': inline }">
 
       <ng-template ngFor let-option [ngForOf]="options" let-index="index">
 
@@ -29,10 +29,13 @@
           </label>
         </div>
 
-        <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: option}"></ng-template>
+        <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: option}" *ngIf="!inline"></ng-template>
 
       </ng-template>
 
     </div>
+
+    <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: inline}" *ngIf="inline"></ng-template>
+
   </fieldset>
 </div>

@@ -18,13 +18,13 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" conditional="true"
-                         required="true" [error]="formError"
+                         required="true" [error]="formError" inline="true"
                          label="Has the prisoner met the OPD screening criteria and been considered for OPD pathway services?"
                          errorMessage="Specify whether the prisoner has met the OPD screening criteria and been considered for OPD pathway services">
 
-        <ng-template let-option>
+        <ng-template let-option let-inline>
           <div class="govuk-radios__conditional"
-               *ngIf="option === 'Yes' && reportForm.get('opdPathway').value === 'Yes'">
+               *ngIf="(option === 'Yes' || inline) && reportForm.get('opdPathway').value === 'Yes'">
             <p class="govuk-body">Make reference, where relevant, throughout this report if:</p>
 
             <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
