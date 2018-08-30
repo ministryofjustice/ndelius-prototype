@@ -51,14 +51,18 @@
         <p>Include information about the effectiveness of previous interventions, and make links to likely compliance with further interventions.</p>
         <p>If you select not applicable, make clear in the text box whether or not the person has been involved with other agencies who have provided interventions, for example, substance misuse agencies.</p>
         <p>Detail what level of compliance there was with these, and make links to likely compliance with future interventions.</p>
+
+        <ng-template let-option>
+          <div class="govuk-radios__conditional" *ngIf="reportForm.get('previousSupervisionResponse').value === option">
+
+            <!-- Angular component -->
+            <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" [label]="reportForm.get('previousSupervisionResponse').value === 'Not applicable' ? 'Add relevant details (if applicable)' : 'Add additional details on previous supervision (if applicable)'" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
+
+          </div>
+        </ng-template>
+
+
       </app-radio-buttons>
-
-      <div class="govuk-radios__conditional" *ngIf="reportForm.get('previousSupervisionResponse').value" [ngClass]="{ 'govuk-visually-hidden': !reportForm.get('previousSupervisionResponse').value }" [attr.aria-hidden]="!reportForm.get('previousSupervisionResponse').value">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="additionalPreviousSupervision" [label]="reportForm.get('previousSupervisionResponse').value === 'Not applicable' ? 'Add relevant details (if applicable)' : 'Add additional details on previous supervision (if applicable)'" limit="1000" (onSaveContent)="saveContent(reportForm)"></app-text-entry>
-
-      </div>
 
       <!-- Angular component -->
       <app-footer></app-footer>

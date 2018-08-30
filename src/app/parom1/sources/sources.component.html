@@ -47,20 +47,23 @@
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="sourceLimitations" [options]="['Yes', 'No']" required="true" [error]="formError" conditional="true"
+      <app-radio-buttons [group]="reportForm" name="sourceLimitations" [options]="['Yes', 'No']" required="true" [error]="formError" conditional="true" inline="true"
                          label="Has any information not been made available to you, or are there any limitations to the sources?"
                          errorMessage="Specify whether there are any omissions or limitations">
+
+        <ng-template let-option let-inline>
+          <div class="govuk-radios__conditional" *ngIf="(option === 'Yes' || inline) && reportForm.get('sourceLimitations').value === 'Yes'">
+
+            <!-- Angular component -->
+            <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"
+                            label="Provide an explanation"
+                            (onSaveContent)="saveContent(reportForm)">
+            </app-text-entry>
+
+          </div>
+        </ng-template>
+
       </app-radio-buttons>
-
-      <div class="govuk-radios__conditional" *ngIf="reportForm.get('sourceLimitations').value === 'Yes'" [ngClass]="{ 'govuk-visually-hidden': !reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No' }" [attr.aria-hidden]="!reportForm.get('sourceLimitations').value || reportForm.get('sourceLimitations').value === 'No'">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="sourceLimitationExplanation"
-                        label="Provide an explanation"
-                        (onSaveContent)="saveContent(reportForm)">
-        </app-text-entry>
-
-      </div>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

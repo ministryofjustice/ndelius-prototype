@@ -18,27 +18,31 @@
 
       <app-radio-buttons [group]="reportForm" name="resettlementPlanRequired"
                          label="Does the prisoner require a resettlement plan for release?" conditional="true"
-                         [error]="formError"
+                         [error]="formError" inline="true"
                          errorMessage="Specify if the prisoner requires a resettlement plan for release"
                          [options]="['Yes', 'No']"
-                         required="true"></app-radio-buttons>
+                         required="true">
 
-      <div class="govuk-radios__conditional" *ngIf="reportForm.get('resettlementPlanRequired').value === 'Yes'">
+        <ng-template let-option let-inline>
+          <div class="govuk-radios__conditional" *ngIf="(option === 'Yes' || inline) && reportForm.get('resettlementPlanRequired').value === 'Yes'">
 
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"
-                        label="Detail the resettlement plan for release"
-                        (onSaveContent)="saveContent(reportForm)">
+            <!-- Angular component -->
+            <app-text-entry [group]="reportForm" name="resettlementPlanForRelease"
+                            label="Detail the resettlement plan for release"
+                            (onSaveContent)="saveContent(reportForm)">
 
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-            <li>accomodation details</li>
-            <li>motivation to comply if released</li>
-            <li>if the prisoner is safe to release</li>
-          </ul>
+              <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                <li>accomodation details</li>
+                <li>motivation to comply if released</li>
+                <li>if the prisoner is safe to release</li>
+              </ul>
 
-        </app-text-entry>
+            </app-text-entry>
 
-      </div>
+          </div>
+        </ng-template>
+
+      </app-radio-buttons>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

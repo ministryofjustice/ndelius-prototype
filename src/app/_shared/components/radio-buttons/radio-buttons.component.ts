@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ContentChild, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,6 +6,8 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './radio-buttons.component.html'
 })
 export class RadioButtonsComponent implements OnInit {
+
+  @ContentChild(TemplateRef) templateRef: TemplateRef<any>;
 
   /**
    * The control's parent FormGroup to be used as reference
@@ -44,6 +46,11 @@ export class RadioButtonsComponent implements OnInit {
    * Is there conditional content relating to the radio group
    */
   @Input() public conditional: boolean;
+
+  /**
+   * Display the radio buttons inline
+   */
+  @Input() public inline: boolean;
 
   /**
    * The list of options for the radio button group
