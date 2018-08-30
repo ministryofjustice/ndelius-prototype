@@ -8,9 +8,7 @@
     <div [hidden]="!showHint">
       <details class="govuk-details govuk-!-margin-bottom-2">
         <summary class="govuk-details__summary">
-      <span class="govuk-details__summary-text">
-        What to include
-      </span>
+          <span class="govuk-details__summary-text">What to include</span>
         </summary>
         <div #hint class="govuk-details__text govuk-!-margin-bottom-4">
           <ng-content></ng-content>
@@ -19,6 +17,7 @@
     </div>
 
     <app-error-messages [control]="name" [message]="errorMessage" [active]="required && error && group.get(name).errors"></app-error-messages>
+
     <div class="govuk-radios">
 
       <ng-template ngFor let-option [ngForOf]="options" let-index="index">
@@ -29,6 +28,8 @@
             {{option}}
           </label>
         </div>
+
+        <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: option}"></ng-template>
 
       </ng-template>
 

@@ -22,24 +22,28 @@
                          [error]="formError"
                          errorMessage="Specify if the prisoner requires a supervision plan for release"
                          [options]="['Yes', 'No']"
-                         required="true"></app-radio-buttons>
+                         required="true">
 
-      <div class="govuk-radios__conditional" *ngIf="reportForm.get('supervisionPlanRequired').value === 'Yes'">
+        <ng-template let-option>
+          <div class="govuk-radios__conditional" *ngIf="option === 'Yes' && reportForm.get('supervisionPlanRequired').value === 'Yes'">
 
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="supervisionPlanForRelease"
-                        label="Detail the supervision plan for release"
-                        (onSaveContent)="saveContent(reportForm)">
+            <!-- Angular component -->
+            <app-text-entry [group]="reportForm" name="supervisionPlanForRelease"
+                            label="Detail the supervision plan for release"
+                            (onSaveContent)="saveContent(reportForm)">
 
-          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-            <li>consider the community sentence plan and the prisoner’s likely compliance</li>
-            <li>specific objectives for adult and child safeguarding concerns</li>
-            <li>social capital, not just risks</li>
-          </ul>
+              <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                <li>consider the community sentence plan and the prisoner’s likely compliance</li>
+                <li>specific objectives for adult and child safeguarding concerns</li>
+                <li>social capital, not just risks</li>
+              </ul>
 
-        </app-text-entry>
+            </app-text-entry>
 
-      </div>
+          </div>
+        </ng-template>
+
+      </app-radio-buttons>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

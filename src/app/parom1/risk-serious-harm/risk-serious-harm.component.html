@@ -64,21 +64,19 @@
                          [error]="formError" conditional="true"
                          label="Does the prisoner pose a risk of absconding?"
                          errorMessage="Specify if the prisoner poses a risk of absconding">
+
+        <ng-template let-option>
+          <div class="govuk-radios__conditional" *ngIf="option === 'Yes' && reportForm.get('abscondingRisk').value === 'Yes'">
+
+            <!-- ANGULAR COMPONENT -->
+            <app-text-entry [group]="reportForm" name="abscondingRiskDetails"
+                            label="Provide details of the absconding risk">
+            </app-text-entry>
+
+          </div>
+        </ng-template>
+
       </app-radio-buttons>
-
-      <!-- ABSCONDING RISK -->
-      <div class="govuk-radios__conditional" *ngIf="reportForm.get('abscondingRisk').value === 'Yes'"
-           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('abscondingRisk').value !== 'Yes' }"
-           [attr.aria-hidden]="reportForm.get('abscondingRisk').value !== 'Yes'">
-
-        <!-- ANGULAR COMPONENT -->
-        <app-text-entry [group]="reportForm" name="abscondingRiskDetails"
-                        label="Provide details of the absconding risk">
-        </app-text-entry>
-
-      </div>
-
-      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

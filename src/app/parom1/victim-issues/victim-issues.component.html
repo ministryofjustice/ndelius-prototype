@@ -66,13 +66,14 @@
       <app-radio-buttons [group]="reportForm" name="victimPersonalStatement" [options]="['Yes', 'No', 'Don\'t know']" conditional="true" required="true" [error]="formError"
                          label="Do the victims wish to submit a Victim Personal Statement (VPS)?"
                          errorMessage="Specify if the victims wish to submit a Victim Personal Statement">
+
+        <ng-template let-option>
+          <div class="govuk-radios__conditional" *ngIf="option === 'Yes' && reportForm.get('victimPersonalStatement').value === 'Yes'">
+            <p class="govuk-body">The VPS should be submitted with this report if possible.</p>
+          </div>
+        </ng-template>
+
       </app-radio-buttons>
-
-      <div class="govuk-radios__conditional" [ngClass]="{ 'govuk-visually-hidden': reportForm.get('victimPersonalStatement').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('victimPersonalStatement').value !== 'Yes'">
-        <p class="govuk-body">The VPS should be submitted with this report if possible.</p>
-      </div>
-
-      <br/>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

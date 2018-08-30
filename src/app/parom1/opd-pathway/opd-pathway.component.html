@@ -17,20 +17,24 @@
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" conditional="true" required="true" [error]="formError"
+      <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" conditional="true"
+                         required="true" [error]="formError"
                          label="Has the prisoner met the OPD screening criteria and been considered for OPD pathway services?"
                          errorMessage="Specify whether the prisoner has met the OPD screening criteria and been considered for OPD pathway services">
+
+        <ng-template let-option>
+          <div class="govuk-radios__conditional"
+               *ngIf="option === 'Yes' && reportForm.get('opdPathway').value === 'Yes'">
+            <p class="govuk-body">Make reference, where relevant, throughout this report if:</p>
+
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+              <li>You have consulted OPD pathway services about the prisoner</li>
+              <li>The prisoner is engaged with OPD pathway services</li>
+            </ul>
+          </div>
+        </ng-template>
+
       </app-radio-buttons>
-
-      <div class="govuk-radios__conditional" [ngClass]="{ 'govuk-visually-hidden': reportForm.get('opdPathway').value !== 'Yes' }">
-        <p class="govuk-body">Make reference, where relevant, throughout this report if:</p>
-
-        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-          <li>You have consulted OPD pathway services about the prisoner</li>
-          <li>The prisoner is engaged with OPD pathway services</li>
-        </ul>
-
-      </div>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>

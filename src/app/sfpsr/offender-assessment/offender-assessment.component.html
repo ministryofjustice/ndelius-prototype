@@ -56,14 +56,17 @@
                          errorMessage="Specify whether there is evidence of the offender experiencing trauma">
         <p>Trauma can affect an offender’s ability to engage and make decisions. Detail the offender’s experience of
           trauma, and how it has affected their offending and their engagement with rehabilitative interventions.</p>
+
+        <ng-template let-option>
+          <div class="govuk-radios__conditional" *ngIf="option === 'Yes' && reportForm.get('trauma').value === 'Yes'">
+
+            <!-- Angular component -->
+            <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma"></app-text-entry>
+
+          </div>
+        </ng-template>
+
       </app-radio-buttons>
-
-      <div class="govuk-radios__conditional" *ngIf="reportForm.get('trauma').value === 'Yes'" [ngClass]="{'govuk-visually-hidden': reportForm.get('trauma').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('trauma').value !== 'Yes'">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="traumaDetails" label="Experience of trauma"></app-text-entry>
-
-      </div>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
 
@@ -74,14 +77,17 @@
                          errorMessage="Specify whether the offender has caring responsibilities for children or adults">
         <p>Detail the offender’s current and past caring responsibilities for children and adults. How have those
           responsibilities affected their offending and their engagement with rehabilitative interventions?</p>
+
+        <ng-template let-option>
+          <div class="govuk-radios__conditional" *ngIf="option === 'Yes' && reportForm.get('caring').value === 'Yes'">
+
+            <!-- Angular component -->
+            <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities"></app-text-entry>
+
+          </div>
+        </ng-template>
+
       </app-radio-buttons>
-
-      <div class="govuk-radios__conditional" *ngIf="reportForm.get('caring').value === 'Yes'" [ngClass]="{'govuk-visually-hidden': reportForm.get('caring').value !== 'Yes' }" [attr.aria-hidden]="reportForm.get('caring').value !== 'Yes'">
-
-        <!-- Angular component -->
-        <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities"></app-text-entry>
-
-      </div>
 
       <!-- Angular component -->
       <app-footer></app-footer>

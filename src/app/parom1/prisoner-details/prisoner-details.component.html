@@ -25,12 +25,15 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <div class="govuk-form-group govuk-!-width-one-half" [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
+      <div class="govuk-form-group govuk-!-width-one-half"
+           [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
         <label for="prison" class="govuk-label">Prison or Young Offender Institution</label>
         <!-- Angular component -->
-        <app-error-messages control="prison" message="Enter the prison or Young Offender Institution" [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
+        <app-error-messages control="prison" message="Enter the prison or Young Offender Institution"
+                            [active]="(reportForm.get('prison').touched || formError) && reportForm.get('prison').errors"></app-error-messages>
         <select formControlName="prison" id="prison" class="form-control auto-complete">
-          <option *ngFor="let placeName of prisonsAndYoungOffenderInstitutions" [ngValue]="placeName">{{placeName}}</option>
+          <option *ngFor="let placeName of prisonsAndYoungOffenderInstitutions" [ngValue]="placeName">{{placeName}}
+          </option>
         </select>
       </div>
 
@@ -53,54 +56,58 @@
                          label="Prisoner's category" errorMessage="Select the prisoner's category">
       </app-radio-buttons>
 
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="offence" required="true" [error]="formError" label="Offence"
-                 errorMessage="Enter the offence"></app-text-entry>
+                      errorMessage="Enter the offence"></app-text-entry>
 
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <!-- ANGULAR COMPONENT -->
       <app-text-entry [group]="reportForm" name="sentence" required="true" [error]="formError" label="Sentence"
-                 errorMessage="Enter the sentence"></app-text-entry>
+                      errorMessage="Enter the sentence"></app-text-entry>
 
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Indeterminate', 'Determinate']"
                          required="true" [error]="formError" conditional="true"
                          label="Sentence type" errorMessage="Select the sentence type">
+
+        <ng-template let-option>
+          <div class="govuk-radios__conditional"
+               *ngIf="option === 'Indeterminate' && reportForm.get('sentenceType').value === 'Indeterminate'">
+
+            <app-input [group]="reportForm" name="tariffLength" label="Tariff length"></app-input>
+
+            <br/>
+
+            <!-- ANGULAR COMPONENT -->
+            <app-three-field-date [group]="reportForm" name="tariffExpiryDate" label="Tariff expiry date"
+                                  help="For example, 31 3 2018"></app-three-field-date>
+          </div>
+
+          <div class="govuk-radios__conditional"
+               *ngIf="option === 'Determinate' && reportForm.get('sentenceType').value === 'Determinate'">
+
+            <!-- ANGULAR COMPONENT -->
+            <app-three-field-date [group]="reportForm" name="determinateEligibilityDate"
+                                  label="Parole eligibility date"
+                                  help="For example, 31 3 2018"></app-three-field-date>
+
+            <br/>
+
+            <!-- ANGULAR COMPONENT -->
+            <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
+                                  label="Automatic release date / non parole eligibility date"
+                                  help="For example, 31 3 2018"></app-three-field-date>
+          </div>
+
+        </ng-template>
+
+
       </app-radio-buttons>
-
-      <!-- INDETERMINATE -->
-      <div class="govuk-radios__conditional"
-           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Indeterminate' }"
-           [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Indeterminate'">
-
-        <app-input [group]="reportForm" name="tariffLength" label="Tariff length"></app-input>
-
-        <!-- ANGULAR COMPONENT -->
-        <app-three-field-date [group]="reportForm" name="tariffExpiryDate"
-                              label="Tariff expiry date" help="For example, 31 3 2018"></app-three-field-date>
-
-      </div>
-
-      <!-- DETERMINATE -->
-      <div class="govuk-radios__conditional"
-           [ngClass]="{ 'govuk-visually-hidden': reportForm.get('sentenceType').value !== 'Determinate' }"
-           [attr.aria-hidden]="reportForm.get('sentenceType').value !== 'Determinate'">
-
-        <!-- ANGULAR COMPONENT -->
-        <app-three-field-date [group]="reportForm" name="determinateEligibilityDate"
-                              label="Parole eligibility date"
-                              help="For example, 31 3 2018"></app-three-field-date>
-
-        <!-- ANGULAR COMPONENT -->
-        <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
-                              label="Automatic release date / non parole eligibility date"
-                              help="For example, 31 3 2018"></app-three-field-date>
-      </div>
 
       <!-- ANGULAR COMPONENT -->
       <app-footer></app-footer>
