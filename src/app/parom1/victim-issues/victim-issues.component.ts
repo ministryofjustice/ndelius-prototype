@@ -42,11 +42,7 @@ export class VictimIssuesComponent extends BaseComponent {
    * @param {IVictimIssues} value
    */
   saveContent({ value }: { value: IVictimIssues }) {
-    const updatedValue = Object.assign(value, {
-      saved: true,
-      valid: this.reportForm.valid,
-      vloContactDate: (<HTMLInputElement>document.getElementById('vloContactDate')).value
-    });
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
     this.store.dispatch(new UpdateVictimIssuesAction(updatedValue));
   }
 
@@ -63,7 +59,11 @@ export class VictimIssuesComponent extends BaseComponent {
   private createForm() {
     this.reportForm = this.formBuilder.group({
       impactOfOffence: [this.reportData.impactOfOffence, Validators.required],
-      vloContactDate: [this.reportData.vloContactDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required],
+      vloContactDate: this.formBuilder.group({
+        day: [this.reportData.vloContactDate.day, Validators.required],
+        month: [this.reportData.vloContactDate.month, Validators.required],
+        year: [this.reportData.vloContactDate.year, Validators.required]
+      }),
       victimContactService: [this.reportData.victimContactService, Validators.required],
       victimPersonalStatement: [this.reportData.victimPersonalStatement, Validators.required]
     });

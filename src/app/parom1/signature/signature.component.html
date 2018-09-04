@@ -17,7 +17,7 @@
                     { name: 'address', error: 'Enter the office address' },
                     { name: 'email', error: 'Enter the email address' },
                     { name: 'phone', error: 'Enter the telephone number and extension' },
-                    { name: 'reportDate', error: 'Enter the report date' }
+                    { name: 'reportDate', error: 'Enter the report completion date' }
                     ]">
     </app-form-error>
 
@@ -57,10 +57,11 @@
                  label="Role of counter signature"></app-input>
 
       <!-- ANGULAR COMPONENT -->
-      <app-input [group]="reportForm" name="reportDate" [error]="formError" required="true" date="true"
-                 label="Completion date"
-                 help="For example: 28/06/2017"
-                 errorMessage="Enter the report date"></app-input>
+      <app-three-field-date [group]="reportForm" name="reportDate"
+                            label="Completion date"
+                            help="For example, 31 3 2018" [error]="formError" required="true"
+                            errorMessage="Enter the report completion date">
+      </app-three-field-date>
 
       <app-footer [draftEnabled]="false" label="Submit" hint="Submit and view your report"></app-footer>
 

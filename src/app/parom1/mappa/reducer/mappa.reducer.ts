@@ -4,7 +4,11 @@ import { IMappa } from '../model/mappa.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IMappa = {
-  screenedDate: '',
+  screenedDate: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
   mappaCategory: void 0,
   mappaLevel: void 0,
   saved: false,

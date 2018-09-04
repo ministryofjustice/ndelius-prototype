@@ -16,6 +16,7 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 import { MockRadioButtonsComponent } from '../../_shared/components/radio-buttons/radio-buttons.mock.component';
 import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/mappa.reducer';
 
@@ -37,7 +38,8 @@ describe('PAROM1 - Component: MAPPA', () => {
         MockFormErrorComponent,
         MockInputComponent,
         MockRadioButtonsComponent,
-        MockTextEntryComponent
+        MockTextEntryComponent,
+        MockThreeFieldDateComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

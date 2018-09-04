@@ -41,11 +41,7 @@ export class MappaComponent extends BaseComponent {
    *
    */
   saveContent({ value }: { value: IMappa }) {
-    const updatedValue = Object.assign(value, {
-      saved: true,
-      valid: this.reportForm.valid,
-      screenedDate: (<HTMLInputElement>document.getElementById('screenedDate')).value
-    });
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
     this.store.dispatch(new UpdateMappaAction(updatedValue));
   }
 
@@ -61,7 +57,11 @@ export class MappaComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      screenedDate: [this.reportData.screenedDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required],
+      screenedDate: this.formBuilder.group({
+        day: [this.reportData.screenedDate.day, Validators.required],
+        month: [this.reportData.screenedDate.month, Validators.required],
+        year: [this.reportData.screenedDate.year, Validators.required]
+      }),
       mappaCategory: [this.reportData.mappaCategory, Validators.required],
       mappaLevel: [this.reportData.mappaLevel, Validators.required]
     });

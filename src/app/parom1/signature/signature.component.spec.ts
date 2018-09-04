@@ -13,9 +13,10 @@ import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
+import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/signature.reducer';
-import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 
 describe('PAROM1 - Component: Signature and date', () => {
 
@@ -33,7 +34,8 @@ describe('PAROM1 - Component: Signature and date', () => {
         MockFormErrorComponent,
         MockInputComponent,
         MockTextEntryComponent,
-        MockErrorMessagesComponent
+        MockErrorMessagesComponent,
+        MockThreeFieldDateComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

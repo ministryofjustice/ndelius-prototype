@@ -5,7 +5,11 @@ import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IVictimIssues = {
   impactOfOffence: '',
-  vloContactDate: '',
+  vloContactDate: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
   victimContactService: '',
   victimPersonalStatement: '',
   saved: false,
