@@ -9,7 +9,11 @@ export const initialState: ISignature = {
   phone: '',
   counterSignature: '',
   startDate: '',
-  reportDate: '',
+  reportDate: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
   saved: false,
   valid: false
 };

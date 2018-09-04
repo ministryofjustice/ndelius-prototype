@@ -1,4 +1,5 @@
 import { IMappa } from '../model/mappa.model';
+import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
 
 export class MappaTransform {
 
@@ -11,7 +12,7 @@ export class MappaTransform {
     return [
       { text: 'MAPPA', style: 'sectionHeading' },
       {
-        text: [{ text: 'MAPPAQ completed on ', style: 'fontBold' }, data.screenedDate || ''], margin: [0, 5, 0, 10]
+        text: [{ text: 'MAPPAQ completed on ', style: 'fontBold' }, parseDateForPDF(data.screenedDate)], margin: [0, 5, 0, 10]
       },
       {
         style: 'tableDefault',

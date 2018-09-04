@@ -86,7 +86,11 @@ export class StartReportComponent implements OnInit, OnDestroy {
         this.store.dispatch(new UpdateCourtDetailsAction({
           court: params['court'],
           localJusticeArea: params['localJusticeArea'],
-          hearingDate: this.today(),
+          hearingDate: {
+            day: new Date().getDate(),
+            month: new Date().getMonth() + 1,
+            year: new Date().getFullYear()
+          },
           saved: true,
           valid: true
         }));

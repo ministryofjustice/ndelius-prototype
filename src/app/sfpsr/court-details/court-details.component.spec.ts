@@ -13,6 +13,7 @@ import { MockErrorMessagesComponent } from '../../_shared/components/error-messa
 import { MockFooterComponent } from '../../_shared/components/footer/footer.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/court-details.reducer';
 
@@ -31,7 +32,8 @@ describe('SFPSR - Component: Court details', () => {
         MockErrorMessagesComponent,
         MockFormErrorComponent,
         MockInputComponent,
-        MockFooterComponent
+        MockFooterComponent,
+        MockThreeFieldDateComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

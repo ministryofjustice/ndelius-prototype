@@ -13,6 +13,7 @@ import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.
 import { MockErrorMessagesComponent } from '../../_shared/components/error-messages/error-messages.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/court-details.reducer';
 
@@ -36,7 +37,8 @@ describe('Addendum - Component: Court details', () => {
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
         MockInputComponent,
-        MockFooterComponent
+        MockFooterComponent,
+        MockThreeFieldDateComponent
       ],
       providers: [
         DatePipe

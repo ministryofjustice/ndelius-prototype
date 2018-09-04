@@ -1,4 +1,4 @@
-(function ($) {
+(function () {
 
   'use strict';
 
@@ -18,12 +18,4 @@
     });
   }
 
-  $('.date-picker').datepicker({
-    weekDayFormat: 'narrow',
-    inputFormat: [''],
-    outputFormat: 'dd/MM/yyyy',
-    daysOfWeekDisabled: [0, 6],
-    gainFocusOnConstruction: false
-  });
-
-})(window.jQuery);
+})();

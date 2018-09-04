@@ -12,9 +12,9 @@ import { MockSubNavigationComponent } from '../_shared/components/sub-navigation
 import { MockPhaseBannerComponent } from '../../_shared/components/phase-banner.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/signature.reducer';
-
 
 describe('Addendum - Component: Signature', () => {
 
@@ -30,7 +30,8 @@ describe('Addendum - Component: Signature', () => {
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockInputComponent,
-        MockFooterComponent
+        MockFooterComponent,
+        MockThreeFieldDateComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

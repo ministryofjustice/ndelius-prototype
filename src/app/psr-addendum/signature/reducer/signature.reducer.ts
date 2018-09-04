@@ -8,7 +8,11 @@ export const initialState: ISignature = {
   office: '',
   phone: '',
   counterSignature: '',
-  reportDate: '',
+  reportDate: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
   saved: false,
   valid: false
 };

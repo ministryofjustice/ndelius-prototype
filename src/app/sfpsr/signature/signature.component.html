@@ -15,7 +15,7 @@
                     { name: 'reportAuthor', error: 'Enter the report author' },
                     { name: 'office', error: 'Enter the office' },
                     { name: 'phone', error: 'Enter the court office phone number' },
-                    { name: 'reportDate', error: 'Enter the report date' }
+                    { name: 'reportDate', error: 'Enter the report completion date' }
                     ]">
     </app-form-error>
 
@@ -36,8 +36,12 @@
       <!-- Angular component -->
       <app-input [group]="reportForm" name="startDate" label="Start date" readonly="true"></app-input>
 
-      <!-- Angular component -->
-      <app-input [group]="reportForm" name="reportDate" required="true" date="true" [error]="formError" label="Completion date" help="For example: 28/06/2017" errorMessage="Enter the report date"></app-input>
+      <!-- ANGULAR COMPONENT -->
+      <app-three-field-date [group]="reportForm" name="reportDate"
+                            label="Completion date"
+                            help="For example, 31 3 2018" [error]="formError" required="true"
+                            errorMessage="Enter the report completion date">
+      </app-three-field-date>
 
       <!-- Angular component -->
       <app-footer [draftEnabled]="false" label="Submit" hint="Submit and view your report"></app-footer>

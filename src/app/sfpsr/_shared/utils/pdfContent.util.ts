@@ -18,6 +18,15 @@ export class PdfContentUtil {
 
   /**
    *
+   * @param {IMultiFieldDate} dob
+   * @returns {String}
+   */
+  private static parseDate(dob: IMultiFieldDate) {
+    return dob.day ? dob.day + '/' + dob.month + '/' + dob.year : '';
+  }
+
+  /**
+   *
    * @param {IState} data
    * @returns {Array<any>}
    */
@@ -80,10 +89,6 @@ export class PdfContentUtil {
    */
   private static getOffenderDetails(data: IOffenderDetails): Array<any> {
 
-    function parseDob(dob: IMultiFieldDate) {
-      return dob.day ? dob.day + '/' + dob.month + '/' + dob.year : '';
-    }
-
     return [
       {
         style: 'tableDefault',
@@ -92,7 +97,7 @@ export class PdfContentUtil {
           body: [
             [{ colSpan: 4, text: 'Offender details', style: 'tableHeading' }, {}, {}, {}],
             [{ text: 'Name', style: 'fontBold' }, { colSpan: 3, text: data.name || '' }, {}, {}],
-            [{ text: 'Date of birth', style: 'fontBold' }, parseDob(data.dateOfBirth), { text: 'Age', style: 'fontBold' }, data.age || ''],
+            [{ text: 'Date of birth', style: 'fontBold' }, this.parseDate(data.dateOfBirth), { text: 'Age', style: 'fontBold' }, data.age || ''],
             [{ text: 'Address', style: 'fontBold' }, { colSpan: 3, text: data.address || '' }, {}, {}],
             [{ text: 'Delius CRN', style: 'fontBold' }, data.crn || '', { text: 'PNC ID', style: 'fontBold' }, data.pnc || '']
           ]
@@ -370,7 +375,7 @@ export class PdfContentUtil {
           body: [
             [{ colSpan: 2, text: 'Sentencing court details', style: 'tableHeading' }, {}],
             [{ text: 'Court', style: 'fontBold' }, data.court || ''],
-            [{ text: 'Date of hearing', style: 'fontBold' }, data.hearingDate || ''],
+            [{ text: 'Date of hearing', style: 'fontBold' }, this.parseDate(data.hearingDate)],
             [{ text: 'Local justice area', style: 'fontBold' }, data.localJusticeArea || '']
           ]
         }
@@ -397,7 +402,7 @@ export class PdfContentUtil {
             [{ text: 'Signature', style: 'fontBold' }, ''],
             [{ text: 'Counter signature *', style: 'fontBold' }, ''],
             [{ text: 'Start date', style: 'fontBold' }, data.startDate || ''],
-            [{ text: 'Completion date', style: 'fontBold' }, data.reportDate || '']
+            [{ text: 'Completion date', style: 'fontBold' }, this.parseDate(data.reportDate)]
           ]
         }
       },

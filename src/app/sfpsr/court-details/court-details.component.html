@@ -36,10 +36,12 @@
         </select>
       </div>
 
-      <!-- Angular component -->
-      <app-input [group]="reportForm" name="hearingDate" required="true" [error]="formError" label="Date of hearing"
-                 help="For example: 28/06/2017" date="true"
-                 errorMessage="Enter the name of the sentencing court"></app-input>
+      <!-- ANGULAR COMPONENT -->
+      <app-three-field-date [group]="reportForm" name="hearingDate"
+                            label="Date of hearing"
+                            help="For example, 31 3 2018" [error]="formError" required="true"
+                            errorMessage="Enter the date of the hearing">
+      </app-three-field-date>
 
       <!-- Angular component -->
       <app-footer></app-footer>
