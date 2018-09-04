@@ -56,7 +56,10 @@ export class PdfContentUtil {
         }
       },
       { text: 'Short Format Pre-Sentence Report', style: 'reportTitle', alignment: 'center', margin: [0, 20, 0, 0] },
-      { text: 'This is a Pre-Sentence Report as defined in Section 1 58 of the Criminal Justice Act 2003.', margin: [0, 20, 0, 20] },
+      {
+        text: 'This is a Pre-Sentence Report as defined in Section 1 58 of the Criminal Justice Act 2003.',
+        margin: [0, 20, 0, 20]
+      },
       PdfContentUtil.getOffenderDetails(data.offenderDetails),
       PdfContentUtil.getOffenceDetails(data.offenceDetails),
       PdfContentUtil.getOffenceAnalysis(data.offenceAnalysis),
@@ -97,9 +100,15 @@ export class PdfContentUtil {
           body: [
             [{ colSpan: 4, text: 'Offender details', style: 'tableHeading' }, {}, {}, {}],
             [{ text: 'Name', style: 'fontBold' }, { colSpan: 3, text: data.name || '' }, {}, {}],
-            [{ text: 'Date of birth', style: 'fontBold' }, this.parseDate(data.dateOfBirth), { text: 'Age', style: 'fontBold' }, data.age || ''],
+            [{ text: 'Date of birth', style: 'fontBold' }, this.parseDate(data.dateOfBirth), {
+              text: 'Age',
+              style: 'fontBold'
+            }, data.age || ''],
             [{ text: 'Address', style: 'fontBold' }, { colSpan: 3, text: data.address || '' }, {}, {}],
-            [{ text: 'Delius CRN', style: 'fontBold' }, data.crn || '', { text: 'PNC ID', style: 'fontBold' }, data.pnc || '']
+            [{ text: 'Delius CRN', style: 'fontBold' }, data.crn || '', {
+              text: 'PNC ID',
+              style: 'fontBold'
+            }, data.pnc || '']
           ]
         }
       }
@@ -192,7 +201,10 @@ export class PdfContentUtil {
             [{
               text: 'Thinking and behaviour',
               style: 'fontBold'
-            }, data.issueBehaviour ? '√' : '', { text: 'Other issues (specified below)', style: 'fontBold' }, data.issueOther ? '√' : '']
+            }, data.issueBehaviour ? '√' : '', {
+              text: 'Other issues (specified below)',
+              style: 'fontBold'
+            }, data.issueOther ? '√' : '']
           ]
         }
       }

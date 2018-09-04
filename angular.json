@@ -78,7 +78,6 @@
             "scripts": [
               "src/assets/javascripts/vendor/jquery/jquery.min.js",
               "src/assets/javascripts/vendor/jquery/autosize.min.js",
-              "src/assets/javascripts/vendor/ab-datepicker/datepicker.min.js",
               "src/assets/javascripts/govuk/accessible-autocomplete/accessible-autocomplete.min.js",
               "src/assets/javascripts/govuk/show-hide-content.js",
               "src/assets/javascripts/govuk/stick-at-top-when-scrolling.js"
