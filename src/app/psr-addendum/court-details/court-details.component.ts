@@ -52,8 +52,7 @@ export class CourtDetailsComponent extends BaseComponent {
     const updatedValue = Object.assign(value, {
       saved: true,
       valid: this.reportForm.valid,
-      localJusticeArea: (<HTMLInputElement>document.getElementById('localJusticeArea')).value,
-      hearingDate: (<HTMLInputElement>document.getElementById('hearingDate')).value
+      localJusticeArea: (<HTMLInputElement>document.getElementById('localJusticeArea')).value
     });
     this.store.dispatch(new UpdateCourtDetailsAction(updatedValue));
   }
@@ -72,7 +71,11 @@ export class CourtDetailsComponent extends BaseComponent {
     this.reportForm = this.formBuilder.group({
       court: [this.reportData.court, Validators.required],
       localJusticeArea: [this.reportData.localJusticeArea, Validators.required],
-      hearingDate: [this.reportData.hearingDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
+      hearingDate: this.formBuilder.group({
+        day: [this.reportData.hearingDate.day, Validators.required],
+        month: [this.reportData.hearingDate.month, Validators.required],
+        year: [this.reportData.hearingDate.year, Validators.required]
+      })
     });
   }
 

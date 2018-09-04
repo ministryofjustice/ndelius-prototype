@@ -1,3 +1,5 @@
+import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
+
 export interface ISignature {
   reportAuthor: string;
   address: string;
@@ -6,7 +8,7 @@ export interface ISignature {
   phone: string;
   counterSignature: string;
   counterSignatureRole: string;
-  reportDate: string;
+  reportDate: IMultiFieldDate;
   saved: boolean;
   valid: boolean;
 }

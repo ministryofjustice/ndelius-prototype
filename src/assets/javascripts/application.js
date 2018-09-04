@@ -1,12 +1,9 @@
-(function ($) {
+(function () {
 
   'use strict';
 
-  var showHideContent = new GOVUK.ShowHideContent(),
-    autoComplete = document.querySelector('.auto-complete');
+  var autoComplete = document.querySelector('.auto-complete');
 
-  showHideContent.init();
-  GOVUK.stickAtTopWhenScrolling.init();
   autosize(document.querySelectorAll('textarea:not(.moj-textarea--classic)'));
 
   if (!!autoComplete) {
@@ -18,12 +15,6 @@
     });
   }
 
-  $('.date-picker').datepicker({
-    weekDayFormat: 'narrow',
-    inputFormat: [''],
-    outputFormat: 'dd/MM/yyyy',
-    daysOfWeekDisabled: [0, 6],
-    gainFocusOnConstruction: false
-  });
+  window.GOVUKFrontend.initAll();
 
-})(window.jQuery);
+})();

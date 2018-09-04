@@ -184,7 +184,7 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
 
     let timerSub: Subscription = this.saving.timer;
     const interval: Subscription = this.saving.interval;
-    const currentValue = this.group.get(this.name).value.toString();
+    const currentValue = this.group.get(this.name) && this.group.get(this.name).value ? this.group.get(this.name).value.toString() : '';
 
     if (timerSub) {
       timerSub.unsubscribe();

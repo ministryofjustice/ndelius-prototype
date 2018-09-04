@@ -42,11 +42,7 @@ export class SignatureComponent extends BaseComponent {
    * @param {ISignature} value
    */
   saveContent({ value }: { value: ISignature }) {
-    const updatedValue = Object.assign(value, {
-      saved: true,
-      valid: this.reportForm.valid,
-      reportDate: (<HTMLInputElement>document.getElementById('reportDate')).value
-    });
+    const updatedValue = Object.assign(value, { saved: true, valid: this.reportForm.valid });
     this.store.dispatch(new UpdateSignatureAction(updatedValue));
   }
 
@@ -69,7 +65,11 @@ export class SignatureComponent extends BaseComponent {
       division: [this.reportData.division, Validators.required],
       counterSignature: this.reportData.counterSignature,
       counterSignatureRole: this.reportData.counterSignatureRole,
-      reportDate: [this.reportData.reportDate || this.datePipe.transform(Date.now(), 'dd/MM/yyyy'), Validators.required]
+      reportDate: this.formBuilder.group({
+        day: [this.reportData.reportDate.day, Validators.required],
+        month: [this.reportData.reportDate.month, Validators.required],
+        year: [this.reportData.reportDate.year, Validators.required]
+      })
     });
   }
 

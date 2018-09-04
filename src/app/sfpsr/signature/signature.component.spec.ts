@@ -13,6 +13,7 @@ import { MockFooterComponent } from '../../_shared/components/footer/footer.mock
 import { MockTextEntryComponent } from '../../_shared/components/text-entry/text-entry.mock.component';
 import { MockInputComponent } from '../../_shared/components/input/input.mock.component';
 import { MockFormErrorComponent } from '../../_shared/components/form-error/form-error.mock.component';
+import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/signature.reducer';
 
@@ -31,7 +32,8 @@ describe('SFPSR - Component: Signature', () => {
         MockPhaseBannerComponent,
         MockTextEntryComponent,
         MockInputComponent,
-        MockFooterComponent
+        MockFooterComponent,
+        MockThreeFieldDateComponent
       ],
       imports: [
         StoreModule.forRoot(reducers),

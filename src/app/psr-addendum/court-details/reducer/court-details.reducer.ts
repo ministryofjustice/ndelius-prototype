@@ -6,7 +6,11 @@ import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 export const initialState: ICourtDetails = {
   court: '',
   localJusticeArea: '',
-  hearingDate: '',
+  hearingDate: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
   saved: false,
   valid: false
 };

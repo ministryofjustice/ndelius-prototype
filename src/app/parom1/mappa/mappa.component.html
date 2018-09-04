@@ -26,10 +26,12 @@
       </app-notice>
 
       <!-- ANGULAR COMPONENT -->
-      <app-input [group]="reportForm" name="screenedDate" date="true" [error]="formError" required="true"
-                 label="What date was the prisoner screened for MAPPA (MAPPAQ completed)?"
-                 errorMessage="Enter the date the prisoner was screened for MAPPA">
-      </app-input>
+      <app-three-field-date [group]="reportForm" name="screenedDate"
+                            label="What date was the prisoner screened for MAPPA (MAPPAQ completed)?"
+                            help="For example, 31 3 2018" [error]="formError" required="true"
+                            errorMessage="Enter the date the prisoner was screened for MAPPA"></app-three-field-date>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="mappaCategory" [options]="['1', '2', '3']" required="true" [error]="formError"

@@ -1,4 +1,5 @@
 import { IVictimIssues } from '../model/victim-issues.model';
+import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
 
 export class VictimsTransform {
 
@@ -14,7 +15,7 @@ export class VictimsTransform {
       data.impactOfOffence || '',
       {
         text: [{ text: 'VLO contacted on: ', style: 'fontBold' },
-          data.vloContactDate || ''
+          parseDateForPDF(data.vloContactDate)
         ], margin: [0, 10, 0, 0]
       },
       { text: 'Victim Contact Service engagement', style: 'fieldHeading' },

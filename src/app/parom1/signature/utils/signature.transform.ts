@@ -1,4 +1,5 @@
 import { ISignature } from '../model/signature.model';
+import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
 
 export class SignatureTransform {
 
@@ -22,7 +23,7 @@ export class SignatureTransform {
             [{ text: 'Telephone number', style: 'fontBold' }, data.phone || ''],
             [{ text: 'Countersignature', style: 'fontBold' }, data.counterSignature || ''],
             [{ text: 'Role', style: 'fontBold' }, data.counterSignatureRole || ''],
-            [{ text: 'Completion date', style: 'fontBold' }, data.reportDate || '']
+            [{ text: 'Completion date', style: 'fontBold' }, parseDateForPDF(data.reportDate)]
           ]
         }
       }

@@ -63,10 +63,10 @@ export class ThreeFieldDateComponent {
 
   hasGroupError = () => {
     const group = this.group.get(this.name);
-    let fieldInvalid =  group.get('day') && group.get('day').touched && group.get('day').errors;
-    fieldInvalid = fieldInvalid || group.get('month') && group.get('month').touched && group.get('month').errors;
-    fieldInvalid = fieldInvalid || group.get('year') && group.get('year').touched && group.get('year').errors;
-    return fieldInvalid || this.error;
+    let fieldInvalid =  group.get('day') && (group.get('day').touched || this.error) && group.get('day').errors;
+    fieldInvalid = fieldInvalid || group.get('month') && (group.get('month').touched || this.error) && group.get('month').errors;
+    fieldInvalid = fieldInvalid || group.get('year') && (group.get('year').touched || this.error) && group.get('year').errors;
+    return fieldInvalid;
   }
 
 }
