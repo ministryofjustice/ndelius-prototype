@@ -4,6 +4,7 @@ import { IMappa } from '../model/mappa.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IMappa = {
+  eligibleForMappa: '',
   screenedDate: {
     day: void 0,
     month: void 0,

@@ -57,13 +57,14 @@ export class MappaComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
+      eligibleForMappa: [this.reportData.eligibleForMappa, Validators.required],
       screenedDate: this.formBuilder.group({
-        day: [this.reportData.screenedDate.day, Validators.required],
-        month: [this.reportData.screenedDate.month, Validators.required],
-        year: [this.reportData.screenedDate.year, Validators.required]
+        day: this.reportData.screenedDate.day,
+        month: this.reportData.screenedDate.month,
+        year: this.reportData.screenedDate.year
       }),
-      mappaCategory: [this.reportData.mappaCategory, Validators.required],
-      mappaLevel: [this.reportData.mappaLevel, Validators.required]
+      mappaCategory: this.reportData.mappaCategory,
+      mappaLevel: this.reportData.mappaLevel
     });
   }
 }
