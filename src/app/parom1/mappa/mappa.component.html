@@ -26,23 +26,43 @@
       </app-notice>
 
       <!-- ANGULAR COMPONENT -->
-      <app-three-field-date [group]="reportForm" name="screenedDate"
-                            label="What date was the prisoner screened for MAPPA (MAPPAQ completed)?"
-                            help="For example, 31 3 2018" [error]="formError" required="true"
-                            errorMessage="Enter the date the prisoner was screened for MAPPA"></app-three-field-date>
+      <app-radio-buttons [group]="reportForm" name="eligibleForMappa" [options]="['Yes', 'No']" inline="true"
+                         conditional="true" required="true" [error]="formError"
+                         label="Is the prisoner eligible for MAPPA?"
+                         errorMessage="Specify if the prisoner is eligible for MAPPA">
 
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
+        <ng-template let-option let-inline>
 
-      <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="mappaCategory" [options]="['1', '2', '3']" required="true" [error]="formError"
-                         label="What is the prisoner's current MAPPA category?"
-                         errorMessage="Select the prisoner's current MAPPA category">
-      </app-radio-buttons>
+          <div class="govuk-radios__conditional" *ngIf="(option === 'Yes' || inline) && reportForm.get('eligibleForMappa').value === 'Yes'">
 
-      <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="mappaLevel" [options]="['1', '2', '3']" required="true" [error]="formError"
-                         label="What is the prisoner's current MAPPA level?"
-                         errorMessage="Select the prisoner's current MAPPA level">
+            <!-- ANGULAR COMPONENT -->
+            <app-three-field-date [group]="reportForm" name="screenedDate"
+                                  label="What date was the prisoner screened for MAPPA (MAPPAQ completed)?"
+                                  help="For example, 31 3 2018" [error]="formError" required="true"
+                                  errorMessage="Enter the date the prisoner was screened for MAPPA"></app-three-field-date>
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
+
+            <!-- ANGULAR COMPONENT -->
+            <app-radio-buttons [group]="reportForm" name="mappaCategory" [options]="['1', '2', '3']" required="true"
+                               [error]="formError"
+                               label="What is the prisoner's current MAPPA category?"
+                               errorMessage="Select the prisoner's current MAPPA category">
+            </app-radio-buttons>
+
+            <br/>
+
+            <!-- ANGULAR COMPONENT -->
+            <app-radio-buttons [group]="reportForm" name="mappaLevel" [options]="['1', '2', '3']" required="true"
+                               [error]="formError"
+                               label="What is the prisoner's current MAPPA level?"
+                               errorMessage="Select the prisoner's current MAPPA level">
+            </app-radio-buttons>
+
+          </div>
+
+        </ng-template>
+
       </app-radio-buttons>
 
       <!-- ANGULAR COMPONENT -->
