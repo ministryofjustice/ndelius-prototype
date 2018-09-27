@@ -13,6 +13,7 @@ export const initialState: IInformationSources = {
   childrenServicesInformationSource: null,
   policeInformationSource: null,
   guidelinesSource: null,
+  domesticAbuseSource: null,
   otherInformationSource: null,
   otherInformationDetails: null,
   saved: false,

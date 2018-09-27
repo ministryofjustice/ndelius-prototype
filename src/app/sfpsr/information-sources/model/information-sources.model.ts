@@ -8,6 +8,7 @@ export interface IInformationSources {
   childrenServicesInformationSource: boolean;
   policeInformationSource: boolean;
   guidelinesSource: boolean;
+  domesticAbuseSource: boolean;
   otherInformationSource: boolean;
   otherInformationDetails: string;
   saved: boolean;
