@@ -82,7 +82,9 @@
           <div class="govuk-radios__conditional" *ngIf="(option === 'Yes' || inline) && reportForm.get('caring').value === 'Yes'">
 
             <!-- Angular component -->
-            <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities"></app-text-entry>
+            <app-text-entry [group]="reportForm" name="caringDetails" label="Caring responsibilities">
+              <p>Remember that evidence shows that imprisonment of mothers has significant impacts on those that they care for.</p>
+            </app-text-entry>
 
           </div>
         </ng-template>

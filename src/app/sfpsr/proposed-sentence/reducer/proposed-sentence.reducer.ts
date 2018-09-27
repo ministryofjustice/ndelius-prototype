@@ -5,7 +5,6 @@ import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IProposedSentence = {
   proposal: '',
-  diversity: '',
   saved: false,
   valid: false
 };

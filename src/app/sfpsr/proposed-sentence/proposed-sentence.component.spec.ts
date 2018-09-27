@@ -26,7 +26,6 @@ describe('SFPSR - Component: Proposal', () => {
       declarations: [
         ProposedSentenceComponent,
         MockFormErrorComponent,
-        MockRadioButtonsComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockTextEntryComponent,
