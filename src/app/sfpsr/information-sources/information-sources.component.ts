@@ -35,6 +35,7 @@ export class InformationSourcesComponent extends BaseComponent {
     { control: 'childrenServicesInformationSource', label: 'Children services checks' },
     { control: 'policeInformationSource', label: 'Police information' },
     { control: 'guidelinesSource', label: 'Sentencing guidelines' },
+    { control: 'domesticAbuseSource', label: 'Domestic abuse call out information' },
     {
       control: 'otherInformationSource', label: 'Other (please specify below)',
       conditional: {
@@ -92,6 +93,7 @@ export class InformationSourcesComponent extends BaseComponent {
       childrenServicesInformationSource: this.reportData.childrenServicesInformationSource,
       policeInformationSource: this.reportData.policeInformationSource,
       guidelinesSource: this.reportData.guidelinesSource,
+      domesticAbuseSource: this.reportData.domesticAbuseSource,
       otherInformationSource: this.reportData.otherInformationSource,
       otherInformationDetails: this.reportData.otherInformationDetails
     });

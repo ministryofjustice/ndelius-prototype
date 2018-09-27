@@ -183,6 +183,15 @@ export class PdfContentUtil {
       {
         style: 'tableDefault',
         table: {
+          widths: ['*'],
+          body: [
+            [{ text: 'Offender assessment', style: 'tableHeading' }]
+          ]
+        }
+      },
+      {
+        style: 'tableDefault',
+        table: {
           widths: ['*', 35, '*', 35],
           body: [
             [{ text: 'Offender assessment issues', style: 'tableHeading', colSpan: 4 }, {}, {}, {}],
@@ -312,9 +321,7 @@ export class PdfContentUtil {
           ]
         }
       },
-      { text: data.proposal, margin: [0, 10, 0, 0] },
-      { text: 'Equality and diversity issues', style: 'fieldHeading' },
-      data.diversity || ''
+      { text: data.proposal, margin: [0, 10, 0, 0] }
     ];
   }
 
@@ -355,9 +362,9 @@ export class PdfContentUtil {
               text: 'Children Services Checks',
               style: 'fontBold'
             }, data.childrenServicesInformationSource ? '√' : '', {
-              text: 'Other (specified below)',
+              text: 'Domestic abuse call out information',
               style: 'fontBold'
-            }, data.otherInformationSource ? '√' : '']
+            }, data.domesticAbuseSource ? '√' : '']
           ]
         }
       }

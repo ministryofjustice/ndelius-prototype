@@ -60,8 +60,7 @@ export class ProposedSentenceComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      proposal: [this.reportData.proposal, Validators.required],
-      diversity: [this.reportData.diversity, Validators.required]
+      proposal: [this.reportData.proposal, Validators.required]
     });
   }
 
