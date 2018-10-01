@@ -194,7 +194,7 @@ export class PdfContentUtil {
         table: {
           widths: ['*', 35, '*', 35],
           body: [
-            [{ text: 'Offender assessment issues', style: 'tableHeading', colSpan: 4 }, {}, {}, {}],
+            [{ text: 'Issues', style: 'tableHeading', colSpan: 4 }, {}, {}, {}],
             [{ text: 'Accommodation', style: 'fontBold' }, data.issueAccommodation ? '√' : '', {
               text: 'Employment, training and education',
               style: 'fontBold'
