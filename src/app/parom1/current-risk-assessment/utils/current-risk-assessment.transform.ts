@@ -26,7 +26,7 @@ export class CurrentRiskAssessmentTransform {
      * @param {string} score
      * @returns {string}
      */
-    function getString(levels: Array<number>, level: number, score: string|number): string {
+    function getString(levels: Array<number>, level: number, score: string | number): string {
       if (!level || !score) {
         return '';
       }
@@ -41,9 +41,18 @@ export class CurrentRiskAssessmentTransform {
           widths: ['*', '*'],
           body: [
             [{ text: 'RSR', style: 'fontBold' }, getString([3, 7, 10], data.rsrScore, data.rsrScore)],
-            [{ text: 'OGRS3', style: 'fontBold' }, getString([50, 75, 90], getPercentage(data.ogrs3Percentage), data.ogrs3Percentage)],
-            [{ text: 'OGP', style: 'fontBold' }, getString([34, 67, 85], getPercentage(data.ogpProbability), data.ogpProbability)],
-            [{ text: 'OVP', style: 'fontBold' }, getString([30, 60, 80], getPercentage(data.ovpProbability), data.ovpProbability)],
+            [{
+              text: 'OGRS3 (year 2)',
+              style: 'fontBold'
+            }, getString([50, 75, 90], getPercentage(data.ogrs3Percentage), data.ogrs3Percentage)],
+            [{
+              text: 'OGP (year 2)',
+              style: 'fontBold'
+            }, getString([34, 67, 85], getPercentage(data.ogpProbability), data.ogpProbability)],
+            [{
+              text: 'OVP (year 2)',
+              style: 'fontBold'
+            }, getString([30, 60, 80], getPercentage(data.ovpProbability), data.ovpProbability)],
             [{ text: 'Risk matrix 2000', style: 'fontBold' }, data.riskMatrix2000 || ''],
             [{ text: 'SARA', style: 'fontBold' }, data.sara || '']
           ]
