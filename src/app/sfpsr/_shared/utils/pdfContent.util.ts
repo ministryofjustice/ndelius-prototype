@@ -257,7 +257,8 @@ export class PdfContentUtil {
         widths: ['*'],
         body: [
           [{ text: 'Experience of trauma', style: 'tableHeading' }],
-          [{ text: data.traumaDetails || 'There is no evidence that the offender has experienced trauma.', border: [false, false, false, false] }]
+          [{ text: data.traumaDetails || 'There is no evidence that the offender has experienced trauma.',
+            border: [false, false, false, false] }]
         ]
       }
     });
@@ -268,7 +269,8 @@ export class PdfContentUtil {
         widths: ['*'],
         body: [
           [{ text: 'Caring responsibilities', style: 'tableHeading' }],
-          [{ text: data.caringDetails || 'There are no current or past caring responsibilities in this case.', border: [false, false, false, false] }]
+          [{ text: data.caringDetails || 'There are no current or past caring responsibilities in this case.',
+            border: [false, false, false, false] }]
         ]
       }
     });
