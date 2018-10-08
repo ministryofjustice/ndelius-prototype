@@ -32,7 +32,7 @@ export class InformationSourcesComponent extends BaseComponent {
     { control: 'oasysAssessmentsInformationSource', label: 'Previous OASys assessments' },
     { control: 'previousConvictionsInformationSource', label: 'Previous convictions' },
     { control: 'victimStatementInformationSource', label: 'Victim statement' },
-    { control: 'childrenServicesInformationSource', label: 'Children services checks' },
+    { control: 'childrenServicesInformationSource', label: 'Safeguarding checks' },
     { control: 'policeInformationSource', label: 'Police information' },
     { control: 'guidelinesSource', label: 'Sentencing guidelines' },
     { control: 'domesticAbuseSource', label: 'Domestic abuse call out information' },
