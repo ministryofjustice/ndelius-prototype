@@ -55,14 +55,15 @@ export class ReleaseRiskManagementComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      agencies: [this.reportData.agencies, Validators.required],
-      support: [this.reportData.support, Validators.required],
-      control: [this.reportData.control, Validators.required],
-      riskMeasures: [this.reportData.riskMeasures, Validators.required],
-      agencyActions: [this.reportData.agencyActions, Validators.required],
-      requirements: [this.reportData.requirements, Validators.required],
-      contactLevel: [this.reportData.contactLevel, Validators.required],
-      contingencyPlan: [this.reportData.contingencyPlan, Validators.required]
+      riskManagementPlanRequired: [this.reportData.riskManagementPlanRequired, Validators.required],
+      agencies: this.reportData.agencies,
+      support: this.reportData.support,
+      control: this.reportData.control,
+      riskMeasures: this.reportData.riskMeasures,
+      agencyActions: this.reportData.agencyActions,
+      requirements: this.reportData.requirements,
+      contactLevel: this.reportData.contactLevel,
+      contingencyPlan: this.reportData.contingencyPlan
     });
   }
 

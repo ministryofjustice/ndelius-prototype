@@ -8,9 +8,15 @@ export class ReleaseRiskManagementTransform {
    * @returns {Object}
    */
   static process(data: IReleaseRiskManagement): Array<any> {
+    if (data.riskManagementPlanRequired === 'No') {
+      return [
+        { text: 'Release risk management plan', style: 'sectionHeading' },
+        'A community Risk Management Plan (RMP) is not required.'
+      ]
+    }
     return [
       { text: 'Release risk management plan', style: 'sectionHeading' },
-      { text: 'Agencies', style: 'fieldHeading' },
+      { text: 'Current situation (Agencies)', style: 'fieldHeading' },
       data.agencies || '',
       { text: 'Support', style: 'fieldHeading' },
       data.support || '',
