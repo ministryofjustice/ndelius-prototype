@@ -2,7 +2,7 @@
 
 <footer class="moj-report-footer">
   <div class="moj-report-footer__container-left">
-    <button id="draftButton" class="govuk-button moj-button--secondary govuk-!-margin-bottom-1" type="button" *ngIf="draftEnabled">View draft report</button>
+    <button id="draftButton" class="govuk-button moj-button--secondary govuk-!-margin-bottom-1" type="button" *ngIf="draftEnabled" (click)="saveDraft()">View draft report</button>
   </div>
   <div class="moj-report-footer__container-right">
 
