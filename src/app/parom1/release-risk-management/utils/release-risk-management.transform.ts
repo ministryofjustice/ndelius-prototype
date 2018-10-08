@@ -12,7 +12,7 @@ export class ReleaseRiskManagementTransform {
       return [
         { text: 'Release risk management plan', style: 'sectionHeading' },
         'A community Risk Management Plan (RMP) is not required.'
-      ]
+      ];
     }
     return [
       { text: 'Release risk management plan', style: 'sectionHeading' },
@@ -31,7 +31,7 @@ export class ReleaseRiskManagementTransform {
       { text: 'Level of contact', style: 'fieldHeading' },
       data.contactLevel || '',
       { text: 'Contingency plan', style: 'fieldHeading' },
-      data.contingencyPlan || '',
+      data.contingencyPlan || ''
     ];
   }
 
