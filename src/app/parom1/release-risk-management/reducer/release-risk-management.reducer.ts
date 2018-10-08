@@ -4,6 +4,7 @@ import { IReleaseRiskManagement } from '../model/release-risk-management.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IReleaseRiskManagement = {
+  riskManagementPlanRequired: '',
   agencies: '',
   support: '',
   control: '',
