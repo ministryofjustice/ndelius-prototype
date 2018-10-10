@@ -4,7 +4,7 @@ interface IMonthYear {
 }
 
 export interface IPreviousRiskAssessment {
-  roshCompleted: boolean;
+  roshCompleted: string;
   previousDate: IMonthYear;
   riskPublic: string;
   riskKnownAdult: string;

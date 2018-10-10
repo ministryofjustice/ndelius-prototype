@@ -10,7 +10,7 @@ export class SupervisionPlanTransform {
   static process(data: ISupervisionPlan): Array<any> {
     return [
       { text: 'Supervision plan for release', style: 'sectionHeading' },
-      data.supervisionPlanForRelease || 'A supervision plan for release is not required.',
+      data.supervisionPlanRequired === 'No' ? 'A supervision plan for release is not required.' : data.supervisionPlanForRelease || ''
     ];
   }
 
