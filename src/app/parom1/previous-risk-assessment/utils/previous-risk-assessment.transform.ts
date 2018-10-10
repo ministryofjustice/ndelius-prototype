@@ -15,7 +15,7 @@ export class PreviousRiskAssessmentTransform {
     ];
 
     if (data.roshCompleted === 'No') {
-      section = section.concat(['The RoSH at point of sentence is not available']);
+      section = section.concat(['The RoSH at point of sentence is not available.']);
     } else {
       section = section.concat([
         {

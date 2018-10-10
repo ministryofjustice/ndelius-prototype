@@ -18,6 +18,7 @@
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" conditional="true"
+                         help="Select Yes even if OPD services have only been asked for advice."
                          required="true" [error]="formError" inline="true"
                          label="Has the prisoner met the OPD screening criteria and been considered for OPD pathway services?"
                          errorMessage="Specify whether the prisoner has met the OPD screening criteria and been considered for OPD pathway services">
@@ -25,12 +26,10 @@
         <ng-template let-option let-inline>
           <div class="govuk-radios__conditional"
                *ngIf="(option === 'Yes' || inline) && reportForm.get('opdPathway').value === 'Yes'">
-            <p class="govuk-body">Make reference, where relevant, throughout this report if:</p>
 
-            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-              <li>You have consulted OPD pathway services about the prisoner</li>
-              <li>The prisoner is engaged with OPD pathway services</li>
-            </ul>
+            <p class="govuk-body">Record any OPD pathway information about the prisoner in the relevant sections of the
+              report. For example, if an intervention has been assessed as appropriate to manage risk include this in
+              the RMP and sentence plan sections.</p>
           </div>
         </ng-template>
 

@@ -18,6 +18,7 @@
 
       <app-radio-buttons [group]="reportForm" name="resettlementPlanRequired"
                          label="Does the prisoner require a resettlement plan for release?" conditional="true"
+                         help="The Parole Board do not require a resettlement plan if the prisoner is pre-tariff"
                          [error]="formError" inline="true"
                          errorMessage="Specify if the prisoner requires a resettlement plan for release"
                          [options]="['Yes', 'No']"
@@ -32,11 +33,13 @@
                             (onSaveContent)="saveContent(reportForm)">
 
               <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-                <li>accomodation details</li>
-                <li>motivation to comply if released</li>
-                <li>if the prisoner is safe to release</li>
+                <li>Accommodation plans - with an assessment of suitability and likely compliance.</li>
+                <li>Clarification that a referral to Approved Premises has been accepted, if appropriate. If a referral has not been accepted explain why.</li>
+                <li>Analysis of the value an AP will add to risk management. Consideration of the impact an AP placement away from the prisoner’s home area, for example, female estates are not available in every division.</li>
+                <li>Consideration if the prisoner entered custody as a juvenile, was a care leaver or has been in secure accommodation - they are unlikely to have experience of managing tenancies, budgeting and other life skills. State how they will be supported.</li>
+                <li>An explanation, with reasons, of all relevant licence conditions required to manage risk - matched to those in the RMP.</li>
+                <li>Victim and safeguarding issues, if appropriate.</li>
               </ul>
-
             </app-text-entry>
 
           </div>

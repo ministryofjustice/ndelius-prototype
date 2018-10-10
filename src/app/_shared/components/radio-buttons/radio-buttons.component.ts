@@ -70,6 +70,11 @@ export class RadioButtonsComponent implements OnInit {
   @Input() public errorMessage = 'This field is required';
 
   /**
+   * The label for the guidance link - Default: 'What to include'
+   */
+  @Input() public includeLabel = 'What to include';
+
+  /**
    * Gain access to the 'hint' set within the child DOM
    */
   @ViewChild('hint') hint;
