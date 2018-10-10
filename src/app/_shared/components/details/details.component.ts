@@ -6,8 +6,6 @@ import { Component, Input } from '@angular/core';
 })
 export class DetailsComponent {
 
-  @Input() public label: string;
-  @Input() public hideBar: boolean;
-  @Input() public isActive: boolean;
+  @Input() public label = 'What to include';
 
 }

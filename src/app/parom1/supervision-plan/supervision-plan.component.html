@@ -19,6 +19,7 @@
 
       <app-radio-buttons [group]="reportForm" name="supervisionPlanRequired"
                          label="Does the prisoner require a supervision plan for release?" conditional="true"
+                         help="The Parole Board do not require a supervision plan if the prisoner is pre-tariff"
                          [error]="formError" inline="true"
                          errorMessage="Specify if the prisoner requires a supervision plan for release"
                          [options]="['Yes', 'No']"
@@ -33,11 +34,12 @@
                             (onSaveContent)="saveContent(reportForm)">
 
               <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-                <li>consider the community sentence plan and the prisoner’s likely compliance</li>
-                <li>specific objectives for adult and child safeguarding concerns</li>
-                <li>social capital, not just risks</li>
+                <li>A supervision plan which outlines what objectives the prisoner is required to complete upon release.  The objectives should meet the required risk, need and responsivity considerations to help ensure the licence period is successful.</li>
+                <li>Evidence that the prisoner has engaged in the sentence plan process.  Prisoners should be clear on the purpose of any interventions and be encouraged to take responsibility for the objectives they have agreed.</li>
+                <li>Objectives to address RoSH in child, adult and victim safeguarding cases.</li>
+                <li>A reference to the likelihood of compliance with supervision.</li>
+                <li>Analysis of additional factors to encourage and support compliance - this is pertinent for prisoners who have served long sentences or entered custody as a juvenile. They could feel institutionalised or struggle to manage the demands of life in the community, for example, claiming benefits or new technology.</li>
               </ul>
-
             </app-text-entry>
 
           </div>
