@@ -26,12 +26,9 @@
                       errorMessage="Detail the interventions the prisoner has completed">
 
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
-          <li>those designed to reduce risk</li>
-          <li>those designed to increase social capital</li>
-          <li>employment</li>
-          <li>training</li>
+          <li>All interventions completed throughout the sentence - not just those finished since the last report was submitted. Record these chronologically with dates.</li>
+          <li>Interventions the prisoner refused to attend or did not complete.</li>
         </ul>
-
       </app-text-entry>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
@@ -42,6 +39,13 @@
                       help="Include the prisoner’s application of learning and the impact of this. Link this to future risk"
                       (onSaveContent)="saveContent(reportForm)" [error]="formError"
                       errorMessage="Enter the interventions summary">
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>A summary of the impact that an intervention has had on the prisoner, or the lack of impact. You do not have to analyse interventions individually - this is included in the dossier in reports like the post-sentence or Structured Assessment of Risk (SARN).</li>
+          <li>Achievements, shifts in behaviour or attitude, diversity considerations and capacity to change.</li>
+          <li>Application of learning, for example, evidence of using a new skill.</li>
+          <li>A summary of the impact of gender-specific and trauma-informed interventions.</li>
+        </ul>
       </app-text-entry>
 
       <!-- ANGULAR COMPONENT -->
