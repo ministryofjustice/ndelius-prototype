@@ -10,7 +10,7 @@ export class ResettlementPlanTransform {
   static process(data: IResettlementPlan): Array<any> {
     return [
       { text: 'Resettlement plan for release', style: 'sectionHeading' },
-      data.resettlementPlanForRelease || 'A resettlement plan for release is not required.',
+      data.resettlementPlanRequired === 'No' ? 'A resettlement plan for release is not required.' : data.resettlementPlanForRelease || ''
     ];
   }
 
