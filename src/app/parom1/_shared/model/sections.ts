@@ -84,7 +84,7 @@ export function sections(): Array<ISection> {
       state: 'riskSeriousHarm'
     },
     {
-      route: '/parom1/release-risk-management',
+      route: '/parom1/risk-management-plan',
       label: 'Risk Management Plan (RMP)',
       state: 'releaseRiskManagement'
     },

@@ -18,7 +18,7 @@ import { MockDetailsComponent } from '../../_shared/components/details/details.m
 
 import * as model from './reducer/release-risk-management.reducer';
 
-describe('PAROM1 - Component: Release risk management plan', () => {
+describe('PAROM1 - Component: Community risk management plan (RMP)', () => {
 
   let fixture: ComponentFixture<ReleaseRiskManagementComponent>;
   let component: ReleaseRiskManagementComponent;

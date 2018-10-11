@@ -10,7 +10,7 @@ export class ReleaseRiskManagementTransform {
   static process(data: IReleaseRiskManagement): Array<any> {
 
     const section: Array<any> = [
-      { text: 'Release risk management plan', style: 'sectionHeading' }
+      { text: 'Community Risk Management Plan (RMP)', style: 'sectionHeading' }
     ];
 
     if (data.riskManagementPlanRequired === 'No') {
