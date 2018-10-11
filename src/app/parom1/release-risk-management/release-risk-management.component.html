@@ -29,6 +29,17 @@
       You must complete the RMP for all on or post-tariff prisoners, even if you are not supporting release or they are subject to deportation
     </app-notice>
 
+    <p class="govuk-caption-xl govuk-!-margin-bottom-1 govuk-!-margin-top-0 govuk-!-padding-top-4">Detail the risk management plan (RMP)</p>
+
+    <app-details label="RMP guidance">
+      <p>The community RMP must include what other agencies will do to manage the risk presented by the offender.</p>
+      <p>Providing a custodial based RMP will not assist the Parole Board to make an informed decision about release.</p>
+      <p>Failure to provide a community RMP when one is required could cause further delay to proceedings and the prisoner pursuing action.</p>
+      <p>The accompanying OASys can detail both a custodial and community RMP.</p>
+      <p>For those on or post-tariff your report must consider the Parole Board’s statutory release test: ‘that it is no longer necessary for the protection of the public that the offender be confined.’</p>
+      <p>You do not need to state the test definition but you should be clear that manageability in the community has been considered, assessed and applied.</p>
+    </app-details>
+
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <app-radio-buttons [group]="reportForm" name="riskManagementPlanRequired"
@@ -40,17 +51,6 @@
 
         <ng-template let-option let-inline>
           <div class="govuk-radios__conditional" *ngIf="(option === 'Yes' || inline)  && reportForm.get('riskManagementPlanRequired').value === 'Yes'">
-
-            <p class="govuk-caption-xl govuk-!-margin-bottom-1 govuk-!-margin-top-0 govuk-!-padding-top-4">Detail the risk management plan (RMP)</p>
-
-            <app-details label="RMP guidance">
-              <p>The community RMP must include what other agencies will do to manage the risk presented by the offender.</p>
-              <p>Providing a custodial based RMP will not assist the Parole Board to make an informed decision about release.</p>
-              <p>Failure to provide a community RMP when one is required could cause further delay to proceedings and the prisoner pursuing action.</p>
-              <p>The accompanying OASys can detail both a custodial and community RMP.</p>
-              <p>For those on or post-tariff your report must consider the Parole Board’s statutory release test: ‘that it is no longer necessary for the protection of the public that the offender be confined.’</p>
-              <p>You do not need to state the test definition but you should be clear that manageability in the community has been considered, assessed and applied.</p>
-            </app-details>
 
             <!-- Angular component -->
             <app-text-entry [group]="reportForm" name="agencies"

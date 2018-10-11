@@ -47,7 +47,7 @@ export class RiskSeriousHarmComponent extends BaseComponent {
    *
    */
   protected continueJourney() {
-    this.router.navigate(['parom1/release-risk-management']);
+    this.router.navigate(['parom1/risk-management-plan']);
   }
 
   /**

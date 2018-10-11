@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'risk-custody', data: { title: 'Current ROSH: custody' }, component: RiskCustodyComponent },
   { path: 'risk-prisoner', data: { title: 'Risk to the prisoner' }, component: RiskPrisonerComponent },
   { path: 'risk-serious-harm', data: { title: 'ROSH analysis' }, component: RiskSeriousHarmComponent },
-  { path: 'release-risk-management', data: { title: 'Community RMP' }, component: ReleaseRiskManagementComponent },
+  { path: 'risk-management-plan', data: { title: 'Community RMP' }, component: ReleaseRiskManagementComponent },
   { path: 'resettlement-plan', data: { title: 'Resettlement plan for release' }, component: ResettlementPlanComponent },
   { path: 'supervision-plan', data: { title: 'Supervision plan for release' }, component: SupervisionPlanComponent },
   { path: 'recommendation', data: { title: 'Recommendation' }, component: RecommendationComponent },

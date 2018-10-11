@@ -7,5 +7,7 @@ import { Component, Input } from '@angular/core';
 export class DetailsComponent {
 
   @Input() public label = 'What to include';
+  @Input() public hideBar: boolean;
+  @Input() public noMarginBottom: boolean;
 
 }
