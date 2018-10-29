@@ -13,9 +13,7 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'prison', error: 'Enter the prison or Young Offender Institution' },
-                    { name: 'name', error: 'Enter the prisoner’s full name' },
                     { name: 'prisonNumber', error: 'Enter the prison number' },
-                    { name: 'nomisNumber', error: 'Enter the NOMIS number' },
                     { name: 'category', error: 'Select the prisoner’s category' },
                     { name: 'offence', error: 'Enter the offence' },
                     { name: 'sentence', error: 'Enter the sentence' },
@@ -24,6 +22,14 @@
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="name" label="Prisoner's full name" [readonly]="true"></app-input>
+
+      <!-- ANGULAR COMPONENT -->
+      <app-input [group]="reportForm" name="nomisNumber" label="NOMIS number" [readonly]="true"></app-input>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <div class="govuk-form-group"
            [ngClass]="{ 'govuk-form-group--error': (reportForm.get('prison').touched || formError) && reportForm.get('prison').errors }">
@@ -38,16 +44,8 @@
       </div>
 
       <!-- ANGULAR COMPONENT -->
-      <app-input [group]="reportForm" name="name" required="true" wide="true" [error]="formError" label="Prisoner's full name"
-                 errorMessage="Enter the prisoner’s full name"></app-input>
-
-      <!-- ANGULAR COMPONENT -->
       <app-input [group]="reportForm" name="prisonNumber" required="true" [error]="formError" label="Prison number"
                  errorMessage="Enter the prison number"></app-input>
-
-      <!-- ANGULAR COMPONENT -->
-      <app-input [group]="reportForm" name="nomisNumber" required="true" [error]="formError" label="NOMIS number"
-                 errorMessage="Enter the NOMIS number"></app-input>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="category"

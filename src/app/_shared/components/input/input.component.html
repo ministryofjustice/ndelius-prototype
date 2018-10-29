@@ -1,5 +1,5 @@
 <div class="govuk-form-group" [formGroup]="group"  [ngClass]="{ 'govuk-form-group--error': (group.get(name).touched || error) && required && group.get(name).errors }">
-  <label class="govuk-label" [for]="name">
+  <label class="govuk-label" [ngClass]="{ 'govuk-!-font-weight-bold': readonly }" [for]="name">
     {{label}}
   </label>
   <app-error-messages [control]="name" [message]="errorMessage" [active]="(group.get(name).touched || error) && required && group.get(name).errors"></app-error-messages>
