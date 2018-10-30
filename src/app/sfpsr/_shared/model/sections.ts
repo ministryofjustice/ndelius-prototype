@@ -25,11 +25,6 @@ export function sections(): Array<ISection> {
       state: 'courtDetails'
     },
     {
-      route: '/sfpsr/information-sources',
-      label: 'Sources of information',
-      state: 'informationSources'
-    },
-    {
       route: '/sfpsr/offence-details',
       label: 'Offence details',
       state: 'offenceDetails'
@@ -53,6 +48,11 @@ export function sections(): Array<ISection> {
       route: '/sfpsr/proposed-sentence',
       label: 'Proposal',
       state: 'proposedSentence'
+    },
+    {
+      route: '/sfpsr/information-sources',
+      label: 'Sources of information',
+      state: 'informationSources'
     },
     {
       dataOnly: true,

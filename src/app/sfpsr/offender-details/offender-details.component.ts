@@ -41,7 +41,7 @@ export class OffenderDetailsComponent extends BaseComponent {
    *
    * @param {IOffenderDetails} value
    */
-  saveContent({ value }: {  value: IOffenderDetails }) {
+  saveContent({ value }: { value: IOffenderDetails }) {
     const updatedValue = Object.assign(value, {
       saved: true,
       valid: this.reportForm.valid,
@@ -61,15 +61,18 @@ export class OffenderDetailsComponent extends BaseComponent {
    *
    */
   private createForm() {
+
+    function zero(num: number): string {
+      return ('0' + num).slice(-2);
+    }
+
     this.reportForm = this.formBuilder.group({
-      name: [this.reportData.name, Validators.required],
-      address: [this.reportData.address, Validators.required],
-      phone: [this.reportData.phone, Validators.required],
-      dateOfBirth: this.formBuilder.group({
-        day: [this.reportData.dateOfBirth.day, Validators.required],
-        month: [this.reportData.dateOfBirth.month, Validators.required],
-        year: [this.reportData.dateOfBirth.year, Validators.required]
-      }),
+      name: this.reportData.name,
+      address: this.reportData.address,
+      phone: this.reportData.phone,
+      dateOfBirth: zero(this.reportData.dateOfBirth.day) + '/' +
+        zero(this.reportData.dateOfBirth.month) + '/' +
+        this.reportData.dateOfBirth.year,
       age: this.reportData.age,
       crn: this.reportData.crn,
       pnc: this.reportData.pnc

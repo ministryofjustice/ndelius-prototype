@@ -69,7 +69,7 @@ describe('SFPSR - Component: Proposal', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/check-report']);
+    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/information-sources']);
   });
 
 });
