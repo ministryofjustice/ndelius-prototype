@@ -79,7 +79,7 @@ describe('SFPSR - Component: Court details', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
     expect(component.formError).toBeFalsy();
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/information-sources']);
+    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/offence-details']);
   });
 
 });

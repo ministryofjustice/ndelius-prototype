@@ -52,7 +52,7 @@ export class ProposedSentenceComponent extends BaseComponent {
    *
    */
   protected continueJourney() {
-    this.router.navigate(['sfpsr/check-report']);
+    this.router.navigate(['sfpsr/information-sources']);
   }
 
   /**

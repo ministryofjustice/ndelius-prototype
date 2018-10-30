@@ -86,13 +86,25 @@ export class TextEntryComponent implements OnInit, OnDestroy, AfterViewInit {
 
   /**
    *
-   * @type {string}
+   * @type {boolean}
    */
   @Input() public classic: boolean;
 
   /**
    *
-   * @type {string}
+   * @type {boolean}
+   */
+  @Input() public prefilled: boolean;
+
+  /**
+   *
+   * @type {boolean}
+   */
+  @Input() public readonly: boolean;
+
+  /**
+   *
+   * @type {boolean}
    */
   @Input() public wide: boolean;
 

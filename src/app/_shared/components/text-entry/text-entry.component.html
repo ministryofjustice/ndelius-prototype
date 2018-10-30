@@ -1,5 +1,5 @@
 <div class="govuk-form-group" [formGroup]="group" [ngClass]="{ 'govuk-form-group--error': group.get(name).errors && (group.get(name).touched || error) }">
-  <label class="govuk-label" [for]="name">
+  <label class="govuk-label" [ngClass]="{ 'govuk-!-font-weight-bold': readonly }" [for]="name">
     {{label}}
   </label>
   <span [id]="name + '-hint'" class="govuk-hint" *ngIf="help">
@@ -20,7 +20,7 @@
   </div>
 
   <app-error-messages [control]="name" [active]="group.get(name).errors && (group.get(name).touched || error)" [message]="errorMessage"></app-error-messages>
-  <textarea #textArea [id]="name" [name]="name" [formControlName]="name" class="govuk-textarea moj-textarea" [attr.aria-describedby]="name + '-hint ' + name + '-error'" [ngClass]="{ 'moj-textarea--classic': classic, 'govuk-!-width-one-half': classic && !wide }" [placeholder]="placeholder" (focus)="startSaving()" (blur)="saveProgress()"></textarea>
+  <textarea #textArea [id]="name" [name]="name" [formControlName]="name" class="govuk-textarea moj-textarea" [attr.aria-describedby]="name + '-hint ' + name + '-error'" [ngClass]="{ 'moj-textarea--prefilled': prefilled, 'moj-textarea--classic': classic, 'govuk-!-width-one-half': classic && !wide }" [placeholder]="placeholder" [readonly]="readonly" (focus)="startSaving()" (blur)="saveProgress()"></textarea>
 
   <div *ngIf="limit && group.get(name).value.length">
     <p class="govuk-hint">{{limitText}}</p>

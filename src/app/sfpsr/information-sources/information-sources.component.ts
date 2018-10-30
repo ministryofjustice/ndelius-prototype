@@ -76,7 +76,7 @@ export class InformationSourcesComponent extends BaseComponent {
    *
    */
   protected continueJourney() {
-    this.router.navigate(['sfpsr/offence-details']);
+    this.router.navigate(['sfpsr/check-report']);
   }
 
   /**

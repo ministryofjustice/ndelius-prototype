@@ -60,7 +60,7 @@ export class CourtDetailsComponent extends BaseComponent {
    *
    */
   protected continueJourney() {
-    this.router.navigate(['sfpsr/information-sources']);
+    this.router.navigate(['sfpsr/offence-details']);
   }
 
   /**

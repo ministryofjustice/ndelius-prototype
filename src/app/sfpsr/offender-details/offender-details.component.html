@@ -9,40 +9,25 @@
   </div>
   <div class="govuk-grid-column-two-thirds">
 
-    <!-- Angular component -->
-    <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
-                    [controls]="[
-                    { name: 'name', error: 'Enter the offender’s full name' },
-                    { name: 'dateOfBirth', error: 'Enter the offender’s date of birth' },
-                    { name: 'address', error: 'Enter the offender’s address' },
-                    { name: 'phone', error: 'Enter the offender’s contact number' }
-                    ]">
-    </app-form-error>
-
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <!-- Angular component -->
-      <app-input [group]="reportForm" name="name" required="true" [error]="formError" label="Full name"
-                 errorMessage="Enter the offender’s full name"></app-input>
+      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Full name</span><br/>
+        {{reportForm.get('name').value}}</p>
 
-      <!-- Angular component -->
-      <app-three-field-date [group]="reportForm" name="dateOfBirth"
-                            label="Date of birth"
-                            help="For example, 31 3 1982"></app-three-field-date>
+      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Date of birth</span><br/>
+        {{reportForm.get('dateOfBirth').value}}</p>
 
-      <!-- Angular component -->
-      <app-text-entry [group]="reportForm" name="address" [error]="formError" label="Address" errorMessage="Enter the offender's address" classic="true" required="true"></app-text-entry>
+      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Age</span><br/>
+        {{reportForm.get('age').value}}</p>
 
-      <!-- Angular component -->
-      <app-input [group]="reportForm" name="phone" required="true" [error]="formError" type="tel" label="Contact number"
-                 errorMessage="Enter the contact number"></app-input>
+      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Delius CRN</span><br/>
+        {{reportForm.get('crn').value}}</p>
 
-      <!-- Angular component -->
-      <app-input [group]="reportForm" name="pnc" [error]="formError" label="PNC ID"
-                 help="If available in CPS documentation"></app-input>
+      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address</span><br/>
+        {{reportForm.get('address').value}}</p>
 
-      <!-- Angular component -->
-      <app-input [group]="reportForm" name="crn" label="Delius CRN" readonly="true"></app-input>
+      <p class="govuk-body"><span class="govuk-!-font-weight-bold">PNC ID</span><br/>
+        {{reportForm.get('pnc').value}}</p>
 
       <!-- Angular component -->
       <app-footer></app-footer>

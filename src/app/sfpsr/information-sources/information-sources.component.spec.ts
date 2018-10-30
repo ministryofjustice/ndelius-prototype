@@ -60,7 +60,7 @@ describe('SFPSR - Component: Sources of information', () => {
   it('should navigate to the Offence Details page', () => {
     const navigateSpy = spyOn((<any>component).router, 'navigate');
     component.onSubmit({ valid: true, value: model.initialState });
-    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/offence-details']);
+    expect(navigateSpy).toHaveBeenCalledWith(['sfpsr/check-report']);
   });
 
 });
