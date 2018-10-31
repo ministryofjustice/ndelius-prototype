@@ -29,30 +29,34 @@
 
   <div class="column-flex navigation delius-omit-mobile">
 
-    <nav class="delius-nav" [ngClass]="{ 'push-down': !rla.isActive }">
-      <ul>
-        <li routerLinkActive="active" #rla="routerLinkActive" routerLink="/start" class="clickable"><span class="far fa-home"></span> Home
-        </li>
-        <li><span class="far fa-search"></span> National Search</li>
-        <li><span class="far fa-eye"></span> National Custody Search</li>
-        <li><span class="far fa-history"></span> Recently Viewed</li>
-        <li><span class="far fa-briefcase"></span> Case Management</li>
+    <div class="delius-nav-wrapper" [ngClass]="{ 'push-down': !rla.isActive }">
 
-        <!-- ANGULAR ROUTER - Navigation -->
-        <router-outlet name="navigation"></router-outlet>
+      <nav class="delius-nav">
+        <ul>
+          <li routerLinkActive="active" #rla="routerLinkActive" routerLink="/start" class="clickable"><span class="far fa-home"></span> Home
+          </li>
+          <li><span class="far fa-search"></span> National Search</li>
+          <li><span class="far fa-eye"></span> National Custody Search</li>
+          <li><span class="far fa-history"></span> Recently Viewed</li>
+          <li><span class="far fa-briefcase"></span> Case Management</li>
 
-        <li><span class="far fa-calendar"></span> Officer Diary</li>
-        <li><span class="far fa-bank"></span> Court Diary</li>
-        <li><span class="far fa-bed"></span> Approved Premises Diary</li>
-        <li><span class="far fa-book"></span> UPW Project Diary</li>
-        <li><span class="far fa-paint-brush"></span> UPW Projects</li>
-        <li><span class="far fa-wrench"></span> Data Maintenance</li>
-        <li><span class="far fa-database"></span> Reference Data</li>
-        <li><span class="far fa-user"></span> User Administration</li>
-        <li><span class="far fa-cog"></span> User Preferences</li>
-        <li><span class="far fa-power-off"></span> Exit</li>
-      </ul>
-    </nav>
+          <!-- ANGULAR ROUTER - Navigation -->
+          <router-outlet name="navigation"></router-outlet>
+
+          <li><span class="far fa-calendar"></span> Officer Diary</li>
+          <li><span class="far fa-bank"></span> Court Diary</li>
+          <li><span class="far fa-bed"></span> Approved Premises Diary</li>
+          <li><span class="far fa-book"></span> UPW Project Diary</li>
+          <li><span class="far fa-paint-brush"></span> UPW Projects</li>
+          <li><span class="far fa-wrench"></span> Data Maintenance</li>
+          <li><span class="far fa-database"></span> Reference Data</li>
+          <li><span class="far fa-user"></span> User Administration</li>
+          <li><span class="far fa-cog"></span> User Preferences</li>
+          <li><span class="far fa-power-off"></span> Exit</li>
+        </ul>
+      </nav>
+
+    </div>
 
   </div>
   <div class="column-flex govuk-width-container push-top" [ngClass]="{ 'double': !rla.isActive }">
