@@ -9,9 +9,9 @@ export const initialState: IPrisonerDetails = {
   prisonNumber: '',
   nomisNumber: '',
   gender: void 0,
-  category: '',
-  offence: '',
-  sentence: '',
+  category: 'Restricted',
+  offence: 'Dishonest representation for obtaining benefit etc (05333) - 25/08/2016',
+  sentence: '36 months custodial',
   sentenceType: '',
   determinateReleaseDate: {
     day: void 0,
