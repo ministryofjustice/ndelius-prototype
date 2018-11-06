@@ -70,12 +70,12 @@ export class PrisonerDetailsComponent extends BaseComponent {
     this.reportForm = this.formBuilder.group({
       name: this.reportData.name,
       nomisNumber: this.reportData.nomisNumber,
-      prison: [this.reportData.prison, Validators.required],
-      prisonNumber: [this.reportData.prisonNumber, Validators.required],
-      category: [this.reportData.category, Validators.required],
-      offence: [this.reportData.offence, Validators.required],
-      sentence: [this.reportData.sentence, Validators.required],
-      sentenceType: [this.reportData.sentenceType, Validators.required],
+      prison: this.reportData.prison,
+      prisonNumber: this.reportData.prisonNumber,
+      category: this.reportData.category,
+      offence: this.reportData.offence,
+      sentence: this.reportData.sentence,
+      sentenceType: this.reportData.sentenceType,
       determinateEligibilityDate: this.formBuilder.group({
         day: this.reportData.determinateEligibilityDate.day,
         month: this.reportData.determinateEligibilityDate.month,
