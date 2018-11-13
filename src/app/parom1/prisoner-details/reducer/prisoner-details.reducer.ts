@@ -4,6 +4,7 @@ import { IPrisonerDetails } from '../model/prisoner-details.model';
 import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IPrisonerDetails = {
+  prisonImage: '',
   prison: '',
   name: '',
   prisonNumber: '',

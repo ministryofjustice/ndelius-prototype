@@ -1,6 +1,7 @@
 import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.interface';
 
 export interface IPrisonerDetails {
+  prisonImage: string;
   prison: string;
   name: string;
   prisonNumber: string;

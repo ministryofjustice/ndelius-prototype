@@ -31,14 +31,16 @@
       <span class="app-status-tag">recommended</span>
     </td>
   </tr>
+  <ng-template ngFor let-offender [ngForOf]="parom1Offenders" let-index="index">
   <tr>
     <td>
-      <a id="parom1" routerLink="/parom1/start-report" [queryParams]="queryParams">Parole Report - Parom 1</a>
+      <a id="parom1" routerLink="/parom1/start-report" [queryParams]="offender">Parole Report - Parom 1 ({{offender.name}})</a>
     </td>
     <td>
-      <span class="app-status-tag app-status-tag--experimental">experimental</span>
+      <span class="app-status-tag">recommended</span>
     </td>
   </tr>
+  </ng-template>
   <!--
   <tr>
     <td>

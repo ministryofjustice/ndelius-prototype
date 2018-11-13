@@ -4,8 +4,8 @@ import { Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs';
 
-import { getCurrentState, IState } from '../../parom1-omic/_shared/reducer/state.reducers';
-import { UpdatePrisonerDetailsAction } from '../../parom1-omic/prisoner-details/action/prisoner-details.action';
+import { getCurrentState, IState } from '../_shared/reducer/state.reducers';
+import { UpdatePrisonerDetailsAction } from '../prisoner-details/action/prisoner-details.action';
 
 @Component({
   selector: 'app-start-report',
@@ -57,27 +57,34 @@ export class StartReportComponent implements OnInit, OnDestroy {
         console['info']('Received data:', params);
 
         this.store.dispatch(new UpdatePrisonerDetailsAction({
-          prison: data.prison || params['prison'],
-          name: data.name || params['name'],
-          prisonNumber: data.prisonNumber || params['prisonNumber'],
-          nomisNumber: data.nomisNumber || params['nomisNumber'],
-          gender: data.gender || params['gender'],
-          category: data.category || params['category'],
-          sentence: data.sentence || params['sentence'],
-          sentenceType: data.sentenceType || params['sentenceType'],
+          prisonImage: params['prisonImage'],
+          prison: params['prison'] || data.prison,
+          name: params['name'] || data.name,
+          prisonNumber: params['prisonNumber'] || data.prisonNumber,
+          nomisNumber: params['nomisNumber'],
+          gender: params['gender'] || data.gender,
+          category: params['category'] || data.category,
+          offence: params['offence'] || data.offence,
+          sentence: params['sentence'] || data.sentence,
+          sentenceType: params['sentenceType'] || data.sentenceType,
+          determinateEligibilityDate: {
+            day: params['determinateEligibilityDateDay'] || data.determinateEligibilityDate.day,
+            month: params['determinateEligibilityDateMonth'] || data.determinateEligibilityDate.month,
+            year: params['determinateEligibilityDateYear'] || data.determinateEligibilityDate.year
+          },
           determinateReleaseDate: {
-            day: data.determinateReleaseDate.day || params['determinateReleaseDateDay'],
-            month: data.determinateReleaseDate.month || params['determinateReleaseDateMonth'],
-            year: data.determinateReleaseDate.year || params['determinateReleaseDateYear']
+            day: params['determinateReleaseDateDay'] || data.determinateReleaseDate.day,
+            month: params['determinateReleaseDateMonth'] || data.determinateReleaseDate.month,
+            year: params['determinateReleaseDateYear'] || data.determinateReleaseDate.year
           },
           tariffLength: data.tariffLength || params['tariffLength'],
           tariffExpiryDate: {
-            day: data.tariffExpiryDate.day || params['tariffExpiryDateDate'],
-            month: data.tariffExpiryDate.month || params['tariffExpiryDateMonth'],
-            year: data.tariffExpiryDate.year || params['tariffExpiryDateYear']
+            day: params['tariffExpiryDateDate'] || data.tariffExpiryDate.day,
+            month: params['tariffExpiryDateMonth'] || data.tariffExpiryDate.month,
+            year: params['tariffExpiryDateYear'] || data.tariffExpiryDate.year
           },
           saved: true,
-          valid: data.valid || false
+          valid: false
         }));
       }
     });

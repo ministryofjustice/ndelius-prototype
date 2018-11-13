@@ -3,24 +3,53 @@
 
 <div class="moj-interrupt">
 
-  <h1 class="govuk-heading-xl govuk-!-margin-top-6 moj-!-color-white">Start a PAROM 1</h1>
+  <div *ngIf="reportData.prisonerDetails.nomisNumber">
 
-  <h2 class="govuk-caption-xl moj-!-color-white">With this service you can:</h2>
+    <h1 class="govuk-heading-xl govuk-!-margin-top-6 govuk-!-margin-bottom-2 moj-!-color-white">Start a PAROM 1</h1>
 
-  <ul class="govuk-list govuk-list--bullet moj-!-color-white govuk-!-margin-top-4">
-    <li>complete the report in your preferred order</li>
-    <li>save and close the report at any point - it also saves as you write</li>
-    <li>check the overall progress of the report</li>
-  </ul>
+    <h2 class="govuk-caption-xl moj-!-color-white">With this service you can:</h2>
 
-  <div class="govuk-warning-text govuk-!-margin-top-4">
-    <span class="govuk-warning-text__icon moj-warning-text__icon--interrupt" aria-hidden="true">!</span>
-    <strong class="govuk-warning-text__text moj-warning-text__text--interrupt">
-      <span class="govuk-warning-text__assistive">Warning</span>
-      This report will be disclosed to the prisoner
-    </strong>
+    <ul class="govuk-list govuk-list--bullet moj-!-color-white govuk-!-margin-top-4">
+      <li>complete the report in your preferred order</li>
+      <li>save and close the report at any point - it also saves as you write</li>
+      <li>check the overall progress of the report</li>
+    </ul>
+
   </div>
 
-  <button id="nextButton" class="govuk-button govuk-button--start moj-button--inverted govuk-!-margin-top-6 govuk-!-margin-bottom-2" type="button" (click)="startReport()">Start now</button>
+  <div *ngIf="!reportData.prisonerDetails.nomisNumber">
+    <h1 class="govuk-heading-xl govuk-!-margin-top-6 govuk-!-margin-bottom-2 moj-!-color-white">Before you start</h1>
+  </div>
+
+  <table class="govuk-!-margin-top-6 govuk-!-margin-bottom-6" width="100%" role="presentation">
+    <tr>
+      <td valign="top">
+
+        <h2 class="govuk-caption-xl govuk-!-margin-top-0 moj-!-color-white">You will be writing a PAROM 1 report for {{reportData.prisonerDetails.name}}</h2>
+
+        <div class="govuk-warning-text govuk-!-margin-top-4">
+          <span class="govuk-warning-text__icon moj-warning-text__icon--interrupt" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text moj-warning-text__text--interrupt">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            <span *ngIf="reportData.prisonerDetails.nomisNumber">This report will be disclosed to the prisoner</span>
+            <span *ngIf="!reportData.prisonerDetails.nomisNumber">Update the prisoner's NOMIS number<br/>
+              <span class="govuk-!-font-weight-regular">The NOMIS number in Delius must match Nomis</span>
+            </span>
+          </strong>
+        </div>
+
+        <button id="nextButton"
+                class="govuk-button govuk-button--start moj-button--inverted govuk-!-margin-top-6 govuk-!-margin-bottom-2"
+                type="button" (click)="startReport()" *ngIf="reportData.prisonerDetails.nomisNumber">Start now
+        </button>
+
+        <a href="/" class="govuk-back-link moj-!-color-white" *ngIf="!reportData.prisonerDetails.nomisNumber">Back to document list</a>
+
+      </td>
+      <td width="165" valign="top">
+        <img class="moj-!-border-2" [src]="'/assets/images/' + reportData.prisonerDetails.prisonImage + '.png'" alt="Offender image" *ngIf="reportData.prisonerDetails.nomisNumber" />
+      </td>
+    </tr>
+  </table>
 
 </div>
