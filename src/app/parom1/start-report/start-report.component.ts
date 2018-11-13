@@ -15,7 +15,8 @@ export class StartReportComponent implements OnInit, OnDestroy {
 
   private stateSubscriber: Subscription;
   private routeSubscriber: Subscription;
-  private reportData: IState;
+  
+  public reportData: IState;
 
   /**
    *
