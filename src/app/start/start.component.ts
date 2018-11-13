@@ -8,6 +8,7 @@ import { VERSION } from 'environments/version';
 interface IQueryParams {
   name: string;
   prison: string;
+  prisonImage: string;
   prisonNumber: string;
   nomisNumber: string;
   address: string;
@@ -38,6 +39,7 @@ export class StartComponent {
    */
   queryParams: IQueryParams = {
     name: 'Alice Smith',
+    prisonImage: '',
     prison: 'Doncaster',
     prisonNumber: 'P98793-123',
     nomisNumber: 'N2124214-3423',
@@ -52,6 +54,46 @@ export class StartComponent {
     court: 'Manchester and Salford Magistrates Court',
     localJusticeArea: 'Greater Manchester'
   };
+
+  /**
+   *
+   */
+  parom1Offenders = [
+    {
+      name: 'Estela Smith',
+      prisonImage: '961579331',
+      prison: 'Doncaster',
+      prisonNumber: 'P98793-123',
+      nomisNumber: 'N2124214-3423',
+      address: '1 Albert Square, Manchester, Greater Manchester, M60 2LA',
+      phone: '07777 777 777',
+      dobDay: 11,
+      dobMonth: 6,
+      dobYear: 1971,
+      age: this.agePipe.transform('11/06/1971'),
+      crn: 'D889517',
+      pnc: 'B98793',
+      court: 'Manchester and Salford Magistrates Court',
+      localJusticeArea: 'Greater Manchester'
+    },
+    {
+      name: 'David Hayden',
+      prisonImage: '',
+      prison: 'Doncaster',
+      prisonNumber: 'P98793-123',
+      nomisNumber: '',
+      address: '1 Albert Square, Manchester, Greater Manchester, M60 2LA',
+      phone: '07777 777 777',
+      dobDay: 21,
+      dobMonth: 6,
+      dobYear: 1976,
+      age: this.agePipe.transform('21/06/1976'),
+      crn: 'D226477',
+      pnc: 'B98793',
+      court: 'Manchester and Salford Magistrates Court',
+      localJusticeArea: 'Greater Manchester'
+    }
+  ];
 
   /**
    *
