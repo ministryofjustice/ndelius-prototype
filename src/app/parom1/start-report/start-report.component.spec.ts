@@ -40,7 +40,7 @@ describe('PAROM1 - Component: Start Report', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Start a PAROM 1');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Before you start');
   });
 
   it('should navigate to the Court Details page', () => {
