@@ -1,4 +1,5 @@
 import { IOffenderPersonalityDisorderPathway } from '../model/opd-pathway.model';
+import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
 
 export class OpdPathwayTransform {
 
@@ -8,14 +9,28 @@ export class OpdPathwayTransform {
    * @returns {Object}
    */
   static process(data: IOffenderPersonalityDisorderPathway): Array<any> {
-    return [
-      { text: 'OPD pathway consideration', style: 'fieldHeading' },
-      data.opdPathway === 'No' ?
-        'The prisoner has not met the OPD screening criteria and has not been considered for pathway services.' :
-        data.opdPathway === 'Yes' ?
-          'The prisoner has met the OPD screening criteria and has been considered for pathway services.' :
-          data.opdPathway || ''
-    ];
-  }
 
+    if (data.opdPathway === 'Yes') {
+      return [
+        {
+          style: 'tableDefault',
+          table: {
+            widths: ['*', '*'],
+            body: [
+              [{ colSpan: 2, text: 'Offender Personality Disorder (OPD) pathway', style: 'tableHeading' }, {}],
+              [{ text: 'Screening date', style: 'fontBold' }, parseDateForPDF(data.opdScreeningDate)]
+            ]
+          }
+        }
+      ];
+    } else {
+      return [
+        { text: 'Offender Personality Disorder (OPD) pathway', style: 'sectionHeading' },
+        {
+          text: { text: data.notScreenedReason }, margin: [0, 5, 0, 10]
+        }
+      ];
+    }
+
+  }
 }
