@@ -6,6 +6,12 @@ import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 
 export const initialState: IOffenderPersonalityDisorderPathway = {
   opdPathway: '',
+  opdScreeningDate: {
+    day: void 0,
+    month: void 0,
+    year: void 0
+  },
+  notScreenedReason: '',
   saved: false,
   valid: false
 };

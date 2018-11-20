@@ -56,7 +56,13 @@ export class OpdPathwayComponent extends BaseComponent {
    */
   private createForm() {
     this.reportForm = this.formBuilder.group({
-      opdPathway: [this.reportData.opdPathway, Validators.required]
+      opdPathway: [this.reportData.opdPathway, Validators.required],
+      opdScreeningDate: this.formBuilder.group({
+        day: this.reportData.opdScreeningDate.day,
+        month: this.reportData.opdScreeningDate.month,
+        year: this.reportData.opdScreeningDate.year,
+      }),
+      notScreenedReason: this.reportData.notScreenedReason
     });
   }
 

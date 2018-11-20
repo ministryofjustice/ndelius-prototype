@@ -11,25 +11,53 @@
 
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
-                    [controls]="[{ name: 'opdPathway', error: 'Specify whether the prisoner has met the OPD screening criteria and been considered for OPD pathway services' }]">
+                    [controls]="[{ name: 'opdPathway', error: 'Specify if the prisoner has met OPD screening criteria and been considered for OPD pathway services' }]">
     </app-form-error>
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" conditional="true"
-                         help="Select Yes even if OPD services have only been asked for advice."
                          required="true" [error]="formError" inline="true"
                          label="Has the prisoner met the OPD screening criteria and been considered for OPD pathway services?"
-                         errorMessage="Specify whether the prisoner has met the OPD screening criteria and been considered for OPD pathway services">
+                         errorMessage="Specify if the prisoner has met OPD screening criteria and been considered for OPD pathway services"
+                         includeLabel="OPD guidance">
+
+        <p>If eligible, the prisoner should be screened before you finish the parole report as this links to pathway planning.</p>
+
+        <p>Include OPD information in the relevant sections of the report if:</p>
+
+        <ul>
+          <li>the prisoner has been screened</li>
+          <li>the OM has received consultation or advice from OPD pathway staff</li>
+          <li>the prisoner is engaged with OPD services</li>
+        </ul>
+
+        <p>For example, if an intervention has been assessed as appropriate to manage risk include it in the RMP and sentence plan.</p>
+
+        <p>If the prisoner is eligible and has not been screened enter the reasons for this and when it will happen.</p>
+
+        <p>You can enter these details when you select ‘No’ to the OPD question.</p>
 
         <ng-template let-option let-inline>
           <div class="govuk-radios__conditional"
                *ngIf="(option === 'Yes' || inline) && reportForm.get('opdPathway').value === 'Yes'">
 
-            <p class="govuk-body">Record any OPD pathway information about the prisoner in the relevant sections of the
-              report. For example, if an intervention has been assessed as appropriate to manage risk include this in
-              the RMP and sentence plan sections.</p>
+            <!-- ANGULAR COMPONENT -->
+            <app-three-field-date [group]="reportForm" name="opdScreeningDate" label="Date of OPD screening" help="For example, 31 3 1980"></app-three-field-date>
+
+          </div>
+
+          <div class="govuk-radios__conditional"
+               *ngIf="(option === 'No' || inline) && reportForm.get('opdPathway').value === 'No'">
+
+            <!-- ANGULAR COMPONENT -->
+            <app-text-entry [group]="reportForm" name="notScreenedReason"
+                            label="Detail the reasons why the prisoner has not been screened including when it will happen"
+                            (onSaveContent)="saveContent(reportForm)" [error]="formError"
+                            errorMessage="Enter the reasons why the prisoner has not been screened">
+            </app-text-entry>
+
           </div>
         </ng-template>
 
