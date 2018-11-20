@@ -43,8 +43,6 @@
                 type="button" (click)="startReport()" *ngIf="reportData.prisonerDetails.nomisNumber">Start now
         </button>
 
-        <a href="/" class="govuk-back-link moj-!-color-white" *ngIf="!reportData.prisonerDetails.nomisNumber">Back to document list</a>
-
       </td>
       <td width="165" valign="top">
         <img class="moj-!-border-2" [src]="'/assets/images/' + reportData.prisonerDetails.prisonImage + '.png'" alt="Offender image" *ngIf="reportData.prisonerDetails.nomisNumber" />
@@ -53,3 +51,5 @@
   </table>
 
 </div>
+
+<a href="/" class="govuk-back-link">Back to document list</a>
