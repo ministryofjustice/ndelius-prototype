@@ -13,8 +13,8 @@
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
                     { name: 'riskManagementPlanRequired', error: 'Specify if the prisoner requires a community RMP' },
-                    { name: 'agencies', error: 'Enter the agencies' },
-                    { name: 'support', error: 'Enter the support' },
+                    { name: 'agencies', error: 'Enter the current situation' },
+                    { name: 'support', error: 'Enter the supporting agencies' },
                     { name: 'control', error: 'Enter the control' },
                     { name: 'riskMeasures', error: 'Enter the added measures for specific risks' },
                     { name: 'requirements', error: 'Enter the additional conditions or requirements' },
@@ -54,8 +54,8 @@
 
             <!-- Angular component -->
             <app-text-entry [group]="reportForm" name="agencies"
-                            label="Current situation (Agencies)"
-                            (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the agencies">
+                            label="Current situation"
+                            (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the current situation">
 
               <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
                 <li>Sentence details, relevant risk assessment scores (OGRS, OGP, OVP and RSR) and other specialist assessments such as RM2k, HCR-20, SARN and SARA.</li>
@@ -68,14 +68,14 @@
 
             <!-- Angular component -->
             <app-text-entry [group]="reportForm" name="support"
-                            label="Support"
-                            (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the support">
+                            label="Supporting agencies"
+                            (onSaveContent)="saveContent(reportForm)" [error]="formError" errorMessage="Enter the supporting agencies">
 
               <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
                 <li>All agencies working with the prisoner, now and in the future - failure to account for all agencies will have a negative impact on the rest of the RMP.</li>
                 <li>Agency and service contact names and details, if disclosable. Include the specific service of the supporting agency with time frames.</li>
                 <li>Actions for agencies supporting MAPPA, if disclosable.</li>
-                <li>Cases registered with the VCS and if the victims are participating - you must not disclose VLO name or details.</li>
+                <li>Cases registered with the Victim Contact Service and if the victims are participating - not VLO name or details.</li>
               </ul>
             </app-text-entry>
 

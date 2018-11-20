@@ -20,9 +20,9 @@ export class ReleaseRiskManagementTransform {
     }
 
     return section.concat([
-      { text: 'Current situation (Agencies)', style: 'fieldHeading' },
+      { text: 'Current situation', style: 'fieldHeading' },
       data.agencies || '',
-      { text: 'Support', style: 'fieldHeading' },
+      { text: 'Supporting agencies', style: 'fieldHeading' },
       data.support || '',
       { text: 'Control', style: 'fieldHeading' },
       data.control || '',
