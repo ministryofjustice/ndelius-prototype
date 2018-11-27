@@ -50,7 +50,7 @@ export function sections(): Array<ISection> {
     },
     {
       route: '/parom1/sentence-plan',
-      label: 'Current sentence plan',
+      label: 'Prison sentence plan',
       state: 'sentencePlan'
     },
     {

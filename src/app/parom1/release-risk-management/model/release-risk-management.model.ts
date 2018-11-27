@@ -1,6 +1,7 @@
 export interface IReleaseRiskManagement {
   riskManagementPlanRequired: string;
   agencies: string;
+  supportingAgencies: string;
   support: string;
   control: string;
   riskMeasures: string;

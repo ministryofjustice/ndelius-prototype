@@ -6,6 +6,7 @@ import { RESET_STATE } from '../../../_shared/action/reset-state.action';
 export const initialState: IReleaseRiskManagement = {
   riskManagementPlanRequired: '',
   agencies: '',
+  supportingAgencies: '',
   support: '',
   control: '',
   riskMeasures: '',
