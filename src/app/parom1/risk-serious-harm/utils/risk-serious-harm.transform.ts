@@ -9,7 +9,7 @@ export class RiskSeriousHarmTransform {
    */
   static process(data: IRiskSeriousHarm): Array<any> {
     return [
-      { text: 'ROSH analysis', style: 'sectionHeading' },
+      { text: 'Nature of the risk to all relevant groups', style: 'sectionHeading' },
       { text: 'Risk of serious harm details', style: 'fieldHeading' },
       data.seriousHarmOthers || '',
       {

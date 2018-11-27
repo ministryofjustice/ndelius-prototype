@@ -15,7 +15,7 @@ import { MockFormErrorComponent } from '../../_shared/components/form-error/form
 
 import * as model from './reducer/sentence-plan.reducer';
 
-describe('PAROM1 - Component: Current sentence plan and response', () => {
+describe('PAROM1 - Component: Prison sentence plan and response', () => {
 
   let fixture: ComponentFixture<SentencePlanComponent>;
   let component: SentencePlanComponent;
@@ -52,7 +52,7 @@ describe('PAROM1 - Component: Current sentence plan and response', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('h1').innerHTML).toBe('Current sentence plan and response');
+    expect(compiled.querySelector('h1').innerHTML).toBe('Prison sentence plan and response');
   });
 
   it('should navigate to the Court details page', () => {
