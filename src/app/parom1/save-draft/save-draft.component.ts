@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs/index';
 
@@ -36,7 +36,7 @@ export class SaveDraftComponent {
     this.pdfGenerator.shortName = 'Parom 1 (Draft) v0.0.1';
     this.pdfGenerator.isDraft = true;
 
-    this.stateSubscriber = store.select(getCurrentState).subscribe(data => {
+    this.stateSubscriber = store.pipe(select(getCurrentState)).subscribe(data => {
       this.pdfGenerator.reportContent = PdfContentUtil.generateContent(data);
     });
   }

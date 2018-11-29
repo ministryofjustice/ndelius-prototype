@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs';
 
@@ -35,7 +35,7 @@ export class SaveDraftComponent implements OnDestroy {
     this.pdfGenerator.shortName = 'SFPSR1 (Draft) v0.0.1';
     this.pdfGenerator.isDraft = true;
 
-    this.stateSubscriber = store.select(getCurrentState).subscribe(data => {
+    this.stateSubscriber = store.pipe(select(getCurrentState)).subscribe(data => {
       this.pdfGenerator.reportContent = PdfContentUtil.generateContent(data);
     });
   }

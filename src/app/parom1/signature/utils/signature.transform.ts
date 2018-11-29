@@ -1,5 +1,5 @@
 import { ISignature } from '../model/signature.model';
-import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
+import { parseDateForPDF } from '../../../_shared/utils/utils';
 
 export class SignatureTransform {
 

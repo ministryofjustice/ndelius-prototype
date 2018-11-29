@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { getSignature } from './reducer/signature.reducer';
 
@@ -31,7 +31,7 @@ export class SignatureComponent extends BaseComponent {
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ISignature>) {
     super();
-    this.stateSubscriber = store.select(getSignature).subscribe(state => {
+    this.stateSubscriber = store.pipe(select(getSignature)).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });

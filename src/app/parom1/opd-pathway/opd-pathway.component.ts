@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
 
@@ -30,7 +30,7 @@ export class OpdPathwayComponent extends BaseComponent {
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderPersonalityDisorderPathway>) {
     super();
-    this.stateSubscriber = store.select(getOffenderPersonalityDisorderPathway).subscribe(data => {
+    this.stateSubscriber = store.pipe(select(getOffenderPersonalityDisorderPathway)).subscribe(data => {
       this.reportData = data;
       this.createForm();
     });

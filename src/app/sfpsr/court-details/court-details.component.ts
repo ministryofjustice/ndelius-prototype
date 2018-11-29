@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
 
@@ -38,7 +38,7 @@ export class CourtDetailsComponent extends BaseComponent {
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private datePipe: DatePipe, private store: Store<ICourtDetails>) {
     super();
-    this.stateSubscriber = store.select(getCourtDetails).subscribe(state => {
+    this.stateSubscriber = store.pipe(select(getCourtDetails)).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });

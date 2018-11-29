@@ -1,5 +1,5 @@
 import { IVictimIssues } from '../model/victim-issues.model';
-import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
+import { parseDateForPDF } from '../../../_shared/utils/utils';
 
 export class VictimsTransform {
 
