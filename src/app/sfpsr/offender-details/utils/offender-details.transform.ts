@@ -1,5 +1,5 @@
 import { IOffenderDetails } from '../model/offender-details.model';
-import { SharedUtil } from '../../_shared/utils/shared.util';
+import { parseDateForPDF } from '../../../_shared/utils/utils';
 
 export class OffenderDetailsTransform {
 
@@ -12,7 +12,7 @@ export class OffenderDetailsTransform {
           body: [
             [{ colSpan: 4, text: 'Offender details', style: 'tableHeading' }, {}, {}, {}],
             [{ text: 'Name', style: 'fontBold' }, { colSpan: 3, text: data.name || '' }, {}, {}],
-            [{ text: 'Date of birth', style: 'fontBold' }, SharedUtil.parseDate(data.dateOfBirth), {
+            [{ text: 'Date of birth', style: 'fontBold' }, parseDateForPDF(data.dateOfBirth), {
               text: 'Age',
               style: 'fontBold'
             }, data.age || ''],

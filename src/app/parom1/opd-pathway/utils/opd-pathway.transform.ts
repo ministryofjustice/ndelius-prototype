@@ -1,5 +1,5 @@
 import { IOffenderPersonalityDisorderPathway } from '../model/opd-pathway.model';
-import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
+import { parseDateForPDF } from '../../../_shared/utils/utils';
 
 export class OpdPathwayTransform {
 

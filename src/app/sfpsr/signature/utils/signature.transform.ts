@@ -1,5 +1,5 @@
 import { ISignature } from '../model/signature.model';
-import { SharedUtil } from '../../_shared/utils/shared.util';
+import { parseDateForPDF } from '../../../_shared/utils/utils';
 
 export class SignatureTransform {
 
@@ -17,7 +17,7 @@ export class SignatureTransform {
             [{ text: 'Signature', style: 'fontBold' }, ''],
             [{ text: 'Counter signature *', style: 'fontBold' }, ''],
             [{ text: 'Start date', style: 'fontBold' }, data.startDate || ''],
-            [{ text: 'Completion date', style: 'fontBold' }, SharedUtil.parseDate(data.reportDate)]
+            [{ text: 'Completion date', style: 'fontBold' }, parseDateForPDF(data.reportDate)]
           ]
         }
       },

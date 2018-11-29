@@ -1,5 +1,5 @@
 import { IOffenderAssessment } from '../model/offender-assessment.model';
-import { SharedUtil } from '../../_shared/utils/shared.util';
+import { textWithTitleForPDF } from '../../../_shared/utils/utils';
 
 export class OffenderAssessmentTransform {
 
@@ -45,35 +45,35 @@ export class OffenderAssessmentTransform {
     ];
 
     if (data.issueAccommodation) {
-      content.push(SharedUtil.textWithTitle('Accommodation', data.detailsAccommodation));
+      content.push(textWithTitleForPDF('Accommodation', data.detailsAccommodation));
     }
 
     if (data.issueEmployment) {
-      content.push(SharedUtil.textWithTitle('Employment', data.detailsEmployment));
+      content.push(textWithTitleForPDF('Employment', data.detailsEmployment));
     }
 
     if (data.issueFinance) {
-      content.push(SharedUtil.textWithTitle('Finance', data.detailsFinance));
+      content.push(textWithTitleForPDF('Finance', data.detailsFinance));
     }
 
     if (data.issueRelationships) {
-      content.push(SharedUtil.textWithTitle('Relationships', data.detailsRelationships));
+      content.push(textWithTitleForPDF('Relationships', data.detailsRelationships));
     }
 
     if (data.issueSubstance) {
-      content.push(SharedUtil.textWithTitle('Substance misuse', data.detailsSubstance));
+      content.push(textWithTitleForPDF('Substance misuse', data.detailsSubstance));
     }
 
     if (data.issueHealth) {
-      content.push(SharedUtil.textWithTitle('Physical & mental health', data.detailsHealth));
+      content.push(textWithTitleForPDF('Physical & mental health', data.detailsHealth));
     }
 
     if (data.issueBehaviour) {
-      content.push(SharedUtil.textWithTitle('Thinking and behaviour', data.detailsBehaviour));
+      content.push(textWithTitleForPDF('Thinking and behaviour', data.detailsBehaviour));
     }
 
     if (data.issueOther) {
-      content.push(SharedUtil.textWithTitle('Other', data.detailsOther));
+      content.push(textWithTitleForPDF('Other', data.detailsOther));
     }
 
     content.push({

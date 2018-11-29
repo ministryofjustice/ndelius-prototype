@@ -1,5 +1,5 @@
 import { IMappa } from '../model/mappa.model';
-import { parseDateForPDF } from '../../_shared/utils/parseDate.util';
+import { parseDateForPDF } from '../../../_shared/utils/utils';
 
 export class MappaTransform {
 

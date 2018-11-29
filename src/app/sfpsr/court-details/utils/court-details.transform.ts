@@ -1,5 +1,5 @@
 import { ICourtDetails } from '../model/court-details.model';
-import { SharedUtil } from '../../_shared/utils/shared.util';
+import { parseDateForPDF } from '../../../_shared/utils/utils';
 
 export class CourtDetailsTransform {
 
@@ -12,7 +12,7 @@ export class CourtDetailsTransform {
           body: [
             [{ colSpan: 2, text: 'Sentencing court details', style: 'tableHeading' }, {}],
             [{ text: 'Court', style: 'fontBold' }, data.court || ''],
-            [{ text: 'Date of hearing', style: 'fontBold' }, SharedUtil.parseDate(data.hearingDate)],
+            [{ text: 'Date of hearing', style: 'fontBold' }, parseDateForPDF(data.hearingDate)],
             [{ text: 'Local justice area', style: 'fontBold' }, data.localJusticeArea || '']
           ]
         }
