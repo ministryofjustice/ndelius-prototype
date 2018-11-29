@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
 import { IOption } from '../../_shared/components/checkboxes/checkboxes.component';
@@ -101,7 +101,7 @@ export class OffenderAssessmentComponent extends BaseComponent {
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IOffenderAssessment>) {
     super();
-    this.stateSubscriber = store.select(getOffenderAssessment).subscribe(state => {
+    this.stateSubscriber = store.pipe(select(getOffenderAssessment)).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });

@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs';
 
@@ -26,7 +26,7 @@ export class CheckReportComponent implements OnDestroy {
    * @param {Store<IState>} store
    */
   constructor(private router: Router, private store: Store<IState>) {
-    this.stateSubscriber = store.select(getCurrentState).subscribe(currentState => {
+    this.stateSubscriber = store.pipe(select(getCurrentState)).subscribe(currentState => {
       this.currentState = currentState;
       this.sections.forEach((item) => {
         const model = currentState[item.state];
