@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Subscription } from 'rxjs';
 
@@ -25,7 +25,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
    * @param {Store<IPrisonerDetails>} store
    */
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private store: Store<IState>) {
-    this.stateSubscriber = store.select(getCurrentState).subscribe(data => {
+    this.stateSubscriber = store.pipe(select(getCurrentState)).subscribe(data => {
       this.reportData = data;
     });
   }

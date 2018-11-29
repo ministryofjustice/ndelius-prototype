@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { BaseComponent } from '../../_shared/components/base.component';
 
@@ -34,7 +34,7 @@ export class RiskPrisonerComponent extends BaseComponent {
    */
   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<IRiskPrisoner>) {
     super();
-    this.stateSubscriber = store.select(getRiskPrisoner).subscribe(state => {
+    this.stateSubscriber = store.pipe(select(getRiskPrisoner)).subscribe(state => {
       this.reportData = state;
       this.createForm();
     });
