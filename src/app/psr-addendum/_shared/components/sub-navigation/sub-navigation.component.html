@@ -1,11 +1,17 @@
-<nav class="moj-navigation moj-navigation--top-bar">
+<nav class="moj-subnav">
 
-  <p class="govuk-heading-s govuk-!-margin-top-3">Report sections</p>
+  <p class="govuk-heading-s moj-subnav__title">Report sections</p>
 
-  <ul class="moj-navigation-list">
-    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" routerLink="/psr-addendum/offender-details">- Offender details</li>
-    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" routerLink="/psr-addendum/court-details">- Sentencing court details</li>
-    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" routerLink="/psr-addendum/addendum-detail">- Addendum detail</li>
-    <li class="moj-navigation-list__item" routerLinkActive="moj-navigation-list__item--active" #rla="routerLinkActive" routerLink="/psr-addendum/signature">- Sign and date your addendum</li>
+  <ul class="moj-subnav__section">
+    <ng-template ngFor let-section [ngForOf]="sections" let-index="index">
+      <li class="moj-subnav__section-item" routerLinkActive="moj-subnav__section-item--current" *ngIf="!section.dataOnly">
+        <a class="moj-subnav__link govuk-link" [routerLink]="section.route">{{section.label}}</a>
+      </li>
+    </ng-template>
+    <li class="moj-subnav__section-item" routerLinkActive="moj-subnav__section-item--current" [ngClass]="{ 'govuk-visually-hidden': !isValid }">
+      <a class="moj-subnav__link govuk-link" routerLink="/psr-addendum/signature">Sign and date your addendum</a>
+    </li>
   </ul>
 </nav>
+
+<div class="moj-footer-compensate">&nbsp;</div>
