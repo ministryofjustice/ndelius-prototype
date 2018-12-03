@@ -37,3 +37,4 @@ export const reducers: ActionReducerMap<IState> = {
 };
 
 export const metaReducers: MetaReducer<any>[] = !environment.production ? [localStorageSyncReducer, logInfo] : [localStorageSyncReducer];
+export const getCurrentState = (state: IState) => state;
