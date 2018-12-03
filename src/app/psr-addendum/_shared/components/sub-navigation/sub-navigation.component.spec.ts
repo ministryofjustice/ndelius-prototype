@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { SubNavigationComponent } from './sub-navigation.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../../reducer/state.reducers';
 
 describe('Addendum - Component: Navigation (shared)', () => {
 
@@ -15,6 +17,7 @@ describe('Addendum - Component: Navigation (shared)', () => {
         SubNavigationComponent
       ],
       imports: [
+        StoreModule.forRoot(reducers),
         RouterTestingModule.withRoutes([])
       ],
     }).compileComponents();
@@ -32,7 +35,7 @@ describe('Addendum - Component: Navigation (shared)', () => {
   });
 
   it('should render the template', () => {
-    expect(compiled.querySelector('.moj-navigation-list__item').innerHTML).toBe('- Offender details');
+    expect(compiled.querySelector('.moj-subnav__link').innerHTML).toBe('Offender details');
   });
 
 });
