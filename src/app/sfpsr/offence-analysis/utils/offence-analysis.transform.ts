@@ -4,26 +4,10 @@ export class OffenceAnalysisTransform {
 
   static process(data: IOffenceAnalysis): Array<any> {
     return [
-      {
-        style: 'tableDefault',
-        table: {
-          widths: ['*'],
-          body: [
-            [{ text: 'Offence analysis', style: 'tableHeading' }],
-            [{ text: data.offenceAnalysisEntry || '', border: [false, false, false, false] }]
-          ]
-        }
-      },
-      {
-        style: 'tableDefault',
-        table: {
-          widths: ['*'],
-          body: [
-            [{ text: 'Pattern of offending', style: 'tableHeading' }],
-            [{ text: data.patternOfOffending || '', border: [false, false, false, false] }]
-          ]
-        }
-      }
+      { text: 'Offence analysis:', style: 'fontBold', margin: [0, 10, 0, 0] },
+      { text: data.offenceAnalysisEntry || '', margin: [0, 5, 0, 10] },
+      { text: 'Pattern of offending:', style: 'fontBold', margin: [0, 10, 0, 0] },
+      { text: data.patternOfOffending || '', margin: [0, 5, 0, 10] }
     ];
   }
 }

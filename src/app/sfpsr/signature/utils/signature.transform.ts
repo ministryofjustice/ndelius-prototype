@@ -14,8 +14,8 @@ export class SignatureTransform {
             [{ text: 'Report author', style: 'fontBold' }, data.reportAuthor || ''],
             [{ text: 'Office', style: 'fontBold' }, data.office || ''],
             [{ text: 'Court office phone number', style: 'fontBold' }, data.phone || ''],
-            [{ text: 'Signature', style: 'fontBold' }, ''],
-            [{ text: 'Counter signature *', style: 'fontBold' }, ''],
+            [{ text: 'Signature', style: 'fontBold' }, data.reportAuthor || ''],
+            [{ text: 'Counter signature *', style: 'fontBold' }, data.counterSignature || ''],
             [{ text: 'Start date', style: 'fontBold' }, data.startDate || ''],
             [{ text: 'Completion date', style: 'fontBold' }, parseDateForPDF(data.reportDate)]
           ]

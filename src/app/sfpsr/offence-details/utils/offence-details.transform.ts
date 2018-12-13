@@ -20,7 +20,9 @@ export class OffenceDetailsTransform {
             ]
           ]
         }
-      }
+      },
+      { text: 'Summary of the offence:', style: 'fontBold', margin: [0, 10, 0, 0] },
+      { text: data.offenceSummary || '', margin: [0, 5, 0, 10] }
     ];
   }
 }

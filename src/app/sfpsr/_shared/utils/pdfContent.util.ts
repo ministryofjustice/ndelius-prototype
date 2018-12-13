@@ -46,7 +46,7 @@ export class PdfContentUtil {
       },
       { text: 'Short Format Pre-Sentence Report', style: 'reportTitle', alignment: 'center', margin: [0, 20, 0, 0] },
       {
-        text: 'This is a Pre-Sentence Report as defined in Section 1 58 of the Criminal Justice Act 2003.',
+        text: 'This is a Pre-Sentence Report as defined in Section 158 of the Criminal Justice Act 2003.',
         margin: [0, 20, 0, 20]
       },
       OffenderDetailsTransform.process(data.offenderDetails),
