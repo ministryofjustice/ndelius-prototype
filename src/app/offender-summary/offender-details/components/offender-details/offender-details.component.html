@@ -35,7 +35,7 @@
         </tr>
       </table>
 
-      <app-details label="Contact details" [hideBar]="true" [noMarginBottom]="true">
+      <app-details label="Contact details" [hideBar]="true">
 
         <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
           <tr>
@@ -50,40 +50,19 @@
             <th>Mobile</th>
             <td>{{data.MOBILE_NUMBER}}</td>
           </tr>
+          <tr>
+            <th>Main address</th>
+            <td>
+              {{data.ADDRESSES[0].ADDRESS_NUMBER}}<br/>
+              {{data.ADDRESSES[0].STREET_NAME}}<br/>
+              {{data.ADDRESSES[0].TOWN_CITY}}<br/>
+              {{data.ADDRESSES[0].COUNTY}}<br/>
+              {{data.ADDRESSES[0].POSTCODE}}
+            </td>
+          </tr>
         </table>
 
       </app-details>
-
-      <div class="govuk-!-margin-top-2" *ngIf="data.ADDRESSES && data.ADDRESSES.length">
-
-        <app-details label="Main address" [hideBar]="true" [noMarginBottom]="true">
-
-          <table class="govuk-table moj-table moj-table--split-rows govuk-!-margin-bottom-2" role="presentation">
-            <thead>
-            <tr>
-              <th>Number</th>
-              <th>Street</th>
-              <th>Town/City</th>
-              <th>County</th>
-              <th>Postcode</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{data.ADDRESSES[0].ADDRESS_NUMBER}}</td>
-                <td>{{data.ADDRESSES[0].STREET_NAME}}</td>
-                <td>{{data.ADDRESSES[0].TOWN_CITY}}</td>
-                <td>{{data.ADDRESSES[0].COUNTY}}</td>
-                <td>{{data.ADDRESSES[0].POSTCODE}}</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p class="govuk-body"><a href="javascript:void(0);">View address history</a></p>
-
-        </app-details>
-
-      </div>
 
     </div>
 

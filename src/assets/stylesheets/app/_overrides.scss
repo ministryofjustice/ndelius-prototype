@@ -10,3 +10,19 @@
   color: white !important;
   border-color: white;
 }
+
+.moj-risk-alert {
+  margin-top: 55px;
+
+  @include govuk-media-query(mobile, tablet) {
+    @include govuk-responsive-margin(2, top);
+  }
+
+  &.moj-risk-alert--small {
+    @include govuk-responsive-margin(3, top);
+
+    @include govuk-media-query(mobile, tablet) {
+      @include govuk-responsive-margin(2, top);
+    }
+  }
+}

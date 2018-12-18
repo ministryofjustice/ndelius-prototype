@@ -46,7 +46,7 @@
           },
           {
             "type": "Public protection",
-            "level": "medium",
+            "level": "high",
             "description": "Domestic violence",
             "date": "18/10/2016",
             "information": "No data"
@@ -60,7 +60,7 @@
           },
           {
             "type": "Information",
-            "level": "very high",
+            "level": "duplicate",
             "description": "Home Office Interest",
             "date": "21/11/2017",
             "information": "No data"
@@ -1083,7 +1083,7 @@
         ],
         "OFFENDER_ID": 961579331,
         "GENDER_ID": 546,
-        "FIRST_NAME": "Estela",
+        "FIRST_NAME": "Esmarelda Villalobos",
         "SECOND_NAME": "Clarice",
         "THIRD_NAME": "Leanna",
         "SURNAME": "Smith",

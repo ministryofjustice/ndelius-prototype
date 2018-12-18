@@ -1107,10 +1107,10 @@
     is-absolute "^1.0.0"
     is-negated-glob "^1.0.0"
 
-"@mojdigital/pattern-library@0.0.1-alpha.22":
-  version "0.0.1-alpha.22"
-  resolved "https://registry.yarnpkg.com/@mojdigital/pattern-library/-/pattern-library-0.0.1-alpha.22.tgz#dd548030e8f5987e4becb50bdf9665addd176ced"
-  integrity sha512-RNQdxo8oZuD5v5aUjtZJhXjjgv0PbEcCADatFxoKLOSDSKzIZ/aJ8ZIdRTk8m+XyZrZn1zorwP8ZhkZBuMKvWQ==
+"@mojdigital/pattern-library@0.0.1-alpha.27":
+  version "0.0.1-alpha.27"
+  resolved "https://registry.yarnpkg.com/@mojdigital/pattern-library/-/pattern-library-0.0.1-alpha.27.tgz#d67928cfd26cfc7af09ad782d6f685b1cc678708"
+  integrity sha512-7Zdgs6VDcKB5zglgdIYKxytF2k2avxCLuxtkqhN07bOT0D7Ts7Aglqg469JDXr8sm5YPs4ZE3y7EusUHVHwtfQ==
   dependencies:
     autosize "4.0.2"
     govuk-frontend "2.4.1"
@@ -1204,10 +1204,15 @@
     "@svgr/core" "^2.4.1"
     loader-utils "^1.1.0"
 
-"@types/jasmine@*", "@types/jasmine@3.3.1":
+"@types/jasmine@*":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.3.1.tgz#b6c4f356013364e98b583647c7b3b6de6fccd2cc"
   integrity sha512-JnKB+cEIFuQZXizZP6N0zxma+JlvowkjefWuL61otVmXN7Ebbs4ka3IbDVIz1pc+TCiT00q925jANz3gQJ9qXw==
+
+"@types/jasmine@3.3.2":
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.3.2.tgz#a5a0ac81ed914e252790d2f362c07150577f9bcc"
+  integrity sha512-UvfHixeV1SHl/HgHOL7NWbL7Ye7+zfszMUQFNU9MlOD/9g2yEG/F3XcdFqVM7jjD4MbgTPwYgnQwuaUVgW2YzQ==
 
 "@types/jasminewd2@2.0.6":
   version "2.0.6"
@@ -1216,10 +1221,15 @@
   dependencies:
     "@types/jasmine" "*"
 
-"@types/node@*", "@types/node@10.12.14":
+"@types/node@*":
   version "10.12.14"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.14.tgz#c03b6380c5c301be0499ecd143b99b76ebe45678"
   integrity sha512-0rVcFRhM93kRGAU88ASCjX9Y3FWDCh+33G5Z5evpKOea4xcpLqDGwmo64+DjgaSezTN5j9KdnUzvxhOw7fNciQ==
+
+"@types/node@10.12.15":
+  version "10.12.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.15.tgz#20e85651b62fd86656e57c9c9bc771ab1570bc59"
+  integrity sha512-9kROxduaN98QghwwHmxXO2Xz3MaWf+I1sLVAA6KJDF5xix+IyXVhds0MAfdNwtcpSrzhaTsNB0/jnL86fgUhqA==
 
 "@types/node@^6.0.46":
   version "6.14.2"
@@ -7671,10 +7681,10 @@ karma-source-map-support@1.3.0:
   dependencies:
     source-map-support "^0.5.5"
 
-karma@3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/karma/-/karma-3.1.3.tgz#6e251648e3aff900927bc1126dbcbcb92d3edd61"
-  integrity sha512-JU4FYUtFEGsLZd6ZJzLrivcPj0TkteBiIRDcXWFsltPMGgZMDtby/MIzNOzgyZv/9dahs9vHpSxerC/ZfeX9Qw==
+karma@3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/karma/-/karma-3.1.4.tgz#3890ca9722b10d1d14b726e1335931455788499e"
+  integrity sha512-31Vo8Qr5glN+dZEVIpnPCxEGleqE0EY6CtC2X9TagRV3rRQ3SNrvfhddICkJgUK3AgqpeKSZau03QumTGhGoSw==
   dependencies:
     bluebird "^3.3.0"
     body-parser "^1.16.1"
