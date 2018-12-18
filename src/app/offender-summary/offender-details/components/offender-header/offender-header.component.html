@@ -1,22 +1,6 @@
-<div class="govuk-grid-row govuk-!-margin-top-3" *ngIf="data">
+<div class="govuk-grid-row govuk-!-margin-top-3 app-offender-header" *ngIf="data">
   <div class="govuk-grid-column-one-half">
-
-    <table role="presentation">
-      <tr>
-        <td width="165">
-          <img [src]="'/assets/images/' + (data.CURRENT_DISPOSAL ? data.OFFENDER_ID : 'new_offender') + '.png'"/>
-        </td>
-        <td>
-          <h1 class="govuk-heading-l govuk-!-margin-0 govuk-!-padding-0">{{data.SURNAME + ', ' + data.FIRST_NAME}}</h1>
-          <p class="govuk-body govuk-!-margin-0 govuk-!-margin-top-2">Date of birth</p>
-          <p class="govuk-heading-m govuk-!-margin-0 govuk-!-padding-0">{{pipeDate(data.DATE_OF_BIRTH_DATE)}}</p>
-
-          <p class="govuk-body govuk-!-margin-0 govuk-!-margin-top-2">CRN</p>
-          <p class="govuk-heading-m govuk-!-margin-0 govuk-!-padding-0">{{data.CRN}}</p>
-        </td>
-      </tr>
-    </table>
-
+    <img [src]="'/assets/images/' + (data.CURRENT_DISPOSAL ? data.OFFENDER_ID : 'new_offender') + '.png'"/>
   </div>
   <div class="govuk-grid-column-one-half">
 
@@ -32,6 +16,15 @@
     <div class="moj-risk-alert moj-risk-alert--high moj-risk-alert--small" role="alert" *ngIf="data.ALERT">
       {{data.ALERT.description}}
     </div>
+  </div>
 
+  <div class="app-offender-name">
+    <h1 class="govuk-heading-l govuk-!-margin-0 govuk-!-padding-0">{{data.SURNAME + ', ' + data.FIRST_NAME}}</h1>
+
+    <p class="govuk-body govuk-!-margin-0 govuk-!-margin-top-2">Date of birth</p>
+    <p class="govuk-heading-m govuk-!-margin-0 govuk-!-padding-0">{{pipeDate(data.DATE_OF_BIRTH_DATE)}}</p>
+
+    <p class="govuk-body govuk-!-margin-0 govuk-!-margin-top-2">CRN</p>
+    <p class="govuk-heading-m govuk-!-margin-0 govuk-!-padding-0">{{data.CRN}}</p>
   </div>
 </div>

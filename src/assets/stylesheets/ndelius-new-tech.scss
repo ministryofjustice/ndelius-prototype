@@ -44,5 +44,6 @@ $govuk-typography-use-rem: true;
 
 // import styles for the delius style wrapper
 @import "app/delius";
+@import "app/offender-header";
 @import "app/overrides";
 @import "app/tag";
