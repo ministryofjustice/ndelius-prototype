@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 /**
  * **Shared component**
@@ -10,16 +10,21 @@ import { Component, Input } from '@angular/core';
   selector: 'app-accordion-panel',
   templateUrl: './accordion-panel.component.html'
 })
-export class AccordionPanelComponent {
+export class AccordionPanelComponent implements OnInit {
 
   @Input() public title: string;
   @Input() public isActive: boolean;
+  @Input() public startOpen: boolean;
 
   /**
    *
    */
   constructor() {
     // Empty
+  }
+
+  ngOnInit() {
+    this.isActive = this.startOpen;
   }
 
 }
