@@ -7,17 +7,21 @@
 <!-- Angular component -->
 <app-offender-panels [data]="offenderData"></app-offender-panels>
 
-<!-- Angular component -->
-<app-offender-risk [data]="offenderData"></app-offender-risk>
+<div class="govuk-accordion" data-module="accordion" id="accordion-default">
 
-<!-- Angular component -->
-<app-offender-chronology [data]="offenderData"></app-offender-chronology>
+  <!-- Angular component -->
+  <app-offender-risk [data]="offenderData"></app-offender-risk>
 
-<!-- Angular component -->
-<app-offender-management [data]="offenderData"></app-offender-management>
+  <!-- Angular component -->
+  <app-offender-chronology [data]="offenderData"></app-offender-chronology>
 
-<!-- Angular component -->
-<app-offender-details [data]="offenderData"></app-offender-details>
+  <!-- Angular component -->
+  <app-offender-management [data]="offenderData"></app-offender-management>
+
+  <!-- Angular component -->
+  <app-offender-details [data]="offenderData"></app-offender-details>
+
+</div>
 
 <div class="moj-card govuk-!-margin-top-4" *ngIf="offenderData && offenderData['NOTES']">
   <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Notes</h2>

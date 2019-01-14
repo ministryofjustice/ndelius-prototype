@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+
+import { nodeListForEach } from 'govuk-frontend/common';
+import Accordion from 'govuk-frontend/components/accordion/accordion';
 
 import { Subscription } from 'rxjs/index';
 
@@ -8,7 +11,7 @@ import { Subscription } from 'rxjs/index';
   selector: 'app-offender-summary',
   templateUrl: './offender-summary.component.html'
 })
-export class OffenderSummaryComponent {
+export class OffenderSummaryComponent implements AfterViewInit {
 
   offenderData: any;
   private routeSubscriber: Subscription;
@@ -30,4 +33,12 @@ export class OffenderSummaryComponent {
     });
   }
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const $accordions = document.querySelectorAll('[data-module="accordion"]');
+      nodeListForEach($accordions, function ($accordion) {
+        new Accordion($accordion).init();
+      });
+    });
+  }
 }

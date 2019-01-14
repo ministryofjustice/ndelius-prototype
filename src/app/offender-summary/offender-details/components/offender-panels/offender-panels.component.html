@@ -1,21 +1,37 @@
-<div class="govuk-grid-row moj-flex" *ngIf="data">
-  <div class="govuk-grid-column-one-half moj-flex">
+<div *ngIf="data">
 
-    <div class="moj-interrupt moj-card moj-flex-child--stretch">
-      <p class="govuk-heading-m govuk-!-margin-0 moj-!-color-white">{{data.CURRENT_DISPOSAL ? 'Current offender' : 'Not current'}}</p>
-      <p class="govuk-body govuk-!-margin-0 moj-!-color-white" *ngIf="data.CURRENT_DISPOSAL"><span class="govuk-!-font-weight-bold">Provider:</span> NPS
-        North West</p>
-      <p class="govuk-body govuk-!-margin-0 moj-!-color-white" *ngIf="data.CURRENT_DISPOSAL"><span
-        class="govuk-!-font-weight-bold">Offender manager:</span> Sarah Smith</p>
+  <div class="govuk-grid-row moj-flex">
+    <div class="govuk-grid-column-one-half moj-flex">
+
+      <div class="moj-interrupt moj-card moj-flex-child--stretch">
+        <p class="govuk-heading-m govuk-!-margin-0 moj-!-color-white">{{data.CURRENT_DISPOSAL ? 'Current offender' :
+          'Not current'}}</p>
+        <p class="govuk-body govuk-!-margin-0 moj-!-color-white" *ngIf="data.CURRENT_DISPOSAL"><span
+          class="govuk-!-font-weight-bold">Provider:</span> NPS
+          North West</p>
+        <p class="govuk-body govuk-!-margin-0 moj-!-color-white" *ngIf="data.CURRENT_DISPOSAL"><span
+          class="govuk-!-font-weight-bold">Offender manager:</span> Sarah Smith</p>
+      </div>
+
     </div>
+    <div class="govuk-grid-column-one-half moj-flex">
 
-  </div>
-  <div class="govuk-grid-column-one-half moj-flex">
+      <div class="moj-interrupt moj-card moj-flex-child--stretch">
+        <p class="govuk-heading-m govuk-!-margin-0 moj-!-color-white">{{data.EVENTS.length}} {{data.EVENTS.length > 1 ||
+          data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
+        <p class="govuk-body govuk-!-margin-0 moj-!-color-white" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span>
+          <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
+      </div>
 
-    <div class="moj-interrupt moj-card moj-flex-child--stretch">
-      <p class="govuk-heading-m govuk-!-margin-0 moj-!-color-white">{{data.EVENTS.length}} {{data.EVENTS.length > 1 || data.EVENTS.length === 0 ? 'events' : 'event'}}</p>
-      <p class="govuk-body govuk-!-margin-0 moj-!-color-white" *ngIf="data.EVENTS.length"><span class="bold">{{activeEvents}} active {{activeEvents > 1 || activeEvents === 0 ? 'events' : 'event'}}{{activeEvents ? ': ' : ' '}}</span> <span *ngIf="activeEvents">Short Format Pre-Sentence Report (adjourned)</span></p>
     </div>
-
   </div>
+
+  <div class="govuk-warning-text moj-warning-text moj-warning-text--critical govuk-!-margin-bottom-3" *ngIf="staffRisk">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        This offender has serious registrations
+      </strong>
+  </div>
+
 </div>

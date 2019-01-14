@@ -1,14 +1,6 @@
 <div *ngIf="data">
 
-  <div class="govuk-warning-text moj-warning-text moj-warning-text--critical govuk-!-margin-bottom-3" *ngIf="staffRisk">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        This offender has serious registrations
-      </strong>
-  </div>
-
-  <app-accordion-panel [title]="'Registers and warnings (' + data['RISK_REGISTERS'].length + ')'">
+  <app-accordion-panel [title]="'Registers and warnings (' + data['RISK_REGISTERS'].length + ')'" id="1">
 
     <div class="moj-inside-panel">
 

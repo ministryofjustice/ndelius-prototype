@@ -27,7 +27,7 @@
               "src/assets/javascripts/vendor/jquery/jquery.min.js",
               "src/assets/javascripts/vendor/jquery/autosize.min.js",
               "src/assets/javascripts/govuk/accessible-autocomplete/accessible-autocomplete.min.js",
-              "src/assets/javascripts/govuk/govuk-frontend-1.3.0.min.js"
+              "src/assets/javascripts/govuk/govuk-frontend-2.5.0.min.js"
             ]
           },
           "configurations": {
@@ -78,7 +78,7 @@
               "src/assets/javascripts/vendor/jquery/jquery.min.js",
               "src/assets/javascripts/vendor/jquery/autosize.min.js",
               "src/assets/javascripts/govuk/accessible-autocomplete/accessible-autocomplete.min.js",
-              "src/assets/javascripts/govuk/govuk-frontend-1.3.0.min.js"
+              "src/assets/javascripts/govuk/govuk-frontend-2.5.0.min.js"
             ],
             "styles": [
               "src/styles.scss"

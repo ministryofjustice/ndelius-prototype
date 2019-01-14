@@ -1,14 +1,9 @@
 .app-offender-header {
-  position: relative;
-}
-
-.app-offender-name {
-  display: inline-block;
-  position: absolute;
-  left: 185px;
-  top: 5px;
+  width: calc(100% - 165px);
+  padding-left: 15px;
 
   @include govuk-media-query(mobile, tablet) {
-    left: 175px;
+    width: 100%;
+    padding-left: 0;
   }
 }
