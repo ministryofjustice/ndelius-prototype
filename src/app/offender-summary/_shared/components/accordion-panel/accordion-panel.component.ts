@@ -12,7 +12,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccordionPanelComponent implements OnInit {
 
+  @Input() public id: number;
   @Input() public title: string;
+  @Input() public hint: string;
   @Input() public isActive: boolean;
   @Input() public startOpen: boolean;
 

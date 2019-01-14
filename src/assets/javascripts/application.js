@@ -15,6 +15,6 @@
     });
   }
 
-  window.GOVUKFrontend.initAll();
+  // window.GOVUKFrontend.initAll();
 
 })();

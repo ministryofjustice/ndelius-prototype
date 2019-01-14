@@ -6,6 +6,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class OffenderPanelsComponent implements OnChanges {
 
+  staffRisk: boolean;
   activeEvents: number;
   @Input() public data: any;
 
@@ -16,6 +17,8 @@ export class OffenderPanelsComponent implements OnChanges {
     this.activeEvents = this.data['EVENTS'].filter((item) => {
       return !!item.active;
     }).length;
+
+    this.staffRisk = !!this.data['RISK_REGISTERS'].find(option => option.description === 'Staff');
   }
 
 }

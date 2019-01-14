@@ -2,9 +2,6 @@
 // in the govuk frontend toolkit's url-helpers partial
 $path: "/assets/images/";
 
-// Import all the govuk-elements partials listed in _govuk-elements.scss
-// @import "govuk/govuk-elements";
-
 $govuk-typography-use-rem: true;
 
 @import "node_modules/govuk-frontend/all";
@@ -44,6 +41,7 @@ $govuk-typography-use-rem: true;
 
 // import styles for the delius style wrapper
 @import "app/delius";
+@import "app/layout";
 @import "app/offender-header";
 @import "app/overrides";
 @import "app/tag";
