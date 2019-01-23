@@ -9,16 +9,30 @@ export class RiskPrisonerTransform {
    */
   static process(data: IRiskPrisoner): Array<any> {
     return [
-      { text: 'Risk to the prisoner', style: 'sectionHeading', margin: [0, 20, 0, 0] },
-      { text: 'Does the prisoner pose a self harming risk in the community?', style: 'fieldHeading' },
-      data.selfHarmCommunity || '',
-      { text: 'Does the prisoner pose a self harming risk in custody?', style: 'fieldHeading' },
-      data.selfHarmCustody || '',
-      { text: 'Is the prisoner at risk of serious harm from others in the community?', style: 'fieldHeading' },
-      data.harmOthersCommunity || '',
-      { text: 'Is the prisoner at risk of serious harm from others in custody?', style: 'fieldHeading' },
-      data.harmOthersCustody || ''
+      {
+        style: 'tableDefault',
+        table: {
+          widths: [100, '*', '*'],
+          body: [
+            [{ colSpan: 3, text: 'Risk to the prisoner', style: 'tableHeading' }, {}, {}],
+            [
+              { text: '' },
+              { text: 'Self harming risk', style: 'fontBold' },
+              { text: 'Risk of serious harm from others', style: 'fontBold' }
+            ],
+            [
+              { text: 'Community', style: 'fontBold' },
+              data.selfHarmCommunity || '',
+              data.selfHarmCustody || ''
+            ],
+            [
+              { text: 'Custody', style: 'fontBold' },
+              data.harmOthersCommunity || '',
+              data.harmOthersCustody || ''
+            ]
+          ]
+        }
+      }
     ];
   }
-
 }
