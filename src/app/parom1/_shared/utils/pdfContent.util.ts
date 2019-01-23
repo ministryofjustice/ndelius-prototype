@@ -10,8 +10,7 @@ import { InterventionsTransform } from '../../interventions/utils/interventions.
 import { SentencePlanTransform } from '../../sentence-plan/utils/sentence-plan.transform';
 import { MappaTransform } from '../../mappa/utils/mappa.transform';
 import { CurrentRiskAssessmentTransform } from '../../current-risk-assessment/utils/current-risk-assessment.transform';
-import { RiskCommunityTransform } from '../../risk-community/utils/risk-community.transform';
-import { RiskCustodyTransform } from '../../risk-custody/utils/risk-custody.transform';
+import { CurrentRiskTransform } from './current-risk.transform';
 import { RiskSeriousHarmTransform } from '../../risk-serious-harm/utils/risk-serious-harm.transform';
 import { ReleaseRiskManagementTransform } from '../../release-risk-management/utils/release-risk-management.transform';
 import { ResettlementPlanTransform } from '../../resettlement-plan/utils/resettlement-plan.transform';
@@ -68,8 +67,7 @@ export class PdfContentUtil {
       SentencePlanTransform.process(data.sentencePlan),
       MappaTransform.process(data.mappa),
       CurrentRiskAssessmentTransform.process(data.riskAssessment),
-      RiskCommunityTransform.process(data.riskCommunity),
-      RiskCustodyTransform.process(data.riskCustody),
+      CurrentRiskTransform.process(data.riskCommunity, data.riskCustody),
       RiskPrisonerTransform.process(data.riskPrisoner),
       RiskSeriousHarmTransform.process(data.riskSeriousHarm),
       ReleaseRiskManagementTransform.process(data.releaseRiskManagement),
