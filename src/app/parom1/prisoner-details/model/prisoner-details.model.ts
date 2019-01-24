@@ -10,9 +10,9 @@ export interface IPrisonerDetails {
   category: string;
   offence: string;
   sentence: string;
+  indeterminateSentence: string;
   sentenceType: string;
   determinateEligibilityDate: IMultiFieldDate;
-  determinateReleaseDate: IMultiFieldDate;
   tariffLength: string;
   tariffExpiryDate: IMultiFieldDate;
   saved: boolean;

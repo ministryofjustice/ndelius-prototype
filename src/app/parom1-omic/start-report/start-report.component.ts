@@ -69,7 +69,7 @@ export class StartReportComponent implements OnInit, OnDestroy {
           gender: data.gender || params['gender'],
           category: data.category || params['category'],
           sentence: data.sentence || params['sentence'],
-          sentenceType: data.sentenceType || params['sentenceType'],
+          sentenceType: data.sentenceType || params['indeterminateSentence'],
           determinateReleaseDate: {
             day: data.determinateReleaseDate.day || params['determinateReleaseDateDay'],
             month: data.determinateReleaseDate.month || params['determinateReleaseDateMonth'],

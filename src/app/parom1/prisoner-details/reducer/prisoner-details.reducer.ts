@@ -13,12 +13,8 @@ export const initialState: IPrisonerDetails = {
   category: 'Restricted',
   offence: 'Dishonest representation for obtaining benefit etc (05333) - 25/08/2016',
   sentence: '36 months custodial',
+  indeterminateSentence: '',
   sentenceType: '',
-  determinateReleaseDate: {
-    day: void 0,
-    month: void 0,
-    year: void 0
-  },
   determinateEligibilityDate: {
     day: void 0,
     month: void 0,

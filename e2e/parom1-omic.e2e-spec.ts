@@ -215,12 +215,12 @@ xdescribe('New Probation Services - Rapid Prototype', () => {
         page.testTextEntry('offence', 'Theft of a pre-packed sandwich from Tesco');
         page.testTextEntry('sentence', 'Death by monkeys');
 
-        page.getElementById('sentenceType-radio-0').click();
+        page.getElementById('indeterminateSentence-radio-0').click();
         page.testTextEntry('determinateReleaseDate-day', '23');
         page.testTextEntry('determinateReleaseDate-month', '05');
         page.testTextEntry('determinateReleaseDate-year', '2021');
 
-        page.getElementById('sentenceType-radio-1').click();
+        page.getElementById('indeterminateSentence-radio-1').click();
         page.testTextEntry('tariffLength', 'Infinite');
         page.testTextEntry('tariffExpiryDate-day', '23');
         page.testTextEntry('tariffExpiryDate-month', '05');
