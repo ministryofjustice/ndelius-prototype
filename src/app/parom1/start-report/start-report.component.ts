@@ -67,16 +67,12 @@ export class StartReportComponent implements OnInit, OnDestroy {
           category: params['category'] || data.category,
           offence: params['offence'] || data.offence,
           sentence: params['sentence'] || data.sentence,
-          sentenceType: params['sentenceType'] || data.sentenceType,
+          indeterminateSentence: params['indeterminateSentence'] || data.indeterminateSentence,
+          sentenceType: params['indeterminateSentence'] || data.sentenceType,
           determinateEligibilityDate: {
             day: params['determinateEligibilityDateDay'] || data.determinateEligibilityDate.day,
             month: params['determinateEligibilityDateMonth'] || data.determinateEligibilityDate.month,
             year: params['determinateEligibilityDateYear'] || data.determinateEligibilityDate.year
-          },
-          determinateReleaseDate: {
-            day: params['determinateReleaseDateDay'] || data.determinateReleaseDate.day,
-            month: params['determinateReleaseDateMonth'] || data.determinateReleaseDate.month,
-            year: params['determinateReleaseDateYear'] || data.determinateReleaseDate.year
           },
           tariffLength: data.tariffLength || params['tariffLength'],
           tariffExpiryDate: {

@@ -75,16 +75,12 @@ export class PrisonerDetailsComponent extends BaseComponent {
       category: this.reportData.category,
       offence: this.reportData.offence,
       sentence: this.reportData.sentence,
+      indeterminateSentence: this.reportData.indeterminateSentence,
       sentenceType: this.reportData.sentenceType,
       determinateEligibilityDate: this.formBuilder.group({
         day: this.reportData.determinateEligibilityDate.day,
         month: this.reportData.determinateEligibilityDate.month,
         year: this.reportData.determinateEligibilityDate.year
-      }),
-      determinateReleaseDate: this.formBuilder.group({
-        day: this.reportData.determinateReleaseDate.day,
-        month: this.reportData.determinateReleaseDate.month,
-        year: this.reportData.determinateReleaseDate.year
       }),
       tariffLength: [this.reportData.tariffLength],
       tariffExpiryDate: this.formBuilder.group({

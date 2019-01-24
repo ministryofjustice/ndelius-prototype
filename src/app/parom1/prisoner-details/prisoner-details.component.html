@@ -55,13 +55,14 @@
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
       <!-- ANGULAR COMPONENT -->
-      <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="['Indeterminate', 'Determinate']"
-                         required="true" [error]="formError" conditional="true"
-                         label="Sentence type" errorMessage="Select the sentence type">
+      <app-radio-buttons [group]="reportForm" name="indeterminateSentence" [options]="['Yes', 'No']" inline="true"
+                         conditional="true" required="true" [error]="formError"
+                         label="Does the prisoner have an indeterminate sentence?"
+                         errorMessage="Specify if the prisoner has an indeterminate sentence">
 
-        <ng-template let-option>
+        <ng-template let-option let-inline>
           <div class="govuk-radios__conditional"
-               *ngIf="option === 'Indeterminate' && reportForm.get('sentenceType').value === 'Indeterminate'">
+               *ngIf="(option === 'Yes' || inline) && reportForm.get('indeterminateSentence').value === 'Yes'">
 
             <app-input [group]="reportForm" name="tariffLength" label="Tariff length"></app-input>
 
@@ -73,18 +74,25 @@
           </div>
 
           <div class="govuk-radios__conditional"
-               *ngIf="option === 'Determinate' && reportForm.get('sentenceType').value === 'Determinate'">
+               *ngIf="(option === 'No' || inline) && reportForm.get('indeterminateSentence').value === 'No'">
+
+            <app-radio-buttons [group]="reportForm" name="sentenceType" [options]="[
+                                        'Extended Determinate (EDS)',
+                                        'Discretionary Conditional Release (DCR)',
+                                        'Sentence for Offenders of Particular Concern (SOPC)',
+                                        'Extended Public Protection (EPP)',
+                                        'Extended'
+                                      ]"
+                               [error]="formError"
+                               label="Sentence type"
+                               errorMessage="Select the sentence type">
+            </app-radio-buttons>
+
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible"/>
 
             <!-- ANGULAR COMPONENT -->
             <app-three-field-date [group]="reportForm" name="determinateEligibilityDate"
                                   label="Parole eligibility date"
-                                  help="For example, 31 3 2018"></app-three-field-date>
-
-            <br/>
-
-            <!-- ANGULAR COMPONENT -->
-            <app-three-field-date [group]="reportForm" name="determinateReleaseDate"
-                                  label="Automatic release date / non parole eligibility date"
                                   help="For example, 31 3 2018"></app-three-field-date>
           </div>
 

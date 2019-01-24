@@ -37,23 +37,32 @@ export class PrisonerDetailsTransform {
       }
     };
 
-    if (data.sentenceType && data.sentenceType.toLowerCase() === 'determinate') {
+    if (data.indeterminateSentence && data.indeterminateSentence.toLowerCase() === 'yes') {
       prisonerDetails.table.body.push(
         [
-          { text: 'Eligibility date', style: 'fontBold' }, { text: parseDate(data.determinateEligibilityDate), colSpan: 3 }
-        ]
-      );
+          { text: 'Sentence type', style: 'fontBold' }, { text: 'Indeterminate', colSpan: 3 }
+        ]);
       prisonerDetails.table.body.push(
         [
-          { text: 'Release date', style: 'fontBold' }, { text: parseDate(data.determinateReleaseDate), colSpan: 3 }
-        ]
-      );
-    } else if (data.sentenceType && data.sentenceType.toLowerCase() === 'indeterminate') {
-      prisonerDetails.table.body.push(
-        [{ text: 'Tariff length', style: 'fontBold' }, data.tariffLength || '', {
+          { text: 'Tariff length', style: 'fontBold' }, data.tariffLength || '', {
           text: 'Expiry date',
           style: 'fontBold'
-        }, parseDate(data.tariffExpiryDate)]
+        }, parseDate(data.tariffExpiryDate)
+        ]
+      );
+    } else if (data.indeterminateSentence && data.indeterminateSentence.toLowerCase() === 'no') {
+      prisonerDetails.table.body.push(
+        [
+          { text: 'Sentence type', style: 'fontBold' }, { text: data.sentenceType || '', colSpan: 3 }
+        ]
+      );
+      prisonerDetails.table.body.push(
+        [
+          { text: 'Eligibility date', style: 'fontBold' }, {
+          text: parseDate(data.determinateEligibilityDate),
+          colSpan: 3
+        }
+        ]
       );
     }
 
