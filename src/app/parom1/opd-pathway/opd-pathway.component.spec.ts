@@ -16,6 +16,7 @@ import { MockRadioButtonsComponent } from '../../_shared/components/radio-button
 import { MockThreeFieldDateComponent } from '../../_shared/components/three-field-date/three-field-date.mock.component';
 
 import * as model from './reducer/opd-pathway.reducer';
+import { MockNoticeComponent } from '../../_shared/components/notice/notice.mock.component';
 
 describe('PAROM1 - Component: Offender personality disorder pathway', () => {
 
@@ -27,6 +28,7 @@ describe('PAROM1 - Component: Offender personality disorder pathway', () => {
     TestBed.configureTestingModule({
       declarations: [
         OpdPathwayComponent,
+        MockNoticeComponent,
         MockSubNavigationComponent,
         MockPhaseBannerComponent,
         MockErrorMessagesComponent,
