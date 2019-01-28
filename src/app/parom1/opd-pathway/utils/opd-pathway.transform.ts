@@ -10,27 +10,26 @@ export class OpdPathwayTransform {
    */
   static process(data: IOffenderPersonalityDisorderPathway): Array<any> {
 
+    let returnObj;
+
+    returnObj = {
+      style: 'tableDefault',
+      table: {
+        widths: ['*', '*'],
+        body: [
+          [{ colSpan: 2, text: 'Offender Personality Disorder (OPD) pathway', style: 'tableHeading' }, {}],
+          [{ text: 'Date of OPD screen', style: 'fontBold' }, parseDateForPDF(data.opdScreeningDate)],
+          [{ text: 'OPD criteria met', style: 'fontBold' }, data.opdPathway]
+        ]
+      }
+    };
+
     if (data.opdPathway === 'Yes') {
-      return [
-        {
-          style: 'tableDefault',
-          table: {
-            widths: ['*', '*'],
-            body: [
-              [{ colSpan: 2, text: 'Offender Personality Disorder (OPD) pathway', style: 'tableHeading' }, {}],
-              [{ text: 'Screening date', style: 'fontBold' }, parseDateForPDF(data.opdScreeningDate)]
-            ]
-          }
-        }
-      ];
-    } else {
-      return [
-        { text: 'Offender Personality Disorder (OPD) pathway', style: 'sectionHeading' },
-        {
-          text: { text: data.notScreenedReason }, margin: [0, 5, 0, 10]
-        }
-      ];
+      returnObj.table.body.push(
+        [{ text: 'Consultation or formulation received', style: 'fontBold' }, data.consultationOrFormulation]
+      );
     }
 
+    return [returnObj];
   }
 }

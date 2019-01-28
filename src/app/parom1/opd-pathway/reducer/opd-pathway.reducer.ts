@@ -11,7 +11,7 @@ export const initialState: IOffenderPersonalityDisorderPathway = {
     month: void 0,
     year: void 0
   },
-  notScreenedReason: '',
+  consultationOrFormulation: void 0,
   saved: false,
   valid: false
 };

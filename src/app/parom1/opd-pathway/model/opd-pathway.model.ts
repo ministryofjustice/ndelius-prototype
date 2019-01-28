@@ -3,7 +3,7 @@ import { IMultiFieldDate } from '../../../_shared/interface/three-field-date.int
 export interface IOffenderPersonalityDisorderPathway {
   opdPathway: string;
   opdScreeningDate: IMultiFieldDate;
-  notScreenedReason: string;
+  consultationOrFormulation: string;
   saved: boolean;
   valid: boolean;
 }
