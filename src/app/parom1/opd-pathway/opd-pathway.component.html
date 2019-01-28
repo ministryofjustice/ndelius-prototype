@@ -35,47 +35,23 @@
       <!-- ANGULAR COMPONENT -->
       <app-radio-buttons [group]="reportForm" name="opdPathway" [options]="['Yes', 'No']" conditional="true"
                          required="true" [error]="formError" inline="true"
+                         includeLabel="OPD guidance"
                          label="Has the prisoner been screened into the OPD pathway (OPD criteria met)?"
-                         errorMessage="Specify if the prisoner has been screened into the OPD pathway (OPD criteria met)"
-                         includeLabel="OPD guidance">
+                         errorMessage="Specify if the prisoner has been screened into the OPD pathway (OPD criteria met)">
 
-        <p>If eligible, the prisoner should be screened before you finish the parole report as this links to pathway
-          planning.</p>
-
-        <p>Include OPD information in the relevant sections of the report if:</p>
-
-        <ul>
-          <li>the prisoner has been screened</li>
-          <li>the OM has received consultation or advice from OPD pathway staff</li>
-          <li>the prisoner is engaged with OPD services</li>
-        </ul>
-
-        <p>For example, if an intervention has been assessed as appropriate to manage risk include it in the RMP and
-          sentence plan.</p>
-
-        <p>If the prisoner is eligible and has not been screened enter the reasons for this and when it will happen.</p>
-
-        <p>You can enter these details when you select ‘No’ to the OPD question.</p>
+        <p class="govuk-body">Use the OPD consultation or formulation to inform the assessment and the
+          relevant sections of the report, for example, interventions, RMP and sentence plan. Do not copy a
+          formulation into the report.</p>
 
         <ng-template>
           <div class="govuk-radios__conditional" *ngIf="reportForm.get('opdPathway').value === 'Yes'">
 
             <!-- ANGULAR COMPONENT -->
             <app-radio-buttons [group]="reportForm" name="consultationOrFormulation" [options]="['Yes', 'No']"
-                               conditional="true"
                                required="true" [error]="formError" inline="true"
                                label="Have you received consultation or a formulation?"
                                errorMessage="Specify if you have received consultation or a formulation"
                                includeLabel="OPD guidance">
-
-              <ng-template>
-                <div class="govuk-radios__conditional"
-                     *ngIf="reportForm.get('consultationOrFormulation').value === 'Yes' || reportForm.get('consultationOrFormulation').value === 'No'">
-                  <p class="govuk-body">Use the OPD consultation or formulation to inform the assessment and the
-                    relevant sections of the report, for example, interventions, RMP and sentence plan. Do not copy a
-                    formulation into the report.</p>
-                </div>
-              </ng-template>
 
             </app-radio-buttons>
 
