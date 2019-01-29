@@ -12,7 +12,7 @@
     <!-- ANGULAR COMPONENT -->
     <app-form-error [group]="reportForm" [error]="formError && !reportForm.valid"
                     [controls]="[
-                    { name: 'rsrScore', error: 'Enter the risk of serious recidivism score' },
+                    { name: 'rsrScore', error: 'Enter the dynamic risk of serious recidivism (RSR) score' },
                     { name: 'ogrs3Percentage', error: 'Enter the OGRS3 probability of proven re-offending' },
                     { name: 'ogpProbability', error: 'Enter the OGP probability of proven non-violent type reoffending' },
                     { name: 'ovpProbability', error: 'Enter the OVP probability of proven violent type reoffending' },
@@ -25,7 +25,7 @@
 
     <form [formGroup]="reportForm" (ngSubmit)="onSubmit(reportForm)" novalidate>
 
-      <app-input [group]="reportForm" name="rsrScore" [error]="formError" label="Risk of serious recidivism (RSR) score" help="For example 6.32 or 4.78" errorMessage="Enter the risk of serious recidivism score" required="true"></app-input>
+      <app-input [group]="reportForm" name="rsrScore" [error]="formError" label="Dynamic risk of serious recidivism (RSR) score" help="For example 6.32 or 4.78" errorMessage="Enter the dynamic risk of serious recidivism (RSR) score" required="true"></app-input>
 
       <app-input [group]="reportForm" name="ogrs3Percentage" [error]="formError" label="OGRS3 probability of proven reoffending (year 2)" help="For example 23%" errorMessage="Enter the OGRS3 percentage of proven re-offending" required="true"></app-input>
 
