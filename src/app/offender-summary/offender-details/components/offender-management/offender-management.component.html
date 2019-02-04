@@ -37,7 +37,7 @@
 
     <app-details label="Personal circumstances" [hideBar]="true" [noMarginBottom]="true" *ngIf="data && data.CURRENT_DISPOSAL">
 
-      <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
+      <table class="govuk-table moj-table moj-table--split-rows govuk-!-margin-bottom-0" role="presentation">
         <thead>
         <tr>
           <th>Type</th>
@@ -53,6 +53,8 @@
         </tr>
         </tbody>
       </table>
+
+      <p class="govuk-body app-align-right"><a href="javascript:void(0);" class="govuk-link govuk-link--no-visited-state">View more personal circumstances</a></p>
 
     </app-details>
 

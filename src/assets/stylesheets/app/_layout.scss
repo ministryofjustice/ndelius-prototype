@@ -1,6 +1,9 @@
+.app-float-left, .app-float-right {
+  @include govuk-clearfix();
+}
+
 .app-float-left {
   float: left;
-  @include govuk-clearfix();
 
   &.app-float-left__not-narrow {
     @include govuk-media-query(mobile, tablet) {
@@ -8,4 +11,12 @@
       float: none;
     }
   }
+}
+
+.app-float-right {
+  float: right;
+}
+
+.app-align-right {
+  text-align: right !important;
 }
