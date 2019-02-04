@@ -36,7 +36,7 @@
     "core-js": "2.6.3",
     "govuk-frontend": "2.6.0",
     "ngrx-store-localstorage": "7.0.0",
-    "pdfmake": "0.1.41",
+    "pdfmake": "0.1.50",
     "rxjs": "6.4.0",
     "zone.js": "0.8.29"
   },

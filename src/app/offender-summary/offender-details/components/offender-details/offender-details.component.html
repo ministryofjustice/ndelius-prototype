@@ -7,7 +7,7 @@
         <tr>
           <th width="50%">Aliases</th>
           <td>{{ data.ALIASES.length ? 'Yes (' + data.ALIASES.length + ')' : 'No' }}</td>
-          <td width="100" style="text-align: right;"><a href="javascript:void(0);" *ngIf="data.ALIASES.length">View all</a></td>
+          <td width="100" class="govuk-!-padding-right-0 app-align-right"><a href="javascript:void(0);" class="govuk-link govuk-link--no-visited-state" *ngIf="data.ALIASES.length">View all</a></td>
         </tr>
         <tr>
           <th>Gender</th>
@@ -37,7 +37,7 @@
 
       <app-details label="Contact details" [hideBar]="true">
 
-        <table class="govuk-table moj-table moj-table--split-rows" role="presentation">
+        <table class="govuk-table moj-table moj-table--split-rows govuk-!-margin-bottom-0" role="presentation">
           <tr>
             <th width="50%">Telephone</th>
             <td>{{data.TELEPHONE_NUMBER}}</td>
@@ -61,6 +61,8 @@
             </td>
           </tr>
         </table>
+
+        <p class="govuk-body app-align-right"><a href="javascript:void(0);" class="govuk-link govuk-link--no-visited-state">View address history</a></p>
 
       </app-details>
 
