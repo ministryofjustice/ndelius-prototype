@@ -1,6 +1,6 @@
 {
   "name": "hmpps_rapid_prototype",
-  "version": "2.5.2",
+  "version": "2.5.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
