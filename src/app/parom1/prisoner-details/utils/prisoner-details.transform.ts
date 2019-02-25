@@ -32,7 +32,7 @@ export class PrisonerDetailsTransform {
           }, data.category || ''],
           [{ text: 'Name', style: 'fontBold' }, { text: data.name || '', colSpan: 3 }],
           [{ text: 'Offence', style: 'fontBold' }, { text: data.offence || '', colSpan: 3 }],
-          [{ text: 'Sentence', style: 'fontBold' }, { text: data.sentence || '', colSpan: 3 }]
+          [{ text: 'Sentence length', style: 'fontBold' }, { text: data.sentence || '', colSpan: 3 }]
         ]
       }
     };
