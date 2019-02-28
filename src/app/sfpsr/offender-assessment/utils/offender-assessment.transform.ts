@@ -19,7 +19,7 @@ export class OffenderAssessmentTransform {
         table: {
           widths: ['*', 35, '*', 35],
           body: [
-            [{ text: 'Relevant factors', style: 'tableHeading', colSpan: 4 }, {}, {}, {}],
+            [{ text: 'Protective factors', style: 'tableHeading', colSpan: 4 }, {}, {}, {}],
             [{ text: 'Accommodation', style: 'fontBold' }, data.issueAccommodation ? '√' : '', {
               text: 'Employment, training and education',
               style: 'fontBold'
