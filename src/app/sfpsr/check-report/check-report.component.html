@@ -10,7 +10,7 @@
 
     <tr *ngIf="!section.dataOnly || isValid">
       <td width="30" class="govuk-body-l">{{index + 1}}.</td>
-      <td><a [routerLink]="section.route" class="govuk-body-l">{{section.label}}</a></td>
+      <td><a [routerLink]="section.route" class="govuk-link govuk-link--no-visited-state govuk-body-l">{{section.label}}</a></td>
       <td width="80" align="right" class="govuk-!-padding-right-0">
         <strong class="moj-page-status-tag moj-page-status-tag--saved" *ngIf="section.saved && section.valid">SAVED</strong>
         <strong class="moj-page-status-tag moj-page-status-tag--incomplete" *ngIf="section.saved && !section.valid">INCOMPLETE</strong>
